@@ -14,7 +14,7 @@ The entire ``{{site.github}}`` is captured ``/myhyde/github.json`` when you fork
 
 1. Fork this Repo
 
-  *The following steps are required to create your Github page.*
+  *The following steps are required to activate the Github pages for the forked repo.*
 
 2. Go to the repository settings and rename your forked repository
 3. In ``_config.yml``, change ``baseurl: /mrhyde`` to the **exact name** of your repository ``baseurl: /<your-repo-name>``
@@ -24,7 +24,7 @@ The entire ``{{site.github}}`` is captured ``/myhyde/github.json`` when you fork
   2. Use ``layout: jsonify`` in the yaml front matter or one of the other Jekyll parsers
   3. Add user-defined variables and content as you would in a post
 
-5. Access your content through the compiled json files
+5. Access your cards through the compiled json files
 
 > **Why cards?** Jekyll posits that collections are things that are nor data nor posts, but somewhere in between.  Let's consider a collection of cards?
 
