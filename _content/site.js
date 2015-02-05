@@ -19,4 +19,4 @@ sitecontent[ {{forloop.index}} ] = {
 };
 {% endfor %}
 
-console.alert( 'The Jekyll site contents is available in window.sitecontent')
+console.log( 'The Jekyll site contents is available in window.sitecontent')
