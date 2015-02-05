@@ -1,0 +1,7 @@
+markdown: kramdown
+highlighter: pygments
+permalink: pretty
+
+collections:
+  content:
+    output: true
