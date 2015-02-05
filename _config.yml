@@ -1,3 +1,6 @@
+#Change this to the name of your repo 
+baseurl: '/mrhyde' 
+
 markdown: kramdown
 highlighter: pygments
 permalink: pretty
