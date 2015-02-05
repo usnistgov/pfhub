@@ -1,11 +1,10 @@
 # Who is Mr. Hyde?
 
-Mr. Hyde is a minimalist implementation of Jekyll and Github pages.  Create a new Github Pages repository in under a minute.
+Mr. Hyde is a minimalist implementation of Jekyll and Github pages. 
 
 ## The First Time is Free
 
-The repository is designed to be forked on Github to bootstrap Github pages sites.  A user can only fork a project once,
-after that you need to learn how to use git and Github.
+This repository is designed to get a Github Pages site up and running in less than a minute.  The first time you use this file; it can forked and modified on Github; BAM! Github Pages.  You can only fork the same repo once, so after the first time you must learn some git/Github.
 
 ## Bonus
 
