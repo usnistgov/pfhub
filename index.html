@@ -3,7 +3,7 @@
 ---
 <div class="content-list"></div>
 
-<script src="//cdn.jsdelivr.net/g/d3js"></script>
+<script src="//cdn.jsdelivr.net/g/d3js,zepto"></script>
 
 <!-- Load the scrape site variables
 they are in _content/site.json
@@ -12,7 +12,7 @@ Use this file to scrape important strings from the Jekyll
 API and pass them to javascript variables you can use later.
 -->
 
-<script src="{{site.baseurl}}/content/site.js"></script>
+<script src="{{site.baseurl}}/cards/site.js"></script>
 
 <script>
   // Display some of the information
@@ -21,7 +21,7 @@ API and pass them to javascript variables you can use later.
     
     d3.select('.content-list')
       .selectAll('li')
-        .data( sitecontent )
+        .data( cards )
         .call( function(s){
            s.enter()
             .append('li')

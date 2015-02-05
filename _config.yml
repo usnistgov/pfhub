@@ -6,6 +6,5 @@ highlighter: pygments
 permalink: pretty
 
 collections:
-  content:
-    layout: jsonify
+  cards:
     output: true

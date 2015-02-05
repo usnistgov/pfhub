@@ -1,2 +1,33 @@
+<div class="content-list"></div>
 
-{"layout":"content","foo":"bar","output":"## Baz in space\n\nLive in it.","content":"## Baz in space\n\nLive in it.","path":"D:/work/mrhyde/_content/test.json","relative_path":"_content/test.json","url":"/content/test.json","collection":"content"}
+<script src="//cdn.jsdelivr.net/g/d3js,zepto"></script>
+
+<!-- Load the scrape site variables
+they are in _content/site.json
+
+Use this file to scrape important strings from the Jekyll
+API and pass them to javascript variables you can use later.
+-->
+
+<script src="/mrhyde/cards/site.js"></script>
+
+<script>
+  // Display some of the information
+  // Scale from the scraped Jekyll data
+  ;( function(){
+    
+    d3.select('.content-list')
+      .selectAll('li')
+        .data( cards )
+        .call( function(s){
+           s.enter()
+            .append('li')
+            .each( function(d){
+              d3.select(this)
+                .append('a')
+                .attr('href', function(d){if(d){return  d['url'];};})
+                .text(function(d){if(d){return d['title'].length > 0 ? d['title'] : d['url'];};});                    
+            }); // each
+        }); // call
+  })(); // iife
+</script>
