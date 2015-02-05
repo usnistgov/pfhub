@@ -23,3 +23,31 @@ The Github site pages are already baked into ``/myhyde/github.json`` the templat
   3. Add user-defined variables and content as you would in a post
 
 5. Access your content through the compiled json files
+6. 
+# Jekyll Pre-processors
+
+Jekyll is packaged with parsers for Jsonify, Markdown, Sass, and SCSS.  This template has
+some basic templates to use these pre-processors.  
+
+## Using the Pre-processors
+
+Each was given a ``_layout`` template.  The templates are trigger using the following layouts
+in the YAML Front Matter:
+
+**jsonify**
+```
+layout: jsonify
+```
+
+**markdownify**
+```
+layout: mardownify
+```
+Mardownify requires liquid to assign a new variable and parse your own JSON.  
+Liquid does not allow the modification of variables.
+
+**sassify**+**scssify**
+```
+layout: sassify # scssify
+```
+Sass without the set-up. Winning!
