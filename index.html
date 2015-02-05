@@ -5,23 +5,14 @@
 
 <script src="//cdn.jsdelivr.net/g/d3js"></script>
 
-<script>
-  /** Extract pieces of the Jekyll Collection API 
-  variables are loaded in as window.sitecontent
-  **/
-  // automatically happens because it is in the source
-  // after jekyll parses it
-  var sitecontent = [];
-  {% for content in site.content %}
-    sitecontent[ {{forloop.index}} ] = {
-      title: "{{content.title}}",
-      path: "{{content.relative_path}}",
-      url: "{{site.baseurl}}{{content.url}}",
-      type: "{{content.type}}",
-      layout: "{{content.layout}}"
-    };
-  {% endfor %}
-</script>
+<!-- Load the scrape site variables
+they are in _content/site.json
+
+Use this file to scrape important strings from the Jekyll
+API and pass them to javascript variables you can use later.
+-->
+
+<script src="{{site.baseurl}}/content/site.js"></script>
 
 <script>
   // Display some of the information
@@ -43,4 +34,3 @@
         }); // call
   })(); // iife
 </script>
-
