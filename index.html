@@ -16,7 +16,7 @@
     sitecontent[ {{forloop.index}} ] = {
       title: "{{content.title}}",
       path: "{{content.relative_path}}",
-      url: "{{content.url}}",
+      url: "{{site.baseurl}}{{content.url}}",
       type: "{{content.type}}",
       layout: "{{content.layout}}"
     };
