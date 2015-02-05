@@ -3,6 +3,6 @@
 <h1>What Else Do You Really Need?</h1>
 <ul>
 {% for content in site.content %}
-<li><a href="{{content['url'] | prepend: site.baseurl }}">{% if content['title'] %}{{content['title']}}{% else %}{{content['url']}}{% endif %}</a></li>
+<li><a href="{{site.baseurl}}/{{content['url']}}">{% if content['title'] %}{{content['title']}}{% else %}{{content['url']}}{% endif %}</a></li>
 {% endfor %}
 </ul>
