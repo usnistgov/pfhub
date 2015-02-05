@@ -1,8 +1,46 @@
 ---
+# Keep this to activate jekyll liquid templates for url names
 ---
-<h1>What Else Do You Really Need?</h1>
-<ul>
-{% for content in site.content %}
-<li><a href="{{site.baseurl}}{{content['url']}}">{% if content['title'] %}{{content['title']}}{% else %}{{content['url']}}{% endif %}</a></li>
-{% endfor %}
-</ul>
+<div class="content-list"></div>
+
+<script src="//cdn.jsdelivr.net/g/d3js"></script>
+
+<script>
+  /** Extract pieces of the Jekyll Collection API 
+  variables are loaded in as window.sitecontent
+  **/
+  // automatically happens because it is in the source
+  // after jekyll parses it
+  var sitecontent = [];
+  {% for content in site.content %}
+    sitecontent[ {{forloop.index}} ] = {
+      title: "{{content.title}}",
+      path: "{{content.relative_path}}",
+      url: "{{content.url}}",
+      type: "{{content.type}}",
+      layout: "{{content.layout}}"
+    };
+  {% endfor %}
+</script>
+
+<script>
+  // Display some of the information
+  // Scale from the scraped Jekyll data
+  ;( function(){
+    
+    d3.select('.content-list')
+      .selectAll('li')
+        .data( sitecontent )
+        .call( function(s){
+           s.enter()
+            .append('li')
+            .each( function(d){
+              d3.select(this)
+                .append('a')
+                .attr('href', function(d){if(d){return  d['url'];};})
+                .text(function(d){if(d){return d['title'].length > 0 ? d['title'] : d['url'];};});                    
+            }); // each
+        }); // call
+  })(); // iife
+</script>
+
