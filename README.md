@@ -4,6 +4,10 @@ Mr. Hyde is a minimalist implementation of Github pages.
 
 It returns Jekyll Collection API content as "``json``" for direct use in Javascript.  No more Liquid.
 
+## BONUS
+
+The Github site pages are already baked into ``/myhyde/github.json`` the template.
+
 # How does Jeyll turn into Mr. Hyde?
 
 1. Fork this Repo
