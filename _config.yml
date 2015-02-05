@@ -1,5 +1,5 @@
 #Change this to the name of your repo 
-baseurl: '/mrhyde' 
+baseurl: '/mrhyde-fork' 
 
 markdown: kramdown
 highlighter: pygments
