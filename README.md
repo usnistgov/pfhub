@@ -1,6 +1,6 @@
 # Who is Mr. Hyde?
 
-Mr. Hyde is a minimalist implementation of Jekyll and Github pages.  
+Mr. Hyde is a minimalist implementation of Jekyll and Github pages.  Create a new Github Pages repository in under a minute.
 
 ## The First Time is Free
 
@@ -26,7 +26,9 @@ The entire ``{{site.github}}`` is captured ``/myhyde/github.json`` when you fork
   3. Add user-defined variables and content as you would in a post
 
 5. Access your content through the compiled json files
-6. 
+
+> **Why cards?** Jekyll posits that collections are things that are nor data nor posts, but somewhere in between.  Let's consider a collection of cards?
+
 # Jekyll Pre-processors
 
 Jekyll is packaged with parsers for Jsonify, Markdown, Sass, and SCSS.  This template has
