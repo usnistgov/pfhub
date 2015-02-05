@@ -18,3 +18,5 @@ sitecontent[ {{forloop.index}} ] = {
   layout: "{{content.layout}}"
 };
 {% endfor %}
+
+console.alert( 'The Jekyll site contents is available in window.sitecontent')
