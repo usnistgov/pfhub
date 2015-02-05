@@ -1,8 +1,8 @@
 ---
 ---
+<h1>What Else Do You Really Need?</h1>
+<ul>
 {% for content in site.content %}
-{{content | jsonify}}
-<hr>
+<li><a href="{{content['url']}}">{% if content['title'] %}{{content['title']}}{% else %}{{content['url']}}{% endif %}</a></li>
 {% endfor %}
-
-{{site}}
+</ul>
