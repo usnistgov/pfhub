@@ -27,10 +27,10 @@ The aims of this repository are to have a location to
 ## [Mailing List](MAILING_LIST.md)
 
 If you would like to discuss this repository, you can either submit an
-issue or sign up for `chimad-phase-field@nist.gov` list (see
-[instructions](MAILING_LIST.md)). 
+issue on the [issue tracker](../../issues) or sign up for
+`chimad-phase-field@nist.gov` list (see
+[instructions](MAILING_LIST.md)).
 
-[issue tracker](../../issues)
 
 
 
