@@ -1,4 +1,4 @@
-# CHiMaD -- Phase Field
+# CHiMaD - Phase Field
 
 The aims of this repository are to have a location to
 

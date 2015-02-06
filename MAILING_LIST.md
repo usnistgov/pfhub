@@ -11,7 +11,7 @@ to sign up for the mailing list by sending a subscription email:
         subscribe
 
 Once you are subscribed, you can post messages to the list simply by
-addressing email to mailto:chimad-phase-field@nist.gov. 
+addressing email to chimad-phase-field@nist.gov.
 
 To get off the list follow the instructions above, but place
 unsubscribe in the text body.
