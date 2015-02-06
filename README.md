@@ -30,7 +30,7 @@ If you would like to discuss this repository, you can either submit an
 issue or sign up for `chimad-phase-field@nist.gov` list (see
 [instructions](MAILING_LIST.md)). 
 
-[issue tracker](chimad-phase-field/issues)
+[issue tracker](../../issues)
 
 
 
