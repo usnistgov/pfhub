@@ -1,9 +1,20 @@
 ---
 # Keep this to activate jekyll liquid templates for url names
 ---
-<div class="content-list"></div>
+<style id="console">
+  .console{ 
+    width: 500px;
+    height: 90%;
+  }
+</style>
+<div class="console"></div>
+<style id="terminal">  
+    @import "http://terminal.jcubic.pl/css/jquery.terminal.css";
+</style>
 
-<script src="//cdn.jsdelivr.net/g/d3js,zepto"></script>
+
+
+<script src="//cdn.jsdelivr.net/g/jquery,jquery.terminal,d3js"></script>
 
 <!-- Load the scrape site variables
 they are in _content/site.json
@@ -17,20 +28,36 @@ API and pass them to javascript variables you can use later.
 <script>
   // Display some of the information
   // Scale from the scraped Jekyll data
-  ;( function(){
+  $(document).ready( function(){
+      // create terminal greeting
+      var greeting = 'Reusable Jekyll\n-------- ------\ncards are loaded automatically from the _cards folder';
+      m = $(cards).each( function(i,d){ 
+        if(d){
+          if( greeting.length > 0 ){ greeting += '\n'};
+          greeting += 'cards['+i+']= ';
+          greeting += d['title'].length>0?d['title']+'@.'+d['url']:'@.'+d['url'];
+        }
+      });
+      greeting+='\nUse this terminal to execute Javascript commands.'
+      $('.console').terminal(function(command, term) {
+          if (command !== '') {
+              try {
+                  var result = window.eval(command);
+                  if (result !== undefined) {
+                      term.echo(new String(result));
+                  }
+              } catch(e) {
+                  term.error(new String(e));
+              }
+          } else {
+             term.echo('');
+          }
+      }, {
+          greetings: greeting,
+          name: 'js_demo',
+          height: "80%",
+          prompt: '> '
+      });
     
-    d3.select('.content-list')
-      .selectAll('li')
-        .data( cards )
-        .call( function(s){
-           s.enter()
-            .append('li')
-            .each( function(d){
-              d3.select(this)
-                .append('a')
-                .attr('href', function(d){if(d){return  d['url'];};})
-                .text(function(d){if(d){return d['title'].length > 0 ? d['title'] : d['url'];};});                    
-            }); // each
-        }); // call
-  })(); // iife
+  }); // ready
 </script>
