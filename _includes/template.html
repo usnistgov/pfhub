@@ -1,0 +1,24 @@
+<script id="TEMPlate" type="text/x-handlebars-template">
+  {% raw %}
+  <!-- raw is required so liquid does in interpret the handlebars
+       syntax.  riot and react use single moustaches while would circumvent
+       this problem 
+
+  This is a bootstrap specific template
+  --> 
+  
+  <div class="panel panel-default">
+    <div class="media" style="padding:10px;">
+      <div class="media-left media-middle" style="padding-left:20px;">
+        <a href="{{owner.html_url}}">
+          <img class="media-object" src="{{owner.avatar_url}}&s=64" alt="{{owner.login}}">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="{{html_url}}">{{name}}</a></h4>
+        {{description}}
+      </div>
+    </div>
+  </div>
+  {% endraw %}
+</script>

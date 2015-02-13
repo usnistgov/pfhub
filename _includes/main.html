@@ -1,0 +1,53 @@
+<script>
+  ;( function(){
+    
+    // manually assign the libraries to post
+    // this can be automated using car
+    content = {
+      fipy: 'repos/fipy.json',
+      moose: 'repos/moose.json',
+      pymks: 'repos/pymks.json'
+    };
+    
+    // Compile the template
+    // This is modular.  Could be riot or react.
+    var template = Handlebars.compile( 
+                    d3.select('#template').html() 
+                   );
+    
+    
+    // Load repo content from the Jekyll variables 
+    // that are imported by 
+    d3.select('.content')
+      .classed({
+        container: true //bootstrap style
+      })
+      .selectAll( '.entry')
+      // iterate over content locations
+      .data( d3.values( content ) )
+      .enter()
+      .append( 'div' )
+      .classed({
+        entry : true,
+        row: true //bootstrap
+      })
+      .each( function(d){
+        var repo = {};
+        s = d3.select(this)
+              
+        // Load formatted JSON.
+        // You can precompile this statically
+        //   See _cards/site.js
+        d3.json( d, function(d){
+           s.append( 'div' )
+            .classed({
+              media : true //bootstrap media object
+                           // Use sass to borrow the media properties and 
+                           // add your own style
+            })
+            // Make magic
+            .html( template( d ) );
+        });//json
+      })//each
+  })(); //iife - Immediately-invoked function expression
+</script>

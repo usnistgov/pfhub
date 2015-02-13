@@ -1,63 +1,11 @@
 ---
 # Keep this to activate jekyll liquid templates for url names
 ---
-<style id="console">
-  .console{ 
-    width: 500px;
-    height: 90%;
-  }
-</style>
-<div class="console"></div>
-<style id="terminal">  
-    @import "http://terminal.jcubic.pl/css/jquery.terminal.css";
-</style>
 
+{% include head.html %}
 
+{% include jumbotron.html %}
 
-<script src="//cdn.jsdelivr.net/g/jquery,jquery.terminal,d3js"></script>
+{% include template.html %}
 
-<!-- Load the scrape site variables
-they are in _content/site.json
-
-Use this file to scrape important strings from the Jekyll
-API and pass them to javascript variables you can use later.
--->
-
-<script src="{{site.baseurl}}/cards/site.js"></script>
-
-<script>
-  // Display some of the information
-  // Scale from the scraped Jekyll data
-  $(document).ready( function(){
-      // create terminal greeting
-      var greeting = 'Reusable Jekyll\n-------- ------\ncards are loaded automatically from the _cards folder';
-      m = $(cards).each( function(i,d){ 
-        if(d){
-          if( greeting.length > 0 ){ greeting += '\n'};
-          greeting += 'cards['+i+']= ';
-          greeting += d['title'].length>0?d['title']+'@.'+d['url']:'@.'+d['url'];
-        }
-      });
-      greeting+='\nUse this terminal to execute Javascript commands.'
-      $('.console').terminal(function(command, term) {
-          if (command !== '') {
-              try {
-                  var result = window.eval(command);
-                  if (result !== undefined) {
-                      term.echo(new String(result));
-                  }
-              } catch(e) {
-                  term.error(new String(e));
-              }
-          } else {
-             term.echo('');
-          }
-      }, {
-          greetings: greeting,
-          name: 'js_demo',
-          height: "80%",
-          prompt: '> '
-      });
-    
-  }); // ready
-</script>
+{% include main.html %}

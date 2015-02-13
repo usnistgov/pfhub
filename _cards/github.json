@@ -1,5 +1,0 @@
----
-# Default access to github repository metadata
-# https://help.github.com/articles/repository-metadata-on-github-pages/
----
-{{site.github | jsonify}}
