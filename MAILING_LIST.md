@@ -1,3 +1,7 @@
+---
+title: "Mailing List"
+---
+
 # Mailing List
 
 In order to discuss this repository with other users, we encourage you

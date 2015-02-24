@@ -1,3 +1,7 @@
+---
+title: "Overview"
+---
+
 # CHiMaD - Phase Field
 
 This repository is the basis for a website for the CHiMaD - Phase
