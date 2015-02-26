@@ -1,0 +1,28 @@
+body {
+    min-height: 2000px;
+    font-family: "Lato", sans-serif;
+}
+
+.navbar-static-top {
+    margin-bottom: 19px;
+    background-image: none;
+    background-color: #99d8c9;
+    
+}
+
+.header {
+    font-size: 50px;
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+}
+
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #000;
+    background: #ccece6;
+}
+
+
+
+
