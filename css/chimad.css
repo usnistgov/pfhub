@@ -6,8 +6,8 @@ body {
 .navbar-static-top {
     margin-bottom: 19px;
     background-image: none;
-    background-color: #99d8c9;
-    
+    background-color: rgba(0, 255, 221, 0.3);
+    border-width: 0px;
 }
 
 .header {
@@ -20,7 +20,7 @@ body {
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
     color: #000;
-    background: #ccece6;
+    background-color: rgba(0, 255, 221, 1);
 }
 
 
