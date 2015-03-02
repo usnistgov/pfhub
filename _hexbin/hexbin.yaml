@@ -50,3 +50,12 @@ images:
   - image: http://users.ices.utexas.edu/~jrc/ccm/itamit/granasy1.jpg
     description: Phase Field Theory of Polycrystalline Freezing
     url: http://users.ices.utexas.edu/~jrc/ccm/itamit/abstracts.php
+  - image: http://spaceflight.esa.int/impress/text/pop-up/phase.jpg 
+    url: http://spaceflight.esa.int/impress/text/pop-up/phase.html
+    description: 2D Phase Field Simulations of Polycrystalline Solidification
+  - image: http://www.cis.kit.ac.jp/~takaki/phase/movie/pfc1_def.gif
+    url: http://www.cis.kit.ac.jp/~takaki/phase/pfc1_e.html
+    description: Phase-Field-Crystal Simulations for Solidification and Deformation
+  - image: http://magnetserver.cmpe.ubc.ca/wiki/images/thumb/8/80/RGBLable_border_Uniform_2000.png/250px-RGBLable_border_Uniform_2000.png
+    url: http://magnetserver.cmpe.ubc.ca/wiki/index.php/Sina_Shahandeh
+    description: Simulated grain structure using phase field method

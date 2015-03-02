@@ -1,9 +1,9 @@
-import PIL
 import urllib2 as urllib
 import io
 from PIL import Image
 import yaml
 import json
+import progressbar
 
 data = yaml.load(open('hexbin.yaml', 'r'))['images']
 
@@ -25,21 +25,39 @@ open('../json/hexbin.json', 'w').write(s)
 ## Populate the canvas
 
 def thumbnail_image(image_url, size):
-    fd = urllib.urlopen(image_url)
-    image_file = io.BytesIO(fd.read())
+    try:
+        fd = urllib.urlopen(image_url)
+        image_file = io.BytesIO(fd.read())
+    except:
+        print "image_url:",image_url
+        raise
     im = Image.open(image_file)
     im.thumbnail(size, Image.ANTIALIAS)
     im0 = Image.new('RGBA', size, (255, 255, 255, 0))
     im0.paste(im, ((size[0] - im.size[0]) / 2, (size[1] - im.size[1]) / 2))
     return im0
 
+widgets = [progressbar.Percentage(),
+           ' ',
+           progressbar.Bar(marker=progressbar.RotatingMarker()),
+           ' ',
+           progressbar.ETA()]
+pbar = progressbar.ProgressBar(widgets=widgets, maxval=len(data)).start()
+
+for i, d in enumerate(data):
+    image_url = d['image']
+    im = thumbnail_image(image_url, (X, Y))  
+    d['thumbnail'] = im
+    pbar.update(i + 1)
+
+pbar.finish()
+
 blank_image = Image.new("RGB", (X * nj, Y * ni), (255, 255, 255, 0))
 
 for i in range(ni):
     for j in range(nj):
         ii = (i * ni + j) % len(data)
-        image_url = data[ii]['image']
-        im = thumbnail_image(image_url, (X, Y))
+        im = data[ii]['thumbnail']
         blank_image.paste(im, (X * j, Y * i))
     
 blank_image.save('../images/hexbin.jpg', 'JPEG')
