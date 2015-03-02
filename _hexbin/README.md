@@ -11,3 +11,9 @@ and that code is pretty much taken straight from
 http://d3js.org/. `hexbin.py` also dumps `../json/hexbin.json` which
 should be read by `phase_field_hexbin.js`, but currently it is just
 pasted into the Javascript.
+
+## Requirements
+
+The script requires `progressbar2`. Install with
+
+    $ pip install progressbar2
