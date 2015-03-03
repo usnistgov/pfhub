@@ -1,6 +1,6 @@
 #examples {
   background: #ddd;
-  height: 460px;
+  height: 360px;
   margin-bottom: 2em;
   overflow: hidden;
   padding: 0;
@@ -59,3 +59,4 @@
   stroke: #000;
   stroke-width: 2px;
 }
+

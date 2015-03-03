@@ -12,11 +12,11 @@ Math.seedrandom(+d3.time.hour(new Date));
 
 d3.shuffle(data);
 
-var height = 460,
+var height = 360,
     imageWidth = 173,
     imageHeight = 200,
-    radius = 80,
-    depth = 4;
+    radius = 100,
+    depth = 3;
 
 var currentFocus = [innerWidth / 2, height / 2],
     desiredFocus,
@@ -40,7 +40,7 @@ var deep = d3.select("#examples-deep");
 var canvas = deep.append("canvas")
     .attr("height", height);
 
-var context = canvas.node().getContext("2d");
+context = canvas.node().getContext("2d");
 
 var svg = deep.append("svg")
     .attr("height", height);
@@ -76,13 +76,16 @@ function drawImage(d) {
     }
 
     context.clip();
-
+    // There is too much color
+    context.globalAlpha = .5;
+  
     context.drawImage(image,
                       imageWidth * d.i, imageHeight * d.j,
                       imageWidth, imageHeight,
                       -imageWidth / 2, -imageHeight / 2,
                       imageWidth, imageHeight);
-
+    
+    
     context.restore();
 }
 
