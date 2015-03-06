@@ -1,6 +1,9 @@
 body {
     min-height: 2000px;
     font-family: "Lato", sans-serif;
+    /* display: -webkit-box; */
+    /* display: -webkit-flex; */
+    /* display: flex; */
 }
 
 .navbar-static-top {
@@ -23,6 +26,25 @@ body {
     background-color: rgba(0, 255, 221, 1);
 }
 
+.top-buffer { margin-top: 40px; }
+.small-buffer { margin-top: 10px; }
 
+.top-bar {
+    border-top: 3px solid rgba(0, 255, 221, 0.3);
+}
 
+.card {
+    background-color: rgba(0, 255, 221, 0.1);
+    /* border-width-left: 5px; */
+    /* margin-width-right: 5px; */
+    padding: 10px;
+    height: 300px;
+    margin-bottom: 20px;
+    /* border-width-botton: 5px; */
+}
 
+.indent {
+    margin-left: 10px;
+}
+
+.codeheader { font-size: 24px; }
