@@ -34,12 +34,12 @@ body {
 }
 
 .card {
-    background-color: rgba(0, 255, 221, 0.1);
+    background-color: rgba(0, 255, 221, 0.3);
     /* border-width-left: 5px; */
     /* margin-width-right: 5px; */
     padding: 10px;
-    height: 300px;
-    margin-bottom: 20px;
+    height: 330px;
+    margin-bottom: 25px;
     /* border-width-botton: 5px; */
 }
 
@@ -47,4 +47,31 @@ body {
     margin-left: 10px;
 }
 
-.codeheader { font-size: 24px; }
+.codeheader {
+    font-size: 24px;
+}
+
+.logo {
+    position: relative;
+}
+
+.logo img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.sideheader {
+    margin-top: 10px;
+}
+
+.icon {
+    padding-bottom: 13px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.icons {
+    padding-top: 8px;
+}
+
