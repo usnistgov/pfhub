@@ -2,4 +2,19 @@
 # Codes for automated code descriptors on front page
 
 - name: FiPy
-  logo_url: http://www.ctcms.nist.gov/fipy/_static/logo.png
+  discretization: finite volume
+  language: Python
+  year_started: 2002
+  stats:
+    recent_commits: 12
+    recent_contributors: 2
+    recent_bugs_fixed: 3
+    recent_bugs_opened: 10
+    commits: 5000
+    contributors: 12
+  urls:
+    logo: http://www.ctcms.nist.gov/fipy/_static/logo.png
+    home: http://www.ctcms.nist.gov/fipy/
+    openhub: https://www.openhub.net/p/fipy
+    github: http://www.ctcms.nist.gov/fipy/
+    
