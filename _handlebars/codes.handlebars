@@ -1,0 +1,47 @@
+  <div class="logo">
+    <img src="{{ logo_path }}">
+  </div>
+  <h4 class="codeheader">{{ name }}</h4>
+  <p>{{ discretization }} code written in {{ language }} and started in {{ year_started }}.</p>
+  <h5>Recent Stats</h5>
+  <table class="indent">
+    <tr>
+      <td>Commits:</td>
+      <td>{{ stats.recent_commits }}</td>
+    </tr>
+    <tr>
+      <td>Contributors:&nbsp;</td>
+      <td>{{ stats.recent_contributors }}</td>
+    </tr>
+    <tr>
+      <td>Fixes:</td>
+      <td>{{ stats.recent_bugs_fixed }}/{{ stats.recent_bugs_opened }}</td>
+    </tr>
+  </table> 
+  <h5>Since Inception</h5>
+  <table class="indent">
+    <tr>
+      <td>Commits:</td>
+      <td>{{ stats.commits }}</td>
+    </tr>
+    <tr>
+      <td>Contributors:&nbsp;</td>
+      <td>{{ stats.contributors }}</td>
+    </tr>
+  </table> 
+  <div class="icons">
+    <a href="{{ urls.home }}" title="Home Page">
+      <i class="fa fa-home fa-2x"></i>
+    </a>
+    <a href="{{ urls.github }}" title="GitHub">
+      <i class="fa fa-github fa-2x"></i>
+    </a>
+    <a href="{{ url.openhub }}" title="OpenHub">
+      <img src="images/OH_logo-24x24.png" class="icon">
+    </a>
+    <a href="{{ url.test }}" title="Test Suite">
+      <i class="fa fa-tasks fa-2x"></i>
+    </a>
+  </div>
+
+
