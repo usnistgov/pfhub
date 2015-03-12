@@ -1,7 +1,5 @@
 data_file = "data/codes.json"
 
-template = Handlebars.templates.codes
-
 add_logo = (selection) ->
   subselection = selection.filter((d) -> "logo" of d)
   subselection = subselection.append("div").attr("class", "logo")
@@ -60,7 +58,6 @@ build_function = (data) ->
   add_description(selection)
   add_stats(selection)
   add_icons(selection)
-  #selection.append("div").attr("class", "test1").html((d) -> template(d))
 
 d3.json(data_file, build_function)
 
