@@ -4,11 +4,15 @@ COFFEE_DIR = _coffee
 COFFEE_SCRIPTS = $(wildcard $(COFFEE_DIR)/*.coffee)
 COFFEE_JS = $(patsubst $(COFFEE_DIR)/%.coffee,$(JS_DIR)/%.js,$(COFFEE_SCRIPTS))
 
-JSON = data/codes.json
+CODES_OUT = data/codes.json
+CODES_IN = _data/codes.yaml
+
+HEXBIN_OUT = images/hexbin.jpg data/hexbin.json
+HEXBIN_IN = _data/hexbin.yaml
 
 .PHONY: handlebars clean preprocess
 
-all: coffee preprocess
+all: coffee hexbin codes
 
 clean:
 	rm -rf $(COFFEE_JS)
@@ -16,12 +20,17 @@ clean:
 $(COFFEE_JS): $(COFFEE_SCRIPTS)
 	coffee --compile --output js $<
 
-$(JSON): _data/codes.yaml
-	python preprocess.py
+$(HEXBIN_OUT): $(HEXBIN_IN)
+	python preprocess.py --hexbin
+
+$(CODES_OUT): $(CODES_IN)
+	python preprocess.py --codes
 
 coffee: $(COFFEE_JS)
 
-preprocess: $(JSON)
+hexbin: $(HEXBIN_OUT)
+
+codes: $(CODES_OUT)
 
 print-%  : ; @echo $* = $($*)
 
