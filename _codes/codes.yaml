@@ -2,9 +2,7 @@
 # Codes for automated code descriptors on front page
 
 - name: FiPy
-  discretization: finite volume
-  language: Python
-  year_started: 2002
+  description: Finite Volume code written in Python and started in 2002.
   stats:
     recent_commits: 12
     recent_contributors: 2
@@ -12,15 +10,13 @@
     recent_bugs_opened: 10
     commits: 5000
     contributors: 12
+  logo: images/FiPy_logo.jpg
   urls:
-    logo: images/FiPy_logo.png
     home: http://www.ctcms.nist.gov/fipy/
     openhub: https://www.openhub.net/p/fipy
     github: http://www.ctcms.nist.gov/fipy/
 - name: Moose    
-  discretization: finite element
-  language: C++
-  year_started: 2004
+  description: Finite Element code written in C++ and started in 2008.
   stats:
     recent_commits: 112
     recent_contributors: 5
@@ -29,7 +25,7 @@
     commits: 10000
     contributors: 58
   urls:
-    logo: images/FiPy_logo.png
     home: http://www.ctcms.nist.gov/fipy/
     openhub: https://www.openhub.net/p/fipy
     github: http://www.ctcms.nist.gov/fipy/
+    test: http://www.ctcms.nist.gov/fipy/
