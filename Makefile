@@ -17,7 +17,7 @@ all: coffee hexbin codes
 clean:
 	rm -rf $(COFFEE_JS)
 
-$(COFFEE_JS): $(COFFEE_SCRIPTS)
+$(JS_DIR)/%.js: $(COFFEE_DIR)/%.coffee
 	coffee --compile --output js $<
 
 $(HEXBIN_OUT): $(HEXBIN_IN)
