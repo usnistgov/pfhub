@@ -5,10 +5,10 @@ COFFEE_SCRIPTS = $(wildcard $(COFFEE_DIR)/*.coffee)
 COFFEE_JS = $(patsubst $(COFFEE_DIR)/%.coffee,$(JS_DIR)/%.js,$(COFFEE_SCRIPTS))
 
 CODES_OUT = data/codes.json
-CODES_IN = _data/codes.yaml
+CODES_IN = _data/codes.yaml _data/codes.py
 
 HEXBIN_OUT = images/hexbin.jpg data/hexbin.json
-HEXBIN_IN = _data/hexbin.yaml
+HEXBIN_IN = _data/hexbin.yaml _data/hexbin.py
 
 .PHONY: handlebars clean preprocess
 
@@ -21,10 +21,10 @@ $(JS_DIR)/%.js: $(COFFEE_DIR)/%.coffee
 	coffee --compile --output js $<
 
 $(HEXBIN_OUT): $(HEXBIN_IN)
-	python preprocess.py --hexbin
+	python _data/hexbin.py
 
 $(CODES_OUT): $(CODES_IN)
-	python preprocess.py --codes
+	python _data/codes.py
 
 coffee: $(COFFEE_JS)
 

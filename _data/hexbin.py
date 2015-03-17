@@ -1,11 +1,3 @@
-"""Usage: preprocess.py [--hexbin] [--codes]
-
---hexbin        make the hexbin data
---codes         make the code data
-
-"""
-
-
 import yaml
 import json
 import io
@@ -15,12 +7,8 @@ import progressbar
 from docopt import docopt
 
 
-def codes_yaml_to_json():
-    data = yaml.load(open('_data/codes.yaml', 'r'))
-    open('data/codes.json', 'w').write(json.dumps(data))
-
 def hexbin_yaml_to_json(ni, nj):
-    data = yaml.load(open('_data/hexbin.yaml', 'r'))['images']
+    data = yaml.load(open('_data/hexbin.yaml', 'r'))
 
     N = len(data)
 
@@ -73,16 +61,11 @@ def hexbin_image(data, X, Y, ni, nj):
     blank_image.save('images/hexbin.jpg', 'JPEG')
 
 if __name__ == '__main__':
-    arguments = docopt(__doc__, version='0.1dev')
-    if arguments['--codes']:
-        codes_yaml_to_json()
-
-    if arguments['--hexbin']:
-        ## the 10 x 10 image is hardwired into phase_field_hexbin.js right now
-        ni, nj = 10, 10
-        X, Y = 173, 200 ## thumbnail size
-        data = hexbin_yaml_to_json(ni, nj)
-        hexbin_image(data, X, Y, ni, nj)
+    ## the 10 x 10 image is hardwired into phase_field_hexbin.js right now
+    ni, nj = 10, 10
+    X, Y = 173, 200 ## thumbnail size
+    data = hexbin_yaml_to_json(ni, nj)
+    hexbin_image(data, X, Y, ni, nj)
 
 
 
