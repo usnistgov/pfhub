@@ -9,13 +9,35 @@ import dateutil
 import dateutil.tz
 import dateutil.parser
 
+
 @click.command()
 @click.option('--cache/--no-cache', default=True, help='Whether to cache the GitHub data')
 def run(cache):
-    ghstats = GitHubStats(user='usnistgov', repo='fipy', cache=True)
-    print ghstats.get_stats()
 
-class GitHubStats(object):
+    codes_yaml = 'codes.yaml'
+    codes_yaml_path = os.path.join(os.path.split(__file__)[0], codes_yaml)
+    with open(codes_yaml_path, 'r') as f:
+        data = yaml.load(f)
+
+    for code in data:
+        cache_json = '{0}.json'.format(code['name'])
+        cache_json_path = os.path.join(os.path.split(__file__)[0], cache_json)
+        user = code['github']['user']
+        repo = code['github']['repo']
+
+        gh = GitHubAPI(user, repo, cache_file=cache_json_path)
+        code['stats'] = gh.get_stats()
+        code += gh.description()
+
+    print data
+    print code
+    # data = yaml.load(open('_data/codes.yaml', 'r'))
+    # open('data/codes.json', 'w').write(json.dumps(data))
+    # ghstats = GitHubStats(user='usnistgov', repo='fipy', cache=True)
+    # print ghstats.get_stats()
+    # print ghstats.get_description()
+
+class GitHubAPI(object):
     def __init__(self, user, repo, cache=True, cache_file='cache.json'):
         self.base_url = 'https://api.github.com/repos/{user}/{repo}'.format(user=user, repo=repo)
         self.cache = cache
@@ -48,8 +70,8 @@ class GitHubStats(object):
         print
         request.raise_for_status()
         return request
-            
-    def paginate(self, ext, key=None, cache=None):
+
+    def paginate(self, ext='', key=None, cache=None):
         if cache is None:
             cache = self.cache
 
@@ -67,7 +89,11 @@ class GitHubStats(object):
             url = self.base_url + ext
             while url:
                 request = self.get_request(url)
-                value += request.json()
+                v = request.json()
+                if type(v) is list:
+                    value += v
+                else:
+                    value.append(v)
                 url = self.get_next_page_url(request)
             if cache:
                 self.set_cache(key, value)
@@ -113,26 +139,33 @@ class GitHubStats(object):
         commit_activity = self.paginate('/stats/commit_activity')
 
         base_url = 'https://github.com/usnistgov/fipy'
-# https://github.com/usnistgov/fipy/issues?q=is%3Aissue+is%3Aopen+created%3A%3E2011-01-01+state%3Aope
-n+
-        return [{'name' : 'Total Open Issues',
-                 'url' : '/'.join(base_url, '?q=is:issue+is:open' ,
-                 'value' : self.get_open_issues(issues)},
-                 {'name' : 'Total Contributors',
+        print 'commit_activity',commit_activity
+        print 
+
+        return [{'name' : 'Total Contributors',
+                 'url' : '',
+                 'value' : len(contributors)},
+                 {'name' : 'Total Commits',
                   'url' : '',
-                  'value' : len(contributors)},
-                  {'name' : 'Total Commits',
-                   'url' : '',
-                   'value' : sum([_['total'] for _ in contributors])},
-                   {'name' : 'Recent Commits',
+                  'value' : sum([_['total'] for _ in contributors])},
+                  {'name' : 'Total Open Issues',
+                   'url' : '/'.join([base_url, '?q=is:issue+is:open']),
+                   'value' : self.get_open_issues(issues)},
+                   {'name' : 'Recent Contributors',
                     'url' : '',
-                    'value' : sum([_['total'] for _ in commit_activity])},
-                    {'name' : 'Recent Closed Issues',
+                    'value' : self.get_yearly_contributors(contributors)},
+                    {'name' : 'Recent Commits',
                      'url' : '',
-                     'value' : self.get_yearly_closed_issues(issues)},
-                     {'name' : 'Recent Contributors',
+                     'value' : sum([_['total'] for _ in commit_activity])},
+                     {'name' : 'Recent Closed Issues',
                       'url' : '',
-                      'value' : self.get_yearly_contributors(contributors)}]
+                      'value' : self.get_yearly_closed_issues(issues)}]
+
+    def get_description(self):
+        description = self.paginate(key='repo_')[0]
+        return {'home_page' : description['home_page'],
+                'description' : description['description'],
+                'language' : description['language']}
 
 def codes_yaml_to_json():
     data = yaml.load(open('_data/codes.yaml', 'r'))
@@ -142,3 +175,8 @@ if __name__ == "__main__":
     run()
     
 
+"""
+home_page
+language
+name
+"""

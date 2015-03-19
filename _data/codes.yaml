@@ -2,30 +2,9 @@
 # Codes for automated code descriptors on front page
 
 - name: FiPy
-  description: Finite Volume code written in Python and started in 2002.
-  stats:
-    recent_commits: 12
-    recent_contributors: 2
-    recent_bugs_fixed: 3
-    recent_bugs_opened: 10
-    commits: 5000
-    contributors: 12
   logo: images/FiPy_logo.jpg
-  urls:
-    home: http://www.ctcms.nist.gov/fipy/
-    openhub: https://www.openhub.net/p/fipy
-    github: http://www.ctcms.nist.gov/fipy/
-- name: Moose    
-  description: Finite Element code written in C++ and started in 2008.
-  stats:
-    recent_commits: 112
-    recent_contributors: 5
-    recent_bugs_fixed: 10
-    recent_bugs_opened: 100
-    commits: 10000
-    contributors: 58
-  urls:
-    home: http://www.ctcms.nist.gov/fipy/
-    openhub: https://www.openhub.net/p/fipy
-    github: http://www.ctcms.nist.gov/fipy/
-    test: http://www.ctcms.nist.gov/fipy/
+  github:
+    user: usnistgov
+    repo: fipy
+  openhub:
+    repo: fipy
