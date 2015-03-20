@@ -8,3 +8,7 @@
     repo: fipy
   openhub:
     repo: fipy
+- name : Moose
+  github:
+    user: idaholab
+    repo: moose

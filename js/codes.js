@@ -43,10 +43,10 @@
     subselection.append("h5").text("Stats");
     table = subselection.append("table").attr("class", "indent");
     tr = table.selectAll().data(function(d) {
-      return d3.entries(d.stats);
+      return d.stats;
     }).enter().append("tr");
     tr.append("td").html(function(d) {
-      return d.key + ":&nbsp;";
+      return d.name + ":&nbsp;";
     });
     return tr.append("td").text(function(d) {
       return d.value;
@@ -54,48 +54,41 @@
   };
 
   icons = {
-    github: {
-      html: '<i class="fa fa-github fa-2x"></i>',
-      title: "GitHub"
+    GitHub: {
+      html: '<i class="fa fa-github fa-2x"></i>'
     },
-    home: {
-      html: '<i class="fa fa-home fa-2x"></i>',
-      title: "Home"
+    Home: {
+      html: '<i class="fa fa-home fa-2x"></i>'
     },
-    openhub: {
-      html: '<img src="images/OH_logo-24x24.png" class="icon">',
-      title: "OpenHub"
-    },
-    test: {
-      html: '<i class="fa fa-tasks fa-2x"></i>',
-      title: "Test"
+    OpenHub: {
+      html: '<img src="images/OH_logo-24x24.png" class="icon">'
     }
   };
 
   add_icon = function(selection) {
     var subselection;
     subselection = selection.filter(function(d) {
-      return d.key in icons;
+      return d.name in icons;
     });
     subselection.attr("href", function(d) {
-      return d.value;
+      return d.url;
     });
     subselection.attr("title", function(d) {
-      return icons[d.key].title;
+      return d.name;
     });
     return subselection.html(function(d) {
-      return icons[d.key].html;
+      return icons[d.name].html;
     });
   };
 
   add_icons = function(selection) {
     var a, div, subselection;
     subselection = selection.filter(function(d) {
-      return "urls" in d;
+      return "links" in d;
     });
     div = subselection.append("div").attr("class", "icons");
     a = div.selectAll().data(function(d) {
-      return d3.entries(d.urls);
+      return d.links;
     }).enter().append("a");
     return add_icon(a);
   };

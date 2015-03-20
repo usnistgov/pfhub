@@ -8,34 +8,49 @@ import datetime
 import dateutil
 import dateutil.tz
 import dateutil.parser
-
+import time
 
 @click.command()
 @click.option('--cache/--no-cache', default=True, help='Whether to cache the GitHub data')
 def run(cache):
-
     codes_yaml = 'codes.yaml'
-    codes_yaml_path = os.path.join(os.path.split(__file__)[0], codes_yaml)
+    codes_json = 'codes.json'
+    in_dir = os.path.split(__file__)[0]
+    out_dir = os.path.join(in_dir, os.pardir, 'data')
+    codes_yaml_path = os.path.join(in_dir, codes_yaml)
+    codes_json_path = os.path.join(out_dir, codes_json)
+    
     with open(codes_yaml_path, 'r') as f:
         data = yaml.load(f)
 
+    data_out = list()
     for code in data:
         cache_json = '{0}.json'.format(code['name'])
         cache_json_path = os.path.join(os.path.split(__file__)[0], cache_json)
         user = code['github']['user']
         repo = code['github']['repo']
 
-        gh = GitHubAPI(user, repo, cache_file=cache_json_path)
-        code['stats'] = gh.get_stats()
-        code += gh.description()
+        gh = GitHubAPI(user, repo, cache_file=cache_json_path, cache=cache)
 
-    print data
-    print code
-    # data = yaml.load(open('_data/codes.yaml', 'r'))
-    # open('data/codes.json', 'w').write(json.dumps(data))
-    # ghstats = GitHubStats(user='usnistgov', repo='fipy', cache=True)
-    # print ghstats.get_stats()
-    # print ghstats.get_description()
+        code_out = code.copy()
+        code_out['stats'] = gh.get_stats()
+        code_out.update(gh.get_description())
+        links = make_links(code_out)
+        code_out['links'] = links
+        data_out.append(code_out)
+        
+    with open(codes_json_path, 'w') as f:
+        f.write(json.dumps(data_out))
+
+def make_links(code):
+    links = [{'name' : 'Home', 'url' : code['home_page']},
+             {'name' : 'GitHub', 'url' : code['github_url']}]
+
+    if 'openhub' in code.keys():
+        links.append({'name' : 'OpenHub',
+                      'url' : 'https://www.openhub.net/p/{0}'.format(code['openhub']['repo'])})
+
+    return links
 
 class GitHubAPI(object):
     def __init__(self, user, repo, cache=True, cache_file='cache.json'):
@@ -67,7 +82,7 @@ class GitHubAPI(object):
         print 'get request'
         print 'x-ratelimit-remaining: ',request.headers['x-ratelimit-remaining']
         print 'url: ',request.url
-        print
+        print        
         request.raise_for_status()
         return request
 
@@ -139,8 +154,6 @@ class GitHubAPI(object):
         commit_activity = self.paginate('/stats/commit_activity')
 
         base_url = 'https://github.com/usnistgov/fipy'
-        print 'commit_activity',commit_activity
-        print 
 
         return [{'name' : 'Total Contributors',
                  'url' : '',
@@ -163,20 +176,13 @@ class GitHubAPI(object):
 
     def get_description(self):
         description = self.paginate(key='repo_')[0]
-        return {'home_page' : description['home_page'],
+        return {'home_page' : description['homepage'],
                 'description' : description['description'],
-                'language' : description['language']}
-
-def codes_yaml_to_json():
-    data = yaml.load(open('_data/codes.yaml', 'r'))
-    open('data/codes.json', 'w').write(json.dumps(data))
+                'language' : description['language'],
+                'github_url' : description['html_url']}
 
 if __name__ == "__main__":
     run()
     
 
-"""
-home_page
-language
-name
-"""
+

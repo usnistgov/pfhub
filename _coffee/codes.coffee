@@ -17,34 +17,29 @@ add_stats = (selection) ->
   subselection = selection.filter((d) -> "stats" of d)
   subselection.append("h5").text("Stats")
   table = subselection.append("table").attr("class", "indent")
-  tr = table.selectAll().data((d) -> d3.entries(d.stats)).enter().append("tr")
-  tr.append("td").html((d) -> d.key + ":&nbsp;")
+  tr = table.selectAll().data((d) -> d.stats).enter().append("tr")
+  tr.append("td").html((d) -> d.name + ":&nbsp;")
   tr.append("td").text((d) -> d.value)
 
 icons =
-  github:
+  GitHub:
     html: '<i class="fa fa-github fa-2x"></i>'
-    title: "GitHub"
-  home:
+  Home:
     html: '<i class="fa fa-home fa-2x"></i>'
-    title: "Home"
-  openhub:
+  OpenHub:
     html: '<img src="images/OH_logo-24x24.png" class="icon">'
-    title: "OpenHub"
-  test:
-    html: '<i class="fa fa-tasks fa-2x"></i>'
-    title: "Test"
+
 
 add_icon = (selection) ->
-  subselection = selection.filter((d) -> d.key of icons)
-  subselection.attr("href", (d) -> d.value)
-  subselection.attr("title", (d) -> icons[d.key].title)
-  subselection.html((d) -> icons[d.key].html)
+  subselection = selection.filter((d) -> d.name of icons)
+  subselection.attr("href", (d) -> d.url)
+  subselection.attr("title", (d) -> d.name)
+  subselection.html((d) -> icons[d.name].html)
   
 add_icons = (selection) ->
-  subselection = selection.filter((d) -> "urls" of d)
+  subselection = selection.filter((d) -> "links" of d)
   div = subselection.append("div").attr("class", "icons")
-  a = div.selectAll().data((d) -> d3.entries(d.urls)).enter().append("a")
+  a = div.selectAll().data((d) -> d.links).enter().append("a")
   add_icon(a)
   
 build_function = (data) ->
