@@ -81,6 +81,7 @@ class GitHubAPI(object):
         print 
         print 'get request'
         print 'x-ratelimit-remaining: ',request.headers['x-ratelimit-remaining']
+        print 'x-ratelimit-reset: ',request.headers['x-ratelimit-reset']
         print 'url: ',request.url
         print        
         request.raise_for_status()
@@ -147,9 +148,14 @@ class GitHubAPI(object):
 
     def get_open_issues(self, issues):
         return len([issue for issue in issues if issue['state'] == 'open'])
-    
+
     def get_stats(self):
-        issues = self.paginate('/issues?state=all')
+        open_issues = self.paginate('/issues?state=open')
+
+        one_year_ago = datetime.datetime.now() - datetime.timedelta(days=365)
+        since = one_year_ago.isoformat()
+        closed_issues = self.paginate('/issues?state=closed&since{0}'.format(since))
+        
         contributors = self.paginate('/stats/contributors')
         commit_activity = self.paginate('/stats/commit_activity')
 
@@ -163,7 +169,7 @@ class GitHubAPI(object):
                   'value' : sum([_['total'] for _ in contributors])},
                   {'name' : 'Total Open Issues',
                    'url' : '/'.join([base_url, '?q=is:issue+is:open']),
-                   'value' : self.get_open_issues(issues)},
+                   'value' : self.get_open_issues(open_issues)},
                    {'name' : 'Recent Contributors',
                     'url' : '',
                     'value' : self.get_yearly_contributors(contributors)},
@@ -172,7 +178,7 @@ class GitHubAPI(object):
                      'value' : sum([_['total'] for _ in commit_activity])},
                      {'name' : 'Recent Closed Issues',
                       'url' : '',
-                      'value' : self.get_yearly_closed_issues(issues)}]
+                      'value' : self.get_yearly_closed_issues(closed_issues)}]
 
     def get_description(self):
         description = self.paginate(key='repo_')[0]
