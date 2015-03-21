@@ -17,7 +17,7 @@ d3.json( '{{site.baseurl}}/data/hexbin.json' , function(data){
   var height = 360,
       imageWidth = 173,
       imageHeight = 200,
-      radius = 100,
+      radius = 80,
       depth = 3;
 
   var currentFocus = [innerWidth / 2, height / 2],

@@ -4,8 +4,7 @@ import io
 import urllib
 from PIL import Image
 import progressbar
-from docopt import docopt
-
+import numpy as np
 
 def hexbin_yaml_to_json(ni, nj):
     data = yaml.load(open('_data/hexbin.yaml', 'r'))
@@ -14,11 +13,15 @@ def hexbin_yaml_to_json(ni, nj):
 
     ## resize the yaml file into ni * nj sized json file to be read into
     ## the javascript
-
-    data_resize = (data * (1 + ((ni* nj) // N)))[:ni * nj]
+    data_resize = []
+    np.random.seed(98)
+    while len(data_resize) < 100:
+        i = np.random.randint(0, N)
+        data_resize.append(data[i])
+    # data_resize = (data * (1 + ((ni* nj) // N)))[:ni * nj]
     s = json.dumps(data_resize)
     open('data/hexbin.json', 'w').write(s)
-    return data
+    return data_resize
 
 def thumbnail_image(image_url, size):
     try:
