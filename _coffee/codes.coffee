@@ -43,6 +43,7 @@ add_icons = (selection) ->
   add_icon(a)
   
 build_function = (data) ->
+  console.log(data)
   selection = d3.select("#codes").selectAll()
   .data(data).enter()
   .append("div").attr("class", "col-md-4")

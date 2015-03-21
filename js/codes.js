@@ -95,6 +95,7 @@
 
   build_function = function(data) {
     var selection;
+    console.log(data);
     selection = d3.select("#codes").selectAll().data(data).enter().append("div").attr("class", "col-md-4").append("div").attr("class", "card");
     add_logo(selection);
     add_header(selection);

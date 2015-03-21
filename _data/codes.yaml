@@ -12,3 +12,11 @@
   github:
     user: idaholab
     repo: moose
+- name: Dealii
+  github:
+    user: dealii
+    repo: dealii
+- name: Sfepy
+  github:
+    user: sfepy
+    repo: sfepy

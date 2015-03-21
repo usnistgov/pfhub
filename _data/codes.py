@@ -98,7 +98,7 @@ class GitHubAPI(object):
             value = self.get_cache(key)
         else:
             value = []
-        
+
         if value:
             return value
         else:
@@ -112,8 +112,9 @@ class GitHubAPI(object):
                 else:
                     value.append(v)
                 url = self.get_next_page_url(request)
-            if cache:
-                self.set_cache(key, value)
+
+            self.set_cache(key, value)
+
             return value
 
     def get_next_page_url(self, request):
@@ -158,7 +159,7 @@ class GitHubAPI(object):
         # closed_issues = self.paginate('/issues?state=closed&since={0}'.format(since))
         
         contributors = self.paginate('/stats/contributors')
-        commit_activity = self.paginate('/stats/commit_activity')
+        commit_activity = self.paginate('/stats/commit_activity', cache=False)
 
         base_url = 'https://github.com/usnistgov/fipy'
 
