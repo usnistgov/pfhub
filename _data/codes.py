@@ -78,12 +78,13 @@ class GitHubAPI(object):
 
     def get_request(self, url):
         request = requests.get(url)
-        print 
-        print 'get request'
-        print 'x-ratelimit-remaining: ',request.headers['x-ratelimit-remaining']
-        print 'x-ratelimit-reset: ',request.headers['x-ratelimit-reset']
-        print 'url: ',request.url
-        print        
+        print()
+        print('get request')
+        print('x-ratelimit-remaining: ',request.headers['x-ratelimit-remaining'])
+        print('x-ratelimit-reset: ',datetime.datetime.fromtimestamp(
+              int(request.headers['x-ratelimit-reset'])).strftime('%Y-%m-%d %H:%M:%S'))
+        print('url: ',request.url)
+        print()      
         request.raise_for_status()
         return request
 
@@ -152,9 +153,9 @@ class GitHubAPI(object):
     def get_stats(self):
         open_issues = self.paginate('/issues?state=open')
 
-        one_year_ago = datetime.datetime.now() - datetime.timedelta(days=365)
-        since = one_year_ago.isoformat()
-        closed_issues = self.paginate('/issues?state=closed&since{0}'.format(since))
+        # one_year_ago = datetime.datetime.now() - datetime.timedelta(days=365)
+        # since = one_year_ago.isoformat()
+        # closed_issues = self.paginate('/issues?state=closed&since={0}'.format(since))
         
         contributors = self.paginate('/stats/contributors')
         commit_activity = self.paginate('/stats/commit_activity')
@@ -176,9 +177,10 @@ class GitHubAPI(object):
                     {'name' : 'Recent Commits',
                      'url' : '',
                      'value' : sum([_['total'] for _ in commit_activity])},
-                     {'name' : 'Recent Closed Issues',
-                      'url' : '',
-                      'value' : self.get_yearly_closed_issues(closed_issues)}]
+                     # {'name' : 'Recent Closed Issues',
+                     #  'url' : '',
+                     #  'value' : self.get_yearly_closed_issues(closed_issues)}
+                     ]
 
     def get_description(self):
         description = self.paginate(key='repo_')[0]
