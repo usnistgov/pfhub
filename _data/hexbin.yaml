@@ -59,3 +59,6 @@
   - image: http://magnetserver.cmpe.ubc.ca/wiki/images/thumb/8/80/RGBLable_border_Uniform_2000.png/250px-RGBLable_border_Uniform_2000.png
     url: http://magnetserver.cmpe.ubc.ca/wiki/index.php/Sina_Shahandeh
     description: Simulated grain structure using phase field method
+  - image: http://physics.clarku.edu/~hwang/research/pics/langevin/Langevin2DSnap.jpg
+    url: http://physics.clarku.edu/~hwang/research/phase_field_contents.html
+    description: Phase field model of protein coat dynamics
