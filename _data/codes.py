@@ -8,7 +8,7 @@ import datetime
 import dateutil
 import dateutil.tz
 import dateutil.parser
-import time
+
 
 @click.command()
 @click.option('--cache/--no-cache', default=True, help='Whether to cache the GitHub data')
@@ -159,7 +159,7 @@ class GitHubAPI(object):
         # closed_issues = self.paginate('/issues?state=closed&since={0}'.format(since))
         
         contributors = self.paginate('/stats/contributors')
-        commit_activity = self.paginate('/stats/commit_activity', cache=False)
+        commit_activity = self.paginate('/stats/commit_activity')
 
         base_url = 'https://github.com/usnistgov/fipy'
 

@@ -13,6 +13,10 @@ add_description = (selection) ->
   subselection = selection.filter((d) -> "description" of d)
   return subselection.append("p").text((d) -> d.description)
 
+add_language = (selection) ->
+  subselection = selection.filter((d) -> "language" of d)
+  return subselection.append("p").text((d) -> "Language: " + d.language)
+  
 add_stats = (selection) ->
   subselection = selection.filter((d) -> "stats" of d)
   subselection.append("h5").text("Stats")
@@ -52,6 +56,7 @@ build_function = (data) ->
   add_logo(selection)
   add_header(selection)
   add_description(selection)
+  add_language(selection)
   add_stats(selection)
   add_icons(selection)
 
