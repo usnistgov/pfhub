@@ -1,0 +1,14 @@
+---
+# Codes for automated code descriptors on front page
+
+- name: FiPy
+  logo: images/FiPy_logo.jpg
+  github:
+    user: usnistgov
+    repo: fipy
+  openhub:
+    repo: fipy
+- name : Moose
+  github:
+    user: idaholab
+    repo: moose

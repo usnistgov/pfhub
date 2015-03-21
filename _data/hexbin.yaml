@@ -1,7 +1,6 @@
 ---
-# Image locations for image array on front page
+# Image locations for hexbin array on front page splash
 
-images:
   - image: http://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Phase_field_order_parameter.jpg/280px-Phase_field_order_parameter.jpg
     url: http://en.wikipedia.org/wiki/Phase_field_models
     description: Wikipedia Phase Field Entry
@@ -32,9 +31,10 @@ images:
   - image: http://www.chaos.umd.edu/gallery/spiral3.jpg
     url: http://www.chaos.umd.edu/gallery/pattern.html
     description: Ginzburg-Landau Equation
-  - image: http://www.mpie.de/typo3temp/pics/bbe3fe01f2.png
-    url: http://www.mpie.de/index.php?id=triplejunction
-    description: Modeling of Polycrystalline Microstructure Evolution
+# link is broken
+#  - image: http://www.mpie.de/typo3temp/pics/bbe3fe01f2.png
+#    url: http://www.mpie.de/index.php?id=triplejunction
+#    description: Modeling of Polycrystalline Microstructure Evolution
   - image: http://dantzig.mechanical.illinois.edu/PFC/t24rg_rotflip.jpg
     url: http://dantzig.mechanical.illinois.edu/
     description: Phase Field Crystal Modeling of Microstructure

@@ -1,22 +1,16 @@
 ---
-# Keep this to activate jekyll liquid templates for url names
+# The main page
 ---
 
 <!DOCTYPE html> 
 <html lang="en"> 
-
   <head>
-
     {% include head.html %}
-    
   </head>
   <body>
-
-    {% include content.html %}
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
-
+    {% include navbar.html %}
+    {% include title.html %}
+    {% include hexbin.html %}
+    {% include codes.html %}
   </body>
-  
 </html>
