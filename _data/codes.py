@@ -8,7 +8,7 @@ import datetime
 import dateutil
 import dateutil.tz
 import dateutil.parser
-import time
+
 
 @click.command()
 @click.option('--cache/--no-cache', default=True, help='Whether to cache the GitHub data')
@@ -98,7 +98,7 @@ class GitHubAPI(object):
             value = self.get_cache(key)
         else:
             value = []
-        
+
         if value:
             return value
         else:
@@ -112,8 +112,9 @@ class GitHubAPI(object):
                 else:
                     value.append(v)
                 url = self.get_next_page_url(request)
-            if cache:
-                self.set_cache(key, value)
+
+            self.set_cache(key, value)
+
             return value
 
     def get_next_page_url(self, request):
