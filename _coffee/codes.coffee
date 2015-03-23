@@ -45,12 +45,15 @@ add_icons = (selection) ->
   div = subselection.append("div").attr("class", "icons")
   a = div.selectAll().data((d) -> d.links).enter().append("a")
   add_icon(a)
-  
+
+sort_func = (a, b) ->
+  return d3.descending(a.stats[0].value, b.stats[0].value)
+
 build_function = (data) ->
-  console.log(data)
+  data = data.sort(sort_func)
   selection = d3.select("#codes").selectAll()
   .data(data).enter()
-  .append("div").attr("class", "col-md-4")
+  .append("div").attr("class", "col-md-4").sort()
   .append("div").attr("class", "card")
 
   add_logo(selection)
