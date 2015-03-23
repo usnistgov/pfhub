@@ -38,7 +38,7 @@ body {
     /* border-width-left: 5px; */
     /* margin-width-right: 5px; */
     padding: 10px;
-    height: 330px;
+    /* height: 330px; */
     margin-bottom: 25px;
     /* border-width-botton: 5px; */
 }
@@ -75,3 +75,10 @@ body {
     padding-top: 8px;
 }
 
+.equal, .equal > div[class*='col-'] {  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex:1 0 auto;
+    flex-wrap: wrap;
+}
