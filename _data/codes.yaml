@@ -2,21 +2,27 @@
 # Codes for automated code descriptors on front page
 
 - name: FiPy
-  logo: images/FiPy_logo.jpg
+  logo: http://i.imgur.com/q6yF0ce.png
+  description: A finite volume PDE solver
   github:
     user: usnistgov
     repo: fipy
   openhub:
     repo: fipy
 - name : Moose
+  description: A multiphysics finite element object oriented simulation environment
   github:
     user: idaholab
     repo: moose
-- name: Dealii
+- name: deal.II
+  logo: https://www.dealii.org/pictures/logo100.png
+  description: An adaptive finite element library for solving PDEs
   github:
     user: dealii
     repo: dealii
-- name: Sfepy
+- name: SfePy
+  logo: http://sfepy.org/doc-devel/_static/sfepy_logo_title_small.png
+  description: Finite element analysis software based primarily on NumPy and SciPy
   github:
     user: sfepy
     repo: sfepy
