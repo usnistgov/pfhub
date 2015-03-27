@@ -11,15 +11,17 @@ add_header = (selection) ->
 
 add_description = (selection) ->
   subselection = selection.filter((d) -> "description" of d)
-  return subselection.append("p").text((d) -> d.description)
+  text = (d) ->
+    d.description + " written in " + d.language + "."
+  return subselection.append("p").text(text)
 
-add_language = (selection) ->
-  subselection = selection.filter((d) -> "language" of d)
-  return subselection.append("p").text((d) -> "Language: " + d.language)
+# add_language = (selection) ->
+#   subselection = selection.filter((d) -> "language" of d)
+#   return subselection.append("p").text((d) -> "Language: " + d.language)
   
 add_stats = (selection) ->
   subselection = selection.filter((d) -> "stats" of d)
-  subselection.append("h5").text("Stats")
+  subselection.append("h5").text("Stats:")
   table = subselection.append("table").attr("class", "indent")
   tr = table.selectAll().data((d) -> d.stats).enter().append("tr")
   tr.append("td").html((d) -> d.name + ":&nbsp;")
@@ -27,12 +29,11 @@ add_stats = (selection) ->
 
 icons =
   GitHub:
-    html: '<i class="fa fa-github fa-2x"></i>'
+    html: '<i class="fa fa-github fa-2x chimad-icon"></i>'
   Home:
-    html: '<i class="fa fa-home fa-2x"></i>'
+    html: '<i class="fa fa-home fa-2x chimad-icon"></i>'
   OpenHub:
     html: '<img src="images/OH_logo-24x24.png" class="icon">'
-
 
 add_icon = (selection) ->
   subselection = selection.filter((d) -> d.name of icons)
@@ -58,10 +59,11 @@ build_function = (data) ->
 
   add_logo(selection)
   add_header(selection)
-  add_description(selection)
-  add_language(selection)
-  add_stats(selection)
   add_icons(selection)
+  add_description(selection)
+  # add_language(selection)
+  add_stats(selection)
+
 
 d3.json(data_file, build_function)
 

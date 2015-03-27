@@ -9,6 +9,7 @@ import dateutil
 import dateutil.tz
 import dateutil.parser
 
+import hexbin
 
 @click.command()
 @click.option('--cache/--no-cache', default=True, help='Whether to cache the GitHub data')
@@ -16,7 +17,8 @@ def run(cache):
     codes_yaml = 'codes.yaml'
     codes_json = 'codes.json'
     in_dir = os.path.split(__file__)[0]
-    out_dir = os.path.join(in_dir, os.pardir, 'data')
+    base_dir = os.path.join(in_dir, os.pardir)
+    out_dir = os.path.join(base_dir, 'data')
     codes_yaml_path = os.path.join(in_dir, codes_yaml)
     codes_json_path = os.path.join(out_dir, codes_json)
     
@@ -29,7 +31,6 @@ def run(cache):
         cache_json_path = os.path.join(os.path.split(__file__)[0], cache_json)
         user = code['github']['user']
         repo = code['github']['repo']
-
         gh = GitHubAPI(user, repo, cache_file=cache_json_path, cache=cache)
 
         code_out = code.copy()
@@ -38,9 +39,20 @@ def run(cache):
         links = make_links(code_out)
         code_out['links'] = links
         data_out.append(code_out)
+
+        make_logo(code, code_out, base_dir)
         
     with open(codes_json_path, 'w') as f:
         f.write(json.dumps(data_out))
+
+def make_logo(code, code_out, base_dir):
+    image_url = code.get('logo', None)
+    if image_url:
+        im = hexbin.thumbnail_image(image_url, (None, 30))
+        jpg_name = '{0}_logo.jpg'.format(code['name'])
+        image_path = os.path.join(base_dir, 'images', jpg_name)
+        im.save(image_path, 'JPEG')
+        code_out['logo'] = image_path
 
 def make_links(code):
     links = [{'name' : 'Home', 'url' : code['home_page']},
@@ -130,6 +142,7 @@ class GitHubAPI(object):
                 return None
 
     def get_yearly_contributors(self, contributors):
+        
         last52 = lambda contributor: [week['c'] for week in contributor['weeks'][-52:]]
         commits_per_contributor =  [sum(last52(contributor)) \
                                     for contributor in contributors]
@@ -150,7 +163,7 @@ class GitHubAPI(object):
 
     def get_open_issues(self, issues):
         return len([issue for issue in issues if issue['state'] == 'open'])
-
+    
     def get_stats(self):
         open_issues = self.paginate('/issues?state=open')
 
@@ -186,7 +199,6 @@ class GitHubAPI(object):
     def get_description(self):
         description = self.paginate(key='repo_')[0]
         return {'home_page' : description['homepage'],
-                'description' : description['description'],
                 'language' : description['language'],
                 'github_url' : description['html_url']}
 

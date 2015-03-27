@@ -31,6 +31,13 @@ def thumbnail_image(image_url, size):
         print "image_url:",image_url
         raise
     im = Image.open(image_file)
+    size = list(size)
+    if size[0] is None:
+        if im.size[0] > im.size[1]:
+            ratio = float(im.size[0]) / float(im.size[1])
+            size[0] = int(ratio * size[1])
+        else:
+            size[0] = size[1]
     im.thumbnail(size, Image.ANTIALIAS)
     im0 = Image.new('RGBA', size, (255, 255, 255, 0))
     im0.paste(im, ((size[0] - im.size[0]) / 2, (size[1] - im.size[1]) / 2))
