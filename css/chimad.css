@@ -1,6 +1,7 @@
 body {
     min-height: 2000px;
     font-family: "Lato", sans-serif;
+    font-size: 12pt;
     /* display: -webkit-box; */
     /* display: -webkit-flex; */
     /* display: flex; */
@@ -89,3 +90,18 @@ body {
     flex:1 0 auto;
     flex-wrap: wrap;
 }
+
+.chimad-logo {
+    font-family: "Droid Sans";
+    font-weight: Bold !important;
+    color: rgb(0, 85, 150) !important;
+}
+
+.navbar {
+    font-size: 12pt;
+}
+
+.navbar .chimad-logo {
+    padding-top: 16px;
+}
+
