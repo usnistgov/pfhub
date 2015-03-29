@@ -31,7 +31,7 @@ body {
 .small-buffer { margin-top: 10px; }
 
 .top-bar {
-    border-top: 3px solid rgba(0, 255, 221, 0.3);
+    border-top: 3px solid rgba(0, 255, 221, 0.4);
 }
 
 .card {

@@ -79,7 +79,7 @@ d3.json( '{{site.baseurl}}/data/hexbin.json' , function(data){
 
       context.clip();
       // There is too much color
-      context.globalAlpha = .5;
+      context.globalAlpha = .7;
 
       context.drawImage(image,
                         imageWidth * d.i, imageHeight * d.j,

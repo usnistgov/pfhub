@@ -1,6 +1,7 @@
 ---
 title: "Mailing List"
 layout: mailing_list
+permalink: "/mailinglist/"
 ---
 
 In order to discuss this repository with other users, we encourage you
