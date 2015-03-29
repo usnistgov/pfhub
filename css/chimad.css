@@ -1,6 +1,7 @@
 body {
     min-height: 2000px;
     font-family: "Lato", sans-serif;
+    font-size: 12pt;
     /* display: -webkit-box; */
     /* display: -webkit-flex; */
     /* display: flex; */
@@ -30,18 +31,20 @@ body {
 .small-buffer { margin-top: 10px; }
 
 .top-bar {
-    border-top: 3px solid rgba(0, 255, 221, 0.3);
+    border-top: 3px solid rgba(0, 255, 221, 0.4);
 }
 
 .card {
-    background-color: rgba(0, 255, 221, 0.2);
-    /* border-width-left: 5px; */
-    /* margin-width-right: 5px; */
+    background-color: rgba(0, 255, 221, 0.1);
     padding: 10px;
-    /* height: 330px; */
     margin-bottom: 25px;
-    /* border-width-botton: 5px; */
 }
+
+.card-overview {
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
 
 .indent {
     margin-left: 10px;
@@ -89,3 +92,18 @@ body {
     flex:1 0 auto;
     flex-wrap: wrap;
 }
+
+.chimad-logo {
+    font-family: "Droid Sans";
+    font-weight: Bold !important;
+    color: rgb(0, 85, 150) !important;
+}
+
+.navbar {
+    font-size: 12pt;
+}
+
+.navbar .chimad-logo {
+    padding-top: 16px;
+}
+
