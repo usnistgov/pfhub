@@ -35,14 +35,16 @@ body {
 }
 
 .card {
-    background-color: rgba(0, 255, 221, 0.2);
-    /* border-width-left: 5px; */
-    /* margin-width-right: 5px; */
+    background-color: rgba(0, 255, 221, 0.1);
     padding: 10px;
-    /* height: 330px; */
     margin-bottom: 25px;
-    /* border-width-botton: 5px; */
 }
+
+.card-overview {
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
 
 .indent {
     margin-left: 10px;
