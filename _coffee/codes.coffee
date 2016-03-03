@@ -5,6 +5,11 @@ add_logo = (selection) ->
   subselection = subselection.append("img").attr("src", (d) -> d.logo)
   return subselection.attr("alt", "").attr("class", "circle")
 
+add_fake_logo = (selection) ->
+  subselection = selection.filter((d) -> not ("logo" of d))
+  subselection = subselection.append("i").attr("class", "material-icons circle")
+  return subselection.text("code")
+
 add_header = (selection) ->
   subselection = selection.filter((d) -> "name" of d)
   subselection = subselection.append("span").attr("class", "title")
@@ -61,6 +66,7 @@ build_function = (data) ->
   selection = selection.sort()
 
   add_logo(selection)
+  add_fake_logo(selection)
   add_header(selection)
   # add_icons(selection)
   add_description(selection)
