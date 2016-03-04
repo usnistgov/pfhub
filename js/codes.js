@@ -30,6 +30,9 @@
       return "name" in d;
     });
     subselection = subselection.append("span").attr("class", "title");
+    subselection = subselection.append("a").attr("href", function(d) {
+      return d.home_page;
+    });
     return subselection.append("h5").text(function(d) {
       return d.name;
     });

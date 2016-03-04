@@ -13,6 +13,7 @@ add_fake_logo = (selection) ->
 add_header = (selection) ->
   subselection = selection.filter((d) -> "name" of d)
   subselection = subselection.append("span").attr("class", "title")
+  subselection = subselection.append("a").attr("href", (d) -> d.home_page)
   return subselection.append("h5").text((d) -> d.name)
 
 add_description = (selection) ->
