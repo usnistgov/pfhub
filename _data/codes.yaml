@@ -3,27 +3,42 @@
 
 - name: FiPy
   logo: http://i.imgur.com/q6yF0ce.png
-  description: A finite volume PDE solver
+  description: A finite volume PDE solver written in Python.
   github:
     user: usnistgov
     repo: fipy
-  openhub:
-    repo: fipy
+  badges:
+    - href: http://depsy.org/package/python/FiPy
+      src: http://depsy.org/api/package/pypi/FiPy/badge.svg
+    - href: https://travis-ci.org/usnistgov/fipy
+      src: https://travis-ci.org/usnistgov/fipy.svg?branch=master
+    - href: https://raw.githubusercontent.com/usnistgov/fipy/master/LICENSE.rst
+      src: https://img.shields.io/badge/license-nist-blue.svg
+    - href: https://github.com/fipy/fipy/issues
+      src: http://githubbadges.herokuapp.com/badges/badgerbadgerbadger/issues.svg
+    - href: https://www.openhub.net/p/fipy
+      src: https://www.openhub.net/p/YOUR_PROJECT/widgets/project_thin_badge.gif
+    - href: https://pypi.python.org/pypi/FiPy/3.1
+      src: https://badge.fury.io/py/fipy.svg
+    - href: https://github.com/usnistgov/fipy/graphs/traffic
+      src: https://img.shields.io/github/downloads/usnistgov/fipy/total.svg
+
 - name : Moose
-  description: A multiphysics finite element object oriented simulation environment
+  description: A multiphysics finite element object oriented simulation environment written in C++.
   github:
     user: idaholab
     repo: moose
+
 - name: deal.II
   logo: https://www.dealii.org/pictures/logo100.png
-  description: An adaptive finite element library for solving PDEs
+  description: An adaptive finite element library for solving PDEs written in C++.
   github:
     user: dealii
     repo: dealii
+
 - name: SfePy
   logo: http://sfepy.org/doc-devel/_static/sfepy_logo_title_small.png
-  description: Finite element analysis software based primarily on NumPy and SciPy
+  description: Finite element analysis software based primarily on NumPy and SciPy written in Python.
   github:
     user: sfepy
     repo: sfepy
-
