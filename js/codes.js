@@ -35,6 +35,7 @@
     subselection = subselection.append("a").attr("href", function(d) {
       return d.home_page;
     });
+    subselection.attr("target", "_blank");
     return subselection.append("h5").text(function(d) {
       return d.name;
     });
@@ -63,6 +64,7 @@
     a = a.attr("href", function(d) {
       return d.href;
     });
+    a.attr("target", "_blank");
     return a.append("img").attr("src", function(d) {
       return d.src;
     }).attr("style", "max-width: 100%; padding-right: 10px");

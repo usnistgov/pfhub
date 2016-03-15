@@ -18,6 +18,7 @@ add_header = (selection) ->
   subselection = selection.filter((d) -> "name" of d)
   subselection = subselection.append("span").attr("class", "title")
   subselection = subselection.append("a").attr("href", (d) -> d.home_page)
+  subselection.attr("target", "_blank")
   subselection.append("h5").text((d) -> d.name)
 
 add_description = (selection) ->
@@ -30,6 +31,7 @@ add_badges = (selection) ->
   p = subselection.append("p").attr("style", "padding-top: 20px")
   a = p.selectAll().data((d) -> d.badges).enter().append("a")
   a = a.attr("href", (d) -> d.href)
+  a.attr("target", "_blank")
   a.append("img").attr("src", (d) -> d.src).attr("style", "max-width: 100%; padding-right: 10px")
 
 build_function = (data_text) ->

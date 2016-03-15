@@ -11,9 +11,9 @@
   badges:
     - href: https://raw.githubusercontent.com/usnistgov/fipy/master/LICENSE.rst
       src: https://img.shields.io/badge/license-nist-blue.svg
-    - href: https://github.com/fipy/fipy/issues
+    - href: https://github.com/usnistgov/fipy/issues
       src: http://githubbadges.herokuapp.com/usnistgov/fipy/issues.svg
-    - href: https://github.com/fipy/fipy/pulls
+    - href: https://github.com/usnistgov/fipy/pulls
       src: http://githubbadges.herokuapp.com/usnistgov/fipy/pulls.svg
     - href: https://www.openhub.net/p/fipy
       src: https://www.openhub.net/p/fipy/widgets/project_thin_badge.gif

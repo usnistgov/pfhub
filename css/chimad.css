@@ -96,6 +96,10 @@ body {
 .chimad-collections {
     color: "light-green lighten-4"
 }
+
+.navbar-text {
+    font-size: 16pt;
+}
 /* .navbar { */
 /*     font-size: 12pt; */
 /* } */
