@@ -1,0 +1,7 @@
+---
+- name: "First Phase Field Method Workshop"
+  date: "Jan 9, 2015"
+  href: http://planitpurple.northwestern.edu/event/474167/xJDsFEfb
+  links:
+    - name: PDF
+      href: {{ site.baseurl }}/CHiMaD_PhaseFieldWorkshop.pdf
