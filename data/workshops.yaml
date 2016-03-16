@@ -1,7 +1,19 @@
 ---
-- name: "First Phase Field Method Workshop"
+- name: "First Phase Field Methods Workshop"
   date: "Jan 9, 2015"
   href: http://planitpurple.northwestern.edu/event/474167/xJDsFEfb
+  number: 1
+  description: >-
+    Workshop held at Northwestern University to discuss code
+    collaboration in phase field modelling.
   links:
-    - name: PDF
+    - name: Download PDF
       href: {{ site.baseurl }}/CHiMaD_PhaseFieldWorkshop.pdf
+
+- name: "Second Phase Field Methods Workshop"
+  date: "Oct 15, 2015"
+  href: http://planitpurple.northwestern.edu/event/479420/xJDsFEfb
+  number: 1
+  description: >-
+    Hackathon to implement common example problems in a variety of
+    codes for comparison.
