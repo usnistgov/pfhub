@@ -7,12 +7,6 @@ body {
     /* display: flex; */
 }
 
-.navbar-static-top {
-    margin-bottom: 19px;
-    background-image: none;
-    background-color: rgba(0, 255, 221, 0.3);
-    border-width: 0px;
-}
 
 .header {
     font-size: 47px;
@@ -20,18 +14,18 @@ body {
     font-weight: 900;
 }
 
-.navbar-default .navbar-nav > .active > a, 
-.navbar-default .navbar-nav > .active > a:hover, 
-.navbar-default .navbar-nav > .active > a:focus {
-    color: #000;
-    background-color: rgba(0, 255, 221, 1);
-}
+/* .navbar-default .navbar-nav > .active > a, */
+/* .navbar-default .navbar-nav > .active > a:hover, */
+/* .navbar-default .navbar-nav > .active > a:focus { */
+/*     color: #000; */
+/*     background-color: rgba(0, 255, 221, 1); */
+/* } */
 
 .top-buffer { margin-top: 40px; }
 .small-buffer { margin-top: 10px; }
 
 .top-bar {
-    border-top: 3px solid rgba(0, 255, 221, 0.4);
+    border-top: 3px solid #9ccc65;
 }
 
 .card {
@@ -85,7 +79,7 @@ body {
     padding-top: 0px;
 }
 
-.equal, .equal > div[class*='col-'] {  
+.equal, .equal > div[class*='col-'] {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -99,11 +93,17 @@ body {
     color: rgb(0, 85, 150) !important;
 }
 
-.navbar {
-    font-size: 12pt;
+.chimad-collections {
+    color: "light-green lighten-4"
 }
 
-.navbar .chimad-logo {
-    padding-top: 16px;
+.navbar-text {
+    font-size: 16pt;
 }
+/* .navbar { */
+/*     font-size: 12pt; */
+/* } */
 
+/* .navbar .chimad-logo { */
+/*     padding-top: 16px; */
+/* } */

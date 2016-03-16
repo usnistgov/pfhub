@@ -1,69 +1,48 @@
-data_file = "data/codes.json"
+data_file = "data/codes.yaml"
 
 add_logo = (selection) ->
   subselection = selection.filter((d) -> "logo" of d)
-  subselection = subselection.append("div").attr("class", "logo")
-  return subselection.append("img").attr("src", (d) -> d.logo)
+  subselection = subselection.append("img").attr("src", (d) -> d.logo)
+  subselection.attr("alt", "").attr("class", "circle")
+
+add_fake_logo = (selection) ->
+  subselection = selection.filter((d) -> not ("logo" of d))
+  subselection = subselection.append("i").attr("class", "material-icons circle")
+  subselection.text("code")
 
 add_header = (selection) ->
   subselection = selection.filter((d) -> "name" of d)
-  return subselection.append("h4").attr("class", "codeheader").text((d) -> d.name)
+  subselection = subselection.append("span").attr("class", "title")
+  subselection = subselection.append("a").attr("href", (d) -> d.home_page)
+  subselection.attr("target", "_blank")
+  subselection.append("h5").text((d) -> d.name)
 
 add_description = (selection) ->
   subselection = selection.filter((d) -> "description" of d)
-  text = (d) ->
-    d.description + " written in " + d.language + "."
-  return subselection.append("p").text(text)
+  p = subselection.append("p").text((d) -> d.description)
+  p.attr("style", "font-size: 20px")
 
-# add_language = (selection) ->
-#   subselection = selection.filter((d) -> "language" of d)
-#   return subselection.append("p").text((d) -> "Language: " + d.language)
-  
-add_stats = (selection) ->
-  subselection = selection.filter((d) -> "stats" of d)
-  subselection.append("h5").text("Stats:")
-  table = subselection.append("table").attr("class", "indent")
-  tr = table.selectAll().data((d) -> d.stats).enter().append("tr")
-  tr.append("td").html((d) -> d.name + ":&nbsp;")
-  tr.append("td").text((d) -> d.value)
+add_badges = (selection) ->
+  subselection = selection.filter((d) -> "badges" of d)
+  p = subselection.append("p").attr("style", "padding-top: 20px")
+  a = p.selectAll().data((d) -> d.badges).enter().append("a")
+  a = a.attr("href", (d) -> d.href)
+  a.attr("target", "_blank")
+  a.append("img").attr("src", (d) -> d.src).attr("style", "max-width: 100%; padding-right: 10px")
 
-icons =
-  GitHub:
-    html: '<i class="fa fa-github fa-2x chimad-icon"></i>'
-  Home:
-    html: '<i class="fa fa-home fa-2x chimad-icon"></i>'
-  OpenHub:
-    html: '<img src="images/OH_logo-24x24.png" class="icon">'
-
-add_icon = (selection) ->
-  subselection = selection.filter((d) -> d.name of icons)
-  subselection.attr("href", (d) -> d.url)
-  subselection.attr("title", (d) -> d.name)
-  subselection.html((d) -> icons[d.name].html)
-  
-add_icons = (selection) ->
-  subselection = selection.filter((d) -> "links" of d)
-  div = subselection.append("div").attr("class", "icons")
-  a = div.selectAll().data((d) -> d.links).enter().append("a")
-  add_icon(a)
-
-sort_func = (a, b) ->
-  return d3.descending(a.stats[0].value, b.stats[0].value)
-
-build_function = (data) ->
-  data = data.sort(sort_func)
+build_function = (data_text) ->
+  data = jsyaml.load(data_text)
   selection = d3.select("#codes").selectAll()
   .data(data).enter()
-  .append("div").attr("class", "col-md-4").sort()
-  .append("div").attr("class", "card")
+  .append("li").attr("class", "collection-item avatar light-green lighten-4")
+  selection.attr("style", "border-color: transparent;
+  border-bottom-style: none; margin-bottom: 5px;")
+  selection = selection.sort()
 
   add_logo(selection)
+  add_fake_logo(selection)
   add_header(selection)
-  add_icons(selection)
   add_description(selection)
-  # add_language(selection)
-  add_stats(selection)
+  add_badges(selection)
 
-
-d3.json(data_file, build_function)
-
+d3.text(data_file, build_function)
