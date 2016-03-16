@@ -1,11 +1,7 @@
 data_file = "data/codes.yaml"
 
 add_logo = (selection) ->
-  tmp = (d) ->
-    console.log d
-    "logo" of d
-  subselection = selection.filter(tmp)
-  # subselection = selection.filter((d) -> "logo" of d)
+  subselection = selection.filter((d) -> "logo" of d)
   subselection = subselection.append("img").attr("src", (d) -> d.logo)
   subselection.attr("alt", "").attr("class", "circle")
 
