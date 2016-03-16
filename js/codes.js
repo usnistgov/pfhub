@@ -5,12 +5,10 @@
   data_file = "data/codes.yaml";
 
   add_logo = function(selection) {
-    var subselection, tmp;
-    tmp = function(d) {
-      console.log(d);
+    var subselection;
+    subselection = selection.filter(function(d) {
       return "logo" in d;
-    };
-    subselection = selection.filter(tmp);
+    });
     subselection = subselection.append("img").attr("src", function(d) {
       return d.logo;
     });
