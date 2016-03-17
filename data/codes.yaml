@@ -11,19 +11,20 @@
   badges:
     - href: https://raw.githubusercontent.com/usnistgov/fipy/master/LICENSE.rst
       src: https://img.shields.io/badge/license-nist-blue.svg
-    - href: https://github.com/usnistgov/fipy/issues
-      src: http://githubbadges.herokuapp.com/usnistgov/fipy/issues.svg
-    - href: https://github.com/usnistgov/fipy/pulls
-      src: http://githubbadges.herokuapp.com/usnistgov/fipy/pulls.svg
+    # - href: https://github.com/usnistgov/fipy/issues
+    #   src: http://githubbadges.herokuapp.com/usnistgov/fipy/issues.svg
+    # - href: https://github.com/usnistgov/fipy/pulls
+    #   src: http://githubbadges.herokuapp.com/usnistgov/fipy/pulls.svg
     - href: https://www.openhub.net/p/fipy
       src: https://www.openhub.net/p/fipy/widgets/project_thin_badge.gif
-    - href: https://travis-ci.org/usnistgov/fipy
-      src: https://travis-ci.org/usnistgov/fipy.svg
+    # - href: https://travis-ci.org/usnistgov/fipy
+    #   src: https://travis-ci.org/usnistgov/fipy.svg
     - href: https://pypi.python.org/pypi/FiPy/3.1
       src: https://img.shields.io/pypi/dm/FiPy.svg?style=flat
     - href: http://depsy.org/package/python/FiPy
       src: http://depsy.org/api/package/pypi/FiPy/badge.svg
-
+    # - href: https://img.shields.io/github/forks/usnistgov/fipy.svg?style=social&label=Fork
+    #   src: https://github.com/usnistgov/fipy
 
 - name : Moose
   description: A multiphysics finite element object oriented simulation environment written in C++.
@@ -34,12 +35,14 @@
   badges:
     - href: https://raw.githubusercontent.com/idaholab/moose/master/LICENSE.rst
       src: https://img.shields.io/badge/license-lgpl-blue.svg
-    - href: https://github.com/idaholab/moose/issues
-      src: http://githubbadges.herokuapp.com/idaholab/moose/issues.svg
-    - href: https://github.com/idaholab/moose/pulls
-      src: http://githubbadges.herokuapp.com/idaholab/moose/pulls.svg
+    # - href: https://github.com/idaholab/moose/issues
+    #   src: http://githubbadges.herokuapp.com/idaholab/moose/issues.svg
+    # - href: https://github.com/idaholab/moose/pulls
+    #   src: http://githubbadges.herokuapp.com/idaholab/moose/pulls.svg
     - href: https://www.openhub.net/p/mooseframework
       src: https://www.openhub.net/p/mooseframework/widgets/project_thin_badge.gif
+    # - href: https://img.shields.io/github/forks/usnistgov/fipy.svg?style=social&label=Fork
+    #   src: https://github.com/usnistgov/fipy
 
 - name: deal.II
   logo: https://www.dealii.org/pictures/logo100.png
@@ -51,14 +54,16 @@
   badges:
     - href: https://raw.githubusercontent.com/dealii/dealii/master/LICENSE.rst
       src: https://img.shields.io/badge/license-lgpl-blue.svg
-    - href: https://github.com/dealii/dealii/issues
-      src: http://githubbadges.herokuapp.com/dealii/dealii/issues.svg
-    - href: https://github.com/dealii/dealii/pulls
-      src: http://githubbadges.herokuapp.com/dealii/dealii/pulls.svg
+    # - href: https://github.com/dealii/dealii/issues
+    #   src: http://githubbadges.herokuapp.com/dealii/dealii/issues.svg
+    # - href: https://github.com/dealii/dealii/pulls
+    #   src: http://githubbadges.herokuapp.com/dealii/dealii/pulls.svg
     - href: https://www.openhub.net/p/dealii
       src: https://www.openhub.net/p/dealii/widgets/project_thin_badge.gif
-    - href: https://travis-ci.org/dealii/dealii
-      src: https://travis-ci.org/dealii/dealii.svg
+    # - href: https://travis-ci.org/dealii/dealii
+    #   src: https://travis-ci.org/dealii/dealii.svg
+    - href: https://github.com/dealii/dealii/releases/latest
+      src: https://img.shields.io/github/downloads/dealii/dealii/total.svg
 
 - name: SfePy
   logo: http://sfepy.org/doc-devel/_static/sfepy_logo_title_small.png
@@ -70,10 +75,10 @@
   badges:
     - href: https://raw.githubusercontent.com/sfepy/sfepy/master/LICENSE.rst
       src: https://img.shields.io/badge/license-mit-blue.svg
-    - href: https://github.com/sfepy/sfepy/issues
-      src: http://githubbadges.herokuapp.com/sfepy/sfepy/issues.svg
-    - href: https://github.com/sfepy/sfepy]/pulls
-      src: http://githubbadges.herokuapp.com/sfepy/sfepy/pulls.svg
+    # - href: https://github.com/sfepy/sfepy/issues
+    #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/issues.svg
+    # - href: https://github.com/sfepy/sfepy]/pulls
+    #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/pulls.svg
     - href: https://www.openhub.net/p/rcs_sfepy
       src: https://www.openhub.net/p/rcs_sfepy/widgets/project_thin_badge.gif
 
@@ -89,9 +94,9 @@
   badges:
     - href: https://raw.githubusercontent.com/mesoscale/mmsp/master/LICENSE.rst
       src: https://img.shields.io/badge/license-gpl-blue.svg
-    - href: https://github.com/mesoscale/mmsp/issues
-      src: http://githubbadges.herokuapp.com/mesoscale/mmsp/issues.svg
-    - href: https://github.com/mesoscale/mmsp/pulls
-      src: http://githubbadges.herokuapp.com/mesoscale/mmsp/pulls.svg
+    # - href: https://github.com/mesoscale/mmsp/issues
+    #   src: http://githubbadges.herokuapp.com/mesoscale/mmsp/issues.svg
+    # - href: https://github.com/mesoscale/mmsp/pulls
+    #   src: http://githubbadges.herokuapp.com/mesoscale/mmsp/pulls.svg
     - href: https://www.openhub.net/p/mmsp
       src: https://www.openhub.net/p/mmsp/widgets/project_thin_badge.gif
