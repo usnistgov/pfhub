@@ -3,11 +3,14 @@ data_file = "data/codes.yaml"
 add_logo = (selection) ->
   subselection = selection.filter((d) -> "logo" of d)
   subselection = subselection.append("img").attr("src", (d) -> d.logo)
+  subselection = subselection.attr("style", "margin-top: 5px;")
   subselection.attr("alt", "").attr("class", "circle")
 
 add_fake_logo = (selection) ->
   subselection = selection.filter((d) -> not ("logo" of d))
-  subselection = subselection.append("i").attr("class", "material-icons circle")
+  subselection = subselection.append("i").attr("class",
+    "material-icons circle light-green lighen-1")
+  subselection.attr("style", "font-size: 23px;").attr("style", "margin-top: 5px")
   subselection.text("code")
 
 add_header = (selection) ->

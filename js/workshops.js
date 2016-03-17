@@ -5,7 +5,10 @@
   data_file = "data/workshops.yaml";
 
   add_logo = function(selection) {
-    return selection.append("i").attr("class", "circle").text(function(d) {
+    var i;
+    i = selection.append("i").attr("class", "circle light-green lighen-1");
+    i.attr("style", "font-style: normal; font-weight: bold; margin-top: 5px;");
+    return i.text(function(d) {
       return d.number;
     });
   };

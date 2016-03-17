@@ -1,7 +1,9 @@
 data_file = "data/workshops.yaml"
 
 add_logo = (selection) ->
-  selection.append("i").attr("class", "circle").text((d) -> d.number)
+  i = selection.append("i").attr("class", "circle light-green lighen-1")
+  i.attr("style", "font-style: normal; font-weight: bold; margin-top: 5px;")
+  i.text((d) -> d.number)
 
 add_header = (selection) ->
   span = selection.append("span").attr("class", "title")

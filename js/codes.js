@@ -12,6 +12,7 @@
     subselection = subselection.append("img").attr("src", function(d) {
       return d.logo;
     });
+    subselection = subselection.attr("style", "margin-top: 5px;");
     return subselection.attr("alt", "").attr("class", "circle");
   };
 
@@ -20,7 +21,8 @@
     subselection = selection.filter(function(d) {
       return !("logo" in d);
     });
-    subselection = subselection.append("i").attr("class", "material-icons circle");
+    subselection = subselection.append("i").attr("class", "material-icons circle light-green lighen-1");
+    subselection.attr("style", "font-size: 23px;").attr("style", "margin-top: 5px");
     return subselection.text("code");
   };
 

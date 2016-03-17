@@ -5,9 +5,6 @@
   logo: http://i.imgur.com/q6yF0ce.png
   description: A finite volume PDE solver written in Python.
   home_page: http://www.ctcms.nist.gov/fipy/
-  github:
-    user: usnistgov
-    repo: fipy
   badges:
     - href: https://raw.githubusercontent.com/usnistgov/fipy/master/LICENSE.rst
       src: https://img.shields.io/badge/license-nist-blue.svg
@@ -29,9 +26,6 @@
 - name : Moose
   description: A multiphysics finite element object oriented simulation environment written in C++.
   home_page: http://mooseframework.org/
-  github:
-    user: idaholab
-    repo: moose
   badges:
     - href: https://raw.githubusercontent.com/idaholab/moose/master/LICENSE.rst
       src: https://img.shields.io/badge/license-lgpl-blue.svg
@@ -48,9 +42,6 @@
   logo: https://www.dealii.org/pictures/logo100.png
   home_page: https://www.dealii.org/
   description: An adaptive finite element library for solving PDEs written in C++.
-  github:
-    user: dealii
-    repo: dealii
   badges:
     - href: https://raw.githubusercontent.com/dealii/dealii/master/LICENSE.rst
       src: https://img.shields.io/badge/license-lgpl-blue.svg
@@ -69,9 +60,6 @@
   logo: http://sfepy.org/doc-devel/_static/sfepy_logo_title_small.png
   home_page: http://sfepy.org/doc-devel/index.html
   description: Finite element analysis software based primarily on NumPy and SciPy written in Python.
-  github:
-    user: sfepy
-    repo: sfepy
   badges:
     - href: https://raw.githubusercontent.com/sfepy/sfepy/master/LICENSE.rst
       src: https://img.shields.io/badge/license-mit-blue.svg
@@ -84,10 +72,7 @@
 
 - name: MMSP
   home_page: https://github.com/mesoscale/mmsp
-  github:
-    user: mesoscale
-    repo: mmsp
-  description: >
+  description: >-
     Provides a simple, consistent, and extensible programming
     interface for all grid and mesh based microstructure evolution
     methods written in C++.
@@ -100,3 +85,16 @@
     #   src: http://githubbadges.herokuapp.com/mesoscale/mmsp/pulls.svg
     - href: https://www.openhub.net/p/mmsp
       src: https://www.openhub.net/p/mmsp/widgets/project_thin_badge.gif
+
+- name: FEniCS
+  home_page: http://fenicsproject.org/
+  logo: http://hplgit.github.io/fenics-mixed/doc/web/fig/fenics_logo.png
+  description: >-
+    The FEniCS Project is a collection of free software with an
+    extensive list of features for automated, efficient solution of
+    differential equations written in C++
+  badges:
+    - href: http://www.gnu.org/licenses/lgpl.html
+      src: https://img.shields.io/badge/license-lgpl-blue.svg
+    - href: https://www.openhub.net/p/fenics
+      src: https://www.openhub.net/p/fenics/widgets/project_thin_badge.gif
