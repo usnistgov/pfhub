@@ -39,7 +39,7 @@
     #   src: https://github.com/usnistgov/fipy
 
 - name: deal.II
-  logo: https://www.dealii.org/pictures/logo100.png
+  logo: http://dealii.org/pictures/logo100.png
   home_page: https://www.dealii.org/
   description: An adaptive finite element library for solving PDEs written in C++.
   badges:
