@@ -27,7 +27,7 @@ add_description = (selection) ->
 
 add_badges = (selection) ->
   subselection = selection.filter((d) -> "badges" of d)
-  p = subselection.append("p").attr("style", "padding-top: 10px")
+  p = subselection.append("p").attr("style", "padding-top: 15px")
   a = p.selectAll().data((d) -> d.badges).enter().append("a")
   a = a.attr("href", (d) -> d.href)
   a.attr("target", "_blank")
@@ -37,7 +37,7 @@ add_badges = (selection) ->
 add_examples = (selection) ->
   subselection = selection.filter((d) -> "examples" of d)
   p = subselection.append("p")
-  p.attr("style", "padding-top: 10px; font-size: 20px")
+  p.attr("style", "padding-top: 10px; font-size: 15px")
 
   set_size = (d) ->
     for example, i in d.examples
