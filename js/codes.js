@@ -57,7 +57,7 @@
     subselection = selection.filter(function(d) {
       return "badges" in d;
     });
-    p = subselection.append("p").attr("style", "padding-top: 10px");
+    p = subselection.append("p").attr("style", "padding-top: 15px");
     a = p.selectAll().data(function(d) {
       return d.badges;
     }).enter().append("a");
@@ -76,7 +76,7 @@
       return "examples" in d;
     });
     p = subselection.append("p");
-    p.attr("style", "padding-top: 10px; font-size: 20px");
+    p.attr("style", "padding-top: 10px; font-size: 15px");
     set_size = function(d) {
       var example, i, j, len, ref;
       ref = d.examples;
