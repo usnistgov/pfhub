@@ -27,11 +27,35 @@ add_description = (selection) ->
 
 add_badges = (selection) ->
   subselection = selection.filter((d) -> "badges" of d)
-  p = subselection.append("p").attr("style", "padding-top: 20px")
+  p = subselection.append("p").attr("style", "padding-top: 15px")
   a = p.selectAll().data((d) -> d.badges).enter().append("a")
   a = a.attr("href", (d) -> d.href)
   a.attr("target", "_blank")
-  a.append("img").attr("src", (d) -> d.src).attr("style", "max-width: 100%; padding-right: 10px")
+  a.append("img").attr("src", (d) -> d.src).attr("style", "max-width:
+  100%; padding-right: 10px")
+
+add_examples = (selection) ->
+  subselection = selection.filter((d) -> "examples" of d)
+  p = subselection.append("p")
+  p.attr("style", "padding-top: 10px; font-size: 15px")
+
+  set_size = (d) ->
+    for example, i in d.examples
+      example.last = (d.examples.length - 1 == i)
+    return d.examples
+
+  span = p.selectAll().data(set_size).enter().append("span")
+  a = span.append("a").attr("href", (d) -> d.href)
+  a.attr("target", "_blank")
+  a.text((d) -> d.name)
+
+  add_separator = (d, i) ->
+    if d.last
+      return ""
+    else
+      return "&nbsp;&nbsp;|&nbsp;&nbsp;"
+
+  span_ = span.append("span").html(add_separator)
 
 build_function = (data_text) ->
   data = jsyaml.load(data_text)
@@ -47,5 +71,6 @@ build_function = (data_text) ->
   add_header(selection)
   add_description(selection)
   add_badges(selection)
+  add_examples(selection)
 
 d3.text(data_file, build_function)
