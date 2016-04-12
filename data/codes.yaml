@@ -46,7 +46,9 @@
       href: http://www.ctcms.nist.gov/fipy/examples/phase/generated/examples.phase.anisotropy.html
     - name: Polycrystal
       href: http://www.ctcms.nist.gov/fipy/examples/phase/generated/examples.phase.polyxtalCoupled.html
-
+  hackathon:
+    - name: Hackathon repo
+      href: https://github.com/guyer/phase_field_hackathon_I
 
 - name: MMSP
   home_page: https://github.com/mesoscale/mmsp
@@ -74,6 +76,9 @@
       href: https://github.com/mesoscale/mmsp/tree/master/examples/coarsening/grain_growth/isotropic/sparsePF
     - name: Ising
       href: https://github.com/mesoscale/mmsp/tree/master/examples/statistical_mechanics/Ising
+  hackathon:
+    - name: Hackathon repo
+      href: https://github.com/tkphd/CHiMaD-Hackathon
 
 - name: FEniCS
   home_page: http://fenicsproject.org/
