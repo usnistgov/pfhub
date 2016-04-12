@@ -1,5 +1,8 @@
 <nav class="light-green lighten-1">
   <div class="nav-wrapper container">
+
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
     <ul class="left hide-on-med-and-down">
       <li><a href="{{ site.baseurl }}/"
              title="home">
@@ -8,6 +11,16 @@
       <li><a href="{{ site.baseurl }}/#codes" class="navbar-text">Codes</a></li>
       <li><a href="{{ site.baseurl }}/#workshops" class="navbar-text">Workshops</a></li>
     </ul>
+
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="{{ site.baseurl }}/"
+             title="home">
+          <i class="medium material-icons">home</i>
+      </a></li>
+      <li><a href="{{ site.baseurl }}/#codes" class="navbar-text">Codes</a></li>
+      <li><a href="{{ site.baseurl }}/#workshops" class="navbar-text">Workshops</a></li>
+    </ul>
+
     <ul class="right hide-on-med-down">
       <li><a target="_blank"
              href="{{ site.baseurl }}/mailinglist/"
