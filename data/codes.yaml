@@ -1,6 +1,21 @@
 ---
 # Codes for automated code descriptors on front page
 
+- name : Moose
+  description: A multiphysics finite element object oriented simulation environment written in C++.
+  home_page: http://mooseframework.org/
+  badges:
+    - href: https://raw.githubusercontent.com/idaholab/moose/master/LICENSE.rst
+      src: https://img.shields.io/badge/license-lgpl-blue.svg
+    # - href: https://github.com/idaholab/moose/issues
+    #   src: http://githubbadges.herokuapp.com/idaholab/moose/issues.svg
+    # - href: https://github.com/idaholab/moose/pulls
+    #   src: http://githubbadges.herokuapp.com/idaholab/moose/pulls.svg
+    - href: https://www.openhub.net/p/mooseframework
+      src: https://www.openhub.net/p/mooseframework/widgets/project_thin_badge.gif
+    # - href: https://img.shields.io/github/forks/usnistgov/fipy.svg?style=social&label=Fork
+    #   src: https://github.com/usnistgov/fipy
+
 - name: FiPy
   logo: http://i.imgur.com/q6yF0ce.png
   description: A finite volume PDE solver written in Python.
@@ -22,53 +37,15 @@
       src: http://depsy.org/api/package/pypi/FiPy/badge.svg
     # - href: https://img.shields.io/github/forks/usnistgov/fipy.svg?style=social&label=Fork
     #   src: https://github.com/usnistgov/fipy
-
-- name : Moose
-  description: A multiphysics finite element object oriented simulation environment written in C++.
-  home_page: http://mooseframework.org/
-  badges:
-    - href: https://raw.githubusercontent.com/idaholab/moose/master/LICENSE.rst
-      src: https://img.shields.io/badge/license-lgpl-blue.svg
-    # - href: https://github.com/idaholab/moose/issues
-    #   src: http://githubbadges.herokuapp.com/idaholab/moose/issues.svg
-    # - href: https://github.com/idaholab/moose/pulls
-    #   src: http://githubbadges.herokuapp.com/idaholab/moose/pulls.svg
-    - href: https://www.openhub.net/p/mooseframework
-      src: https://www.openhub.net/p/mooseframework/widgets/project_thin_badge.gif
-    # - href: https://img.shields.io/github/forks/usnistgov/fipy.svg?style=social&label=Fork
-    #   src: https://github.com/usnistgov/fipy
-
-- name: deal.II
-  logo: http://dealii.org/pictures/logo100.png
-  home_page: https://www.dealii.org/
-  description: An adaptive finite element library for solving PDEs written in C++.
-  badges:
-    - href: https://raw.githubusercontent.com/dealii/dealii/master/LICENSE.rst
-      src: https://img.shields.io/badge/license-lgpl-blue.svg
-    # - href: https://github.com/dealii/dealii/issues
-    #   src: http://githubbadges.herokuapp.com/dealii/dealii/issues.svg
-    # - href: https://github.com/dealii/dealii/pulls
-    #   src: http://githubbadges.herokuapp.com/dealii/dealii/pulls.svg
-    - href: https://www.openhub.net/p/dealii
-      src: https://www.openhub.net/p/dealii/widgets/project_thin_badge.gif
-    # - href: https://travis-ci.org/dealii/dealii
-    #   src: https://travis-ci.org/dealii/dealii.svg
-    - href: https://github.com/dealii/dealii/releases/latest
-      src: https://img.shields.io/github/downloads/dealii/dealii/total.svg
-
-- name: SfePy
-  logo: http://sfepy.org/doc-devel/_static/sfepy_logo_title_small.png
-  home_page: http://sfepy.org/doc-devel/index.html
-  description: Finite element analysis software based primarily on NumPy and SciPy written in Python.
-  badges:
-    - href: https://raw.githubusercontent.com/sfepy/sfepy/master/LICENSE.rst
-      src: https://img.shields.io/badge/license-mit-blue.svg
-    # - href: https://github.com/sfepy/sfepy/issues
-    #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/issues.svg
-    # - href: https://github.com/sfepy/sfepy]/pulls
-    #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/pulls.svg
-    - href: https://www.openhub.net/p/rcs_sfepy
-      src: https://www.openhub.net/p/rcs_sfepy/widgets/project_thin_badge.gif
+  examples:
+    - name: Cahn-Hilliard
+      href: http://www.ctcms.nist.gov/fipy/examples/cahnHilliard/generated/examples.cahnHilliard.mesh2DCoupled.html
+    - name: Quaternary
+      href: http://www.ctcms.nist.gov/fipy/examples/phase/generated/examples.phase.quaternary.html
+    - name: Anisotropy
+      href: http://www.ctcms.nist.gov/fipy/examples/phase/generated/examples.phase.anisotropy.html
+    - name: Polycrystal
+      href: http://www.ctcms.nist.gov/fipy/examples/phase/generated/examples.phase.polyxtalCoupled.html
 
 - name: MMSP
   home_page: https://github.com/mesoscale/mmsp
@@ -98,3 +75,48 @@
       src: https://img.shields.io/badge/license-lgpl-blue.svg
     - href: https://www.openhub.net/p/fenics
       src: https://www.openhub.net/p/fenics/widgets/project_thin_badge.gif
+
+- name: deal.II
+  logo: http://dealii.org/pictures/logo100.png
+  home_page: http://dealii.org/
+  description: An adaptive finite element library for solving PDEs written in C++.
+  badges:
+    - href: https://raw.githubusercontent.com/dealii/dealii/master/LICENSE
+      src: https://img.shields.io/badge/license-lgpl-blue.svg
+    # - href: https://github.com/dealii/dealii/issues
+    #   src: http://githubbadges.herokuapp.com/dealii/dealii/issues.svg
+    # - href: https://github.com/dealii/dealii/pulls
+    #   src: http://githubbadges.herokuapp.com/dealii/dealii/pulls.svg
+    - href: https://www.openhub.net/p/dealii
+      src: https://www.openhub.net/p/dealii/widgets/project_thin_badge.gif
+    # - href: https://travis-ci.org/dealii/dealii
+    #   src: https://travis-ci.org/dealii/dealii.svg
+    - href: https://github.com/dealii/dealii/releases/latest
+      src: https://img.shields.io/github/downloads/dealii/dealii/total.svg
+
+- name: DUNE
+  logo: https://s3.amazonaws.com/cloud.ohloh.net/attachments/23913/dunelogo_med.png
+  home_page: http://www.dune-project.org/
+  description: >
+    A modular toolbox for solving partial differential equations with
+    grid-based methods. Supports finite element, finite volume and
+    finite difference.
+  badges:
+    - href: http://www.dune-project.org/license.html
+      src: https://img.shields.io/badge/license-gpl-blue.svg
+    - href: https://www.openhub.net/p/dune-project
+      src: https://www.openhub.net/p/dune-project/widgets/project_thin_badge.gif
+
+- name: SfePy
+  logo: http://sfepy.org/doc-devel/_static/sfepy_logo_title_small.png
+  home_page: http://sfepy.org/doc-devel/index.html
+  description: Finite element analysis software based primarily on NumPy and SciPy written in Python.
+  badges:
+    - href: https://raw.githubusercontent.com/sfepy/sfepy/master/LICENSE.rst
+      src: https://img.shields.io/badge/license-mit-blue.svg
+    # - href: https://github.com/sfepy/sfepy/issues
+    #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/issues.svg
+    # - href: https://github.com/sfepy/sfepy]/pulls
+    #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/pulls.svg
+    - href: https://www.openhub.net/p/rcs_sfepy
+      src: https://www.openhub.net/p/rcs_sfepy/widgets/project_thin_badge.gif
