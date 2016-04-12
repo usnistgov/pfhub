@@ -34,15 +34,18 @@ add_badges = (selection) ->
   a.append("img").attr("src", (d) -> d.src).attr("style", "max-width:
   100%; padding-right: 10px")
 
-add_examples = (selection) ->
-  subselection = selection.filter((d) -> "examples" of d)
+add_examples = (selection, key) ->
+  subselection = selection.filter((d) -> key of d)
+  # h5 = subselection.append("h5")
+  # h5.attr("style", "padding-top: 5px; font-size: 18px")
+  # h5.text("Examples")
   p = subselection.append("p")
-  p.attr("style", "padding-top: 10px; font-size: 15px")
+  p.attr("style", "font-size: 15px; padding-top: 10px;")
 
   set_size = (d) ->
-    for example, i in d.examples
-      example.last = (d.examples.length - 1 == i)
-    return d.examples
+    for k, i in d[key]
+      k.last = (d[key].length - 1 == i)
+    return d[key]
 
   span = p.selectAll().data(set_size).enter().append("span")
   a = span.append("a").attr("href", (d) -> d.href)
@@ -71,6 +74,8 @@ build_function = (data_text) ->
   add_header(selection)
   add_description(selection)
   add_badges(selection)
-  add_examples(selection)
+  add_examples(selection, "examples")
+  add_examples(selection, "hackathon")
+
 
 d3.text(data_file, build_function)

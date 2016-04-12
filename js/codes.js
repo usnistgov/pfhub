@@ -70,21 +70,21 @@
     }).attr("style", "max-width: 100%; padding-right: 10px");
   };
 
-  add_examples = function(selection) {
+  add_examples = function(selection, key) {
     var a, add_separator, p, set_size, span, span_, subselection;
     subselection = selection.filter(function(d) {
-      return "examples" in d;
+      return key in d;
     });
     p = subselection.append("p");
-    p.attr("style", "padding-top: 10px; font-size: 15px");
+    p.attr("style", "font-size: 15px; padding-top: 10px;");
     set_size = function(d) {
-      var example, i, j, len, ref;
-      ref = d.examples;
+      var i, j, k, len, ref;
+      ref = d[key];
       for (i = j = 0, len = ref.length; j < len; i = ++j) {
-        example = ref[i];
-        example.last = d.examples.length - 1 === i;
+        k = ref[i];
+        k.last = d[key].length - 1 === i;
       }
-      return d.examples;
+      return d[key];
     };
     span = p.selectAll().data(set_size).enter().append("span");
     a = span.append("a").attr("href", function(d) {
@@ -115,7 +115,8 @@
     add_header(selection);
     add_description(selection);
     add_badges(selection);
-    return add_examples(selection);
+    add_examples(selection, "examples");
+    return add_examples(selection, "hackathon");
   };
 
   d3.text(data_file, build_function);
