@@ -47,13 +47,13 @@ add_examples = (selection) ->
   span = p.selectAll().data(set_size).enter().append("span")
   a = span.append("a").attr("href", (d) -> d.href)
   a.attr("target", "_blank")
-  a.text((d) -> d.name)
+  a.text((d) -> d.name + " ")
 
   add_separator = (d, i) ->
     if d.last
-      return ""
+      return " "
     else
-      return "&nbsp;&nbsp;|&nbsp;&nbsp;"
+      return "&nbsp;| &nbsp;"
 
   span_ = span.append("span").html(add_separator)
 

@@ -92,13 +92,13 @@
     });
     a.attr("target", "_blank");
     a.text(function(d) {
-      return d.name;
+      return d.name + " ";
     });
     add_separator = function(d, i) {
       if (d.last) {
-        return "";
+        return " ";
       } else {
-        return "&nbsp;&nbsp;|&nbsp;&nbsp;";
+        return "&nbsp;| &nbsp;";
       }
     };
     return span_ = span.append("span").html(add_separator);
