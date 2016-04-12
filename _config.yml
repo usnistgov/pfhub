@@ -1,8 +1,8 @@
-#Change this to the name of your repo 
-baseurl: '/chimad-phase-field' 
+#Change this to the name of your repo
+baseurl: '/chimad-phase-field'
 
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
 
 collections:

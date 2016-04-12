@@ -47,6 +47,7 @@
     - name: Polycrystal
       href: http://www.ctcms.nist.gov/fipy/examples/phase/generated/examples.phase.polyxtalCoupled.html
 
+
 - name: MMSP
   home_page: https://github.com/mesoscale/mmsp
   description: >-
@@ -75,6 +76,9 @@
       src: https://img.shields.io/badge/license-lgpl-blue.svg
     - href: https://www.openhub.net/p/fenics
       src: https://www.openhub.net/p/fenics/widgets/project_thin_badge.gif
+  examples:
+    - href: http://fenicsproject.org/documentation/dolfin/1.1.0/python/demo/pde/cahn-hilliard/python/documentation.html
+      name: Cahn-Hilliard
 
 - name: deal.II
   logo: http://dealii.org/pictures/logo100.png
