@@ -63,6 +63,17 @@
     #   src: http://githubbadges.herokuapp.com/mesoscale/mmsp/pulls.svg
     - href: https://www.openhub.net/p/mmsp
       src: https://www.openhub.net/p/mmsp/widgets/project_thin_badge.gif
+  examples:
+    - name: Cahn-Hilliard
+      href: https://github.com/mesoscale/mmsp/tree/master/examples/phase_transitions/cahn-hilliard/convex_splitting
+    - name: Ostwald Ripening
+      href: https://github.com/mesoscale/mmsp/tree/master/examples/coarsening/ostwald_ripening/isotropic/phase_field
+    - name: Anisotropy
+      href: https://github.com/mesoscale/mmsp/tree/master/examples/phase_transitions/solidification/anisotropic
+    - name: Grain growth
+      href: https://github.com/mesoscale/mmsp/tree/master/examples/coarsening/grain_growth/isotropic/sparsePF
+    - name: Ising
+      href: https://github.com/mesoscale/mmsp/tree/master/examples/statistical_mechanics/Ising
 
 - name: FEniCS
   home_page: http://fenicsproject.org/
@@ -104,7 +115,7 @@
   description: >
     A modular toolbox for solving partial differential equations with
     grid-based methods. Supports finite element, finite volume and
-    finite difference.
+    finite difference written in C++.
   badges:
     - href: http://www.dune-project.org/license.html
       src: https://img.shields.io/badge/license-gpl-blue.svg
