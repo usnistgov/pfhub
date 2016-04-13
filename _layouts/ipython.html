@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    {% include head.html %}
+    {% include ipython.html %}
+  </head>
+  <body>
+    {% include navbar.html %}
+    <div class="container">
+      <div class="row small-buffer">
+        <div class="col s10" id="overview">
+          <div class="flow-text" style="font-size: 18px">
+            {{ content }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
