@@ -77,5 +77,4 @@ build_function = (data_text) ->
   add_examples(selection, "examples")
   add_examples(selection, "hackathon")
 
-
 d3.text(data_file, build_function)
