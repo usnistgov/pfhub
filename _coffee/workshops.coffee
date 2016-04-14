@@ -16,17 +16,43 @@ add_date = (selection) ->
   p.text((d) -> d.date)
 
 add_description = (selection) ->
-  p = selection.append("p").text((d) -> d.description)
+  p = selection.append("p").html((d) -> d.description)
   p.attr("style", "font-size: 20px; padding-top: 10px")
 
-add_links = (selection) ->
-  subselection = selection.filter((d) -> "links" of d)
+add_icon_links = (selection) ->
+  subselection = selection.filter((d) -> "icon_links" of d)
   p = subselection.append("p").attr("style", "padding-top: 10px")
-  a = p.selectAll().data((d) -> d.links).enter().append("a")
+  a = p.selectAll().data((d) -> d.icon_links).enter().append("a")
   a.attr("href", (d) -> d.href)
   a.attr("target", "_blank").attr("style", "padding-right: 10px")
-  a.attr("title", "download pdf")
-  i = a.append("i").attr("class", "material-icons").text("file_download")
+  a.attr("title", (d) -> d.name)
+  a.append("i").attr("class", "material-icons").text((d) -> d.type)
+
+add_examples = (selection, key) ->
+  subselection = selection.filter((d) -> key of d)
+  # h5 = subselection.append("h5")
+  # h5.attr("style", "padding-top: 5px; font-size: 18px")
+  # h5.text("Examples")
+  p = subselection.append("p")
+  p.attr("style", "font-size: 15px; padding-top: 10px;")
+
+  set_size = (d) ->
+    for k, i in d[key]
+      k.last = (d[key].length - 1 == i)
+    return d[key]
+
+  span = p.selectAll().data(set_size).enter().append("span")
+  a = span.append("a").attr("href", (d) -> d.href)
+  a.attr("target", "_blank")
+  a.text((d) -> d.name + " ")
+
+  add_separator = (d, i) ->
+    if d.last
+      return " "
+    else
+      return "&nbsp;| &nbsp;"
+
+  span_ = span.append("span").html(add_separator)
 
 build_function = (data_text) ->
   data = jsyaml.load(data_text)
@@ -41,6 +67,7 @@ build_function = (data_text) ->
   add_header(selection)
   add_date(selection)
   add_description(selection)
-  add_links(selection)
+  add_icon_links(selection)
+  add_examples(selection, "links")
 
 d3.text(data_file, build_function)

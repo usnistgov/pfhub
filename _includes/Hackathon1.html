@@ -1,0 +1,116 @@
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Hackathon-1">Hackathon 1<a class="anchor-link" href="#Hackathon-1">&#182;</a></h1><p>For the first hackathon there are two challange problems, a spinodal decomposition problem and an Ostwald ripening problem.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Challange-Problems">Challange Problems<a class="anchor-link" href="#Challange-Problems">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-Spinodal-Decomposition---Cahn-Hilliard">1. Spinodal Decomposition - Cahn-Hilliard<a class="anchor-link" href="#1.-Spinodal-Decomposition---Cahn-Hilliard">&#182;</a></h2><p>The free energy density is given by,</p>
+$$ f = f_0 \left[ c \left( \vec{r} \right) \right] + \frac{\kappa}{2} \left| \nabla c \left( \vec{r} \right) \right|^2 $$<p>where $f_0$ is the bulk free energy density given by,</p>
+$$ f_0\left[ c \left( \vec{r} \right) \right] =
+   - \frac{A}{2} \left(c - c_m\right)^2
+   + \frac{B}{4} \left(c - c_m\right)^4
+   + \frac{c_{\alpha}}{4} \left(c - c_{\alpha} \right)^4
+   + \frac{c_{\beta}}{4} \left(c - c_{\beta} \right)^4 $$<p>where $c_m = \frac{1}{2} \left( c_{\alpha} + c_{\beta} \right)$ and $c_{\alpha}$ and $c_{\beta}$ are the concentrations at which the bulk free energy density has minima (corresponding to the solubilities in the matrix phase and the second phase, respectively).</p>
+<p>The time evolution of the concentration field, $c$, is given by the Cahn-Hilliard equation:</p>
+$$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
+       D \left( c \right) \nabla \left( \frac{ \partial f_0 }{ \partial c} - \kappa \nabla^2 c \right)
+   \right] $$<p>where $D$ is the diffusivity.</p>
+<h3 id="Parameter-Values">Parameter Values<a class="anchor-link" href="#Parameter-Values">&#182;</a></h3><p>Use the following parameter values.</p>
+<table width="200">
+<tr>
+<td> $c_{\alpha}$ </td>
+<td> 0.05 </td>
+</tr>
+<tr>
+<td> $c_{\beta}$ </td>
+<td> 0.95 </td>
+</tr>
+<tr>
+<td> A </td>
+<td> 2.0 </td>
+</tr>
+<tr>
+<td> $\kappa$ </td>
+<td> 2.0 </td>
+</tr>
+</table><p>with</p>
+$$ B = \frac{A}{\left( c_{\alpha} - c_m \right)^2} $$$$ D = D_{\alpha} = D_{\beta} = \frac{2}{c_{\beta} - c_{\alpha}} $$<h3 id="Initial-Conditions">Initial Conditions<a class="anchor-link" href="#Initial-Conditions">&#182;</a></h3><p>Set $c\left(\vec{r}, t\right)$ such that</p>
+$$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \vec{r} \right) $$<p>where</p>
+<table width="200">
+<tr>
+<td> $\bar{c}_0$ </td>
+<td> 0.45 </td>
+</tr>
+<tr>
+<td> $\vec{q}$ </td>
+<td> $\left(\sqrt{2},\sqrt{3}\right)$ </td>
+</tr>
+<tr>
+<td> $\epsilon$ </td>
+<td> 0.01 </td>
+</tr>
+</table><h3 id="Domains">Domains<a class="anchor-link" href="#Domains">&#182;</a></h3><h4 id="a.-Square-Periodic">a. Square Periodic<a class="anchor-link" href="#a.-Square-Periodic">&#182;</a></h4><p>2D square domain with $L_x = L_y = 200$ and periodic boundary conditions.</p>
+<p><img src="../images/block1.svg"></p>
+<h4 id="b.-No-Flux">b. No Flux<a class="anchor-link" href="#b.-No-Flux">&#182;</a></h4><p>2D square domain with $L_x = L_y = 200$ and zero flux boundary conditions.</p>
+<h4 id="c.-T-Shape-No-Flux">c. T-Shape No Flux<a class="anchor-link" href="#c.-T-Shape-No-Flux">&#182;</a></h4><p>T-shaped reiong with zero flux boundary conditions with $a=b=100$ and $c=d=20.$</p>
+<p><img src="../images/t-shape.svg"></p>
+<h4 id="d.-Sphere">d. Sphere<a class="anchor-link" href="#d.-Sphere">&#182;</a></h4><p>Domain is the 2D manifold surface of a sphere, but with initial conditions of</p>
+$$ c\left(\theta, \phi, 0\right) = \bar{c}_0 + \epsilon \cos \left( \sqrt{233} \theta \right)
+                                                        \sin \left( \sqrt{239} \phi \right) $$<p>where $\theta$ and $\phi$ are the polar and azimuthal angles in a spherical coordinate system. $\bar{c}_0$ and $\epsilon$ are given by the values in the table above.</p>
+<h3 id="Tasks">Tasks<a class="anchor-link" href="#Tasks">&#182;</a></h3><p>Your task for each domain,</p>
+<ol>
+<li><p>Calculate the time evolution of the concentration -- store concentration at time steps to make a movie</p>
+</li>
+<li><p>Plot the free energy as a function of time steps until you judge that convergence or a local equilibrium has been reached.</p>
+</li>
+<li><p>Present wall clock time for the calculations, and wall clock time per core used in the calculation.</p>
+</li>
+<li><p>For domain a. above, demonstrate that the solution is robust with respect to meshing by refining the mesh (e.g. reduce the mesh size by about a factor of $\sqrt{2}$ in linear dimensions -- use whatever convenient way you have to refine the mesh without exploding the computational time).</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-Otswald-Ripening----coupled-Cahn-Hilliard-and-Allen-Cahn-equations">2. Otswald Ripening -- coupled Cahn-Hilliard and Allen-Cahn equations<a class="anchor-link" href="#2.-Otswald-Ripening----coupled-Cahn-Hilliard-and-Allen-Cahn-equations">&#182;</a></h2><p>Under development.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>

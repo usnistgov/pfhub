@@ -2,7 +2,7 @@ JS_DIR = js
 
 
 NOTEBOOK_IPYNB= _notebooks
-NOTEBOOK_HTML = notebooks
+NOTEBOOK_HTML = _includes
 COFFEE_DIR = _coffee
 COFFEE_SCRIPTS = $(wildcard $(COFFEE_DIR)/*.coffee)
 COFFEE_JS = $(patsubst $(COFFEE_DIR)/%.coffee,$(JS_DIR)/%.js,$(COFFEE_SCRIPTS))
@@ -27,17 +27,13 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 	python _data/hexbin.py
 
 $(NOTEBOOK_HTML)/%.html: $(NOTEBOOK_IPYNB)/%.ipynb
-	jupyter-nbconvert $< --output $@ --to html
+	jupyter-nbconvert $< --output $@ --to html --template basic
 
-copy_svg:
-	cp $(NOTEBOOK_IPYNB)/*.svg $(NOTEBOOK_HTML)/
 
 coffee: $(COFFEE_JS)
 
 hexbin: $(HEXBIN_OUT)
 
-notebooks_only: $(NOTEBOOKS_HTML)
-
-notebooks: notebooks_only copy_svg
+notebooks: $(NOTEBOOKS_HTML)
 
 print-%  : ; @echo $* = $($*)
