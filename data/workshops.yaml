@@ -13,15 +13,14 @@
       href: "mailto:daniel.wheeler@nist.gov?subject=First Phase Field Methods Workshop"
     - name: Download PDF
       type: file_download
-      href: {{ site.baseurl }}/CHiMaD_PhaseFieldWorkshop.pdf
+      href: "{{ site.baseurl }}/CHiMaD_PhaseFieldWorkshop.pdf"
 
 - name: "Phase Field Methods Workshop II"
   date: "Oct 15-17, 2015"
   href: http://planitpurple.northwestern.edu/event/479420/xJDsFEfb
   number: 2
   description: >-
-    Workshop and <a target="_blank" href="{{ site.baseurl
-    }}/hackathon1/">hackathon</a> to implement common phase field
+    Workshop and <a target="_blank" href="{{ site.baseurl }}/hackathon1/">hackathon</a> to implement common phase field
     problems in a variety of codes for comparison.
   icon_links:
     - name: contact organizer
@@ -32,7 +31,7 @@
       href: https://drive.google.com/file/d/0B4101gT3tHvebGppbGNuaDdYTXZZa1ZqbEVVNEZ2MmxUek5V/view?usp=sharing
   links:
     - name: Hackathon Challange Problems
-      href: {{ site.baseurl }}/hackathon1/#Challange-Problems
+      href: "{{ site.baseurl }}/hackathon1/#Challange-Problems"
 
 - name: "Phase Field Methods Workshop III"
   date: "May 3-5, 2016"
