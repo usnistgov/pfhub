@@ -13,7 +13,7 @@
       href: "mailto:daniel.wheeler@nist.gov?subject=First Phase Field Methods Workshop"
     - name: Download PDF
       type: file_download
-      href: "{{ site.baseurl }}/CHiMaD_PhaseFieldWorkshop.pdf"
+      href: "{{ site.baseurl }}/docs/CHiMaD_PhaseFieldWorkshop.pdf"
 
 - name: "Phase Field Methods Workshop II"
   date: "Oct 15-17, 2015"
@@ -44,3 +44,6 @@
     - name: contact organizer
       type: email
       href: "mailto:daniel.wheeler@nist.gov?subject=Third Phase Field Methods Workshop"
+  links:
+    - name: Agenda
+      href: "{{ site.baseurl }}/docs/PF_Agenda_DRAFT.pdf"
