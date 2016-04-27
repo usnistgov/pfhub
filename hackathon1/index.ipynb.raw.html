@@ -4,7 +4,64 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Hackathon-1">Hackathon 1<a class="anchor-link" href="#Hackathon-1">&#182;</a></h1><p>For the first hackathon there are two challange problems, a spinodal decomposition problem and an Ostwald ripening problem.</p>
+<h1 id="Hackathon-1">Hackathon 1<a class="anchor-link" href="#Hackathon-1">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the first hackathon there are two challange problems, a spinodal decomposition problem and an Ostwald ripening problem. The only solutions included here currently are with FiPy.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1><ul>
+<li><a href="#Hackathon-1">Hackathon 1</a></li>
+<li><a href="#Challange-Problems">Challange Problems</a><ul>
+<li><a href="#1.-Spinodal-Decomposition---Cahn-Hilliard">1. Spinodal Decomposition - Cahn-Hilliard</a><ul>
+<li><a href="#Parameter-Values">Parameter Values</a></li>
+<li><a href="#Initial-Conditions">Initial Conditions</a></li>
+<li><a href="#Domains">Domains</a><ul>
+<li><a href="#a.-Square-Periodic">a. Square Periodic</a></li>
+<li><a href="#b.-No-Flux">b. No Flux</a></li>
+<li><a href="#c.-T-Shape-No-Flux">c. T-Shape No Flux</a></li>
+<li><a href="#d.-Sphere">d. Sphere</a></li>
+</ul>
+</li>
+<li><a href="#Tasks">Tasks</a></li>
+</ul>
+</li>
+<li><a href="#2.-Otswald-Ripening----coupled-Cahn-Hilliard-and-Allen-Cahn-equations">2. Otswald Ripening -- coupled Cahn-Hilliard and Allen-Cahn equations</a><ul>
+<li><a href="#Parameter-Values">Parameter Values</a></li>
+<li><a href="#Initial-Conditions">Initial Conditions</a></li>
+<li><a href="#Domains">Domains</a><ul>
+<li><a href="#a.-Square-Periodic">a. Square Periodic</a></li>
+<li><a href="#b.-No-Flux">b. No Flux</a></li>
+<li><a href="#c.-T-Shape-No-Flux">c. T-Shape No Flux</a></li>
+<li><a href="#d.-Sphere">d. Sphere</a></li>
+</ul>
+</li>
+<li><a href="#Tasks">Tasks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Solutions<ul>
+<li><a href="fipy">FiPy</a><ul>
+<li><a href="fipy/1a.ipynb">1a. Periodic spinodal decomposition on a square domain</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -23,7 +80,16 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.-Spinodal-Decomposition---Cahn-Hilliard">1. Spinodal Decomposition - Cahn-Hilliard<a class="anchor-link" href="#1.-Spinodal-Decomposition---Cahn-Hilliard">&#182;</a></h2><p>The free energy density is given by,</p>
+<h2 id="1.-Spinodal-Decomposition---Cahn-Hilliard">1. Spinodal Decomposition - Cahn-Hilliard<a class="anchor-link" href="#1.-Spinodal-Decomposition---Cahn-Hilliard">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The free energy density is given by,</p>
 $$ f = f_0 \left[ c \left( \vec{r} \right) \right] + \frac{\kappa}{2} \left| \nabla c \left( \vec{r} \right) \right|^2 $$<p>where $f_0$ is the bulk free energy density given by,</p>
 $$ f_0\left[ c \left( \vec{r} \right) \right] =
    - \frac{A}{2} \left(c - c_m\right)^2
@@ -34,7 +100,25 @@ $$ f_0\left[ c \left( \vec{r} \right) \right] =
 $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
        D \left( c \right) \nabla \left( \frac{ \partial f_0 }{ \partial c} - \kappa \nabla^2 c \right)
    \right] $$<p>where $D$ is the diffusivity.</p>
-<h3 id="Parameter-Values">Parameter Values<a class="anchor-link" href="#Parameter-Values">&#182;</a></h3><p>Use the following parameter values.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Parameter-Values">Parameter Values<a class="anchor-link" href="#Parameter-Values">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Use the following parameter values.</p>
 <table width="200">
 <tr>
 <td> $c_{\alpha}$ </td>
@@ -53,7 +137,25 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <td> 2.0 </td>
 </tr>
 </table><p>with</p>
-$$ B = \frac{A}{\left( c_{\alpha} - c_m \right)^2} $$$$ D = D_{\alpha} = D_{\beta} = \frac{2}{c_{\beta} - c_{\alpha}} $$<h3 id="Initial-Conditions">Initial Conditions<a class="anchor-link" href="#Initial-Conditions">&#182;</a></h3><p>Set $c\left(\vec{r}, t\right)$ such that</p>
+$$ B = \frac{A}{\left( c_{\alpha} - c_m \right)^2} $$$$ D = D_{\alpha} = D_{\beta} = \frac{2}{c_{\beta} - c_{\alpha}} $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Initial-Conditions">Initial Conditions<a class="anchor-link" href="#Initial-Conditions">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Set $c\left(\vec{r}, t\right)$ such that</p>
 $$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \vec{r} \right) $$<p>where</p>
 <table width="200">
 <tr>
@@ -68,15 +170,114 @@ $$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \ve
 <td> $\epsilon$ </td>
 <td> 0.01 </td>
 </tr>
-</table><h3 id="Domains">Domains<a class="anchor-link" href="#Domains">&#182;</a></h3><h4 id="a.-Square-Periodic">a. Square Periodic<a class="anchor-link" href="#a.-Square-Periodic">&#182;</a></h4><p>2D square domain with $L_x = L_y = 200$ and periodic boundary conditions.</p>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Domains">Domains<a class="anchor-link" href="#Domains">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a.-Square-Periodic">a. Square Periodic<a class="anchor-link" href="#a.-Square-Periodic">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2D square domain with $L_x = L_y = 200$ and periodic boundary conditions.</p>
 <p><img src="../images/block1.svg"></p>
-<h4 id="b.-No-Flux">b. No Flux<a class="anchor-link" href="#b.-No-Flux">&#182;</a></h4><p>2D square domain with $L_x = L_y = 200$ and zero flux boundary conditions.</p>
-<h4 id="c.-T-Shape-No-Flux">c. T-Shape No Flux<a class="anchor-link" href="#c.-T-Shape-No-Flux">&#182;</a></h4><p>T-shaped reiong with zero flux boundary conditions with $a=b=100$ and $c=d=20.$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b.-No-Flux">b. No Flux<a class="anchor-link" href="#b.-No-Flux">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2D square domain with $L_x = L_y = 200$ and zero flux boundary conditions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="c.-T-Shape-No-Flux">c. T-Shape No Flux<a class="anchor-link" href="#c.-T-Shape-No-Flux">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>T-shaped reiong with zero flux boundary conditions with $a=b=100$ and $c=d=20.$</p>
 <p><img src="../images/t-shape.svg"></p>
-<h4 id="d.-Sphere">d. Sphere<a class="anchor-link" href="#d.-Sphere">&#182;</a></h4><p>Domain is the surface of a sphere with radius 100, but with initial conditions of</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="d.-Sphere">d. Sphere<a class="anchor-link" href="#d.-Sphere">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Domain is the surface of a sphere with radius 100, but with initial conditions of</p>
 $$ c\left(\theta, \phi, 0\right) = \bar{c}_0 + \epsilon \cos \left( \sqrt{233} \theta \right)
                                                         \sin \left( \sqrt{239} \phi \right) $$<p>where $\theta$ and $\phi$ are the polar and azimuthal angles in a spherical coordinate system. $\bar{c}_0$ and $\epsilon$ are given by the values in the table above.</p>
-<h3 id="Tasks">Tasks<a class="anchor-link" href="#Tasks">&#182;</a></h3><p>Your task for each domain,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tasks">Tasks<a class="anchor-link" href="#Tasks">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Your task for each domain,</p>
 <ol>
 <li><p>Calculate the time evolution of the concentration -- store concentration at time steps to make a movie</p>
 </li>
@@ -96,7 +297,16 @@ $$ c\left(\theta, \phi, 0\right) = \bar{c}_0 + \epsilon \cos \left( \sqrt{233} \
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.-Otswald-Ripening----coupled-Cahn-Hilliard-and-Allen-Cahn-equations">2. Otswald Ripening -- coupled Cahn-Hilliard and Allen-Cahn equations<a class="anchor-link" href="#2.-Otswald-Ripening----coupled-Cahn-Hilliard-and-Allen-Cahn-equations">&#182;</a></h2><p>Expanded problem in that the phase field, described by variables $\eta_i$, is now coupled to the concentration field $c$. The Ginzberg-Landau free energy density is now taken to be,</p>
+<h2 id="2.-Otswald-Ripening----coupled-Cahn-Hilliard-and-Allen-Cahn-equations">2. Otswald Ripening -- coupled Cahn-Hilliard and Allen-Cahn equations<a class="anchor-link" href="#2.-Otswald-Ripening----coupled-Cahn-Hilliard-and-Allen-Cahn-equations">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Expanded problem in that the phase field, described by variables $\eta_i$, is now coupled to the concentration field $c$. The Ginzberg-Landau free energy density is now taken to be,</p>
 $$ f = f_0 \left[ C \left( \vec{r} \right), \eta_1, ... , \eta_p \right]
 + \frac{\kappa_C}{2} \left[ \nabla  C \left( \vec{r} \right) \right]^2 +
 \sum_{i=1}^p \frac{\kappa_C}{2} \left[ \nabla  \eta_i \left( \vec{r} \right) \right]^2
@@ -126,7 +336,25 @@ $$
           &=& \frac{\partial f_2}{\delta \eta_i} + \frac{\partial f_3}{\delta \eta_i} - \kappa_i \nabla^2 \eta_i \left(\vec{r}, t\right) \\
           &=& L_i \gamma \left( C - C_{\alpha} \right)^2 \eta_i - L_i \beta \eta_i^3 - L_i \eta_i \sum_{j\ne i}^{p} \epsilon_{ij} \eta^2_j + L_i \kappa_i \nabla^2 \eta_i
 \end{eqnarray}
-$$<h3 id="Parameter-Values">Parameter Values<a class="anchor-link" href="#Parameter-Values">&#182;</a></h3><p>Use the following parameter values.</p>
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Parameter-Values">Parameter Values<a class="anchor-link" href="#Parameter-Values">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Use the following parameter values.</p>
 <table width="200">
 <tr>
 <td> $C_{\alpha}$ </td>
@@ -166,7 +394,25 @@ $$<h3 id="Parameter-Values">Parameter Values<a class="anchor-link" href="#Parame
 </tr>
 </table><p>with</p>
 $$ B = \frac{A}{\left( C_{\alpha} - C_m \right)^2} $$$$ \gamma = \frac{2}{\left(C_{\beta} - C_{\alpha}\right)^2} $$$$ D = D_{\alpha} = D_{\beta} = \frac{\gamma}{\delta^2} $$<p>The diffusion coefficient, $D$, is constant and isotropic and the same (unity) for both phases; the mobility-related constants, $L_i$, are the same (unity) for all phase fields.</p>
-<h3 id="Initial-Conditions">Initial Conditions<a class="anchor-link" href="#Initial-Conditions">&#182;</a></h3><p>Set $c\left(\vec{r}, t\right)$ such that</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Initial-Conditions">Initial Conditions<a class="anchor-link" href="#Initial-Conditions">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Set $c\left(\vec{r}, t\right)$ such that</p>
 $$ 
 \begin{eqnarray}
 c\left(\vec{r}, 0\right) &=& \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \vec{r} \right) \\
@@ -199,17 +445,116 @@ $$<p>where</p>
 <td> $\eta_0$ </td>
 <td> 0.0 </td>
 </tr>
-</table><h3 id="Domains">Domains<a class="anchor-link" href="#Domains">&#182;</a></h3><h4 id="a.-Square-Periodic">a. Square Periodic<a class="anchor-link" href="#a.-Square-Periodic">&#182;</a></h4><p>2D square domain with $L_x = L_y = 200$ and periodic boundary conditions.</p>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Domains">Domains<a class="anchor-link" href="#Domains">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a.-Square-Periodic">a. Square Periodic<a class="anchor-link" href="#a.-Square-Periodic">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2D square domain with $L_x = L_y = 200$ and periodic boundary conditions.</p>
 <p><img src="../images/block1.svg"></p>
-<h4 id="b.-No-Flux">b. No Flux<a class="anchor-link" href="#b.-No-Flux">&#182;</a></h4><p>2D square domain with $L_x = L_y = 200$ and zero flux boundary conditions.</p>
-<h4 id="c.-T-Shape-No-Flux">c. T-Shape No Flux<a class="anchor-link" href="#c.-T-Shape-No-Flux">&#182;</a></h4><p>T-shaped reiong with zero flux boundary conditions with $a=b=100$ and $c=d=20.$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b.-No-Flux">b. No Flux<a class="anchor-link" href="#b.-No-Flux">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2D square domain with $L_x = L_y = 200$ and zero flux boundary conditions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="c.-T-Shape-No-Flux">c. T-Shape No Flux<a class="anchor-link" href="#c.-T-Shape-No-Flux">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>T-shaped reiong with zero flux boundary conditions with $a=b=100$ and $c=d=20.$</p>
 <p><img src="../images/t-shape.svg"></p>
-<h4 id="d.-Sphere">d. Sphere<a class="anchor-link" href="#d.-Sphere">&#182;</a></h4><p>Domain is the surface of a sphere with radius 100, but with initial conditions of</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="d.-Sphere">d. Sphere<a class="anchor-link" href="#d.-Sphere">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Domain is the surface of a sphere with radius 100, but with initial conditions of</p>
 $$ c\left(\theta, \phi, 0\right) = \bar{c}_0 + \epsilon \cos \left( \sqrt{233} \theta \right)
                                                         \sin \left( \sqrt{239} \phi \right) $$<p>and</p>
 $$ \eta_i\left(\theta, \phi, 0\right) = \bar{\eta}_0 + 0.01 \epsilon_i \cos^2 \left( \sqrt{23 + i} \theta \right)
                                                         \sin^2 \left( \sqrt{149 + i} \phi \right) $$<p>where $\theta$ and $\phi$ are the polar and azimuthal angles in a spherical coordinate system and parameter values are in the table above.</p>
-<h3 id="Tasks">Tasks<a class="anchor-link" href="#Tasks">&#182;</a></h3><p>Your task for each domain,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tasks">Tasks<a class="anchor-link" href="#Tasks">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Your task for each domain,</p>
 <ol>
 <li><p>Calculate the time evolution of the concentration -- store concentration at time steps to make a movie</p>
 </li>
