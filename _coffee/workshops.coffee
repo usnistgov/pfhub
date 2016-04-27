@@ -19,6 +19,12 @@ add_description = (selection) ->
   p = selection.append("p").html((d) -> d.description)
   p.attr("style", "font-size: 20px; padding-top: 10px")
 
+add_download_attr = (data) ->
+  if data.type == "file_download"
+    return ""
+  else
+    return null
+
 add_icon_links = (selection) ->
   subselection = selection.filter((d) -> "icon_links" of d)
   p = subselection.append("p").attr("style", "padding-top: 10px")
@@ -27,6 +33,7 @@ add_icon_links = (selection) ->
   a.attr("target", "_blank").attr("style", "padding-right: 10px")
   a.attr("title", (d) -> d.name)
   a.append("i").attr("class", "material-icons").text((d) -> d.type)
+  a.attr("download", add_download_attr)
 
 add_examples = (selection, key) ->
   subselection = selection.filter((d) -> key of d)
@@ -45,6 +52,7 @@ add_examples = (selection, key) ->
   a = span.append("a").attr("href", (d) -> d.href)
   a.attr("target", "_blank")
   a.text((d) -> d.name + " ")
+  a.attr("download", add_download_attr)
 
   add_separator = (d, i) ->
     if d.last
