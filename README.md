@@ -1,15 +1,11 @@
----
-title: "Overview"
-layout: front
-permalink: "/"
----
+# CHiMaD Phase Field Website Repository
 
-In January 2015 a group of phase field theorists and code developers
-met at Northwestern University to discuss ways for the community to
-improve code collaboration efforts. Everyone agreed that the community
-needs to become more open and work in a more collaborative manner.
+<p align="center"><sup><strong>
+See the live website at <a href="https://pages.nist.gov/chimad-phase-field">pages.nist.gov/chimad-phase-fiel</a>.
+</strong></sup></p>
 
-A key factor to improving community code collaboration is to develop
-resources to compare and contrast phase field codes and
-libraries. This site aims to provide some of these resources and
-become a useful web service for phase field practitioners.
+Website to compare and contrast phase field codes.
+
+[![Gitter Chat](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/usnistgov/phase-field-website)
+
+* **[LICENSE](LICENSE)** – the license.

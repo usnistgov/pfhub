@@ -4,8 +4,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="FiPy-Hackathon-1">FiPy Hackathon 1<a class="anchor-link" href="#FiPy-Hackathon-1">&#182;</a></h1><p>The problems for hackathon 1 are given <a href="{{ site.baseurl }}/hackathon1/#Challange-Problems">here</a>.</p>
-<h2 id="1.-Spinodal-Decomposition">1. Spinodal Decomposition<a class="anchor-link" href="#1.-Spinodal-Decomposition">&#182;</a></h2><p>The free energy is given by,</p>
+<h2 id="1a.-Periodic-spinodal-decomposition-on-a-square-domain">1a. Periodic spinodal decomposition on a square domain<a class="anchor-link" href="#1a.-Periodic-spinodal-decomposition-on-a-square-domain">&#182;</a></h2><p>The free energy is given by,</p>
 $$ f_0\left[ c \left( \vec{r} \right) \right] =
    - \frac{A}{2} \left(c - c_m\right)^2
    + \frac{B}{4} \left(c - c_m\right)^4
@@ -1395,7 +1394,7 @@ DHg3VokS7b8AAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">writefile</span> fipy_hackathon_1a.py
@@ -1430,7 +1429,7 @@ steps = 0
 dt = 0.01
 total_sweeps = 2
 tolerance = 1e-1
-total_steps = 300
+total_steps = 1000
 
 c_var[:] = c_0 + epsilon * np.cos((q[:, None] * r).sum(0))
 
@@ -1476,9 +1475,61 @@ while steps &lt; total_steps:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Overwriting fipy_hackathon_1a.py
+<pre>Writing fipy_hackathon_1a.py
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Movie-of-Evolution">Movie of Evolution<a class="anchor-link" href="#Movie-of-Evolution">&#182;</a></h3><p>The movie of the evolution for 300 steps.</p>
+<p>The movie was generated with the output files of the form <code>image*.png</code> using the following commands,</p>
+
+<pre><code>$ rename 's/\d+/sprintf("%05d",$&amp;)/e' image*
+$ ffmpeg -f image2 -r 6 -i 'image%05d.png' output.mp4</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;HZz123ms0KQ&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">420</span> <span class="o">*</span> <span class="n">scale</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">315</span> <span class="o">*</span> <span class="n">scale</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[59]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+        <iframe
+            width="630.0"
+            height="472.5"
+            src="https://www.youtube.com/embed/HZz123ms0KQ?rel=0"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
+</div>
+
 </div>
 
 </div>

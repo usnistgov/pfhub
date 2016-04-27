@@ -1,8 +1,5 @@
 JS_DIR = js
 
-
-NOTEBOOK_IPYNB= _notebooks
-NOTEBOOK_HTML = _includes
 COFFEE_DIR = _coffee
 COFFEE_SCRIPTS = $(wildcard $(COFFEE_DIR)/*.coffee)
 COFFEE_JS = $(patsubst $(COFFEE_DIR)/%.coffee,$(JS_DIR)/%.js,$(COFFEE_SCRIPTS))
@@ -10,8 +7,8 @@ COFFEE_JS = $(patsubst $(COFFEE_DIR)/%.coffee,$(JS_DIR)/%.js,$(COFFEE_SCRIPTS))
 HEXBIN_OUT = images/hexbin.jpg data/hexbin.json
 HEXBIN_IN = _data/hexbin.yaml _data/hexbin.py
 
-NOTEBOOKS     = $(wildcard $(NOTEBOOK_IPYNB)/*.ipynb)
-NOTEBOOKS_HTML = $(patsubst $(NOTEBOOK_IPYNB)/%.ipynb,$(NOTEBOOK_HTML)/%.html,$(NOTEBOOKS))
+NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*")
+NOTEBOOKS_HTML := $(NOTEBOOKS:%.ipynb=%.ipynb.raw.html)
 
 .PHONY: handlebars clean preprocess
 
@@ -26,7 +23,7 @@ $(JS_DIR)/%.js: $(COFFEE_DIR)/%.coffee
 $(HEXBIN_OUT): $(HEXBIN_IN)
 	python _data/hexbin.py
 
-$(NOTEBOOK_HTML)/%.html: $(NOTEBOOK_IPYNB)/%.ipynb
+%.ipynb.raw.html: %.ipynb
 	jupyter-nbconvert $< --output $@ --to html --template basic
 
 

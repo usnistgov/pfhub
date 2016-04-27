@@ -16,3 +16,6 @@ collections:
     output: true
 
 disqus_shortname: chimad-phase-field
+
+exclude:
+  - "*.ipynb"
