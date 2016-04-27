@@ -6,6 +6,6 @@ See the live website at <a href="https://pages.nist.gov/chimad-phase-field">page
 
 Website to compare and contrast phase field codes.
 
-[![Gitter Chat](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/usnistgov/phase-field-website)
+[![Gitter Chat](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/usnistgov/chimad-phase-field)
 
 * **[LICENSE](LICENSE)** – the license.
