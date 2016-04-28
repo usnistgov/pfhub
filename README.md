@@ -9,3 +9,12 @@ Website to compare and contrast phase field codes.
 [![Gitter Chat](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/usnistgov/chimad-phase-field)
 
 * **[LICENSE](LICENSE)** – the license.
+
+## Jekyll
+
+This site uses Jekyll. To view locally use
+
+    $ jekyll serve
+
+and go to
+[http://localhost:4000/chimad-phase-field](http://localhost:4000/chimad-phase-field]).
