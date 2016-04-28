@@ -1,5 +1,5 @@
 ---
-title: "Challange Problems"
+title: "Hackathon 1"
 layout: ipython
 ---
 
