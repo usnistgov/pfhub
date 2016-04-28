@@ -100,6 +100,13 @@ body {
 .navbar-text {
     font-size: 14pt;
 }
+
+.btn-flat {
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    text-transfrom: none;
+}
 /* .navbar { */
 /*     font-size: 12pt; */
 /* } */
