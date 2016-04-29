@@ -1,0 +1,267 @@
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">code_show=true; </span>
+<span class="s1">function code_toggle() {</span>
+<span class="s1"> if (code_show){</span>
+<span class="s1"> $(&#39;div.input&#39;).hide();</span>
+<span class="s1"> $(&#39;div.prompt&#39;).hide();</span>
+<span class="s1"> } else {</span>
+<span class="s1"> $(&#39;div.input&#39;).show();</span>
+<span class="s1">$(&#39;div.prompt&#39;).show();</span>
+<span class="s1"> }</span>
+<span class="s1"> code_show = !code_show</span>
+<span class="s1">} </span>
+<span class="s1">$( document ).ready(code_toggle);</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Code Toggle&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $('div.input').hide();
+ $('div.prompt').hide();
+ } else {
+ $('div.input').show();
+$('div.prompt').show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+</script>
+<form action="javascript:code_toggle()"><input type="submit" value="Code Toggle"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Custom-Solutions">Custom Solutions<a class="anchor-link" href="#Custom-Solutions">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>No code yet</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1><ul>
+<li><a href="#Custom-Solutions">Custom Solutions</a><ul>
+<li><a href="#Spectral">Spectral</a></li>
+<li><a href="#Finite-Difference">Finite Difference</a></li>
+<li><a href="#Unknown-Method">Unknown Method</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Spectral">Spectral<a class="anchor-link" href="#Spectral">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;//www.slideshare.net/slideshow/embed_code/key/dK4zl7XPHXpKLV&#39;</span><span class="p">,</span>
+       <span class="n">width</span><span class="o">=</span><span class="s2">&quot;595&quot;</span><span class="p">,</span>
+       <span class="n">height</span><span class="o">=</span><span class="s2">&quot;485&quot;</span><span class="p">,</span>
+       <span class="n">frameborder</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+       <span class="n">marginwidth</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+       <span class="n">marginheight</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+       <span class="n">scrolling</span><span class="o">=</span><span class="s2">&quot;no&quot;</span><span class="p">,</span>
+       <span class="n">style</span><span class="o">=</span><span class="s2">&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot;</span><span class="p">)</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+        <iframe
+            width="595"
+            height="485"
+            src="//www.slideshare.net/slideshow/embed_code/key/dK4zl7XPHXpKLV?style=border%3A1px+solid+%23CCC%3B+border-width%3A1px%3B+margin-bottom%3A5px%3B+max-width%3A+100%25%3B&marginheight=0&scrolling=no&marginwidth=0&frameborder=0"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finite-Difference">Finite Difference<a class="anchor-link" href="#Finite-Difference">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;//www.slideshare.net/slideshow/embed_code/key/GeR1Zyt3bPLCd9&#39;</span><span class="p">,</span>
+       <span class="n">width</span><span class="o">=</span><span class="s2">&quot;595&quot;</span><span class="p">,</span>
+       <span class="n">height</span><span class="o">=</span><span class="s2">&quot;485&quot;</span><span class="p">,</span>
+       <span class="n">frameborder</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+       <span class="n">marginwidth</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+       <span class="n">marginheight</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+       <span class="n">scrolling</span><span class="o">=</span><span class="s2">&quot;no&quot;</span><span class="p">,</span>
+       <span class="n">style</span><span class="o">=</span><span class="s2">&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot;</span><span class="p">)</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+        <iframe
+            width="595"
+            height="485"
+            src="//www.slideshare.net/slideshow/embed_code/key/GeR1Zyt3bPLCd9?style=border%3A1px+solid+%23CCC%3B+border-width%3A1px%3B+margin-bottom%3A5px%3B+max-width%3A+100%25%3B&marginheight=0&scrolling=no&marginwidth=0&frameborder=0"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Unknown-Method">Unknown Method<a class="anchor-link" href="#Unknown-Method">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;//www.slideshare.net/slideshow/embed_code/key/FA7NEDrBTgb65Y&#39;</span><span class="p">,</span>
+       <span class="n">width</span><span class="o">=</span><span class="s2">&quot;595&quot;</span><span class="p">,</span>
+       <span class="n">height</span><span class="o">=</span><span class="s2">&quot;485&quot;</span><span class="p">,</span>
+       <span class="n">frameborder</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+       <span class="n">marginwidth</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+       <span class="n">marginheight</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+       <span class="n">scrolling</span><span class="o">=</span><span class="s2">&quot;no&quot;</span><span class="p">,</span>
+       <span class="n">style</span><span class="o">=</span><span class="s2">&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot;</span><span class="p">)</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+        <iframe
+            width="595"
+            height="485"
+            src="//www.slideshare.net/slideshow/embed_code/key/FA7NEDrBTgb65Y?style=border%3A1px+solid+%23CCC%3B+border-width%3A1px%3B+margin-bottom%3A5px%3B+max-width%3A+100%25%3B&marginheight=0&scrolling=no&marginwidth=0&frameborder=0"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
