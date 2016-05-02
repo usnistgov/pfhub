@@ -82,8 +82,8 @@
       src: https://img.shields.io/pypi/dm/FiPy.svg?style=flat
     - href: http://depsy.org/package/python/FiPy
       src: http://depsy.org/api/package/pypi/FiPy/badge.svg
-    # - href: https://img.shields.io/github/forks/usnistgov/fipy.svg?style=social&label=Fork
-    #   src: https://github.com/usnistgov/fipy
+    - href: http://mybinder.org/repo/wd15/fipy-hackathon1
+      src: http://mybinder.org/badge.svg
   examples:
     - name: Cahn-Hilliard
       href: http://www.ctcms.nist.gov/fipy/examples/cahnHilliard/generated/examples.cahnHilliard.mesh2DCoupled.html
