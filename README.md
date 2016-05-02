@@ -1,7 +1,7 @@
-# CHiMaD Phase Field Website Repository
+# <center> CHiMaD Phase Field Website Repository </center>
 
 <p align="center"><sup><strong>
-See the live website at <a href="https://pages.nist.gov/chimad-phase-field">pages.nist.gov/chimad-phase-fiel</a>.
+See the live website at <a href="https://pages.nist.gov/chimad-phase-field">pages.nist.gov/chimad-phase-field</a>.
 </strong></sup></p>
 
 Website to compare and contrast phase field codes.
