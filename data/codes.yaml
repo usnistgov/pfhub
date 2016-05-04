@@ -1,7 +1,8 @@
 ---
 # Codes for automated code descriptors on front page
 
-- name : Moose
+- name: Moose
+  logo:  http://mooseframework.org/static/media/cache/79/7e/797e5adef36a8c79400b1e09c0836407.jpg
   description: A multiphysics finite element object oriented simulation environment written in C++.
   home_page: http://mooseframework.org/
   badges:
