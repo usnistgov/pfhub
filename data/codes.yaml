@@ -150,3 +150,5 @@
   badges:
     - href: https://raw.githubusercontent.com/prisims-center/master/LICENSE
       src: https://img.shields.io/badge/license-lgpl-blue.svg
+    - href: https://www.openhub.net/p/prismsPF
+      src: https://www.openhub.net/p/prismsPF/widgets/project_thin_badge.gif
