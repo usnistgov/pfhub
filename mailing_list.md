@@ -24,8 +24,13 @@ unsubscribe in the text body.
 
 ### List Archive
 
-[http://dir.gmane.org/gmane.comp.python.chimad-phase-field](http://dir.gmane.org/gmane.comp.python.chimad-phase-field)
+The list is archived at the Mail Archive,
 
-The mailing list archive is hosted by GMANE. Any mail sent to
-<chimad-phase-field@nist.gov> will appear in this publicly available
-archive.
+[https://www.mail-archive.com/chimad-phase-field@nist.gov/](https://www.mail-archive.com/chimad-phase-field@nist.gov/)
+
+and at
+
+[https://email.nist.gov/pipermail/chimad-phase-field/](https://email.nist.gov/pipermail/chimad-phase-field/)
+
+Any mail sent to <chimad-phase-field@nist.gov> will appear in these
+publicly available archives.
