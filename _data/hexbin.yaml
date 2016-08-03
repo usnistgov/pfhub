@@ -9,32 +9,26 @@
     description: FiPy Finite Volume Code
   - image: http://www.mem.drexel.edu/ysun/files/density.png
     url: http://www.mem.drexel.edu/ysun/Solidification.htm
-    description: Solidfication Simulation
-  - image: http://www.sim.gsic.titech.ac.jp/Japanese/Member/shimokawabe/images/phase_field_shimokawabe_350_small.png
-    url: http://www.sim.gsic.titech.ac.jp/Japanese/Member/shimokawabe/research.html
-    description: Peta-scale Phase Field Simulation
+    description: Solidification Simulation
+  # Image no longer accessible
+  # - image: http://www.sim.gsic.titech.ac.jp/Japanese/Member/shimokawabe/images/phase_field_shimokawabe_350_small.png
+  #   url: http://www.sim.gsic.titech.ac.jp/Japanese/Member/shimokawabe/research.html
+  #   description: Peta-scale Phase Field Simulation
   - image: https://camo.githubusercontent.com/e1e7e96154e04f94f274485395d413878d3bacb5/687474703a2f2f7777772e6465616c69692e6f72672f696d616765732f77696b692f67616c6c6572792f47616c6c6572792d477261696e5f67726f7774682e706e67
     url: https://github.com/dealii/dealii/wiki/Gallery
     description: Dealii Finite Element Library
   - image: http://ktchu.serendipityresearch.org/research/CSE/figs/SAMR-phase_field.png
     url: http://ktchu.serendipityresearch.org/research/CSE/
-    description: Serendipity Research 
+    description: Serendipity Research
   - image: http://www.comsol.com/model/image/2054/big.png
     url: http://www.comsol.com/model/phase-separation-2054
     description: COMSOL Finite Element Tool
   - image: http://solidification.mechanical.illinois.edu/Movies/Dantzig/scn1_033.gif
     url: http://solidification.mechanical.illinois.edu/Movies/movies.html
     description: Binary Alloy Simulation
-  - image: https://www.mtm.kuleuven.be/Onderzoek/Semper/SolMicS/Images/GGGrainanisotropic/image_preview
-    url: https://www.mtm.kuleuven.be/Onderzoek/Semper/SolMicS/Research/GrainStructuresF
-    description: Evolution of Grain Structures
   - image: http://www.chaos.umd.edu/gallery/spiral3.jpg
     url: http://www.chaos.umd.edu/gallery/pattern.html
     description: Ginzburg-Landau Equation
-# link is broken
-#  - image: http://www.mpie.de/typo3temp/pics/bbe3fe01f2.png
-#    url: http://www.mpie.de/index.php?id=triplejunction
-#    description: Modeling of Polycrystalline Microstructure Evolution
   - image: http://dantzig.mechanical.illinois.edu/PFC/t24rg_rotflip.jpg
     url: http://dantzig.mechanical.illinois.edu/
     description: Phase Field Crystal Modeling of Microstructure
@@ -50,15 +44,33 @@
   - image: http://users.ices.utexas.edu/~jrc/ccm/itamit/granasy1.jpg
     description: Phase Field Theory of Polycrystalline Freezing
     url: http://users.ices.utexas.edu/~jrc/ccm/itamit/abstracts.php
-  - image: http://spaceflight.esa.int/impress/text/pop-up/phase.jpg 
+  - image: http://spaceflight.esa.int/impress/text/pop-up/phase.jpg
     url: http://spaceflight.esa.int/impress/text/pop-up/phase.html
     description: 2D Phase Field Simulations of Polycrystalline Solidification
   - image: http://www.cis.kit.ac.jp/~takaki/phase/movie/pfc1_def.gif
     url: http://www.cis.kit.ac.jp/~takaki/phase/pfc1_e.html
     description: Phase-Field-Crystal Simulations for Solidification and Deformation
-  - image: http://magnetserver.cmpe.ubc.ca/wiki/images/thumb/8/80/RGBLable_border_Uniform_2000.png/250px-RGBLable_border_Uniform_2000.png
-    url: http://magnetserver.cmpe.ubc.ca/wiki/index.php/Sina_Shahandeh
-    description: Simulated grain structure using phase field method
-  - image: http://physics.clarku.edu/~hwang/research/pics/langevin/Langevin2DSnap.jpg
-    url: http://physics.clarku.edu/~hwang/research/phase_field_contents.html
-    description: Phase field model of protein coat dynamics
+  - image: https://i.ytimg.com/vi/S6_6Z-BDycA/hqdefault.jpg
+    url: https://www.youtube.com/watch?v=S6_6Z-BDycA
+    description: 2D multi-phase-field simulation of polycrystalline grain growth
+  - image: https://www.mri.psu.edu/sites/default/files/pictures/phase-field-fig1-anim.gif
+    url: https://www.mri.psu.edu/materials-computation-center/methods/phase-field-method
+    description: Phase Field Modeling for Ferroelectric Materials
+  - image: http://n-e-r-v-o-u-s.com/blog/wp-content/uploads/2011/03/phase_field_foam-298x298.jpg
+    url: http://n-e-r-v-o-u-s.com/blog/?p=1380
+    description: Emergence of foams from the breakdown of the phase field crystal mode
+  - image: https://i.ytimg.com/vi/rVGKAP2oD7w/hqdefault.jpg
+    url: https://www.youtube.com/watch?v=rVGKAP2oD7w
+    description: Phase field crystal simulation of three randomly oriented grains
+  - image: https://i.ytimg.com/vi/OTofNTbqPpY/hqdefault.jpg
+    url: https://www.youtube.com/watch?v=OTofNTbqPpY
+    description: https://www.youtube.com/watch?v=OTofNTbqPpY
+  - image: https://i.ytimg.com/vi/46oW57Pakeo/hqdefault.jpg
+    url: https://www.youtube.com/watch?v=46oW57Pakeo
+    description: Phase Field Crystal Simulation- GrainGrowth one component
+  - image: https://cdn.comsol.com/wordpress/2015/12/rotating-drum-with-three-phase-flow.png
+    url: https://www.comsol.com/blogs/simulate-three-phase-flow-with-a-new-phase-field-interface/
+    description: Multiphase Flow
+  - image: http://materials.mcmaster.ca/faculty/provatas/myimages/dendrite.gif
+    url: http://materials.mcmaster.ca/faculty/provatas/solid.php
+    description: Dendritic Growth with Surface Tension Anisotropy

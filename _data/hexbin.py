@@ -5,9 +5,13 @@ import urllib
 from PIL import Image
 import progressbar
 import numpy as np
+import requests
 
 def hexbin_yaml_to_json(ni, nj):
     data = yaml.load(open('_data/hexbin.yaml', 'r'))
+
+    for item in data:
+        assert requests.get(item['url']).status_code == 200
 
     N = len(data)
 
@@ -28,7 +32,7 @@ def thumbnail_image(image_url, size):
         fd = urllib.urlopen(image_url)
         image_file = io.BytesIO(fd.read())
     except:
-        print "image_url:",image_url
+        print("image_url:", image_url)
         raise
     im = Image.open(image_file)
     size = list(size)
@@ -49,12 +53,12 @@ def hexbin_image(data, X, Y, ni, nj):
                progressbar.Bar(marker=progressbar.RotatingMarker()),
                ' ',
                progressbar.ETA()]
-    
+
     pbar = progressbar.ProgressBar(widgets=widgets, maxval=len(data)).start()
 
     for i, d in enumerate(data):
         image_url = d['image']
-        im = thumbnail_image(image_url, (X, Y))  
+        im = thumbnail_image(image_url, (X, Y))
         d['thumbnail'] = im
         pbar.update(i + 1)
 
@@ -67,7 +71,7 @@ def hexbin_image(data, X, Y, ni, nj):
             ii = (i * ni + j) % len(data)
             im = data[ii]['thumbnail']
             blank_image.paste(im, (X * j, Y * i))
-    
+
     blank_image.save('images/hexbin.jpg', 'JPEG')
 
 if __name__ == '__main__':
@@ -76,10 +80,3 @@ if __name__ == '__main__':
     X, Y = 173, 200 ## thumbnail size
     data = hexbin_yaml_to_json(ni, nj)
     hexbin_image(data, X, Y, ni, nj)
-
-
-
-    
-
-
-
