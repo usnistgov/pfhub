@@ -74,3 +74,12 @@
   - image: http://materials.mcmaster.ca/faculty/provatas/myimages/dendrite.gif
     url: http://materials.mcmaster.ca/faculty/provatas/solid.php
     description: Dendritic Growth with Surface Tension Anisotropy
+  - image: http://img.youtube.com/vi/8HZkync4Cns/0.jpg
+    url: https://youtu.be/8HZkync4Cns
+    description: MOOSE -- GrainTracker order parameter remapping system
+  - image: http://img.youtube.com/vi/pB7A8Gpc-zo/0.jpg
+    url: https://youtu.be/pB7A8Gpc-zo
+    description: MOOSE -- Periodic strain boundary condition
+  - image: http://img.youtube.com/vi/AzJLMO8W2kk/0.jpg
+    url: https://youtu.be/AzJLMO8W2kk
+    description: MOOSE -- Discrete nucleation sites in phase field
