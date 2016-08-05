@@ -2,7 +2,7 @@
 (function() {
   var add_date, add_description, add_download_attr, add_examples, add_header, add_icon_links, add_logo, build_function, data_file;
 
-  data_file = "data/workshops.yaml";
+  data_file = "../data/workshops.yaml";
 
   add_logo = function(selection) {
     var i;
