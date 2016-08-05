@@ -8,7 +8,7 @@ import numpy as np
 import requests
 
 def hexbin_yaml_to_json(ni, nj):
-    data = yaml.load(open('_data/hexbin.yaml', 'r'))
+    data = yaml.load(open('data/hexbin.yaml', 'r'))
 
     for item in data:
         assert requests.get(item['url']).status_code == 200
