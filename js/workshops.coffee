@@ -1,4 +1,8 @@
-data_file = "data/workshops.yaml"
+---
+title: check
+---
+
+data_file = "../data/workshops.yaml"
 
 add_logo = (selection) ->
   i = selection.append("i").attr("class", "circle light-green lighen-1")

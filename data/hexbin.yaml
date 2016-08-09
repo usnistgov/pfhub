@@ -1,0 +1,215 @@
+---
+# Image locations for hexbin array on front page splash
+
+  - image: http://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Phase_field_order_parameter.jpg/280px-Phase_field_order_parameter.jpg
+    url: http://en.wikipedia.org/wiki/Phase_field_models
+    title: Wikipedia Phase Field Entry
+    description: >-
+      A phase field model is a mathematical model for solving
+      interfacial problems. It has mainly been applied to
+      solidification dynamics, but it has also been applied to other
+      situations such as viscous fingering, fracture dynamics, vesicle
+      dynamics, etc.
+
+  - image: http://www.ctcms.nist.gov/fipy/_static/examples/phase/anisotropy/dendrite.png
+    url: http://www.ctcms.nist.gov/fipy/
+    title: Dendritic growth using the phase field method
+    description: >-
+      Simulated using FiPy.
+
+  - image: http://www.mem.drexel.edu/ysun/files/density.png
+    url: http://www.mem.drexel.edu/ysun/Solidification.htm
+    title: Solidification Simulation
+    description: >-
+      Phase-Field Simulation of Solidification (Collaborator:
+      Prof. Christoph Beckermann, University of Iowa)
+
+  - image: https://camo.githubusercontent.com/e1e7e96154e04f94f274485395d413878d3bacb5/687474703a2f2f7777772e6465616c69692e6f72672f696d616765732f77696b692f67616c6c6572792f47616c6c6572792d477261696e5f67726f7774682e706e67
+    url: https://github.com/dealii/dealii/wiki/Gallery
+    title: Phase field modeling of the normal grain growth
+    description: >-
+      Using Dealii finite element library
+
+  - image: http://ktchu.serendipityresearch.org/research/CSE/figs/SAMR-phase_field.png
+    url: http://ktchu.serendipityresearch.org/research/CSE/
+    title: SAMR, phase-field simulation of dendritic growth
+    description: >-
+      Structured adaptive mesh refinement - phase-field simulation of
+      dendritic growth during solidification. (Image courtesy of Chin
+      Yi Chee at IHPC)
+
+  - image: http://www.comsol.com/model/image/2054/big.png
+    url: http://www.comsol.com/model/phase-separation-2054
+    description: >-
+      Phase separation occurs when a binary system is quenched from
+      its stable, homogeneous one-phase state into the two-phase
+      region of its phase diagram (using COMSOL).
+    title: Phase Separation
+
+  - image: http://solidification.mechanical.illinois.edu/Movies/Dantzig/scn1_033.gif
+    url: http://solidification.mechanical.illinois.edu/Movies/movies.html
+    title: Phase-field simulation of binary alloy solidification
+    description: >-
+      Simulation of directional solidification of a
+      Succinonitrile-Acetone alloy using the phase-field method (see
+      Chapter 8). The simulation uses an adaptive grid that follows
+      the solid-sliquid interface. (with Nik Provatas)
+
+  - image: http://www.chaos.umd.edu/gallery/spiral3.jpg
+    url: http://www.chaos.umd.edu/gallery/pattern.html
+    title: Ginzburg-Landau Equation
+    description: >-
+      The phase field resulting from a simulation of the complex
+      Ginzburg-Landau equation. Several frames from a 100 x 100 domain
+      with 512x512 grid points. See Target waves in the complex
+      Ginzburg-Landau equation, Phys. Rev. E 62, 7627-7631 (2000)
+
+  - image: http://dantzig.mechanical.illinois.edu/PFC/t24rg_rotflip.jpg
+    url: http://dantzig.mechanical.illinois.edu/
+    title: Phase Field Crystal Modeling of Microstructure Development
+    description: >-
+      The evolving density field for a simulation of heterogeneous
+      nucleation and growth in an undercooled melt.
+
+  - url: http://www.uwethiele.de/
+    title: Localized solutions of the phase-field crystal equation
+    image: http://pauli.uni-muenster.de/~thiele/Jpg/Thie13_fig12g.jpg
+    description: >-
+      Steady-state localized solutions of the conserved
+      Swift-Hohenberg (or phase-field crystal) equation. For details
+      see U. Thiele, A. J. Archer, M. J. Robbins, H. Gomez and
+      E. Knobloch, Phys. Rev. E 87, 042915 (2013).
+
+  - url: https://www.youtube.com/watch?v=0BijYlB28ME
+    title: Phase Field Model for Grain Growth with Second Phase
+    image: http://i.ytimg.com/vi/0BijYlB28ME/maxresdefault.jpg
+    description: >-
+      Moelans N., Blanpain B., Wollants P., "A phase field model for
+      the simulation of grain growth in materials containing finely
+      dispersed incoherent second-phase particles", Acta Mater., 53
+      (6), 1771-1781, 2005
+
+  - title: A Simulated Dendrite of Copper-Nickel Alloy
+    url: http://www.nist.gov/itl/math/hpcvg/dendrite.cfm
+    image: http://www.nist.gov/itl/math/hpcvg/upload/cover-dendrite.jpg
+    description: >-
+      A simulated dendrite of a copper-nickel alloy as it is
+      growing. The surface coloring represents the relative
+      concentration of each of the two metals at the surface of the
+      dendrite.
+
+  - image: http://users.ices.utexas.edu/~jrc/ccm/itamit/granasy1.jpg
+    title: Phase Field Theory of Polycrystalline Freezing
+    url: http://users.ices.utexas.edu/~jrc/ccm/itamit/abstracts.php
+    description: >-
+      A phase field theory of polycrystalline solidification that
+      incorporates noise-induced nucleation of grains with different
+      crystallographic orientations, the effect of foreign particles,
+      and polycrystalline branching with fixed orientational misfit.
+
+
+  - image: http://spaceflight.esa.int/impress/text/pop-up/phase.jpg
+    url: http://spaceflight.esa.int/impress/text/pop-up/phase.html
+    title: 2D Phase Field Simulations of Polycrystalline Solidification
+    description: >-
+      2D phase field simulations of polycrystalline solidification, on
+      cover of Nature Materials (Sept. 2004). (Courtesy of L. Granasy
+      et al, SZFKI, Hungary)
+
+  - image: http://www.cis.kit.ac.jp/~takaki/phase/movie/pfc1_def.gif
+    url: http://www.cis.kit.ac.jp/~takaki/phase/pfc1_e.html
+    title: Phase-Field-Crystal Simulations for Solidification and Deformation
+    description: >-
+      Deformation simulation by changing finite difference grid size,
+      see Development of numerical scheme for phase field crystal
+      deformation simulation T. Hirouchi, T. Takaki, Y. Tomita
+      Computational Materials Science, Vol.44, 2009/2, 1192-1197
+
+  - image: https://i.ytimg.com/vi/S6_6Z-BDycA/hqdefault.jpg
+    url: https://www.youtube.com/watch?v=S6_6Z-BDycA
+    title: 2D multi-phase-field simulation of polycrystalline grain growth
+    description: >-
+      2D multi-phase-field simulation of polycrystalline grain growth
+
+  - image: https://www.mri.psu.edu/sites/default/files/pictures/phase-field-fig1-anim.gif
+    url: https://www.mri.psu.edu/materials-computation-center/methods/phase-field-method
+    title: Phase Field Modeling for Ferroelectric Materials
+    description: >-
+      Phase Field Modeling for Ferroelectric Materials Chen,
+      Long‐Qing. "Phase‐Field Method of Phase Transitions/Domain
+      Structures in Ferroelectric Thin Films: A Review." Journal of
+      the American Ceramic Society 91, no. 6 (2008): 1835-1844
+
+  - image: http://n-e-r-v-o-u-s.com/blog/wp-content/uploads/2011/03/phase_field_foam-298x298.jpg
+    title: Emergence of foams from the breakdown of the phase field crystal model
+    url: http://n-e-r-v-o-u-s.com/blog/?p=1380
+    description: Emergence of foams from the breakdown of the phase field crystal model.
+
+  - image: https://i.ytimg.com/vi/rVGKAP2oD7w/hqdefault.jpg
+    url: https://www.youtube.com/watch?v=rVGKAP2oD7w
+    title: Phase field crystal simulation of three randomly oriented grains
+    description: Phase field crystal simulation of three randomly oriented grains
+
+  - image: https://i.ytimg.com/vi/OTofNTbqPpY/hqdefault.jpg
+    url: https://www.youtube.com/watch?v=OTofNTbqPpY
+    description: >-
+      Longer term dynamics of the conservative phase field evolution
+      using the Cahn-Hilliard formulation.
+    title: Cahn-Hilliard Simulation
+
+  - image: https://i.ytimg.com/vi/46oW57Pakeo/hqdefault.jpg
+    url: https://www.youtube.com/watch?v=46oW57Pakeo
+    description: >-
+      K. R. Elder and M. Grant, "Modeling elastic and plastic
+      deformations in nonequilibrium processing using phase field
+      crystals" Phys. Rev. E 70, 051605 (2004)
+    title:  Phase Field Crystal Simulation- GrainGrowth one component
+
+  - image: https://cdn.comsol.com/wordpress/2015/12/rotating-drum-with-three-phase-flow.png
+    url: https://www.comsol.com/blogs/simulate-three-phase-flow-with-a-new-phase-field-interface/
+    title: Multiphase Flow
+    description: >-
+      Simulation results of a rotating drum with three-phase flow,
+      performed by a COMSOL Multiphysics user with equation-based
+      modeling. The description used in this new flow interface, the
+      Three-Phase Flow, Phase Field interface, is a separated
+      multiphase flow model.
+
+  - image: http://materials.mcmaster.ca/faculty/provatas/myimages/dendrite.gif
+    url: http://materials.mcmaster.ca/faculty/provatas/solid.php
+    title: Dendritic Growth with Surface Tension Anisotropy
+    description: >-
+      Typical computations of thermal dendrites grown at high
+      undercooling. We simulate a dendritic crystal starting from a
+      circular nucleus growing into an undercooled melt.
+
+  - image: http://img.youtube.com/vi/8HZkync4Cns/0.jpg
+    url: https://youtu.be/8HZkync4Cns
+    title: MOOSE -- GrainTracker order parameter remapping system
+    description: >-
+      Poly crystalline phase field simulation in MOOSE. Thousands of
+      grains are represented with just over a dozen phase field order
+      parameters.
+
+  - image: http://img.youtube.com/vi/pB7A8Gpc-zo/0.jpg
+    url: https://youtu.be/pB7A8Gpc-zo
+    title: MOOSE -- Periodic strain boundary condition
+    description: >-
+      Phase field mechanics coupling with periodic strain boundary
+      conditions.
+
+
+  - image: http://img.youtube.com/vi/AzJLMO8W2kk/0.jpg
+    url: https://youtu.be/AzJLMO8W2kk
+    title: MOOSE -- Discrete nucleation sites in phase field
+    description: >-
+      MOOSE discrete nucleation system inserting nucletion sites in a
+      phase field simulation.
+
+  - image: https://i.ytimg.com/vi/IWJreldRjfs/maxresdefault.jpg
+    url: https://www.youtube.com/watch?v=IWJreldRjfs
+    title: Phase Field Modeling simulation for Ostwald ripening
+    description: >-
+      D.Fan, S. P. Chen, L. -Q. Chen, and P. W. Voorhees, "Phase-field
+      simulation of 2-D Ostwald ripening in the high volume fraction
+      regime " Acta Mater. 50, 1895 (2002)

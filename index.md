@@ -1,6 +1,19 @@
 ---
-title: "Overview"
 layout: front
+comment: >-
+  Integrating the phase field community
+collections:
+  - header: Benchmarks
+    tag: benchmarks
+    js: benchmarks
+    comment:
+      Benchmark problems vetted by the community to test, validate and
+      verify phase field codes (read an
+      [extended overview](benchmarks){:target="_blank"}).
+  - header: Codes
+    tag: codes
+    js: codes
+    comment:
 ---
 
 In January 2015 a group of phase field theorists and code developers

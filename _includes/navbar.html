@@ -1,3 +1,10 @@
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="{{ site.baseurl }}/workshops" class="navbar-text">Workshops</a></li>
+  <li><a href="{{ site.baseurl }}/links">Links</a></li>
+  <li><a href="{{ site.baseurl }}/hackathon1">Hackathon 1</a></li>
+  <li><a href="{{ site.baseurl }}/hackathon2">Hackathon 2</a></li>
+</ul>
+
 <nav class="light-green lighten-1">
   <div class="nav-wrapper container">
 
@@ -8,22 +15,20 @@
              title="home">
           <i class="medium material-icons">home</i>
       </a></li>
-      <li><a href="{{ site.baseurl }}/#workshops" class="navbar-text">Workshops</a></li>
+      <li><a href="{{ site.baseurl }}/#benchmarks" class="navbar-text">Benchmarks</a></li>
       <li><a href="{{ site.baseurl }}/#codes" class="navbar-text">Codes</a></li>
 
-      <!-- <li><a href="{{ site.baseurl }}/hackathon1" class="navbar-text">Hackathon 1</a></li> -->
+      <li>
+        <a href="#!"
+           data-activates="dropdown1"
+           class="dropdown-button"
+           title="more">
+          <i class="medium material-icons">
+            more_vert
+          </i>
+        </a>
+      </li>
 
-      <a class='dropdown-button btn-flat light-green ligten-4'
-         href='#'
-         data-activates='dropdown1',
-         constrainWidth="false"
-         style="text-transform: none; font-size: 18.6667px; padding-left: 10px; padding-right: 10px">
-        Hackathons
-      </a>
-      <ul id='dropdown1' class='dropdown-content' style="font-size: 15px;">
-        <li><a href="{{ site.baseurl }}/hackathon1" style="font-size: 15px;">Hackathon 1</a></li>
-        <li><a href="{{ site.baseurl }}/hackathon2" style="font-size: 15px;">Hackathon 2</a></li>
-      </ul>
     </ul>
 
     <ul class="side-nav" id="mobile-demo">
@@ -31,37 +36,43 @@
              title="home">
           <i class="medium material-icons">home</i>
       </a></li>
-      <li><a href="{{ site.baseurl }}/#workshops" class="navbar-text">Workshops</a></li>
+
+      <li><a href="{{ site.baseurl }}/#benchmarks" class="navbar-text">Benchmarks</a></li>
       <li><a href="{{ site.baseurl }}/#codes" class="navbar-text">Codes</a></li>
+      <li><a href="{{ site.baseurl }}/workshops" class="navbar-text">Workshops</a></li>
+      <li><a href="{{ site.baseurl }}/links" class="navbar-text">Links</a></li>
       <li><a href="{{ site.baseurl }}/hackathon1" class="navbar-text">Hackathon 1</a></li>
       <li><a href="{{ site.baseurl }}/hackathon2" class="navbar-text">Hackathon 2</a></li>
+      <li><a href="{{ site.baseurl }}/mailing_list" class="navbar-text">Mailing List</a></li>
+      <li><a href="{{ site.links.chat }}" class="navbar-text">Chat</a></li>
+      <li><a href="{{ site.links.github }}" class="navbar-text">GitHub</a></li>
     </ul>
 
-    <ul class="right hide-on-med-down">
+    <ul class="right hide-on-med-and-down">
       <li><a target="_blank"
              href="{{ site.baseurl }}/mailing_list/"
              title="mailing list">
           <i class="medium material-icons">email</i>
       </a></li>
       <li><a target="_blank"
-             href="https://gitter.im/usnistgov/chimad-phase-field"
+             href="{{ site.links.chat }}"
              title="open chat">
           <i class="medium material-icons">chat</i>
       </a></li>
       <li><a target="_blank"
-             href="https://github.com/usnistgov/chimad-phase-field"
+             href="{{ site.links.github }}"
              title="github">
           <i class="medium material-icons">
             <img style="width: 28px; height: 28px" src="{{ site.baseurl}}/images/circle.svg" alt="Github">
           </i>
       </a></li>
-      <li>
-        <a target="_blank"
-           href="http://chimad.northwestern.edu/"
-           title="open chimad">
-          <img style="width: 100px; height: 65px" src="{{ site.baseurl }}/images/ChiMaD_Final.svg" alt="chimad">
-        </a>
-      </li>
+      <!-- <li> -->
+      <!--   <a target="_blank" -->
+      <!--      href="http://chimad.northwestern.edu/" -->
+      <!--      title="open chimad"> -->
+      <!--     <img style="width: 100px; height: 65px" src="{{ site.baseurl }}/images/ChiMaD_Final.svg" alt="chimad"> -->
+      <!--   </a> -->
+      <!-- </li> -->
     </ul>
   </div>
 </nav>

@@ -1,3 +1,6 @@
+---
+---
+
 data_file = "data/codes.yaml"
 
 add_logo = (selection) ->

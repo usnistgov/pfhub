@@ -15,7 +15,18 @@ collections:
   cards:
     output: true
 
-disqus_shortname: chimad-phase-field
-
 exclude:
   - "*.ipynb"
+
+
+
+links:
+  contributors: https://github.com/usnistgov/chimad-phase-field/graphs/contributors
+  license: https://github.com/usnistgov/chimad-phase-field/blob/nist-pages/LICENSE
+  repo: usnistgov/chimad-phase-field
+  github: https://github.com/usnistgov/chimad-phase-field
+  chat: https://gitter.im/usnistgov/chimad-phase-field
+
+title: CHiMaD Phase Field
+
+gems: [jekyll-coffeescript]

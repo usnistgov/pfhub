@@ -124,7 +124,7 @@ d3.json( '{{site.baseurl}}/data/hexbin.json' , function(data){
         .attr("xlink:target", "_blank")
         .attr("xlink:show", "new")
         .attr("xlink:href", function(d) { return d.example.url; })
-        .attr("xlink:title", function(d) { return d.example.description; })
+        .attr("xlink:title", function(d) { return d.example.title; })
       .append("path")
         .attr("d", hexbin.hexagon());
 

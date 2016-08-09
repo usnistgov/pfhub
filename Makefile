@@ -5,7 +5,7 @@ COFFEE_SCRIPTS = $(wildcard $(COFFEE_DIR)/*.coffee)
 COFFEE_JS = $(patsubst $(COFFEE_DIR)/%.coffee,$(JS_DIR)/%.js,$(COFFEE_SCRIPTS))
 
 HEXBIN_OUT = images/hexbin.jpg data/hexbin.json
-HEXBIN_IN = _data/hexbin.yaml _data/hexbin.py
+HEXBIN_IN = data/hexbin.yaml _data/hexbin.py
 
 NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*" -not -path "./_site/*")
 NOTEBOOKS_HTML := $(NOTEBOOKS:%.ipynb=%.ipynb.raw.html)

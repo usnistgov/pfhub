@@ -6,7 +6,7 @@
 <meta name="author" content="">
 
 
-<title>CHiMaD Phase Field Community</title>
+<title>{{ site.title }}</title>
 
 <!-- Use d3 to replace jquery stuff -->
 <script src="{{site.baseurl}}/js/d3.min.js"></script>
@@ -16,11 +16,12 @@
 
 <script>
   ((window.gitter = {}).chat = {}).options = {
-    room: 'usnistgov/chimad-phase-field'
+    room: '{{ site.links.repo }}'
   };
 
   $(document).ready(function(){
     $(".button-collapse").sideNav();
+    $(".dropdown-button").dropdown();
   });
 </script>
 
