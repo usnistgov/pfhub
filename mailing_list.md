@@ -1,6 +1,7 @@
 ---
 title: "Mailing List"
-layout: mailing_list
+layout: essay
+comment: Sign up for the mailing list
 ---
 
 In order to discuss this repository with other users, we encourage you

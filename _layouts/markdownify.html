@@ -1,7 +1,0 @@
-{% comment %}
-Precompile the rendered Jekyll content
-Structure the output data as you wish and store your
-own mental model.
-{% endcomment %}
-{% assign rendered = page.content | markdownify %}
-{[ {{page | jsonify}} ],[ {{ content | escape | markdownify }} ]}
