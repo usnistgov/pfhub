@@ -35,18 +35,18 @@
 #     - href: https://github.com/dealii/dealii/releases/latest
 #       src: https://img.shields.io/github/downloads/dealii/dealii/total.svg
 
-- name: DUNE
-  logo: https://s3.amazonaws.com/cloud.ohloh.net/attachments/23913/dunelogo_med.png
-  home_page: http://www.dune-project.org/
-  description: >
-    A modular toolbox for solving partial differential equations with
-    grid-based methods. Supports finite element, finite volume and
-    finite difference written in C++.
-  badges:
-    - href: http://www.dune-project.org/license.html
-      src: https://img.shields.io/badge/license-gpl-blue.svg
-    - href: https://www.openhub.net/p/dune-project
-      src: https://www.openhub.net/p/dune-project/widgets/project_thin_badge.gif
+# - name: DUNE
+#   logo: https://s3.amazonaws.com/cloud.ohloh.net/attachments/23913/dunelogo_med.png
+#   home_page: http://www.dune-project.org/
+#   description: >
+#     A modular toolbox for solving partial differential equations with
+#     grid-based methods. Supports finite element, finite volume and
+#     finite difference written in C++.
+#   badges:
+#     - href: http://www.dune-project.org/license.html
+#       src: https://img.shields.io/badge/license-gpl-blue.svg
+#     - href: https://www.openhub.net/p/dune-project
+#       src: https://www.openhub.net/p/dune-project/widgets/project_thin_badge.gif
 
 - name: FEniCS
   home_page: http://fenicsproject.org/

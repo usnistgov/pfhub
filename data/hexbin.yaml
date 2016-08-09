@@ -205,3 +205,11 @@
     description: >-
       MOOSE discrete nucleation system inserting nucletion sites in a
       phase field simulation.
+
+  - image: https://i.ytimg.com/vi/IWJreldRjfs/maxresdefault.jpg
+    url: https://www.youtube.com/watch?v=IWJreldRjfs
+    title: Phase Field Modeling simulation for Ostwald ripening
+    description: >-
+      D.Fan, S. P. Chen, L. -Q. Chen, and P. W. Voorhees, "Phase-field
+      simulation of 2-D Ostwald ripening in the high volume fraction
+      regime " Acta Mater. 50, 1895 (2002)

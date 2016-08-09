@@ -1,0 +1,9 @@
+- title: Cahn-Hilliard
+  url: "hackathon1/problems.ipynb/#1.-Spinodal-Decomposition---Cahn-Hilliard"
+  description: Test the diffusion of a solute in a matrix.
+  image: http://www.comsol.com/model/image/2054/big.png
+
+- title: Ostwald Ripening
+  url: "hackathon1/problems.ipynb/#2.-Otswald-Ripening----coupled-Cahn-Hilliard-and-Allen-Cahn-equations"
+  description: Test coupling of conserved and non-conserved dynamics.
+  image: https://i.ytimg.com/vi/IWJreldRjfs/maxresdefault.jpg
