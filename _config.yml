@@ -28,3 +28,5 @@ links:
   chat: https://gitter.im/usnistgov/chimad-phase-field
 
 title: CHiMaD Phase Field
+
+gems: [jekyll-coffeescript]

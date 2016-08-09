@@ -1,3 +1,6 @@
+---
+---
+
 data_file = "data/benchmarks.yaml"
 
 add_logo = (selection) ->

@@ -1,3 +1,7 @@
+---
+title: check
+---
+
 data_file = "../data/workshops.yaml"
 
 add_logo = (selection) ->

@@ -1,3 +1,6 @@
+---
+---
+
 data_file = '../data/hexbin.yaml'
 
 add_logo = (selection) ->
