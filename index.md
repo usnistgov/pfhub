@@ -1,5 +1,4 @@
 ---
-title: "CHiMaD Phase Field"
 layout: front
 comment: >-
   Integrating the phase field community

@@ -18,8 +18,6 @@
       <li><a href="{{ site.baseurl }}/#benchmarks" class="navbar-text">Benchmarks</a></li>
       <li><a href="{{ site.baseurl }}/#codes" class="navbar-text">Codes</a></li>
 
-      <!-- <li><a href="{{ site.baseurl }}/hackathon1" class="navbar-text">Hackathon 1</a></li> -->
-
       <li>
         <a href="#!"
            data-activates="dropdown1"
@@ -46,8 +44,8 @@
       <li><a href="{{ site.baseurl }}/hackathon1" class="navbar-text">Hackathon 1</a></li>
       <li><a href="{{ site.baseurl }}/hackathon2" class="navbar-text">Hackathon 2</a></li>
       <li><a href="{{ site.baseurl }}/mailing_list" class="navbar-text">Mailing List</a></li>
-      <li><a href="https://gitter.im/usnistgov/chimad-phase-field" class="navbar-text">Chat</a></li>
-      <li><a href="https://github.com/usnistgov/chimad-phase-field" class="navbar-text">GitHub</a></li>
+      <li><a href="{{ site.links.chat }}" class="navbar-text">Chat</a></li>
+      <li><a href="{{ site.links.github }}" class="navbar-text">GitHub</a></li>
     </ul>
 
     <ul class="right hide-on-med-and-down">
@@ -57,12 +55,12 @@
           <i class="medium material-icons">email</i>
       </a></li>
       <li><a target="_blank"
-             href="https://gitter.im/usnistgov/chimad-phase-field"
+             href="{{ site.links.chat }}"
              title="open chat">
           <i class="medium material-icons">chat</i>
       </a></li>
       <li><a target="_blank"
-             href="https://github.com/usnistgov/chimad-phase-field"
+             href="{{ site.links.github }}"
              title="github">
           <i class="medium material-icons">
             <img style="width: 28px; height: 28px" src="{{ site.baseurl}}/images/circle.svg" alt="Github">
