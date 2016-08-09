@@ -1,7 +1,10 @@
 ---
-title: "Workshops"
-layout: default
+title: "Phase Field Workshops"
+layout: collection
+comment: Workshops at Northwestern to develop benchmark problems
+collections:
+  - header: Workshops
+    tag: workshops
+    js: workshops
+    comment:
 ---
-
-{% include title.html header="Phase Field Workshops" comment="Workshops at Northwestern to develop benchmark problems" %}
-{% include collection.html header="Workshops" tag="workshops" js="workshops" %}

@@ -1,10 +1,13 @@
 ---
-title: "Benchmarks"
-layout: default
+layout: essay
+title: "Phase Field Benchmark Problems Overview"
+author: "Olle Heinonen"
+author_url: http://www.msd.anl.gov/heinonen
+comment: >-
+  Extended essay outlining the motivation for phase field benchmark
+  problems
 ---
 
-{% capture main_content %}
-<p>
 Many important processes in materials microstructural evolution, such
 as coarsening, solidification, polycrystalline grain evolution,
 magnetic and ferroelectric domain formation and motion, occur on
@@ -25,7 +28,7 @@ macroscopic external forces, for example conductivity, elastic
 properties, or susceptibilities. The responses are given in terms of
 macroscopic constitutive equations. The relevant length and time
 scales range from micrometers and milli- or microseconds and up.
-</p><p>
+
 The mesoscale, our area of concern, comprises length scales larger
 than several unit cells but small enough to resolve microstrutural
 entities such as crystalline grains or ferromagnetic/ferroelectric
@@ -37,7 +40,7 @@ time-evolution in mesoscale modeling compared to atomistic
 modeling. Mesoscale dynamics is dissipative, so that forces give rise
 to velocities, as opposed to acceleration in atomistic modeling
 (although hydrodynamic and dissipative dynamics can be coupled).
-</p><p>
+
 There are two general approaches to mesoscale modeling. One approach
 models interfaces as sharp boundaries of one lower dimension than the
 structural domains they separate, such as crystalline grains or
@@ -51,7 +54,7 @@ and topological changes such as particles merging. This benefit is not
 without cost, as the interface, typically of the order of a nanometer,
 has to be resolved, yielding considerably more computationally intense
 calculations.
-</p><p>
+
 One way to implement diffuse interfaces is using phase fields. These
 are smooth and continuous fields that describe local
 microstructure. For example, a two-phase system, can be described by a
@@ -65,7 +68,7 @@ fields, each one representing a particular variant.  The phase field
 (and other, associated, order-parameter-based approaches) method has
 been used to study dendritic growth, spinodal decomposition, grain
 growth, and ferroelectric domain formation, to name a few phenomena.
-</p><p>
+
 As phase field modeling has gained popularity, a variety of codes have
 emerged. Some of them are community-based codes, such as MOOSE,
 FEnICs, or DUNE, and some are proprietary or in-house. With this
@@ -81,22 +84,22 @@ modeled as well as numerical methods implemented in micromagnetic
 codes, but were still designed to be not too computationally
 demanding. The National Institute of Standards and Technology has
 played a coordinating role in the development and management of these
-problems, and also hosts a website for the Micromagnetic Standard
-Problems (http://www.ctcms.nist.gov/~rdm/mumag.org.html), as well as
-solutions submitted by the community. The Micromagnetic Standard
-Problems were extremely useful to the community in the development of
-codes such as OOMMF, Mumax, and Magpar. It should be noted that the
-Micromagnetic Standard Problems continue to evolve as new physics,
-such as spin torque and Dzyaloshinksii-Moriya interactions, is added
-to the micromagnetic canon.
-</p><p>
+problems, and also hosts a
+[website for the Micromagnetic Standard Problems](http://www.ctcms.nist.gov/~rdm/mumag.org.html){:target="_blank"},
+as well as solutions submitted by the community. The Micromagnetic
+Standard Problems were extremely useful to the community in the
+development of codes such as OOMMF, Mumax, and Magpar. It should be
+noted that the Micromagnetic Standard Problems continue to evolve as
+new physics, such as spin torque and Dzyaloshinksii-Moriya
+interactions, is added to the micromagnetic canon.
+
 Inspired by the Micromagnetic Standard Problems, the Center for
 Hierarchical Materials Design (CHiMaD) is partnering with NIST and the
 phase field community to develop a set of benchmark problems for the
 phase field modeling and development community. These problems are
 vetted by the community in workshops and Hackathons, and then posted
 on this open-access website.
-</p><p>
+
 These phase field benchmark problems are designed to exhibit several
 key features. The problems are nontrivial and exhibit differing
 degrees of computational complexity but are not prohibitively
@@ -104,23 +107,12 @@ computationally demanding. The outputs are defined to be easily
 comparable between different codes. The problems are also constructed
 test a simple, targeted aspect of either the numerical implementation
 or the physics.
-</p><p>
+
 The first set of Benchmark Problems involve diffusion of a solute and
 grain growth. Technically, they use the Cahn-Hilliard equation for a
 conserved order parameter, and coupled Cahn-Hilliard and Allen-Cahn
 equations for conserved and non-conserved order parameters. A second
 set has been tested on a workshop and Hackathon, and will be posted in
 the near future.
-</p>
-<p>
-  <a href="{{ site.baseurl }}/#benchmarks"
-     target="_blank">
-    List of benchmark problems
-  </a>
-</p>
-</p>
-{% endcapture %}
 
-{% include title.html header="Benchmarks Overview" comment="Extended essay outlining the motivation for phase field benchmark problems" %}
-
-{% include textblock.html content=main_content %}
+[List of benchmarks problems]({{ site.baseurl }}/#benchmarks){:target="_blank"}

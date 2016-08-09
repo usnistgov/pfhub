@@ -2,9 +2,18 @@
   <div class="row">
     <div class="col s8 offset-s2">
       <h2 class="header">
-        {{ include.header }}
+        {{ page.title }}
       </h2>
-      <h5><i>{{ include.comment }}</i></h5>
+      <h5><i>{{ page.comment }}</i></h5>
+      <h5>
+        {% if page.author %}
+          by
+          <a href="{{ page.author_url}}"
+             target="_blank">
+            {{ page.author }}
+          </a>
+        {% endif %}
+      </h5>
     </div>
   </div>
 </div>

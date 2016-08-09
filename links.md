@@ -1,7 +1,11 @@
 ---
-title: "Links"
-layout: default
+title: "Phase Field Links"
+layout: collection
+comment: >-
+  Links to research sites with phase field images
+collections:
+  - header: Links
+    tag: links
+    js: links
+    comment:
 ---
-
-{% include title.html header="Phase Field Links" comment="Links to research sites with phase field images" %}
-{% include collection.html header="Links" tag="links" js="links" %}

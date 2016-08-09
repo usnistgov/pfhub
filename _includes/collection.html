@@ -4,9 +4,9 @@
       <h5 class="sideheader">{{ include.header }}</h5>
     </div>
     <div class="col s10">
-      {% if include.description %}
+      {% if include.comment %}
         <div class="flow-text" style="font-size: 20px">
-          {{ include.description }}
+          <i>{{ include.comment | markdownify }} </i>
         </div>
       {% endif %}
       <ul class="collection" id="{{ include.tag }}" style="border-color: transparent;">
