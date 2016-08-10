@@ -16,6 +16,15 @@
       src: https://www.openhub.net/p/mooseframework/widgets/project_thin_badge.gif
     # - href: https://img.shields.io/github/forks/usnistgov/fipy.svg?style=social&label=Fork
     #   src: https://github.com/usnistgov/fipy
+  examples:
+    - href: http://mooseframework.org/wiki/MooseTutorials/IronChromiumDecomposition/
+      name: Fe-Cr Phase Decomposition
+    - href: https://github.com/idaholab/moose/tree/devel/modules/phase_field/examples/cahn-hilliard
+      name: Cahn-Hilliard
+    - href: https://github.com/idaholab/moose/tree/devel/modules/phase_field/examples/grain_growth
+      name: Grain Growth
+    - href: https://github.com/idaholab/moose/tree/devel/modules/phase_field/examples/nucleation
+      name: Nucleation
 
 # - name: deal.II
 #   logo: http://dealii.org/pictures/logo100.png
@@ -98,19 +107,19 @@
     - name: Hackathon repo
       href: https://github.com/guyer/phase_field_hackathon_I
 
-- name: SfePy
-  logo: http://sfepy.org/doc-devel/_static/sfepy_logo_title_small.png
-  home_page: http://sfepy.org/doc-devel/index.html
-  description: Finite element analysis software based primarily on NumPy and SciPy written in Python.
-  badges:
-    - href: https://raw.githubusercontent.com/sfepy/sfepy/master/LICENSE.rst
-      src: https://img.shields.io/badge/license-mit-blue.svg
-    # - href: https://github.com/sfepy/sfepy/issues
-    #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/issues.svg
-    # - href: https://github.com/sfepy/sfepy]/pulls
-    #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/pulls.svg
-    - href: https://www.openhub.net/p/rcs_sfepy
-      src: https://www.openhub.net/p/rcs_sfepy/widgets/project_thin_badge.gif
+# - name: SfePy
+#   logo: http://sfepy.org/doc-devel/_static/sfepy_logo_title_small.png
+#   home_page: http://sfepy.org/doc-devel/index.html
+#   description: Finite element analysis software based primarily on NumPy and SciPy written in Python.
+#   badges:
+#     - href: https://raw.githubusercontent.com/sfepy/sfepy/master/LICENSE.rst
+#       src: https://img.shields.io/badge/license-mit-blue.svg
+#     # - href: https://github.com/sfepy/sfepy/issues
+#     #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/issues.svg
+#     # - href: https://github.com/sfepy/sfepy]/pulls
+#     #   src: http://githubbadges.herokuapp.com/sfepy/sfepy/pulls.svg
+#     - href: https://www.openhub.net/p/rcs_sfepy
+#       src: https://www.openhub.net/p/rcs_sfepy/widgets/project_thin_badge.gif
 
 - name: MMSP
   home_page: https://github.com/mesoscale/mmsp
@@ -136,8 +145,6 @@
       href: https://github.com/mesoscale/mmsp/tree/master/examples/phase_transitions/solidification/anisotropic
     - name: Grain growth
       href: https://github.com/mesoscale/mmsp/tree/master/examples/coarsening/grain_growth/isotropic/sparsePF
-    - name: Ising
-      href: https://github.com/mesoscale/mmsp/tree/master/examples/statistical_mechanics/Ising
   hackathon:
     - name: Hackathon repo
       href: https://github.com/tkphd/CHiMaD-Hackathon
@@ -152,3 +159,12 @@
       src: https://img.shields.io/badge/license-lgpl-blue.svg
     - href: https://www.openhub.net/p/prismsPF
       src: https://www.openhub.net/p/prismsPF/widgets/project_thin_badge.gif
+  examples:
+    - href: https://github.com/prisms-center/phaseField/tree/master/applications/cahnHilliard
+      name: Cahn-Hilliard
+    - href: https://github.com/prisms-center/phaseField/tree/master/applications/allenCahn
+      name: Allen-Cahn
+    - name: Precipitation
+      href: https://github.com/prisms-center/phaseField/tree/master/applications/betaPrimePrecipitateEvolution
+    - href: https://github.com/prisms-center/phaseField/tree/master/applications/coupledCahnHilliardAllenCahn
+      name: Coupled Cahn-Hilliard Allen-Cahn

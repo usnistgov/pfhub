@@ -14,6 +14,7 @@ collections:
     tag: codes
     js: codes
     comment:
+      Codes with well documented, annotated examples that demonstrate the phase field method.
 ---
 
 In January 2015 a group of phase field theorists and code developers
