@@ -5,8 +5,6 @@ data_file = "../data/community.yaml"
 
 converter = new showdown.Converter()
 
-console.log showdown
-
 add_logo = (selection) ->
   subselection = selection.filter((d) -> "image" of d)
   subselection = subselection.append("img").attr("src", (d) -> d.image)
@@ -68,3 +66,15 @@ build_function = (data_file) ->
   add_icon_links(selection)
 
 d3.text(data_file, build_function)
+
+# Test using Google Spreadsheets on pages.nist.gov
+
+myData = (data) ->
+  console.log(data)
+
+get_spreadsheet_data = ->
+  console.log("hello")
+  URL = "https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=1GYRlRnvkAOBpFQYz0C1QCGnTqF53mAkcm_TjLI-1B6A&output=html"
+  Tabletop.init({key: URL, callback: myData, simpleSheet: true})
+
+document.addEventListener("DOMContentLoaded", get_spreadsheet_data)
