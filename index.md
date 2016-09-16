@@ -3,7 +3,7 @@ layout: front
 comment: >-
   Integrating the phase field community
 collections:
-  - header: Benchmarks
+  - header: Benchmark Problems
     tag: benchmarks
     js: benchmarks
     comment:
