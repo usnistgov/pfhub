@@ -29,9 +29,11 @@ The list is archived at the Mail Archive,
 
 [https://www.mail-archive.com/chimad-phase-field@nist.gov/](https://www.mail-archive.com/chimad-phase-field@nist.gov/)
 
-and at
+<!-- The NIST email achive is dead! -->
 
-[https://email.nist.gov/pipermail/chimad-phase-field/](https://email.nist.gov/pipermail/chimad-phase-field/)
+<!-- and at -->
+
+<!-- [https://email.nist.gov/pipermail/chimad-phase-field/](https://email.nist.gov/pipermail/chimad-phase-field/) -->
 
 Any mail sent to <chimad-phase-field@nist.gov> will appear in these
 publicly available archives.
