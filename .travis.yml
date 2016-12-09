@@ -18,4 +18,4 @@ install:
 script:
   - find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
   - make notebooks
-  - jekyll build -d ./_site/chimad-phase-field && htmlproofer ./_site
+  - jekyll build -d ./_site/chimad-phase-field && htmlproofer --disable-external --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
