@@ -12,7 +12,7 @@ install:
   - conda info -a
   - conda create -q -y -n test-environment python=3
   - source activate test-environment
-  - conda install -q -y -n test-environment jupyter
+  - conda install -q -y -n test-environment jupyter pillow
   - pip install progressbar2
   - unset VIRTUAL_ENV
   - gem install jekyll jekyll-coffeescript html-proofer
