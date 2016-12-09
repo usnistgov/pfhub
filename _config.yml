@@ -17,6 +17,7 @@ collections:
 
 exclude:
   - "*.ipynb"
+  - "*.ipynb.raw.html"
 
 
 
