@@ -14,8 +14,8 @@ install:
   - source activate test-environment
   - conda install -q -y -n test-environment jupyter
   - unset VIRTUAL_ENV
-  - gem install jekyll jekyll-coffeescript
+  - gem install jekyll jekyll-coffeescript html-proofer
 script:
   - find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
   - make notebooks
-  - jekyll serve
+  - jekyll build -d ./_site/chimad-phase-field && htmlproofer ./_site

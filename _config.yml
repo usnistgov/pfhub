@@ -18,7 +18,7 @@ collections:
 exclude:
   - "*.ipynb"
   - "*.ipynb.raw.html"
-
+  - vendor
 
 
 links:
