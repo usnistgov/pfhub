@@ -4,27 +4,58 @@ layout: essay
 comment: How to develop this web site
 ---
 
-The following sections are an overview on how to update the website
-for that particular element. The website is tested on Travis CI using
-[html-proofer](). The `.travis.yml` file has a lot of clues about
-installation. These instructions have only been tested on Ubuntu and
-on Travis CI.
+The following is an overview on how to update the website for each
+particular element. The website is tested on
+[Travis CI](https://travis-ci.org/usnistgov/chimad-phase-field) using
+[html-proofer](https://github.com/gjtorikian/html-proofer), which
+automatically checks the site for errors.. The [`.travis.yml`]({{
+site.links.github }}/blob/nist-pages/.travis.yml) contains everything
+required to build the website. Note that the instructions below may
+become out of date with the [`.travis.yml`]({{ site.links.github
+}}/blob/nist-pages/.travis.yml) file and have only been tested on
+Ubuntu and on Travis CI.
 
-### View the Website locally
+## Build and Serve the Website
 
-### Add a New Phase Field Code
+The site uses the [Jekyll](https://jekyllrb.com) static web site
+generator. To build the environment require to serve the site, use the
+following commands,
 
-### Update and Build the Hexbin
+    $ sudo apt-get update
+    $ sudo apt-get install ruby
+    $ gem install jekyll jekyll-coffeescript
 
-### Add a new workshop
+Then clone the GitHub repository
 
-### Update the Community Page
+    $ git clone https://github.com/usnistgov/chimad-phase-field.git
+    $ cd chimad-phase-field
+    $ jekyll serve
 
-### Add a Jupyter Notebook
+At this point Jekyll should be serving the website. Go to
+[http://localhost:4000/chimad-phase-field](http://localhost:4000/chimad-phase-field])
+to view the site.
 
-### Add a new Benchmark Problem
+## Add a New Phase Field Code
 
+To add a new phase field code to the list of codes on the front page,
+follow the [submission instructions]({{ site.baseurl
+}}/sumbit_a_new_code) on the main site. Jekyll will automatically
+rebuild the site after `codes.yaml` is editied.
 
+## Add a new workshop
+
+To add a new workshop edit the [`workshop`]({{ site.links.github
+}}/blob/nist-pages/data/workshops.yaml)
+
+## Update the Community Page
+
+## Update and Build the Hexbin
+
+## Add a Jupyter Notebook
+
+## Add a new Benchmark Problem
+
+## Testing
 
 This site uses Jekyll. To view locally use
 

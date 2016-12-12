@@ -1,5 +1,5 @@
 ---
-title: "Challange Problems"
+title: ""
 layout: ipython
 ---
 
