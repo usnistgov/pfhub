@@ -1,6 +1,6 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/usnistgov/chimad-phase-field/nist-pages/images/hexbin.jpg"
-     height="100"
+<img src="https://raw.githubusercontent.com/usnistgov/chimad-phase-field/nist-pages/images/favicon/favicon-96x96.png"
+     height="96"
      alt="CHiMaD logo"
      class="inline">
 </p>
@@ -23,7 +23,7 @@ alt="Gitter Chat">
 <img src="https://api.travis-ci.org/usnistgov/chimad-phase-field.svg"
 alt="Travis CI">
 </a>
-<a href="https://github.com/usnistgov/chimad-phase-field/blob/master/LICENSE.md">
+<a href="https://github.com/usnistgov/chimad-phase-field/blob/nist-pages/LICENSE.md">
 <img src="https://img.shields.io/badge/license-mit-blue.svg" alt="License" height="18">
 </a>
 </p>
@@ -33,5 +33,5 @@ alt="Travis CI">
 The CHiMaD phase field site is a location to compare and constrast
 phase field codes. See the
 [main web site](https://pages.nist.gov/chimad-phase-field) for more
-details. To develop the website, please see the
-[development Guide][DEVELOPMENT].
+details. To develop or update the site, please see the
+[Development Guide](https://pages.nist.gov/chimad-phase-field/DEVELOPMENT).
