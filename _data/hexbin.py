@@ -11,6 +11,7 @@ def hexbin_yaml_to_json(ni, nj):
     data = yaml.load(open('data/hexbin.yaml', 'r'))
 
     for item in data:
+        print("getting item: ", item['url'])
         assert requests.get(item['url']).status_code == 200
 
     N = len(data)
@@ -29,8 +30,8 @@ def hexbin_yaml_to_json(ni, nj):
 
 def thumbnail_image(image_url, size):
     try:
-        fd = urllib.urlopen(image_url)
-        image_file = io.BytesIO(fd.read())
+        with urllib.request.urlopen(image_url) as fd:
+            image_file = io.BytesIO(fd.read())
     except:
         print("image_url:", image_url)
         raise
@@ -44,7 +45,8 @@ def thumbnail_image(image_url, size):
             size[0] = size[1]
     im.thumbnail(size, Image.ANTIALIAS)
     im0 = Image.new('RGBA', size, (255, 255, 255, 0))
-    im0.paste(im, ((size[0] - im.size[0]) / 2, (size[1] - im.size[1]) / 2))
+
+    im0.paste(im, ((size[0] - im.size[0]) // 2, (size[1] - im.size[1]) // 2))
     return im0
 
 def hexbin_image(data, X, Y, ni, nj):

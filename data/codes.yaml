@@ -86,8 +86,8 @@
     #   src: http://githubbadges.herokuapp.com/usnistgov/fipy/pulls.svg
     - href: https://www.openhub.net/p/fipy
       src: https://www.openhub.net/p/fipy/widgets/project_thin_badge.gif
-    # - href: https://travis-ci.org/usnistgov/fipy
-    #   src: https://travis-ci.org/usnistgov/fipy.svg
+    - href: https://travis-ci.org/usnistgov/fipy
+      src: https://travis-ci.org/usnistgov/fipy.svg
     - href: https://pypi.python.org/pypi/FiPy/3.1
       src: https://img.shields.io/pypi/dm/FiPy.svg?style=flat
     - href: http://depsy.org/package/python/FiPy

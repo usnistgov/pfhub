@@ -46,14 +46,14 @@
       region of its phase diagram (using COMSOL).
     title: Phase Separation
 
-  - image: http://solidification.mechanical.illinois.edu/Movies/Dantzig/scn1_033.gif
-    url: http://solidification.mechanical.illinois.edu/Movies/movies.html
-    title: Phase-field simulation of binary alloy solidification
-    description: >-
-      Simulation of directional solidification of a
-      Succinonitrile-Acetone alloy using the phase-field method (see
-      Chapter 8). The simulation uses an adaptive grid that follows
-      the solid-sliquid interface. (with Nik Provatas)
+  # - image: http://solidification.mechanical.illinois.edu/Movies/Dantzig/scn1_033.gif
+  #   url: http://solidification.mechanical.illinois.edu/Movies/movies.html
+  #   title: Phase-field simulation of binary alloy solidification
+  #   description: >-
+  #     Simulation of directional solidification of a
+  #     Succinonitrile-Acetone alloy using the phase-field method (see
+  #     Chapter 8). The simulation uses an adaptive grid that follows
+  #     the solid-sliquid interface. (with Nik Provatas)
 
   - image: http://www.chaos.umd.edu/gallery/spiral3.jpg
     url: http://www.chaos.umd.edu/gallery/pattern.html
@@ -89,14 +89,14 @@
       dispersed incoherent second-phase particles", Acta Mater., 53
       (6), 1771-1781, 2005
 
-  - title: A Simulated Dendrite of Copper-Nickel Alloy
-    url: http://www.nist.gov/itl/math/hpcvg/dendrite.cfm
-    image: http://www.nist.gov/itl/math/hpcvg/upload/cover-dendrite.jpg
-    description: >-
-      A simulated dendrite of a copper-nickel alloy as it is
-      growing. The surface coloring represents the relative
-      concentration of each of the two metals at the surface of the
-      dendrite.
+  # - title: A Simulated Dendrite of Copper-Nickel Alloy
+  #   url: http://www.nist.gov/itl/math/hpcvg/dendrite.cfm
+  #   image: http://www.nist.gov/itl/math/hpcvg/upload/cover-dendrite.jpg
+  #   description: >-
+  #     A simulated dendrite of a copper-nickel alloy as it is
+  #     growing. The surface coloring represents the relative
+  #     concentration of each of the two metals at the surface of the
+  #     dendrite.
 
   - image: http://users.ices.utexas.edu/~jrc/ccm/itamit/granasy1.jpg
     title: Phase Field Theory of Polycrystalline Freezing

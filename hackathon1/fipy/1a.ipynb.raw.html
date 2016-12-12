@@ -70,11 +70,11 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">sympy</span>
-<span class="kn">import</span> <span class="nn">fipy</span> <span class="kn">as</span> <span class="nn">fp</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">fipy</span> <span class="k">as</span> <span class="nn">fp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 
 </div>
@@ -87,7 +87,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">c_m</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">c_alpha</span><span class="p">,</span> <span class="n">c_beta</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;A c_var c_m B c_alpha c_beta&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">c_m</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">c_alpha</span><span class="p">,</span> <span class="n">c_beta</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;A c_var c_m B c_alpha c_beta&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -100,7 +100,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">f_0</span> <span class="o">=</span> <span class="o">-</span> <span class="n">A</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">B</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_m</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="n">c_alpha</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_alpha</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="n">c_beta</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_beta</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f_0</span> <span class="o">=</span> <span class="o">-</span> <span class="n">A</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">B</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_m</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="n">c_alpha</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_alpha</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="n">c_beta</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">c_beta</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
 </pre></div>
 
 </div>
@@ -113,7 +113,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">f_0</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="n">f_0</span>
 </pre></div>
 
 </div>
@@ -140,7 +140,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">f_0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">f_0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -169,7 +169,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first step in implementing any problem in FiPy is to define the mesh. For <a href="{{ site.baseurl }}/hackathon1/#a.-Square-Periodic">Problem 1a</a> the solution domain is just a square domain, but the boundary conditions are periodic, so a <code>PeriodicGrid2D</code> object is used. No other boundary conditions are required.</p>
+<p>The first step in implementing any problem in FiPy is to define the mesh. For <a href="{{ site.baseurl }}/hackathon1/problems.ipynb/#a.-Square-Periodic">Problem 1a</a> the solution domain is just a square domain, but the boundary conditions are periodic, so a <code>PeriodicGrid2D</code> object is used. No other boundary conditions are required.</p>
 
 </div>
 </div>
@@ -179,7 +179,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">PeriodicGrid2D</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">PeriodicGrid2D</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -202,7 +202,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">c_alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c_alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
 <span class="n">c_beta</span> <span class="o">=</span> <span class="mf">0.95</span>
 <span class="n">A</span> <span class="o">=</span> <span class="mf">2.0</span>
 <span class="n">kappa</span> <span class="o">=</span> <span class="mf">2.0</span>
@@ -213,7 +213,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">))</span>
 <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.01</span>
 
-<span class="n">c_var</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">CellVariable</span><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">r&quot;$c$&quot;</span><span class="p">,</span> <span class="n">hasOld</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">c_var</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">CellVariable</span><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">r&quot;$c$&quot;</span><span class="p">,</span> <span class="n">hasOld</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -237,8 +237,8 @@ $$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \ve
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">mesh</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
-<span class="n">c_var</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">c_0</span> <span class="o">+</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="n">q</span><span class="p">[:,</span> <span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">mesh</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+<span class="n">c_var</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">c_0</span> <span class="o">+</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="n">q</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="n">viewer</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">Viewer</span><span class="p">(</span><span class="n">c_var</span><span class="p">)</span>
 </pre></div>
 
@@ -253,7 +253,7 @@ $$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \ve
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>/home/wd15/anaconda/lib/python2.7/site-packages/matplotlib/collections.py:590: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
-  if self._edgecolors == str(&apos;face&apos;):
+  if self._edgecolors == str(&#39;face&#39;):
 </pre>
 </div>
 </div>
@@ -781,7 +781,7 @@ cBgZGaUtM3AYGRmlLTNwGBkZpa3/B4Fn8sX4aS0QAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">f_0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">f_0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -794,7 +794,7 @@ cBgZGaUtM3AYGRmlLTNwGBkZpa3/B4Fn8sX4aS0QAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">exec</span> <span class="s2">&quot;f_0_var = &quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exec</span> <span class="s2">&quot;f_0_var = &quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -807,7 +807,7 @@ cBgZGaUtM3AYGRmlLTNwGBkZpa3/B4Fn8sX4aS0QAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#f_0_var = -A + 3*B*(c_var - c_m)**2 + 3*c_alpha*(c_var - c_alpha)**2 + 3*c_beta*(c_var - c_beta)**2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#f_0_var = -A + 3*B*(c_var - c_m)**2 + 3*c_alpha*(c_var - c_alpha)**2 + 3*c_beta*(c_var - c_beta)**2</span>
 <span class="n">f_0_var</span>
 </pre></div>
 
@@ -846,7 +846,7 @@ cBgZGaUtM3AYGRmlLTNwGBkZpa3/B4Fn8sX4aS0QAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">eqn</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">TransientTerm</span><span class="p">(</span><span class="n">coeff</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span> <span class="o">==</span> <span class="n">fp</span><span class="o">.</span><span class="n">DiffusionTerm</span><span class="p">(</span><span class="n">D</span> <span class="o">*</span> <span class="n">f_0_var</span><span class="p">)</span> <span class="o">-</span> <span class="n">fp</span><span class="o">.</span><span class="n">DiffusionTerm</span><span class="p">((</span><span class="n">D</span><span class="p">,</span> <span class="n">kappa</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eqn</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">TransientTerm</span><span class="p">(</span><span class="n">coeff</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span> <span class="o">==</span> <span class="n">fp</span><span class="o">.</span><span class="n">DiffusionTerm</span><span class="p">(</span><span class="n">D</span> <span class="o">*</span> <span class="n">f_0_var</span><span class="p">)</span> <span class="o">-</span> <span class="n">fp</span><span class="o">.</span><span class="n">DiffusionTerm</span><span class="p">((</span><span class="n">D</span><span class="p">,</span> <span class="n">kappa</span><span class="p">))</span>
 <span class="n">eqn</span>
 </pre></div>
 
@@ -895,11 +895,11 @@ cBgZGaUtM3AYGRmlLTNwGBkZpa3/B4Fn8sX4aS0QAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">elapsed</span> <span class="o">=</span> <span class="mf">0.0</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">elapsed</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">steps</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="n">total_sweeps</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">tolerance</span> <span class="o">=</span> <span class="mf">1e-1</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">1</span>
 <span class="n">total_steps</span> <span class="o">=</span> <span class="mi">100</span>
 </pre></div>
 
@@ -913,9 +913,9 @@ cBgZGaUtM3AYGRmlLTNwGBkZpa3/B4Fn8sX4aS0QAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">c_var</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">c_0</span> <span class="o">+</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="n">q</span><span class="p">[:,</span> <span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c_var</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">c_0</span> <span class="o">+</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="n">q</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="n">c_var</span><span class="o">.</span><span class="n">updateOld</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">fipy.solvers.pysparse</span> <span class="kn">import</span> <span class="n">LinearLUSolver</span> <span class="k">as</span> <span class="n">Solver</span>
+<span class="kn">from</span> <span class="nn">fipy.solvers.pysparse</span> <span class="k">import</span> <span class="n">LinearLUSolver</span> <span class="k">as</span> <span class="n">Solver</span>
 <span class="n">solver</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">()</span>
 
 <span class="k">while</span> <span class="n">steps</span> <span class="o">&lt;</span> <span class="n">total_steps</span><span class="p">:</span>
@@ -934,7 +934,7 @@ cBgZGaUtM3AYGRmlLTNwGBkZpa3/B4Fn8sX4aS0QAAAAAElFTkSuQmCC
         <span class="n">c_var</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">c_var</span><span class="o">.</span><span class="n">old</span>
 
 <span class="n">viewer</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="k">print</span> <span class="s1">&#39;elapsed_time:&#39;</span><span class="p">,</span><span class="n">elapsed</span>
+<span class="nb">print</span> <span class="s1">&#39;elapsed_time:&#39;</span><span class="p">,</span><span class="n">elapsed</span>
 </pre></div>
 
 </div>
@@ -1480,7 +1480,7 @@ DHg3VokS7b8AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">writefile</span> fipy_hackathon_1a.py
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">writefile</span> fipy_hackathon_1a.py
 
 import fipy as fp
 import numpy as np
@@ -1595,7 +1595,7 @@ $ ffmpeg -f image2 -r 6 -i 'image%05d.png' output.mp4</code></pre>
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.5</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;t3tMYp806E4&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">420</span> <span class="o">*</span> <span class="n">scale</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">315</span> <span class="o">*</span> <span class="n">scale</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
@@ -1633,7 +1633,7 @@ $ ffmpeg -f image2 -r 6 -i 'image%05d.png' output.mp4</code></pre>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>
