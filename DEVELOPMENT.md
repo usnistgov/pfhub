@@ -1,7 +1,7 @@
 ---
 title: "Development Guide"
 layout: essay
-comment: How to develop the web site
+comment: How to develop this web site
 ---
 
 The following sections are an overview on how to update the website

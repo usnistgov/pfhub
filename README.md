@@ -1,7 +1,7 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/materialsinnovation/pymks/master/doc/pymks_logo.ico"
+<img src="https://raw.githubusercontent.com/usnistgov/chimad-phase-field/nist-pages/images/hexbin.jpg"
      height="100"
-     alt="PyMKS logo"
+     alt="CHiMaD logo"
      class="inline">
 </p>
 
@@ -15,7 +15,7 @@ See the live website at <a href="https://pages.nist.gov/chimad-phase-field">page
 </strong></sup></p>
 
 <p align="center">
-<a href="https://gitter.im/usnistgov/chimad-phase-filed" target="_blank">
+<a href="https://gitter.im/usnistgov/chimad-phase-field" target="_blank">
 <img src="https://img.shields.io/gitter/room/gitterHQ/gitter.svg"
 alt="Gitter Chat">
 </a>
