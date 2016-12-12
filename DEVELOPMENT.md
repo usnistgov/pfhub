@@ -1,23 +1,21 @@
 ---
 title: "Development Guide"
 layout: essay
-comment: How to develop this web site
+comment: How to develop this site
 ---
 
-The following is an overview on how to update the website for each
-particular element. The website is tested on
+The following is an overview on how to update the site for each
+particular element. The site is tested on
 [Travis CI](https://travis-ci.org/usnistgov/chimad-phase-field) using
-[html-proofer](https://github.com/gjtorikian/html-proofer), which
-automatically checks the site for errors.. The [`.travis.yml`]({{
-site.links.github }}/blob/nist-pages/.travis.yml) contains everything
-required to build the website. Note that the instructions below may
-become out of date with the [`.travis.yml`]({{ site.links.github
-}}/blob/nist-pages/.travis.yml) file and have only been tested on
-Ubuntu and on Travis CI.
+[HTMLProofer][HTMLPROOFER], which automatically checks the site for
+errors. The [`.travis.yml`][TRAVISYML] file contains everything
+required to build the site. Note that if the instructions below and
+the [`.travis.yml`][TRAVISYML] are not synced then the build outlined
+in the [`travis.yml`][TRAVISYML] should be used.
 
-## Build and Serve the Website
+## Build and Serve the Site
 
-The site uses the [Jekyll](https://jekyllrb.com) static web site
+The site uses the [Jekyll][JEKYLL] static web site
 generator. To build the environment require to serve the site, use the
 following commands,
 
@@ -31,7 +29,7 @@ Then clone the GitHub repository
     $ cd chimad-phase-field
     $ jekyll serve
 
-At this point Jekyll should be serving the website. Go to
+At this point [Jekyll][JEKYLL] should be serving the site. Go to
 [http://localhost:4000/chimad-phase-field](http://localhost:4000/chimad-phase-field])
 to view the site.
 
@@ -39,62 +37,103 @@ to view the site.
 
 To add a new phase field code to the list of codes on the front page,
 follow the [submission instructions]({{ site.baseurl
-}}/sumbit_a_new_code) on the main site. Jekyll will automatically
-rebuild the site after `codes.yaml` is editied.
+}}/submit_a_new_code) on the main site. [Jekyll][JEKYLL] will
+automatically rebuild the site after `codes.yaml` is editied.
 
 ## Add a new workshop
 
-To add a new workshop edit the [`workshop`]({{ site.links.github
-}}/blob/nist-pages/data/workshops.yaml)
+To add a new workshop edit the [`workshop.yaml`]({{ site.links.github
+}}/blob/nist-pages/data/workshops.yaml) file. The fields should be
+self evident. [Jekyll][JEKYLL] automatically rebuilds after editing.
 
 ## Update the Community Page
 
+The community page supports dynamic additions using Google
+Forms. Google Forms stores the data in a Google Docs spreadsheet. The
+link for the spreadsheet is stored in the [`_config.yaml`]({{
+site.links.github }}/blob/nist-pages/_config.yml) file under
+`links.members`.
+
 ## Update and Build the Hexbin
+
+To build the Hexbin, a Python environment is required. To setup the
+environment use [Conda][CONDA]. To install [Conda][CONDA] use,
+
+    $ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+    $ bash miniconda.sh -b -p $HOME/miniconda
+    $ export PATH="$HOME/miniconda/bin:$PATH"
+    $ conda update conda
+    $ conda create -n test-environment python=3
+
+Create an environment with the required packages
+
+    $ source activate test-environment
+    $ conda install -n test-environment pillow numpy
+    $ conda install progressbar2
+
+Update the data in the [`hexbin.yaml`]({{ site.links.github
+}}/blob/nist-pages/data/hexbin.yaml) file. The following format is used for each entry.
+
+    - image: http://www.mem.drexel.edu/ysun/files/density.png
+        url: http://www.mem.drexel.edu/ysun/Solidification.htm
+        title: Solidification Simulation
+        description: >-
+          Phase-Field Simulation of Solidification (Collaborator:
+          Prof. Christoph Beckermann, University of Iowa)
+
+After updating run
+
+    $ make hexbin
+
+from the base site directory. [Jekyll][JEKYLL] should automatically
+update.
 
 ## Add a Jupyter Notebook
 
+A lot of the site is built using Jupyter Notebooks. To render the
+notebooks, first generate the Python environment outlined above, and
+then install Jupyter.
+
+    $ source activate test-environment
+    $ conda install -n test-environment jupyter
+
+Make a new notebook or edit an existing one, then run,
+
+    $ make notebooks
+
+This should automatically generate the HTML and [Jekyll][JEKYLL] will
+render it on the site. A notebook in the base directory named
+`my_notebook.ipynb` will be rendered at
+[https://localhost:4000/chimad-phase-field/my_notebook.ipynb](https://localhost:4000/chimad-phase-field/my_notebook.ipynb)
+
 ## Add a new Benchmark Problem
+
+To add a new benchmark problem include a notebook describing the new
+problem and then link to it via the [`benchmarks.yaml`]({{
+site.links.github }}/blob/nist-pages/data/benchmarks.yaml) file.
 
 ## Testing
 
-This site uses Jekyll. To view locally use
+The site can be tested at the command line using
+[HTMLProofer][HTMLPROOFER]. This validates the generated HTML
+output. First make fresh builds of all the notebooks,
 
-    $ jekyll serve
+    $ find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
+    $ make notebooks
 
-and go to
-[http://localhost:4000/chimad-phase-field](http://localhost:4000/chimad-phase-field]).
+and then make a fresh Hexbin,
 
+    $ touch data/hexbin.yaml
+    $ make hexbin
 
-In order to discuss this repository with other users, we encourage you
-to sign up for the mailing list by sending a subscription email:
+and then finally run [HTMLProofer][HTMLPROOFER],
 
-To:
+    $ jekyll build -d ./_site/chimad-phase-field && htmlproofer --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
 
-    chimad-phase-field-request@nist.gov
+Note that the images are not checked for valid HTML and for links as
+the images that are auto-generated by Jupyter break HTML guidelines.
 
-Subject: (optional)
-
-Body:
-
-    subscribe
-
-Once you are subscribed, you can post messages to the list simply by
-addressing email to <chimad-phase-field@nist.gov>.
-
-To get off the list follow the instructions above, but place
-unsubscribe in the text body.
-
-### List Archive
-
-The list is archived at the Mail Archive,
-
-[https://www.mail-archive.com/chimad-phase-field@nist.gov/](https://www.mail-archive.com/chimad-phase-field@nist.gov/)
-
-<!-- The NIST email achive is dead! -->
-
-<!-- and at -->
-
-<!-- [https://email.nist.gov/pipermail/chimad-phase-field/](https://email.nist.gov/pipermail/chimad-phase-field/) -->
-
-Any mail sent to <chimad-phase-field@nist.gov> will appear in these
-publicly available archives.
+[TRAVISYML]: {{ site.links.github }}/blob/nist-pages/.travis.yml
+[CONDA]: http://conda.pydata.org/docs/index.html
+[JEKYLL]: https://jekyllrb.com
+[HTMLPROOFER]: https://github.com/gjtorikian/html-proofer
