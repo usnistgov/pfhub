@@ -1,5 +1,5 @@
 ---
-title: "Benchmark 2"
+title: ""
 layout: ipython
 ---
 
