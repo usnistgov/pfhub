@@ -29,16 +29,16 @@ Then clone the GitHub repository
     $ cd chimad-phase-field
     $ jekyll serve
 
+
 At this point [Jekyll][JEKYLL] should be serving the site. Go to
-[http://localhost:4000/chimad-phase-field](http://localhost:4000/chimad-phase-field])
-to view the site.
+`http://localhost:4000/chimad-phase-field` to view the site.
 
 ## Add a New Phase Field Code
 
 To add a new phase field code to the list of codes on the front page,
 follow the [submission instructions]({{ site.baseurl
 }}/submit_a_new_code) on the main site. [Jekyll][JEKYLL] will
-automatically rebuild the site after `codes.yaml` is editied.
+automatically rebuild the site after `codes.yaml` is edited.
 
 ## Add a new workshop
 
@@ -104,7 +104,7 @@ Make a new notebook or edit an existing one, then run,
 This should automatically generate the HTML and [Jekyll][JEKYLL] will
 render it on the site. A notebook in the base directory named
 `my_notebook.ipynb` will be rendered at
-[https://localhost:4000/chimad-phase-field/my_notebook.ipynb](https://localhost:4000/chimad-phase-field/my_notebook.ipynb)
+`http://localhost:4000/chimad-phase-field/my_notebook.ipynb`.
 
 ## Add a new Benchmark Problem
 
