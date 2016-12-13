@@ -3,6 +3,12 @@ title: "Development Guide"
 layout: essay
 comment: How to develop this site
 ---
+<p align="center">
+<a href="https://travis-ci.org/usnistgov/chimad-phase-field" target="_blank">
+<img src="https://api.travis-ci.org/usnistgov/chimad-phase-field.svg"
+alt="Travis CI">
+</a>
+</p>
 
 ## Overview
 
