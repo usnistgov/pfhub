@@ -21,4 +21,5 @@ script:
   - make notebooks
   - touch data/hexbin.yaml
   - make hexbin
+  - rm -rf ./_site
   - jekyll build -d ./_site/chimad-phase-field && htmlproofer --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
