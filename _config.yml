@@ -19,6 +19,7 @@ exclude:
   - "*.ipynb"
   - "*.ipynb.raw.html"
   - vendor
+  - template.ipynb.md
 
 
 links:
