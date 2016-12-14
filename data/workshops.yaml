@@ -53,3 +53,17 @@
     - name: Hackathon 2
       href: "{{ site.baseurl }}/hackathon2/"
       type: link
+
+- name: "Phase Field Methods Workshop IV"
+  date: "January 18-20, 2017"
+  href: {{ site.baseurl }}/#workshops
+  number: 4
+  contact: e-gulsoy@northwestern.edu
+  description: >-
+    A workshop consisting of an Install-A-Thon, a discussion of
+    benchmark problems and a tutorial on the Method of Manufactured
+    Solutions.
+  icon_links:
+    - name: contact organizer
+      type: email
+      href: "mailto:e-gulsoy@northwestern.edu?subject=Fourth Phase Field Methods Workshop"
