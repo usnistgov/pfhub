@@ -10,10 +10,17 @@ alt="Travis CI">
 </a>
 </p>
 
-## Overview
+# Overview
 
 The following guide is an overview on how to update the site for each
-particular element.  The site is tested on
+particular element. Many of these tasks require that you have an
+account on [GitHub][GITHUB]. Tasks are grouped below according to
+where you should edit the site: on the [master GitHub repository]({{
+site.links.github }}) or your personal
+[fork](https://help.github.com/articles/fork-a-repo/), or on your
+local machine.
+
+The site is tested on
 [Travis CI](https://travis-ci.org/usnistgov/chimad-phase-field) using
 [HTMLProofer][HTMLPROOFER], which automatically checks the site for
 errors. The [`.travis.yml`][TRAVISYML] file contains everything
@@ -21,34 +28,24 @@ required to build the site. Note that if the instructions below and
 the [`.travis.yml`][TRAVISYML] are not synced then the build outlined
 in the [`travis.yml`][TRAVISYML] should be used.
 
-## Build and Serve the Site
+## Updates on GitHub
 
-The site uses the [Jekyll][JEKYLL] static web site generator. To build
-the environment required to serve the site, use the following
-commands.
+Several common tasks can be accomplished on [GitHub][GITHUB]
+by editing files
+[in-place](https://help.github.com/articles/editing-files-in-another-user-s-repository/).
+Doing so will automatically fork the repository to your
+[GitHub][GITHUB] account and submit a pull request to update the
+[master GitHub repository]({{ site.links.github }})
+with your content.
 
-    $ sudo apt-get update
-    $ sudo apt-get install ruby
-    $ sudo gem install jekyll jekyll-coffeescript
-
-Then clone the GitHub repository.
-
-    $ git clone https://github.com/usnistgov/chimad-phase-field.git
-    $ cd chimad-phase-field
-    $ jekyll serve
-
-
-At this point [Jekyll][JEKYLL] should be serving the site. Go to
-`http://localhost:4000/chimad-phase-field` to view the site.
-
-## Add a New Phase Field Code
+### Add a New Phase Field Code
 
 To add a new phase field code to the list of codes on the front page,
 follow the [submission instructions]({{ site.baseurl
 }}/submit_a_new_code) on the main site. [Jekyll][JEKYLL] will
 automatically rebuild the site after `codes.yaml` is edited.
 
-## Add a new workshop
+### Add a new workshop
 
 To add a new workshop edit the [`workshop.yaml`]({{ site.links.github
 }}/blob/nist-pages/data/workshops.yaml) file. The following fields need to
@@ -73,25 +70,39 @@ be included for each entry.
 For each of the `icon_links`, the `type` field must correspond to a
 [Materialize icon](https://material.io/icons/).
 
-## Update the Community Page
+## Updates on Your Local machine
 
-The community page supports dynamic additions using Google
-Forms. Google Forms stores the data in a Google Docs spreadsheet. The
-link for the spreadsheet is stored in the [`_config.yaml`]({{
-site.links.github }}/blob/nist-pages/_config.yml) file under
-`links.members`. Currently the following fields are required in the
-form with the exact string matches.
+Some tasks involve adding new files or rebuilding existing ones. These
+are best done on your local machine, on a
+[clone of your fork](https://guides.github.com/activities/forking/)
+of the
+[master GitHub repository]({{ site.links.github }}).
+You are encouraged to serve a local version of the site for testing before
+[pushing your commits](https://help.github.com/articles/pushing-to-a-remote/)
+and issuing a
+[pull request](https://help.github.com/articles/creating-a-pull-request/).
 
-    - Name
-    - "Bio (one or two sentences)"
-    - URL
-    - Email
-    - "Home Page"
-    - "Twitter Handle"
-    - "GitHub Handle"
-    - "Other Links"
+### Build and Serve the Site
 
-## Update and Build the Hexbin
+The site uses the [Jekyll][JEKYLL] static web site generator. To build
+the environment required to serve the site, use the following
+commands.
+
+    $ sudo apt-get update
+    $ sudo apt-get install ruby nodejs
+    $ sudo gem install jekyll jekyll-coffeescript
+
+Then clone your fork of the GitHub repository.
+
+    $ git clone https://github.com/your_GitHub_account/chimad-phase-field.git
+    $ cd chimad-phase-field
+    $ jekyll serve
+
+At this point [Jekyll][JEKYLL] should be serving the site. Go to
+[`http://localhost:4000/chimad-phase-field`](http://localhost:4000/chimad-phase-field),
+or the link [Jekyll][JEKYLL] provides on the terminal, to view the site.
+
+### Update and Build the Hexbin
 
 To build the Hexbin, a Python environment is required. To setup the
 environment use [Conda][CONDA].
@@ -109,7 +120,8 @@ Create an environment with the required packages
     $ conda install progressbar2
 
 Update the data in the [`hexbin.yaml`]({{ site.links.github
-}}/blob/nist-pages/data/hexbin.yaml) file. The following format is used for each entry.
+}}/blob/nist-pages/data/hexbin.yaml) file. The following format is
+used for each entry.
 
     - image: http://www.mem.drexel.edu/ysun/files/density.png
       url: http://www.mem.drexel.edu/ysun/Solidification.htm
@@ -117,7 +129,6 @@ Update the data in the [`hexbin.yaml`]({{ site.links.github
       description: >-
         Phase-Field Simulation of Solidification (Collaborator:
         Prof. Christoph Beckermann, University of Iowa)
-
 The `url` field is the page that describes the image or the work
 associated with the image.  After updating rebuild the Hexbin.
 
@@ -125,7 +136,7 @@ associated with the image.  After updating rebuild the Hexbin.
 
 [Jekyll][JEKYLL] should automatically update the site.
 
-## Add a Jupyter Notebook
+### Add a Jupyter Notebook
 
 A lot of the site is built using Jupyter Notebooks. To render the
 notebooks as HTML, first generate the Python environment outlined
@@ -144,7 +155,7 @@ render it on the site. For example, a notebook in the base directory
 named `my_notebook.ipynb` will be rendered at
 `http://localhost:4000/chimad-phase-field/my_notebook.ipynb`.
 
-## Add a new Benchmark Problem
+### Add a new Benchmark Problem
 
 To add a new benchmark problem include a notebook describing the new
 problem and then link to it via the [`benchmarks.yaml`]({{
@@ -156,7 +167,7 @@ the following fields.
       description: Test the diffusion of a solute in a matrix.
       image: http://www.comsol.com/model/image/2054/big.png
 
-## Testing
+### Testing
 
 The site can be tested at the command line using
 [HTMLProofer][HTMLPROOFER]. This validates the generated HTML
@@ -188,4 +199,26 @@ correctly.
 [TRAVISYML]: {{ site.links.github }}/blob/nist-pages/.travis.yml
 [CONDA]: http://conda.pydata.org/docs/index.html
 [JEKYLL]: https://jekyllrb.com
+[GITHUB]: https://github.com
 [HTMLPROOFER]: https://github.com/gjtorikian/html-proofer
+
+## Update the Community Page
+
+An instance of this Web site is hosted at
+[NIST](https://pages.nist.gov/chimad-phase-field).
+The [community page](https://pages.nist.gov/chimad-phase-field/community/)
+supports dynamic additions using Google
+Forms. Google Forms stores the data in a Google Docs spreadsheet. The
+link for the spreadsheet is stored in the [`_config.yaml`]({{
+site.links.github }}/blob/nist-pages/_config.yml) file under
+`links.members`. Currently the following fields are required in the
+form with the exact string matches.
+
+    - Name
+    - "Bio (one or two sentences)"
+    - URL
+    - Email
+    - "Home Page"
+    - "Twitter Handle"
+    - "GitHub Handle"
+    - "Other Links"
