@@ -28,7 +28,7 @@ the environment required to serve the site, use the following
 commands.
 
     $ sudo apt-get update
-    $ sudo apt-get install ruby
+    $ sudo apt-get install ruby nodejs
     $ sudo gem install jekyll jekyll-coffeescript
 
 Then clone the GitHub repository.
@@ -39,7 +39,8 @@ Then clone the GitHub repository.
 
 
 At this point [Jekyll][JEKYLL] should be serving the site. Go to
-`http://localhost:4000/chimad-phase-field` to view the site.
+[`http://localhost:4000/chimad-phase-field`](http://localhost:4000/chimad-phase-field),
+or the link [Jekyll][JEKYLL] provides on the terminal, to view the site.
 
 ## Add a New Phase Field Code
 
