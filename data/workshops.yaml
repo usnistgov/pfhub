@@ -28,7 +28,7 @@
       href: "mailto:daniel.wheeler@nist.gov?subject=Second Phase Field Methods Workshop"
     - name: download PDF
       type: file_download
-      href: https://drive.google.com/file/d/0B4101gT3tHvebGppbGNuaDdYTXZZa1ZqbEVVNEZ2MmxUek5V/view?usp=sharing
+      href: "{{ site.baseurl }}/docs/PhaseFieldII_Booklet.pdf"
   links:
     - name: Hackathon 1
       href: "{{ site.baseurl }}/hackathon1/"
