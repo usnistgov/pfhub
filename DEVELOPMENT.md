@@ -99,8 +99,11 @@ Then clone your fork of the GitHub repository.
     $ jekyll serve
 
 At this point [Jekyll][JEKYLL] should be serving the site. Go to
-[`http://localhost:4000/chimad-phase-field`](http://localhost:4000/chimad-phase-field),
-or the link [Jekyll][JEKYLL] provides on the terminal, to view the site.
+<a href="http://localhost:4000/chimad-phase-field/" data-proofer-ignore>
+<code class="highlighter-rouge">http://localhost:4000/chimad-phase-field/</code>
+</a>
+or the link [Jekyll][JEKYLL] provides on the terminal, to view the
+site.
 
 ### Update and Build the Hexbin
 
