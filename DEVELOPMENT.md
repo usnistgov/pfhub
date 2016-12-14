@@ -15,12 +15,10 @@ alt="Travis CI">
 The following guide is an overview on how to update the site for each
 particular element. Many of these tasks require that you have an
 account on [GitHub][GITHUB]. Tasks are grouped below according to
-where you should edit the site: on the
-[running website](https://pages.nist.gov/chimad-phase-field), on the
-[master GitHub repository]({{ site.links.github }})
-or your personal
-[fork](https://help.github.com/articles/fork-a-repo/),
-or on your local machine.
+where you should edit the site: on the [master GitHub repository]({{
+site.links.github }}) or your personal
+[fork](https://help.github.com/articles/fork-a-repo/), or on your
+local machine.
 
 The site is tested on
 [Travis CI](https://travis-ci.org/usnistgov/chimad-phase-field) using
@@ -29,27 +27,6 @@ errors. The [`.travis.yml`][TRAVISYML] file contains everything
 required to build the site. Note that if the instructions below and
 the [`.travis.yml`][TRAVISYML] are not synced then the build outlined
 in the [`travis.yml`][TRAVISYML] should be used.
-
-## Update the Community Page
-
-An instance of this Web site is hosted at
-[NIST](https://pages.nist.gov/chimad-phase-field).
-The [community page](https://pages.nist.gov/chimad-phase-field/community/)
-supports dynamic additions using Google
-Forms. Google Forms stores the data in a Google Docs spreadsheet. The
-link for the spreadsheet is stored in the [`_config.yaml`]({{
-site.links.github }}/blob/nist-pages/_config.yml) file under
-`links.members`. Currently the following fields are required in the
-form with the exact string matches.
-
-    - Name
-    - "Bio (one or two sentences)"
-    - URL
-    - Email
-    - "Home Page"
-    - "Twitter Handle"
-    - "GitHub Handle"
-    - "Other Links"
 
 ## Updates on GitHub
 
@@ -224,3 +201,24 @@ correctly.
 [JEKYLL]: https://jekyllrb.com
 [GITHUB]: https://github.com
 [HTMLPROOFER]: https://github.com/gjtorikian/html-proofer
+
+## Update the Community Page
+
+An instance of this Web site is hosted at
+[NIST](https://pages.nist.gov/chimad-phase-field).
+The [community page](https://pages.nist.gov/chimad-phase-field/community/)
+supports dynamic additions using Google
+Forms. Google Forms stores the data in a Google Docs spreadsheet. The
+link for the spreadsheet is stored in the [`_config.yaml`]({{
+site.links.github }}/blob/nist-pages/_config.yml) file under
+`links.members`. Currently the following fields are required in the
+form with the exact string matches.
+
+    - Name
+    - "Bio (one or two sentences)"
+    - URL
+    - Email
+    - "Home Page"
+    - "Twitter Handle"
+    - "GitHub Handle"
+    - "Other Links"
