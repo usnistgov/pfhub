@@ -16,7 +16,7 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 	python _data/hexbin.py
 
 %.ipynb.raw.html: %.ipynb
-	jupyter-nbconvert $< --output $@ --to html --template basic
+	jupyter-nbconvert $< --output $(notdir $@) --to html --template basic
 
 %.ipynb.md: %.ipynb
 	cp ./template.ipynb.md $@
