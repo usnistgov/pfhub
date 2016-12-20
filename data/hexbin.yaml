@@ -217,20 +217,20 @@
   - image: http://sdg.mechse.illinois.edu/visualizations/PhaseFieldCrystal3.jpg
     url: http://sdg.mechse.illinois.edu/visualizations/
     title: Phase Field Crystals
-    descriptions: >-
+    description: >-
       Phase Field Crystals by J. Dantzig, B. Athreya, A. Chang,
       L. Kale and K. Wang
 
   - image: https://people.rit.edu/bxjsma/images/Ct.jpg
     url: https://people.rit.edu/bxjsma/research.html
     title: Phase field models
-    descriptions: >-
+    description: >-
       From Baasansuren Jadamba at Rochester Institute of Technology
 
   - image: http://cmcs.epfl.ch/files/content/sites/cmcs/files/Images/Methodologies/IGA/WEB_IGA_PhaseField_Cahnhilliard.png
     url: http://cmcs.epfl.ch/page-132898-en.html
     title: PHASE FIELD MODELING
-    descriptions: >-
+    description: >-
       The evolution of binary mixtures (miscible or immiscible) can be
       modeled by means of nonlinear parabolic PDEs, involving second
       or high order differential operators.
@@ -238,13 +238,13 @@
   - image: http://www.saxe-coburg.co.uk/pubs/contents/sle04_im/img15.gif
     url: http://www.saxe-coburg.co.uk/pubs/contents/sle04_04.htm
     title: Adaptive Algorithms for Free-Surface Flow Problems
-    descriptions: >-
+    description: >-
        Finite element rapid solidification simulations using adaptive
        mesh refinement and a phase-field model.
 
   - image: http://rsdavis.mycpanel.princeton.edu/haatajagroup/wp-content/uploads/2014/06/cecam_pfc_logo.png
     url: http://rsdavis.mycpanel.princeton.edu/haatajagroup/author/jmberry/
     title: CECAM WORKSHOP ON PFC MODELING
-    descriptions: >-
+    description: >-
       Atomistic Modeling of Crystal Plasticity and Creep Deformation
       with the Phase Field Crystal Approach
