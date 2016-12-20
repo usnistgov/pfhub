@@ -45,7 +45,7 @@ follow the [submission instructions]({{ site.baseurl
 }}/submit_a_new_code) on the main site. [Jekyll][JEKYLL] will
 automatically rebuild the site after `codes.yaml` is edited.
 
-### Add a new workshop
+### Add a New Workshop
 
 To add a new workshop edit the [`workshop.yaml`]({{ site.links.github
 }}/blob/nist-pages/data/workshops.yaml) file. The following fields need to
@@ -70,7 +70,7 @@ be included for each entry.
 For each of the `icon_links`, the `type` field must correspond to a
 [Materialize icon](https://material.io/icons/).
 
-### Add a new page
+### Add a New Page
 
 To add a new page create the page as a Markdown file directly on
 [GitHub]({{ site.links.github }}). For example, click "Create new
@@ -177,7 +177,7 @@ render it on the site. For example, a notebook in the base directory
 named `my_notebook.ipynb` will be rendered at
 `http://localhost:4000/chimad-phase-field/my_notebook.ipynb`.
 
-### Add a new Benchmark Problem
+### Add a New Benchmark Problem
 
 To add a new benchmark problem include a notebook describing the new
 problem and then link to it via the [`benchmarks.yaml`]({{
