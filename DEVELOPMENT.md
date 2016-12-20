@@ -70,6 +70,24 @@ be included for each entry.
 For each of the `icon_links`, the `type` field must correspond to a
 [Materialize icon](https://material.io/icons/).
 
+### Add a new page
+
+To add a new page create a the page as a Markdown file directly on
+GitHub. For example, click "Create new file" on
+[GitHub](https://github.com/usnistgov/chimad-phase-field) called
+`my-page.md` and add the contents
+
+    ---
+    layout: basic
+    ---
+
+    # My Phase Field Page
+
+    Something about phase field ...
+
+Submit a pull request on GitHub and this page will appear under
+`.../chimad-phase-field/test-page` after the pull-request is merged.
+
 ## Updates on Your Local machine
 
 Some tasks involve adding new files or rebuilding existing ones. These
