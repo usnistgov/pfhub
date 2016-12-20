@@ -72,10 +72,10 @@ For each of the `icon_links`, the `type` field must correspond to a
 
 ### Add a new page
 
-To add a new page create a the page as a Markdown file directly on
-GitHub. For example, click "Create new file" on
-[GitHub](https://github.com/usnistgov/chimad-phase-field) called
-`my-page.md` and add the contents
+To add a new page create the page as a Markdown file directly on
+[GitHub]({{ site.links.github }}). For example, click "Create new
+file" on [GitHub]({{ site.links.github }}) called `my-page.md` and add
+the contents
 
     ---
     layout: basic
@@ -85,8 +85,9 @@ GitHub. For example, click "Create new file" on
 
     Something about phase field ...
 
-Submit a pull request on GitHub and this page will appear under
-`.../chimad-phase-field/test-page` after the pull-request is merged.
+Submit a pull request on [GitHub]({{ site.links.github }}) and this
+page will appear under `.../chimad-phase-field/test-page` after the
+pull-request is merged.
 
 ## Updates on Your Local machine
 
