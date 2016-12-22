@@ -1,7 +1,0 @@
----
-
-- name: "MOOSE 1a 200x200 NF"
-  url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/3293180a175f39ff4881a0753660e61b9fe8da9d/moose_1a_200x200_IA.yaml
-
-- name: "MOOSE 1b 200x200 PBC"
-  url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/3293180a175f39ff4881a0753660e61b9fe8da9d/moose_1b_200x200_IA.yaml

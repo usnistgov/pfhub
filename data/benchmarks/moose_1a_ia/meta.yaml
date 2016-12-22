@@ -1,0 +1,26 @@
+benchmark:
+  name: 1a
+  size: 200x200
+
+meta_data:
+  description: Information for the Benchmark1 problems
+  code:
+    name: moose
+    version: Hedgehog (now Coral)
+    time_stepper: IA
+  repo:
+    url: https://bitbucket.org/ajokisaari/coral
+    version: e8fc74f
+  architecture: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
+  cores: 6
+  email: ~
+  date: 6/28/2016
+  end_condition: Equilibrium, total energy fluctuated due to numerical noise
+
+data:
+  - name: run time
+    value: 62 minutes
+  - name: memory usage
+    value: 796 MB
+  - name: free energy
+    value: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv

@@ -1,0 +1,51 @@
+benchmark:
+  name: 1a # One of 1a, 1b, 1c, 1d, 2a, 2b, 2c, 2d. REQUIRED
+  size: [200, 200] # [200, 200] or 40000
+  origin: [0.0, 0.0]
+
+meta_data:
+  description: My new benchmark test # String, REQUIRED
+  code:
+    name: fipy # String, REQUIRED
+    version: e8fc74f # e8fc74f or 1.3.1
+    other1: xxx # any number of other fields about code
+    other2: yyy
+  repo:
+    url: https://bitbucket.org/ajokisaari/coral # String
+    version: e8fc74f # String
+  architecture: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz # String, REQUIRED
+  cores: 6 # Int, REQUIRED
+  email: ~ # String, REQUIRED
+  date: 6/28/2016 # String, REQUIRED
+  end_condition: Equilibrium, total energy fluctuated due to numerical noise
+  # String
+
+## suggested data names:
+## 'phase field', 'phi', 'memory usage', 'run time'
+data:
+  - name: generic value
+    value: 44
+    any_field_at_all: XYZ ## could be 'description', 'unit' etc, 'uncertainty'
+  - name: memory usage
+    value: 796 MB
+  - name: run time
+    value: 62 minutes
+  - name: run time
+    value:
+      time: [0.0, 0.1, 0.2]
+      values: [0.0, 10.0, 20.0]
+  - name: free energy
+    value: http://somewhere/data.csv
+  - name: generic global value versus time
+    value: [[0.0, 0.1], [0.1, 0.2], [0.3, 0.4]]
+  - name: an image
+    description: a field at the end of the simulation
+    value: http://link/to/image.png
+  - name: a generic value
+    value:
+      times: [0.1, 0.2, 0.3]
+      values: [100.0, 200.0, 300.0]
+  - name: a field
+    value:
+      times: [0.1, 0.2, 0.3]
+      values: [url1, url2, url3]
