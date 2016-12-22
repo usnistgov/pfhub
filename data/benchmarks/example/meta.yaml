@@ -4,22 +4,21 @@ benchmark: #REQUIRED
 
 meta_data: # REQUIRED
   description: My new benchmark test # String, REQUIRED
+  date: 6/28/2016 # REQUIRED
   code: # REQUIRED
     name: fipy # REQUIRED
     version: 1.3
     repo:
       url: http://XXX
       version: f4g67aa
-  architecture: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz # REQUIRED
-  cores: 6 # REQUIRED
-  email: ~ # REQUIRED
-  date: 6/28/2016 # REQUIRED
+  environment:
+    architecture: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz # REQUIRED
+    cores: 6 # REQUIRED
   repo:
     url: https:/XXX
     version: e8fc74f
-    other: XXX
   end_condition: Equilibrium reached
-  other: XXX
+
 
 data: # REQUIRED
   - name: generic value

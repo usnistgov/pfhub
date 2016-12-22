@@ -1,9 +1,10 @@
 benchmark:
   name: 1a
-  size: 200x200
+  size: [200, 200]
 
 meta_data:
   description: Information for the Benchmark1 problems
+  date: 6/28/2016
   code:
     name: moose
     version: Hedgehog (now Coral)
@@ -11,10 +12,9 @@ meta_data:
   repo:
     url: https://bitbucket.org/ajokisaari/coral
     version: e8fc74f
-  architecture: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
-  cores: 6
-  email: ~
-  date: 6/28/2016
+  environment:
+    architecture: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
+    cores: 6
   end_condition: Equilibrium, total energy fluctuated due to numerical noise
 
 data:
