@@ -1,40 +1,45 @@
 ---
-meta_data:
-  benchmark: 1a # REQUIRED
+benchmark: # REQUIRED
+  # Specify the problem using its unique ID, name and configuration, or both
+  name: spinodal decomposition
+  geometry: square
+  boundary_condition: periodic
+  id: 1a
+
+meta_data: # REQUIRED
+  # Describe the runtime environment
   name: Trevor Keller # preferably yours
   email: trevor.keller@nist.gov # there may be correspondence
   date: Thu, 22 Dec 2016 15:20:53 -0500 # REQUIRED
   environment:
-    # relevant infrastructure details
-    architecture: Intel Xeon CPU E5-1650 v3 @ 3.50GHz # REQUIRED
+    # hardware details
+    architecture: x86_64 # REQUIRED
+    clock: 3.50GHz # REQUIRED
     cores: 6 # REQUIRED
-    type: workstation
+    nodes: 1
   software:
-    # specify and link to the software framework
-    name: Mesoscale Microstructure Simulation Project (MMSP) # REQUIRED
-    homepage: https://github.com/mesoscale/mmsp # REQUIRED
+    # software framework
+    name: [MMSP, Mesoscale Microstructure Simulation Project] # REQUIRED
     version: 4
     repo:
-      url: https://github.com/mesoscale/mmsp/tree/develop
+      url: https://github.com/mesoscale/mmsp
       version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
       branch: develop
   code:
-    # specify and link to your implementation of the problem
-    name: MMSP spinodal decomposition benchmark
+    # your implementation of the problem
     url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic
     version: b949fbc4116f020db619fe1ccacbf8b13dfd5e32 
     mesh: uniform rectilinear
-    geometry: square
     numerical_method: explicit finite difference
-    end_condition: equilibrium reached
+    compiler: OpenMPI mpic++
+    end_condition: time limit
 
 data:
+  # Gather simulation output
   - name: origin
     value: [0, 0]
   - name: size
     value: [200, 200]
-  - name: boundary_condition
-    value: periodic
   - name: timestep
     value: 0.00195312
   - name: timestep
