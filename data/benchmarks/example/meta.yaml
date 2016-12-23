@@ -1,8 +1,6 @@
 ---
-benchmark: # REQUIRED
-  problem: 1a # REQUIRED
-
 meta_data:
+  benchmark: 1a # REQUIRED
   name: Trevor Keller # preferably yours
   email: trevor.keller@nist.gov # there may be correspondence
   date: Thu, 22 Dec 2016 15:20:53 -0500 # REQUIRED
@@ -25,24 +23,18 @@ meta_data:
     name: MMSP spinodal decomposition benchmark
     url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic
     version: b949fbc4116f020db619fe1ccacbf8b13dfd5e32 
+    mesh: uniform rectilinear
+    geometry: square
+    numerical_method: explicit finite difference
+    end_condition: equilibrium reached
 
 data:
-  - name: geometry
-    value: square
   - name: origin
     value: [0, 0]
   - name: size
     value: [200, 200]
   - name: boundary_condition
     value: periodic
-  - name: mesh
-    value: rectilinear
-  - name: spacing
-    value: [1, 1]
-  - name: solver
-    type: explicit
-  - name: method
-    value: finite_difference
   - name: timestep
     value: 0.00195312
   - name: timestep
@@ -59,8 +51,6 @@ data:
   - name: memory usage
     value: 27232
     unit: KB
-  - name: end condition
-    value: equilibrium reached
   - name: free_energy
     value:
       times: [0, 19.5312]
