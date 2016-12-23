@@ -56,9 +56,10 @@ data: # REQUIRED
       - value: 358.68
         unit: seconds
   - name: run time
-    value:
+    values:
       times: [0, 19.5312]
-      values: [179.25, 179.43]
+      energy: [179.25, 179.43]
+    transform: ## confused how to do transpose
   - name: memory usage
     values:
       - value: 27232
@@ -69,5 +70,4 @@ data: # REQUIRED
   - name: generic global value versus time
     values: [{'time':0.0, 'value':1}, {'time':0.1, 'value':0.2}, {'time': 0.3, 'value': 0.4}]
   - name: an image
-    values:
-      - image: myimage.png
+    url: myimage.png
