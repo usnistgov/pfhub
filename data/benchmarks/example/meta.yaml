@@ -1,39 +1,65 @@
-benchmark: #REQUIRED
-  name: 1a # REQUIRED
-  size: [200, 200] # REQUIRED
+---
+benchmark: # REQUIRED
+  # Specify the problem using its unique ID, name and configuration, or both
+  name: spinodal decomposition
+  geometry: square
+  boundary_condition: periodic
+  id: 1a
 
 meta_data: # REQUIRED
-  description: My new benchmark test # String, REQUIRED
-  date: 6/28/2016 # REQUIRED
-  code: # REQUIRED
-    name: fipy # REQUIRED
-    version: 1.3
-    repo:
-      url: http://XXX
-      version: f4g67aa
+  # Describe the runtime environment
+  name: Trevor Keller # preferably yours
+  email: trevor.keller@nist.gov # there may be correspondence
+  date: Thu, 22 Dec 2016 15:20:53 -0500 # REQUIRED
   environment:
-    architecture: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz # REQUIRED
+    # hardware details
+    architecture: x86_64 # REQUIRED
+    clock: 3.50GHz # REQUIRED
     cores: 6 # REQUIRED
-  repo:
-    url: https:/XXX
-    version: e8fc74f
-  end_condition: Equilibrium reached
+    nodes: 1
+  software:
+    # software framework
+    name: [MMSP, Mesoscale Microstructure Simulation Project] # REQUIRED
+    version: 4
+    repo:
+      url: https://github.com/mesoscale/mmsp
+      version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
+      branch: develop
+  code:
+    # your implementation of the problem
+    url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic
+    version: b949fbc4116f020db619fe1ccacbf8b13dfd5e32 
+    mesh: uniform rectilinear
+    numerical_method: explicit finite difference
+    compiler: OpenMPI mpic++
+    end_condition: time limit
 
-
-data: # REQUIRED
-  - name: generic value
-    value: 44
+data:
+  # Gather simulation output
+  - name: origin
+    value: [0, 0]
+  - name: size
+    value: [200, 200]
+  - name: timestep
+    value: 0.00195312
+  - name: timestep
+    value:
+      times: [0, 19.5312]
+      values: [0.00195312, 0.00195312]
+  - name: run time
+    value: 358.68
+    unit: seconds
+  - name: run time
+    value:
+      times: [0, 19.5312]
+      values: [179.25, 179.43]
   - name: memory usage
+    value: 27232
+    unit: KB
+  - name: free_energy
     value:
-      value: 796
-      unit: MB
-      other_fields: XXX
-  - name: run time
-    value: 62 minutes
-  - name: run time
-    value:
-      time: [0.0, 0.1, 0.2]
-      values: [0.0, 10.0, 20.0]
+      times: [0, 19.5312]
+      values: [319.094, 309.758]
   - name: free energy
     value: http://somewhere/data.csv
   - name: generic global value versus time
