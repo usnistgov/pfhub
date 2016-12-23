@@ -1,0 +1,41 @@
+width: 400
+height: 200
+data:
+  - name: table
+    values:
+      - x: 0
+        y: 1
+      - x: 1
+        y: 2
+      - x: 2
+        y: 3
+axes:
+  - type: x
+    scale: x
+  - type: y
+    scale: y
+scales:
+  - name: x
+    type: linear
+    range: width
+    domain:
+      data: table
+      field: data.x
+  - name: y
+    type: linear
+    range: height
+    domain:
+      data: table
+      field: data.y
+marks:
+  - type: line
+    from:
+      data: table
+    properties:
+      enter:
+        x:
+          scale: x
+          field: data.x
+        y:
+          scale: y
+          field: data.y
