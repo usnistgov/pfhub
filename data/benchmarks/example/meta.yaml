@@ -40,45 +40,34 @@ metadata: # REQUIRED
     end_condition: time limit
 
 data: # REQUIRED
-  # gather simulation output
+  # use Vega standard, see
+  # https://github.com/vega/vega/wiki/Data and see
+  # https://vega.github.io/vega-lite/docs/data.html
   - name: timestep
-    value: 0.00195312
+    values: 0.00195312
   - name: timestep
-    value:
-      times: [0, 19.5312]
-      values: [0.00195312, 0.00195312]
+    values:
+      - time: 0
+        value: 0.00195312
+      - time: 19.531
+        value: 0.00195312
   - name: run time
-    value:
-      value: 358.68
-      unit: seconds
+    values:
+      - value: 358.68
+        unit: seconds
   - name: run time
     value:
       times: [0, 19.5312]
       values: [179.25, 179.43]
   - name: memory usage
-    value:
-      value: 27232
-      unit: KB
-  - name: free_energy
-    value:
-      times: [0, 19.5312]
-      values: [319.094, 309.758]
+    values:
+      - value: 27232
+        unit: KB
   - name: free energy
-    value: http://somewhere/data.csv
+    url: http://somewhere/data.csv
+    format: csv
   - name: generic global value versus time
-    value: [[0.0, v1], [0.1, v2], [0.3, v3], [0.4, v4]]
+    values: [{'time':0.0, 'value':1}, {'time':0.1, 'value':0.2}, {'time': 0.3, 'value': 0.4}]
   - name: an image
-    value: http://link/to/image.png
-  - name: a generic value
-    value:
-      times: [0.1, 0.2, 0.3]
-      values: [100.0, 200.0, 300.0]
-  - name: a field
-    value:
-      times: [0.1, 0.2, 0.3]
-      values: [url1, url2, url3]
-      unit: XXX
-  - name: another field
-    value:
-      - [0.1, 0.2, 0.3, 0.4]
-      - [url1, url2, url3, url4]
+    values:
+      - image: myimage.png
