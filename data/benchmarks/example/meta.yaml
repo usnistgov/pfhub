@@ -1,22 +1,35 @@
 ---
 benchmark: # REQUIRED
   # Specify the problem using its unique ID, name and configuration, or both
-  name: spinodal decomposition
-  geometry: square
+  model: spinodal decomposition
   boundary_condition: periodic
   id: 1a # REQUIRED
+  domain:
+    - name: geometry
+      value: square
+    - name: size
+      value: [200, 200]
+    - name: origin
+      value: [0, 0]
 
 metadata: # REQUIRED
   # Describe the runtime environment
-  name: Trevor Keller # preferably yours
+  summary: MPI parallel workstation benchmark with MMSP 
+  author: Trevor Keller # preferably yours
   email: trevor.keller@nist.gov # there may be correspondence
   date: Thu, 22 Dec 2016 15:20:53 -0500 # REQUIRED
   hardware:
     # hardware details
     architecture: x86_64 # REQUIRED
-    clock: 3.50GHz # REQUIRED
     cores: 6 # REQUIRED
-    nodes: 1
+    details:
+      - name: clock
+        value: 3.50
+        unit: GHz
+      - name: nodes # if cluster or multi-GPU, default should be 1
+        value: 1
+      - name: parallel_model
+        value: distributed memory
   software:
     # software framework
     name: [MMSP, Mesoscale Microstructure Simulation Project] # REQUIRED
@@ -31,13 +44,14 @@ metadata: # REQUIRED
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic
       version: b949fbc4116f020db619fe1ccacbf8b13dfd5e32
       branch: master
-    mesh:
-      name: uniform rectilinear
-      size: [200, 200]
-      origin: [0, 0]
-    numerical_method: explicit finite difference
-    compiler: OpenMPI mpic++
     end_condition: time limit
+    details:
+      - name: mesh
+        value: uniform rectilinear
+      - name: numerical_method
+        value: explicit finite difference
+      - name: compiler
+        value: GNU mpic++
 
 data: # REQUIRED
   # gather simulation output
@@ -55,6 +69,7 @@ data: # REQUIRED
     value:
       times: [0, 19.5312]
       values: [179.25, 179.43]
+      unit: seconds
   - name: memory usage
     value:
       value: 27232
