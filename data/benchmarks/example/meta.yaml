@@ -4,14 +4,14 @@ benchmark: # REQUIRED
   name: spinodal decomposition
   geometry: square
   boundary_condition: periodic
-  id: 1a
+  id: 1a # REQUIRED
 
-meta_data: # REQUIRED
+metadata: # REQUIRED
   # Describe the runtime environment
   name: Trevor Keller # preferably yours
   email: trevor.keller@nist.gov # there may be correspondence
   date: Thu, 22 Dec 2016 15:20:53 -0500 # REQUIRED
-  environment:
+  hardware:
     # hardware details
     architecture: x86_64 # REQUIRED
     clock: 3.50GHz # REQUIRED
@@ -25,21 +25,22 @@ meta_data: # REQUIRED
       url: https://github.com/mesoscale/mmsp
       version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
       branch: develop
-  code:
+  implementation:
     # your implementation of the problem
-    url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic
-    version: b949fbc4116f020db619fe1ccacbf8b13dfd5e32 
-    mesh: uniform rectilinear
+    repo:
+      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic
+      version: b949fbc4116f020db619fe1ccacbf8b13dfd5e32
+      branch: master
+    mesh:
+      name: uniform rectilinear
+      size: [200, 200]
+      origin: [0, 0]
     numerical_method: explicit finite difference
     compiler: OpenMPI mpic++
     end_condition: time limit
 
-data:
-  # Gather simulation output
-  - name: origin
-    value: [0, 0]
-  - name: size
-    value: [200, 200]
+data: # REQUIRED
+  # gather simulation output
   - name: timestep
     value: 0.00195312
   - name: timestep
@@ -47,15 +48,17 @@ data:
       times: [0, 19.5312]
       values: [0.00195312, 0.00195312]
   - name: run time
-    value: 358.68
-    unit: seconds
+    value:
+      value: 358.68
+      unit: seconds
   - name: run time
     value:
       times: [0, 19.5312]
       values: [179.25, 179.43]
   - name: memory usage
-    value: 27232
-    unit: KB
+    value:
+      value: 27232
+      unit: KB
   - name: free_energy
     value:
       times: [0, 19.5312]
