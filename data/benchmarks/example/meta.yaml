@@ -1,6 +1,6 @@
 ---
 ## YAML specification for a CHiMaD Phase Field Simulation
-specification: # REQUIRED
+benchmark: # REQUIRED
   # Specify the problem using its unique ID, name and configuration, or both
   model: spinodal decomposition
   boundary_condition: periodic
@@ -17,10 +17,10 @@ metadata: # REQUIRED
     architecture: x86_64 # REQUIRED
     cores: 6 # REQUIRED
     details:
-      - name: clock
+      - name: clock rate
         values:
-          frequency:3.50
-          unit:GHz
+          rate: 3.50
+          unit: GHz
       - name: nodes # if cluster or multi-GPU, default should be 1
         values: 1
       - name: parallel_model
@@ -33,6 +33,9 @@ metadata: # REQUIRED
       url: https://github.com/mesoscale/mmsp
       version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
       branch: develop
+    details:
+      - name: dependencies
+        values: [numpy, scipy]
   implementation:
     # your implementation of the problem
     repo:
@@ -49,6 +52,7 @@ metadata: # REQUIRED
         values: GNU mpic++
       - name: domain
         values: [200, 200]
+
 data: # REQUIRED
   # use Vega standard, see
   # https://github.com/vega/vega/wiki/Data and see

@@ -1,26 +1,38 @@
 benchmark:
-  name: 1a
-  size: [200, 200]
+  id: 1a
 
-meta_data:
-  description: Information for the Benchmark1 problems
+metadata:
+  summary: Metadata for the Benchmark1 problems
   date: 6/28/2016
-  code:
-    name: moose
+  author: A. M. Jokisaari
+  email: ~
+  software:
+    name: MOOSE
     version: Hedgehog (now Coral)
-    time_stepper: IA
-  repo:
-    url: https://bitbucket.org/ajokisaari/coral
-    version: e8fc74f
-  environment:
-    architecture: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
+  hardware:
+    architecture: ~
     cores: 6
-  end_condition: Equilibrium, total energy fluctuated due to numerical noise
+    details:
+      - name: clock rate
+        values:
+          rate: 2.70
+          unit: GHz
+      - name: processor
+        values: "Intel(R) Core(M) i7-6820HQ CPU @ 2.70GHz"
+  implementation:
+    repo:
+      url: https://bitbucket.org/ajokisaari/coral
+      version: e8fc74f
+    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+    details:
+      - name: time_stepper
+        values: IA
 
 data:
   - name: run time
-    value: 62 minutes
+    values: 62 minutes
   - name: memory usage
-    value: 796 MB
+    values: 796 MB
   - name: free energy
-    value: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv
+    url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv
+    format: csv
