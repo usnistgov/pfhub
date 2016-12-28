@@ -1,17 +1,10 @@
 ---
 ## YAML specification for a CHiMaD Phase Field Simulation
-benchmark: # REQUIRED
+specification: # REQUIRED
   # Specify the problem using its unique ID, name and configuration, or both
   model: spinodal decomposition
   boundary_condition: periodic
   id: 1a # REQUIRED
-  domain:
-    - name: geometry
-      values: square
-    - name: size
-      values: [200, 200]
-    - name: origin
-      values: [0, 0]
 
 metadata: # REQUIRED
   # Describe the runtime environment
@@ -54,7 +47,8 @@ metadata: # REQUIRED
         values: explicit finite difference
       - name: compiler
         values: GNU mpic++
-
+      - name: domain
+        values: [200, 200]
 data: # REQUIRED
   # use Vega standard, see
   # https://github.com/vega/vega/wiki/Data and see

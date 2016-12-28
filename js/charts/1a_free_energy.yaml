@@ -16,12 +16,14 @@ axes:
     scale: y
 scales:
   - name: x
+    nice: true
     type: linear
     range: width
     domain:
       data: table
       field: data.x
   - name: y
+    nice: true
     type: linear
     range: height
     domain:
@@ -39,3 +41,9 @@ marks:
         y:
           scale: y
           field: data.y
+        stroke:
+          value: steelblue
+        strokeWidth:
+          value: 1
+        strokeOpacity:
+          value: 1.0
