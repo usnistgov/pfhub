@@ -13,10 +13,11 @@ install:
   - conda create -q -y -n test-environment python=3
   - source activate test-environment
   - conda install -q -y -n test-environment jupyter pillow numpy
-  - pip install progressbar2
+  - pip install progressbar2 pykwalify
   - unset VIRTUAL_ENV
   - gem install jekyll jekyll-coffeescript html-proofer
 script:
+  - for FILE in _data/benchmarks/*/meta.yaml; do pykwalify -d $FILE -s _data/benchmarks/example/schema.yaml; done
   - find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
   - make notebooks
   - touch data/hexbin.yaml

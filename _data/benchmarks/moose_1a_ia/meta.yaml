@@ -1,16 +1,15 @@
+---
 benchmark:
   id: 1a
 
 metadata:
   summary: Metadata for the Benchmark1 problems
-  date: 6/28/2016
+  timestamp: 6/28/2016
   author: A. M. Jokisaari
-  email: ~
   software:
-    name: MOOSE
+    name: moose
     version: Hedgehog (now Coral)
   hardware:
-    architecture: ~
     cores: 6
     details:
       - name: clock rate

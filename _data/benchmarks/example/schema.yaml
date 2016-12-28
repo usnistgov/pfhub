@@ -1,0 +1,115 @@
+type: map
+required: yes
+mapping:
+  "data": &data
+    type: seq
+    required: yes
+    sequence:
+      - type: map
+        required: yes
+        mapping:
+          "name":
+            type: str
+            required: yes
+          "format":
+            type: str
+            enum: ["csv", "json", "tsv", "topojson", "treejson"]
+            required: no
+          "values":
+            type: any
+            required: no
+          "source":
+            type: any
+            required: no
+          "url":
+            type: str
+            required: no
+          "transform":
+            type: any
+            required: no
+          "modify":
+            type: any
+            required: no
+  "benchmark":
+    type: map
+    required: yes
+    mapping:
+      "model":
+        type: str
+        required: no
+      "boundary_condition":
+        type: str
+        required: no
+      "id":
+        type: str
+        required: yes
+        enum: ["1a", "1b"]
+  "metadata":
+    type: map
+    required: yes
+    mapping:
+      "summary":
+        type: str
+        required: no
+      "author":
+        type: str
+        required: no
+      "email":
+        type: str
+        pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
+      "timestamp":
+        type: timestamp
+        required: yes
+      "hardware":
+        type: map
+        required: yes
+        mapping:
+          "architecture":
+            type: str
+            required: no
+            enum: ["x86_64"]
+          "cores":
+            type: int
+            required: yes
+            range:
+              min: 1
+          "details":
+            <<: *data
+            required: no
+      "software":
+        type: map
+        required: yes
+        mapping:
+          "name":
+            type: str
+            enum: ["fipy", "moose", "mmsp"]
+            required: yes
+          "version":
+            type: str
+            required: no
+          "repo": &repo
+            type: map
+            required: no
+            mapping:
+              "url":
+                type: str
+                required: yes
+              "version":
+                type: str
+                pattern: \b[0-9a-f]{5,40}\b
+                required: yes
+          "details":
+            <<: *data
+            required: no
+      "implementation":
+        type: map
+        required: no
+        mapping:
+          "repo":
+            <<: *repo
+          "end_condition":
+            type: str
+            required: no
+          "details":
+            <<: *data
+            required: no

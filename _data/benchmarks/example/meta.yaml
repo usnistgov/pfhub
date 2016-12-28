@@ -10,8 +10,8 @@ metadata: # REQUIRED
   # Describe the runtime environment
   summary: MPI parallel workstation benchmark with MMSP
   author: Trevor Keller # preferably yours
-  email: trevor.keller@nist.gov # there may be correspondence
-  date: Thu, 22 Dec 2016 15:20:53 -0500 # REQUIRED
+  email: "trevor.keller@nist.gov" # there may be correspondence
+  timestamp: "Thu, 22 Dec 2016 15:20:53 -0500" # REQUIRED
   hardware:
     # hardware details
     architecture: x86_64 # REQUIRED
@@ -27,12 +27,11 @@ metadata: # REQUIRED
         values: distributed memory
   software:
     # software framework
-    name: [MMSP, Mesoscale Microstructure Simulation Project] # REQUIRED
-    version: 4
+    name: mmsp #required
+    version: "4"
     repo:
       url: https://github.com/mesoscale/mmsp
       version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
-      branch: develop
     details:
       - name: dependencies
         values: [numpy, scipy]
@@ -41,7 +40,6 @@ metadata: # REQUIRED
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic
       version: b949fbc4116f020db619fe1ccacbf8b13dfd5e32
-      branch: master
     end_condition: time limit
     details:
       - name: mesh
@@ -85,4 +83,4 @@ data: # REQUIRED
   - name: generic global value versus time
     values: [{'time':0.0, 'value':1}, {'time':0.1, 'value':0.2}, {'time': 0.3, 'value': 0.4}]
   - name: an image
-    url: myimage.png
+    url: http://domain.com/myimage.png
