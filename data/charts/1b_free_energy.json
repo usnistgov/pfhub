@@ -1,0 +1,71 @@
+{
+  "axes": [
+    {
+      "scale": "x",
+      "type": "x"
+    },
+    {
+      "scale": "y",
+      "type": "y"
+    }
+  ],
+  "data": [
+    {
+      "name": "moose_1b_ia",
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_PBC_IA.csv"
+    }
+  ],
+  "height": 200,
+  "marks": [
+    {
+      "from": {
+        "data": "table"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "value": "steelblue"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "x": {
+            "field": "data.x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "data.y",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    }
+  ],
+  "scales": [
+    {
+      "domain": {
+        "data": "table",
+        "field": "data.x"
+      },
+      "name": "x",
+      "nice": true,
+      "range": "width",
+      "type": "linear"
+    },
+    {
+      "domain": {
+        "data": "table",
+        "field": "data.y"
+      },
+      "name": "y",
+      "nice": true,
+      "range": "height",
+      "type": "linear"
+    }
+  ],
+  "width": 400
+}

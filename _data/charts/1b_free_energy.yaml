@@ -1,0 +1,40 @@
+width: 400
+height: 200
+axes:
+  - type: x
+    scale: x
+  - type: y
+    scale: y
+scales:
+  - name: x
+    nice: true
+    type: linear
+    range: width
+    domain:
+      data: table
+      field: data.x
+  - name: y
+    nice: true
+    type: linear
+    range: height
+    domain:
+      data: table
+      field: data.y
+marks:
+  - type: line
+    from:
+      data: table
+    properties:
+      enter:
+        x:
+          scale: x
+          field: data.x
+        y:
+          scale: y
+          field: data.y
+        stroke:
+          value: steelblue
+        strokeWidth:
+          value: 1
+        strokeOpacity:
+          value: 1.0
