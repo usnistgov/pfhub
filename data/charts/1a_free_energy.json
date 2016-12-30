@@ -12,21 +12,19 @@
   "data": [
     {
       "format": {
-        "parse": {
-          "free_energy": "TotalEnergy",
-          "time": "time"
-        },
-        "type": "csv"
+        "type" : "csv",
+        "parse" : {"TotalEnergy" : "number", "time" : "number"}
       },
       "name": "moose_1a_ia",
-      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv"
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv",
+      "transform": [{"type" : "filter", "test" : "datum.time < 1000.0"}]
     }
   ],
   "height": 200,
   "marks": [
     {
       "from": {
-        "data": "table"
+        "data": "moose_1a_ia"
       },
       "properties": {
         "enter": {
@@ -40,11 +38,11 @@
             "value": 1
           },
           "x": {
-            "field": "data.x",
+            "field": "data.time",
             "scale": "x"
           },
           "y": {
-            "field": "data.y",
+            "field": "data.TotalEnergy",
             "scale": "y"
           }
         }
@@ -55,8 +53,8 @@
   "scales": [
     {
       "domain": {
-        "data": "table",
-        "field": "data.x"
+        "data": "moose_1a_ia",
+        "field": "data.time"
       },
       "name": "x",
       "nice": true,
@@ -65,8 +63,8 @@
     },
     {
       "domain": {
-        "data": "table",
-        "field": "data.y"
+        "data": "moose_1a_ia",
+        "field": "data.TotalEnergy"
       },
       "name": "y",
       "nice": true,

@@ -12,26 +12,26 @@ scales:
     range: width
     domain:
       data: table
-      field: data.x
+      field: data.time
   - name: y
     nice: true
     type: linear
     range: height
     domain:
       data: table
-      field: data.y
+      field: data.free_energy
 marks:
   - type: line
     from:
-      data: table
+      data: moose_1a_ia
     properties:
       enter:
         x:
           scale: x
-          field: data.x
+          field: data.time
         y:
           scale: y
-          field: data.y
+          field: data.free_energy
         stroke:
           value: steelblue
         strokeWidth:
