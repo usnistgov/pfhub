@@ -18,7 +18,7 @@ install:
   - gem install jekyll jekyll-coffeescript html-proofer
 script:
   - pylint _data/*.py
-  - for FILE in _data/benchmarks/*/meta.yaml; do pykwalify -d $FILE -s _data/benchmarks/example/schema.yaml; done
+  - make charts
   - find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
   - make notebooks
   - touch data/hexbin.yaml
