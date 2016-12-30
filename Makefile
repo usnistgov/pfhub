@@ -22,6 +22,9 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 	cp ./template.ipynb.md $@
 	sed -i -- 's/notebook_name/$(notdir $<)/' $@
 
+charts:
+	for FILE in _data/benchmarks/*/meta.yaml; do echo ""; echo $$FILE; pykwalify -d $$FILE -s _data/benchmarks/example/schema.yaml; done && python _data/charts.py
+
 hexbin: $(HEXBIN_OUT)
 
 notebooks: $(NOTEBOOKS_HTML) $(NOTEBOOKS_MD)

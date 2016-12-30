@@ -1,115 +1,114 @@
 type: map
-required: yes
+required: True
 mapping:
   "data": &data
     type: seq
-    required: yes
+    required: True
     sequence:
       - type: map
-        required: yes
+        required: True
         mapping:
           "name":
             type: str
-            required: yes
+            required: True
           "format":
-            type: str
-            enum: ["csv", "json", "tsv", "topojson", "treejson"]
-            required: no
+            type: any
+            required: False
           "values":
             type: any
-            required: no
+            required: False
           "source":
             type: any
-            required: no
+            required: False
           "url":
             type: str
-            required: no
+            required: False
           "transform":
             type: any
-            required: no
+            required: False
           "modify":
             type: any
-            required: no
+            required: False
   "benchmark":
     type: map
-    required: yes
+    required: True
     mapping:
       "model":
         type: str
-        required: no
+        required: False
       "boundary_condition":
         type: str
-        required: no
+        required: False
       "id":
         type: str
-        required: yes
+        required: True
         enum: ["1a", "1b"]
   "metadata":
     type: map
-    required: yes
+    required: True
     mapping:
       "summary":
         type: str
-        required: no
+        required: False
       "author":
         type: str
-        required: no
+        required: False
       "email":
         type: str
         pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
       "timestamp":
         type: timestamp
-        required: yes
+        required: True
       "hardware":
         type: map
-        required: yes
+        required: True
         mapping:
           "architecture":
             type: str
-            required: no
+            required: False
             enum: ["x86_64"]
           "cores":
             type: int
-            required: yes
+            required: True
             range:
               min: 1
           "details":
             <<: *data
-            required: no
+            required: False
       "software":
         type: map
-        required: yes
+        required: True
         mapping:
           "name":
             type: str
             enum: ["fipy", "moose", "mmsp"]
-            required: yes
+            required: True
           "version":
             type: str
-            required: no
+            required: False
           "repo": &repo
             type: map
-            required: no
+            required: False
             mapping:
               "url":
                 type: str
-                required: yes
+                required: True
               "version":
                 type: str
                 pattern: \b[0-9a-f]{5,40}\b
-                required: yes
+                required: True
           "details":
             <<: *data
-            required: no
+            required: False
       "implementation":
         type: map
-        required: no
+        required: False
         mapping:
           "repo":
             <<: *repo
           "end_condition":
             type: str
-            required: no
+            required: False
           "details":
             <<: *data
-            required: no
+            required: False

@@ -112,17 +112,17 @@ def get_data():
         valmap(filter_data),
     )
 
-def get_chart(key):
+def get_chart(id_):
     """Read the chart YAML
 
     Args:
-      key: the benchmark id
+      id_: the benchmark id
 
     Returns:
       the chart template
 
     """
-    return read_yaml(os.path.join(get_path(), 'charts', id_to_yaml()[key]))
+    return read_yaml(os.path.join(get_path(), 'charts', id_to_yaml()[id_]))
 
 def write_chart_json(item):
     """Write a chart JSON file.
