@@ -3,7 +3,7 @@ benchmark:
   id: 1a
 
 metadata:
-  summary: Metadata for the Benchmark1 problems
+  summary: Fake metadata for the Benchmark1 problems
   timestamp: 6/28/2016
   author: A. M. Jokisaari
   software:
@@ -42,6 +42,8 @@ data:
     transform:
       - type: formula
         field: free_energy
-        expr: datum.TotalEnergy
+        expr: "datum.TotalEnergy * 3."
+      - type: filter
+        test: "datum.free_energy < 400.0"
       - type: filter
         test: "datum.time > 0.01"

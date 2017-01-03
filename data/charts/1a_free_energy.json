@@ -11,6 +11,19 @@
   ],
   "data": [
     {
+      "name": "scale_data",
+      "values": [
+        {
+          "free_energy": 0.0,
+          "time": 0.0
+        },
+        {
+          "free_energy": 400.0,
+          "time": 1000000.0
+        }
+      ]
+    },
+    {
       "format": {
         "parse": {
           "TotalEnergy": "number",
@@ -19,6 +32,43 @@
         "type": "csv"
       },
       "name": "moose_1a_ia",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv"
+    },
+    {
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_fake",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy * 3.",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.free_energy < 400.0",
+          "type": "filter"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv"
     }
   ],
@@ -44,7 +94,34 @@
             "scale": "x"
           },
           "y": {
-            "field": "TotalEnergy",
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
+    {
+      "from": {
+        "data": "moose_fake"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "value": "steelblue"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
             "scale": "y"
           }
         }
@@ -54,24 +131,24 @@
   ],
   "scales": [
     {
-      "domain": {
-        "data": "moose_1a_ia",
-        "field": "time"
-      },
+      "domain": [
+        1,
+        1000000
+      ],
       "name": "x",
       "nice": true,
       "range": "width",
-      "type": "linear"
+      "type": "log"
     },
     {
-      "domain": {
-        "data": "moose_1a_ia",
-        "field": "TotalEnergy"
-      },
+      "domain": [
+        1,
+        500
+      ],
       "name": "y",
       "nice": true,
       "range": "height",
-      "type": "linear"
+      "type": "log"
     }
   ],
   "width": 400

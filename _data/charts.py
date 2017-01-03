@@ -8,7 +8,7 @@ import glob
 import os
 import json
 
-from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby # pylint: disable=redefined-builtin, no-name-in-module
+from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby, memoize # pylint: disable=redefined-builtin, no-name-in-module
 
 import ruamel.yaml as yaml
 
@@ -112,6 +112,7 @@ def get_data():
         valmap(filter_data),
     )
 
+@memoize
 def get_chart(id_):
     """Read the chart YAML
 
@@ -140,6 +141,26 @@ def write_chart_json(item):
         write_json(item[1]) # pylint: disable=no-value-for-parameter
     )
 
+def update_chart_data(chart_data, data):
+    """Update the chart YAML with the benchmark YAML data.
+
+    Args:
+      chart_data: the chart YAML
+      data: the benchmark YAML data
+
+    Returns:
+      the updated chart data
+    """
+    return pipe(
+        data,
+        map(lambda datum: update_dict(chart_data['marks'][0],
+                                      **{'from' : dict(data=datum['name'])})),
+        list,
+        lambda marks: update_dict(chart_data, marks=marks),
+        lambda chart_data_: update_dict(chart_data_,
+                                        data=chart_data_['data'] + data)
+    )
+
 def main():
     """Generate the chart JSON files
 
@@ -149,8 +170,10 @@ def main():
     return pipe(
         get_data(),
         itemmap(
-            lambda item: (item[0],
-                          update_dict(get_chart(item[0]), data=item[1]))
+            lambda item: (
+                item[0],
+                update_chart_data(get_chart(item[0]), item[1])
+            )
         ),
         itemmap(write_chart_json)
     )
