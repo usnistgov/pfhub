@@ -37,5 +37,5 @@ data:
     format:
       type: csv
       parse:
-        time: time
-        free_energy: TotalEnergy
+        TotalEnergy: number
+        time: number

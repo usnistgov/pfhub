@@ -11,15 +11,15 @@ scales:
     type: linear
     range: width
     domain:
-      data: table
-      field: data.time
+      data: moose_1a_ia
+      field: time
   - name: y
     nice: true
     type: linear
     range: height
     domain:
-      data: table
-      field: data.free_energy
+      data: moose_1a_ia
+      field: TotalEnergy
 marks:
   - type: line
     from:
@@ -28,10 +28,10 @@ marks:
       enter:
         x:
           scale: x
-          field: data.time
+          field: time
         y:
           scale: y
-          field: data.free_energy
+          field: TotalEnergy
         stroke:
           value: steelblue
         strokeWidth:
