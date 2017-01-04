@@ -15,11 +15,18 @@ scales:
     nice: true
     type: log
     range: height
-    domain: [1, 500]
+    domain: [5, 500]
+  - name: color
+    range: category10
+    type: ordinal
+    domain: ['moose_1a_ia', 'moose_1a_fake']
+legends:
+  - title: Benchmarks
+    fill: color
 marks:
   - type: line
     from:
-      data: <name>
+      data: "<name>"
     properties:
       enter:
         x:
@@ -29,15 +36,9 @@ marks:
           scale: y
           field: free_energy
         stroke:
-          value: steelblue
+          scale: color
+          value: "<name>"
         strokeWidth:
-          value: 1
+          value: 2
         strokeOpacity:
           value: 1.0
-data:
-  - name: scale_data
-    values:
-      - time: 0.0
-        free_energy: 0.0
-      - time: 1000000.0
-        free_energy: 400.0

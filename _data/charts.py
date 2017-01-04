@@ -9,7 +9,6 @@ import os
 import json
 
 from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby, memoize # pylint: disable=redefined-builtin, no-name-in-module
-
 import ruamel.yaml as yaml
 
 
@@ -75,6 +74,24 @@ def update_dict(dict_, **kwargs):
       a new dictionary
     """
     return dict(list(dict_.items()) + list(kwargs.items()))
+
+def update_nested_dict(dict_, keys, value):
+    """Update a nested dictionary structure
+
+    Args:
+      dict_: the dictionary to update
+      keys: the list of nested keys
+      value: the value
+
+    Returns:
+      a new copy of the updated dictionary
+
+    """
+    if len(keys) == 0:
+        return value
+    else:
+        return update_dict(dict_,
+                           **{keys[0] : update_nested_dict(dict_[keys[0]], keys[1:], value)})
 
 def filter_data(yaml_data):
     """Extract the free_energy data from the YAML files.
@@ -153,13 +170,17 @@ def update_chart_data(chart_data, data):
     """
     return pipe(
         data,
-        map(lambda datum: update_dict(chart_data['marks'][0],
-                                      **{'from' : dict(data=datum['name'])})),
+        map(lambda datum: update_nested_dict(chart_data['marks'][0],
+                                             ['from', 'data'], datum['name'])),
+        list,
+        map(lambda item: update_nested_dict(item,
+                                            ['properties', 'enter', 'stroke', 'value'],
+                                            item['from']['data'])),
         list,
         lambda marks: update_dict(chart_data, marks=marks),
-        lambda chart_data_: update_dict(chart_data_,
-                                        data=chart_data_['data'] + data)
+        lambda chart_data_: update_dict(chart_data_, data=data)
     )
+
 
 def main():
     """Generate the chart JSON files

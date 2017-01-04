@@ -11,19 +11,6 @@
   ],
   "data": [
     {
-      "name": "scale_data",
-      "values": [
-        {
-          "free_energy": 0.0,
-          "time": 0.0
-        },
-        {
-          "free_energy": 400.0,
-          "time": 1000000.0
-        }
-      ]
-    },
-    {
       "name": "moose_1b_ia",
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_PBC_IA.csv"
     }
@@ -37,7 +24,7 @@
       "properties": {
         "enter": {
           "stroke": {
-            "value": "steelblue"
+            "value": "moose_1b_ia"
           },
           "strokeOpacity": {
             "value": 1.0

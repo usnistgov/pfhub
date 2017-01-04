@@ -11,41 +11,6 @@
   ],
   "data": [
     {
-      "name": "scale_data",
-      "values": [
-        {
-          "free_energy": 0.0,
-          "time": 0.0
-        },
-        {
-          "free_energy": 400.0,
-          "time": 1000000.0
-        }
-      ]
-    },
-    {
-      "format": {
-        "parse": {
-          "TotalEnergy": "number",
-          "time": "number"
-        },
-        "type": "csv"
-      },
-      "name": "moose_1a_ia",
-      "transform": [
-        {
-          "expr": "datum.TotalEnergy",
-          "field": "free_energy",
-          "type": "formula"
-        },
-        {
-          "test": "datum.time > 0.01",
-          "type": "filter"
-        }
-      ],
-      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv"
-    },
-    {
       "format": {
         "parse": {
           "TotalEnergy": "number",
@@ -70,24 +35,53 @@
         }
       ],
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv"
+    },
+    {
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_1a_ia",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv"
     }
   ],
   "height": 200,
+  "legends": [
+    {
+      "fill": "color",
+      "title": "Benchmarks"
+    }
+  ],
   "marks": [
     {
       "from": {
-        "data": "moose_1a_ia"
+        "data": "moose_fake"
       },
       "properties": {
         "enter": {
           "stroke": {
-            "value": "steelblue"
+            "scale": "color",
+            "value": "moose_fake"
           },
           "strokeOpacity": {
             "value": 1.0
           },
           "strokeWidth": {
-            "value": 1
+            "value": 2
           },
           "x": {
             "field": "time",
@@ -103,18 +97,19 @@
     },
     {
       "from": {
-        "data": "moose_fake"
+        "data": "moose_1a_ia"
       },
       "properties": {
         "enter": {
           "stroke": {
-            "value": "steelblue"
+            "scale": "color",
+            "value": "moose_1a_ia"
           },
           "strokeOpacity": {
             "value": 1.0
           },
           "strokeWidth": {
-            "value": 1
+            "value": 2
           },
           "x": {
             "field": "time",
@@ -142,13 +137,22 @@
     },
     {
       "domain": [
-        1,
+        5,
         500
       ],
       "name": "y",
       "nice": true,
       "range": "height",
       "type": "log"
+    },
+    {
+      "domain": [
+        "moose_1a_ia",
+        "moose_1a_fake"
+      ],
+      "name": "color",
+      "range": "category10",
+      "type": "ordinal"
     }
   ],
   "width": 400
