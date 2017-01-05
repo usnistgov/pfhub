@@ -1,10 +1,6 @@
 ---
 ## YAML specification for a CHiMaD Phase Field Simulation
-benchmark: # REQUIRED
-  # Specify the problem using its unique ID, name and configuration, or both
-  model: spinodal decomposition
-  boundary_condition: periodic
-  id: 1a # REQUIRED
+benchmark_id: 1a # REQUIRED
 
 metadata: # REQUIRED
   # Describe the runtime environment
@@ -82,5 +78,3 @@ data: # REQUIRED
     format: csv
   - name: generic global value versus time
     values: [{'time':0.0, 'value':1}, {'time':0.1, 'value':0.2}, {'time': 0.3, 'value': 0.4}]
-  - name: an image
-    url: http://domain.com/myimage.png

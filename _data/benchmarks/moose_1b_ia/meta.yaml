@@ -1,6 +1,5 @@
 ---
-benchmark:
-  id: 1b
+benchmark_id: 1b
 
 metadata:
   summary: Information for the Benchmark1 problems

@@ -1,6 +1,5 @@
 ---
-benchmark:
-  id: 1a
+benchmark_id: 1a
 
 metadata:
   summary: Fake metadata for the Benchmark1 problems

@@ -108,7 +108,7 @@ def get_data():
         glob.glob,
         map(lambda path_: (os.path.split(os.path.split(path_)[0])[1], read_yaml(path_))),
         filter(lambda item: item[0] != 'example'),
-        groupby(lambda item: item[1]['benchmark']['id']),
+        groupby(lambda item: item[1]['benchmark_id']),
         valmap(filter_data),
     )
 
@@ -150,7 +150,6 @@ def process_chart(id_, data):
 
     Returns:
       the rendered YAML as a dictionary
-
     """
     return pipe(
         id_,

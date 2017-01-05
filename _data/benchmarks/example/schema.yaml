@@ -29,20 +29,10 @@ mapping:
           "modify":
             type: any
             required: False
-  "benchmark":
-    type: map
+  "benchmark_id":
+    type: str
     required: True
-    mapping:
-      "model":
-        type: str
-        required: False
-      "boundary_condition":
-        type: str
-        required: False
-      "id":
-        type: str
-        required: True
-        enum: ["1a", "1b"]
+    enum: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d"]
   "metadata":
     type: map
     required: True
@@ -66,7 +56,7 @@ mapping:
           "architecture":
             type: str
             required: False
-            enum: ["x86_64"]
+            enum: ["i386", "i686", "x86_64", "ia64", "alpha", "amd64", "arm", "armeb", "armel", "hppa", "m32r", "m68k", "mips", "mipsel", "powerpc", "ppc64", "s390", "s390x", "sh3", "sh3eb", "sh4", "sh4eb", "sparc"]
           "cores":
             type: int
             required: True
