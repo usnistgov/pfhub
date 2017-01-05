@@ -136,16 +136,26 @@ def write_chart_json(item):
     """
     return pipe(
         item[0],
-        lambda id_: id_to_yaml()[id_].replace('.yaml', '.json').replace('.j2',''),
+        lambda id_: id_to_yaml()[id_].replace('.yaml', '.json').replace('.j2', ''),
         lambda file_: os.path.join(get_path(), '../data/charts', file_),
         write_json(item[1]) # pylint: disable=no-value-for-parameter
     )
 
 def process_chart(id_, data):
+    """Process chart's YAML with data.
+
+    Args:
+      id_: the benchmark ID
+      data: the data to process the YAML file
+
+    Returns:
+      the rendered YAML as a dictionary
+
+    """
     return pipe(
         id_,
         get_chart_file,
-        render_yaml(data=data),
+        render_yaml(data=data), # pylint: disable=no-value-for-parameter
         yaml.load
     )
 
