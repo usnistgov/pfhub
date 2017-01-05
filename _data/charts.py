@@ -8,8 +8,9 @@ import glob
 import os
 import json
 
-from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby, memoize # pylint: disable=redefined-builtin, no-name-in-module
-import ruamel.yaml as yaml
+import jinja2
+from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby # pylint: disable=redefined-builtin, no-name-in-module
+import yaml
 
 
 def id_to_yaml():
@@ -18,8 +19,8 @@ def id_to_yaml():
     Returns:
       the mapping as a dict
     """
-    return {'1a' : '1a_free_energy.yaml',
-            '1b' : '1b_free_energy.yaml'}
+    return {'1a' : '1a_free_energy.yaml.j2',
+            '1b' : '1b_free_energy.yaml.j2'}
 
 def read_yaml(filepath):
     """Read a YAML file
@@ -75,24 +76,6 @@ def update_dict(dict_, **kwargs):
     """
     return dict(list(dict_.items()) + list(kwargs.items()))
 
-def update_nested_dict(dict_, keys, value):
-    """Update a nested dictionary structure
-
-    Args:
-      dict_: the dictionary to update
-      keys: the list of nested keys
-      value: the value
-
-    Returns:
-      a new copy of the updated dictionary
-
-    """
-    if len(keys) == 0:
-        return value
-    else:
-        return update_dict(dict_,
-                           **{keys[0] : update_nested_dict(dict_[keys[0]], keys[1:], value)})
-
 def filter_data(yaml_data):
     """Extract the free_energy data from the YAML files.
 
@@ -129,18 +112,18 @@ def get_data():
         valmap(filter_data),
     )
 
-@memoize
-def get_chart(id_):
-    """Read the chart YAML
+def get_chart_file(id_):
+    """Get the name of the chart file
 
     Args:
       id_: the benchmark id
 
     Returns:
-      the chart template
+      the chart YAML file
 
     """
-    return read_yaml(os.path.join(get_path(), 'charts', id_to_yaml()[id_]))
+    return os.path.join(get_path(), 'charts', id_to_yaml()[id_])
+
 
 def write_chart_json(item):
     """Write a chart JSON file.
@@ -153,34 +136,35 @@ def write_chart_json(item):
     """
     return pipe(
         item[0],
-        lambda id_: id_to_yaml()[id_].replace('.yaml', '.json'),
+        lambda id_: id_to_yaml()[id_].replace('.yaml', '.json').replace('.j2',''),
         lambda file_: os.path.join(get_path(), '../data/charts', file_),
         write_json(item[1]) # pylint: disable=no-value-for-parameter
     )
 
-def update_chart_data(chart_data, data):
-    """Update the chart YAML with the benchmark YAML data.
-
-    Args:
-      chart_data: the chart YAML
-      data: the benchmark YAML data
-
-    Returns:
-      the updated chart data
-    """
+def process_chart(id_, data):
     return pipe(
-        data,
-        map(lambda datum: update_nested_dict(chart_data['marks'][0],
-                                             ['from', 'data'], datum['name'])),
-        list,
-        map(lambda item: update_nested_dict(item,
-                                            ['properties', 'enter', 'stroke', 'value'],
-                                            item['from']['data'])),
-        list,
-        lambda marks: update_dict(chart_data, marks=marks),
-        lambda chart_data_: update_dict(chart_data_, data=data)
+        id_,
+        get_chart_file,
+        render_yaml(data=data),
+        yaml.load
     )
 
+@curry
+def render_yaml(tpl_path, **kwargs):
+    """Return the rendered yaml template.
+
+    Args:
+      tpl_path: path to the YAML jinja template
+      **kwargs: data to render in the template
+
+    Retuns:
+      the rendered template string
+    """
+    path, filename = os.path.split(tpl_path)
+    loader = jinja2.FileSystemLoader(path or './')
+    env = jinja2.Environment(loader=loader)
+    env.filters['to_yaml'] = yaml.dump
+    return env.get_template(filename).render(**kwargs)
 
 def main():
     """Generate the chart JSON files
@@ -193,7 +177,7 @@ def main():
         itemmap(
             lambda item: (
                 item[0],
-                update_chart_data(get_chart(item[0]), item[1])
+                process_chart(item[0], item[1])
             )
         ),
         itemmap(write_chart_json)

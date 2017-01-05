@@ -1,3 +1,4 @@
+---
 width: 400
 height: 200
 axes:
@@ -19,14 +20,18 @@ scales:
   - name: color
     range: category10
     type: ordinal
-    domain: ['moose_1a_ia', 'moose_1a_fake']
+    domain:
+{%- for datum in data %}
+      - {{ datum.name }}
+{%- endfor %}
 legends:
   - title: Benchmarks
     fill: color
 marks:
+{%- for datum in data %}
   - type: line
     from:
-      data: "<name>"
+      data: {{ datum.name }}
     properties:
       enter:
         x:
@@ -37,8 +42,11 @@ marks:
           field: free_energy
         stroke:
           scale: color
-          value: "<name>"
+          value: {{ datum.name }}
         strokeWidth:
           value: 2
         strokeOpacity:
           value: 1.0
+{%- endfor %}
+data:
+{{ data | to_yaml() }}

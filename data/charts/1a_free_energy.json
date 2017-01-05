@@ -18,16 +18,12 @@
         },
         "type": "csv"
       },
-      "name": "moose_fake",
+      "name": "moose_1a_ia",
       "transform": [
         {
-          "expr": "datum.TotalEnergy * 3.",
+          "expr": "datum.TotalEnergy",
           "field": "free_energy",
           "type": "formula"
-        },
-        {
-          "test": "datum.free_energy < 400.0",
-          "type": "filter"
         },
         {
           "test": "datum.time > 0.01",
@@ -44,12 +40,16 @@
         },
         "type": "csv"
       },
-      "name": "moose_1a_ia",
+      "name": "moose_fake",
       "transform": [
         {
-          "expr": "datum.TotalEnergy",
+          "expr": "datum.TotalEnergy * 3.",
           "field": "free_energy",
           "type": "formula"
+        },
+        {
+          "test": "datum.free_energy < 400.0",
+          "type": "filter"
         },
         {
           "test": "datum.time > 0.01",
@@ -69,13 +69,13 @@
   "marks": [
     {
       "from": {
-        "data": "moose_fake"
+        "data": "moose_1a_ia"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_fake"
+            "value": "moose_1a_ia"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -97,13 +97,13 @@
     },
     {
       "from": {
-        "data": "moose_1a_ia"
+        "data": "moose_fake"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_1a_ia"
+            "value": "moose_fake"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -148,7 +148,7 @@
     {
       "domain": [
         "moose_1a_ia",
-        "moose_1a_fake"
+        "moose_fake"
       ],
       "name": "color",
       "range": "category10",
