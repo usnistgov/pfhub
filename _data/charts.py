@@ -13,14 +13,13 @@ from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupb
 import yaml
 
 
-def id_to_yaml():
-    """Maps benchmark id to the Vega YAML template.
+def free_energy_file():
+    """Get the free energy chart template file name
 
     Returns:
-      the mapping as a dict
+      the file name
     """
-    return {'1a' : '1a_free_energy.yaml.j2',
-            '1b' : '1b_free_energy.yaml.j2'}
+    return 'free_energy.yaml.j2'
 
 def read_yaml(filepath):
     """Read a YAML file
@@ -122,7 +121,7 @@ def get_chart_file(id_):
       the chart YAML file
 
     """
-    return os.path.join(get_path(), 'charts', id_to_yaml()[id_])
+    return os.path.join(get_path(), 'charts', free_energy_file())
 
 
 def write_chart_json(item):
@@ -136,7 +135,7 @@ def write_chart_json(item):
     """
     return pipe(
         item[0],
-        lambda id_: id_to_yaml()[id_].replace('.yaml', '.json').replace('.j2', ''),
+        lambda id_: item[0] + "_" + free_energy_file().replace('.yaml', '.json').replace('.j2', ''),
         lambda file_: os.path.join(get_path(), '../data/charts', file_),
         write_json(item[1]) # pylint: disable=no-value-for-parameter
     )

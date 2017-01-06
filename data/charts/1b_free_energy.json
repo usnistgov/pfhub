@@ -144,5 +144,11 @@
       "type": "ordinal"
     }
   ],
+  "signal": [
+    {
+      "init": null,
+      "name": "hover"
+    }
+  ],
   "width": 500
 }
