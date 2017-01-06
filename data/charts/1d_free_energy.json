@@ -61,23 +61,23 @@
         },
         "type": "csv"
       },
-      "name": "moose_fake",
+      "name": "moose_1d_sta",
       "transform": [
         {
-          "expr": "datum.TotalEnergy * 3.",
+          "expr": "datum.TotalEnergy",
           "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.free_energy < 400.0",
+          "test": "datum.time > 1.0",
           "type": "filter"
         },
         {
-          "test": "datum.time > 0.01",
+          "test": "datum.time < 1e6",
           "type": "filter"
         }
       ],
-      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv"
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_STA.csv"
     },
     {
       "format": {
@@ -87,7 +87,7 @@
         },
         "type": "csv"
       },
-      "name": "moose_1a_ia",
+      "name": "moose_1d_ia",
       "transform": [
         {
           "expr": "datum.TotalEnergy",
@@ -95,11 +95,15 @@
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "test": "datum.time > 1",
+          "type": "filter"
+        },
+        {
+          "test": "datum.time < 1e6",
           "type": "filter"
         }
       ],
-      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_NF_IA.csv"
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_IA.csv"
     }
   ],
   "height": 300,
@@ -112,13 +116,13 @@
   "marks": [
     {
       "from": {
-        "data": "moose_fake"
+        "data": "moose_1d_sta"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_fake"
+            "value": "moose_1d_sta"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -140,13 +144,13 @@
     },
     {
       "from": {
-        "data": "moose_1a_ia"
+        "data": "moose_1d_ia"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_1a_ia"
+            "value": "moose_1d_ia"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -190,8 +194,8 @@
     },
     {
       "domain": [
-        "moose_fake",
-        "moose_1a_ia"
+        "moose_1d_sta",
+        "moose_1d_ia"
       ],
       "name": "color",
       "range": "category10",

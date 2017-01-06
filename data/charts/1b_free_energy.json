@@ -19,7 +19,6 @@
     {
       "format": ".0e",
       "formatType": "number",
-      "grid": true,
       "scale": "y",
       "title": "Free Energy",
       "type": "y",
@@ -62,6 +61,28 @@
         },
         "type": "csv"
       },
+      "name": "moose_1b_sta",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/49d3f4ebc29a373687b3e7f4ec0b8219dd098cb7/hackathon_p1_square_NF_STA.csv"
+    },
+    {
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
       "name": "moose_1b_ia",
       "transform": [
         {
@@ -85,6 +106,34 @@
     }
   ],
   "marks": [
+    {
+      "from": {
+        "data": "moose_1b_sta"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_1b_sta"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
     {
       "from": {
         "data": "moose_1b_ia"
@@ -137,6 +186,7 @@
     },
     {
       "domain": [
+        "moose_1b_sta",
         "moose_1b_ia"
       ],
       "name": "color",
