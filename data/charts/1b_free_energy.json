@@ -1,21 +1,83 @@
 {
   "axes": [
     {
+      "format": ".0e",
+      "formatType": "number",
       "scale": "x",
+      "title": "Time",
+      "type": "x",
+      "values": [
+        1,
+        10,
+        100,
+        1000,
+        10000,
+        100000,
+        1000000
+      ]
+    },
+    {
+      "format": ".0e",
+      "formatType": "number",
+      "grid": true,
+      "scale": "y",
+      "title": "Free Energy",
+      "type": "y",
+      "values": [
+        1,
+        10,
+        100,
+        1000
+      ]
+    },
+    {
+      "grid": true,
+      "properties": {
+        "labels": {
+          "text": ""
+        }
+      },
+      "scale": "x",
+      "tickSize": 0,
       "type": "x"
     },
     {
+      "grid": true,
+      "properties": {
+        "labels": {
+          "text": ""
+        }
+      },
       "scale": "y",
+      "tickSize": 0,
       "type": "y"
     }
   ],
   "data": [
     {
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
       "name": "moose_1b_ia",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_PBC_IA.csv"
     }
   ],
-  "height": 200,
+  "height": 300,
   "legends": [
     {
       "fill": "color",
@@ -82,5 +144,5 @@
       "type": "ordinal"
     }
   ],
-  "width": 400
+  "width": 500
 }
