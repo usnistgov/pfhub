@@ -18,7 +18,7 @@ install:
   - gem install jekyll jekyll-coffeescript html-proofer
 script:
   - pylint _data/*.py
-  - make charts
+  - make simulations
   - find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
   - make notebooks
   - touch data/hexbin.yaml
