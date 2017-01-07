@@ -111,11 +111,8 @@ def get_data():
         valmap(filter_data),
     )
 
-def get_chart_file(id_):
+def get_chart_file():
     """Get the name of the chart file
-
-    Args:
-      id_: the benchmark id
 
     Returns:
       the chart YAML file
@@ -151,8 +148,7 @@ def process_chart(id_, data):
       the rendered YAML as a dictionary
     """
     return pipe(
-        id_,
-        get_chart_file,
+        get_chart_file(),
         render_yaml(data=data, id_=id_), # pylint: disable=no-value-for-parameter
         yaml.load
     )
