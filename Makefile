@@ -5,7 +5,7 @@ NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*" -
 NOTEBOOKS_HTML := $(NOTEBOOKS:%.ipynb=%.ipynb.raw.html)
 NOTEBOOKS_MD := $(NOTEBOOKS:%.ipynb=%.ipynb.md)
 
-.PHONY: clean
+.PHONY: clean simulations
 
 all: hexbin notebooks
 
@@ -21,6 +21,9 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 %.ipynb.md: %.ipynb
 	cp ./template.ipynb.md $@
 	sed -i -- 's/notebook_name/$(notdir $<)/' $@
+
+simulations:
+	for FILE in _data/simulations/*/meta.yaml; do echo ""; echo $$FILE; pykwalify -d $$FILE -s _data/simulations/example/schema.yaml; done && python _data/simulations.py
 
 hexbin: $(HEXBIN_OUT)
 

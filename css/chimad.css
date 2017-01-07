@@ -2,9 +2,16 @@ body {
     min-height: 2000px;
     font-family: "Lato", sans-serif;
     font-size: 12pt;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
     /* display: -webkit-box; */
     /* display: -webkit-flex; */
     /* display: flex; */
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 

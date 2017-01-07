@@ -1,0 +1,47 @@
+---
+benchmark_id: 1d
+
+metadata:
+  summary: Information for the Benchmark1 problems
+  timestamp: 6/28/2016
+  software:
+    name: moose
+    version: Hedgehog (now Coral)
+    details:
+      - name: time stepper
+        values: IA
+  implementation:
+    repo:
+      url: https://bitbucket.org/ajokisaari/coral
+      version: e8fc74f
+    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+  hardware:
+    cores: 20
+    details:
+      - name: processor
+        values: "Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GH"
+
+data:
+  - name: run_time
+    values:
+      - run_time: 5520
+        unit: s
+  - name: memory_usage
+    values:
+      - memory_usage: 3.57
+        unit: GB
+  - name: free_energy
+    url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_IA.csv
+    format:
+      type: csv
+      parse:
+        TotalEnergy: number
+        time: number
+    transform:
+      - type: formula
+        field: free_energy
+        expr: datum.TotalEnergy
+      - type: filter
+        test: "datum.time > 1"
+      - type: filter
+        test: "datum.time < 1e6"

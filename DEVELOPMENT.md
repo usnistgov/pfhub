@@ -68,7 +68,7 @@ be included for each entry.
           href: "{{ site.baseurl }}/docs/CHiMaD_PhaseFieldWorkshop.pdf"
 
 For each of the `icon_links`, the `type` field must correspond to a
-[Materialize icon](https://material.io/icons/).
+Materialize icon.
 
 ### Add a New Page
 

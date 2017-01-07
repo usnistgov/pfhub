@@ -1,0 +1,80 @@
+---
+## YAML specification for a CHiMaD Phase Field Simulation
+benchmark_id: 1a # REQUIRED
+
+metadata: # REQUIRED
+  # Describe the runtime environment
+  summary: MPI parallel workstation benchmark with MMSP
+  author: Trevor Keller # preferably yours
+  email: "trevor.keller@nist.gov" # there may be correspondence
+  timestamp: "Thu, 22 Dec 2016 15:20:53 -0500" # REQUIRED
+  hardware:
+    # hardware details
+    architecture: x86_64 # REQUIRED
+    cores: 6 # REQUIRED
+    details:
+      - name: clock rate
+        values:
+          rate: 3.50
+          unit: GHz
+      - name: nodes # if cluster or multi-GPU, default should be 1
+        values: 1
+      - name: parallel_model
+        values: distributed memory
+  software:
+    # software framework
+    name: mmsp #required
+    version: "4"
+    repo:
+      url: https://github.com/mesoscale/mmsp
+      version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
+    details:
+      - name: dependencies
+        values: [numpy, scipy]
+  implementation:
+    # your implementation of the problem
+    repo:
+      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic
+      version: b949fbc4116f020db619fe1ccacbf8b13dfd5e32
+    end_condition: time limit
+    details:
+      - name: mesh
+        values: uniform rectilinear
+      - name: numerical_method
+        values: explicit finite difference
+      - name: compiler
+        values: GNU mpic++
+      - name: domain
+        values: [200, 200]
+
+data: # REQUIRED
+  # use Vega standard, see
+  # https://github.com/vega/vega/wiki/Data and see
+  # https://vega.github.io/vega-lite/docs/data.html
+  - name: timestep
+    values: 0.00195312
+  - name: timestep
+    values:
+      - time: 0
+        value: 0.00195312
+      - time: 19.531
+        value: 0.00195312
+  - name: run time
+    values:
+      - value: 358.68
+        unit: seconds
+  - name: run time
+    values:
+      times: [0, 19.5312]
+      energy: [179.25, 179.43]
+      unit: seconds
+    transform: ## confused how to do transpose
+  - name: memory usage
+    values:
+      - value: 27232
+        unit: KB
+  - name: free energy
+    url: http://somewhere/data.csv
+    format: csv
+  - name: generic global value versus time
+    values: [{'time':0.0, 'value':1}, {'time':0.1, 'value':0.2}, {'time': 0.3, 'value': 0.4}]

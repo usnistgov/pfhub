@@ -1,0 +1,104 @@
+type: map
+required: True
+mapping:
+  "data": &data
+    type: seq
+    required: True
+    sequence:
+      - type: map
+        required: True
+        mapping:
+          "name":
+            type: str
+            required: True
+          "format":
+            type: any
+            required: False
+          "values":
+            type: any
+            required: False
+          "source":
+            type: any
+            required: False
+          "url":
+            type: str
+            required: False
+          "transform":
+            type: any
+            required: False
+          "modify":
+            type: any
+            required: False
+  "benchmark_id":
+    type: str
+    required: True
+    enum: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d"]
+  "metadata":
+    type: map
+    required: True
+    mapping:
+      "summary":
+        type: str
+        required: False
+      "author":
+        type: str
+        required: False
+      "email":
+        type: str
+        pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
+      "timestamp":
+        type: timestamp
+        required: True
+      "hardware":
+        type: map
+        required: True
+        mapping:
+          "architecture":
+            type: str
+            required: False
+            enum: ["i386", "i686", "x86_64", "ia64", "alpha", "amd64", "arm", "armeb", "armel", "hppa", "m32r", "m68k", "mips", "mipsel", "powerpc", "ppc64", "s390", "s390x", "sh3", "sh3eb", "sh4", "sh4eb", "sparc"]
+          "cores":
+            type: int
+            required: True
+            range:
+              min: 1
+          "details":
+            <<: *data
+            required: False
+      "software":
+        type: map
+        required: True
+        mapping:
+          "name":
+            type: str
+            enum: ["fipy", "moose", "mmsp"]
+            required: True
+          "version":
+            type: str
+            required: False
+          "repo": &repo
+            type: map
+            required: False
+            mapping:
+              "url":
+                type: str
+                required: True
+              "version":
+                type: str
+                pattern: \b[0-9a-f]{5,40}\b
+                required: True
+          "details":
+            <<: *data
+            required: False
+      "implementation":
+        type: map
+        required: False
+        mapping:
+          "repo":
+            <<: *repo
+          "end_condition":
+            type: str
+            required: False
+          "details":
+            <<: *data
+            required: False
