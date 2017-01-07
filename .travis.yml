@@ -12,7 +12,7 @@ install:
   - conda info -a
   - conda create -q -y -n test-environment python=3.5
   - source activate test-environment
-  - conda install -q -y -n test-environment jupyter pillow numpy
+  - conda install -q -y -n test-environment jupyter pillow numpy toolz
   - pip install progressbar2 pykwalify
   - unset VIRTUAL_ENV
   - gem install jekyll jekyll-coffeescript html-proofer
