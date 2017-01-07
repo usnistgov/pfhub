@@ -50,6 +50,25 @@
       "scale": "y",
       "tickSize": 0,
       "type": "y"
+    },
+    {
+      "orient": "top",
+      "properties": {
+        "axis": {
+          "strokeOpacity": {
+            "value": 0
+          }
+        },
+        "title": {
+          "fontSize": {
+            "value": 20
+          }
+        }
+      },
+      "scale": "x",
+      "title": "Benchmark 1c Simulations",
+      "type": "x",
+      "values": []
     }
   ],
   "data": [

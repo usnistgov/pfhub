@@ -103,7 +103,7 @@ def get_data():
       data for values
     """
     return pipe(
-        os.path.join(get_path(), 'benchmarks/*/meta.yaml'),
+        os.path.join(get_path(), 'simulations/*/meta.yaml'),
         glob.glob,
         map(lambda path_: (os.path.split(os.path.split(path_)[0])[1], read_yaml(path_))),
         filter(lambda item: item[0] != 'example'),
@@ -153,7 +153,7 @@ def process_chart(id_, data):
     return pipe(
         id_,
         get_chart_file,
-        render_yaml(data=data), # pylint: disable=no-value-for-parameter
+        render_yaml(data=data, id_=id_), # pylint: disable=no-value-for-parameter
         yaml.load
     )
 
