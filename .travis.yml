@@ -12,8 +12,9 @@ install:
   - conda info -a
   - conda create -q -y -n test-environment python=3.5
   - source activate test-environment
-  - conda install -q -y -n test-environment jupyter pillow numpy toolz
-  - pip install progressbar2 pykwalify pylint
+  - conda install -q -y -n test-environment jupyter pillow numpy toolz pytest bokeh
+  - pip install progressbar2 pykwalify pylint nbval vega
+  - jupyter nbextension enable vega --py
   - unset VIRTUAL_ENV
   - gem install jekyll jekyll-coffeescript html-proofer
 script:
@@ -25,3 +26,4 @@ script:
   - make hexbin
   - rm -rf ./_site
   - jekyll build -d ./_site/chimad-phase-field && htmlproofer --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
+  - py.test --ignore=hackathon1 --nbval --sanitize-with sanitize.cfg .
