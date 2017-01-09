@@ -187,5 +187,38 @@ def main():
         itemmap(write_chart_json)
     )
 
+def landing_page_j2():
+    """Get the name of the chart file
+
+    Returns:
+      the chart YAML file
+
+    """
+    return os.path.join(get_path(), 'charts', 'simulations.yaml.j2')
+
+def landing_page_json():
+    """Generate the landing page JSON vega spec.
+
+    Returns:
+      (filepath, chart_json) pairs
+    """
+    return pipe(
+        ['1a_free_energy.png',
+         '1b_free_energy.png',
+         '1c_free_energy.png',
+         '1d_free_energy.png'],
+        map(lambda name: os.path.join("..", 'images', name)),
+        enumerate,
+        map(
+            lambda tup: (lambda count, name: dict(path=name, col=(count % 4), row=count // 4))(*tup)
+        ),
+        list,
+        lambda data: render_yaml(landing_page_j2(), data=data),
+        yaml.load,
+        write_json(filepath=os.path.join(get_path(), '../data/charts/simulations.json'))
+    )
+
+
 if __name__ == "__main__":
-    main()
+    # main()
+    landing_page_json()
