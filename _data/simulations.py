@@ -220,5 +220,5 @@ def landing_page_json():
 
 
 if __name__ == "__main__":
-    # main()
+    main()
     landing_page_json()
