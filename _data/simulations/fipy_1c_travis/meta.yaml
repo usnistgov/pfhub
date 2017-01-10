@@ -15,18 +15,19 @@ metadata:
     details:
       - name: clock
         values: 2300.000
-        unit: MHz
+        # unit: MHz
   software:
     name: fipy
     version: "3.1"
     repo:
       url: https://github.com/usnistgov/fipy/tree/develop
+      version: '5fcf04e8f2e4808318055fb41e567c7d58a93153'
   implementation:
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/T-shape/
-      version: 944284638f00c3a411a71981d27becf97a2eb0e4
-      badge: https://travis-ci.org/usnistgov/FiPy-spinodal-decomposition-benchmark.svg?branch=master
+      version: '944284638f00c3a411a71981d27becf97a2eb0e4'
+      # badge: https://travis-ci.org/usnistgov/FiPy-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
         values: uniform rectilinear
