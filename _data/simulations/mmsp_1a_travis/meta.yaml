@@ -14,16 +14,14 @@ metadata:
     # Optional hardware details
     details:
       - name: clock
-        value: 2300.000
-        units: MHz
+        values: 2300.000
+        unit: MHz
   software:
     name: mmsp
-    url: https://github.com/mesoscale/mmsp
-    version: 4
+    version: "4"
     repo:
       url: https://github.com/mesoscale/mmsp/tree/develop
       version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
-      branch: develop
   implementation:
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
@@ -33,13 +31,13 @@ metadata:
       badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
-        value: uniform rectilinear
+        values: uniform rectilinear
       - name: numerical_method
-        value: explicit finite difference
+        values: explicit finite difference
       - name: compiler
-        value: GNU mpic++
+        values: GNU mpic++
       - name: parallel_model
-        value: MPI
+        values: MPI
 
 data:
   # Gather simulation output
