@@ -73,10 +73,17 @@
   ],
   "data": [
     {
-      "name": "fipy_1b_travis",
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_1b_ia",
       "transform": [
         {
-          "expr": "datum.energy",
+          "expr": "datum.TotalEnergy",
           "field": "free_energy",
           "type": "formula"
         },
@@ -85,48 +92,7 @@
           "type": "filter"
         }
       ],
-      "values": [
-        {
-          "energy": 319.03821768838407,
-          "time": 0.0
-        },
-        {
-          "energy": 164.51675005462272,
-          "time": 48.804228920362064
-        },
-        {
-          "energy": 124.5327384463716,
-          "time": 109.25323050065941
-        },
-        {
-          "energy": 114.1180960926807,
-          "time": 164.69375766486255
-        },
-        {
-          "energy": 107.61713583198392,
-          "time": 220.14499377596943
-        },
-        {
-          "energy": 103.65430607047742,
-          "time": 273.85571693116685
-        },
-        {
-          "energy": 100.25167268328163,
-          "time": 327.226412928035
-        },
-        {
-          "energy": 96.95654108439231,
-          "time": 381.76765454106936
-        },
-        {
-          "energy": 94.09520078771388,
-          "time": 435.45815643017687
-        },
-        {
-          "energy": 91.35301326183117,
-          "time": 490.33193330024756
-        }
-      ]
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_PBC_IA.csv"
     },
     {
       "name": "mmsp_1b_travis",
@@ -189,6 +155,62 @@
       ]
     },
     {
+      "name": "fipy_1b_travis",
+      "transform": [
+        {
+          "expr": "datum.energy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "values": [
+        {
+          "energy": 319.03821768838407,
+          "time": 0.0
+        },
+        {
+          "energy": 164.51675005462272,
+          "time": 48.804228920362064
+        },
+        {
+          "energy": 124.5327384463716,
+          "time": 109.25323050065941
+        },
+        {
+          "energy": 114.1180960926807,
+          "time": 164.69375766486255
+        },
+        {
+          "energy": 107.61713583198392,
+          "time": 220.14499377596943
+        },
+        {
+          "energy": 103.65430607047742,
+          "time": 273.85571693116685
+        },
+        {
+          "energy": 100.25167268328163,
+          "time": 327.226412928035
+        },
+        {
+          "energy": 96.95654108439231,
+          "time": 381.76765454106936
+        },
+        {
+          "energy": 94.09520078771388,
+          "time": 435.45815643017687
+        },
+        {
+          "energy": 91.35301326183117,
+          "time": 490.33193330024756
+        }
+      ]
+    },
+    {
       "format": {
         "parse": {
           "TotalEnergy": "number",
@@ -209,28 +231,6 @@
         }
       ],
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/49d3f4ebc29a373687b3e7f4ec0b8219dd098cb7/hackathon_p1_square_NF_STA.csv"
-    },
-    {
-      "format": {
-        "parse": {
-          "TotalEnergy": "number",
-          "time": "number"
-        },
-        "type": "csv"
-      },
-      "name": "moose_1b_ia",
-      "transform": [
-        {
-          "expr": "datum.TotalEnergy",
-          "field": "free_energy",
-          "type": "formula"
-        },
-        {
-          "test": "datum.time > 0.01",
-          "type": "filter"
-        }
-      ],
-      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_PBC_IA.csv"
     }
   ],
   "height": 300,
@@ -243,13 +243,13 @@
   "marks": [
     {
       "from": {
-        "data": "fipy_1b_travis"
+        "data": "moose_1b_ia"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "fipy_1b_travis"
+            "value": "moose_1b_ia"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -299,13 +299,13 @@
     },
     {
       "from": {
-        "data": "moose_1b_sta"
+        "data": "fipy_1b_travis"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_1b_sta"
+            "value": "fipy_1b_travis"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -327,13 +327,13 @@
     },
     {
       "from": {
-        "data": "moose_1b_ia"
+        "data": "moose_1b_sta"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_1b_ia"
+            "value": "moose_1b_sta"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -377,10 +377,10 @@
     },
     {
       "domain": [
-        "fipy_1b_travis",
+        "moose_1b_ia",
         "mmsp_1b_travis",
-        "moose_1b_sta",
-        "moose_1b_ia"
+        "fipy_1b_travis",
+        "moose_1b_sta"
       ],
       "name": "color",
       "range": "category10",
