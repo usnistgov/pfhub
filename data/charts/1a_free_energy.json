@@ -73,6 +73,62 @@
   ],
   "data": [
     {
+      "name": "fipy_1a_travis",
+      "transform": [
+        {
+          "expr": "datum.energy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "values": [
+        {
+          "energy": 319.06303925368354,
+          "time": 0.0
+        },
+        {
+          "energy": 164.2216014340151,
+          "time": 49.02613779824095
+        },
+        {
+          "energy": 131.98219930377076,
+          "time": 108.35512414140523
+        },
+        {
+          "energy": 122.72687849230819,
+          "time": 163.45883181339772
+        },
+        {
+          "energy": 115.84448550680348,
+          "time": 219.35317030457253
+        },
+        {
+          "energy": 111.5408433711128,
+          "time": 273.360149663156
+        },
+        {
+          "energy": 107.92440125854729,
+          "time": 326.6283721598183
+        },
+        {
+          "energy": 104.19038700542657,
+          "time": 381.73462920548144
+        },
+        {
+          "energy": 100.9592325038704,
+          "time": 435.6374245617747
+        },
+        {
+          "energy": 98.55448703132164,
+          "time": 487.51762396301325
+        }
+      ]
+    },
+    {
       "format": {
         "parse": {
           "TotalEnergy": "number",
@@ -103,6 +159,34 @@
     }
   ],
   "marks": [
+    {
+      "from": {
+        "data": "fipy_1a_travis"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "fipy_1a_travis"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
     {
       "from": {
         "data": "moose_1a_ia"
@@ -155,6 +239,7 @@
     },
     {
       "domain": [
+        "fipy_1a_travis",
         "moose_1a_ia"
       ],
       "name": "color",
