@@ -1,13 +1,12 @@
 ---
-benchmark:
-  id: 1a
+benchmark_id: 1a
 
 metadata:
   # Describe the runtime environment
   summary: Parallel Travis CI benchmark with MMSP, periodic domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  date: Tue, 10 Jan 2017 01:01:39 +0000
+  timestamp: Tue, 10 Jan 2017 01:01:39 +0000
   hardware:
     # Required hardware details
     architecture: x86_64
@@ -45,7 +44,7 @@ metadata:
 data:
   # Gather simulation output
   - name: timestep
-    value: 0.00195312
+    values: 0.00195312
   - name: free_energy
     # JSON list of {time, energy} pairs
     values: [{"time":0, "energy":319.094}, {"time":7.61719, "energy":318.053}, {"time":15.2344, "energy":314.632}, {"time":22.8516, "energy":303.393}, {"time":30.4688, "energy":277.709}, {"time":38.0859, "energy":240.619}, {"time":45.7031, "energy":215.533}, {"time":53.3203, "energy":206.567}, {"time":60.9375, "energy":201.415}, {"time":68.5547, "energy":196.916}, {"time":76.1719, "energy":192.545}]
