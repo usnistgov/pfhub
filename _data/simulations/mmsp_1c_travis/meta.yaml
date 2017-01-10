@@ -45,8 +45,13 @@ data:
   - name: free_energy
     # JSON list of {time, energy} pairs
     values: [{"time":0, "energy":31.8815}, {"time":7.61719, "energy":31.7653}, {"time":15.2344, "energy":31.3578}, {"time":22.8516, "energy":29.8382}, {"time":30.4688, "energy":26.3998}, {"time":38.0859, "energy":23.095}, {"time":45.7031, "energy":21.4502}, {"time":53.3203, "energy":20.4617}, {"time":60.9375, "energy":19.8369}, {"time":68.5547, "energy":19.3948}, {"time":76.1719, "energy":19.0146}]
+    transform:
+      - type: formula
+        field: free_energy
+        expr: datum.energy
+      - type: filter
+        test: "datum.time > 0.01"
   - name: run_time
     values: {'time': 189.44, 'unit': seconds}
   - name: memory_usage
     values: {'value': 32504, 'unit': KB}
-
