@@ -39,8 +39,13 @@ data:
   - name: free_energy
     # JSON list of {time, energy} pairs
     values: [{"energy": 319.03821768838407, "time": 0.0}, {"energy": 164.51675005462272, "time": 48.804228920362064}, {"energy": 124.5327384463716, "time": 109.25323050065941}, {"energy": 114.1180960926807, "time": 164.69375766486255}, {"energy": 107.61713583198392, "time": 220.14499377596943}, {"energy": 103.65430607047742, "time": 273.85571693116685}, {"energy": 100.25167268328163, "time": 327.226412928035}, {"energy": 96.95654108439231, "time": 381.76765454106936}, {"energy": 94.09520078771388, "time": 435.45815643017687}, {"energy": 91.35301326183117, "time": 490.33193330024756}]
+    transform:
+      - type: formula
+        field: free_energy
+        expr: datum.energy
+      - type: filter
+        test: "datum.time > 0.01"
   - name: run_time
     values: {'time': 941.26, 'unit': seconds}
   - name: memory_usage
     values: {'value': 394880, 'unit': KB}
-
