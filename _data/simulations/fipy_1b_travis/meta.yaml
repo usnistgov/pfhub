@@ -14,28 +14,25 @@ metadata:
     # Optional hardware details
     details:
       - name: clock
-        value: 2300.000
-        units: MHz
+        values: 2300.000
+        unit: MHz
   software:
     name: fipy
-    url: https://github.com/usnistgov/fipy
-    version: 3.1
+    version: "3.1"
     repo:
-      url: https://github.com/mesoscale/mmsp/tree/develop
-      version: 3.1.2.dev137+g5fcf04e
-      branch: develop
+      url: https://github.com/usnistgov/fipy/tree/develop
+      version: "3.1.2"
   implementation:
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/no-flux/
       version: 944284638f00c3a411a71981d27becf97a2eb0e4
-      branch: master
       badge: https://travis-ci.org/usnistgov/FiPy-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
-        value: uniform rectilinear
+        values: uniform rectilinear
       - name: numerical_method
-        value: finite volume
+        values: finite volume
 
 data:
   # Gather simulation output
