@@ -4,7 +4,7 @@ benchmark:
 
 metadata:
   # Describe the runtime environment
-  summary: Travis CI benchmark with MMSP, periodic domain
+  summary: Parallel Travis CI benchmark with MMSP, periodic domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
   date: Tue, 10 Jan 2017 01:01:39 +0000

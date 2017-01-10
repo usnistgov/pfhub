@@ -4,7 +4,7 @@ benchmark:
 
 metadata:
   # Describe the runtime environment
-  summary: Travis CI benchmark with MMSP, T-shape domain
+  summary: Parallel Travis CI benchmark with MMSP, T-shape domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
   date: Tue, 10 Jan 2017 01:40:01 +0000
