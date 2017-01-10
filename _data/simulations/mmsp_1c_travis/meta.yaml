@@ -4,10 +4,10 @@ benchmark:
 
 metadata:
   # Describe the runtime environment
-  summary: MPI parallel workstation benchmark with MMSP, T-shape domain
+  summary: Travis CI benchmark with MMSP, T-shape domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  date: Mon, 09 Jan 2017 19:26:39 +0000
+  date: Tue, 10 Jan 2017 01:40:01 +0000
   hardware:
     # Required hardware details
     architecture: x86_64
@@ -26,12 +26,12 @@ metadata:
       version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
       branch: develop
   implementation:
-    end_condition: time limit (Travis CI dies after 10 min of no CLI output)
+    end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/
-      version: 639633660d76293556747f3cdde83034b3abc2a5
+      version: 05a5db5111d92b916d51e143adf068547c3a654d
       branch: master
-      badge: https://travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
+      badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
         value: uniform rectilinear
@@ -48,9 +48,9 @@ data:
     value: 0.00195312
   - name: free_energy
     # JSON list of {time, energy} pairs
-    values: [{"time":0, "free_energy":31.8815}, {"time":19.5312, "free_energy":30.7252}]
+    values: [{"time":0, "energy":31.8815}, {"time":7.61719, "energy":31.7653}, {"time":15.2344, "energy":31.3578}, {"time":22.8516, "energy":29.8382}, {"time":30.4688, "energy":26.3998}, {"time":38.0859, "energy":23.095}, {"time":45.7031, "energy":21.4502}, {"time":53.3203, "energy":20.4617}, {"time":60.9375, "energy":19.8369}, {"time":68.5547, "energy":19.3948}, {"time":76.1719, "energy":19.0146}]
   - name: run_time
-    values: {'time': 50.36, 'unit': seconds}
+    values: {'time': 189.44, 'unit': seconds}
   - name: memory_usage
-    values: {'value': 32660, 'unit': KB}
+    values: {'value': 32504, 'unit': KB}
 

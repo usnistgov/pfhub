@@ -4,10 +4,10 @@ benchmark:
 
 metadata:
   # Describe the runtime environment
-  summary: MPI parallel workstation benchmark with MMSP, periodic domain
+  summary: Travis CI benchmark with MMSP, periodic domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  date: Mon, 09 Jan 2017 19:16:42 +0000
+  date: Tue, 10 Jan 2017 01:01:39 +0000
   hardware:
     # Required hardware details
     architecture: x86_64
@@ -26,12 +26,12 @@ metadata:
       version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
       branch: develop
   implementation:
-    end_condition: time limit (Travis CI dies after 10 min of no CLI output)
+    end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
-      version: 639633660d76293556747f3cdde83034b3abc2a5
+      version: 05a5db5111d92b916d51e143adf068547c3a654d
       branch: master
-      badeg: https://travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
+      badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
         value: uniform rectilinear
@@ -48,9 +48,9 @@ data:
     value: 0.00195312
   - name: free_energy
     # JSON list of {time, energy} pairs
-    values: [{"time":0, "energy":319.094}, {"time":19.5312, "energy":309.758}]
+    values: [{"time":0, "energy":319.094}, {"time":7.61719, "energy":318.053}, {"time":15.2344, "energy":314.632}, {"time":22.8516, "energy":303.393}, {"time":30.4688, "energy":277.709}, {"time":38.0859, "energy":240.619}, {"time":45.7031, "energy":215.533}, {"time":53.3203, "energy":206.567}, {"time":60.9375, "energy":201.415}, {"time":68.5547, "energy":196.916}, {"time":76.1719, "energy":192.545}]
   - name: run_time
-    values: {'time': 289.30, 'unit': seconds}
+    values: {'time': 1125.39, 'unit': seconds}
   - name: memory_usage
-    values: {'value': 33076, 'unit': KB}
+    values: {'value': 33984, 'unit': KB}
 
