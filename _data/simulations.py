@@ -215,7 +215,7 @@ def landing_page_json():
         list,
         lambda data: render_yaml(landing_page_j2(), data=data),
         yaml.load,
-        write_json(filepath=os.path.join(get_path(), '../data/charts/simulations.json'))
+        write_json(filepath=os.path.join(get_path(), '../data/charts/simulations.json')) # pylint: disable=no-value-for-parameter
     )
 
 
