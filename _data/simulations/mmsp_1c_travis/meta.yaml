@@ -18,16 +18,14 @@ metadata:
         unit: MHz
   software:
     name: mmsp
-    version: 4
+    version: "4"
     repo:
       url: https://github.com/mesoscale/mmsp/tree/develop
-      version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
   implementation:
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/
       version: 05a5db5111d92b916d51e143adf068547c3a654d
-      branch: master
       badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
