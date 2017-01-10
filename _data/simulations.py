@@ -139,6 +139,11 @@ def write_chart_json(item):
 
 @memoize
 def get_marks():
+    """Get the mark data for the free energy charts
+
+    Returns:
+      a dictionary defined in marks.yaml
+    """
     return pipe(
         os.path.join(get_path(), 'marks.yaml'),
         read_yaml
