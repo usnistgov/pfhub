@@ -105,6 +105,7 @@ def get_data():
     return pipe(
         os.path.join(get_path(), 'simulations/*/meta.yaml'),
         glob.glob,
+        sorted,
         map(lambda path_: (os.path.split(os.path.split(path_)[0])[1], read_yaml(path_))),
         filter(lambda item: item[0] != 'example'),
         groupby(lambda item: item[1]['benchmark_id']),
@@ -219,7 +220,11 @@ def landing_page_json():
         ['1a_free_energy.png',
          '1b_free_energy.png',
          '1c_free_energy.png',
-         '1d_free_energy.png'],
+         '1d_free_energy.png',
+         '2a_free_energy.png',
+         '2b_free_energy.png',
+         '2c_free_energy.png',
+         '2d_free_energy.png'],
         map(lambda name: os.path.join("..", 'images', name)),
         enumerate,
         map(
