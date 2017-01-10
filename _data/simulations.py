@@ -9,7 +9,7 @@ import os
 import json
 
 import jinja2
-from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby # pylint: disable=redefined-builtin, no-name-in-module
+from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby, memoize # pylint: disable=redefined-builtin, no-name-in-module
 import yaml
 
 
@@ -137,6 +137,19 @@ def write_chart_json(item):
         write_json(item[1]) # pylint: disable=no-value-for-parameter
     )
 
+@memoize
+def get_marks():
+    """Get the mark data for the free energy charts
+
+    Returns:
+      a dictionary defined in marks.yaml
+    """
+    return pipe(
+        os.path.join(get_path(), 'marks.yaml'),
+        read_yaml
+    )
+
+
 def process_chart(id_, data):
     """Process chart's YAML with data.
 
@@ -149,7 +162,7 @@ def process_chart(id_, data):
     """
     return pipe(
         get_chart_file(),
-        render_yaml(data=data, id_=id_), # pylint: disable=no-value-for-parameter
+        render_yaml(data=data, id_=id_, marks=get_marks()[id_]), # pylint: disable=no-value-for-parameter
         yaml.load
     )
 

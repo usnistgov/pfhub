@@ -7,13 +7,13 @@
       "title": "Time",
       "type": "x",
       "values": [
+        0.1,
         1,
         10,
         100,
         1000,
         10000,
-        100000,
-        1000000
+        100000
       ]
     },
     {
@@ -23,7 +23,6 @@
       "title": "Free Energy",
       "type": "y",
       "values": [
-        1,
         10,
         100,
         1000
@@ -80,28 +79,6 @@
         },
         "type": "csv"
       },
-      "name": "moose_2c_sta",
-      "transform": [
-        {
-          "expr": "datum.TotalEnergy",
-          "field": "free_energy",
-          "type": "formula"
-        },
-        {
-          "test": "datum.time > 0.01",
-          "type": "filter"
-        }
-      ],
-      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_STA_dfdt.csv"
-    },
-    {
-      "format": {
-        "parse": {
-          "TotalEnergy": "number",
-          "time": "number"
-        },
-        "type": "csv"
-      },
       "name": "moose_2c_ia",
       "transform": [
         {
@@ -115,6 +92,28 @@
         }
       ],
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_IA_dfdt.csv"
+    },
+    {
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_2c_sta",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_STA_dfdt.csv"
     }
   ],
   "height": 300,
@@ -125,34 +124,6 @@
     }
   ],
   "marks": [
-    {
-      "from": {
-        "data": "moose_2c_sta"
-      },
-      "properties": {
-        "enter": {
-          "stroke": {
-            "scale": "color",
-            "value": "moose_2c_sta"
-          },
-          "strokeOpacity": {
-            "value": 1.0
-          },
-          "strokeWidth": {
-            "value": 2
-          },
-          "x": {
-            "field": "time",
-            "scale": "x"
-          },
-          "y": {
-            "field": "free_energy",
-            "scale": "y"
-          }
-        }
-      },
-      "type": "line"
-    },
     {
       "from": {
         "data": "moose_2c_ia"
@@ -180,13 +151,41 @@
         }
       },
       "type": "line"
+    },
+    {
+      "from": {
+        "data": "moose_2c_sta"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_2c_sta"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
     }
   ],
   "scales": [
     {
       "domain": [
-        1,
-        1000000
+        0.1,
+        100000
       ],
       "name": "x",
       "nice": true,
@@ -195,8 +194,8 @@
     },
     {
       "domain": [
-        5,
-        500
+        10,
+        1000
       ],
       "name": "y",
       "nice": true,
@@ -205,8 +204,8 @@
     },
     {
       "domain": [
-        "moose_2c_sta",
-        "moose_2c_ia"
+        "moose_2c_ia",
+        "moose_2c_sta"
       ],
       "name": "color",
       "range": "category10",

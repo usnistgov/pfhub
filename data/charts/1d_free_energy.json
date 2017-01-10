@@ -23,7 +23,6 @@
       "title": "Free Energy",
       "type": "y",
       "values": [
-        1,
         10,
         100,
         1000
@@ -203,8 +202,8 @@
     },
     {
       "domain": [
-        5,
-        500
+        10,
+        1000
       ],
       "name": "y",
       "nice": true,
