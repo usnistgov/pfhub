@@ -1,7 +1,7 @@
 HEXBIN_OUT = images/hexbin.jpg data/hexbin.json
 HEXBIN_IN = data/hexbin.yaml _data/hexbin.py
 
-NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*" -not -path "./_site/*")
+NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*" -not -path "./_site/*" -not -path "./_data/*")
 NOTEBOOKS_HTML := $(NOTEBOOKS:%.ipynb=%.ipynb.raw.html)
 NOTEBOOKS_MD := $(NOTEBOOKS:%.ipynb=%.ipynb.md)
 

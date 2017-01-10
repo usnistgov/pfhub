@@ -1,0 +1,96 @@
+{
+  "data": [
+    {
+      "name": "images",
+      "values": [
+        {
+          "col": 0,
+          "path": "../images/1a_free_energy.png",
+          "row": 0
+        },
+        {
+          "col": 1,
+          "path": "../images/1b_free_energy.png",
+          "row": 0
+        },
+        {
+          "col": 2,
+          "path": "../images/1c_free_energy.png",
+          "row": 0
+        },
+        {
+          "col": 3,
+          "path": "../images/1d_free_energy.png",
+          "row": 0
+        }
+      ]
+    }
+  ],
+  "height": 200,
+  "marks": [
+    {
+      "from": {
+        "data": "images"
+      },
+      "name": "images",
+      "properties": {
+        "enter": {
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "center"
+          },
+          "clip": {
+            "value": true
+          },
+          "fill": {
+            "value": null
+          },
+          "height": {
+            "band": true,
+            "scale": "y"
+          },
+          "url": {
+            "field": "path"
+          },
+          "width": {
+            "band": true,
+            "offset": -10,
+            "scale": "x"
+          },
+          "x": {
+            "field": "col",
+            "scale": "x"
+          },
+          "y": {
+            "field": "row",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "image"
+    }
+  ],
+  "scales": [
+    {
+      "domain": {
+        "data": "images",
+        "field": "col"
+      },
+      "name": "x",
+      "range": "width",
+      "type": "ordinal"
+    },
+    {
+      "domain": {
+        "data": "images",
+        "field": "row"
+      },
+      "name": "y",
+      "range": "height",
+      "type": "ordinal"
+    }
+  ],
+  "width": 800
+}
