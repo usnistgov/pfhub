@@ -1,0 +1,223 @@
+{
+  "axes": [
+    {
+      "format": ".0e",
+      "formatType": "number",
+      "scale": "x",
+      "title": "Time",
+      "type": "x",
+      "values": [
+        1,
+        10,
+        100,
+        1000,
+        10000,
+        100000,
+        1000000
+      ]
+    },
+    {
+      "format": ".0e",
+      "formatType": "number",
+      "scale": "y",
+      "title": "Free Energy",
+      "type": "y",
+      "values": [
+        1,
+        10,
+        100,
+        1000
+      ]
+    },
+    {
+      "grid": true,
+      "properties": {
+        "labels": {
+          "text": ""
+        }
+      },
+      "scale": "x",
+      "tickSize": 0,
+      "type": "x"
+    },
+    {
+      "grid": true,
+      "properties": {
+        "labels": {
+          "text": ""
+        }
+      },
+      "scale": "y",
+      "tickSize": 0,
+      "type": "y"
+    },
+    {
+      "orient": "top",
+      "properties": {
+        "axis": {
+          "strokeOpacity": {
+            "value": 0
+          }
+        },
+        "title": {
+          "fontSize": {
+            "value": 20
+          }
+        }
+      },
+      "scale": "x",
+      "title": "Simulations for Benchmark 2a",
+      "type": "x",
+      "values": []
+    }
+  ],
+  "data": [
+    {
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_2a_sta",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_PBC_STA_dfdt.csv"
+    },
+    {
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_2a_ia",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_PBC_IA_dfdt.csv"
+    }
+  ],
+  "height": 300,
+  "legends": [
+    {
+      "fill": "color",
+      "title": "Simulations"
+    }
+  ],
+  "marks": [
+    {
+      "from": {
+        "data": "moose_2a_sta"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_2a_sta"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
+    {
+      "from": {
+        "data": "moose_2a_ia"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_2a_ia"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    }
+  ],
+  "scales": [
+    {
+      "domain": [
+        1,
+        1000000
+      ],
+      "name": "x",
+      "nice": true,
+      "range": "width",
+      "type": "log"
+    },
+    {
+      "domain": [
+        5,
+        500
+      ],
+      "name": "y",
+      "nice": true,
+      "range": "height",
+      "type": "log"
+    },
+    {
+      "domain": [
+        "moose_2a_sta",
+        "moose_2a_ia"
+      ],
+      "name": "color",
+      "range": "category10",
+      "type": "ordinal"
+    }
+  ],
+  "signal": [
+    {
+      "init": null,
+      "name": "hover"
+    }
+  ],
+  "width": 500
+}
