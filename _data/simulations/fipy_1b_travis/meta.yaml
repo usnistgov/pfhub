@@ -1,13 +1,12 @@
 ---
-benchmark:
-  id: 1b
+benchmark_id: 1b
 
 metadata:
   # Describe the runtime environment
   summary: Serial Travis CI benchmark with FiPy, no-flux domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  date: Tue, 10 Jan 2017 01:11:25 +0000
+  timestamp: Tue, 10 Jan 2017 01:11:25 +0000
   hardware:
     # Required hardware details
     architecture: x86_64

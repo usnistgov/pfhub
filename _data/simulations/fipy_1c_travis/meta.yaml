@@ -1,13 +1,12 @@
 ---
-benchmark:
-  id: 1c
+benchmark_id: 1c
 
 metadata:
   # Describe the runtime environment
   summary: Serial Travis CI benchmark with FiPy, T-shape domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  date: Tue, 10 Jan 2017 01:27:20 +0000
+  timestamp: Tue, 10 Jan 2017 01:27:20 +0000
   hardware:
     # Required hardware details
     architecture: x86_64
