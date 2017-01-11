@@ -232,7 +232,6 @@ def landing_page_json():
                                                   col=(count % 4),
                                                   row=count // 4,
                                                   link=name.replace("../images/", "")[:2])
-
             )(*tup)
         ),
         list,

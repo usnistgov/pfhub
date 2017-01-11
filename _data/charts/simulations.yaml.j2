@@ -1,6 +1,7 @@
 ---
-width: 600
-height: 250
+width: 680
+height: 200
+padding: 0
 data:
   - name: images
     values:
@@ -9,6 +10,8 @@ data:
         row: {{ datum.row }}
         col: {{ datum.col }}
         link: {{ datum.link }}
+        height: 90
+        width: 150
 {%- endfor %}
 scales:
   - name: x
@@ -24,8 +27,8 @@ scales:
       field: row
     range: height
 marks:
-  - name: images
-    type: image
+  - name: example
+    type: group
     from:
       data: images
     properties:
@@ -33,24 +36,65 @@ marks:
         width:
           band: true
           scale: x
-          offset: -10
+          offset: -5
         height:
           band: true
           scale: y
-          offset: -10
-        url:
-          field: path
+          offset: -5
         x:
           scale: x
           field: col
         y:
           scale: y
           field: row
-        align:
-          value: center
-        baseline:
-          value: center
         clip:
           value: true
         fill:
           value: #fff
+    marks:
+      - name: images
+        type: image
+        properties:
+          enter:
+            width:
+              field:
+                parent: width
+            height:
+              field:
+                parent: height
+            url:
+              field:
+                parent: path
+            align:
+              value: left
+            baseline:
+              value: center
+      - type: rect
+        properties:
+          enter:
+            x:
+              value: 0
+            y:
+              value: 0
+            width:
+              field:
+                group: width
+            height:
+              field:
+                group: height
+            stroke: "#000"
+            strokeWidth:
+              value: 6
+          update:
+            stroke: "#000"
+            strokeWidth:
+              value: 10
+
+signals:
+  - name: active
+    init: ""
+    stream:
+      - type: "image:mouseover"
+        expr: "eventGroup().datum"
+      - type: "body:mouseout"
+        expr: "{}"
