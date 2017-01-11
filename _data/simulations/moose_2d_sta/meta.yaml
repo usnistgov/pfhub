@@ -1,0 +1,53 @@
+---
+benchmark_id: 2d
+
+metadata:
+  summary: Metadata for the Benchmark2 problems
+  timestamp: 6/28/2016
+  author: A. M. Jokisaari
+  software:
+    name: moose
+    version: Hedgehog (now Coral)
+  hardware:
+    cores: 40
+    details:
+      - name: clock_rate
+        values:
+          rate: 2.30
+          unit: GHz
+      - name: processor
+        values: "Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz"
+      - name: nodes
+        values: 2
+  implementation:
+    repo:
+      url: https://bitbucket.org/ajokisaari/coral
+      version: e8fc74f
+    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+    details:
+      - name: time_stepper
+        values: STA
+
+data:
+  - name: run_time
+    values:
+      - wall_time: 141240
+        sim_time: 0
+        unit: s
+  - name: memory_usage
+    values:
+      value: 14.8
+      unit: GB
+  - name: free_energy
+    url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_sphere_STA_v2_dfdt.csv
+    format:
+      type: csv
+      parse:
+        TotalEnergy: number
+        time: number
+    transform:
+      - type: formula
+        field: free_energy
+        expr: datum.TotalEnergy
+      - type: filter
+        test: "datum.time > 0.01"

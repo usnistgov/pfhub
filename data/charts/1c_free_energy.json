@@ -25,8 +25,7 @@
       "values": [
         1,
         10,
-        100,
-        1000
+        100
       ]
     },
     {
@@ -66,12 +65,128 @@
         }
       },
       "scale": "x",
-      "title": "Benchmark 1c Simulations",
+      "title": "Simulations for Benchmark 1c",
       "type": "x",
       "values": []
     }
   ],
   "data": [
+    {
+      "name": "fipy_1c_travis",
+      "transform": [
+        {
+          "expr": "datum.energy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "values": [
+        {
+          "energy": 127.53177108403266,
+          "time": 0.0
+        },
+        {
+          "energy": 76.5639690462665,
+          "time": 32.8841185542631
+        },
+        {
+          "energy": 67.31056356391991,
+          "time": 61.493683159712376
+        },
+        {
+          "energy": 59.43720169968911,
+          "time": 91.01129671969083
+        },
+        {
+          "energy": 52.2068157789372,
+          "time": 121.93828824766261
+        },
+        {
+          "energy": 49.56519823690231,
+          "time": 151.12420163657532
+        },
+        {
+          "energy": 48.269200347769086,
+          "time": 176.77526573600935
+        },
+        {
+          "energy": 46.82245070913429,
+          "time": 202.35895079064053
+        },
+        {
+          "energy": 43.476084455923655,
+          "time": 233.938202723397
+        },
+        {
+          "energy": 40.97843113959616,
+          "time": 265.9568907526563
+        }
+      ]
+    },
+    {
+      "name": "mmsp_1c_travis",
+      "transform": [
+        {
+          "expr": "datum.energy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "values": [
+        {
+          "energy": 31.8815,
+          "time": 0
+        },
+        {
+          "energy": 31.7653,
+          "time": 7.61719
+        },
+        {
+          "energy": 31.3578,
+          "time": 15.2344
+        },
+        {
+          "energy": 29.8382,
+          "time": 22.8516
+        },
+        {
+          "energy": 26.3998,
+          "time": 30.4688
+        },
+        {
+          "energy": 23.095,
+          "time": 38.0859
+        },
+        {
+          "energy": 21.4502,
+          "time": 45.7031
+        },
+        {
+          "energy": 20.4617,
+          "time": 53.3203
+        },
+        {
+          "energy": 19.8369,
+          "time": 60.9375
+        },
+        {
+          "energy": 19.3948,
+          "time": 68.5547
+        },
+        {
+          "energy": 19.0146,
+          "time": 76.1719
+        }
+      ]
+    },
     {
       "format": {
         "parse": {
@@ -103,6 +218,62 @@
     }
   ],
   "marks": [
+    {
+      "from": {
+        "data": "fipy_1c_travis"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "fipy_1c_travis"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
+    {
+      "from": {
+        "data": "mmsp_1c_travis"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1c_travis"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
     {
       "from": {
         "data": "moose_1c_ia"
@@ -145,8 +316,8 @@
     },
     {
       "domain": [
-        5,
-        500
+        1,
+        100
       ],
       "name": "y",
       "nice": true,
@@ -155,6 +326,8 @@
     },
     {
       "domain": [
+        "fipy_1c_travis",
+        "mmsp_1c_travis",
         "moose_1c_ia"
       ],
       "name": "color",

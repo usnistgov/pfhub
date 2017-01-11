@@ -9,7 +9,7 @@ import os
 import json
 
 import jinja2
-from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby # pylint: disable=redefined-builtin, no-name-in-module
+from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby, memoize # pylint: disable=redefined-builtin, no-name-in-module
 import yaml
 
 
@@ -137,6 +137,19 @@ def write_chart_json(item):
         write_json(item[1]) # pylint: disable=no-value-for-parameter
     )
 
+@memoize
+def get_marks():
+    """Get the mark data for the free energy charts
+
+    Returns:
+      a dictionary defined in marks.yaml
+    """
+    return pipe(
+        os.path.join(get_path(), 'marks.yaml'),
+        read_yaml
+    )
+
+
 def process_chart(id_, data):
     """Process chart's YAML with data.
 
@@ -149,7 +162,7 @@ def process_chart(id_, data):
     """
     return pipe(
         get_chart_file(),
-        render_yaml(data=data, id_=id_), # pylint: disable=no-value-for-parameter
+        render_yaml(data=data, id_=id_, marks=get_marks()[id_]), # pylint: disable=no-value-for-parameter
         yaml.load
     )
 
@@ -187,5 +200,38 @@ def main():
         itemmap(write_chart_json)
     )
 
+def landing_page_j2():
+    """Get the name of the chart file
+
+    Returns:
+      the chart YAML file
+
+    """
+    return os.path.join(get_path(), 'charts', 'simulations.yaml.j2')
+
+def landing_page_json():
+    """Generate the landing page JSON vega spec.
+
+    Returns:
+      (filepath, chart_json) pairs
+    """
+    return pipe(
+        ['1a_free_energy.png',
+         '1b_free_energy.png',
+         '1c_free_energy.png',
+         '1d_free_energy.png'],
+        map(lambda name: os.path.join("..", 'images', name)),
+        enumerate,
+        map(
+            lambda tup: (lambda count, name: dict(path=name, col=(count % 4), row=count // 4))(*tup)
+        ),
+        list,
+        lambda data: render_yaml(landing_page_j2(), data=data),
+        yaml.load,
+        write_json(filepath=os.path.join(get_path(), '../data/charts/simulations.json')) # pylint: disable=no-value-for-parameter
+    )
+
+
 if __name__ == "__main__":
     main()
+    landing_page_json()

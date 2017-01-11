@@ -8,13 +8,13 @@ signal:
 axes:
   - type: x
     scale: x
-    values: [1, 10, 100, 1000, 10000, 100000, 1000000]
+    values: {{ marks.x }}
     format: ".0e"
     formatType: number
     title: "Time"
   - type: y
     scale: y
-    values: [1, 10, 100, 1000]
+    values: {{ marks.y }}
     format: ".0e"
     formatType: number
     title: "Free Energy"
@@ -49,12 +49,12 @@ scales:
     nice: true
     type: log
     range: width
-    domain: [1, 1000000]
+    domain: [{{ marks.x | first }}, {{ marks.x | last }}]
   - name: y
     nice: true
     type: log
     range: height
-    domain: [5, 500]
+    domain: [{{ marks.y | first }}, {{ marks.y | last }}]
   - name: color
     range: category10
     type: ordinal

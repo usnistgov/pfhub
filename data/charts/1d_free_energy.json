@@ -23,7 +23,6 @@
       "title": "Free Energy",
       "type": "y",
       "values": [
-        1,
         10,
         100,
         1000
@@ -66,38 +65,12 @@
         }
       },
       "scale": "x",
-      "title": "Benchmark 1d Simulations",
+      "title": "Simulations for Benchmark 1d",
       "type": "x",
       "values": []
     }
   ],
   "data": [
-    {
-      "format": {
-        "parse": {
-          "TotalEnergy": "number",
-          "time": "number"
-        },
-        "type": "csv"
-      },
-      "name": "moose_1d_ia",
-      "transform": [
-        {
-          "expr": "datum.TotalEnergy",
-          "field": "free_energy",
-          "type": "formula"
-        },
-        {
-          "test": "datum.time > 1",
-          "type": "filter"
-        },
-        {
-          "test": "datum.time < 1e6",
-          "type": "filter"
-        }
-      ],
-      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_IA.csv"
-    },
     {
       "format": {
         "parse": {
@@ -123,6 +96,32 @@
         }
       ],
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_STA.csv"
+    },
+    {
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_1d_ia",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 1",
+          "type": "filter"
+        },
+        {
+          "test": "datum.time < 1e6",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_IA.csv"
     }
   ],
   "height": 300,
@@ -135,13 +134,13 @@
   "marks": [
     {
       "from": {
-        "data": "moose_1d_ia"
+        "data": "moose_1d_sta"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_1d_ia"
+            "value": "moose_1d_sta"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -163,13 +162,13 @@
     },
     {
       "from": {
-        "data": "moose_1d_sta"
+        "data": "moose_1d_ia"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_1d_sta"
+            "value": "moose_1d_ia"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -203,8 +202,8 @@
     },
     {
       "domain": [
-        5,
-        500
+        10,
+        1000
       ],
       "name": "y",
       "nice": true,
@@ -213,8 +212,8 @@
     },
     {
       "domain": [
-        "moose_1d_ia",
-        "moose_1d_sta"
+        "moose_1d_sta",
+        "moose_1d_ia"
       ],
       "name": "color",
       "range": "category10",

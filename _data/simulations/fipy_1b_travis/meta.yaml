@@ -3,10 +3,10 @@ benchmark_id: 1b
 
 metadata:
   # Describe the runtime environment
-  summary: Serial workstation benchmark with FiPy, no-flux domain
+  summary: Serial Travis CI benchmark with FiPy, no-flux domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Wed, 11 Jan 2017 07:20:46 +0000
+  timestamp: Tue, 10 Jan 2017 01:11:25 +0000
   hardware:
     # Required hardware details
     architecture: x86_64
@@ -14,12 +14,11 @@ metadata:
     # Optional hardware details
     details:
       - name: clock
-        values: 2300.000
-        # unit: MHz
+        values: 2.3
+        # unit: GHz
   software:
     name: fipy
-    url: https://github.com/usnistgov/fipy
-    version: '3.1'
+    version: "3.1"
     repo:
       url: https://github.com/usnistgov/fipy/tree/develop
       version: '5fcf04e8f2e4808318055fb41e567c7d58a93153'
@@ -27,7 +26,7 @@ metadata:
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/no-flux/
-      version: '29f8f3bfbd22d41dd950860d0b8f4be69a4ce3e7'
+      version: '944284638f00c3a411a71981d27becf97a2eb0e4'
       # badge: https://travis-ci.org/usnistgov/FiPy-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
@@ -43,7 +42,6 @@ data:
       - type: filter
         test: "datum.time > 0.01"
   - name: run_time
-    values: {'time': 637.62, 'unit': seconds}
+    values: {'time': 941.26, 'unit': seconds}
   - name: memory_usage
-    values: {'value': 855504, 'unit': KB}
-
+    values: {'value': 394880, 'unit': KB}

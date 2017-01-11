@@ -67,3 +67,10 @@
     - name: contact organizer
       type: email
       href: "mailto:e-gulsoy@northwestern.edu?subject=Fourth Phase Field Methods Workshop"
+    - name: download PDF
+      type: file_download
+      href: "{{ site.baseurl }}/docs/phase_field_IV.pdf"
+  links:
+    - name: Hackathon 3
+      href: "{{ site.baseurl }}/hackathon3/"
+      type: link

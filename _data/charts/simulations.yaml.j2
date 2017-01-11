@@ -1,0 +1,54 @@
+---
+width: 800
+height: 200
+data:
+  - name: images
+    values:
+{%- for datum in data %}
+      - path: "{{ datum.path }}"
+        row: {{ datum.row }}
+        col: {{ datum.col }}
+{%- endfor %}
+scales:
+  - name: x
+    type: ordinal
+    domain:
+      data: images
+      field: col
+    range: width
+  - name: y
+    type: ordinal
+    domain:
+      data: images
+      field: row
+    range: height
+marks:
+  - name: images
+    type: image
+    from:
+      data: images
+    properties:
+      enter:
+        width:
+          band: true
+          scale: x
+          offset: -10
+        height:
+          band: true
+          scale: y
+        url:
+          field: path
+        x:
+          scale: x
+          field: col
+        y:
+          scale: y
+          field: row
+        align:
+          value: center
+        baseline:
+          value: center
+        clip:
+          value: true
+        fill:
+          value: #fff
