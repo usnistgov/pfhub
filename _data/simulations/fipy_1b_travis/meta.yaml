@@ -3,10 +3,10 @@ benchmark_id: 1b
 
 metadata:
   # Describe the runtime environment
-  summary: Serial Travis CI benchmark with FiPy, no-flux domain
+  summary: Serial workstation benchmark with FiPy, no-flux domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Tue, 10 Jan 2017 01:11:25 +0000
+  timestamp: Wed, 11 Jan 2017 07:20:46 +0000
   hardware:
     # Required hardware details
     architecture: x86_64
@@ -18,7 +18,8 @@ metadata:
         # unit: MHz
   software:
     name: fipy
-    version: "3.1"
+    url: https://github.com/usnistgov/fipy
+    version: '3.1'
     repo:
       url: https://github.com/usnistgov/fipy/tree/develop
       version: '5fcf04e8f2e4808318055fb41e567c7d58a93153'
@@ -26,7 +27,7 @@ metadata:
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/no-flux/
-      version: '944284638f00c3a411a71981d27becf97a2eb0e4'
+      version: '29f8f3bfbd22d41dd950860d0b8f4be69a4ce3e7'
       # badge: https://travis-ci.org/usnistgov/FiPy-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
@@ -37,10 +38,9 @@ metadata:
 data:
   # Gather simulation output
   - name: free_energy
-    # JSON list of {time, energy} pairs
-    values: [{"energy": 319.03821768838407, "time": 0.0}, {"energy": 164.51675005462272, "time": 48.804228920362064}, {"energy": 124.5327384463716, "time": 109.25323050065941}, {"energy": 114.1180960926807, "time": 164.69375766486255}, {"energy": 107.61713583198392, "time": 220.14499377596943}, {"energy": 103.65430607047742, "time": 273.85571693116685}, {"energy": 100.25167268328163, "time": 327.226412928035}, {"energy": 96.95654108439231, "time": 381.76765454106936}, {"energy": 94.09520078771388, "time": 435.45815643017687}, {"energy": 91.35301326183117, "time": 490.33193330024756}]
+    values: [{"free_energy": 319.04044215271733, "time": 0.0}, {"free_energy": 318.81446612270224, "time": 0.9834705943388384}, {"free_energy": 276.55648495024195, "time": 11.371895716335967}, {"free_energy": 202.98493764942094, "time": 21.811307220188674}, {"free_energy": 194.42972881821564, "time": 28.2521887103341}, {"free_energy": 186.3785469095963, "time": 34.352463896195715}, {"free_energy": 178.21218175356435, "time": 40.34047142569499}, {"free_energy": 169.6708130443895, "time": 46.435430488842954}, {"free_energy": 161.88452900118514, "time": 52.473820077453276}]
   - name: run_time
-    values: {'time': 941.26, 'unit': seconds}
+    values: {'time': 637.62, 'unit': seconds}
   - name: memory_usage
-    values: {'value': 394880, 'unit': KB}
+    values: {'value': 855504, 'unit': KB}
 
