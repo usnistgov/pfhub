@@ -5,41 +5,49 @@
       "values": [
         {
           "col": 0,
+          "link": "1a",
           "path": "../images/1a_free_energy.png",
           "row": 0
         },
         {
           "col": 1,
+          "link": "1b",
           "path": "../images/1b_free_energy.png",
           "row": 0
         },
         {
           "col": 2,
+          "link": "1c",
           "path": "../images/1c_free_energy.png",
           "row": 0
         },
         {
           "col": 3,
+          "link": "1d",
           "path": "../images/1d_free_energy.png",
           "row": 0
         },
         {
           "col": 0,
+          "link": "2a",
           "path": "../images/2a_free_energy.png",
           "row": 1
         },
         {
           "col": 1,
+          "link": "2b",
           "path": "../images/2b_free_energy.png",
           "row": 1
         },
         {
           "col": 2,
+          "link": "2c",
           "path": "../images/2c_free_energy.png",
           "row": 1
         },
         {
           "col": 3,
+          "link": "2d",
           "path": "../images/2d_free_energy.png",
           "row": 1
         }

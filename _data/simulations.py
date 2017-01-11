@@ -228,7 +228,12 @@ def landing_page_json():
         map(lambda name: os.path.join("..", 'images', name)),
         enumerate,
         map(
-            lambda tup: (lambda count, name: dict(path=name, col=(count % 4), row=count // 4))(*tup)
+            lambda tup: (lambda count, name: dict(path=name,
+                                                  col=(count % 4),
+                                                  row=count // 4,
+                                                  link=name.replace("../images/", "")[:2])
+
+            )(*tup)
         ),
         list,
         lambda data: render_yaml(landing_page_j2(), data=data),
