@@ -79,28 +79,6 @@
         },
         "type": "csv"
       },
-      "name": "moose_2c_sta",
-      "transform": [
-        {
-          "expr": "datum.TotalEnergy",
-          "field": "free_energy",
-          "type": "formula"
-        },
-        {
-          "test": "datum.time > 0.01",
-          "type": "filter"
-        }
-      ],
-      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_STA_dfdt.csv"
-    },
-    {
-      "format": {
-        "parse": {
-          "TotalEnergy": "number",
-          "time": "number"
-        },
-        "type": "csv"
-      },
       "name": "moose_2c_ia",
       "transform": [
         {
@@ -114,6 +92,28 @@
         }
       ],
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_IA_dfdt.csv"
+    },
+    {
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_2c_sta",
+      "transform": [
+        {
+          "expr": "datum.TotalEnergy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_STA_dfdt.csv"
     }
   ],
   "height": 300,
@@ -126,13 +126,13 @@
   "marks": [
     {
       "from": {
-        "data": "moose_2c_sta"
+        "data": "moose_2c_ia"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_2c_sta"
+            "value": "moose_2c_ia"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -154,13 +154,13 @@
     },
     {
       "from": {
-        "data": "moose_2c_ia"
+        "data": "moose_2c_sta"
       },
       "properties": {
         "enter": {
           "stroke": {
             "scale": "color",
-            "value": "moose_2c_ia"
+            "value": "moose_2c_sta"
           },
           "strokeOpacity": {
             "value": 1.0
@@ -204,8 +204,8 @@
     },
     {
       "domain": [
-        "moose_2c_sta",
-        "moose_2c_ia"
+        "moose_2c_ia",
+        "moose_2c_sta"
       ],
       "name": "color",
       "range": "category10",

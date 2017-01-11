@@ -92,7 +92,7 @@ def filter_data(yaml_data):
         valmap(list),
         valmap(get(0)),
         itemmap(lambda item: (item[0], update_dict(item[1], name=item[0]))),
-        lambda dict_: list(dict_.values())
+        lambda dict_: sorted(list(dict_.values()), key=lambda item: item['name'])
     )
 
 def get_data():
