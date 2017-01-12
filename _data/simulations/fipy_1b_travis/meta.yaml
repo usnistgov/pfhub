@@ -21,12 +21,12 @@ metadata:
     version: "3.1"
     repo:
       url: https://github.com/usnistgov/fipy/tree/develop
-      version: '5fcf04e8f2e4808318055fb41e567c7d58a93153'
+      version: "5fcf04e8f2e4808318055fb41e567c7d58a93153"
   implementation:
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/no-flux/
-      version: '944284638f00c3a411a71981d27becf97a2eb0e4'
+      version: "944284638f00c3a411a71981d27becf97a2eb0e4"
       # badge: https://travis-ci.org/usnistgov/FiPy-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
@@ -42,6 +42,18 @@ data:
       - type: filter
         test: "datum.time > 0.01"
   - name: run_time
-    values: {'time': 941.26, 'unit': seconds}
+    values:
+      [
+        {
+          "time": 941.26,
+          "sim_time": 52.473820077453276
+        }
+      ]
   - name: memory_usage
-    values: {'value': 394880, 'unit': KB}
+    values:
+      [
+        {
+          "value": 394880,
+          "unit": KB
+        }
+      ]

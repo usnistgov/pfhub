@@ -21,12 +21,12 @@ metadata:
     version: "4"
     repo:
       url: https://github.com/mesoscale/mmsp/tree/develop
-      version: '8f29eb47146b9fbbdcd17b08d12e06fceb3ed728'
+      version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
   implementation:
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/
-      version: '05a5db5111d92b916d51e143adf068547c3a654d'
+      version: "05a5db5111d92b916d51e143adf068547c3a654d"
       # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
@@ -43,7 +43,7 @@ data:
     values: 0.00195312
   - name: free_energy
     # JSON list of {time, energy} pairs
-    values: [{"time":0, "energy":319.045}, {"time":7.61719, "energy":318.155}, {"time":15.2344, "energy":315.555}, {"time":22.8516, "energy":307.135}, {"time":30.4688, "energy":283.973}, {"time":38.0859, "energy":242.644}, {"time":45.7031, "energy":214.109}, {"time":53.3203, "energy":205.499}, {"time":60.9375, "energy":200.944}, {"time":68.5547, "energy":196.86}, {"time":76.1719, "energy":192.77}]
+    values: [{"time": 0, "energy": 319.045}, {"time": 7.61719, "energy": 318.155}, {"time": 15.2344, "energy": 315.555}, {"time": 22.8516, "energy": 307.135}, {"time": 30.4688, "energy": 283.973}, {"time": 38.0859, "energy": 242.644}, {"time": 45.7031, "energy": 214.109}, {"time": 53.3203, "energy": 205.499}, {"time": 60.9375, "energy": 200.944}, {"time": 68.5547, "energy": 196.86}, {"time": 76.1719, "energy": 192.77}]
     transform:
       - type: formula
         field: free_energy
@@ -51,6 +51,18 @@ data:
       - type: filter
         test: "datum.time > 0.01"
   - name: run_time
-    values: {'time': 1142.51, 'unit': seconds}
+    values:
+      [
+        {
+          "time": 1142.51,
+          "sim_time": 192.77
+        }
+      ]
   - name: memory_usage
-    values: {'value': 33844, 'unit': KB}
+    values:
+      [
+        {
+          "value": 33844,
+          "unit": KB
+        }
+      ]

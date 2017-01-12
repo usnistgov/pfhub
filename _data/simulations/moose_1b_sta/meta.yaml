@@ -19,10 +19,22 @@ metadata:
     cores: 6
 
 data:
-  - name: run time
-    values: 62 minutes
-  - name: memory usage
-    values: 796 MB
+  - name: run_time
+    values:
+      [
+        {
+          "time": 3720,
+          "sim_time": 1013318.2801021
+        }
+      ]
+  - name: memory_usage
+    values:
+      [
+        {
+          "value": 796,
+          "unit": MB
+        }
+      ]
   - name: free_energy
     url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/49d3f4ebc29a373687b3e7f4ec0b8219dd098cb7/hackathon_p1_square_NF_STA.csv
     format:
