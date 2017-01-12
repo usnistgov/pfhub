@@ -63,7 +63,12 @@ data:
     values:
       [
         {
-          "value": 33984,
+          "value_per_rank": 33984,
           "unit": KB
         }
       ]
+    transform:
+      - # Reported value is for one MPI rank, or half the total
+        type: formula
+        field: value
+        expr: datum.value_per_rank * 2.0
