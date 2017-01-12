@@ -50,6 +50,14 @@ data:
     transform:
     - type: filter
       test: "datum.time > 0.01"
+  - name: run_time
+    values:
+      [
+        {
+          "time": 15242.34,
+          "sim_time": 761.719
+        }
+      ]
   - name: memory_usage
     values:
       [
