@@ -139,10 +139,10 @@
               "stroke": [
                 {
                   "test": "parent._id == active._id",
-                  "value": "#888888"
+                  "value": "#d5a928"
                 },
                 {
-                  "value": "#d5a928"
+                  "value": "#888888"
                 }
               ],
               "strokeWidth": [
@@ -180,10 +180,10 @@
               "fill": [
                 {
                   "test": "parent._id == active._id",
-                  "value": "#888888"
+                  "value": "#d5a928"
                 },
                 {
-                  "value": "#d5a928"
+                  "value": "#888888"
                 }
               ],
               "fontSize": [
