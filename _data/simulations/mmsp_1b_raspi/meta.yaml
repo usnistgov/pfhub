@@ -1,12 +1,12 @@
 ---
-benchmark_id: 1a
+benchmark_id: 1b
 
 metadata:
   # Describe the runtime environment
-  summary: Raspberry Pi 3 cluster benchmark with MMSP, periodic domain
+  summary: Raspberry Pi 3 cluster benchmark with MMSP, no-flux domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  date: Wed, 11 Jan 2017 19:18:37 +0000
+  date: Wed, 11 Jan 2017 23:33:21 +0000
   hardware:
     # Required hardware details
     architecture: armv7l
@@ -26,7 +26,7 @@ metadata:
   implementation:
     end_condition: time limit
     repo:
-      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
+      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/
       version: "f79fda8582159e8326863ac6c1734d686590b825"
       # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
@@ -48,4007 +48,4007 @@ data:
       [
         {
           "time": 0,
-          "free_energy": 319.094
+          "free_energy": 319.038
         },
         {
           "time": 0.761719,
-          "free_energy": 319.018
+          "free_energy": 318.981
         },
         {
           "time": 1.52344,
-          "free_energy": 318.95
+          "free_energy": 318.92
         },
         {
           "time": 2.28516,
-          "free_energy": 318.875
+          "free_energy": 318.853
         },
         {
           "time": 3.04688,
-          "free_energy": 318.792
+          "free_energy": 318.781
         },
         {
           "time": 3.80859,
-          "free_energy": 318.701
+          "free_energy": 318.702
         },
         {
           "time": 4.57031,
-          "free_energy": 318.598
+          "free_energy": 318.616
         },
         {
           "time": 5.33203,
-          "free_energy": 318.484
+          "free_energy": 318.522
         },
         {
           "time": 6.09375,
-          "free_energy": 318.357
+          "free_energy": 318.42
         },
         {
           "time": 6.85547,
-          "free_energy": 318.214
+          "free_energy": 318.308
         },
         {
           "time": 7.61719,
-          "free_energy": 318.053
+          "free_energy": 318.185
         },
         {
           "time": 8.37891,
-          "free_energy": 317.871
+          "free_energy": 318.049
         },
         {
           "time": 9.14062,
-          "free_energy": 317.666
+          "free_energy": 317.9
         },
         {
           "time": 9.90234,
-          "free_energy": 317.434
+          "free_energy": 317.735
         },
         {
           "time": 10.6641,
-          "free_energy": 317.17
+          "free_energy": 317.552
         },
         {
           "time": 11.4258,
-          "free_energy": 316.87
+          "free_energy": 317.349
         },
         {
           "time": 12.1875,
-          "free_energy": 316.53
+          "free_energy": 317.122
         },
         {
           "time": 12.9492,
-          "free_energy": 316.142
+          "free_energy": 316.87
         },
         {
           "time": 13.7109,
-          "free_energy": 315.701
+          "free_energy": 316.588
         },
         {
           "time": 14.4727,
-          "free_energy": 315.2
+          "free_energy": 316.272
         },
         {
           "time": 15.2344,
-          "free_energy": 314.632
+          "free_energy": 315.918
         },
         {
           "time": 15.9961,
-          "free_energy": 313.987
+          "free_energy": 315.519
         },
         {
           "time": 16.7578,
-          "free_energy": 313.258
+          "free_energy": 315.069
         },
         {
           "time": 17.5195,
-          "free_energy": 312.437
+          "free_energy": 314.562
         },
         {
           "time": 18.2812,
-          "free_energy": 311.514
+          "free_energy": 313.989
         },
         {
           "time": 19.043,
-          "free_energy": 310.481
+          "free_energy": 313.341
         },
         {
           "time": 19.8047,
-          "free_energy": 309.33
+          "free_energy": 312.607
         },
         {
           "time": 20.5664,
-          "free_energy": 308.053
+          "free_energy": 311.777
         },
         {
           "time": 21.3281,
-          "free_energy": 306.642
+          "free_energy": 310.837
         },
         {
           "time": 22.0898,
-          "free_energy": 305.091
+          "free_energy": 309.774
         },
         {
           "time": 22.8516,
-          "free_energy": 303.393
+          "free_energy": 308.573
         },
         {
           "time": 23.6133,
-          "free_energy": 301.543
+          "free_energy": 307.218
         },
         {
           "time": 24.375,
-          "free_energy": 299.537
+          "free_energy": 305.693
         },
         {
           "time": 25.1367,
-          "free_energy": 297.372
+          "free_energy": 303.981
         },
         {
           "time": 25.8984,
-          "free_energy": 295.045
+          "free_energy": 302.065
         },
         {
           "time": 26.6602,
-          "free_energy": 292.555
+          "free_energy": 299.928
         },
         {
           "time": 27.4219,
-          "free_energy": 289.902
+          "free_energy": 297.557
         },
         {
           "time": 28.1836,
-          "free_energy": 287.087
+          "free_energy": 294.939
         },
         {
           "time": 28.9453,
-          "free_energy": 284.113
+          "free_energy": 292.063
         },
         {
           "time": 29.707,
-          "free_energy": 280.985
+          "free_energy": 288.925
         },
         {
           "time": 30.4688,
-          "free_energy": 277.709
+          "free_energy": 285.524
         },
         {
           "time": 31.2305,
-          "free_energy": 274.293
+          "free_energy": 281.866
         },
         {
           "time": 31.9922,
-          "free_energy": 270.751
+          "free_energy": 277.962
         },
         {
           "time": 32.7539,
-          "free_energy": 267.098
+          "free_energy": 273.834
         },
         {
           "time": 33.5156,
-          "free_energy": 263.354
+          "free_energy": 269.508
         },
         {
           "time": 34.2773,
-          "free_energy": 259.543
+          "free_energy": 265.021
         },
         {
           "time": 35.0391,
-          "free_energy": 255.694
+          "free_energy": 260.416
         },
         {
           "time": 35.8008,
-          "free_energy": 251.839
+          "free_energy": 255.747
         },
         {
           "time": 36.5625,
-          "free_energy": 248.016
+          "free_energy": 251.069
         },
         {
           "time": 37.3242,
-          "free_energy": 244.263
+          "free_energy": 246.446
         },
         {
           "time": 38.0859,
-          "free_energy": 240.619
+          "free_energy": 241.941
         },
         {
           "time": 38.8477,
-          "free_energy": 237.122
+          "free_energy": 237.614
         },
         {
           "time": 39.6094,
-          "free_energy": 233.807
+          "free_energy": 233.522
         },
         {
           "time": 40.3711,
-          "free_energy": 230.703
+          "free_energy": 229.709
         },
         {
           "time": 41.1328,
-          "free_energy": 227.83
+          "free_energy": 226.209
         },
         {
           "time": 41.8945,
-          "free_energy": 225.199
+          "free_energy": 223.04
         },
         {
           "time": 42.6562,
-          "free_energy": 222.815
+          "free_energy": 220.207
         },
         {
           "time": 43.418,
-          "free_energy": 220.671
+          "free_energy": 217.702
         },
         {
           "time": 44.1797,
-          "free_energy": 218.754
+          "free_energy": 215.508
         },
         {
           "time": 44.9414,
-          "free_energy": 217.049
+          "free_energy": 213.598
         },
         {
           "time": 45.7031,
-          "free_energy": 215.533
+          "free_energy": 211.941
         },
         {
           "time": 46.4648,
-          "free_energy": 214.185
+          "free_energy": 210.508
         },
         {
           "time": 47.2266,
-          "free_energy": 212.984
+          "free_energy": 209.264
         },
         {
           "time": 47.9883,
-          "free_energy": 211.909
+          "free_energy": 208.181
         },
         {
           "time": 48.75,
-          "free_energy": 210.94
+          "free_energy": 207.232
         },
         {
           "time": 49.5117,
-          "free_energy": 210.062
+          "free_energy": 206.393
         },
         {
           "time": 50.2734,
-          "free_energy": 209.259
+          "free_energy": 205.644
         },
         {
           "time": 51.0352,
-          "free_energy": 208.518
+          "free_energy": 204.968
         },
         {
           "time": 51.7969,
-          "free_energy": 207.828
+          "free_energy": 204.349
         },
         {
           "time": 52.5586,
-          "free_energy": 207.18
+          "free_energy": 203.778
         },
         {
           "time": 53.3203,
-          "free_energy": 206.567
+          "free_energy": 203.244
         },
         {
           "time": 54.082,
-          "free_energy": 205.981
+          "free_energy": 202.74
         },
         {
           "time": 54.8438,
-          "free_energy": 205.42
+          "free_energy": 202.26
         },
         {
           "time": 55.6055,
-          "free_energy": 204.877
+          "free_energy": 201.798
         },
         {
           "time": 56.3672,
-          "free_energy": 204.351
+          "free_energy": 201.352
         },
         {
           "time": 57.1289,
-          "free_energy": 203.838
+          "free_energy": 200.918
         },
         {
           "time": 57.8906,
-          "free_energy": 203.336
+          "free_energy": 200.494
         },
         {
           "time": 58.6523,
-          "free_energy": 202.845
+          "free_energy": 200.078
         },
         {
           "time": 59.4141,
-          "free_energy": 202.361
+          "free_energy": 199.667
         },
         {
           "time": 60.1758,
-          "free_energy": 201.885
+          "free_energy": 199.262
         },
         {
           "time": 60.9375,
-          "free_energy": 201.415
+          "free_energy": 198.86
         },
         {
           "time": 61.6992,
-          "free_energy": 200.951
+          "free_energy": 198.462
         },
         {
           "time": 62.4609,
-          "free_energy": 200.491
+          "free_energy": 198.066
         },
         {
           "time": 63.2227,
-          "free_energy": 200.035
+          "free_energy": 197.671
         },
         {
           "time": 63.9844,
-          "free_energy": 199.583
+          "free_energy": 197.278
         },
         {
           "time": 64.7461,
-          "free_energy": 199.133
+          "free_energy": 196.885
         },
         {
           "time": 65.5078,
-          "free_energy": 198.686
+          "free_energy": 196.493
         },
         {
           "time": 66.2695,
-          "free_energy": 198.241
+          "free_energy": 196.101
         },
         {
           "time": 67.0312,
-          "free_energy": 197.798
+          "free_energy": 195.709
         },
         {
           "time": 67.793,
-          "free_energy": 197.356
+          "free_energy": 195.317
         },
         {
           "time": 68.5547,
-          "free_energy": 196.916
+          "free_energy": 194.924
         },
         {
           "time": 69.3164,
-          "free_energy": 196.477
+          "free_energy": 194.53
         },
         {
           "time": 70.0781,
-          "free_energy": 196.038
+          "free_energy": 194.136
         },
         {
           "time": 70.8398,
-          "free_energy": 195.6
+          "free_energy": 193.741
         },
         {
           "time": 71.6016,
-          "free_energy": 195.163
+          "free_energy": 193.344
         },
         {
           "time": 72.3633,
-          "free_energy": 194.726
+          "free_energy": 192.947
         },
         {
           "time": 73.125,
-          "free_energy": 194.29
+          "free_energy": 192.548
         },
         {
           "time": 73.8867,
-          "free_energy": 193.853
+          "free_energy": 192.148
         },
         {
           "time": 74.6484,
-          "free_energy": 193.417
+          "free_energy": 191.747
         },
         {
           "time": 75.4102,
-          "free_energy": 192.981
+          "free_energy": 191.344
         },
         {
           "time": 76.1719,
-          "free_energy": 192.545
+          "free_energy": 190.94
         },
         {
           "time": 76.9336,
-          "free_energy": 192.109
+          "free_energy": 190.534
         },
         {
           "time": 77.6953,
-          "free_energy": 191.672
+          "free_energy": 190.127
         },
         {
           "time": 78.457,
-          "free_energy": 191.236
+          "free_energy": 189.719
         },
         {
           "time": 79.2188,
-          "free_energy": 190.799
+          "free_energy": 189.309
         },
         {
           "time": 79.9805,
-          "free_energy": 190.361
+          "free_energy": 188.897
         },
         {
           "time": 80.7422,
-          "free_energy": 189.923
+          "free_energy": 188.484
         },
         {
           "time": 81.5039,
-          "free_energy": 189.485
+          "free_energy": 188.069
         },
         {
           "time": 82.2656,
-          "free_energy": 189.046
+          "free_energy": 187.653
         },
         {
           "time": 83.0273,
-          "free_energy": 188.606
+          "free_energy": 187.235
         },
         {
           "time": 83.7891,
-          "free_energy": 188.165
+          "free_energy": 186.815
         },
         {
           "time": 84.5508,
-          "free_energy": 187.722
+          "free_energy": 186.394
         },
         {
           "time": 85.3125,
-          "free_energy": 187.279
+          "free_energy": 185.972
         },
         {
           "time": 86.0742,
-          "free_energy": 186.833
+          "free_energy": 185.548
         },
         {
           "time": 86.8359,
-          "free_energy": 186.386
+          "free_energy": 185.122
         },
         {
           "time": 87.5977,
-          "free_energy": 185.937
+          "free_energy": 184.696
         },
         {
           "time": 88.3594,
-          "free_energy": 185.486
+          "free_energy": 184.267
         },
         {
           "time": 89.1211,
-          "free_energy": 185.032
+          "free_energy": 183.838
         },
         {
           "time": 89.8828,
-          "free_energy": 184.575
+          "free_energy": 183.407
         },
         {
           "time": 90.6445,
-          "free_energy": 184.115
+          "free_energy": 182.975
         },
         {
           "time": 91.4062,
-          "free_energy": 183.651
+          "free_energy": 182.542
         },
         {
           "time": 92.168,
-          "free_energy": 183.184
+          "free_energy": 182.107
         },
         {
           "time": 92.9297,
-          "free_energy": 182.713
+          "free_energy": 181.672
         },
         {
           "time": 93.6914,
-          "free_energy": 182.24
+          "free_energy": 181.235
         },
         {
           "time": 94.4531,
-          "free_energy": 181.763
+          "free_energy": 180.797
         },
         {
           "time": 95.2148,
-          "free_energy": 181.285
+          "free_energy": 180.357
         },
         {
           "time": 95.9766,
-          "free_energy": 180.805
+          "free_energy": 179.917
         },
         {
           "time": 96.7383,
-          "free_energy": 180.324
+          "free_energy": 179.475
         },
         {
           "time": 97.5,
-          "free_energy": 179.842
+          "free_energy": 179.032
         },
         {
           "time": 98.2617,
-          "free_energy": 179.359
+          "free_energy": 178.587
         },
         {
           "time": 99.0234,
-          "free_energy": 178.876
+          "free_energy": 178.141
         },
         {
           "time": 99.7852,
-          "free_energy": 178.392
+          "free_energy": 177.693
         },
         {
           "time": 100.547,
-          "free_energy": 177.909
+          "free_energy": 177.243
         },
         {
           "time": 101.309,
-          "free_energy": 177.428
+          "free_energy": 176.792
         },
         {
           "time": 102.07,
-          "free_energy": 176.95
+          "free_energy": 176.34
         },
         {
           "time": 102.832,
-          "free_energy": 176.476
+          "free_energy": 175.888
         },
         {
           "time": 103.594,
-          "free_energy": 176.006
+          "free_energy": 175.435
         },
         {
           "time": 104.355,
-          "free_energy": 175.541
+          "free_energy": 174.984
         },
         {
           "time": 105.117,
-          "free_energy": 175.081
+          "free_energy": 174.533
         },
         {
           "time": 105.879,
-          "free_energy": 174.626
+          "free_energy": 174.085
         },
         {
           "time": 106.641,
-          "free_energy": 174.176
+          "free_energy": 173.64
         },
         {
           "time": 107.402,
-          "free_energy": 173.73
+          "free_energy": 173.197
         },
         {
           "time": 108.164,
-          "free_energy": 173.289
+          "free_energy": 172.758
         },
         {
           "time": 108.926,
-          "free_energy": 172.85
+          "free_energy": 172.32
         },
         {
           "time": 109.688,
-          "free_energy": 172.414
+          "free_energy": 171.886
         },
         {
           "time": 110.449,
-          "free_energy": 171.981
+          "free_energy": 171.454
         },
         {
           "time": 111.211,
-          "free_energy": 171.55
+          "free_energy": 171.024
         },
         {
           "time": 111.973,
-          "free_energy": 171.122
+          "free_energy": 170.596
         },
         {
           "time": 112.734,
-          "free_energy": 170.698
+          "free_energy": 170.17
         },
         {
           "time": 113.496,
-          "free_energy": 170.279
+          "free_energy": 169.745
         },
         {
           "time": 114.258,
-          "free_energy": 169.866
+          "free_energy": 169.322
         },
         {
           "time": 115.02,
-          "free_energy": 169.459
+          "free_energy": 168.901
         },
         {
           "time": 115.781,
-          "free_energy": 169.059
+          "free_energy": 168.482
         },
         {
           "time": 116.543,
-          "free_energy": 168.665
+          "free_energy": 168.065
         },
         {
           "time": 117.305,
-          "free_energy": 168.279
+          "free_energy": 167.652
         },
         {
           "time": 118.066,
-          "free_energy": 167.899
+          "free_energy": 167.241
         },
         {
           "time": 118.828,
-          "free_energy": 167.526
+          "free_energy": 166.834
         },
         {
           "time": 119.59,
-          "free_energy": 167.159
+          "free_energy": 166.43
         },
         {
           "time": 120.352,
-          "free_energy": 166.797
+          "free_energy": 166.03
         },
         {
           "time": 121.113,
-          "free_energy": 166.44
+          "free_energy": 165.632
         },
         {
           "time": 121.875,
-          "free_energy": 166.088
+          "free_energy": 165.237
         },
         {
           "time": 122.637,
-          "free_energy": 165.741
+          "free_energy": 164.845
         },
         {
           "time": 123.398,
-          "free_energy": 165.397
+          "free_energy": 164.455
         },
         {
           "time": 124.16,
-          "free_energy": 165.058
+          "free_energy": 164.068
         },
         {
           "time": 124.922,
-          "free_energy": 164.722
+          "free_energy": 163.683
         },
         {
           "time": 125.684,
-          "free_energy": 164.39
+          "free_energy": 163.301
         },
         {
           "time": 126.445,
-          "free_energy": 164.062
+          "free_energy": 162.92
         },
         {
           "time": 127.207,
-          "free_energy": 163.736
+          "free_energy": 162.541
         },
         {
           "time": 127.969,
-          "free_energy": 163.414
+          "free_energy": 162.164
         },
         {
           "time": 128.73,
-          "free_energy": 163.094
+          "free_energy": 161.788
         },
         {
           "time": 129.492,
-          "free_energy": 162.777
+          "free_energy": 161.414
         },
         {
           "time": 130.254,
-          "free_energy": 162.464
+          "free_energy": 161.041
         },
         {
           "time": 131.016,
-          "free_energy": 162.153
+          "free_energy": 160.668
         },
         {
           "time": 131.777,
-          "free_energy": 161.844
+          "free_energy": 160.297
         },
         {
           "time": 132.539,
-          "free_energy": 161.539
+          "free_energy": 159.926
         },
         {
           "time": 133.301,
-          "free_energy": 161.235
+          "free_energy": 159.555
         },
         {
           "time": 134.062,
-          "free_energy": 160.935
+          "free_energy": 159.185
         },
         {
           "time": 134.824,
-          "free_energy": 160.637
+          "free_energy": 158.815
         },
         {
           "time": 135.586,
-          "free_energy": 160.341
+          "free_energy": 158.445
         },
         {
           "time": 136.348,
-          "free_energy": 160.048
+          "free_energy": 158.076
         },
         {
           "time": 137.109,
-          "free_energy": 159.757
+          "free_energy": 157.708
         },
         {
           "time": 137.871,
-          "free_energy": 159.469
+          "free_energy": 157.342
         },
         {
           "time": 138.633,
-          "free_energy": 159.183
+          "free_energy": 156.977
         },
         {
           "time": 139.395,
-          "free_energy": 158.899
+          "free_energy": 156.614
         },
         {
           "time": 140.156,
-          "free_energy": 158.617
+          "free_energy": 156.253
         },
         {
           "time": 140.918,
-          "free_energy": 158.338
+          "free_energy": 155.896
         },
         {
           "time": 141.68,
-          "free_energy": 158.061
+          "free_energy": 155.541
         },
         {
           "time": 142.441,
-          "free_energy": 157.787
+          "free_energy": 155.188
         },
         {
           "time": 143.203,
-          "free_energy": 157.514
+          "free_energy": 154.838
         },
         {
           "time": 143.965,
-          "free_energy": 157.244
+          "free_energy": 154.491
         },
         {
           "time": 144.727,
-          "free_energy": 156.976
+          "free_energy": 154.145
         },
         {
           "time": 145.488,
-          "free_energy": 156.71
+          "free_energy": 153.801
         },
         {
           "time": 146.25,
-          "free_energy": 156.446
+          "free_energy": 153.459
         },
         {
           "time": 147.012,
-          "free_energy": 156.184
+          "free_energy": 153.117
         },
         {
           "time": 147.773,
-          "free_energy": 155.924
+          "free_energy": 152.778
         },
         {
           "time": 148.535,
-          "free_energy": 155.666
+          "free_energy": 152.439
         },
         {
           "time": 149.297,
-          "free_energy": 155.41
+          "free_energy": 152.102
         },
         {
           "time": 150.059,
-          "free_energy": 155.156
+          "free_energy": 151.768
         },
         {
           "time": 150.82,
-          "free_energy": 154.905
+          "free_energy": 151.437
         },
         {
           "time": 151.582,
-          "free_energy": 154.655
+          "free_energy": 151.109
         },
         {
           "time": 152.344,
-          "free_energy": 154.407
+          "free_energy": 150.786
         },
         {
           "time": 153.105,
-          "free_energy": 154.16
+          "free_energy": 150.467
         },
         {
           "time": 153.867,
-          "free_energy": 153.916
+          "free_energy": 150.154
         },
         {
           "time": 154.629,
-          "free_energy": 153.674
+          "free_energy": 149.845
         },
         {
           "time": 155.391,
-          "free_energy": 153.433
+          "free_energy": 149.542
         },
         {
           "time": 156.152,
-          "free_energy": 153.194
+          "free_energy": 149.243
         },
         {
           "time": 156.914,
-          "free_energy": 152.957
+          "free_energy": 148.95
         },
         {
           "time": 157.676,
-          "free_energy": 152.722
+          "free_energy": 148.661
         },
         {
           "time": 158.438,
-          "free_energy": 152.489
+          "free_energy": 148.376
         },
         {
           "time": 159.199,
-          "free_energy": 152.257
+          "free_energy": 148.096
         },
         {
           "time": 159.961,
-          "free_energy": 152.027
+          "free_energy": 147.819
         },
         {
           "time": 160.723,
-          "free_energy": 151.798
+          "free_energy": 147.547
         },
         {
           "time": 161.484,
-          "free_energy": 151.572
+          "free_energy": 147.277
         },
         {
           "time": 162.246,
-          "free_energy": 151.347
+          "free_energy": 147.011
         },
         {
           "time": 163.008,
-          "free_energy": 151.124
+          "free_energy": 146.749
         },
         {
           "time": 163.77,
-          "free_energy": 150.902
+          "free_energy": 146.489
         },
         {
           "time": 164.531,
-          "free_energy": 150.682
+          "free_energy": 146.232
         },
         {
           "time": 165.293,
-          "free_energy": 150.464
+          "free_energy": 145.978
         },
         {
           "time": 166.055,
-          "free_energy": 150.247
+          "free_energy": 145.726
         },
         {
           "time": 166.816,
-          "free_energy": 150.032
+          "free_energy": 145.477
         },
         {
           "time": 167.578,
-          "free_energy": 149.819
+          "free_energy": 145.231
         },
         {
           "time": 168.34,
-          "free_energy": 149.607
+          "free_energy": 144.986
         },
         {
           "time": 169.102,
-          "free_energy": 149.397
+          "free_energy": 144.744
         },
         {
           "time": 169.863,
-          "free_energy": 149.188
+          "free_energy": 144.505
         },
         {
           "time": 170.625,
-          "free_energy": 148.981
+          "free_energy": 144.267
         },
         {
           "time": 171.387,
-          "free_energy": 148.776
+          "free_energy": 144.032
         },
         {
           "time": 172.148,
-          "free_energy": 148.572
+          "free_energy": 143.798
         },
         {
           "time": 172.91,
-          "free_energy": 148.37
+          "free_energy": 143.567
         },
         {
           "time": 173.672,
-          "free_energy": 148.169
+          "free_energy": 143.337
         },
         {
           "time": 174.434,
-          "free_energy": 147.97
+          "free_energy": 143.11
         },
         {
           "time": 175.195,
-          "free_energy": 147.773
+          "free_energy": 142.884
         },
         {
           "time": 175.957,
-          "free_energy": 147.576
+          "free_energy": 142.661
         },
         {
           "time": 176.719,
-          "free_energy": 147.382
+          "free_energy": 142.439
         },
         {
           "time": 177.48,
-          "free_energy": 147.189
+          "free_energy": 142.219
         },
         {
           "time": 178.242,
-          "free_energy": 146.997
+          "free_energy": 142.001
         },
         {
           "time": 179.004,
-          "free_energy": 146.807
+          "free_energy": 141.785
         },
         {
           "time": 179.766,
-          "free_energy": 146.619
+          "free_energy": 141.571
         },
         {
           "time": 180.527,
-          "free_energy": 146.432
+          "free_energy": 141.358
         },
         {
           "time": 181.289,
-          "free_energy": 146.246
+          "free_energy": 141.147
         },
         {
           "time": 182.051,
-          "free_energy": 146.061
+          "free_energy": 140.938
         },
         {
           "time": 182.812,
-          "free_energy": 145.879
+          "free_energy": 140.731
         },
         {
           "time": 183.574,
-          "free_energy": 145.697
+          "free_energy": 140.525
         },
         {
           "time": 184.336,
-          "free_energy": 145.517
+          "free_energy": 140.321
         },
         {
           "time": 185.098,
-          "free_energy": 145.338
+          "free_energy": 140.119
         },
         {
           "time": 185.859,
-          "free_energy": 145.161
+          "free_energy": 139.919
         },
         {
           "time": 186.621,
-          "free_energy": 144.985
+          "free_energy": 139.72
         },
         {
           "time": 187.383,
-          "free_energy": 144.81
+          "free_energy": 139.523
         },
         {
           "time": 188.145,
-          "free_energy": 144.636
+          "free_energy": 139.328
         },
         {
           "time": 188.906,
-          "free_energy": 144.464
+          "free_energy": 139.134
         },
         {
           "time": 189.668,
-          "free_energy": 144.293
+          "free_energy": 138.942
         },
         {
           "time": 190.43,
-          "free_energy": 144.124
+          "free_energy": 138.751
         },
         {
           "time": 191.191,
-          "free_energy": 143.955
+          "free_energy": 138.562
         },
         {
           "time": 191.953,
-          "free_energy": 143.789
+          "free_energy": 138.375
         },
         {
           "time": 192.715,
-          "free_energy": 143.623
+          "free_energy": 138.189
         },
         {
           "time": 193.477,
-          "free_energy": 143.459
+          "free_energy": 138.004
         },
         {
           "time": 194.238,
-          "free_energy": 143.296
+          "free_energy": 137.821
         },
         {
           "time": 195,
-          "free_energy": 143.134
+          "free_energy": 137.64
         },
         {
           "time": 195.762,
-          "free_energy": 142.974
+          "free_energy": 137.46
         },
         {
           "time": 196.523,
-          "free_energy": 142.815
+          "free_energy": 137.282
         },
         {
           "time": 197.285,
-          "free_energy": 142.657
+          "free_energy": 137.105
         },
         {
           "time": 198.047,
-          "free_energy": 142.501
+          "free_energy": 136.929
         },
         {
           "time": 198.809,
-          "free_energy": 142.346
+          "free_energy": 136.755
         },
         {
           "time": 199.57,
-          "free_energy": 142.192
+          "free_energy": 136.582
         },
         {
           "time": 200.332,
-          "free_energy": 142.04
+          "free_energy": 136.411
         },
         {
           "time": 201.094,
-          "free_energy": 141.889
+          "free_energy": 136.24
         },
         {
           "time": 201.855,
-          "free_energy": 141.74
+          "free_energy": 136.072
         },
         {
           "time": 202.617,
-          "free_energy": 141.592
+          "free_energy": 135.904
         },
         {
           "time": 203.379,
-          "free_energy": 141.445
+          "free_energy": 135.738
         },
         {
           "time": 204.141,
-          "free_energy": 141.299
+          "free_energy": 135.574
         },
         {
           "time": 204.902,
-          "free_energy": 141.155
+          "free_energy": 135.41
         },
         {
           "time": 205.664,
-          "free_energy": 141.012
+          "free_energy": 135.248
         },
         {
           "time": 206.426,
-          "free_energy": 140.87
+          "free_energy": 135.088
         },
         {
           "time": 207.188,
-          "free_energy": 140.73
+          "free_energy": 134.929
         },
         {
           "time": 207.949,
-          "free_energy": 140.591
+          "free_energy": 134.771
         },
         {
           "time": 208.711,
-          "free_energy": 140.453
+          "free_energy": 134.615
         },
         {
           "time": 209.473,
-          "free_energy": 140.316
+          "free_energy": 134.46
         },
         {
           "time": 210.234,
-          "free_energy": 140.18
+          "free_energy": 134.306
         },
         {
           "time": 210.996,
-          "free_energy": 140.046
+          "free_energy": 134.154
         },
         {
           "time": 211.758,
-          "free_energy": 139.912
+          "free_energy": 134.003
         },
         {
           "time": 212.52,
-          "free_energy": 139.78
+          "free_energy": 133.854
         },
         {
           "time": 213.281,
-          "free_energy": 139.649
+          "free_energy": 133.705
         },
         {
           "time": 214.043,
-          "free_energy": 139.52
+          "free_energy": 133.559
         },
         {
           "time": 214.805,
-          "free_energy": 139.391
+          "free_energy": 133.413
         },
         {
           "time": 215.566,
-          "free_energy": 139.263
+          "free_energy": 133.269
         },
         {
           "time": 216.328,
-          "free_energy": 139.137
+          "free_energy": 133.126
         },
         {
           "time": 217.09,
-          "free_energy": 139.011
+          "free_energy": 132.985
         },
         {
           "time": 217.852,
-          "free_energy": 138.887
+          "free_energy": 132.844
         },
         {
           "time": 218.613,
-          "free_energy": 138.764
+          "free_energy": 132.705
         },
         {
           "time": 219.375,
-          "free_energy": 138.641
+          "free_energy": 132.567
         },
         {
           "time": 220.137,
-          "free_energy": 138.52
+          "free_energy": 132.431
         },
         {
           "time": 220.898,
-          "free_energy": 138.4
+          "free_energy": 132.295
         },
         {
           "time": 221.66,
-          "free_energy": 138.281
+          "free_energy": 132.161
         },
         {
           "time": 222.422,
-          "free_energy": 138.163
+          "free_energy": 132.028
         },
         {
           "time": 223.184,
-          "free_energy": 138.046
+          "free_energy": 131.896
         },
         {
           "time": 223.945,
-          "free_energy": 137.93
+          "free_energy": 131.765
         },
         {
           "time": 224.707,
-          "free_energy": 137.815
+          "free_energy": 131.635
         },
         {
           "time": 225.469,
-          "free_energy": 137.702
+          "free_energy": 131.507
         },
         {
           "time": 226.23,
-          "free_energy": 137.589
+          "free_energy": 131.379
         },
         {
           "time": 226.992,
-          "free_energy": 137.477
+          "free_energy": 131.252
         },
         {
           "time": 227.754,
-          "free_energy": 137.366
+          "free_energy": 131.127
         },
         {
           "time": 228.516,
-          "free_energy": 137.255
+          "free_energy": 131.002
         },
         {
           "time": 229.277,
-          "free_energy": 137.146
+          "free_energy": 130.879
         },
         {
           "time": 230.039,
-          "free_energy": 137.038
+          "free_energy": 130.756
         },
         {
           "time": 230.801,
-          "free_energy": 136.931
+          "free_energy": 130.634
         },
         {
           "time": 231.562,
-          "free_energy": 136.824
+          "free_energy": 130.514
         },
         {
           "time": 232.324,
-          "free_energy": 136.718
+          "free_energy": 130.394
         },
         {
           "time": 233.086,
-          "free_energy": 136.614
+          "free_energy": 130.275
         },
         {
           "time": 233.848,
-          "free_energy": 136.51
+          "free_energy": 130.157
         },
         {
           "time": 234.609,
-          "free_energy": 136.406
+          "free_energy": 130.039
         },
         {
           "time": 235.371,
-          "free_energy": 136.304
+          "free_energy": 129.923
         },
         {
           "time": 236.133,
-          "free_energy": 136.202
+          "free_energy": 129.807
         },
         {
           "time": 236.895,
-          "free_energy": 136.101
+          "free_energy": 129.692
         },
         {
           "time": 237.656,
-          "free_energy": 136.001
+          "free_energy": 129.578
         },
         {
           "time": 238.418,
-          "free_energy": 135.902
+          "free_energy": 129.465
         },
         {
           "time": 239.18,
-          "free_energy": 135.803
+          "free_energy": 129.352
         },
         {
           "time": 239.941,
-          "free_energy": 135.705
+          "free_energy": 129.24
         },
         {
           "time": 240.703,
-          "free_energy": 135.607
+          "free_energy": 129.129
         },
         {
           "time": 241.465,
-          "free_energy": 135.51
+          "free_energy": 129.018
         },
         {
           "time": 242.227,
-          "free_energy": 135.414
+          "free_energy": 128.908
         },
         {
           "time": 242.988,
-          "free_energy": 135.318
-        },
-        {
-          "time": 243.75,
-          "free_energy": 135.223
-        },
-        {
-          "time": 244.512,
-          "free_energy": 135.129
-        },
-        {
-          "time": 245.273,
-          "free_energy": 135.035
-        },
-        {
-          "time": 246.035,
-          "free_energy": 134.942
-        },
-        {
-          "time": 246.797,
-          "free_energy": 134.849
-        },
-        {
-          "time": 247.559,
-          "free_energy": 134.756
-        },
-        {
-          "time": 248.32,
-          "free_energy": 134.665
-        },
-        {
-          "time": 249.082,
-          "free_energy": 134.573
-        },
-        {
-          "time": 249.844,
-          "free_energy": 134.483
-        },
-        {
-          "time": 250.605,
-          "free_energy": 134.392
-        },
-        {
-          "time": 251.367,
-          "free_energy": 134.303
-        },
-        {
-          "time": 252.129,
-          "free_energy": 134.213
-        },
-        {
-          "time": 252.891,
-          "free_energy": 134.125
-        },
-        {
-          "time": 253.652,
-          "free_energy": 134.037
-        },
-        {
-          "time": 254.414,
-          "free_energy": 133.949
-        },
-        {
-          "time": 255.176,
-          "free_energy": 133.862
-        },
-        {
-          "time": 255.938,
-          "free_energy": 133.775
-        },
-        {
-          "time": 256.699,
-          "free_energy": 133.689
-        },
-        {
-          "time": 257.461,
-          "free_energy": 133.604
-        },
-        {
-          "time": 258.223,
-          "free_energy": 133.519
-        },
-        {
-          "time": 258.984,
-          "free_energy": 133.434
-        },
-        {
-          "time": 259.746,
-          "free_energy": 133.35
-        },
-        {
-          "time": 260.508,
-          "free_energy": 133.267
-        },
-        {
-          "time": 261.27,
-          "free_energy": 133.184
-        },
-        {
-          "time": 262.031,
-          "free_energy": 133.101
-        },
-        {
-          "time": 262.793,
-          "free_energy": 133.02
-        },
-        {
-          "time": 263.555,
-          "free_energy": 132.938
-        },
-        {
-          "time": 264.316,
-          "free_energy": 132.857
-        },
-        {
-          "time": 265.078,
-          "free_energy": 132.777
-        },
-        {
-          "time": 265.84,
-          "free_energy": 132.697
-        },
-        {
-          "time": 266.602,
-          "free_energy": 132.618
-        },
-        {
-          "time": 267.363,
-          "free_energy": 132.539
-        },
-        {
-          "time": 268.125,
-          "free_energy": 132.46
-        },
-        {
-          "time": 268.887,
-          "free_energy": 132.382
-        },
-        {
-          "time": 269.648,
-          "free_energy": 132.305
-        },
-        {
-          "time": 270.41,
-          "free_energy": 132.228
-        },
-        {
-          "time": 271.172,
-          "free_energy": 132.151
-        },
-        {
-          "time": 271.934,
-          "free_energy": 132.075
-        },
-        {
-          "time": 272.695,
-          "free_energy": 131.999
-        },
-        {
-          "time": 273.457,
-          "free_energy": 131.924
-        },
-        {
-          "time": 274.219,
-          "free_energy": 131.849
-        },
-        {
-          "time": 274.98,
-          "free_energy": 131.774
-        },
-        {
-          "time": 275.742,
-          "free_energy": 131.7
-        },
-        {
-          "time": 276.504,
-          "free_energy": 131.626
-        },
-        {
-          "time": 277.266,
-          "free_energy": 131.552
-        },
-        {
-          "time": 278.027,
-          "free_energy": 131.479
-        },
-        {
-          "time": 278.789,
-          "free_energy": 131.406
-        },
-        {
-          "time": 279.551,
-          "free_energy": 131.333
-        },
-        {
-          "time": 280.312,
-          "free_energy": 131.261
-        },
-        {
-          "time": 281.074,
-          "free_energy": 131.189
-        },
-        {
-          "time": 281.836,
-          "free_energy": 131.118
-        },
-        {
-          "time": 282.598,
-          "free_energy": 131.046
-        },
-        {
-          "time": 283.359,
-          "free_energy": 130.975
-        },
-        {
-          "time": 284.121,
-          "free_energy": 130.904
-        },
-        {
-          "time": 284.883,
-          "free_energy": 130.834
-        },
-        {
-          "time": 285.645,
-          "free_energy": 130.763
-        },
-        {
-          "time": 286.406,
-          "free_energy": 130.693
-        },
-        {
-          "time": 287.168,
-          "free_energy": 130.623
-        },
-        {
-          "time": 287.93,
-          "free_energy": 130.553
-        },
-        {
-          "time": 288.691,
-          "free_energy": 130.484
-        },
-        {
-          "time": 289.453,
-          "free_energy": 130.415
-        },
-        {
-          "time": 290.215,
-          "free_energy": 130.345
-        },
-        {
-          "time": 290.977,
-          "free_energy": 130.276
-        },
-        {
-          "time": 291.738,
-          "free_energy": 130.208
-        },
-        {
-          "time": 292.5,
-          "free_energy": 130.139
-        },
-        {
-          "time": 293.262,
-          "free_energy": 130.07
-        },
-        {
-          "time": 294.023,
-          "free_energy": 130.002
-        },
-        {
-          "time": 294.785,
-          "free_energy": 129.934
-        },
-        {
-          "time": 295.547,
-          "free_energy": 129.866
-        },
-        {
-          "time": 296.309,
-          "free_energy": 129.798
-        },
-        {
-          "time": 297.07,
-          "free_energy": 129.73
-        },
-        {
-          "time": 297.832,
-          "free_energy": 129.662
-        },
-        {
-          "time": 298.594,
-          "free_energy": 129.595
-        },
-        {
-          "time": 299.355,
-          "free_energy": 129.528
-        },
-        {
-          "time": 300.117,
-          "free_energy": 129.46
-        },
-        {
-          "time": 300.879,
-          "free_energy": 129.393
-        },
-        {
-          "time": 301.641,
-          "free_energy": 129.327
-        },
-        {
-          "time": 302.402,
-          "free_energy": 129.26
-        },
-        {
-          "time": 303.164,
-          "free_energy": 129.193
-        },
-        {
-          "time": 303.926,
-          "free_energy": 129.127
-        },
-        {
-          "time": 304.688,
-          "free_energy": 129.061
-        },
-        {
-          "time": 305.449,
-          "free_energy": 128.995
-        },
-        {
-          "time": 306.211,
-          "free_energy": 128.929
-        },
-        {
-          "time": 306.973,
-          "free_energy": 128.864
-        },
-        {
-          "time": 307.734,
           "free_energy": 128.799
         },
         {
-          "time": 308.496,
-          "free_energy": 128.734
+          "time": 243.75,
+          "free_energy": 128.69
         },
         {
-          "time": 309.258,
-          "free_energy": 128.669
+          "time": 244.512,
+          "free_energy": 128.581
         },
         {
-          "time": 310.02,
-          "free_energy": 128.604
+          "time": 245.273,
+          "free_energy": 128.473
         },
         {
-          "time": 310.781,
-          "free_energy": 128.539
+          "time": 246.035,
+          "free_energy": 128.365
         },
         {
-          "time": 311.543,
-          "free_energy": 128.475
+          "time": 246.797,
+          "free_energy": 128.258
         },
         {
-          "time": 312.305,
-          "free_energy": 128.411
+          "time": 247.559,
+          "free_energy": 128.151
         },
         {
-          "time": 313.066,
-          "free_energy": 128.347
+          "time": 248.32,
+          "free_energy": 128.044
         },
         {
-          "time": 313.828,
-          "free_energy": 128.284
+          "time": 249.082,
+          "free_energy": 127.937
         },
         {
-          "time": 314.59,
-          "free_energy": 128.22
+          "time": 249.844,
+          "free_energy": 127.831
         },
         {
-          "time": 315.352,
-          "free_energy": 128.157
+          "time": 250.605,
+          "free_energy": 127.724
         },
         {
-          "time": 316.113,
-          "free_energy": 128.094
+          "time": 251.367,
+          "free_energy": 127.618
         },
         {
-          "time": 316.875,
-          "free_energy": 128.031
+          "time": 252.129,
+          "free_energy": 127.511
         },
         {
-          "time": 317.637,
-          "free_energy": 127.969
+          "time": 252.891,
+          "free_energy": 127.404
         },
         {
-          "time": 318.398,
-          "free_energy": 127.906
+          "time": 253.652,
+          "free_energy": 127.297
         },
         {
-          "time": 319.16,
-          "free_energy": 127.844
+          "time": 254.414,
+          "free_energy": 127.189
         },
         {
-          "time": 319.922,
-          "free_energy": 127.782
+          "time": 255.176,
+          "free_energy": 127.082
         },
         {
-          "time": 320.684,
-          "free_energy": 127.72
+          "time": 255.938,
+          "free_energy": 126.974
         },
         {
-          "time": 321.445,
-          "free_energy": 127.659
+          "time": 256.699,
+          "free_energy": 126.867
         },
         {
-          "time": 322.207,
-          "free_energy": 127.597
+          "time": 257.461,
+          "free_energy": 126.76
         },
         {
-          "time": 322.969,
-          "free_energy": 127.536
+          "time": 258.223,
+          "free_energy": 126.653
         },
         {
-          "time": 323.73,
-          "free_energy": 127.475
+          "time": 258.984,
+          "free_energy": 126.548
         },
         {
-          "time": 324.492,
-          "free_energy": 127.415
+          "time": 259.746,
+          "free_energy": 126.444
         },
         {
-          "time": 325.254,
-          "free_energy": 127.354
+          "time": 260.508,
+          "free_energy": 126.342
         },
         {
-          "time": 326.016,
-          "free_energy": 127.294
+          "time": 261.27,
+          "free_energy": 126.24
         },
         {
-          "time": 326.777,
-          "free_energy": 127.233
+          "time": 262.031,
+          "free_energy": 126.141
         },
         {
-          "time": 327.539,
-          "free_energy": 127.173
+          "time": 262.793,
+          "free_energy": 126.042
         },
         {
-          "time": 328.301,
-          "free_energy": 127.114
+          "time": 263.555,
+          "free_energy": 125.945
         },
         {
-          "time": 329.062,
-          "free_energy": 127.054
+          "time": 264.316,
+          "free_energy": 125.849
         },
         {
-          "time": 329.824,
-          "free_energy": 126.994
+          "time": 265.078,
+          "free_energy": 125.754
         },
         {
-          "time": 330.586,
-          "free_energy": 126.935
+          "time": 265.84,
+          "free_energy": 125.66
         },
         {
-          "time": 331.348,
-          "free_energy": 126.876
+          "time": 266.602,
+          "free_energy": 125.568
         },
         {
-          "time": 332.109,
-          "free_energy": 126.817
+          "time": 267.363,
+          "free_energy": 125.476
         },
         {
-          "time": 332.871,
-          "free_energy": 126.758
+          "time": 268.125,
+          "free_energy": 125.385
         },
         {
-          "time": 333.633,
-          "free_energy": 126.7
+          "time": 268.887,
+          "free_energy": 125.296
         },
         {
-          "time": 334.395,
-          "free_energy": 126.641
+          "time": 269.648,
+          "free_energy": 125.207
         },
         {
-          "time": 335.156,
-          "free_energy": 126.583
+          "time": 270.41,
+          "free_energy": 125.118
         },
         {
-          "time": 335.918,
-          "free_energy": 126.525
+          "time": 271.172,
+          "free_energy": 125.031
         },
         {
-          "time": 336.68,
-          "free_energy": 126.467
+          "time": 271.934,
+          "free_energy": 124.944
         },
         {
-          "time": 337.441,
-          "free_energy": 126.409
+          "time": 272.695,
+          "free_energy": 124.859
         },
         {
-          "time": 338.203,
-          "free_energy": 126.352
+          "time": 273.457,
+          "free_energy": 124.773
         },
         {
-          "time": 338.965,
-          "free_energy": 126.294
+          "time": 274.219,
+          "free_energy": 124.689
         },
         {
-          "time": 339.727,
-          "free_energy": 126.237
+          "time": 274.98,
+          "free_energy": 124.605
         },
         {
-          "time": 340.488,
-          "free_energy": 126.18
+          "time": 275.742,
+          "free_energy": 124.521
         },
         {
-          "time": 341.25,
-          "free_energy": 126.123
+          "time": 276.504,
+          "free_energy": 124.438
         },
         {
-          "time": 342.012,
-          "free_energy": 126.066
+          "time": 277.266,
+          "free_energy": 124.356
         },
         {
-          "time": 342.773,
-          "free_energy": 126.01
+          "time": 278.027,
+          "free_energy": 124.274
         },
         {
-          "time": 343.535,
-          "free_energy": 125.953
+          "time": 278.789,
+          "free_energy": 124.192
         },
         {
-          "time": 344.297,
-          "free_energy": 125.897
+          "time": 279.551,
+          "free_energy": 124.111
         },
         {
-          "time": 345.059,
-          "free_energy": 125.841
+          "time": 280.312,
+          "free_energy": 124.031
         },
         {
-          "time": 345.82,
-          "free_energy": 125.785
+          "time": 281.074,
+          "free_energy": 123.951
         },
         {
-          "time": 346.582,
-          "free_energy": 125.729
+          "time": 281.836,
+          "free_energy": 123.871
         },
         {
-          "time": 347.344,
-          "free_energy": 125.673
+          "time": 282.598,
+          "free_energy": 123.791
         },
         {
-          "time": 348.105,
-          "free_energy": 125.617
+          "time": 283.359,
+          "free_energy": 123.712
         },
         {
-          "time": 348.867,
-          "free_energy": 125.562
+          "time": 284.121,
+          "free_energy": 123.633
         },
         {
-          "time": 349.629,
-          "free_energy": 125.507
+          "time": 284.883,
+          "free_energy": 123.554
         },
         {
-          "time": 350.391,
-          "free_energy": 125.451
+          "time": 285.645,
+          "free_energy": 123.475
         },
         {
-          "time": 351.152,
-          "free_energy": 125.396
-        },
-        {
-          "time": 351.914,
-          "free_energy": 125.342
-        },
-        {
-          "time": 352.676,
-          "free_energy": 125.287
-        },
-        {
-          "time": 353.438,
-          "free_energy": 125.232
-        },
-        {
-          "time": 354.199,
-          "free_energy": 125.178
-        },
-        {
-          "time": 354.961,
-          "free_energy": 125.123
-        },
-        {
-          "time": 355.723,
-          "free_energy": 125.069
-        },
-        {
-          "time": 356.484,
-          "free_energy": 125.015
-        },
-        {
-          "time": 357.246,
-          "free_energy": 124.961
-        },
-        {
-          "time": 358.008,
-          "free_energy": 124.907
-        },
-        {
-          "time": 358.77,
-          "free_energy": 124.853
-        },
-        {
-          "time": 359.531,
-          "free_energy": 124.8
-        },
-        {
-          "time": 360.293,
-          "free_energy": 124.746
-        },
-        {
-          "time": 361.055,
-          "free_energy": 124.693
-        },
-        {
-          "time": 361.816,
-          "free_energy": 124.64
-        },
-        {
-          "time": 362.578,
-          "free_energy": 124.587
-        },
-        {
-          "time": 363.34,
-          "free_energy": 124.534
-        },
-        {
-          "time": 364.102,
-          "free_energy": 124.481
-        },
-        {
-          "time": 364.863,
-          "free_energy": 124.428
-        },
-        {
-          "time": 365.625,
-          "free_energy": 124.376
-        },
-        {
-          "time": 366.387,
-          "free_energy": 124.323
-        },
-        {
-          "time": 367.148,
-          "free_energy": 124.271
-        },
-        {
-          "time": 367.91,
-          "free_energy": 124.218
-        },
-        {
-          "time": 368.672,
-          "free_energy": 124.166
-        },
-        {
-          "time": 369.434,
-          "free_energy": 124.114
-        },
-        {
-          "time": 370.195,
-          "free_energy": 124.062
-        },
-        {
-          "time": 370.957,
-          "free_energy": 124.011
-        },
-        {
-          "time": 371.719,
-          "free_energy": 123.959
-        },
-        {
-          "time": 372.48,
-          "free_energy": 123.907
-        },
-        {
-          "time": 373.242,
-          "free_energy": 123.856
-        },
-        {
-          "time": 374.004,
-          "free_energy": 123.804
-        },
-        {
-          "time": 374.766,
-          "free_energy": 123.753
-        },
-        {
-          "time": 375.527,
-          "free_energy": 123.702
-        },
-        {
-          "time": 376.289,
-          "free_energy": 123.651
-        },
-        {
-          "time": 377.051,
-          "free_energy": 123.6
-        },
-        {
-          "time": 377.812,
-          "free_energy": 123.549
-        },
-        {
-          "time": 378.574,
-          "free_energy": 123.499
-        },
-        {
-          "time": 379.336,
-          "free_energy": 123.448
-        },
-        {
-          "time": 380.098,
+          "time": 286.406,
           "free_energy": 123.397
         },
         {
+          "time": 287.168,
+          "free_energy": 123.318
+        },
+        {
+          "time": 287.93,
+          "free_energy": 123.24
+        },
+        {
+          "time": 288.691,
+          "free_energy": 123.161
+        },
+        {
+          "time": 289.453,
+          "free_energy": 123.082
+        },
+        {
+          "time": 290.215,
+          "free_energy": 123.003
+        },
+        {
+          "time": 290.977,
+          "free_energy": 122.923
+        },
+        {
+          "time": 291.738,
+          "free_energy": 122.843
+        },
+        {
+          "time": 292.5,
+          "free_energy": 122.763
+        },
+        {
+          "time": 293.262,
+          "free_energy": 122.682
+        },
+        {
+          "time": 294.023,
+          "free_energy": 122.601
+        },
+        {
+          "time": 294.785,
+          "free_energy": 122.519
+        },
+        {
+          "time": 295.547,
+          "free_energy": 122.437
+        },
+        {
+          "time": 296.309,
+          "free_energy": 122.356
+        },
+        {
+          "time": 297.07,
+          "free_energy": 122.274
+        },
+        {
+          "time": 297.832,
+          "free_energy": 122.194
+        },
+        {
+          "time": 298.594,
+          "free_energy": 122.114
+        },
+        {
+          "time": 299.355,
+          "free_energy": 122.035
+        },
+        {
+          "time": 300.117,
+          "free_energy": 121.958
+        },
+        {
+          "time": 300.879,
+          "free_energy": 121.881
+        },
+        {
+          "time": 301.641,
+          "free_energy": 121.806
+        },
+        {
+          "time": 302.402,
+          "free_energy": 121.732
+        },
+        {
+          "time": 303.164,
+          "free_energy": 121.659
+        },
+        {
+          "time": 303.926,
+          "free_energy": 121.588
+        },
+        {
+          "time": 304.688,
+          "free_energy": 121.517
+        },
+        {
+          "time": 305.449,
+          "free_energy": 121.447
+        },
+        {
+          "time": 306.211,
+          "free_energy": 121.379
+        },
+        {
+          "time": 306.973,
+          "free_energy": 121.311
+        },
+        {
+          "time": 307.734,
+          "free_energy": 121.244
+        },
+        {
+          "time": 308.496,
+          "free_energy": 121.178
+        },
+        {
+          "time": 309.258,
+          "free_energy": 121.112
+        },
+        {
+          "time": 310.02,
+          "free_energy": 121.047
+        },
+        {
+          "time": 310.781,
+          "free_energy": 120.983
+        },
+        {
+          "time": 311.543,
+          "free_energy": 120.92
+        },
+        {
+          "time": 312.305,
+          "free_energy": 120.857
+        },
+        {
+          "time": 313.066,
+          "free_energy": 120.794
+        },
+        {
+          "time": 313.828,
+          "free_energy": 120.733
+        },
+        {
+          "time": 314.59,
+          "free_energy": 120.671
+        },
+        {
+          "time": 315.352,
+          "free_energy": 120.61
+        },
+        {
+          "time": 316.113,
+          "free_energy": 120.55
+        },
+        {
+          "time": 316.875,
+          "free_energy": 120.49
+        },
+        {
+          "time": 317.637,
+          "free_energy": 120.43
+        },
+        {
+          "time": 318.398,
+          "free_energy": 120.371
+        },
+        {
+          "time": 319.16,
+          "free_energy": 120.312
+        },
+        {
+          "time": 319.922,
+          "free_energy": 120.254
+        },
+        {
+          "time": 320.684,
+          "free_energy": 120.196
+        },
+        {
+          "time": 321.445,
+          "free_energy": 120.138
+        },
+        {
+          "time": 322.207,
+          "free_energy": 120.081
+        },
+        {
+          "time": 322.969,
+          "free_energy": 120.023
+        },
+        {
+          "time": 323.73,
+          "free_energy": 119.966
+        },
+        {
+          "time": 324.492,
+          "free_energy": 119.91
+        },
+        {
+          "time": 325.254,
+          "free_energy": 119.853
+        },
+        {
+          "time": 326.016,
+          "free_energy": 119.797
+        },
+        {
+          "time": 326.777,
+          "free_energy": 119.741
+        },
+        {
+          "time": 327.539,
+          "free_energy": 119.685
+        },
+        {
+          "time": 328.301,
+          "free_energy": 119.63
+        },
+        {
+          "time": 329.062,
+          "free_energy": 119.574
+        },
+        {
+          "time": 329.824,
+          "free_energy": 119.519
+        },
+        {
+          "time": 330.586,
+          "free_energy": 119.464
+        },
+        {
+          "time": 331.348,
+          "free_energy": 119.409
+        },
+        {
+          "time": 332.109,
+          "free_energy": 119.355
+        },
+        {
+          "time": 332.871,
+          "free_energy": 119.3
+        },
+        {
+          "time": 333.633,
+          "free_energy": 119.246
+        },
+        {
+          "time": 334.395,
+          "free_energy": 119.192
+        },
+        {
+          "time": 335.156,
+          "free_energy": 119.138
+        },
+        {
+          "time": 335.918,
+          "free_energy": 119.084
+        },
+        {
+          "time": 336.68,
+          "free_energy": 119.031
+        },
+        {
+          "time": 337.441,
+          "free_energy": 118.977
+        },
+        {
+          "time": 338.203,
+          "free_energy": 118.924
+        },
+        {
+          "time": 338.965,
+          "free_energy": 118.871
+        },
+        {
+          "time": 339.727,
+          "free_energy": 118.818
+        },
+        {
+          "time": 340.488,
+          "free_energy": 118.765
+        },
+        {
+          "time": 341.25,
+          "free_energy": 118.712
+        },
+        {
+          "time": 342.012,
+          "free_energy": 118.66
+        },
+        {
+          "time": 342.773,
+          "free_energy": 118.607
+        },
+        {
+          "time": 343.535,
+          "free_energy": 118.555
+        },
+        {
+          "time": 344.297,
+          "free_energy": 118.503
+        },
+        {
+          "time": 345.059,
+          "free_energy": 118.451
+        },
+        {
+          "time": 345.82,
+          "free_energy": 118.399
+        },
+        {
+          "time": 346.582,
+          "free_energy": 118.347
+        },
+        {
+          "time": 347.344,
+          "free_energy": 118.295
+        },
+        {
+          "time": 348.105,
+          "free_energy": 118.244
+        },
+        {
+          "time": 348.867,
+          "free_energy": 118.192
+        },
+        {
+          "time": 349.629,
+          "free_energy": 118.141
+        },
+        {
+          "time": 350.391,
+          "free_energy": 118.09
+        },
+        {
+          "time": 351.152,
+          "free_energy": 118.038
+        },
+        {
+          "time": 351.914,
+          "free_energy": 117.987
+        },
+        {
+          "time": 352.676,
+          "free_energy": 117.937
+        },
+        {
+          "time": 353.438,
+          "free_energy": 117.886
+        },
+        {
+          "time": 354.199,
+          "free_energy": 117.835
+        },
+        {
+          "time": 354.961,
+          "free_energy": 117.784
+        },
+        {
+          "time": 355.723,
+          "free_energy": 117.734
+        },
+        {
+          "time": 356.484,
+          "free_energy": 117.684
+        },
+        {
+          "time": 357.246,
+          "free_energy": 117.633
+        },
+        {
+          "time": 358.008,
+          "free_energy": 117.583
+        },
+        {
+          "time": 358.77,
+          "free_energy": 117.533
+        },
+        {
+          "time": 359.531,
+          "free_energy": 117.483
+        },
+        {
+          "time": 360.293,
+          "free_energy": 117.433
+        },
+        {
+          "time": 361.055,
+          "free_energy": 117.384
+        },
+        {
+          "time": 361.816,
+          "free_energy": 117.334
+        },
+        {
+          "time": 362.578,
+          "free_energy": 117.284
+        },
+        {
+          "time": 363.34,
+          "free_energy": 117.235
+        },
+        {
+          "time": 364.102,
+          "free_energy": 117.185
+        },
+        {
+          "time": 364.863,
+          "free_energy": 117.136
+        },
+        {
+          "time": 365.625,
+          "free_energy": 117.087
+        },
+        {
+          "time": 366.387,
+          "free_energy": 117.038
+        },
+        {
+          "time": 367.148,
+          "free_energy": 116.989
+        },
+        {
+          "time": 367.91,
+          "free_energy": 116.94
+        },
+        {
+          "time": 368.672,
+          "free_energy": 116.891
+        },
+        {
+          "time": 369.434,
+          "free_energy": 116.842
+        },
+        {
+          "time": 370.195,
+          "free_energy": 116.794
+        },
+        {
+          "time": 370.957,
+          "free_energy": 116.745
+        },
+        {
+          "time": 371.719,
+          "free_energy": 116.697
+        },
+        {
+          "time": 372.48,
+          "free_energy": 116.648
+        },
+        {
+          "time": 373.242,
+          "free_energy": 116.6
+        },
+        {
+          "time": 374.004,
+          "free_energy": 116.552
+        },
+        {
+          "time": 374.766,
+          "free_energy": 116.504
+        },
+        {
+          "time": 375.527,
+          "free_energy": 116.455
+        },
+        {
+          "time": 376.289,
+          "free_energy": 116.407
+        },
+        {
+          "time": 377.051,
+          "free_energy": 116.36
+        },
+        {
+          "time": 377.812,
+          "free_energy": 116.312
+        },
+        {
+          "time": 378.574,
+          "free_energy": 116.264
+        },
+        {
+          "time": 379.336,
+          "free_energy": 116.216
+        },
+        {
+          "time": 380.098,
+          "free_energy": 116.169
+        },
+        {
           "time": 380.859,
-          "free_energy": 123.347
+          "free_energy": 116.121
         },
         {
           "time": 381.621,
-          "free_energy": 123.297
+          "free_energy": 116.074
         },
         {
           "time": 382.383,
-          "free_energy": 123.247
+          "free_energy": 116.026
         },
         {
           "time": 383.145,
-          "free_energy": 123.196
+          "free_energy": 115.979
         },
         {
           "time": 383.906,
-          "free_energy": 123.146
+          "free_energy": 115.932
         },
         {
           "time": 384.668,
-          "free_energy": 123.097
+          "free_energy": 115.885
         },
         {
           "time": 385.43,
-          "free_energy": 123.047
+          "free_energy": 115.837
         },
         {
           "time": 386.191,
-          "free_energy": 122.997
+          "free_energy": 115.79
         },
         {
           "time": 386.953,
-          "free_energy": 122.947
+          "free_energy": 115.743
         },
         {
           "time": 387.715,
-          "free_energy": 122.898
+          "free_energy": 115.697
         },
         {
           "time": 388.477,
-          "free_energy": 122.849
+          "free_energy": 115.65
         },
         {
           "time": 389.238,
-          "free_energy": 122.799
+          "free_energy": 115.603
         },
         {
           "time": 390,
-          "free_energy": 122.75
+          "free_energy": 115.556
         },
         {
           "time": 390.762,
-          "free_energy": 122.701
+          "free_energy": 115.51
         },
         {
           "time": 391.523,
-          "free_energy": 122.652
+          "free_energy": 115.463
         },
         {
           "time": 392.285,
-          "free_energy": 122.603
+          "free_energy": 115.417
         },
         {
           "time": 393.047,
-          "free_energy": 122.554
+          "free_energy": 115.37
         },
         {
           "time": 393.809,
-          "free_energy": 122.505
+          "free_energy": 115.324
         },
         {
           "time": 394.57,
-          "free_energy": 122.457
+          "free_energy": 115.277
         },
         {
           "time": 395.332,
-          "free_energy": 122.408
+          "free_energy": 115.231
         },
         {
           "time": 396.094,
-          "free_energy": 122.36
+          "free_energy": 115.185
         },
         {
           "time": 396.855,
-          "free_energy": 122.311
+          "free_energy": 115.139
         },
         {
           "time": 397.617,
-          "free_energy": 122.263
+          "free_energy": 115.093
         },
         {
           "time": 398.379,
-          "free_energy": 122.215
+          "free_energy": 115.047
         },
         {
           "time": 399.141,
-          "free_energy": 122.167
+          "free_energy": 115.001
         },
         {
           "time": 399.902,
-          "free_energy": 122.119
+          "free_energy": 114.955
         },
         {
           "time": 400.664,
-          "free_energy": 122.071
+          "free_energy": 114.909
         },
         {
           "time": 401.426,
-          "free_energy": 122.023
+          "free_energy": 114.863
         },
         {
           "time": 402.188,
-          "free_energy": 121.975
+          "free_energy": 114.817
         },
         {
           "time": 402.949,
-          "free_energy": 121.928
+          "free_energy": 114.772
         },
         {
           "time": 403.711,
-          "free_energy": 121.88
+          "free_energy": 114.726
         },
         {
           "time": 404.473,
-          "free_energy": 121.833
+          "free_energy": 114.68
         },
         {
           "time": 405.234,
-          "free_energy": 121.785
+          "free_energy": 114.635
         },
         {
           "time": 405.996,
-          "free_energy": 121.738
+          "free_energy": 114.589
         },
         {
           "time": 406.758,
-          "free_energy": 121.691
+          "free_energy": 114.544
         },
         {
           "time": 407.52,
-          "free_energy": 121.644
+          "free_energy": 114.498
         },
         {
           "time": 408.281,
-          "free_energy": 121.597
+          "free_energy": 114.453
         },
         {
           "time": 409.043,
-          "free_energy": 121.55
+          "free_energy": 114.407
         },
         {
           "time": 409.805,
-          "free_energy": 121.503
+          "free_energy": 114.362
         },
         {
           "time": 410.566,
-          "free_energy": 121.456
+          "free_energy": 114.317
         },
         {
           "time": 411.328,
-          "free_energy": 121.41
+          "free_energy": 114.271
         },
         {
           "time": 412.09,
-          "free_energy": 121.363
+          "free_energy": 114.226
         },
         {
           "time": 412.852,
-          "free_energy": 121.316
+          "free_energy": 114.181
         },
         {
           "time": 413.613,
-          "free_energy": 121.27
+          "free_energy": 114.136
         },
         {
           "time": 414.375,
-          "free_energy": 121.224
+          "free_energy": 114.091
         },
         {
           "time": 415.137,
-          "free_energy": 121.177
+          "free_energy": 114.045
         },
         {
           "time": 415.898,
-          "free_energy": 121.131
+          "free_energy": 114
         },
         {
           "time": 416.66,
-          "free_energy": 121.085
+          "free_energy": 113.955
         },
         {
           "time": 417.422,
-          "free_energy": 121.039
+          "free_energy": 113.91
         },
         {
           "time": 418.184,
-          "free_energy": 120.993
+          "free_energy": 113.865
         },
         {
           "time": 418.945,
-          "free_energy": 120.947
+          "free_energy": 113.82
         },
         {
           "time": 419.707,
-          "free_energy": 120.902
+          "free_energy": 113.775
         },
         {
           "time": 420.469,
-          "free_energy": 120.856
+          "free_energy": 113.73
         },
         {
           "time": 421.23,
-          "free_energy": 120.81
+          "free_energy": 113.685
         },
         {
           "time": 421.992,
-          "free_energy": 120.765
+          "free_energy": 113.64
         },
         {
           "time": 422.754,
-          "free_energy": 120.719
+          "free_energy": 113.595
         },
         {
           "time": 423.516,
-          "free_energy": 120.674
+          "free_energy": 113.55
         },
         {
           "time": 424.277,
-          "free_energy": 120.629
+          "free_energy": 113.505
         },
         {
           "time": 425.039,
-          "free_energy": 120.583
+          "free_energy": 113.46
         },
         {
           "time": 425.801,
-          "free_energy": 120.538
+          "free_energy": 113.415
         },
         {
           "time": 426.562,
-          "free_energy": 120.493
+          "free_energy": 113.37
         },
         {
           "time": 427.324,
-          "free_energy": 120.448
+          "free_energy": 113.325
         },
         {
           "time": 428.086,
-          "free_energy": 120.403
+          "free_energy": 113.28
         },
         {
           "time": 428.848,
-          "free_energy": 120.358
+          "free_energy": 113.235
         },
         {
           "time": 429.609,
-          "free_energy": 120.314
+          "free_energy": 113.19
         },
         {
           "time": 430.371,
-          "free_energy": 120.269
+          "free_energy": 113.144
         },
         {
           "time": 431.133,
-          "free_energy": 120.224
+          "free_energy": 113.099
         },
         {
           "time": 431.895,
-          "free_energy": 120.18
+          "free_energy": 113.054
         },
         {
           "time": 432.656,
-          "free_energy": 120.136
+          "free_energy": 113.009
         },
         {
           "time": 433.418,
-          "free_energy": 120.091
+          "free_energy": 112.963
         },
         {
           "time": 434.18,
-          "free_energy": 120.047
+          "free_energy": 112.918
         },
         {
           "time": 434.941,
-          "free_energy": 120.003
+          "free_energy": 112.872
         },
         {
           "time": 435.703,
-          "free_energy": 119.959
+          "free_energy": 112.827
         },
         {
           "time": 436.465,
-          "free_energy": 119.914
+          "free_energy": 112.781
         },
         {
           "time": 437.227,
-          "free_energy": 119.87
+          "free_energy": 112.735
         },
         {
           "time": 437.988,
-          "free_energy": 119.827
+          "free_energy": 112.69
         },
         {
           "time": 438.75,
-          "free_energy": 119.783
+          "free_energy": 112.644
         },
         {
           "time": 439.512,
-          "free_energy": 119.739
+          "free_energy": 112.598
         },
         {
           "time": 440.273,
-          "free_energy": 119.695
+          "free_energy": 112.551
         },
         {
           "time": 441.035,
-          "free_energy": 119.652
+          "free_energy": 112.505
         },
         {
           "time": 441.797,
-          "free_energy": 119.608
+          "free_energy": 112.458
         },
         {
           "time": 442.559,
-          "free_energy": 119.565
+          "free_energy": 112.412
         },
         {
           "time": 443.32,
-          "free_energy": 119.521
+          "free_energy": 112.365
         },
         {
           "time": 444.082,
-          "free_energy": 119.478
+          "free_energy": 112.318
         },
         {
           "time": 444.844,
-          "free_energy": 119.435
+          "free_energy": 112.27
         },
         {
           "time": 445.605,
-          "free_energy": 119.391
+          "free_energy": 112.223
         },
         {
           "time": 446.367,
-          "free_energy": 119.348
+          "free_energy": 112.175
         },
         {
           "time": 447.129,
-          "free_energy": 119.305
+          "free_energy": 112.127
         },
         {
           "time": 447.891,
-          "free_energy": 119.262
+          "free_energy": 112.078
         },
         {
           "time": 448.652,
-          "free_energy": 119.219
+          "free_energy": 112.029
         },
         {
           "time": 449.414,
-          "free_energy": 119.177
+          "free_energy": 111.98
         },
         {
           "time": 450.176,
-          "free_energy": 119.134
+          "free_energy": 111.93
         },
         {
           "time": 450.938,
-          "free_energy": 119.091
+          "free_energy": 111.879
         },
         {
           "time": 451.699,
-          "free_energy": 119.049
+          "free_energy": 111.828
         },
         {
           "time": 452.461,
-          "free_energy": 119.006
+          "free_energy": 111.776
         },
         {
           "time": 453.223,
-          "free_energy": 118.964
+          "free_energy": 111.724
         },
         {
           "time": 453.984,
-          "free_energy": 118.921
+          "free_energy": 111.67
         },
         {
           "time": 454.746,
-          "free_energy": 118.879
+          "free_energy": 111.616
         },
         {
           "time": 455.508,
-          "free_energy": 118.836
+          "free_energy": 111.56
         },
         {
           "time": 456.27,
-          "free_energy": 118.794
-        },
-        {
-          "time": 457.031,
-          "free_energy": 118.752
-        },
-        {
-          "time": 457.793,
-          "free_energy": 118.71
-        },
-        {
-          "time": 458.555,
-          "free_energy": 118.668
-        },
-        {
-          "time": 459.316,
-          "free_energy": 118.626
-        },
-        {
-          "time": 460.078,
-          "free_energy": 118.584
-        },
-        {
-          "time": 460.84,
-          "free_energy": 118.543
-        },
-        {
-          "time": 461.602,
-          "free_energy": 118.501
-        },
-        {
-          "time": 462.363,
-          "free_energy": 118.459
-        },
-        {
-          "time": 463.125,
-          "free_energy": 118.418
-        },
-        {
-          "time": 463.887,
-          "free_energy": 118.376
-        },
-        {
-          "time": 464.648,
-          "free_energy": 118.335
-        },
-        {
-          "time": 465.41,
-          "free_energy": 118.293
-        },
-        {
-          "time": 466.172,
-          "free_energy": 118.252
-        },
-        {
-          "time": 466.934,
-          "free_energy": 118.211
-        },
-        {
-          "time": 467.695,
-          "free_energy": 118.169
-        },
-        {
-          "time": 468.457,
-          "free_energy": 118.128
-        },
-        {
-          "time": 469.219,
-          "free_energy": 118.087
-        },
-        {
-          "time": 469.98,
-          "free_energy": 118.046
-        },
-        {
-          "time": 470.742,
-          "free_energy": 118.005
-        },
-        {
-          "time": 471.504,
-          "free_energy": 117.964
-        },
-        {
-          "time": 472.266,
-          "free_energy": 117.924
-        },
-        {
-          "time": 473.027,
-          "free_energy": 117.883
-        },
-        {
-          "time": 473.789,
-          "free_energy": 117.842
-        },
-        {
-          "time": 474.551,
-          "free_energy": 117.802
-        },
-        {
-          "time": 475.312,
-          "free_energy": 117.761
-        },
-        {
-          "time": 476.074,
-          "free_energy": 117.721
-        },
-        {
-          "time": 476.836,
-          "free_energy": 117.68
-        },
-        {
-          "time": 477.598,
-          "free_energy": 117.64
-        },
-        {
-          "time": 478.359,
-          "free_energy": 117.599
-        },
-        {
-          "time": 479.121,
-          "free_energy": 117.559
-        },
-        {
-          "time": 479.883,
-          "free_energy": 117.519
-        },
-        {
-          "time": 480.645,
-          "free_energy": 117.479
-        },
-        {
-          "time": 481.406,
-          "free_energy": 117.439
-        },
-        {
-          "time": 482.168,
-          "free_energy": 117.399
-        },
-        {
-          "time": 482.93,
-          "free_energy": 117.359
-        },
-        {
-          "time": 483.691,
-          "free_energy": 117.319
-        },
-        {
-          "time": 484.453,
-          "free_energy": 117.279
-        },
-        {
-          "time": 485.215,
-          "free_energy": 117.24
-        },
-        {
-          "time": 485.977,
-          "free_energy": 117.2
-        },
-        {
-          "time": 486.738,
-          "free_energy": 117.16
-        },
-        {
-          "time": 487.5,
-          "free_energy": 117.121
-        },
-        {
-          "time": 488.262,
-          "free_energy": 117.081
-        },
-        {
-          "time": 489.023,
-          "free_energy": 117.042
-        },
-        {
-          "time": 489.785,
-          "free_energy": 117.002
-        },
-        {
-          "time": 490.547,
-          "free_energy": 116.963
-        },
-        {
-          "time": 491.309,
-          "free_energy": 116.924
-        },
-        {
-          "time": 492.07,
-          "free_energy": 116.885
-        },
-        {
-          "time": 492.832,
-          "free_energy": 116.846
-        },
-        {
-          "time": 493.594,
-          "free_energy": 116.807
-        },
-        {
-          "time": 494.355,
-          "free_energy": 116.768
-        },
-        {
-          "time": 495.117,
-          "free_energy": 116.729
-        },
-        {
-          "time": 495.879,
-          "free_energy": 116.69
-        },
-        {
-          "time": 496.641,
-          "free_energy": 116.651
-        },
-        {
-          "time": 497.402,
-          "free_energy": 116.612
-        },
-        {
-          "time": 498.164,
-          "free_energy": 116.573
-        },
-        {
-          "time": 498.926,
-          "free_energy": 116.535
-        },
-        {
-          "time": 499.688,
-          "free_energy": 116.496
-        },
-        {
-          "time": 500.449,
-          "free_energy": 116.458
-        },
-        {
-          "time": 501.211,
-          "free_energy": 116.419
-        },
-        {
-          "time": 501.973,
-          "free_energy": 116.381
-        },
-        {
-          "time": 502.734,
-          "free_energy": 116.342
-        },
-        {
-          "time": 503.496,
-          "free_energy": 116.304
-        },
-        {
-          "time": 504.258,
-          "free_energy": 116.266
-        },
-        {
-          "time": 505.02,
-          "free_energy": 116.228
-        },
-        {
-          "time": 505.781,
-          "free_energy": 116.189
-        },
-        {
-          "time": 506.543,
-          "free_energy": 116.151
-        },
-        {
-          "time": 507.305,
-          "free_energy": 116.113
-        },
-        {
-          "time": 508.066,
-          "free_energy": 116.075
-        },
-        {
-          "time": 508.828,
-          "free_energy": 116.038
-        },
-        {
-          "time": 509.59,
-          "free_energy": 116
-        },
-        {
-          "time": 510.352,
-          "free_energy": 115.962
-        },
-        {
-          "time": 511.113,
-          "free_energy": 115.924
-        },
-        {
-          "time": 511.875,
-          "free_energy": 115.886
-        },
-        {
-          "time": 512.637,
-          "free_energy": 115.849
-        },
-        {
-          "time": 513.398,
-          "free_energy": 115.811
-        },
-        {
-          "time": 514.16,
-          "free_energy": 115.774
-        },
-        {
-          "time": 514.922,
-          "free_energy": 115.736
-        },
-        {
-          "time": 515.684,
-          "free_energy": 115.699
-        },
-        {
-          "time": 516.445,
-          "free_energy": 115.662
-        },
-        {
-          "time": 517.207,
-          "free_energy": 115.624
-        },
-        {
-          "time": 517.969,
-          "free_energy": 115.587
-        },
-        {
-          "time": 518.73,
-          "free_energy": 115.55
-        },
-        {
-          "time": 519.492,
-          "free_energy": 115.513
-        },
-        {
-          "time": 520.254,
-          "free_energy": 115.476
-        },
-        {
-          "time": 521.016,
-          "free_energy": 115.439
-        },
-        {
-          "time": 521.777,
-          "free_energy": 115.402
-        },
-        {
-          "time": 522.539,
-          "free_energy": 115.365
-        },
-        {
-          "time": 523.301,
-          "free_energy": 115.328
-        },
-        {
-          "time": 524.062,
-          "free_energy": 115.291
-        },
-        {
-          "time": 524.824,
-          "free_energy": 115.255
-        },
-        {
-          "time": 525.586,
-          "free_energy": 115.218
-        },
-        {
-          "time": 526.348,
-          "free_energy": 115.181
-        },
-        {
-          "time": 527.109,
-          "free_energy": 115.145
-        },
-        {
-          "time": 527.871,
-          "free_energy": 115.108
-        },
-        {
-          "time": 528.633,
-          "free_energy": 115.072
-        },
-        {
-          "time": 529.395,
-          "free_energy": 115.035
-        },
-        {
-          "time": 530.156,
-          "free_energy": 114.999
-        },
-        {
-          "time": 530.918,
-          "free_energy": 114.963
-        },
-        {
-          "time": 531.68,
-          "free_energy": 114.926
-        },
-        {
-          "time": 532.441,
-          "free_energy": 114.89
-        },
-        {
-          "time": 533.203,
-          "free_energy": 114.854
-        },
-        {
-          "time": 533.965,
-          "free_energy": 114.818
-        },
-        {
-          "time": 534.727,
-          "free_energy": 114.782
-        },
-        {
-          "time": 535.488,
-          "free_energy": 114.746
-        },
-        {
-          "time": 536.25,
-          "free_energy": 114.71
-        },
-        {
-          "time": 537.012,
-          "free_energy": 114.674
-        },
-        {
-          "time": 537.773,
-          "free_energy": 114.638
-        },
-        {
-          "time": 538.535,
-          "free_energy": 114.603
-        },
-        {
-          "time": 539.297,
-          "free_energy": 114.567
-        },
-        {
-          "time": 540.059,
-          "free_energy": 114.531
-        },
-        {
-          "time": 540.82,
-          "free_energy": 114.496
-        },
-        {
-          "time": 541.582,
-          "free_energy": 114.46
-        },
-        {
-          "time": 542.344,
-          "free_energy": 114.425
-        },
-        {
-          "time": 543.105,
-          "free_energy": 114.389
-        },
-        {
-          "time": 543.867,
-          "free_energy": 114.354
-        },
-        {
-          "time": 544.629,
-          "free_energy": 114.319
-        },
-        {
-          "time": 545.391,
-          "free_energy": 114.283
-        },
-        {
-          "time": 546.152,
-          "free_energy": 114.248
-        },
-        {
-          "time": 546.914,
-          "free_energy": 114.213
-        },
-        {
-          "time": 547.676,
-          "free_energy": 114.178
-        },
-        {
-          "time": 548.438,
-          "free_energy": 114.143
-        },
-        {
-          "time": 549.199,
-          "free_energy": 114.108
-        },
-        {
-          "time": 549.961,
-          "free_energy": 114.073
-        },
-        {
-          "time": 550.723,
-          "free_energy": 114.038
-        },
-        {
-          "time": 551.484,
-          "free_energy": 114.003
-        },
-        {
-          "time": 552.246,
-          "free_energy": 113.968
-        },
-        {
-          "time": 553.008,
-          "free_energy": 113.933
-        },
-        {
-          "time": 553.77,
-          "free_energy": 113.899
-        },
-        {
-          "time": 554.531,
-          "free_energy": 113.864
-        },
-        {
-          "time": 555.293,
-          "free_energy": 113.829
-        },
-        {
-          "time": 556.055,
-          "free_energy": 113.795
-        },
-        {
-          "time": 556.816,
-          "free_energy": 113.76
-        },
-        {
-          "time": 557.578,
-          "free_energy": 113.726
-        },
-        {
-          "time": 558.34,
-          "free_energy": 113.691
-        },
-        {
-          "time": 559.102,
-          "free_energy": 113.657
-        },
-        {
-          "time": 559.863,
-          "free_energy": 113.623
-        },
-        {
-          "time": 560.625,
-          "free_energy": 113.589
-        },
-        {
-          "time": 561.387,
-          "free_energy": 113.554
-        },
-        {
-          "time": 562.148,
-          "free_energy": 113.52
-        },
-        {
-          "time": 562.91,
-          "free_energy": 113.486
-        },
-        {
-          "time": 563.672,
-          "free_energy": 113.452
-        },
-        {
-          "time": 564.434,
-          "free_energy": 113.418
-        },
-        {
-          "time": 565.195,
-          "free_energy": 113.384
-        },
-        {
-          "time": 565.957,
-          "free_energy": 113.35
-        },
-        {
-          "time": 566.719,
-          "free_energy": 113.316
-        },
-        {
-          "time": 567.48,
-          "free_energy": 113.283
-        },
-        {
-          "time": 568.242,
-          "free_energy": 113.249
-        },
-        {
-          "time": 569.004,
-          "free_energy": 113.215
-        },
-        {
-          "time": 569.766,
-          "free_energy": 113.182
-        },
-        {
-          "time": 570.527,
-          "free_energy": 113.148
-        },
-        {
-          "time": 571.289,
-          "free_energy": 113.114
-        },
-        {
-          "time": 572.051,
-          "free_energy": 113.081
-        },
-        {
-          "time": 572.812,
-          "free_energy": 113.048
-        },
-        {
-          "time": 573.574,
-          "free_energy": 113.014
-        },
-        {
-          "time": 574.336,
-          "free_energy": 112.981
-        },
-        {
-          "time": 575.098,
-          "free_energy": 112.948
-        },
-        {
-          "time": 575.859,
-          "free_energy": 112.914
-        },
-        {
-          "time": 576.621,
-          "free_energy": 112.881
-        },
-        {
-          "time": 577.383,
-          "free_energy": 112.848
-        },
-        {
-          "time": 578.145,
-          "free_energy": 112.815
-        },
-        {
-          "time": 578.906,
-          "free_energy": 112.782
-        },
-        {
-          "time": 579.668,
-          "free_energy": 112.749
-        },
-        {
-          "time": 580.43,
-          "free_energy": 112.716
-        },
-        {
-          "time": 581.191,
-          "free_energy": 112.683
-        },
-        {
-          "time": 581.953,
-          "free_energy": 112.65
-        },
-        {
-          "time": 582.715,
-          "free_energy": 112.618
-        },
-        {
-          "time": 583.477,
-          "free_energy": 112.585
-        },
-        {
-          "time": 584.238,
-          "free_energy": 112.552
-        },
-        {
-          "time": 585,
-          "free_energy": 112.52
-        },
-        {
-          "time": 585.762,
-          "free_energy": 112.487
-        },
-        {
-          "time": 586.523,
-          "free_energy": 112.455
-        },
-        {
-          "time": 587.285,
-          "free_energy": 112.422
-        },
-        {
-          "time": 588.047,
-          "free_energy": 112.39
-        },
-        {
-          "time": 588.809,
-          "free_energy": 112.357
-        },
-        {
-          "time": 589.57,
-          "free_energy": 112.325
-        },
-        {
-          "time": 590.332,
-          "free_energy": 112.293
-        },
-        {
-          "time": 591.094,
-          "free_energy": 112.261
-        },
-        {
-          "time": 591.855,
-          "free_energy": 112.228
-        },
-        {
-          "time": 592.617,
-          "free_energy": 112.196
-        },
-        {
-          "time": 593.379,
-          "free_energy": 112.164
-        },
-        {
-          "time": 594.141,
-          "free_energy": 112.132
-        },
-        {
-          "time": 594.902,
-          "free_energy": 112.1
-        },
-        {
-          "time": 595.664,
-          "free_energy": 112.068
-        },
-        {
-          "time": 596.426,
-          "free_energy": 112.037
-        },
-        {
-          "time": 597.188,
-          "free_energy": 112.005
-        },
-        {
-          "time": 597.949,
-          "free_energy": 111.973
-        },
-        {
-          "time": 598.711,
-          "free_energy": 111.941
-        },
-        {
-          "time": 599.473,
-          "free_energy": 111.91
-        },
-        {
-          "time": 600.234,
-          "free_energy": 111.878
-        },
-        {
-          "time": 600.996,
-          "free_energy": 111.846
-        },
-        {
-          "time": 601.758,
-          "free_energy": 111.815
-        },
-        {
-          "time": 602.52,
-          "free_energy": 111.783
-        },
-        {
-          "time": 603.281,
-          "free_energy": 111.752
-        },
-        {
-          "time": 604.043,
-          "free_energy": 111.721
-        },
-        {
-          "time": 604.805,
-          "free_energy": 111.689
-        },
-        {
-          "time": 605.566,
-          "free_energy": 111.658
-        },
-        {
-          "time": 606.328,
-          "free_energy": 111.627
-        },
-        {
-          "time": 607.09,
-          "free_energy": 111.596
-        },
-        {
-          "time": 607.852,
-          "free_energy": 111.565
-        },
-        {
-          "time": 608.613,
-          "free_energy": 111.534
-        },
-        {
-          "time": 609.375,
           "free_energy": 111.503
         },
         {
-          "time": 610.137,
-          "free_energy": 111.472
+          "time": 457.031,
+          "free_energy": 111.445
         },
         {
-          "time": 610.898,
-          "free_energy": 111.441
+          "time": 457.793,
+          "free_energy": 111.385
         },
         {
-          "time": 611.66,
-          "free_energy": 111.41
+          "time": 458.555,
+          "free_energy": 111.323
         },
         {
-          "time": 612.422,
-          "free_energy": 111.379
+          "time": 459.316,
+          "free_energy": 111.26
         },
         {
-          "time": 613.184,
-          "free_energy": 111.348
+          "time": 460.078,
+          "free_energy": 111.196
         },
         {
-          "time": 613.945,
-          "free_energy": 111.318
+          "time": 460.84,
+          "free_energy": 111.129
         },
         {
-          "time": 614.707,
-          "free_energy": 111.287
+          "time": 461.602,
+          "free_energy": 111.062
         },
         {
-          "time": 615.469,
-          "free_energy": 111.256
+          "time": 462.363,
+          "free_energy": 110.995
         },
         {
-          "time": 616.23,
-          "free_energy": 111.226
+          "time": 463.125,
+          "free_energy": 110.928
         },
         {
-          "time": 616.992,
-          "free_energy": 111.195
+          "time": 463.887,
+          "free_energy": 110.861
         },
         {
-          "time": 617.754,
-          "free_energy": 111.165
+          "time": 464.648,
+          "free_energy": 110.795
         },
         {
-          "time": 618.516,
-          "free_energy": 111.134
+          "time": 465.41,
+          "free_energy": 110.731
         },
         {
-          "time": 619.277,
-          "free_energy": 111.104
+          "time": 466.172,
+          "free_energy": 110.669
         },
         {
-          "time": 620.039,
-          "free_energy": 111.074
+          "time": 466.934,
+          "free_energy": 110.609
         },
         {
-          "time": 620.801,
-          "free_energy": 111.043
+          "time": 467.695,
+          "free_energy": 110.55
         },
         {
-          "time": 621.562,
-          "free_energy": 111.013
+          "time": 468.457,
+          "free_energy": 110.493
         },
         {
-          "time": 622.324,
-          "free_energy": 110.983
+          "time": 469.219,
+          "free_energy": 110.438
         },
         {
-          "time": 623.086,
-          "free_energy": 110.953
+          "time": 469.98,
+          "free_energy": 110.385
         },
         {
-          "time": 623.848,
-          "free_energy": 110.923
+          "time": 470.742,
+          "free_energy": 110.333
         },
         {
-          "time": 624.609,
-          "free_energy": 110.893
+          "time": 471.504,
+          "free_energy": 110.283
         },
         {
-          "time": 625.371,
-          "free_energy": 110.863
+          "time": 472.266,
+          "free_energy": 110.234
         },
         {
-          "time": 626.133,
-          "free_energy": 110.833
+          "time": 473.027,
+          "free_energy": 110.186
         },
         {
-          "time": 626.895,
-          "free_energy": 110.803
+          "time": 473.789,
+          "free_energy": 110.139
         },
         {
-          "time": 627.656,
-          "free_energy": 110.773
+          "time": 474.551,
+          "free_energy": 110.094
         },
         {
-          "time": 628.418,
-          "free_energy": 110.743
+          "time": 475.312,
+          "free_energy": 110.049
         },
         {
-          "time": 629.18,
-          "free_energy": 110.714
+          "time": 476.074,
+          "free_energy": 110.006
         },
         {
-          "time": 629.941,
-          "free_energy": 110.684
+          "time": 476.836,
+          "free_energy": 109.963
         },
         {
-          "time": 630.703,
-          "free_energy": 110.654
+          "time": 477.598,
+          "free_energy": 109.921
         },
         {
-          "time": 631.465,
-          "free_energy": 110.625
+          "time": 478.359,
+          "free_energy": 109.88
         },
         {
-          "time": 632.227,
-          "free_energy": 110.595
+          "time": 479.121,
+          "free_energy": 109.84
         },
         {
-          "time": 632.988,
-          "free_energy": 110.566
+          "time": 479.883,
+          "free_energy": 109.8
         },
         {
-          "time": 633.75,
-          "free_energy": 110.536
+          "time": 480.645,
+          "free_energy": 109.761
         },
         {
-          "time": 634.512,
-          "free_energy": 110.507
+          "time": 481.406,
+          "free_energy": 109.722
         },
         {
-          "time": 635.273,
-          "free_energy": 110.477
+          "time": 482.168,
+          "free_energy": 109.684
         },
         {
-          "time": 636.035,
-          "free_energy": 110.448
+          "time": 482.93,
+          "free_energy": 109.646
         },
         {
-          "time": 636.797,
-          "free_energy": 110.419
+          "time": 483.691,
+          "free_energy": 109.609
         },
         {
-          "time": 637.559,
-          "free_energy": 110.39
+          "time": 484.453,
+          "free_energy": 109.572
         },
         {
-          "time": 638.32,
-          "free_energy": 110.361
+          "time": 485.215,
+          "free_energy": 109.535
         },
         {
-          "time": 639.082,
-          "free_energy": 110.331
+          "time": 485.977,
+          "free_energy": 109.499
         },
         {
-          "time": 639.844,
-          "free_energy": 110.302
+          "time": 486.738,
+          "free_energy": 109.463
         },
         {
-          "time": 640.605,
-          "free_energy": 110.273
+          "time": 487.5,
+          "free_energy": 109.428
         },
         {
-          "time": 641.367,
-          "free_energy": 110.244
+          "time": 488.262,
+          "free_energy": 109.393
         },
         {
-          "time": 642.129,
-          "free_energy": 110.216
+          "time": 489.023,
+          "free_energy": 109.358
         },
         {
-          "time": 642.891,
-          "free_energy": 110.187
+          "time": 489.785,
+          "free_energy": 109.323
         },
         {
-          "time": 643.652,
-          "free_energy": 110.158
-        },
-        {
-          "time": 644.414,
-          "free_energy": 110.129
-        },
-        {
-          "time": 645.176,
-          "free_energy": 110.1
-        },
-        {
-          "time": 645.938,
-          "free_energy": 110.072
-        },
-        {
-          "time": 646.699,
-          "free_energy": 110.043
-        },
-        {
-          "time": 647.461,
-          "free_energy": 110.014
-        },
-        {
-          "time": 648.223,
-          "free_energy": 109.986
-        },
-        {
-          "time": 648.984,
-          "free_energy": 109.957
-        },
-        {
-          "time": 649.746,
-          "free_energy": 109.929
-        },
-        {
-          "time": 650.508,
-          "free_energy": 109.901
-        },
-        {
-          "time": 651.27,
-          "free_energy": 109.872
-        },
-        {
-          "time": 652.031,
-          "free_energy": 109.844
-        },
-        {
-          "time": 652.793,
-          "free_energy": 109.816
-        },
-        {
-          "time": 653.555,
-          "free_energy": 109.788
-        },
-        {
-          "time": 654.316,
-          "free_energy": 109.759
-        },
-        {
-          "time": 655.078,
-          "free_energy": 109.731
-        },
-        {
-          "time": 655.84,
-          "free_energy": 109.703
-        },
-        {
-          "time": 656.602,
-          "free_energy": 109.675
-        },
-        {
-          "time": 657.363,
-          "free_energy": 109.647
-        },
-        {
-          "time": 658.125,
-          "free_energy": 109.619
-        },
-        {
-          "time": 658.887,
-          "free_energy": 109.591
-        },
-        {
-          "time": 659.648,
-          "free_energy": 109.564
-        },
-        {
-          "time": 660.41,
-          "free_energy": 109.536
-        },
-        {
-          "time": 661.172,
-          "free_energy": 109.508
-        },
-        {
-          "time": 661.934,
-          "free_energy": 109.48
-        },
-        {
-          "time": 662.695,
-          "free_energy": 109.453
-        },
-        {
-          "time": 663.457,
-          "free_energy": 109.425
-        },
-        {
-          "time": 664.219,
-          "free_energy": 109.398
-        },
-        {
-          "time": 664.98,
-          "free_energy": 109.37
-        },
-        {
-          "time": 665.742,
-          "free_energy": 109.343
-        },
-        {
-          "time": 666.504,
-          "free_energy": 109.315
-        },
-        {
-          "time": 667.266,
+          "time": 490.547,
           "free_energy": 109.288
         },
         {
-          "time": 668.027,
-          "free_energy": 109.261
+          "time": 491.309,
+          "free_energy": 109.254
         },
         {
-          "time": 668.789,
-          "free_energy": 109.233
+          "time": 492.07,
+          "free_energy": 109.22
         },
         {
-          "time": 669.551,
-          "free_energy": 109.206
+          "time": 492.832,
+          "free_energy": 109.186
         },
         {
-          "time": 670.312,
-          "free_energy": 109.179
-        },
-        {
-          "time": 671.074,
+          "time": 493.594,
           "free_energy": 109.152
         },
         {
-          "time": 671.836,
-          "free_energy": 109.125
+          "time": 494.355,
+          "free_energy": 109.118
         },
         {
-          "time": 672.598,
-          "free_energy": 109.098
+          "time": 495.117,
+          "free_energy": 109.085
         },
         {
-          "time": 673.359,
-          "free_energy": 109.071
+          "time": 495.879,
+          "free_energy": 109.051
         },
         {
-          "time": 674.121,
-          "free_energy": 109.044
+          "time": 496.641,
+          "free_energy": 109.018
         },
         {
-          "time": 674.883,
-          "free_energy": 109.017
+          "time": 497.402,
+          "free_energy": 108.985
         },
         {
-          "time": 675.645,
-          "free_energy": 108.99
+          "time": 498.164,
+          "free_energy": 108.952
         },
         {
-          "time": 676.406,
-          "free_energy": 108.963
+          "time": 498.926,
+          "free_energy": 108.919
         },
         {
-          "time": 677.168,
-          "free_energy": 108.936
+          "time": 499.688,
+          "free_energy": 108.886
         },
         {
-          "time": 677.93,
-          "free_energy": 108.91
+          "time": 500.449,
+          "free_energy": 108.854
         },
         {
-          "time": 678.691,
-          "free_energy": 108.883
+          "time": 501.211,
+          "free_energy": 108.821
         },
         {
-          "time": 679.453,
-          "free_energy": 108.856
+          "time": 501.973,
+          "free_energy": 108.789
         },
         {
-          "time": 680.215,
-          "free_energy": 108.83
+          "time": 502.734,
+          "free_energy": 108.756
         },
         {
-          "time": 680.977,
-          "free_energy": 108.803
-        },
-        {
-          "time": 681.738,
-          "free_energy": 108.777
-        },
-        {
-          "time": 682.5,
-          "free_energy": 108.75
-        },
-        {
-          "time": 683.262,
+          "time": 503.496,
           "free_energy": 108.724
         },
         {
-          "time": 684.023,
-          "free_energy": 108.697
+          "time": 504.258,
+          "free_energy": 108.692
         },
         {
-          "time": 684.785,
-          "free_energy": 108.671
+          "time": 505.02,
+          "free_energy": 108.66
         },
         {
-          "time": 685.547,
-          "free_energy": 108.645
+          "time": 505.781,
+          "free_energy": 108.628
         },
         {
-          "time": 686.309,
-          "free_energy": 108.619
+          "time": 506.543,
+          "free_energy": 108.596
         },
         {
-          "time": 687.07,
-          "free_energy": 108.592
+          "time": 507.305,
+          "free_energy": 108.564
         },
         {
-          "time": 687.832,
-          "free_energy": 108.566
+          "time": 508.066,
+          "free_energy": 108.532
         },
         {
-          "time": 688.594,
-          "free_energy": 108.54
+          "time": 508.828,
+          "free_energy": 108.5
         },
         {
-          "time": 689.355,
-          "free_energy": 108.514
+          "time": 509.59,
+          "free_energy": 108.469
         },
         {
-          "time": 690.117,
-          "free_energy": 108.488
+          "time": 510.352,
+          "free_energy": 108.437
         },
         {
-          "time": 690.879,
-          "free_energy": 108.462
+          "time": 511.113,
+          "free_energy": 108.406
         },
         {
-          "time": 691.641,
-          "free_energy": 108.436
+          "time": 511.875,
+          "free_energy": 108.374
         },
         {
-          "time": 692.402,
-          "free_energy": 108.41
+          "time": 512.637,
+          "free_energy": 108.343
         },
         {
-          "time": 693.164,
-          "free_energy": 108.384
+          "time": 513.398,
+          "free_energy": 108.311
         },
         {
-          "time": 693.926,
-          "free_energy": 108.359
+          "time": 514.16,
+          "free_energy": 108.28
         },
         {
-          "time": 694.688,
-          "free_energy": 108.333
+          "time": 514.922,
+          "free_energy": 108.249
         },
         {
-          "time": 695.449,
-          "free_energy": 108.307
+          "time": 515.684,
+          "free_energy": 108.218
         },
         {
-          "time": 696.211,
-          "free_energy": 108.281
+          "time": 516.445,
+          "free_energy": 108.186
         },
         {
-          "time": 696.973,
-          "free_energy": 108.256
+          "time": 517.207,
+          "free_energy": 108.155
         },
         {
-          "time": 697.734,
-          "free_energy": 108.23
+          "time": 517.969,
+          "free_energy": 108.124
         },
         {
-          "time": 698.496,
-          "free_energy": 108.205
+          "time": 518.73,
+          "free_energy": 108.093
         },
         {
-          "time": 699.258,
-          "free_energy": 108.179
+          "time": 519.492,
+          "free_energy": 108.063
         },
         {
-          "time": 700.02,
-          "free_energy": 108.154
+          "time": 520.254,
+          "free_energy": 108.032
         },
         {
-          "time": 700.781,
-          "free_energy": 108.128
+          "time": 521.016,
+          "free_energy": 108.001
         },
         {
-          "time": 701.543,
-          "free_energy": 108.103
+          "time": 521.777,
+          "free_energy": 107.97
         },
         {
-          "time": 702.305,
-          "free_energy": 108.078
+          "time": 522.539,
+          "free_energy": 107.939
         },
         {
-          "time": 703.066,
-          "free_energy": 108.052
+          "time": 523.301,
+          "free_energy": 107.909
         },
         {
-          "time": 703.828,
-          "free_energy": 108.027
+          "time": 524.062,
+          "free_energy": 107.878
         },
         {
-          "time": 704.59,
-          "free_energy": 108.002
+          "time": 524.824,
+          "free_energy": 107.848
         },
         {
-          "time": 705.352,
-          "free_energy": 107.977
+          "time": 525.586,
+          "free_energy": 107.817
         },
         {
-          "time": 706.113,
-          "free_energy": 107.951
+          "time": 526.348,
+          "free_energy": 107.787
         },
         {
-          "time": 706.875,
-          "free_energy": 107.926
+          "time": 527.109,
+          "free_energy": 107.756
         },
         {
-          "time": 707.637,
-          "free_energy": 107.901
+          "time": 527.871,
+          "free_energy": 107.726
         },
         {
-          "time": 708.398,
-          "free_energy": 107.876
+          "time": 528.633,
+          "free_energy": 107.696
         },
         {
-          "time": 709.16,
-          "free_energy": 107.851
+          "time": 529.395,
+          "free_energy": 107.666
         },
         {
-          "time": 709.922,
-          "free_energy": 107.827
+          "time": 530.156,
+          "free_energy": 107.635
         },
         {
-          "time": 710.684,
-          "free_energy": 107.802
+          "time": 530.918,
+          "free_energy": 107.605
         },
         {
-          "time": 711.445,
-          "free_energy": 107.777
+          "time": 531.68,
+          "free_energy": 107.575
         },
         {
-          "time": 712.207,
-          "free_energy": 107.752
+          "time": 532.441,
+          "free_energy": 107.545
         },
         {
-          "time": 712.969,
-          "free_energy": 107.727
+          "time": 533.203,
+          "free_energy": 107.515
         },
         {
-          "time": 713.73,
-          "free_energy": 107.703
+          "time": 533.965,
+          "free_energy": 107.485
         },
         {
-          "time": 714.492,
-          "free_energy": 107.678
+          "time": 534.727,
+          "free_energy": 107.455
         },
         {
-          "time": 715.254,
-          "free_energy": 107.653
+          "time": 535.488,
+          "free_energy": 107.425
         },
         {
-          "time": 716.016,
-          "free_energy": 107.629
+          "time": 536.25,
+          "free_energy": 107.395
         },
         {
-          "time": 716.777,
-          "free_energy": 107.604
+          "time": 537.012,
+          "free_energy": 107.366
         },
         {
-          "time": 717.539,
-          "free_energy": 107.58
+          "time": 537.773,
+          "free_energy": 107.336
         },
         {
-          "time": 718.301,
-          "free_energy": 107.555
+          "time": 538.535,
+          "free_energy": 107.306
         },
         {
-          "time": 719.062,
-          "free_energy": 107.531
+          "time": 539.297,
+          "free_energy": 107.277
         },
         {
-          "time": 719.824,
-          "free_energy": 107.506
+          "time": 540.059,
+          "free_energy": 107.247
         },
         {
-          "time": 720.586,
-          "free_energy": 107.482
-        },
-        {
-          "time": 721.348,
-          "free_energy": 107.458
-        },
-        {
-          "time": 722.109,
-          "free_energy": 107.434
-        },
-        {
-          "time": 722.871,
-          "free_energy": 107.409
-        },
-        {
-          "time": 723.633,
-          "free_energy": 107.385
-        },
-        {
-          "time": 724.395,
-          "free_energy": 107.361
-        },
-        {
-          "time": 725.156,
-          "free_energy": 107.337
-        },
-        {
-          "time": 725.918,
-          "free_energy": 107.313
-        },
-        {
-          "time": 726.68,
-          "free_energy": 107.289
-        },
-        {
-          "time": 727.441,
-          "free_energy": 107.265
-        },
-        {
-          "time": 728.203,
-          "free_energy": 107.241
-        },
-        {
-          "time": 728.965,
+          "time": 540.82,
           "free_energy": 107.217
         },
         {
+          "time": 541.582,
+          "free_energy": 107.188
+        },
+        {
+          "time": 542.344,
+          "free_energy": 107.158
+        },
+        {
+          "time": 543.105,
+          "free_energy": 107.129
+        },
+        {
+          "time": 543.867,
+          "free_energy": 107.1
+        },
+        {
+          "time": 544.629,
+          "free_energy": 107.07
+        },
+        {
+          "time": 545.391,
+          "free_energy": 107.041
+        },
+        {
+          "time": 546.152,
+          "free_energy": 107.012
+        },
+        {
+          "time": 546.914,
+          "free_energy": 106.982
+        },
+        {
+          "time": 547.676,
+          "free_energy": 106.953
+        },
+        {
+          "time": 548.438,
+          "free_energy": 106.924
+        },
+        {
+          "time": 549.199,
+          "free_energy": 106.895
+        },
+        {
+          "time": 549.961,
+          "free_energy": 106.866
+        },
+        {
+          "time": 550.723,
+          "free_energy": 106.837
+        },
+        {
+          "time": 551.484,
+          "free_energy": 106.808
+        },
+        {
+          "time": 552.246,
+          "free_energy": 106.779
+        },
+        {
+          "time": 553.008,
+          "free_energy": 106.75
+        },
+        {
+          "time": 553.77,
+          "free_energy": 106.721
+        },
+        {
+          "time": 554.531,
+          "free_energy": 106.693
+        },
+        {
+          "time": 555.293,
+          "free_energy": 106.664
+        },
+        {
+          "time": 556.055,
+          "free_energy": 106.635
+        },
+        {
+          "time": 556.816,
+          "free_energy": 106.606
+        },
+        {
+          "time": 557.578,
+          "free_energy": 106.578
+        },
+        {
+          "time": 558.34,
+          "free_energy": 106.549
+        },
+        {
+          "time": 559.102,
+          "free_energy": 106.521
+        },
+        {
+          "time": 559.863,
+          "free_energy": 106.492
+        },
+        {
+          "time": 560.625,
+          "free_energy": 106.464
+        },
+        {
+          "time": 561.387,
+          "free_energy": 106.435
+        },
+        {
+          "time": 562.148,
+          "free_energy": 106.407
+        },
+        {
+          "time": 562.91,
+          "free_energy": 106.378
+        },
+        {
+          "time": 563.672,
+          "free_energy": 106.35
+        },
+        {
+          "time": 564.434,
+          "free_energy": 106.322
+        },
+        {
+          "time": 565.195,
+          "free_energy": 106.294
+        },
+        {
+          "time": 565.957,
+          "free_energy": 106.265
+        },
+        {
+          "time": 566.719,
+          "free_energy": 106.237
+        },
+        {
+          "time": 567.48,
+          "free_energy": 106.209
+        },
+        {
+          "time": 568.242,
+          "free_energy": 106.181
+        },
+        {
+          "time": 569.004,
+          "free_energy": 106.153
+        },
+        {
+          "time": 569.766,
+          "free_energy": 106.125
+        },
+        {
+          "time": 570.527,
+          "free_energy": 106.097
+        },
+        {
+          "time": 571.289,
+          "free_energy": 106.069
+        },
+        {
+          "time": 572.051,
+          "free_energy": 106.041
+        },
+        {
+          "time": 572.812,
+          "free_energy": 106.013
+        },
+        {
+          "time": 573.574,
+          "free_energy": 105.985
+        },
+        {
+          "time": 574.336,
+          "free_energy": 105.957
+        },
+        {
+          "time": 575.098,
+          "free_energy": 105.93
+        },
+        {
+          "time": 575.859,
+          "free_energy": 105.902
+        },
+        {
+          "time": 576.621,
+          "free_energy": 105.874
+        },
+        {
+          "time": 577.383,
+          "free_energy": 105.847
+        },
+        {
+          "time": 578.145,
+          "free_energy": 105.819
+        },
+        {
+          "time": 578.906,
+          "free_energy": 105.791
+        },
+        {
+          "time": 579.668,
+          "free_energy": 105.764
+        },
+        {
+          "time": 580.43,
+          "free_energy": 105.736
+        },
+        {
+          "time": 581.191,
+          "free_energy": 105.709
+        },
+        {
+          "time": 581.953,
+          "free_energy": 105.681
+        },
+        {
+          "time": 582.715,
+          "free_energy": 105.654
+        },
+        {
+          "time": 583.477,
+          "free_energy": 105.627
+        },
+        {
+          "time": 584.238,
+          "free_energy": 105.599
+        },
+        {
+          "time": 585,
+          "free_energy": 105.572
+        },
+        {
+          "time": 585.762,
+          "free_energy": 105.545
+        },
+        {
+          "time": 586.523,
+          "free_energy": 105.518
+        },
+        {
+          "time": 587.285,
+          "free_energy": 105.49
+        },
+        {
+          "time": 588.047,
+          "free_energy": 105.463
+        },
+        {
+          "time": 588.809,
+          "free_energy": 105.436
+        },
+        {
+          "time": 589.57,
+          "free_energy": 105.409
+        },
+        {
+          "time": 590.332,
+          "free_energy": 105.382
+        },
+        {
+          "time": 591.094,
+          "free_energy": 105.355
+        },
+        {
+          "time": 591.855,
+          "free_energy": 105.328
+        },
+        {
+          "time": 592.617,
+          "free_energy": 105.301
+        },
+        {
+          "time": 593.379,
+          "free_energy": 105.274
+        },
+        {
+          "time": 594.141,
+          "free_energy": 105.247
+        },
+        {
+          "time": 594.902,
+          "free_energy": 105.22
+        },
+        {
+          "time": 595.664,
+          "free_energy": 105.193
+        },
+        {
+          "time": 596.426,
+          "free_energy": 105.167
+        },
+        {
+          "time": 597.188,
+          "free_energy": 105.14
+        },
+        {
+          "time": 597.949,
+          "free_energy": 105.113
+        },
+        {
+          "time": 598.711,
+          "free_energy": 105.086
+        },
+        {
+          "time": 599.473,
+          "free_energy": 105.06
+        },
+        {
+          "time": 600.234,
+          "free_energy": 105.033
+        },
+        {
+          "time": 600.996,
+          "free_energy": 105.007
+        },
+        {
+          "time": 601.758,
+          "free_energy": 104.98
+        },
+        {
+          "time": 602.52,
+          "free_energy": 104.953
+        },
+        {
+          "time": 603.281,
+          "free_energy": 104.927
+        },
+        {
+          "time": 604.043,
+          "free_energy": 104.901
+        },
+        {
+          "time": 604.805,
+          "free_energy": 104.874
+        },
+        {
+          "time": 605.566,
+          "free_energy": 104.848
+        },
+        {
+          "time": 606.328,
+          "free_energy": 104.821
+        },
+        {
+          "time": 607.09,
+          "free_energy": 104.795
+        },
+        {
+          "time": 607.852,
+          "free_energy": 104.769
+        },
+        {
+          "time": 608.613,
+          "free_energy": 104.742
+        },
+        {
+          "time": 609.375,
+          "free_energy": 104.716
+        },
+        {
+          "time": 610.137,
+          "free_energy": 104.69
+        },
+        {
+          "time": 610.898,
+          "free_energy": 104.664
+        },
+        {
+          "time": 611.66,
+          "free_energy": 104.638
+        },
+        {
+          "time": 612.422,
+          "free_energy": 104.612
+        },
+        {
+          "time": 613.184,
+          "free_energy": 104.585
+        },
+        {
+          "time": 613.945,
+          "free_energy": 104.559
+        },
+        {
+          "time": 614.707,
+          "free_energy": 104.533
+        },
+        {
+          "time": 615.469,
+          "free_energy": 104.507
+        },
+        {
+          "time": 616.23,
+          "free_energy": 104.481
+        },
+        {
+          "time": 616.992,
+          "free_energy": 104.455
+        },
+        {
+          "time": 617.754,
+          "free_energy": 104.43
+        },
+        {
+          "time": 618.516,
+          "free_energy": 104.404
+        },
+        {
+          "time": 619.277,
+          "free_energy": 104.378
+        },
+        {
+          "time": 620.039,
+          "free_energy": 104.352
+        },
+        {
+          "time": 620.801,
+          "free_energy": 104.326
+        },
+        {
+          "time": 621.562,
+          "free_energy": 104.301
+        },
+        {
+          "time": 622.324,
+          "free_energy": 104.275
+        },
+        {
+          "time": 623.086,
+          "free_energy": 104.249
+        },
+        {
+          "time": 623.848,
+          "free_energy": 104.224
+        },
+        {
+          "time": 624.609,
+          "free_energy": 104.198
+        },
+        {
+          "time": 625.371,
+          "free_energy": 104.172
+        },
+        {
+          "time": 626.133,
+          "free_energy": 104.147
+        },
+        {
+          "time": 626.895,
+          "free_energy": 104.121
+        },
+        {
+          "time": 627.656,
+          "free_energy": 104.096
+        },
+        {
+          "time": 628.418,
+          "free_energy": 104.07
+        },
+        {
+          "time": 629.18,
+          "free_energy": 104.045
+        },
+        {
+          "time": 629.941,
+          "free_energy": 104.019
+        },
+        {
+          "time": 630.703,
+          "free_energy": 103.994
+        },
+        {
+          "time": 631.465,
+          "free_energy": 103.969
+        },
+        {
+          "time": 632.227,
+          "free_energy": 103.943
+        },
+        {
+          "time": 632.988,
+          "free_energy": 103.918
+        },
+        {
+          "time": 633.75,
+          "free_energy": 103.893
+        },
+        {
+          "time": 634.512,
+          "free_energy": 103.867
+        },
+        {
+          "time": 635.273,
+          "free_energy": 103.842
+        },
+        {
+          "time": 636.035,
+          "free_energy": 103.817
+        },
+        {
+          "time": 636.797,
+          "free_energy": 103.792
+        },
+        {
+          "time": 637.559,
+          "free_energy": 103.767
+        },
+        {
+          "time": 638.32,
+          "free_energy": 103.742
+        },
+        {
+          "time": 639.082,
+          "free_energy": 103.717
+        },
+        {
+          "time": 639.844,
+          "free_energy": 103.692
+        },
+        {
+          "time": 640.605,
+          "free_energy": 103.667
+        },
+        {
+          "time": 641.367,
+          "free_energy": 103.642
+        },
+        {
+          "time": 642.129,
+          "free_energy": 103.617
+        },
+        {
+          "time": 642.891,
+          "free_energy": 103.592
+        },
+        {
+          "time": 643.652,
+          "free_energy": 103.567
+        },
+        {
+          "time": 644.414,
+          "free_energy": 103.542
+        },
+        {
+          "time": 645.176,
+          "free_energy": 103.517
+        },
+        {
+          "time": 645.938,
+          "free_energy": 103.492
+        },
+        {
+          "time": 646.699,
+          "free_energy": 103.467
+        },
+        {
+          "time": 647.461,
+          "free_energy": 103.443
+        },
+        {
+          "time": 648.223,
+          "free_energy": 103.418
+        },
+        {
+          "time": 648.984,
+          "free_energy": 103.393
+        },
+        {
+          "time": 649.746,
+          "free_energy": 103.369
+        },
+        {
+          "time": 650.508,
+          "free_energy": 103.344
+        },
+        {
+          "time": 651.27,
+          "free_energy": 103.319
+        },
+        {
+          "time": 652.031,
+          "free_energy": 103.295
+        },
+        {
+          "time": 652.793,
+          "free_energy": 103.27
+        },
+        {
+          "time": 653.555,
+          "free_energy": 103.246
+        },
+        {
+          "time": 654.316,
+          "free_energy": 103.221
+        },
+        {
+          "time": 655.078,
+          "free_energy": 103.197
+        },
+        {
+          "time": 655.84,
+          "free_energy": 103.172
+        },
+        {
+          "time": 656.602,
+          "free_energy": 103.148
+        },
+        {
+          "time": 657.363,
+          "free_energy": 103.123
+        },
+        {
+          "time": 658.125,
+          "free_energy": 103.099
+        },
+        {
+          "time": 658.887,
+          "free_energy": 103.075
+        },
+        {
+          "time": 659.648,
+          "free_energy": 103.05
+        },
+        {
+          "time": 660.41,
+          "free_energy": 103.026
+        },
+        {
+          "time": 661.172,
+          "free_energy": 103.002
+        },
+        {
+          "time": 661.934,
+          "free_energy": 102.977
+        },
+        {
+          "time": 662.695,
+          "free_energy": 102.953
+        },
+        {
+          "time": 663.457,
+          "free_energy": 102.929
+        },
+        {
+          "time": 664.219,
+          "free_energy": 102.905
+        },
+        {
+          "time": 664.98,
+          "free_energy": 102.881
+        },
+        {
+          "time": 665.742,
+          "free_energy": 102.857
+        },
+        {
+          "time": 666.504,
+          "free_energy": 102.832
+        },
+        {
+          "time": 667.266,
+          "free_energy": 102.808
+        },
+        {
+          "time": 668.027,
+          "free_energy": 102.784
+        },
+        {
+          "time": 668.789,
+          "free_energy": 102.76
+        },
+        {
+          "time": 669.551,
+          "free_energy": 102.736
+        },
+        {
+          "time": 670.312,
+          "free_energy": 102.712
+        },
+        {
+          "time": 671.074,
+          "free_energy": 102.689
+        },
+        {
+          "time": 671.836,
+          "free_energy": 102.665
+        },
+        {
+          "time": 672.598,
+          "free_energy": 102.641
+        },
+        {
+          "time": 673.359,
+          "free_energy": 102.617
+        },
+        {
+          "time": 674.121,
+          "free_energy": 102.593
+        },
+        {
+          "time": 674.883,
+          "free_energy": 102.569
+        },
+        {
+          "time": 675.645,
+          "free_energy": 102.545
+        },
+        {
+          "time": 676.406,
+          "free_energy": 102.522
+        },
+        {
+          "time": 677.168,
+          "free_energy": 102.498
+        },
+        {
+          "time": 677.93,
+          "free_energy": 102.474
+        },
+        {
+          "time": 678.691,
+          "free_energy": 102.451
+        },
+        {
+          "time": 679.453,
+          "free_energy": 102.427
+        },
+        {
+          "time": 680.215,
+          "free_energy": 102.403
+        },
+        {
+          "time": 680.977,
+          "free_energy": 102.38
+        },
+        {
+          "time": 681.738,
+          "free_energy": 102.356
+        },
+        {
+          "time": 682.5,
+          "free_energy": 102.333
+        },
+        {
+          "time": 683.262,
+          "free_energy": 102.309
+        },
+        {
+          "time": 684.023,
+          "free_energy": 102.286
+        },
+        {
+          "time": 684.785,
+          "free_energy": 102.262
+        },
+        {
+          "time": 685.547,
+          "free_energy": 102.239
+        },
+        {
+          "time": 686.309,
+          "free_energy": 102.215
+        },
+        {
+          "time": 687.07,
+          "free_energy": 102.192
+        },
+        {
+          "time": 687.832,
+          "free_energy": 102.168
+        },
+        {
+          "time": 688.594,
+          "free_energy": 102.145
+        },
+        {
+          "time": 689.355,
+          "free_energy": 102.122
+        },
+        {
+          "time": 690.117,
+          "free_energy": 102.098
+        },
+        {
+          "time": 690.879,
+          "free_energy": 102.075
+        },
+        {
+          "time": 691.641,
+          "free_energy": 102.052
+        },
+        {
+          "time": 692.402,
+          "free_energy": 102.029
+        },
+        {
+          "time": 693.164,
+          "free_energy": 102.006
+        },
+        {
+          "time": 693.926,
+          "free_energy": 101.982
+        },
+        {
+          "time": 694.688,
+          "free_energy": 101.959
+        },
+        {
+          "time": 695.449,
+          "free_energy": 101.936
+        },
+        {
+          "time": 696.211,
+          "free_energy": 101.913
+        },
+        {
+          "time": 696.973,
+          "free_energy": 101.89
+        },
+        {
+          "time": 697.734,
+          "free_energy": 101.867
+        },
+        {
+          "time": 698.496,
+          "free_energy": 101.844
+        },
+        {
+          "time": 699.258,
+          "free_energy": 101.821
+        },
+        {
+          "time": 700.02,
+          "free_energy": 101.798
+        },
+        {
+          "time": 700.781,
+          "free_energy": 101.775
+        },
+        {
+          "time": 701.543,
+          "free_energy": 101.752
+        },
+        {
+          "time": 702.305,
+          "free_energy": 101.729
+        },
+        {
+          "time": 703.066,
+          "free_energy": 101.706
+        },
+        {
+          "time": 703.828,
+          "free_energy": 101.683
+        },
+        {
+          "time": 704.59,
+          "free_energy": 101.66
+        },
+        {
+          "time": 705.352,
+          "free_energy": 101.638
+        },
+        {
+          "time": 706.113,
+          "free_energy": 101.615
+        },
+        {
+          "time": 706.875,
+          "free_energy": 101.592
+        },
+        {
+          "time": 707.637,
+          "free_energy": 101.569
+        },
+        {
+          "time": 708.398,
+          "free_energy": 101.547
+        },
+        {
+          "time": 709.16,
+          "free_energy": 101.524
+        },
+        {
+          "time": 709.922,
+          "free_energy": 101.501
+        },
+        {
+          "time": 710.684,
+          "free_energy": 101.478
+        },
+        {
+          "time": 711.445,
+          "free_energy": 101.456
+        },
+        {
+          "time": 712.207,
+          "free_energy": 101.433
+        },
+        {
+          "time": 712.969,
+          "free_energy": 101.411
+        },
+        {
+          "time": 713.73,
+          "free_energy": 101.388
+        },
+        {
+          "time": 714.492,
+          "free_energy": 101.366
+        },
+        {
+          "time": 715.254,
+          "free_energy": 101.343
+        },
+        {
+          "time": 716.016,
+          "free_energy": 101.321
+        },
+        {
+          "time": 716.777,
+          "free_energy": 101.298
+        },
+        {
+          "time": 717.539,
+          "free_energy": 101.276
+        },
+        {
+          "time": 718.301,
+          "free_energy": 101.253
+        },
+        {
+          "time": 719.062,
+          "free_energy": 101.231
+        },
+        {
+          "time": 719.824,
+          "free_energy": 101.208
+        },
+        {
+          "time": 720.586,
+          "free_energy": 101.186
+        },
+        {
+          "time": 721.348,
+          "free_energy": 101.164
+        },
+        {
+          "time": 722.109,
+          "free_energy": 101.141
+        },
+        {
+          "time": 722.871,
+          "free_energy": 101.119
+        },
+        {
+          "time": 723.633,
+          "free_energy": 101.097
+        },
+        {
+          "time": 724.395,
+          "free_energy": 101.075
+        },
+        {
+          "time": 725.156,
+          "free_energy": 101.052
+        },
+        {
+          "time": 725.918,
+          "free_energy": 101.03
+        },
+        {
+          "time": 726.68,
+          "free_energy": 101.008
+        },
+        {
+          "time": 727.441,
+          "free_energy": 100.986
+        },
+        {
+          "time": 728.203,
+          "free_energy": 100.964
+        },
+        {
+          "time": 728.965,
+          "free_energy": 100.942
+        },
+        {
           "time": 729.727,
-          "free_energy": 107.193
+          "free_energy": 100.92
         },
         {
           "time": 730.488,
-          "free_energy": 107.169
+          "free_energy": 100.898
         },
         {
           "time": 731.25,
-          "free_energy": 107.146
+          "free_energy": 100.876
         },
         {
           "time": 732.012,
-          "free_energy": 107.122
+          "free_energy": 100.854
         },
         {
           "time": 732.773,
-          "free_energy": 107.098
+          "free_energy": 100.832
         },
         {
           "time": 733.535,
-          "free_energy": 107.074
+          "free_energy": 100.81
         },
         {
           "time": 734.297,
-          "free_energy": 107.051
+          "free_energy": 100.788
         },
         {
           "time": 735.059,
-          "free_energy": 107.027
+          "free_energy": 100.766
         },
         {
           "time": 735.82,
-          "free_energy": 107.004
+          "free_energy": 100.744
         },
         {
           "time": 736.582,
-          "free_energy": 106.98
+          "free_energy": 100.722
         },
         {
           "time": 737.344,
-          "free_energy": 106.957
+          "free_energy": 100.7
         },
         {
           "time": 738.105,
-          "free_energy": 106.933
+          "free_energy": 100.678
         },
         {
           "time": 738.867,
-          "free_energy": 106.91
+          "free_energy": 100.656
         },
         {
           "time": 739.629,
-          "free_energy": 106.886
+          "free_energy": 100.635
         },
         {
           "time": 740.391,
-          "free_energy": 106.863
+          "free_energy": 100.613
         },
         {
           "time": 741.152,
-          "free_energy": 106.84
+          "free_energy": 100.591
         },
         {
           "time": 741.914,
-          "free_energy": 106.817
+          "free_energy": 100.569
         },
         {
           "time": 742.676,
-          "free_energy": 106.793
+          "free_energy": 100.548
         },
         {
           "time": 743.438,
-          "free_energy": 106.77
+          "free_energy": 100.526
         },
         {
           "time": 744.199,
-          "free_energy": 106.747
+          "free_energy": 100.504
         },
         {
           "time": 744.961,
-          "free_energy": 106.724
+          "free_energy": 100.483
         },
         {
           "time": 745.723,
-          "free_energy": 106.701
+          "free_energy": 100.461
         },
         {
           "time": 746.484,
-          "free_energy": 106.678
+          "free_energy": 100.439
         },
         {
           "time": 747.246,
-          "free_energy": 106.655
+          "free_energy": 100.418
         },
         {
           "time": 748.008,
-          "free_energy": 106.632
+          "free_energy": 100.396
         },
         {
           "time": 748.77,
-          "free_energy": 106.609
+          "free_energy": 100.375
         },
         {
           "time": 749.531,
-          "free_energy": 106.586
+          "free_energy": 100.353
         },
         {
           "time": 750.293,
-          "free_energy": 106.564
+          "free_energy": 100.332
         },
         {
           "time": 751.055,
-          "free_energy": 106.541
+          "free_energy": 100.31
         },
         {
           "time": 751.816,
-          "free_energy": 106.518
+          "free_energy": 100.289
         },
         {
           "time": 752.578,
-          "free_energy": 106.495
+          "free_energy": 100.267
         },
         {
           "time": 753.34,
-          "free_energy": 106.473
+          "free_energy": 100.246
         },
         {
           "time": 754.102,
-          "free_energy": 106.45
+          "free_energy": 100.225
         },
         {
           "time": 754.863,
-          "free_energy": 106.427
+          "free_energy": 100.203
         },
         {
           "time": 755.625,
-          "free_energy": 106.405
+          "free_energy": 100.182
         },
         {
           "time": 756.387,
-          "free_energy": 106.382
+          "free_energy": 100.16
         },
         {
           "time": 757.148,
-          "free_energy": 106.36
+          "free_energy": 100.139
         },
         {
           "time": 757.91,
-          "free_energy": 106.337
+          "free_energy": 100.118
         },
         {
           "time": 758.672,
-          "free_energy": 106.315
+          "free_energy": 100.097
         },
         {
           "time": 759.434,
-          "free_energy": 106.292
+          "free_energy": 100.075
         },
         {
           "time": 760.195,
-          "free_energy": 106.27
+          "free_energy": 100.054
         },
         {
           "time": 760.957,
-          "free_energy": 106.248
+          "free_energy": 100.033
         },
         {
           "time": 761.719,
-          "free_energy": 106.226
+          "free_energy": 100.012
         }
       ]
     transform:
@@ -4058,7 +4058,7 @@ data:
     values:
       [
         {
-          "time": 15242.34,
+          "time": 15573.24,
           "sim_time": 761.719
         }
       ]
@@ -4066,7 +4066,7 @@ data:
     values:
       [
         {
-          "value_per_node": 4754,
+          "value_per_node": 4752,
           "unit": KB
         }
       ]
@@ -4075,4 +4075,3 @@ data:
       - type: formula
         field: value
         expr: datum.value_per_node * 16
-

@@ -1,12 +1,12 @@
 ---
-benchmark_id: 1a
+benchmark_id: 1c
 
 metadata:
   # Describe the runtime environment
-  summary: Raspberry Pi 3 cluster benchmark with MMSP, periodic domain
+  summary: Raspberry Pi 3 cluster benchmark with MMSP, T-shape domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  date: Wed, 11 Jan 2017 19:18:37 +0000
+  date: Thu, 12 Jan 2017 03:53:30 +0000
   hardware:
     # Required hardware details
     architecture: armv7l
@@ -26,7 +26,7 @@ metadata:
   implementation:
     end_condition: time limit
     repo:
-      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
+      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/
       version: "f79fda8582159e8326863ac6c1734d686590b825"
       # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
@@ -48,4007 +48,4007 @@ data:
       [
         {
           "time": 0,
-          "free_energy": 319.094
+          "free_energy": 31.8809
         },
         {
           "time": 0.761719,
-          "free_energy": 319.018
+          "free_energy": 31.8745
         },
         {
           "time": 1.52344,
-          "free_energy": 318.95
+          "free_energy": 31.8674
         },
         {
           "time": 2.28516,
-          "free_energy": 318.875
+          "free_energy": 31.8597
         },
         {
           "time": 3.04688,
-          "free_energy": 318.792
+          "free_energy": 31.8513
         },
         {
           "time": 3.80859,
-          "free_energy": 318.701
+          "free_energy": 31.8419
         },
         {
           "time": 4.57031,
-          "free_energy": 318.598
+          "free_energy": 31.8316
         },
         {
           "time": 5.33203,
-          "free_energy": 318.484
+          "free_energy": 31.8201
         },
         {
           "time": 6.09375,
-          "free_energy": 318.357
+          "free_energy": 31.8072
         },
         {
           "time": 6.85547,
-          "free_energy": 318.214
+          "free_energy": 31.7929
         },
         {
           "time": 7.61719,
-          "free_energy": 318.053
+          "free_energy": 31.7768
         },
         {
           "time": 8.37891,
-          "free_energy": 317.871
+          "free_energy": 31.7587
         },
         {
           "time": 9.14062,
-          "free_energy": 317.666
+          "free_energy": 31.7382
         },
         {
           "time": 9.90234,
-          "free_energy": 317.434
+          "free_energy": 31.7149
         },
         {
           "time": 10.6641,
-          "free_energy": 317.17
+          "free_energy": 31.6885
         },
         {
           "time": 11.4258,
-          "free_energy": 316.87
+          "free_energy": 31.6584
         },
         {
           "time": 12.1875,
-          "free_energy": 316.53
+          "free_energy": 31.6239
         },
         {
           "time": 12.9492,
-          "free_energy": 316.142
+          "free_energy": 31.5844
         },
         {
           "time": 13.7109,
-          "free_energy": 315.701
+          "free_energy": 31.5391
         },
         {
           "time": 14.4727,
-          "free_energy": 315.2
+          "free_energy": 31.487
         },
         {
           "time": 15.2344,
-          "free_energy": 314.632
+          "free_energy": 31.427
         },
         {
           "time": 15.9961,
-          "free_energy": 313.987
+          "free_energy": 31.3579
         },
         {
           "time": 16.7578,
-          "free_energy": 313.258
+          "free_energy": 31.2783
         },
         {
           "time": 17.5195,
-          "free_energy": 312.437
+          "free_energy": 31.1867
         },
         {
           "time": 18.2812,
-          "free_energy": 311.514
+          "free_energy": 31.0814
         },
         {
           "time": 19.043,
-          "free_energy": 310.481
+          "free_energy": 30.9607
         },
         {
           "time": 19.8047,
-          "free_energy": 309.33
+          "free_energy": 30.8226
         },
         {
           "time": 20.5664,
-          "free_energy": 308.053
+          "free_energy": 30.6652
         },
         {
           "time": 21.3281,
-          "free_energy": 306.642
+          "free_energy": 30.4868
         },
         {
           "time": 22.0898,
-          "free_energy": 305.091
+          "free_energy": 30.2858
         },
         {
           "time": 22.8516,
-          "free_energy": 303.393
+          "free_energy": 30.0606
         },
         {
           "time": 23.6133,
-          "free_energy": 301.543
+          "free_energy": 29.8105
         },
         {
           "time": 24.375,
-          "free_energy": 299.537
+          "free_energy": 29.5348
         },
         {
           "time": 25.1367,
-          "free_energy": 297.372
+          "free_energy": 29.2339
         },
         {
           "time": 25.8984,
-          "free_energy": 295.045
+          "free_energy": 28.9088
         },
         {
           "time": 26.6602,
-          "free_energy": 292.555
+          "free_energy": 28.561
         },
         {
           "time": 27.4219,
-          "free_energy": 289.902
+          "free_energy": 28.193
         },
         {
           "time": 28.1836,
-          "free_energy": 287.087
+          "free_energy": 27.808
         },
         {
           "time": 28.9453,
-          "free_energy": 284.113
+          "free_energy": 27.4097
         },
         {
           "time": 29.707,
-          "free_energy": 280.985
+          "free_energy": 27.0023
         },
         {
           "time": 30.4688,
-          "free_energy": 277.709
+          "free_energy": 26.5903
         },
         {
           "time": 31.2305,
-          "free_energy": 274.293
+          "free_energy": 26.1782
         },
         {
           "time": 31.9922,
-          "free_energy": 270.751
+          "free_energy": 25.7706
         },
         {
           "time": 32.7539,
-          "free_energy": 267.098
+          "free_energy": 25.3717
         },
         {
           "time": 33.5156,
-          "free_energy": 263.354
+          "free_energy": 24.9857
         },
         {
           "time": 34.2773,
-          "free_energy": 259.543
+          "free_energy": 24.6159
         },
         {
           "time": 35.0391,
-          "free_energy": 255.694
+          "free_energy": 24.2655
         },
         {
           "time": 35.8008,
-          "free_energy": 251.839
+          "free_energy": 23.9366
         },
         {
           "time": 36.5625,
-          "free_energy": 248.016
+          "free_energy": 23.6309
         },
         {
           "time": 37.3242,
-          "free_energy": 244.263
+          "free_energy": 23.3488
         },
         {
           "time": 38.0859,
-          "free_energy": 240.619
+          "free_energy": 23.0901
         },
         {
           "time": 38.8477,
-          "free_energy": 237.122
+          "free_energy": 22.8539
         },
         {
           "time": 39.6094,
-          "free_energy": 233.807
+          "free_energy": 22.6387
         },
         {
           "time": 40.3711,
-          "free_energy": 230.703
+          "free_energy": 22.4426
         },
         {
           "time": 41.1328,
-          "free_energy": 227.83
+          "free_energy": 22.2636
         },
         {
           "time": 41.8945,
-          "free_energy": 225.199
+          "free_energy": 22.0995
         },
         {
           "time": 42.6562,
-          "free_energy": 222.815
+          "free_energy": 21.9482
         },
         {
           "time": 43.418,
-          "free_energy": 220.671
+          "free_energy": 21.8079
         },
         {
           "time": 44.1797,
-          "free_energy": 218.754
+          "free_energy": 21.6769
         },
         {
           "time": 44.9414,
-          "free_energy": 217.049
+          "free_energy": 21.5535
         },
         {
           "time": 45.7031,
-          "free_energy": 215.533
+          "free_energy": 21.4367
         },
         {
           "time": 46.4648,
-          "free_energy": 214.185
+          "free_energy": 21.3253
         },
         {
           "time": 47.2266,
-          "free_energy": 212.984
+          "free_energy": 21.2186
         },
         {
           "time": 47.9883,
-          "free_energy": 211.909
+          "free_energy": 21.1162
         },
         {
           "time": 48.75,
-          "free_energy": 210.94
+          "free_energy": 21.0175
         },
         {
           "time": 49.5117,
-          "free_energy": 210.062
+          "free_energy": 20.9225
         },
         {
           "time": 50.2734,
-          "free_energy": 209.259
+          "free_energy": 20.8312
         },
         {
           "time": 51.0352,
-          "free_energy": 208.518
+          "free_energy": 20.7438
         },
         {
           "time": 51.7969,
-          "free_energy": 207.828
+          "free_energy": 20.6604
         },
         {
           "time": 52.5586,
-          "free_energy": 207.18
+          "free_energy": 20.5813
         },
         {
           "time": 53.3203,
-          "free_energy": 206.567
+          "free_energy": 20.5066
         },
         {
           "time": 54.082,
-          "free_energy": 205.981
+          "free_energy": 20.4362
         },
         {
           "time": 54.8438,
-          "free_energy": 205.42
+          "free_energy": 20.3701
         },
         {
           "time": 55.6055,
-          "free_energy": 204.877
+          "free_energy": 20.308
         },
         {
           "time": 56.3672,
-          "free_energy": 204.351
+          "free_energy": 20.2496
         },
         {
           "time": 57.1289,
-          "free_energy": 203.838
+          "free_energy": 20.1946
         },
         {
           "time": 57.8906,
-          "free_energy": 203.336
+          "free_energy": 20.1425
         },
         {
           "time": 58.6523,
-          "free_energy": 202.845
+          "free_energy": 20.0931
         },
         {
           "time": 59.4141,
-          "free_energy": 202.361
+          "free_energy": 20.0461
         },
         {
           "time": 60.1758,
-          "free_energy": 201.885
+          "free_energy": 20.0011
         },
         {
           "time": 60.9375,
-          "free_energy": 201.415
+          "free_energy": 19.9579
         },
         {
           "time": 61.6992,
-          "free_energy": 200.951
+          "free_energy": 19.9162
         },
         {
           "time": 62.4609,
-          "free_energy": 200.491
+          "free_energy": 19.8759
         },
         {
           "time": 63.2227,
-          "free_energy": 200.035
+          "free_energy": 19.8368
         },
         {
           "time": 63.9844,
-          "free_energy": 199.583
+          "free_energy": 19.7988
         },
         {
           "time": 64.7461,
-          "free_energy": 199.133
+          "free_energy": 19.7617
         },
         {
           "time": 65.5078,
-          "free_energy": 198.686
+          "free_energy": 19.7254
         },
         {
           "time": 66.2695,
-          "free_energy": 198.241
+          "free_energy": 19.6898
         },
         {
           "time": 67.0312,
-          "free_energy": 197.798
+          "free_energy": 19.6549
         },
         {
           "time": 67.793,
-          "free_energy": 197.356
+          "free_energy": 19.6206
         },
         {
           "time": 68.5547,
-          "free_energy": 196.916
+          "free_energy": 19.5867
         },
         {
           "time": 69.3164,
-          "free_energy": 196.477
+          "free_energy": 19.5533
         },
         {
           "time": 70.0781,
-          "free_energy": 196.038
+          "free_energy": 19.5203
         },
         {
           "time": 70.8398,
-          "free_energy": 195.6
+          "free_energy": 19.4876
         },
         {
           "time": 71.6016,
-          "free_energy": 195.163
+          "free_energy": 19.4552
         },
         {
           "time": 72.3633,
-          "free_energy": 194.726
+          "free_energy": 19.4231
         },
         {
           "time": 73.125,
-          "free_energy": 194.29
+          "free_energy": 19.3913
         },
         {
           "time": 73.8867,
-          "free_energy": 193.853
+          "free_energy": 19.3596
         },
         {
           "time": 74.6484,
-          "free_energy": 193.417
+          "free_energy": 19.3281
         },
         {
           "time": 75.4102,
-          "free_energy": 192.981
+          "free_energy": 19.2968
         },
         {
           "time": 76.1719,
-          "free_energy": 192.545
+          "free_energy": 19.2657
         },
         {
           "time": 76.9336,
-          "free_energy": 192.109
+          "free_energy": 19.2346
         },
         {
           "time": 77.6953,
-          "free_energy": 191.672
+          "free_energy": 19.2037
         },
         {
           "time": 78.457,
-          "free_energy": 191.236
+          "free_energy": 19.1729
         },
         {
           "time": 79.2188,
-          "free_energy": 190.799
+          "free_energy": 19.1422
         },
         {
           "time": 79.9805,
-          "free_energy": 190.361
+          "free_energy": 19.1116
         },
         {
           "time": 80.7422,
-          "free_energy": 189.923
+          "free_energy": 19.081
         },
         {
           "time": 81.5039,
-          "free_energy": 189.485
+          "free_energy": 19.0505
         },
         {
           "time": 82.2656,
-          "free_energy": 189.046
+          "free_energy": 19.0201
         },
         {
           "time": 83.0273,
-          "free_energy": 188.606
+          "free_energy": 18.9898
         },
         {
           "time": 83.7891,
-          "free_energy": 188.165
+          "free_energy": 18.9595
         },
         {
           "time": 84.5508,
-          "free_energy": 187.722
+          "free_energy": 18.9293
         },
         {
           "time": 85.3125,
-          "free_energy": 187.279
+          "free_energy": 18.8992
         },
         {
           "time": 86.0742,
-          "free_energy": 186.833
+          "free_energy": 18.8691
         },
         {
           "time": 86.8359,
-          "free_energy": 186.386
+          "free_energy": 18.839
         },
         {
           "time": 87.5977,
-          "free_energy": 185.937
+          "free_energy": 18.8091
         },
         {
           "time": 88.3594,
-          "free_energy": 185.486
+          "free_energy": 18.7792
         },
         {
           "time": 89.1211,
-          "free_energy": 185.032
+          "free_energy": 18.7494
         },
         {
           "time": 89.8828,
-          "free_energy": 184.575
+          "free_energy": 18.7197
         },
         {
           "time": 90.6445,
-          "free_energy": 184.115
+          "free_energy": 18.69
         },
         {
           "time": 91.4062,
-          "free_energy": 183.651
+          "free_energy": 18.6605
         },
         {
           "time": 92.168,
-          "free_energy": 183.184
+          "free_energy": 18.6311
         },
         {
           "time": 92.9297,
-          "free_energy": 182.713
+          "free_energy": 18.6017
         },
         {
           "time": 93.6914,
-          "free_energy": 182.24
+          "free_energy": 18.5725
         },
         {
           "time": 94.4531,
-          "free_energy": 181.763
+          "free_energy": 18.5435
         },
         {
           "time": 95.2148,
-          "free_energy": 181.285
+          "free_energy": 18.5145
         },
         {
           "time": 95.9766,
-          "free_energy": 180.805
+          "free_energy": 18.4857
         },
         {
           "time": 96.7383,
-          "free_energy": 180.324
+          "free_energy": 18.457
         },
         {
           "time": 97.5,
-          "free_energy": 179.842
+          "free_energy": 18.4285
         },
         {
           "time": 98.2617,
-          "free_energy": 179.359
+          "free_energy": 18.4002
         },
         {
           "time": 99.0234,
-          "free_energy": 178.876
+          "free_energy": 18.372
         },
         {
           "time": 99.7852,
-          "free_energy": 178.392
+          "free_energy": 18.344
         },
         {
           "time": 100.547,
-          "free_energy": 177.909
+          "free_energy": 18.3162
         },
         {
           "time": 101.309,
-          "free_energy": 177.428
+          "free_energy": 18.2885
         },
         {
           "time": 102.07,
-          "free_energy": 176.95
+          "free_energy": 18.261
         },
         {
           "time": 102.832,
-          "free_energy": 176.476
+          "free_energy": 18.2337
         },
         {
           "time": 103.594,
-          "free_energy": 176.006
+          "free_energy": 18.2066
         },
         {
           "time": 104.355,
-          "free_energy": 175.541
+          "free_energy": 18.1796
         },
         {
           "time": 105.117,
-          "free_energy": 175.081
+          "free_energy": 18.1528
         },
         {
           "time": 105.879,
-          "free_energy": 174.626
+          "free_energy": 18.1263
         },
         {
           "time": 106.641,
-          "free_energy": 174.176
+          "free_energy": 18.0998
         },
         {
           "time": 107.402,
-          "free_energy": 173.73
+          "free_energy": 18.0736
         },
         {
           "time": 108.164,
-          "free_energy": 173.289
+          "free_energy": 18.0476
         },
         {
           "time": 108.926,
-          "free_energy": 172.85
+          "free_energy": 18.0217
         },
         {
           "time": 109.688,
-          "free_energy": 172.414
+          "free_energy": 17.996
         },
         {
           "time": 110.449,
-          "free_energy": 171.981
+          "free_energy": 17.9705
         },
         {
           "time": 111.211,
-          "free_energy": 171.55
+          "free_energy": 17.9451
         },
         {
           "time": 111.973,
-          "free_energy": 171.122
+          "free_energy": 17.9199
         },
         {
           "time": 112.734,
-          "free_energy": 170.698
+          "free_energy": 17.8949
         },
         {
           "time": 113.496,
-          "free_energy": 170.279
+          "free_energy": 17.87
         },
         {
           "time": 114.258,
-          "free_energy": 169.866
+          "free_energy": 17.8453
         },
         {
           "time": 115.02,
-          "free_energy": 169.459
+          "free_energy": 17.8208
         },
         {
           "time": 115.781,
-          "free_energy": 169.059
+          "free_energy": 17.7964
         },
         {
           "time": 116.543,
-          "free_energy": 168.665
+          "free_energy": 17.7722
         },
         {
           "time": 117.305,
-          "free_energy": 168.279
+          "free_energy": 17.7481
         },
         {
           "time": 118.066,
-          "free_energy": 167.899
+          "free_energy": 17.7241
         },
         {
           "time": 118.828,
-          "free_energy": 167.526
+          "free_energy": 17.7003
         },
         {
           "time": 119.59,
-          "free_energy": 167.159
+          "free_energy": 17.6767
         },
         {
           "time": 120.352,
-          "free_energy": 166.797
+          "free_energy": 17.6531
         },
         {
           "time": 121.113,
-          "free_energy": 166.44
+          "free_energy": 17.6297
         },
         {
           "time": 121.875,
-          "free_energy": 166.088
+          "free_energy": 17.6065
         },
         {
           "time": 122.637,
-          "free_energy": 165.741
+          "free_energy": 17.5833
         },
         {
           "time": 123.398,
-          "free_energy": 165.397
+          "free_energy": 17.5603
         },
         {
           "time": 124.16,
-          "free_energy": 165.058
+          "free_energy": 17.5374
         },
         {
           "time": 124.922,
-          "free_energy": 164.722
+          "free_energy": 17.5147
         },
         {
           "time": 125.684,
-          "free_energy": 164.39
+          "free_energy": 17.492
         },
         {
           "time": 126.445,
-          "free_energy": 164.062
+          "free_energy": 17.4695
         },
         {
           "time": 127.207,
-          "free_energy": 163.736
+          "free_energy": 17.447
         },
         {
           "time": 127.969,
-          "free_energy": 163.414
+          "free_energy": 17.4247
         },
         {
           "time": 128.73,
-          "free_energy": 163.094
+          "free_energy": 17.4025
         },
         {
           "time": 129.492,
-          "free_energy": 162.777
+          "free_energy": 17.3804
         },
         {
           "time": 130.254,
-          "free_energy": 162.464
+          "free_energy": 17.3583
         },
         {
           "time": 131.016,
-          "free_energy": 162.153
+          "free_energy": 17.3364
         },
         {
           "time": 131.777,
-          "free_energy": 161.844
+          "free_energy": 17.3146
         },
         {
           "time": 132.539,
-          "free_energy": 161.539
+          "free_energy": 17.2929
         },
         {
           "time": 133.301,
-          "free_energy": 161.235
+          "free_energy": 17.2712
         },
         {
           "time": 134.062,
-          "free_energy": 160.935
+          "free_energy": 17.2497
         },
         {
           "time": 134.824,
-          "free_energy": 160.637
+          "free_energy": 17.2282
         },
         {
           "time": 135.586,
-          "free_energy": 160.341
+          "free_energy": 17.2068
         },
         {
           "time": 136.348,
-          "free_energy": 160.048
+          "free_energy": 17.1855
         },
         {
           "time": 137.109,
-          "free_energy": 159.757
+          "free_energy": 17.1642
         },
         {
           "time": 137.871,
-          "free_energy": 159.469
+          "free_energy": 17.1431
         },
         {
           "time": 138.633,
-          "free_energy": 159.183
+          "free_energy": 17.122
         },
         {
           "time": 139.395,
-          "free_energy": 158.899
+          "free_energy": 17.101
         },
         {
           "time": 140.156,
-          "free_energy": 158.617
+          "free_energy": 17.0801
         },
         {
           "time": 140.918,
-          "free_energy": 158.338
+          "free_energy": 17.0592
         },
         {
           "time": 141.68,
-          "free_energy": 158.061
+          "free_energy": 17.0384
         },
         {
           "time": 142.441,
-          "free_energy": 157.787
+          "free_energy": 17.0176
         },
         {
           "time": 143.203,
-          "free_energy": 157.514
+          "free_energy": 16.997
         },
         {
           "time": 143.965,
-          "free_energy": 157.244
+          "free_energy": 16.9763
         },
         {
           "time": 144.727,
-          "free_energy": 156.976
+          "free_energy": 16.9558
         },
         {
           "time": 145.488,
-          "free_energy": 156.71
+          "free_energy": 16.9353
         },
         {
           "time": 146.25,
-          "free_energy": 156.446
+          "free_energy": 16.9148
         },
         {
           "time": 147.012,
-          "free_energy": 156.184
+          "free_energy": 16.8944
         },
         {
           "time": 147.773,
-          "free_energy": 155.924
+          "free_energy": 16.8741
         },
         {
           "time": 148.535,
-          "free_energy": 155.666
+          "free_energy": 16.8538
         },
         {
           "time": 149.297,
-          "free_energy": 155.41
+          "free_energy": 16.8335
         },
         {
           "time": 150.059,
-          "free_energy": 155.156
+          "free_energy": 16.8133
         },
         {
           "time": 150.82,
-          "free_energy": 154.905
+          "free_energy": 16.7932
         },
         {
           "time": 151.582,
-          "free_energy": 154.655
+          "free_energy": 16.7731
         },
         {
           "time": 152.344,
-          "free_energy": 154.407
+          "free_energy": 16.753
         },
         {
           "time": 153.105,
-          "free_energy": 154.16
+          "free_energy": 16.7329
         },
         {
           "time": 153.867,
-          "free_energy": 153.916
+          "free_energy": 16.7129
         },
         {
           "time": 154.629,
-          "free_energy": 153.674
+          "free_energy": 16.693
         },
         {
           "time": 155.391,
-          "free_energy": 153.433
+          "free_energy": 16.673
         },
         {
           "time": 156.152,
-          "free_energy": 153.194
+          "free_energy": 16.6531
         },
         {
           "time": 156.914,
-          "free_energy": 152.957
+          "free_energy": 16.6332
         },
         {
           "time": 157.676,
-          "free_energy": 152.722
+          "free_energy": 16.6134
         },
         {
           "time": 158.438,
-          "free_energy": 152.489
+          "free_energy": 16.5935
         },
         {
           "time": 159.199,
-          "free_energy": 152.257
+          "free_energy": 16.5737
         },
         {
           "time": 159.961,
-          "free_energy": 152.027
+          "free_energy": 16.5539
         },
         {
           "time": 160.723,
-          "free_energy": 151.798
+          "free_energy": 16.5342
         },
         {
           "time": 161.484,
-          "free_energy": 151.572
+          "free_energy": 16.5144
         },
         {
           "time": 162.246,
-          "free_energy": 151.347
+          "free_energy": 16.4947
         },
         {
           "time": 163.008,
-          "free_energy": 151.124
+          "free_energy": 16.4749
         },
         {
           "time": 163.77,
-          "free_energy": 150.902
+          "free_energy": 16.4552
         },
         {
           "time": 164.531,
-          "free_energy": 150.682
+          "free_energy": 16.4355
         },
         {
           "time": 165.293,
-          "free_energy": 150.464
+          "free_energy": 16.4158
         },
         {
           "time": 166.055,
-          "free_energy": 150.247
+          "free_energy": 16.396
         },
         {
           "time": 166.816,
-          "free_energy": 150.032
+          "free_energy": 16.3763
         },
         {
           "time": 167.578,
-          "free_energy": 149.819
+          "free_energy": 16.3566
         },
         {
           "time": 168.34,
-          "free_energy": 149.607
+          "free_energy": 16.3369
         },
         {
           "time": 169.102,
-          "free_energy": 149.397
+          "free_energy": 16.3171
         },
         {
           "time": 169.863,
-          "free_energy": 149.188
+          "free_energy": 16.2974
         },
         {
           "time": 170.625,
-          "free_energy": 148.981
+          "free_energy": 16.2776
         },
         {
           "time": 171.387,
-          "free_energy": 148.776
+          "free_energy": 16.2578
         },
         {
           "time": 172.148,
-          "free_energy": 148.572
+          "free_energy": 16.238
         },
         {
           "time": 172.91,
-          "free_energy": 148.37
+          "free_energy": 16.2182
         },
         {
           "time": 173.672,
-          "free_energy": 148.169
+          "free_energy": 16.1983
         },
         {
           "time": 174.434,
-          "free_energy": 147.97
+          "free_energy": 16.1785
         },
         {
           "time": 175.195,
-          "free_energy": 147.773
+          "free_energy": 16.1586
         },
         {
           "time": 175.957,
-          "free_energy": 147.576
+          "free_energy": 16.1387
         },
         {
           "time": 176.719,
-          "free_energy": 147.382
+          "free_energy": 16.1188
         },
         {
           "time": 177.48,
-          "free_energy": 147.189
+          "free_energy": 16.0988
         },
         {
           "time": 178.242,
-          "free_energy": 146.997
+          "free_energy": 16.0789
         },
         {
           "time": 179.004,
-          "free_energy": 146.807
+          "free_energy": 16.0589
         },
         {
           "time": 179.766,
-          "free_energy": 146.619
+          "free_energy": 16.0389
         },
         {
           "time": 180.527,
-          "free_energy": 146.432
+          "free_energy": 16.019
         },
         {
           "time": 181.289,
-          "free_energy": 146.246
+          "free_energy": 15.999
         },
         {
           "time": 182.051,
-          "free_energy": 146.061
+          "free_energy": 15.979
         },
         {
           "time": 182.812,
-          "free_energy": 145.879
+          "free_energy": 15.959
         },
         {
           "time": 183.574,
-          "free_energy": 145.697
+          "free_energy": 15.9391
         },
         {
           "time": 184.336,
-          "free_energy": 145.517
+          "free_energy": 15.9191
         },
         {
           "time": 185.098,
-          "free_energy": 145.338
+          "free_energy": 15.8992
         },
         {
           "time": 185.859,
-          "free_energy": 145.161
+          "free_energy": 15.8793
         },
         {
           "time": 186.621,
-          "free_energy": 144.985
+          "free_energy": 15.8595
         },
         {
           "time": 187.383,
-          "free_energy": 144.81
+          "free_energy": 15.8397
         },
         {
           "time": 188.145,
-          "free_energy": 144.636
+          "free_energy": 15.82
         },
         {
           "time": 188.906,
-          "free_energy": 144.464
+          "free_energy": 15.8003
         },
         {
           "time": 189.668,
-          "free_energy": 144.293
+          "free_energy": 15.7806
         },
         {
           "time": 190.43,
-          "free_energy": 144.124
+          "free_energy": 15.761
         },
         {
           "time": 191.191,
-          "free_energy": 143.955
+          "free_energy": 15.7415
         },
         {
           "time": 191.953,
-          "free_energy": 143.789
+          "free_energy": 15.7221
         },
         {
           "time": 192.715,
-          "free_energy": 143.623
+          "free_energy": 15.7027
         },
         {
           "time": 193.477,
-          "free_energy": 143.459
+          "free_energy": 15.6834
         },
         {
           "time": 194.238,
-          "free_energy": 143.296
+          "free_energy": 15.6642
         },
         {
           "time": 195,
-          "free_energy": 143.134
+          "free_energy": 15.6451
         },
         {
           "time": 195.762,
-          "free_energy": 142.974
+          "free_energy": 15.626
         },
         {
           "time": 196.523,
-          "free_energy": 142.815
+          "free_energy": 15.6071
         },
         {
           "time": 197.285,
-          "free_energy": 142.657
+          "free_energy": 15.5882
         },
         {
           "time": 198.047,
-          "free_energy": 142.501
+          "free_energy": 15.5694
         },
         {
           "time": 198.809,
-          "free_energy": 142.346
+          "free_energy": 15.5507
         },
         {
           "time": 199.57,
-          "free_energy": 142.192
+          "free_energy": 15.532
         },
         {
           "time": 200.332,
-          "free_energy": 142.04
+          "free_energy": 15.5135
         },
         {
           "time": 201.094,
-          "free_energy": 141.889
+          "free_energy": 15.495
         },
         {
           "time": 201.855,
-          "free_energy": 141.74
+          "free_energy": 15.4766
         },
         {
           "time": 202.617,
-          "free_energy": 141.592
+          "free_energy": 15.4583
         },
         {
           "time": 203.379,
-          "free_energy": 141.445
+          "free_energy": 15.44
         },
         {
           "time": 204.141,
-          "free_energy": 141.299
+          "free_energy": 15.4218
         },
         {
           "time": 204.902,
-          "free_energy": 141.155
+          "free_energy": 15.4037
         },
         {
           "time": 205.664,
-          "free_energy": 141.012
+          "free_energy": 15.3856
         },
         {
           "time": 206.426,
-          "free_energy": 140.87
+          "free_energy": 15.3675
         },
         {
           "time": 207.188,
-          "free_energy": 140.73
+          "free_energy": 15.3495
         },
         {
           "time": 207.949,
-          "free_energy": 140.591
+          "free_energy": 15.3316
         },
         {
           "time": 208.711,
-          "free_energy": 140.453
+          "free_energy": 15.3136
         },
         {
           "time": 209.473,
-          "free_energy": 140.316
+          "free_energy": 15.2957
         },
         {
           "time": 210.234,
-          "free_energy": 140.18
+          "free_energy": 15.2778
         },
         {
           "time": 210.996,
-          "free_energy": 140.046
+          "free_energy": 15.2599
         },
         {
           "time": 211.758,
-          "free_energy": 139.912
+          "free_energy": 15.242
         },
         {
           "time": 212.52,
-          "free_energy": 139.78
+          "free_energy": 15.224
         },
         {
           "time": 213.281,
-          "free_energy": 139.649
+          "free_energy": 15.2061
         },
         {
           "time": 214.043,
-          "free_energy": 139.52
+          "free_energy": 15.188
         },
         {
           "time": 214.805,
-          "free_energy": 139.391
+          "free_energy": 15.17
         },
         {
           "time": 215.566,
-          "free_energy": 139.263
+          "free_energy": 15.1518
         },
         {
           "time": 216.328,
-          "free_energy": 139.137
+          "free_energy": 15.1336
         },
         {
           "time": 217.09,
-          "free_energy": 139.011
+          "free_energy": 15.1153
         },
         {
           "time": 217.852,
-          "free_energy": 138.887
+          "free_energy": 15.0968
         },
         {
           "time": 218.613,
-          "free_energy": 138.764
+          "free_energy": 15.0782
         },
         {
           "time": 219.375,
-          "free_energy": 138.641
+          "free_energy": 15.0595
         },
         {
           "time": 220.137,
-          "free_energy": 138.52
+          "free_energy": 15.0405
         },
         {
           "time": 220.898,
-          "free_energy": 138.4
+          "free_energy": 15.0213
         },
         {
           "time": 221.66,
-          "free_energy": 138.281
+          "free_energy": 15.0019
         },
         {
           "time": 222.422,
-          "free_energy": 138.163
+          "free_energy": 14.9822
         },
         {
           "time": 223.184,
-          "free_energy": 138.046
+          "free_energy": 14.9623
         },
         {
           "time": 223.945,
-          "free_energy": 137.93
+          "free_energy": 14.9419
         },
         {
           "time": 224.707,
-          "free_energy": 137.815
+          "free_energy": 14.9212
         },
         {
           "time": 225.469,
-          "free_energy": 137.702
+          "free_energy": 14.9
         },
         {
           "time": 226.23,
-          "free_energy": 137.589
+          "free_energy": 14.8784
         },
         {
           "time": 226.992,
-          "free_energy": 137.477
+          "free_energy": 14.8562
         },
         {
           "time": 227.754,
-          "free_energy": 137.366
+          "free_energy": 14.8334
         },
         {
           "time": 228.516,
-          "free_energy": 137.255
+          "free_energy": 14.8099
         },
         {
           "time": 229.277,
-          "free_energy": 137.146
+          "free_energy": 14.7856
         },
         {
           "time": 230.039,
-          "free_energy": 137.038
+          "free_energy": 14.7606
         },
         {
           "time": 230.801,
-          "free_energy": 136.931
+          "free_energy": 14.7346
         },
         {
           "time": 231.562,
-          "free_energy": 136.824
+          "free_energy": 14.7076
         },
         {
           "time": 232.324,
-          "free_energy": 136.718
+          "free_energy": 14.6795
         },
         {
           "time": 233.086,
-          "free_energy": 136.614
+          "free_energy": 14.6503
         },
         {
           "time": 233.848,
-          "free_energy": 136.51
+          "free_energy": 14.6201
         },
         {
           "time": 234.609,
-          "free_energy": 136.406
+          "free_energy": 14.5889
         },
         {
           "time": 235.371,
-          "free_energy": 136.304
+          "free_energy": 14.557
         },
         {
           "time": 236.133,
-          "free_energy": 136.202
+          "free_energy": 14.5248
         },
         {
           "time": 236.895,
-          "free_energy": 136.101
+          "free_energy": 14.4925
         },
         {
           "time": 237.656,
-          "free_energy": 136.001
+          "free_energy": 14.4607
         },
         {
           "time": 238.418,
-          "free_energy": 135.902
+          "free_energy": 14.4295
         },
         {
           "time": 239.18,
-          "free_energy": 135.803
+          "free_energy": 14.3993
         },
         {
           "time": 239.941,
-          "free_energy": 135.705
+          "free_energy": 14.3703
         },
         {
           "time": 240.703,
-          "free_energy": 135.607
+          "free_energy": 14.3424
         },
         {
           "time": 241.465,
-          "free_energy": 135.51
+          "free_energy": 14.3156
         },
         {
           "time": 242.227,
-          "free_energy": 135.414
+          "free_energy": 14.29
         },
         {
           "time": 242.988,
-          "free_energy": 135.318
+          "free_energy": 14.2655
         },
         {
           "time": 243.75,
-          "free_energy": 135.223
+          "free_energy": 14.2419
         },
         {
           "time": 244.512,
-          "free_energy": 135.129
+          "free_energy": 14.2193
         },
         {
           "time": 245.273,
-          "free_energy": 135.035
+          "free_energy": 14.1975
         },
         {
           "time": 246.035,
-          "free_energy": 134.942
+          "free_energy": 14.1765
         },
         {
           "time": 246.797,
-          "free_energy": 134.849
+          "free_energy": 14.1563
         },
         {
           "time": 247.559,
-          "free_energy": 134.756
+          "free_energy": 14.1366
         },
         {
           "time": 248.32,
-          "free_energy": 134.665
+          "free_energy": 14.1175
         },
         {
           "time": 249.082,
-          "free_energy": 134.573
+          "free_energy": 14.0989
         },
         {
           "time": 249.844,
-          "free_energy": 134.483
+          "free_energy": 14.0808
         },
         {
           "time": 250.605,
-          "free_energy": 134.392
+          "free_energy": 14.0631
         },
         {
           "time": 251.367,
-          "free_energy": 134.303
+          "free_energy": 14.0456
         },
         {
           "time": 252.129,
-          "free_energy": 134.213
+          "free_energy": 14.0285
         },
         {
           "time": 252.891,
-          "free_energy": 134.125
+          "free_energy": 14.0115
         },
         {
           "time": 253.652,
-          "free_energy": 134.037
+          "free_energy": 13.9947
         },
         {
           "time": 254.414,
-          "free_energy": 133.949
+          "free_energy": 13.9781
         },
         {
           "time": 255.176,
-          "free_energy": 133.862
+          "free_energy": 13.9616
         },
         {
           "time": 255.938,
-          "free_energy": 133.775
+          "free_energy": 13.9451
         },
         {
           "time": 256.699,
-          "free_energy": 133.689
+          "free_energy": 13.9286
         },
         {
           "time": 257.461,
-          "free_energy": 133.604
+          "free_energy": 13.912
         },
         {
           "time": 258.223,
-          "free_energy": 133.519
+          "free_energy": 13.8954
         },
         {
           "time": 258.984,
-          "free_energy": 133.434
+          "free_energy": 13.8787
         },
         {
           "time": 259.746,
-          "free_energy": 133.35
+          "free_energy": 13.8619
         },
         {
           "time": 260.508,
-          "free_energy": 133.267
+          "free_energy": 13.8449
         },
         {
           "time": 261.27,
-          "free_energy": 133.184
+          "free_energy": 13.8276
         },
         {
           "time": 262.031,
-          "free_energy": 133.101
+          "free_energy": 13.8101
         },
         {
           "time": 262.793,
-          "free_energy": 133.02
+          "free_energy": 13.7923
         },
         {
           "time": 263.555,
-          "free_energy": 132.938
+          "free_energy": 13.774
         },
         {
           "time": 264.316,
-          "free_energy": 132.857
+          "free_energy": 13.7554
         },
         {
           "time": 265.078,
-          "free_energy": 132.777
+          "free_energy": 13.7363
         },
         {
           "time": 265.84,
-          "free_energy": 132.697
+          "free_energy": 13.7167
         },
         {
           "time": 266.602,
-          "free_energy": 132.618
+          "free_energy": 13.6966
         },
         {
           "time": 267.363,
-          "free_energy": 132.539
+          "free_energy": 13.6761
         },
         {
           "time": 268.125,
-          "free_energy": 132.46
+          "free_energy": 13.6553
         },
         {
           "time": 268.887,
-          "free_energy": 132.382
+          "free_energy": 13.6342
         },
         {
           "time": 269.648,
-          "free_energy": 132.305
+          "free_energy": 13.6131
         },
         {
           "time": 270.41,
-          "free_energy": 132.228
+          "free_energy": 13.5922
         },
         {
           "time": 271.172,
-          "free_energy": 132.151
+          "free_energy": 13.5715
         },
         {
           "time": 271.934,
-          "free_energy": 132.075
+          "free_energy": 13.5512
         },
         {
           "time": 272.695,
-          "free_energy": 131.999
+          "free_energy": 13.5314
         },
         {
           "time": 273.457,
-          "free_energy": 131.924
+          "free_energy": 13.512
         },
         {
           "time": 274.219,
-          "free_energy": 131.849
+          "free_energy": 13.4931
         },
         {
           "time": 274.98,
-          "free_energy": 131.774
+          "free_energy": 13.4747
         },
         {
           "time": 275.742,
-          "free_energy": 131.7
+          "free_energy": 13.4567
         },
         {
           "time": 276.504,
-          "free_energy": 131.626
+          "free_energy": 13.4392
         },
         {
           "time": 277.266,
-          "free_energy": 131.552
+          "free_energy": 13.4221
         },
         {
           "time": 278.027,
-          "free_energy": 131.479
+          "free_energy": 13.4054
         },
         {
           "time": 278.789,
-          "free_energy": 131.406
+          "free_energy": 13.3891
         },
         {
           "time": 279.551,
-          "free_energy": 131.333
+          "free_energy": 13.3732
         },
         {
           "time": 280.312,
-          "free_energy": 131.261
+          "free_energy": 13.3576
         },
         {
           "time": 281.074,
-          "free_energy": 131.189
+          "free_energy": 13.3424
         },
         {
           "time": 281.836,
-          "free_energy": 131.118
+          "free_energy": 13.3275
         },
         {
           "time": 282.598,
-          "free_energy": 131.046
+          "free_energy": 13.3129
         },
         {
           "time": 283.359,
-          "free_energy": 130.975
+          "free_energy": 13.2987
         },
         {
           "time": 284.121,
-          "free_energy": 130.904
+          "free_energy": 13.2848
         },
         {
           "time": 284.883,
-          "free_energy": 130.834
+          "free_energy": 13.2712
         },
         {
           "time": 285.645,
-          "free_energy": 130.763
+          "free_energy": 13.2578
         },
         {
           "time": 286.406,
-          "free_energy": 130.693
+          "free_energy": 13.2448
         },
         {
           "time": 287.168,
-          "free_energy": 130.623
+          "free_energy": 13.232
         },
         {
           "time": 287.93,
-          "free_energy": 130.553
+          "free_energy": 13.2194
         },
         {
           "time": 288.691,
-          "free_energy": 130.484
+          "free_energy": 13.2072
         },
         {
           "time": 289.453,
-          "free_energy": 130.415
+          "free_energy": 13.1951
         },
         {
           "time": 290.215,
-          "free_energy": 130.345
+          "free_energy": 13.1833
         },
         {
           "time": 290.977,
-          "free_energy": 130.276
+          "free_energy": 13.1717
         },
         {
           "time": 291.738,
-          "free_energy": 130.208
+          "free_energy": 13.1602
         },
         {
           "time": 292.5,
-          "free_energy": 130.139
+          "free_energy": 13.149
         },
         {
           "time": 293.262,
-          "free_energy": 130.07
+          "free_energy": 13.1379
         },
         {
           "time": 294.023,
-          "free_energy": 130.002
+          "free_energy": 13.127
         },
         {
           "time": 294.785,
-          "free_energy": 129.934
+          "free_energy": 13.1163
         },
         {
           "time": 295.547,
-          "free_energy": 129.866
+          "free_energy": 13.1056
         },
         {
           "time": 296.309,
-          "free_energy": 129.798
+          "free_energy": 13.0951
         },
         {
           "time": 297.07,
-          "free_energy": 129.73
+          "free_energy": 13.0847
         },
         {
           "time": 297.832,
-          "free_energy": 129.662
+          "free_energy": 13.0744
         },
         {
           "time": 298.594,
-          "free_energy": 129.595
+          "free_energy": 13.0642
         },
         {
           "time": 299.355,
-          "free_energy": 129.528
+          "free_energy": 13.054
         },
         {
           "time": 300.117,
-          "free_energy": 129.46
+          "free_energy": 13.0439
         },
         {
           "time": 300.879,
-          "free_energy": 129.393
+          "free_energy": 13.0339
         },
         {
           "time": 301.641,
-          "free_energy": 129.327
+          "free_energy": 13.0238
         },
         {
           "time": 302.402,
-          "free_energy": 129.26
+          "free_energy": 13.0138
         },
         {
           "time": 303.164,
-          "free_energy": 129.193
+          "free_energy": 13.0038
         },
         {
           "time": 303.926,
-          "free_energy": 129.127
+          "free_energy": 12.9938
         },
         {
           "time": 304.688,
-          "free_energy": 129.061
+          "free_energy": 12.9838
         },
         {
           "time": 305.449,
-          "free_energy": 128.995
+          "free_energy": 12.9737
         },
         {
           "time": 306.211,
-          "free_energy": 128.929
+          "free_energy": 12.9635
         },
         {
           "time": 306.973,
-          "free_energy": 128.864
+          "free_energy": 12.9533
         },
         {
           "time": 307.734,
-          "free_energy": 128.799
+          "free_energy": 12.943
         },
         {
           "time": 308.496,
-          "free_energy": 128.734
+          "free_energy": 12.9325
         },
         {
           "time": 309.258,
-          "free_energy": 128.669
+          "free_energy": 12.922
         },
         {
           "time": 310.02,
-          "free_energy": 128.604
+          "free_energy": 12.9112
         },
         {
           "time": 310.781,
-          "free_energy": 128.539
+          "free_energy": 12.9002
         },
         {
           "time": 311.543,
-          "free_energy": 128.475
+          "free_energy": 12.889
         },
         {
           "time": 312.305,
-          "free_energy": 128.411
+          "free_energy": 12.8775
         },
         {
           "time": 313.066,
-          "free_energy": 128.347
+          "free_energy": 12.8657
         },
         {
           "time": 313.828,
-          "free_energy": 128.284
+          "free_energy": 12.8535
         },
         {
           "time": 314.59,
-          "free_energy": 128.22
+          "free_energy": 12.8408
         },
         {
           "time": 315.352,
-          "free_energy": 128.157
+          "free_energy": 12.8278
         },
         {
           "time": 316.113,
-          "free_energy": 128.094
+          "free_energy": 12.8142
         },
         {
           "time": 316.875,
-          "free_energy": 128.031
+          "free_energy": 12.8003
         },
         {
           "time": 317.637,
-          "free_energy": 127.969
+          "free_energy": 12.7859
         },
         {
           "time": 318.398,
-          "free_energy": 127.906
+          "free_energy": 12.7713
         },
         {
           "time": 319.16,
-          "free_energy": 127.844
+          "free_energy": 12.7566
         },
         {
           "time": 319.922,
-          "free_energy": 127.782
+          "free_energy": 12.742
         },
         {
           "time": 320.684,
-          "free_energy": 127.72
+          "free_energy": 12.7276
         },
         {
           "time": 321.445,
-          "free_energy": 127.659
+          "free_energy": 12.7136
         },
         {
           "time": 322.207,
-          "free_energy": 127.597
+          "free_energy": 12.7001
         },
         {
           "time": 322.969,
-          "free_energy": 127.536
+          "free_energy": 12.6872
         },
         {
           "time": 323.73,
-          "free_energy": 127.475
+          "free_energy": 12.6748
         },
         {
           "time": 324.492,
-          "free_energy": 127.415
+          "free_energy": 12.663
         },
         {
           "time": 325.254,
-          "free_energy": 127.354
+          "free_energy": 12.6517
         },
         {
           "time": 326.016,
-          "free_energy": 127.294
+          "free_energy": 12.641
         },
         {
           "time": 326.777,
-          "free_energy": 127.233
+          "free_energy": 12.6308
         },
         {
           "time": 327.539,
-          "free_energy": 127.173
+          "free_energy": 12.621
         },
         {
           "time": 328.301,
-          "free_energy": 127.114
+          "free_energy": 12.6116
         },
         {
           "time": 329.062,
-          "free_energy": 127.054
+          "free_energy": 12.6027
         },
         {
           "time": 329.824,
-          "free_energy": 126.994
+          "free_energy": 12.5941
         },
         {
           "time": 330.586,
-          "free_energy": 126.935
+          "free_energy": 12.5859
         },
         {
           "time": 331.348,
-          "free_energy": 126.876
+          "free_energy": 12.578
         },
         {
           "time": 332.109,
-          "free_energy": 126.817
+          "free_energy": 12.5704
         },
         {
           "time": 332.871,
-          "free_energy": 126.758
+          "free_energy": 12.563
         },
         {
           "time": 333.633,
-          "free_energy": 126.7
+          "free_energy": 12.556
         },
         {
           "time": 334.395,
-          "free_energy": 126.641
+          "free_energy": 12.5491
         },
         {
           "time": 335.156,
-          "free_energy": 126.583
+          "free_energy": 12.5425
         },
         {
           "time": 335.918,
-          "free_energy": 126.525
+          "free_energy": 12.536
         },
         {
           "time": 336.68,
-          "free_energy": 126.467
+          "free_energy": 12.5298
         },
         {
           "time": 337.441,
-          "free_energy": 126.409
+          "free_energy": 12.5237
         },
         {
           "time": 338.203,
-          "free_energy": 126.352
+          "free_energy": 12.5178
         },
         {
           "time": 338.965,
-          "free_energy": 126.294
+          "free_energy": 12.512
         },
         {
           "time": 339.727,
-          "free_energy": 126.237
+          "free_energy": 12.5063
         },
         {
           "time": 340.488,
-          "free_energy": 126.18
+          "free_energy": 12.5008
         },
         {
           "time": 341.25,
-          "free_energy": 126.123
+          "free_energy": 12.4953
         },
         {
           "time": 342.012,
-          "free_energy": 126.066
+          "free_energy": 12.49
         },
         {
           "time": 342.773,
-          "free_energy": 126.01
+          "free_energy": 12.4847
         },
         {
           "time": 343.535,
-          "free_energy": 125.953
+          "free_energy": 12.4796
         },
         {
           "time": 344.297,
-          "free_energy": 125.897
+          "free_energy": 12.4745
         },
         {
           "time": 345.059,
-          "free_energy": 125.841
+          "free_energy": 12.4694
         },
         {
           "time": 345.82,
-          "free_energy": 125.785
+          "free_energy": 12.4645
         },
         {
           "time": 346.582,
-          "free_energy": 125.729
+          "free_energy": 12.4595
         },
         {
           "time": 347.344,
-          "free_energy": 125.673
+          "free_energy": 12.4547
         },
         {
           "time": 348.105,
-          "free_energy": 125.617
+          "free_energy": 12.4499
         },
         {
           "time": 348.867,
-          "free_energy": 125.562
+          "free_energy": 12.4451
         },
         {
           "time": 349.629,
-          "free_energy": 125.507
+          "free_energy": 12.4404
         },
         {
           "time": 350.391,
-          "free_energy": 125.451
+          "free_energy": 12.4357
         },
         {
           "time": 351.152,
-          "free_energy": 125.396
+          "free_energy": 12.431
         },
         {
           "time": 351.914,
-          "free_energy": 125.342
+          "free_energy": 12.4264
         },
         {
           "time": 352.676,
-          "free_energy": 125.287
+          "free_energy": 12.4218
         },
         {
           "time": 353.438,
-          "free_energy": 125.232
+          "free_energy": 12.4172
         },
         {
           "time": 354.199,
-          "free_energy": 125.178
+          "free_energy": 12.4126
         },
         {
           "time": 354.961,
-          "free_energy": 125.123
+          "free_energy": 12.4081
         },
         {
           "time": 355.723,
-          "free_energy": 125.069
+          "free_energy": 12.4036
         },
         {
           "time": 356.484,
-          "free_energy": 125.015
+          "free_energy": 12.3991
         },
         {
           "time": 357.246,
-          "free_energy": 124.961
+          "free_energy": 12.3946
         },
         {
           "time": 358.008,
-          "free_energy": 124.907
+          "free_energy": 12.3901
         },
         {
           "time": 358.77,
-          "free_energy": 124.853
+          "free_energy": 12.3857
         },
         {
           "time": 359.531,
-          "free_energy": 124.8
+          "free_energy": 12.3812
         },
         {
           "time": 360.293,
-          "free_energy": 124.746
+          "free_energy": 12.3768
         },
         {
           "time": 361.055,
-          "free_energy": 124.693
+          "free_energy": 12.3724
         },
         {
           "time": 361.816,
-          "free_energy": 124.64
+          "free_energy": 12.368
         },
         {
           "time": 362.578,
-          "free_energy": 124.587
+          "free_energy": 12.3636
         },
         {
           "time": 363.34,
-          "free_energy": 124.534
+          "free_energy": 12.3592
         },
         {
           "time": 364.102,
-          "free_energy": 124.481
+          "free_energy": 12.3548
         },
         {
           "time": 364.863,
-          "free_energy": 124.428
+          "free_energy": 12.3504
         },
         {
           "time": 365.625,
-          "free_energy": 124.376
+          "free_energy": 12.3461
         },
         {
           "time": 366.387,
-          "free_energy": 124.323
+          "free_energy": 12.3417
         },
         {
           "time": 367.148,
-          "free_energy": 124.271
+          "free_energy": 12.3373
         },
         {
           "time": 367.91,
-          "free_energy": 124.218
+          "free_energy": 12.333
         },
         {
           "time": 368.672,
-          "free_energy": 124.166
+          "free_energy": 12.3286
         },
         {
           "time": 369.434,
-          "free_energy": 124.114
+          "free_energy": 12.3243
         },
         {
           "time": 370.195,
-          "free_energy": 124.062
+          "free_energy": 12.3199
         },
         {
           "time": 370.957,
-          "free_energy": 124.011
+          "free_energy": 12.3156
         },
         {
           "time": 371.719,
-          "free_energy": 123.959
+          "free_energy": 12.3113
         },
         {
           "time": 372.48,
-          "free_energy": 123.907
+          "free_energy": 12.3069
         },
         {
           "time": 373.242,
-          "free_energy": 123.856
+          "free_energy": 12.3026
         },
         {
           "time": 374.004,
-          "free_energy": 123.804
+          "free_energy": 12.2983
         },
         {
           "time": 374.766,
-          "free_energy": 123.753
+          "free_energy": 12.2939
         },
         {
           "time": 375.527,
-          "free_energy": 123.702
+          "free_energy": 12.2896
         },
         {
           "time": 376.289,
-          "free_energy": 123.651
+          "free_energy": 12.2853
         },
         {
           "time": 377.051,
-          "free_energy": 123.6
+          "free_energy": 12.281
         },
         {
           "time": 377.812,
-          "free_energy": 123.549
+          "free_energy": 12.2766
         },
         {
           "time": 378.574,
-          "free_energy": 123.499
+          "free_energy": 12.2723
         },
         {
           "time": 379.336,
-          "free_energy": 123.448
+          "free_energy": 12.268
         },
         {
           "time": 380.098,
-          "free_energy": 123.397
+          "free_energy": 12.2637
         },
         {
           "time": 380.859,
-          "free_energy": 123.347
+          "free_energy": 12.2594
         },
         {
           "time": 381.621,
-          "free_energy": 123.297
+          "free_energy": 12.255
         },
         {
           "time": 382.383,
-          "free_energy": 123.247
+          "free_energy": 12.2507
         },
         {
           "time": 383.145,
-          "free_energy": 123.196
+          "free_energy": 12.2464
         },
         {
           "time": 383.906,
-          "free_energy": 123.146
+          "free_energy": 12.2421
         },
         {
           "time": 384.668,
-          "free_energy": 123.097
+          "free_energy": 12.2378
         },
         {
           "time": 385.43,
-          "free_energy": 123.047
+          "free_energy": 12.2334
         },
         {
           "time": 386.191,
-          "free_energy": 122.997
+          "free_energy": 12.2291
         },
         {
           "time": 386.953,
-          "free_energy": 122.947
+          "free_energy": 12.2248
         },
         {
           "time": 387.715,
-          "free_energy": 122.898
+          "free_energy": 12.2205
         },
         {
           "time": 388.477,
-          "free_energy": 122.849
+          "free_energy": 12.2161
         },
         {
           "time": 389.238,
-          "free_energy": 122.799
+          "free_energy": 12.2118
         },
         {
           "time": 390,
-          "free_energy": 122.75
+          "free_energy": 12.2075
         },
         {
           "time": 390.762,
-          "free_energy": 122.701
+          "free_energy": 12.2031
         },
         {
           "time": 391.523,
-          "free_energy": 122.652
+          "free_energy": 12.1988
         },
         {
           "time": 392.285,
-          "free_energy": 122.603
+          "free_energy": 12.1945
         },
         {
           "time": 393.047,
-          "free_energy": 122.554
+          "free_energy": 12.1901
         },
         {
           "time": 393.809,
-          "free_energy": 122.505
+          "free_energy": 12.1858
         },
         {
           "time": 394.57,
-          "free_energy": 122.457
+          "free_energy": 12.1814
         },
         {
           "time": 395.332,
-          "free_energy": 122.408
+          "free_energy": 12.1771
         },
         {
           "time": 396.094,
-          "free_energy": 122.36
+          "free_energy": 12.1727
         },
         {
           "time": 396.855,
-          "free_energy": 122.311
+          "free_energy": 12.1684
         },
         {
           "time": 397.617,
-          "free_energy": 122.263
+          "free_energy": 12.164
         },
         {
           "time": 398.379,
-          "free_energy": 122.215
+          "free_energy": 12.1597
         },
         {
           "time": 399.141,
-          "free_energy": 122.167
+          "free_energy": 12.1553
         },
         {
           "time": 399.902,
-          "free_energy": 122.119
+          "free_energy": 12.1509
         },
         {
           "time": 400.664,
-          "free_energy": 122.071
+          "free_energy": 12.1465
         },
         {
           "time": 401.426,
-          "free_energy": 122.023
+          "free_energy": 12.1422
         },
         {
           "time": 402.188,
-          "free_energy": 121.975
+          "free_energy": 12.1378
         },
         {
           "time": 402.949,
-          "free_energy": 121.928
+          "free_energy": 12.1334
         },
         {
           "time": 403.711,
-          "free_energy": 121.88
+          "free_energy": 12.129
         },
         {
           "time": 404.473,
-          "free_energy": 121.833
+          "free_energy": 12.1246
         },
         {
           "time": 405.234,
-          "free_energy": 121.785
+          "free_energy": 12.1202
         },
         {
           "time": 405.996,
-          "free_energy": 121.738
+          "free_energy": 12.1158
         },
         {
           "time": 406.758,
-          "free_energy": 121.691
+          "free_energy": 12.1114
         },
         {
           "time": 407.52,
-          "free_energy": 121.644
+          "free_energy": 12.107
         },
         {
           "time": 408.281,
-          "free_energy": 121.597
+          "free_energy": 12.1025
         },
         {
           "time": 409.043,
-          "free_energy": 121.55
+          "free_energy": 12.0981
         },
         {
           "time": 409.805,
-          "free_energy": 121.503
+          "free_energy": 12.0937
         },
         {
           "time": 410.566,
-          "free_energy": 121.456
+          "free_energy": 12.0892
         },
         {
           "time": 411.328,
-          "free_energy": 121.41
+          "free_energy": 12.0848
         },
         {
           "time": 412.09,
-          "free_energy": 121.363
+          "free_energy": 12.0803
         },
         {
           "time": 412.852,
-          "free_energy": 121.316
+          "free_energy": 12.0759
         },
         {
           "time": 413.613,
-          "free_energy": 121.27
+          "free_energy": 12.0714
         },
         {
           "time": 414.375,
-          "free_energy": 121.224
+          "free_energy": 12.0669
         },
         {
           "time": 415.137,
-          "free_energy": 121.177
+          "free_energy": 12.0625
         },
         {
           "time": 415.898,
-          "free_energy": 121.131
+          "free_energy": 12.058
         },
         {
           "time": 416.66,
-          "free_energy": 121.085
+          "free_energy": 12.0535
         },
         {
           "time": 417.422,
-          "free_energy": 121.039
+          "free_energy": 12.049
         },
         {
           "time": 418.184,
-          "free_energy": 120.993
+          "free_energy": 12.0445
         },
         {
           "time": 418.945,
-          "free_energy": 120.947
+          "free_energy": 12.0399
         },
         {
           "time": 419.707,
-          "free_energy": 120.902
+          "free_energy": 12.0354
         },
         {
           "time": 420.469,
-          "free_energy": 120.856
+          "free_energy": 12.0309
         },
         {
           "time": 421.23,
-          "free_energy": 120.81
+          "free_energy": 12.0263
         },
         {
           "time": 421.992,
-          "free_energy": 120.765
+          "free_energy": 12.0218
         },
         {
           "time": 422.754,
-          "free_energy": 120.719
+          "free_energy": 12.0172
         },
         {
           "time": 423.516,
-          "free_energy": 120.674
+          "free_energy": 12.0126
         },
         {
           "time": 424.277,
-          "free_energy": 120.629
+          "free_energy": 12.008
         },
         {
           "time": 425.039,
-          "free_energy": 120.583
+          "free_energy": 12.0034
         },
         {
           "time": 425.801,
-          "free_energy": 120.538
+          "free_energy": 11.9988
         },
         {
           "time": 426.562,
-          "free_energy": 120.493
+          "free_energy": 11.9942
         },
         {
           "time": 427.324,
-          "free_energy": 120.448
+          "free_energy": 11.9896
         },
         {
           "time": 428.086,
-          "free_energy": 120.403
+          "free_energy": 11.985
         },
         {
           "time": 428.848,
-          "free_energy": 120.358
+          "free_energy": 11.9803
         },
         {
           "time": 429.609,
-          "free_energy": 120.314
+          "free_energy": 11.9757
         },
         {
           "time": 430.371,
-          "free_energy": 120.269
+          "free_energy": 11.971
         },
         {
           "time": 431.133,
-          "free_energy": 120.224
+          "free_energy": 11.9663
         },
         {
           "time": 431.895,
-          "free_energy": 120.18
+          "free_energy": 11.9616
         },
         {
           "time": 432.656,
-          "free_energy": 120.136
+          "free_energy": 11.9569
         },
         {
           "time": 433.418,
-          "free_energy": 120.091
+          "free_energy": 11.9522
         },
         {
           "time": 434.18,
-          "free_energy": 120.047
+          "free_energy": 11.9474
         },
         {
           "time": 434.941,
-          "free_energy": 120.003
+          "free_energy": 11.9427
         },
         {
           "time": 435.703,
-          "free_energy": 119.959
+          "free_energy": 11.9379
         },
         {
           "time": 436.465,
-          "free_energy": 119.914
+          "free_energy": 11.9331
         },
         {
           "time": 437.227,
-          "free_energy": 119.87
+          "free_energy": 11.9283
         },
         {
           "time": 437.988,
-          "free_energy": 119.827
+          "free_energy": 11.9235
         },
         {
           "time": 438.75,
-          "free_energy": 119.783
+          "free_energy": 11.9187
         },
         {
           "time": 439.512,
-          "free_energy": 119.739
+          "free_energy": 11.9138
         },
         {
           "time": 440.273,
-          "free_energy": 119.695
+          "free_energy": 11.909
         },
         {
           "time": 441.035,
-          "free_energy": 119.652
+          "free_energy": 11.9041
         },
         {
           "time": 441.797,
-          "free_energy": 119.608
+          "free_energy": 11.8992
         },
         {
           "time": 442.559,
-          "free_energy": 119.565
+          "free_energy": 11.8943
         },
         {
           "time": 443.32,
-          "free_energy": 119.521
+          "free_energy": 11.8894
         },
         {
           "time": 444.082,
-          "free_energy": 119.478
+          "free_energy": 11.8844
         },
         {
           "time": 444.844,
-          "free_energy": 119.435
+          "free_energy": 11.8794
         },
         {
           "time": 445.605,
-          "free_energy": 119.391
+          "free_energy": 11.8744
         },
         {
           "time": 446.367,
-          "free_energy": 119.348
+          "free_energy": 11.8694
         },
         {
           "time": 447.129,
-          "free_energy": 119.305
+          "free_energy": 11.8644
         },
         {
           "time": 447.891,
-          "free_energy": 119.262
+          "free_energy": 11.8593
         },
         {
           "time": 448.652,
-          "free_energy": 119.219
+          "free_energy": 11.8543
         },
         {
           "time": 449.414,
-          "free_energy": 119.177
+          "free_energy": 11.8492
         },
         {
           "time": 450.176,
-          "free_energy": 119.134
+          "free_energy": 11.844
         },
         {
           "time": 450.938,
-          "free_energy": 119.091
+          "free_energy": 11.8389
         },
         {
           "time": 451.699,
-          "free_energy": 119.049
+          "free_energy": 11.8337
         },
         {
           "time": 452.461,
-          "free_energy": 119.006
+          "free_energy": 11.8285
         },
         {
           "time": 453.223,
-          "free_energy": 118.964
+          "free_energy": 11.8233
         },
         {
           "time": 453.984,
-          "free_energy": 118.921
+          "free_energy": 11.818
         },
         {
           "time": 454.746,
-          "free_energy": 118.879
+          "free_energy": 11.8127
         },
         {
           "time": 455.508,
-          "free_energy": 118.836
+          "free_energy": 11.8074
         },
         {
           "time": 456.27,
-          "free_energy": 118.794
+          "free_energy": 11.802
         },
         {
           "time": 457.031,
-          "free_energy": 118.752
+          "free_energy": 11.7966
         },
         {
           "time": 457.793,
-          "free_energy": 118.71
+          "free_energy": 11.7912
         },
         {
           "time": 458.555,
-          "free_energy": 118.668
+          "free_energy": 11.7857
         },
         {
           "time": 459.316,
-          "free_energy": 118.626
+          "free_energy": 11.7803
         },
         {
           "time": 460.078,
-          "free_energy": 118.584
+          "free_energy": 11.7747
         },
         {
           "time": 460.84,
-          "free_energy": 118.543
+          "free_energy": 11.7692
         },
         {
           "time": 461.602,
-          "free_energy": 118.501
+          "free_energy": 11.7635
         },
         {
           "time": 462.363,
-          "free_energy": 118.459
+          "free_energy": 11.7579
         },
         {
           "time": 463.125,
-          "free_energy": 118.418
+          "free_energy": 11.7522
         },
         {
           "time": 463.887,
-          "free_energy": 118.376
+          "free_energy": 11.7464
         },
         {
           "time": 464.648,
-          "free_energy": 118.335
+          "free_energy": 11.7406
         },
         {
           "time": 465.41,
-          "free_energy": 118.293
+          "free_energy": 11.7348
         },
         {
           "time": 466.172,
-          "free_energy": 118.252
+          "free_energy": 11.7289
         },
         {
           "time": 466.934,
-          "free_energy": 118.211
+          "free_energy": 11.723
         },
         {
           "time": 467.695,
-          "free_energy": 118.169
+          "free_energy": 11.717
         },
         {
           "time": 468.457,
-          "free_energy": 118.128
+          "free_energy": 11.7109
         },
         {
           "time": 469.219,
-          "free_energy": 118.087
+          "free_energy": 11.7048
         },
         {
           "time": 469.98,
-          "free_energy": 118.046
+          "free_energy": 11.6986
         },
         {
           "time": 470.742,
-          "free_energy": 118.005
+          "free_energy": 11.6923
         },
         {
           "time": 471.504,
-          "free_energy": 117.964
+          "free_energy": 11.686
         },
         {
           "time": 472.266,
-          "free_energy": 117.924
+          "free_energy": 11.6795
         },
         {
           "time": 473.027,
-          "free_energy": 117.883
+          "free_energy": 11.673
         },
         {
           "time": 473.789,
-          "free_energy": 117.842
+          "free_energy": 11.6664
         },
         {
           "time": 474.551,
-          "free_energy": 117.802
+          "free_energy": 11.6598
         },
         {
           "time": 475.312,
-          "free_energy": 117.761
+          "free_energy": 11.653
         },
         {
           "time": 476.074,
-          "free_energy": 117.721
+          "free_energy": 11.6461
         },
         {
           "time": 476.836,
-          "free_energy": 117.68
+          "free_energy": 11.6391
         },
         {
           "time": 477.598,
-          "free_energy": 117.64
+          "free_energy": 11.632
         },
         {
           "time": 478.359,
-          "free_energy": 117.599
+          "free_energy": 11.6248
         },
         {
           "time": 479.121,
-          "free_energy": 117.559
+          "free_energy": 11.6174
         },
         {
           "time": 479.883,
-          "free_energy": 117.519
+          "free_energy": 11.6099
         },
         {
           "time": 480.645,
-          "free_energy": 117.479
+          "free_energy": 11.6023
         },
         {
           "time": 481.406,
-          "free_energy": 117.439
+          "free_energy": 11.5944
         },
         {
           "time": 482.168,
-          "free_energy": 117.399
+          "free_energy": 11.5864
         },
         {
           "time": 482.93,
-          "free_energy": 117.359
+          "free_energy": 11.5782
         },
         {
           "time": 483.691,
-          "free_energy": 117.319
+          "free_energy": 11.5697
         },
         {
           "time": 484.453,
-          "free_energy": 117.279
+          "free_energy": 11.561
         },
         {
           "time": 485.215,
-          "free_energy": 117.24
+          "free_energy": 11.5521
         },
         {
           "time": 485.977,
-          "free_energy": 117.2
+          "free_energy": 11.5429
         },
         {
           "time": 486.738,
-          "free_energy": 117.16
+          "free_energy": 11.5333
         },
         {
           "time": 487.5,
-          "free_energy": 117.121
+          "free_energy": 11.5234
         },
         {
           "time": 488.262,
-          "free_energy": 117.081
+          "free_energy": 11.513
         },
         {
           "time": 489.023,
-          "free_energy": 117.042
+          "free_energy": 11.5023
         },
         {
           "time": 489.785,
-          "free_energy": 117.002
+          "free_energy": 11.491
         },
         {
           "time": 490.547,
-          "free_energy": 116.963
+          "free_energy": 11.4791
         },
         {
           "time": 491.309,
-          "free_energy": 116.924
+          "free_energy": 11.4666
         },
         {
           "time": 492.07,
-          "free_energy": 116.885
+          "free_energy": 11.4534
         },
         {
           "time": 492.832,
-          "free_energy": 116.846
+          "free_energy": 11.4394
         },
         {
           "time": 493.594,
-          "free_energy": 116.807
+          "free_energy": 11.4246
         },
         {
           "time": 494.355,
-          "free_energy": 116.768
+          "free_energy": 11.4089
         },
         {
           "time": 495.117,
-          "free_energy": 116.729
+          "free_energy": 11.3924
         },
         {
           "time": 495.879,
-          "free_energy": 116.69
+          "free_energy": 11.3752
         },
         {
           "time": 496.641,
-          "free_energy": 116.651
+          "free_energy": 11.3573
         },
         {
           "time": 497.402,
-          "free_energy": 116.612
+          "free_energy": 11.339
         },
         {
           "time": 498.164,
-          "free_energy": 116.573
+          "free_energy": 11.3207
         },
         {
           "time": 498.926,
-          "free_energy": 116.535
+          "free_energy": 11.3025
         },
         {
           "time": 499.688,
-          "free_energy": 116.496
+          "free_energy": 11.2848
         },
         {
           "time": 500.449,
-          "free_energy": 116.458
+          "free_energy": 11.2678
         },
         {
           "time": 501.211,
-          "free_energy": 116.419
+          "free_energy": 11.2515
         },
         {
           "time": 501.973,
-          "free_energy": 116.381
+          "free_energy": 11.2361
         },
         {
           "time": 502.734,
-          "free_energy": 116.342
+          "free_energy": 11.2216
         },
         {
           "time": 503.496,
-          "free_energy": 116.304
+          "free_energy": 11.208
         },
         {
           "time": 504.258,
-          "free_energy": 116.266
+          "free_energy": 11.1952
         },
         {
           "time": 505.02,
-          "free_energy": 116.228
+          "free_energy": 11.1833
         },
         {
           "time": 505.781,
-          "free_energy": 116.189
+          "free_energy": 11.1722
         },
         {
           "time": 506.543,
-          "free_energy": 116.151
+          "free_energy": 11.1618
         },
         {
           "time": 507.305,
-          "free_energy": 116.113
+          "free_energy": 11.1521
         },
         {
           "time": 508.066,
-          "free_energy": 116.075
+          "free_energy": 11.143
         },
         {
           "time": 508.828,
-          "free_energy": 116.038
+          "free_energy": 11.1345
         },
         {
           "time": 509.59,
-          "free_energy": 116
+          "free_energy": 11.1265
         },
         {
           "time": 510.352,
-          "free_energy": 115.962
+          "free_energy": 11.119
         },
         {
           "time": 511.113,
-          "free_energy": 115.924
+          "free_energy": 11.1119
         },
         {
           "time": 511.875,
-          "free_energy": 115.886
+          "free_energy": 11.1052
         },
         {
           "time": 512.637,
-          "free_energy": 115.849
+          "free_energy": 11.0989
         },
         {
           "time": 513.398,
-          "free_energy": 115.811
+          "free_energy": 11.0929
         },
         {
           "time": 514.16,
-          "free_energy": 115.774
+          "free_energy": 11.0872
         },
         {
           "time": 514.922,
-          "free_energy": 115.736
+          "free_energy": 11.0818
         },
         {
           "time": 515.684,
-          "free_energy": 115.699
+          "free_energy": 11.0767
         },
         {
           "time": 516.445,
-          "free_energy": 115.662
+          "free_energy": 11.0717
         },
         {
           "time": 517.207,
-          "free_energy": 115.624
+          "free_energy": 11.067
         },
         {
           "time": 517.969,
-          "free_energy": 115.587
+          "free_energy": 11.0624
         },
         {
           "time": 518.73,
-          "free_energy": 115.55
+          "free_energy": 11.058
         },
         {
           "time": 519.492,
-          "free_energy": 115.513
+          "free_energy": 11.0538
         },
         {
           "time": 520.254,
-          "free_energy": 115.476
+          "free_energy": 11.0497
         },
         {
           "time": 521.016,
-          "free_energy": 115.439
+          "free_energy": 11.0457
         },
         {
           "time": 521.777,
-          "free_energy": 115.402
+          "free_energy": 11.0419
         },
         {
           "time": 522.539,
-          "free_energy": 115.365
+          "free_energy": 11.0381
         },
         {
           "time": 523.301,
-          "free_energy": 115.328
+          "free_energy": 11.0344
         },
         {
           "time": 524.062,
-          "free_energy": 115.291
+          "free_energy": 11.0308
         },
         {
           "time": 524.824,
-          "free_energy": 115.255
+          "free_energy": 11.0273
         },
         {
           "time": 525.586,
-          "free_energy": 115.218
+          "free_energy": 11.0239
         },
         {
           "time": 526.348,
-          "free_energy": 115.181
+          "free_energy": 11.0205
         },
         {
           "time": 527.109,
-          "free_energy": 115.145
+          "free_energy": 11.0171
         },
         {
           "time": 527.871,
-          "free_energy": 115.108
+          "free_energy": 11.0139
         },
         {
           "time": 528.633,
-          "free_energy": 115.072
+          "free_energy": 11.0106
         },
         {
           "time": 529.395,
-          "free_energy": 115.035
+          "free_energy": 11.0074
         },
         {
           "time": 530.156,
-          "free_energy": 114.999
+          "free_energy": 11.0042
         },
         {
           "time": 530.918,
-          "free_energy": 114.963
+          "free_energy": 11.0011
         },
         {
           "time": 531.68,
-          "free_energy": 114.926
+          "free_energy": 10.998
         },
         {
           "time": 532.441,
-          "free_energy": 114.89
+          "free_energy": 10.9949
         },
         {
           "time": 533.203,
-          "free_energy": 114.854
+          "free_energy": 10.9919
         },
         {
           "time": 533.965,
-          "free_energy": 114.818
+          "free_energy": 10.9888
         },
         {
           "time": 534.727,
-          "free_energy": 114.782
+          "free_energy": 10.9858
         },
         {
           "time": 535.488,
-          "free_energy": 114.746
+          "free_energy": 10.9828
         },
         {
           "time": 536.25,
-          "free_energy": 114.71
+          "free_energy": 10.9798
         },
         {
           "time": 537.012,
-          "free_energy": 114.674
+          "free_energy": 10.9769
         },
         {
           "time": 537.773,
-          "free_energy": 114.638
+          "free_energy": 10.9739
         },
         {
           "time": 538.535,
-          "free_energy": 114.603
+          "free_energy": 10.971
         },
         {
           "time": 539.297,
-          "free_energy": 114.567
+          "free_energy": 10.968
         },
         {
           "time": 540.059,
-          "free_energy": 114.531
+          "free_energy": 10.9651
         },
         {
           "time": 540.82,
-          "free_energy": 114.496
+          "free_energy": 10.9622
         },
         {
           "time": 541.582,
-          "free_energy": 114.46
+          "free_energy": 10.9593
         },
         {
           "time": 542.344,
-          "free_energy": 114.425
+          "free_energy": 10.9564
         },
         {
           "time": 543.105,
-          "free_energy": 114.389
+          "free_energy": 10.9535
         },
         {
           "time": 543.867,
-          "free_energy": 114.354
+          "free_energy": 10.9506
         },
         {
           "time": 544.629,
-          "free_energy": 114.319
+          "free_energy": 10.9477
         },
         {
           "time": 545.391,
-          "free_energy": 114.283
+          "free_energy": 10.9449
         },
         {
           "time": 546.152,
-          "free_energy": 114.248
+          "free_energy": 10.942
         },
         {
           "time": 546.914,
-          "free_energy": 114.213
+          "free_energy": 10.9391
         },
         {
           "time": 547.676,
-          "free_energy": 114.178
+          "free_energy": 10.9362
         },
         {
           "time": 548.438,
-          "free_energy": 114.143
+          "free_energy": 10.9334
         },
         {
           "time": 549.199,
-          "free_energy": 114.108
+          "free_energy": 10.9305
         },
         {
           "time": 549.961,
-          "free_energy": 114.073
+          "free_energy": 10.9276
         },
         {
           "time": 550.723,
-          "free_energy": 114.038
+          "free_energy": 10.9248
         },
         {
           "time": 551.484,
-          "free_energy": 114.003
+          "free_energy": 10.9219
         },
         {
           "time": 552.246,
-          "free_energy": 113.968
+          "free_energy": 10.9191
         },
         {
           "time": 553.008,
-          "free_energy": 113.933
+          "free_energy": 10.9162
         },
         {
           "time": 553.77,
-          "free_energy": 113.899
+          "free_energy": 10.9133
         },
         {
           "time": 554.531,
-          "free_energy": 113.864
+          "free_energy": 10.9105
         },
         {
           "time": 555.293,
-          "free_energy": 113.829
+          "free_energy": 10.9076
         },
         {
           "time": 556.055,
-          "free_energy": 113.795
+          "free_energy": 10.9048
         },
         {
           "time": 556.816,
-          "free_energy": 113.76
+          "free_energy": 10.9019
         },
         {
           "time": 557.578,
-          "free_energy": 113.726
+          "free_energy": 10.899
         },
         {
           "time": 558.34,
-          "free_energy": 113.691
+          "free_energy": 10.8962
         },
         {
           "time": 559.102,
-          "free_energy": 113.657
+          "free_energy": 10.8933
         },
         {
           "time": 559.863,
-          "free_energy": 113.623
+          "free_energy": 10.8904
         },
         {
           "time": 560.625,
-          "free_energy": 113.589
+          "free_energy": 10.8876
         },
         {
           "time": 561.387,
-          "free_energy": 113.554
+          "free_energy": 10.8847
         },
         {
           "time": 562.148,
-          "free_energy": 113.52
+          "free_energy": 10.8818
         },
         {
           "time": 562.91,
-          "free_energy": 113.486
+          "free_energy": 10.8789
         },
         {
           "time": 563.672,
-          "free_energy": 113.452
+          "free_energy": 10.8761
         },
         {
           "time": 564.434,
-          "free_energy": 113.418
+          "free_energy": 10.8732
         },
         {
           "time": 565.195,
-          "free_energy": 113.384
+          "free_energy": 10.8703
         },
         {
           "time": 565.957,
-          "free_energy": 113.35
+          "free_energy": 10.8674
         },
         {
           "time": 566.719,
-          "free_energy": 113.316
+          "free_energy": 10.8645
         },
         {
           "time": 567.48,
-          "free_energy": 113.283
+          "free_energy": 10.8616
         },
         {
           "time": 568.242,
-          "free_energy": 113.249
+          "free_energy": 10.8587
         },
         {
           "time": 569.004,
-          "free_energy": 113.215
+          "free_energy": 10.8558
         },
         {
           "time": 569.766,
-          "free_energy": 113.182
+          "free_energy": 10.8529
         },
         {
           "time": 570.527,
-          "free_energy": 113.148
+          "free_energy": 10.85
         },
         {
           "time": 571.289,
-          "free_energy": 113.114
+          "free_energy": 10.8471
         },
         {
           "time": 572.051,
-          "free_energy": 113.081
+          "free_energy": 10.8442
         },
         {
           "time": 572.812,
-          "free_energy": 113.048
+          "free_energy": 10.8413
         },
         {
           "time": 573.574,
-          "free_energy": 113.014
+          "free_energy": 10.8383
         },
         {
           "time": 574.336,
-          "free_energy": 112.981
+          "free_energy": 10.8354
         },
         {
           "time": 575.098,
-          "free_energy": 112.948
+          "free_energy": 10.8325
         },
         {
           "time": 575.859,
-          "free_energy": 112.914
+          "free_energy": 10.8295
         },
         {
           "time": 576.621,
-          "free_energy": 112.881
+          "free_energy": 10.8266
         },
         {
           "time": 577.383,
-          "free_energy": 112.848
+          "free_energy": 10.8236
         },
         {
           "time": 578.145,
-          "free_energy": 112.815
+          "free_energy": 10.8207
         },
         {
           "time": 578.906,
-          "free_energy": 112.782
+          "free_energy": 10.8177
         },
         {
           "time": 579.668,
-          "free_energy": 112.749
+          "free_energy": 10.8147
         },
         {
           "time": 580.43,
-          "free_energy": 112.716
+          "free_energy": 10.8117
         },
         {
           "time": 581.191,
-          "free_energy": 112.683
+          "free_energy": 10.8088
         },
         {
           "time": 581.953,
-          "free_energy": 112.65
+          "free_energy": 10.8058
         },
         {
           "time": 582.715,
-          "free_energy": 112.618
+          "free_energy": 10.8028
         },
         {
           "time": 583.477,
-          "free_energy": 112.585
+          "free_energy": 10.7998
         },
         {
           "time": 584.238,
-          "free_energy": 112.552
+          "free_energy": 10.7967
         },
         {
           "time": 585,
-          "free_energy": 112.52
+          "free_energy": 10.7937
         },
         {
           "time": 585.762,
-          "free_energy": 112.487
+          "free_energy": 10.7907
         },
         {
           "time": 586.523,
-          "free_energy": 112.455
+          "free_energy": 10.7877
         },
         {
           "time": 587.285,
-          "free_energy": 112.422
+          "free_energy": 10.7846
         },
         {
           "time": 588.047,
-          "free_energy": 112.39
+          "free_energy": 10.7815
         },
         {
           "time": 588.809,
-          "free_energy": 112.357
+          "free_energy": 10.7785
         },
         {
           "time": 589.57,
-          "free_energy": 112.325
+          "free_energy": 10.7754
         },
         {
           "time": 590.332,
-          "free_energy": 112.293
+          "free_energy": 10.7723
         },
         {
           "time": 591.094,
-          "free_energy": 112.261
+          "free_energy": 10.7692
         },
         {
           "time": 591.855,
-          "free_energy": 112.228
+          "free_energy": 10.7661
         },
         {
           "time": 592.617,
-          "free_energy": 112.196
+          "free_energy": 10.763
         },
         {
           "time": 593.379,
-          "free_energy": 112.164
+          "free_energy": 10.7599
         },
         {
           "time": 594.141,
-          "free_energy": 112.132
+          "free_energy": 10.7567
         },
         {
           "time": 594.902,
-          "free_energy": 112.1
+          "free_energy": 10.7536
         },
         {
           "time": 595.664,
-          "free_energy": 112.068
+          "free_energy": 10.7504
         },
         {
           "time": 596.426,
-          "free_energy": 112.037
+          "free_energy": 10.7473
         },
         {
           "time": 597.188,
-          "free_energy": 112.005
+          "free_energy": 10.7441
         },
         {
           "time": 597.949,
-          "free_energy": 111.973
+          "free_energy": 10.7409
         },
         {
           "time": 598.711,
-          "free_energy": 111.941
+          "free_energy": 10.7376
         },
         {
           "time": 599.473,
-          "free_energy": 111.91
+          "free_energy": 10.7344
         },
         {
           "time": 600.234,
-          "free_energy": 111.878
+          "free_energy": 10.7312
         },
         {
           "time": 600.996,
-          "free_energy": 111.846
+          "free_energy": 10.7279
         },
         {
           "time": 601.758,
-          "free_energy": 111.815
+          "free_energy": 10.7246
         },
         {
           "time": 602.52,
-          "free_energy": 111.783
+          "free_energy": 10.7213
         },
         {
           "time": 603.281,
-          "free_energy": 111.752
+          "free_energy": 10.718
         },
         {
           "time": 604.043,
-          "free_energy": 111.721
+          "free_energy": 10.7147
         },
         {
           "time": 604.805,
-          "free_energy": 111.689
+          "free_energy": 10.7113
         },
         {
           "time": 605.566,
-          "free_energy": 111.658
+          "free_energy": 10.708
         },
         {
           "time": 606.328,
-          "free_energy": 111.627
+          "free_energy": 10.7046
         },
         {
           "time": 607.09,
-          "free_energy": 111.596
+          "free_energy": 10.7012
         },
         {
           "time": 607.852,
-          "free_energy": 111.565
+          "free_energy": 10.6978
         },
         {
           "time": 608.613,
-          "free_energy": 111.534
+          "free_energy": 10.6943
         },
         {
           "time": 609.375,
-          "free_energy": 111.503
+          "free_energy": 10.6908
         },
         {
           "time": 610.137,
-          "free_energy": 111.472
+          "free_energy": 10.6873
         },
         {
           "time": 610.898,
-          "free_energy": 111.441
+          "free_energy": 10.6838
         },
         {
           "time": 611.66,
-          "free_energy": 111.41
+          "free_energy": 10.6802
         },
         {
           "time": 612.422,
-          "free_energy": 111.379
+          "free_energy": 10.6767
         },
         {
           "time": 613.184,
-          "free_energy": 111.348
+          "free_energy": 10.6731
         },
         {
           "time": 613.945,
-          "free_energy": 111.318
+          "free_energy": 10.6694
         },
         {
           "time": 614.707,
-          "free_energy": 111.287
+          "free_energy": 10.6657
         },
         {
           "time": 615.469,
-          "free_energy": 111.256
+          "free_energy": 10.662
         },
         {
           "time": 616.23,
-          "free_energy": 111.226
+          "free_energy": 10.6583
         },
         {
           "time": 616.992,
-          "free_energy": 111.195
+          "free_energy": 10.6545
         },
         {
           "time": 617.754,
-          "free_energy": 111.165
+          "free_energy": 10.6507
         },
         {
           "time": 618.516,
-          "free_energy": 111.134
+          "free_energy": 10.6468
         },
         {
           "time": 619.277,
-          "free_energy": 111.104
+          "free_energy": 10.6429
         },
         {
           "time": 620.039,
-          "free_energy": 111.074
+          "free_energy": 10.639
         },
         {
           "time": 620.801,
-          "free_energy": 111.043
+          "free_energy": 10.635
         },
         {
           "time": 621.562,
-          "free_energy": 111.013
+          "free_energy": 10.6309
         },
         {
           "time": 622.324,
-          "free_energy": 110.983
+          "free_energy": 10.6268
         },
         {
           "time": 623.086,
-          "free_energy": 110.953
+          "free_energy": 10.6226
         },
         {
           "time": 623.848,
-          "free_energy": 110.923
+          "free_energy": 10.6184
         },
         {
           "time": 624.609,
-          "free_energy": 110.893
+          "free_energy": 10.6141
         },
         {
           "time": 625.371,
-          "free_energy": 110.863
+          "free_energy": 10.6097
         },
         {
           "time": 626.133,
-          "free_energy": 110.833
+          "free_energy": 10.6053
         },
         {
           "time": 626.895,
-          "free_energy": 110.803
+          "free_energy": 10.6008
         },
         {
           "time": 627.656,
-          "free_energy": 110.773
+          "free_energy": 10.5961
         },
         {
           "time": 628.418,
-          "free_energy": 110.743
+          "free_energy": 10.5914
         },
         {
           "time": 629.18,
-          "free_energy": 110.714
+          "free_energy": 10.5866
         },
         {
           "time": 629.941,
-          "free_energy": 110.684
+          "free_energy": 10.5816
         },
         {
           "time": 630.703,
-          "free_energy": 110.654
+          "free_energy": 10.5765
         },
         {
           "time": 631.465,
-          "free_energy": 110.625
+          "free_energy": 10.5713
         },
         {
           "time": 632.227,
-          "free_energy": 110.595
+          "free_energy": 10.5659
         },
         {
           "time": 632.988,
-          "free_energy": 110.566
+          "free_energy": 10.5603
         },
         {
           "time": 633.75,
-          "free_energy": 110.536
+          "free_energy": 10.5546
         },
         {
           "time": 634.512,
-          "free_energy": 110.507
+          "free_energy": 10.5486
         },
         {
           "time": 635.273,
-          "free_energy": 110.477
+          "free_energy": 10.5424
         },
         {
           "time": 636.035,
-          "free_energy": 110.448
+          "free_energy": 10.5359
         },
         {
           "time": 636.797,
-          "free_energy": 110.419
+          "free_energy": 10.5291
         },
         {
           "time": 637.559,
-          "free_energy": 110.39
+          "free_energy": 10.5219
         },
         {
           "time": 638.32,
-          "free_energy": 110.361
+          "free_energy": 10.5144
         },
         {
           "time": 639.082,
-          "free_energy": 110.331
+          "free_energy": 10.5064
         },
         {
           "time": 639.844,
-          "free_energy": 110.302
+          "free_energy": 10.4981
         },
         {
           "time": 640.605,
-          "free_energy": 110.273
+          "free_energy": 10.4893
         },
         {
           "time": 641.367,
-          "free_energy": 110.244
+          "free_energy": 10.48
         },
         {
           "time": 642.129,
-          "free_energy": 110.216
+          "free_energy": 10.4705
         },
         {
           "time": 642.891,
-          "free_energy": 110.187
+          "free_energy": 10.4607
         },
         {
           "time": 643.652,
-          "free_energy": 110.158
+          "free_energy": 10.4508
         },
         {
           "time": 644.414,
-          "free_energy": 110.129
+          "free_energy": 10.4409
         },
         {
           "time": 645.176,
-          "free_energy": 110.1
+          "free_energy": 10.4312
         },
         {
           "time": 645.938,
-          "free_energy": 110.072
+          "free_energy": 10.4217
         },
         {
           "time": 646.699,
-          "free_energy": 110.043
+          "free_energy": 10.4127
         },
         {
           "time": 647.461,
-          "free_energy": 110.014
+          "free_energy": 10.404
         },
         {
           "time": 648.223,
-          "free_energy": 109.986
+          "free_energy": 10.3958
         },
         {
           "time": 648.984,
-          "free_energy": 109.957
+          "free_energy": 10.3881
         },
         {
           "time": 649.746,
-          "free_energy": 109.929
+          "free_energy": 10.3808
         },
         {
           "time": 650.508,
-          "free_energy": 109.901
+          "free_energy": 10.3739
         },
         {
           "time": 651.27,
-          "free_energy": 109.872
+          "free_energy": 10.3674
         },
         {
           "time": 652.031,
-          "free_energy": 109.844
+          "free_energy": 10.3613
         },
         {
           "time": 652.793,
-          "free_energy": 109.816
+          "free_energy": 10.3555
         },
         {
           "time": 653.555,
-          "free_energy": 109.788
+          "free_energy": 10.35
         },
         {
           "time": 654.316,
-          "free_energy": 109.759
+          "free_energy": 10.3449
         },
         {
           "time": 655.078,
-          "free_energy": 109.731
+          "free_energy": 10.34
         },
         {
           "time": 655.84,
-          "free_energy": 109.703
+          "free_energy": 10.3354
         },
         {
           "time": 656.602,
-          "free_energy": 109.675
+          "free_energy": 10.331
         },
         {
           "time": 657.363,
-          "free_energy": 109.647
+          "free_energy": 10.3268
         },
         {
           "time": 658.125,
-          "free_energy": 109.619
+          "free_energy": 10.3229
         },
         {
           "time": 658.887,
-          "free_energy": 109.591
+          "free_energy": 10.3191
         },
         {
           "time": 659.648,
-          "free_energy": 109.564
+          "free_energy": 10.3156
         },
         {
           "time": 660.41,
-          "free_energy": 109.536
+          "free_energy": 10.3122
         },
         {
           "time": 661.172,
-          "free_energy": 109.508
+          "free_energy": 10.309
         },
         {
           "time": 661.934,
-          "free_energy": 109.48
+          "free_energy": 10.3059
         },
         {
           "time": 662.695,
-          "free_energy": 109.453
+          "free_energy": 10.3029
         },
         {
           "time": 663.457,
-          "free_energy": 109.425
+          "free_energy": 10.3001
         },
         {
           "time": 664.219,
-          "free_energy": 109.398
+          "free_energy": 10.2973
         },
         {
           "time": 664.98,
-          "free_energy": 109.37
+          "free_energy": 10.2947
         },
         {
           "time": 665.742,
-          "free_energy": 109.343
+          "free_energy": 10.2922
         },
         {
           "time": 666.504,
-          "free_energy": 109.315
+          "free_energy": 10.2898
         },
         {
           "time": 667.266,
-          "free_energy": 109.288
+          "free_energy": 10.2875
         },
         {
           "time": 668.027,
-          "free_energy": 109.261
+          "free_energy": 10.2852
         },
         {
           "time": 668.789,
-          "free_energy": 109.233
+          "free_energy": 10.283
         },
         {
           "time": 669.551,
-          "free_energy": 109.206
+          "free_energy": 10.2809
         },
         {
           "time": 670.312,
-          "free_energy": 109.179
+          "free_energy": 10.2789
         },
         {
           "time": 671.074,
-          "free_energy": 109.152
+          "free_energy": 10.2769
         },
         {
           "time": 671.836,
-          "free_energy": 109.125
+          "free_energy": 10.2749
         },
         {
           "time": 672.598,
-          "free_energy": 109.098
+          "free_energy": 10.273
         },
         {
           "time": 673.359,
-          "free_energy": 109.071
+          "free_energy": 10.2712
         },
         {
           "time": 674.121,
-          "free_energy": 109.044
+          "free_energy": 10.2694
         },
         {
           "time": 674.883,
-          "free_energy": 109.017
+          "free_energy": 10.2677
         },
         {
           "time": 675.645,
-          "free_energy": 108.99
+          "free_energy": 10.2659
         },
         {
           "time": 676.406,
-          "free_energy": 108.963
+          "free_energy": 10.2642
         },
         {
           "time": 677.168,
-          "free_energy": 108.936
+          "free_energy": 10.2626
         },
         {
           "time": 677.93,
-          "free_energy": 108.91
+          "free_energy": 10.261
         },
         {
           "time": 678.691,
-          "free_energy": 108.883
+          "free_energy": 10.2594
         },
         {
           "time": 679.453,
-          "free_energy": 108.856
+          "free_energy": 10.2578
         },
         {
           "time": 680.215,
-          "free_energy": 108.83
+          "free_energy": 10.2563
         },
         {
           "time": 680.977,
-          "free_energy": 108.803
+          "free_energy": 10.2548
         },
         {
           "time": 681.738,
-          "free_energy": 108.777
+          "free_energy": 10.2533
         },
         {
           "time": 682.5,
-          "free_energy": 108.75
+          "free_energy": 10.2518
         },
         {
           "time": 683.262,
-          "free_energy": 108.724
+          "free_energy": 10.2503
         },
         {
           "time": 684.023,
-          "free_energy": 108.697
+          "free_energy": 10.2489
         },
         {
           "time": 684.785,
-          "free_energy": 108.671
+          "free_energy": 10.2474
         },
         {
           "time": 685.547,
-          "free_energy": 108.645
+          "free_energy": 10.246
         },
         {
           "time": 686.309,
-          "free_energy": 108.619
+          "free_energy": 10.2446
         },
         {
           "time": 687.07,
-          "free_energy": 108.592
+          "free_energy": 10.2432
         },
         {
           "time": 687.832,
-          "free_energy": 108.566
+          "free_energy": 10.2419
         },
         {
           "time": 688.594,
-          "free_energy": 108.54
+          "free_energy": 10.2405
         },
         {
           "time": 689.355,
-          "free_energy": 108.514
+          "free_energy": 10.2391
         },
         {
           "time": 690.117,
-          "free_energy": 108.488
+          "free_energy": 10.2378
         },
         {
           "time": 690.879,
-          "free_energy": 108.462
+          "free_energy": 10.2365
         },
         {
           "time": 691.641,
-          "free_energy": 108.436
+          "free_energy": 10.2351
         },
         {
           "time": 692.402,
-          "free_energy": 108.41
+          "free_energy": 10.2338
         },
         {
           "time": 693.164,
-          "free_energy": 108.384
+          "free_energy": 10.2325
         },
         {
           "time": 693.926,
-          "free_energy": 108.359
+          "free_energy": 10.2312
         },
         {
           "time": 694.688,
-          "free_energy": 108.333
+          "free_energy": 10.2299
         },
         {
           "time": 695.449,
-          "free_energy": 108.307
+          "free_energy": 10.2286
         },
         {
           "time": 696.211,
-          "free_energy": 108.281
+          "free_energy": 10.2273
         },
         {
           "time": 696.973,
-          "free_energy": 108.256
+          "free_energy": 10.226
         },
         {
           "time": 697.734,
-          "free_energy": 108.23
+          "free_energy": 10.2248
         },
         {
           "time": 698.496,
-          "free_energy": 108.205
+          "free_energy": 10.2235
         },
         {
           "time": 699.258,
-          "free_energy": 108.179
+          "free_energy": 10.2222
         },
         {
           "time": 700.02,
-          "free_energy": 108.154
+          "free_energy": 10.221
         },
         {
           "time": 700.781,
-          "free_energy": 108.128
+          "free_energy": 10.2197
         },
         {
           "time": 701.543,
-          "free_energy": 108.103
+          "free_energy": 10.2184
         },
         {
           "time": 702.305,
-          "free_energy": 108.078
+          "free_energy": 10.2172
         },
         {
           "time": 703.066,
-          "free_energy": 108.052
+          "free_energy": 10.2159
         },
         {
           "time": 703.828,
-          "free_energy": 108.027
+          "free_energy": 10.2147
         },
         {
           "time": 704.59,
-          "free_energy": 108.002
+          "free_energy": 10.2135
         },
         {
           "time": 705.352,
-          "free_energy": 107.977
+          "free_energy": 10.2122
         },
         {
           "time": 706.113,
-          "free_energy": 107.951
+          "free_energy": 10.211
         },
         {
           "time": 706.875,
-          "free_energy": 107.926
+          "free_energy": 10.2097
         },
         {
           "time": 707.637,
-          "free_energy": 107.901
+          "free_energy": 10.2085
         },
         {
           "time": 708.398,
-          "free_energy": 107.876
+          "free_energy": 10.2073
         },
         {
           "time": 709.16,
-          "free_energy": 107.851
+          "free_energy": 10.2061
         },
         {
           "time": 709.922,
-          "free_energy": 107.827
+          "free_energy": 10.2048
         },
         {
           "time": 710.684,
-          "free_energy": 107.802
+          "free_energy": 10.2036
         },
         {
           "time": 711.445,
-          "free_energy": 107.777
+          "free_energy": 10.2024
         },
         {
           "time": 712.207,
-          "free_energy": 107.752
+          "free_energy": 10.2012
         },
         {
           "time": 712.969,
-          "free_energy": 107.727
+          "free_energy": 10.2
         },
         {
           "time": 713.73,
-          "free_energy": 107.703
+          "free_energy": 10.1987
         },
         {
           "time": 714.492,
-          "free_energy": 107.678
+          "free_energy": 10.1975
         },
         {
           "time": 715.254,
-          "free_energy": 107.653
+          "free_energy": 10.1963
         },
         {
           "time": 716.016,
-          "free_energy": 107.629
+          "free_energy": 10.1951
         },
         {
           "time": 716.777,
-          "free_energy": 107.604
+          "free_energy": 10.1939
         },
         {
           "time": 717.539,
-          "free_energy": 107.58
+          "free_energy": 10.1927
         },
         {
           "time": 718.301,
-          "free_energy": 107.555
+          "free_energy": 10.1915
         },
         {
           "time": 719.062,
-          "free_energy": 107.531
+          "free_energy": 10.1903
         },
         {
           "time": 719.824,
-          "free_energy": 107.506
+          "free_energy": 10.1891
         },
         {
           "time": 720.586,
-          "free_energy": 107.482
+          "free_energy": 10.1879
         },
         {
           "time": 721.348,
-          "free_energy": 107.458
+          "free_energy": 10.1867
         },
         {
           "time": 722.109,
-          "free_energy": 107.434
+          "free_energy": 10.1855
         },
         {
           "time": 722.871,
-          "free_energy": 107.409
+          "free_energy": 10.1843
         },
         {
           "time": 723.633,
-          "free_energy": 107.385
+          "free_energy": 10.1831
         },
         {
           "time": 724.395,
-          "free_energy": 107.361
+          "free_energy": 10.1819
         },
         {
           "time": 725.156,
-          "free_energy": 107.337
+          "free_energy": 10.1807
         },
         {
           "time": 725.918,
-          "free_energy": 107.313
+          "free_energy": 10.1795
         },
         {
           "time": 726.68,
-          "free_energy": 107.289
+          "free_energy": 10.1783
         },
         {
           "time": 727.441,
-          "free_energy": 107.265
+          "free_energy": 10.1771
         },
         {
           "time": 728.203,
-          "free_energy": 107.241
+          "free_energy": 10.1759
         },
         {
           "time": 728.965,
-          "free_energy": 107.217
+          "free_energy": 10.1747
         },
         {
           "time": 729.727,
-          "free_energy": 107.193
+          "free_energy": 10.1735
         },
         {
           "time": 730.488,
-          "free_energy": 107.169
+          "free_energy": 10.1723
         },
         {
           "time": 731.25,
-          "free_energy": 107.146
+          "free_energy": 10.1712
         },
         {
           "time": 732.012,
-          "free_energy": 107.122
+          "free_energy": 10.17
         },
         {
           "time": 732.773,
-          "free_energy": 107.098
+          "free_energy": 10.1688
         },
         {
           "time": 733.535,
-          "free_energy": 107.074
+          "free_energy": 10.1676
         },
         {
           "time": 734.297,
-          "free_energy": 107.051
+          "free_energy": 10.1664
         },
         {
           "time": 735.059,
-          "free_energy": 107.027
+          "free_energy": 10.1652
         },
         {
           "time": 735.82,
-          "free_energy": 107.004
+          "free_energy": 10.1641
         },
         {
           "time": 736.582,
-          "free_energy": 106.98
+          "free_energy": 10.1629
         },
         {
           "time": 737.344,
-          "free_energy": 106.957
+          "free_energy": 10.1617
         },
         {
           "time": 738.105,
-          "free_energy": 106.933
+          "free_energy": 10.1605
         },
         {
           "time": 738.867,
-          "free_energy": 106.91
+          "free_energy": 10.1593
         },
         {
           "time": 739.629,
-          "free_energy": 106.886
+          "free_energy": 10.1582
         },
         {
           "time": 740.391,
-          "free_energy": 106.863
+          "free_energy": 10.157
         },
         {
           "time": 741.152,
-          "free_energy": 106.84
+          "free_energy": 10.1558
         },
         {
           "time": 741.914,
-          "free_energy": 106.817
+          "free_energy": 10.1546
         },
         {
           "time": 742.676,
-          "free_energy": 106.793
+          "free_energy": 10.1535
         },
         {
           "time": 743.438,
-          "free_energy": 106.77
+          "free_energy": 10.1523
         },
         {
           "time": 744.199,
-          "free_energy": 106.747
+          "free_energy": 10.1511
         },
         {
           "time": 744.961,
-          "free_energy": 106.724
+          "free_energy": 10.1499
         },
         {
           "time": 745.723,
-          "free_energy": 106.701
+          "free_energy": 10.1488
         },
         {
           "time": 746.484,
-          "free_energy": 106.678
+          "free_energy": 10.1476
         },
         {
           "time": 747.246,
-          "free_energy": 106.655
+          "free_energy": 10.1464
         },
         {
           "time": 748.008,
-          "free_energy": 106.632
+          "free_energy": 10.1453
         },
         {
           "time": 748.77,
-          "free_energy": 106.609
+          "free_energy": 10.1441
         },
         {
           "time": 749.531,
-          "free_energy": 106.586
+          "free_energy": 10.1429
         },
         {
           "time": 750.293,
-          "free_energy": 106.564
+          "free_energy": 10.1418
         },
         {
           "time": 751.055,
-          "free_energy": 106.541
+          "free_energy": 10.1406
         },
         {
           "time": 751.816,
-          "free_energy": 106.518
+          "free_energy": 10.1394
         },
         {
           "time": 752.578,
-          "free_energy": 106.495
+          "free_energy": 10.1383
         },
         {
           "time": 753.34,
-          "free_energy": 106.473
+          "free_energy": 10.1371
         },
         {
           "time": 754.102,
-          "free_energy": 106.45
+          "free_energy": 10.136
         },
         {
           "time": 754.863,
-          "free_energy": 106.427
+          "free_energy": 10.1348
         },
         {
           "time": 755.625,
-          "free_energy": 106.405
+          "free_energy": 10.1336
         },
         {
           "time": 756.387,
-          "free_energy": 106.382
+          "free_energy": 10.1325
         },
         {
           "time": 757.148,
-          "free_energy": 106.36
+          "free_energy": 10.1313
         },
         {
           "time": 757.91,
-          "free_energy": 106.337
+          "free_energy": 10.1302
         },
         {
           "time": 758.672,
-          "free_energy": 106.315
+          "free_energy": 10.129
         },
         {
           "time": 759.434,
-          "free_energy": 106.292
+          "free_energy": 10.1278
         },
         {
           "time": 760.195,
-          "free_energy": 106.27
+          "free_energy": 10.1267
         },
         {
           "time": 760.957,
-          "free_energy": 106.248
+          "free_energy": 10.1255
         },
         {
           "time": 761.719,
-          "free_energy": 106.226
+          "free_energy": 10.1244
         }
       ]
     transform:
@@ -4058,15 +4058,15 @@ data:
     values:
       [
         {
-          "time": 15242.34,
-          "sim_time": 761.719
+          "time": 7901.22,
+          "unit": seconds
         }
       ]
   - name: memory_usage
     values:
       [
         {
-          "value_per_node": 4754,
+          "value": 4756,
           "unit": KB
         }
       ]
@@ -4075,4 +4075,3 @@ data:
       - type: formula
         field: value
         expr: datum.value_per_node * 16
-
