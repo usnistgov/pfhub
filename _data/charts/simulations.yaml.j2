@@ -1,6 +1,6 @@
 ---
-width: 680
-height: 200
+width: 560
+height: 187
 padding: 0
 data:
   - name: images
@@ -11,7 +11,7 @@ data:
         col: {{ datum.col }}
         link: {{ datum.link }}
         height: 90
-        width: 150
+        width: 170
 {%- endfor %}
 scales:
   - name: x
@@ -52,8 +52,7 @@ marks:
         fill:
           value: #fff
     marks:
-      - name: images
-        type: image
+      - type: image
         properties:
           enter:
             width:
@@ -69,6 +68,9 @@ marks:
               value: left
             baseline:
               value: center
+          hover:
+            cursor:
+              value: pointer
       - type: rect
         properties:
           enter:
@@ -82,19 +84,52 @@ marks:
             height:
               field:
                 group: height
-            stroke: "#000"
-            strokeWidth:
-              value: 6
           update:
-            stroke: "#000"
             strokeWidth:
-              value: 10
+              - test: "parent._id == active._id"
+                value: 4
+              - value: 1
+            stroke:
+              - test: "parent._id == active._id"
+                value: "#888888"
+              - value: "#d5a928"
+          hover:
+            cursor:
+              value: pointer
+      - type: text
+        properties:
+          enter:
+            align:
+              value: center
+            dx:
+              value: 68
+            dy:
+              value: 50
+          update:
+            text:
+              template: "Benchmark {% raw %} {{ parent.link }} {% endraw %}"
+            fontSize:
+              - test: "parent._id == active._id"
+                value: 14
+              - value: 12
+            fill:
+              - test: "parent._id == active._id"
+                value: "#888888"
+              - value: "#d5a928"
+            fontWeight:
+              - test: "parent._id == active._id"
+                value: "bold"
+              - value: "normal"
+          hover:
+            cursor:
+              value: pointer
+
 
 signals:
   - name: active
-    init: ""
-    stream:
-      - type: "image:mouseover"
+    init: {}
+    streams:
+      - type: "image:mouseover, group:mouseover, group:mouseout, rect:mouseover, text:mouseover"
         expr: "eventGroup().datum"
       - type: "body:mouseout"
         expr: "{}"

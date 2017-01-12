@@ -240,7 +240,6 @@ def landing_page_json():
         write_json(filepath=os.path.join(get_path(), '../data/charts/simulations.json')) # pylint: disable=no-value-for-parameter
     )
 
-
 if __name__ == "__main__":
     main()
     landing_page_json()
