@@ -231,8 +231,7 @@ def landing_page_json():
             lambda tup: (lambda count, name: dict(path=name,
                                                   col=(count % 4),
                                                   row=count // 4,
-                                                  link=name.replace("../images/", "")[:2])
-            )(*tup)
+                                                  link=name.replace("../images/", "")[:2]))(*tup)
         ),
         list,
         lambda data: render_yaml(landing_page_j2(), data=data),
