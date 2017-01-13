@@ -18,7 +18,6 @@ metadata:
         # unit: GHz
   software:
     name: mmsp
-    url: https://github.com/mesoscale/mmsp
     version: "4"
     repo:
       url: https://github.com/mesoscale/mmsp/tree/develop
