@@ -1,17 +1,52 @@
 ---
-layout: essay
+layout: default
 title: "Benchmark Simulations"
 comment: >-
-  List of charts displaying the benchmark simulations
+  Overview of simulations that implement the benchmark problems
 ---
 
-stuff...
+{% include title.html %}
 
-<div id="simulation_chart">
-  <br>
-  <br>
+<div class="container">
+  <div class="row small-buffer">
+    <div class="col s8 offset-s2" id="overview">
+      <div class="flow-text" style="font-size: 20px">
+        The simulation results below represent the best known
+        implementations for a given code base. Please feel free to
+        submit your own simulation results. Instructions are provided
+        on how to submit simulation results.
+        <p>
+          <a class="waves-effect waves-light btn blue lighten-3"
+             href="/chimad-phase-field/simulations/upload">
+            Upload Instructions
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="container top-bar top-buffer">
+  <div class="row small-buffer">
+    <div class="col l2 m12 s12">
+      <h5 class="sideheader">Charts</h5>
+    </div>
+    <div class="col s10">
+      <div class="flow-text" style="font-size: 20px">
+        <i>Gallery of simulation results</i>
+      </div>
+      <br>
+      <div id="simulation_chart">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <h4>Charts</h4> -->
+
+<!-- <div id="simulation_chart"> -->
+<!-- </div> -->
 
 <script> var chart_name="simulations.json" </script>
 <script> var div_id="#simulation_chart" </script>
-<script src="{{ site.baseurl }}/js/chart.js"></script>
+<script src="{{ site.baseurl }}/js/simulation_chart.js"></script>

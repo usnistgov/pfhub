@@ -5,42 +5,216 @@
       "values": [
         {
           "col": 0,
+          "height": 90,
+          "link": "1a",
           "path": "../images/1a_free_energy.png",
-          "row": 0
+          "row": 0,
+          "width": 170
         },
         {
           "col": 1,
+          "height": 90,
+          "link": "1b",
           "path": "../images/1b_free_energy.png",
-          "row": 0
+          "row": 0,
+          "width": 170
         },
         {
           "col": 2,
+          "height": 90,
+          "link": "1c",
           "path": "../images/1c_free_energy.png",
-          "row": 0
+          "row": 0,
+          "width": 170
         },
         {
           "col": 3,
+          "height": 90,
+          "link": "1d",
           "path": "../images/1d_free_energy.png",
-          "row": 0
+          "row": 0,
+          "width": 170
+        },
+        {
+          "col": 0,
+          "height": 90,
+          "link": "2a",
+          "path": "../images/2a_free_energy.png",
+          "row": 1,
+          "width": 170
+        },
+        {
+          "col": 1,
+          "height": 90,
+          "link": "2b",
+          "path": "../images/2b_free_energy.png",
+          "row": 1,
+          "width": 170
+        },
+        {
+          "col": 2,
+          "height": 90,
+          "link": "2c",
+          "path": "../images/2c_free_energy.png",
+          "row": 1,
+          "width": 170
+        },
+        {
+          "col": 3,
+          "height": 90,
+          "link": "2d",
+          "path": "../images/2d_free_energy.png",
+          "row": 1,
+          "width": 170
         }
       ]
     }
   ],
-  "height": 200,
+  "height": 187,
   "marks": [
     {
       "from": {
         "data": "images"
       },
-      "name": "images",
+      "marks": [
+        {
+          "properties": {
+            "enter": {
+              "align": {
+                "value": "left"
+              },
+              "baseline": {
+                "value": "center"
+              },
+              "height": {
+                "field": {
+                  "parent": "height"
+                }
+              },
+              "url": {
+                "field": {
+                  "parent": "path"
+                }
+              },
+              "width": {
+                "field": {
+                  "parent": "width"
+                }
+              }
+            },
+            "hover": {
+              "cursor": {
+                "value": "pointer"
+              }
+            }
+          },
+          "type": "image"
+        },
+        {
+          "properties": {
+            "enter": {
+              "height": {
+                "field": {
+                  "group": "height"
+                }
+              },
+              "width": {
+                "field": {
+                  "group": "width"
+                }
+              },
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              }
+            },
+            "hover": {
+              "cursor": {
+                "value": "pointer"
+              }
+            },
+            "update": {
+              "stroke": [
+                {
+                  "test": "parent._id == active._id",
+                  "value": "#d5a928"
+                },
+                {
+                  "value": "#888888"
+                }
+              ],
+              "strokeWidth": [
+                {
+                  "test": "parent._id == active._id",
+                  "value": 4
+                },
+                {
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "type": "rect"
+        },
+        {
+          "properties": {
+            "enter": {
+              "align": {
+                "value": "center"
+              },
+              "dx": {
+                "value": 68
+              },
+              "dy": {
+                "value": 50
+              }
+            },
+            "hover": {
+              "cursor": {
+                "value": "pointer"
+              }
+            },
+            "update": {
+              "fill": [
+                {
+                  "test": "parent._id == active._id",
+                  "value": "#d5a928"
+                },
+                {
+                  "value": "#888888"
+                }
+              ],
+              "fontSize": [
+                {
+                  "test": "parent._id == active._id",
+                  "value": 14
+                },
+                {
+                  "value": 12
+                }
+              ],
+              "fontWeight": [
+                {
+                  "test": "parent._id == active._id",
+                  "value": "bold"
+                },
+                {
+                  "value": "normal"
+                }
+              ],
+              "text": {
+                "template": "Benchmark  {{ parent.link }} "
+              }
+            }
+          },
+          "type": "text"
+        }
+      ],
+      "name": "example",
       "properties": {
         "enter": {
-          "align": {
-            "value": "center"
-          },
-          "baseline": {
-            "value": "center"
-          },
           "clip": {
             "value": true
           },
@@ -49,14 +223,12 @@
           },
           "height": {
             "band": true,
+            "offset": -5,
             "scale": "y"
-          },
-          "url": {
-            "field": "path"
           },
           "width": {
             "band": true,
-            "offset": -10,
+            "offset": -5,
             "scale": "x"
           },
           "x": {
@@ -69,9 +241,10 @@
           }
         }
       },
-      "type": "image"
+      "type": "group"
     }
   ],
+  "padding": 0,
   "scales": [
     {
       "domain": {
@@ -92,5 +265,21 @@
       "type": "ordinal"
     }
   ],
-  "width": 800
+  "signals": [
+    {
+      "init": {},
+      "name": "active",
+      "streams": [
+        {
+          "expr": "eventGroup().datum",
+          "type": "image:mouseover, group:mouseover, group:mouseout, rect:mouseover, text:mouseover"
+        },
+        {
+          "expr": "{}",
+          "type": "body:mouseout"
+        }
+      ]
+    }
+  ],
+  "width": 560
 }
