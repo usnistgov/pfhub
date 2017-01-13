@@ -1,0 +1,72 @@
+---
+benchmark_id: 1c
+
+metadata:
+  # Describe the runtime environment
+  summary: Raspberry Pi 3 cluster benchmark with MMSP, T-shape domain
+  author: Trevor Keller
+  email: trevor.keller@nist.gov
+  timestamp: Thu, 12 Jan 2017 03:53:30 +0000
+  hardware:
+    # Required hardware details
+    architecture: armv7l
+    cores: 16
+    # Optional hardware details
+    details:
+      - name: clock
+        values: 1.2
+        # unit: GHz
+  software:
+    name: mmsp
+    version: "4"
+    repo:
+      url: https://github.com/mesoscale/mmsp/tree/develop
+      version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
+  implementation:
+    end_condition: time limit
+    repo:
+      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/
+      version: "f79fda8582159e8326863ac6c1734d686590b825"
+      # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
+    details:
+      - name: mesh
+        values: uniform rectilinear
+      - name: numerical_method
+        values: explicit finite difference
+      - name: compiler
+        values: GNU mpic++
+      - name: parallel_model
+        values: MPI
+
+data:
+  # Gather simulation output
+  - name: timestep
+    values: 0.00195312
+  - name: free_energy
+    url: https://cdn.rawgit.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/9c6eb35141a0f82ff1f0d41fdf80c7bad3fa19a1/mmsp_1c_raspi_results.json
+    format:
+      type: json
+    transform:
+    - type: filter
+      test: "datum.time > 0.01"
+  - name: run_time
+    values:
+      [
+        {
+          "time": 7901.22,
+          "sim_time": 761.719
+        }
+      ]
+  - name: memory_usage
+    values:
+      [
+        {
+          "value": 4756,
+          "unit": KB
+        }
+      ]
+    transform:
+      # Reported value represents 1 of 16 MPI ranks
+      - type: formula
+        field: value
+        expr: datum.value_per_node * 16
