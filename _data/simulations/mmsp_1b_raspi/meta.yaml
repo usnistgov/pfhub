@@ -43,7 +43,7 @@ data:
   - name: timestep
     values: 0.00195312
   - name: free_energy
-    url: https://gist.github.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/9c6eb35141a0f82ff1f0d41fdf80c7bad3fa19a1/mmsp_1b_raspi_results.json
+    url: https://cdn.rawgit.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/9c6eb35141a0f82ff1f0d41fdf80c7bad3fa19a1/mmsp_1b_raspi_results.json
     format:
       type: json
     transform:

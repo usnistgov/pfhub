@@ -119,6 +119,19 @@
       ]
     },
     {
+      "format": {
+        "type": "json"
+      },
+      "name": "mmsp_1c_raspi",
+      "transform": [
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://cdn.rawgit.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/9c6eb35141a0f82ff1f0d41fdf80c7bad3fa19a1/mmsp_1c_raspi_results.json"
+    },
+    {
       "name": "mmsp_1c_travis",
       "transform": [
         {
@@ -239,6 +252,34 @@
     },
     {
       "from": {
+        "data": "mmsp_1c_raspi"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1c_raspi"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
+    {
+      "from": {
         "data": "mmsp_1c_travis"
       },
       "properties": {
@@ -318,6 +359,7 @@
     {
       "domain": [
         "fipy_1c_travis",
+        "mmsp_1c_raspi",
         "mmsp_1c_travis",
         "moose_1c_ia"
       ],
