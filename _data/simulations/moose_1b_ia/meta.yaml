@@ -31,10 +31,14 @@ data:
     values:
       [
         {
-          "value": 796,
+          "value_m": 796,
           "unit": MB
         }
       ]
+    transform:
+      - type: formula
+        field: value 
+        expr: datum.value_m * 1024.0
   - name: free_energy
     url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_PBC_IA.csv
     format:
