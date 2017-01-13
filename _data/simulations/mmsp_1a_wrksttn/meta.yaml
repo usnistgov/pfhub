@@ -6,16 +6,16 @@ metadata:
   summary: Parallel Travis CI benchmark with MMSP, periodic domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Tue, 10 Jan 2017 01:01:39 +0000
+  timestamp: Mon, 09 Jan 2017 20:05:21 -0500
   hardware:
     # Required hardware details
     architecture: x86_64
-    cores: 2
+    cores: 12
     # Optional hardware details
     details:
       - name: clock
-        values: 2300.000
-        # unit: MHz
+        values: 3.5
+        # unit: GHz
   software:
     name: mmsp
     version: "4"
@@ -23,11 +23,10 @@ metadata:
       url: https://github.com/mesoscale/mmsp/tree/develop
       version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
   implementation:
-    end_condition: time limit, Travis CI runs die after 50 minutes total
+    end_condition: time limit, should asymptote toward steady-state beyond t=100000
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
-      version: "05a5db5111d92b916d51e143adf068547c3a654d"
-      # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
+      version: "c51089f860f70d4e3d77881875d024ee4c01c409"
     details:
       - name: mesh
         values: uniform rectilinear
@@ -43,32 +42,28 @@ data:
   - name: timestep
     values: 0.00195312
   - name: free_energy
-    # JSON list of {time, energy} pairs
-    values: [{"time": 0, "energy": 319.094}, {"time": 7.61719, "energy": 318.053}, {"time": 15.2344, "energy": 314.632}, {"time": 22.8516, "energy": 303.393}, {"time": 30.4688, "energy": 277.709}, {"time": 38.0859, "energy": 240.619}, {"time": 45.7031, "energy": 215.533}, {"time": 53.3203, "energy": 206.567}, {"time": 60.9375, "energy": 201.415}, {"time": 68.5547, "energy": 196.916}, {"time": 76.1719, "energy": 192.545}]
+    url: https://cdn.rawgit.com/tkphd/8659310fb61efba6c97df42e12382924/raw/de90f8048f72c2abdf579987d87fa152701de397/mmsp_1a_wrksttn.json
+    format:
+      type: json
     transform:
+      - type: filter
+        test: "datum.time > 0.01"
       - type: formula
         field: free_energy
         expr: datum.energy
-      - type: filter
-        test: "datum.time > 0.01"
   - name: run_time
     values:
       [
         {
-          "time": 1125.39,
-          "sim_time": 192.545
+          "time": 232301.41,
+          "sim_time": 100000
         }
       ]
   - name: memory_usage
     values:
       [
         {
-          "value_per_rank": 33984,
+          "value": 27840,
           "unit": KB
         }
       ]
-    transform:
-      - # Reported value is for one MPI rank, or half the total
-        type: formula
-        field: value
-        expr: datum.value_per_rank * 2.0

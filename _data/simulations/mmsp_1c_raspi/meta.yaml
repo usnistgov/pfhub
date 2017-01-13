@@ -3,19 +3,19 @@ benchmark_id: 1c
 
 metadata:
   # Describe the runtime environment
-  summary: Parallel Travis CI benchmark with MMSP, T-shape domain
+  summary: Raspberry Pi 3 cluster benchmark with MMSP, T-shape domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Tue, 10 Jan 2017 01:40:01 +0000
+  timestamp: Thu, 12 Jan 2017 03:53:30 +0000
   hardware:
     # Required hardware details
-    architecture: x86_64
-    cores: 2
+    architecture: armv7l
+    cores: 16
     # Optional hardware details
     details:
       - name: clock
-        values: 2300.000
-        # unit: MHz
+        values: 1.2
+        # unit: GHz
   software:
     name: mmsp
     version: "4"
@@ -23,10 +23,10 @@ metadata:
       url: https://github.com/mesoscale/mmsp/tree/develop
       version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
   implementation:
-    end_condition: time limit, Travis CI runs die after 50 minutes total
+    end_condition: time limit
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/
-      version: "05a5db5111d92b916d51e143adf068547c3a654d"
+      version: "f79fda8582159e8326863ac6c1734d686590b825"
       # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
@@ -43,32 +43,30 @@ data:
   - name: timestep
     values: 0.00195312
   - name: free_energy
-    values: [{"time": 0, "energy": 31.8815}, {"time": 7.61719, "energy": 31.7653}, {"time": 15.2344, "energy": 31.3578}, {"time": 22.8516, "energy": 29.8382}, {"time": 30.4688, "energy": 26.3998}, {"time": 38.0859, "energy": 23.095}, {"time": 45.7031, "energy": 21.4502}, {"time": 53.3203, "energy": 20.4617}, {"time": 60.9375, "energy": 19.8369}, {"time": 68.5547, "energy": 19.3948}, {"time": 76.1719, "energy": 19.0146}]
+    url: https://cdn.rawgit.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/9c6eb35141a0f82ff1f0d41fdf80c7bad3fa19a1/mmsp_1c_raspi_results.json
+    format:
+      type: json
     transform:
-      - type: formula
-        field: free_energy
-        expr: datum.energy
-      - type: filter
-        test: "datum.time > 0.01"
+    - type: filter
+      test: "datum.time > 0.01"
   - name: run_time
     values:
       [
         {
-          "time": 189.44,
-          "sim_time": 19.0146
+          "time": 7901.22,
+          "sim_time": 761.719
         }
       ]
   - name: memory_usage
     values:
       [
         {
-          "value_per_rank": 32504,
+          "value": 4756,
           "unit": KB
         }
       ]
     transform:
-      - # Reported value is for one MPI rank, or half the total
-        type: formula
-        field: value      
-        expr: datum.value_per_rank * 2.0
-
+      # Reported value represents 1 of 16 MPI ranks
+      - type: formula
+        field: value
+        expr: datum.value_per_node * 16
