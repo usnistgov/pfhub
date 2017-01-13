@@ -42,12 +42,15 @@ data:
   - name: timestep
     values: 0.00195312
   - name: free_energy
-    url: https://gist.github.com/tkphd/8659310fb61efba6c97df42e12382924/raw/de90f8048f72c2abdf579987d87fa152701de397/mmsp_1a_wrksttn.json
+    url: https://cdn.rawgit.com/tkphd/8659310fb61efba6c97df42e12382924/raw/de90f8048f72c2abdf579987d87fa152701de397/mmsp_1a_wrksttn.json
     format:
       type: json
     transform:
       - type: filter
         test: "datum.time > 0.01"
+      - type: formula
+        field: free_energy
+        expr: datum.energy
   - name: run_time
     values:
       [
