@@ -6,7 +6,7 @@ metadata:
   summary: Raspberry Pi 3 cluster benchmark with MMSP, no-flux domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  date: Wed, 11 Jan 2017 23:33:21 +0000
+  timestamp: Wed, 11 Jan 2017 23:33:21 +0000
   hardware:
     # Required hardware details
     architecture: armv7l

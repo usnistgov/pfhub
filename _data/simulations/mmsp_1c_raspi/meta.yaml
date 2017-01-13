@@ -6,7 +6,7 @@ metadata:
   summary: Raspberry Pi 3 cluster benchmark with MMSP, T-shape domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  date: Thu, 12 Jan 2017 03:53:30 +0000
+  timestamp: Thu, 12 Jan 2017 03:53:30 +0000
   hardware:
     # Required hardware details
     architecture: armv7l
