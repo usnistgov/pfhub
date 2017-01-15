@@ -95,6 +95,20 @@ def filter_data(yaml_data):
         lambda dict_: sorted(list(dict_.values()), key=lambda item: item['name'])
     )
 
+def get_yaml_data():
+    """Read in the YAML data but don't group
+
+    Returns:
+      list of tuples of (name, data_dict)
+    """
+    return pipe(
+        os.path.join(get_path(), 'simulations/*/meta.yaml'),
+        glob.glob,
+        sorted,
+        map(lambda path_: (os.path.split(os.path.split(path_)[0])[1], read_yaml(path_))),
+        filter(lambda item: item[0] != 'example')
+    )
+
 def get_data():
     """Read in the YAML data and group by benchmark id
 
@@ -103,11 +117,7 @@ def get_data():
       data for values
     """
     return pipe(
-        os.path.join(get_path(), 'simulations/*/meta.yaml'),
-        glob.glob,
-        sorted,
-        map(lambda path_: (os.path.split(os.path.split(path_)[0])[1], read_yaml(path_))),
-        filter(lambda item: item[0] != 'example'),
+        get_yaml_data(),
         groupby(lambda item: item[1]['benchmark_id']),
         valmap(filter_data),
     )

@@ -1,6 +1,6 @@
 ---
-width: 560
-height: 187
+width: 672
+height: 224
 padding: 0
 data:
   - name: images
@@ -10,8 +10,8 @@ data:
         row: {{ datum.row }}
         col: {{ datum.col }}
         link: {{ datum.link }}
-        height: 90
-        width: 170
+        height: 108
+        width: 204
 {%- endfor %}
 scales:
   - name: x
@@ -102,12 +102,12 @@ marks:
             align:
               value: center
             dx:
-              value: 68
+              value: 80
             dy:
-              value: 50
+              value: 55
           update:
             text:
-              template: "Benchmark {% raw %} {{ parent.link }} {% endraw %}"
+              template: "Free Energy {% raw %} {{ parent.link }} {% endraw %}"
             fontSize:
               - test: "parent._id == active._id"
                 value: 14
@@ -120,6 +120,10 @@ marks:
               - test: "parent._id == active._id"
                 value: "bold"
               - value: "normal"
+            opacity:
+              - test: "parent._id == active._id"
+                value: 1
+              - value: 0.7
           hover:
             cursor:
               value: pointer
