@@ -46,7 +46,7 @@ mapping:
       "email":
         type: str
         pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
-        required: False
+        required: True
       "timestamp":
         type: timestamp
         required: True

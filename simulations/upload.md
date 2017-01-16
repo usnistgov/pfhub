@@ -55,26 +55,29 @@ benchmark problem. The current choices are `1a`, `1b`, `1c`, `1d`,
 <h5> Metadata </h5>
 
 The `metadata` section describes the details about the code being
-used, but not the outcomes, which goes in the `data` section. See
+used, but not the outcomes (outcomes go in the `data` section). See
 [`_data/simulations/example/meta.yaml`]({{ site.links.simmeta
-}}/example/meta.yaml) for more details on this section.
+}}/example/meta.yaml) for all possible fields in the `metadata`
+section.
 
-Note that the `metadata.software.details` section take any number of
+Note that the `metadata.software.details` section takes any number of
 
     - name: a name
       values: any valid JSON
 
 pairs. This section is open for adding any specific details about the
-simulaiton that are important but not included in the metadata
-section. It uses the Vega data spec as described in the Data section.
+simulation that are important but not included in other fields within
+the metadata section. The `metadata.software.details` section uses the
+Vega data spec as described in the next section.
 
 <h5> Data </h5>
 
-The data section consists of any number of `name` and `values`
-pairs. For example, this section can describe the run time, the memory
-usage and data about the free energy at different time steps. The
-format is the [Vega data
-spec](https://github.com/vega/vega/wiki/Data).  The basic data model
+The `data` section consists of any number of `name` and `values`
+pairs. For example, the `data` section can describe the run time, the
+memory usage and data about the free energy at different time
+steps. Note that this is data not known before starting the
+simulation. The format for the `data` section is the [Vega data
+spec](https://github.com/vega/vega/wiki/Data). The basic data model
 used by Vega is tabular data, similar to a spreadsheet or database
 table.  Individual data sets are assumed to contain a collection of
 records (or "rows"), which may contain any number of named data
@@ -82,7 +85,7 @@ attributes (fields, or "columns"). The `url` field can either link to
 JSON or CSV data currently.
 
 For the charts, there must be a `free_energy` section with
-`free_energy` and `time` fields. Other required formats will be added
+`free_energy` and `time` fields. Other required fields will be added
 as more details are displayed on the website. For example, the
 following is in [`_data/simulations/moose_1d_sta/meta.yaml`]({{
 site.links.simmeta }}/moose_1d_sta/meta.yaml).
@@ -105,7 +108,10 @@ site.links.simmeta }}/moose_1d_sta/meta.yaml).
 
 It describes the `free_energy` by generating `free_energy` and `time`
 fields from a CSV file. It describes how to parse the CSV file and
-removes time value that are too large and too small.
+filters time values that are either too large or too small.
+
+Please read the [Vega data
+spec](https://github.com/vega/vega/wiki/Data) for more details.
 
 <h4> Testing </h4>
 
