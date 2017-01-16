@@ -3,6 +3,7 @@ title: "Development Guide"
 layout: essay
 comment: How to develop this site
 ---
+
 <p align="center">
 <a href="https://travis-ci.org/usnistgov/chimad-phase-field" target="_blank">
 <img src="https://api.travis-ci.org/usnistgov/chimad-phase-field.svg"
@@ -10,7 +11,7 @@ alt="Travis CI">
 </a>
 </p>
 
-# Overview
+<h4> Overview </h4>
 
 The following guide is an overview on how to update the site for each
 particular element. Many of these tasks require that you have an
@@ -28,7 +29,7 @@ required to build the site. Note that if the instructions below and
 the [`.travis.yml`][TRAVISYML] are not synced then the build outlined
 in the [`travis.yml`][TRAVISYML] should be used.
 
-## Updates on GitHub
+<h4> Updates on GitHub </h4>
 
 Several common tasks can be accomplished on [GitHub][GITHUB]
 by editing files
@@ -38,14 +39,14 @@ Doing so will automatically fork the repository to your
 [master GitHub repository]({{ site.links.github }})
 with your content.
 
-### Add a New Phase Field Code
+<h5> Add a New Phase Field Code </h5>
 
 To add a new phase field code to the list of codes on the front page,
 follow the [submission instructions]({{ site.baseurl
 }}/submit_a_new_code) on the main site. [Jekyll][JEKYLL] will
 automatically rebuild the site after `codes.yaml` is edited.
 
-### Add a New Workshop
+<h5> Add a New Workshop </h5>
 
 To add a new workshop edit the [`workshop.yaml`]({{ site.links.github
 }}/blob/nist-pages/data/workshops.yaml) file. The following fields need to
@@ -70,7 +71,7 @@ be included for each entry.
 For each of the `icon_links`, the `type` field must correspond to a
 Materialize icon.
 
-### Add a New Page
+<h5> Add a New Page </h5>
 
 To add a new page create the page as a Markdown file directly on
 [GitHub]({{ site.links.github }}). For example, click "Create new
@@ -89,7 +90,7 @@ Submit a pull request on [GitHub]({{ site.links.github }}) and this
 page will appear under `.../chimad-phase-field/test-page` after the
 pull-request is merged.
 
-## Updates on Your Local machine
+<h4> Updates on Your Local machine </h4>
 
 Some tasks involve adding new files or rebuilding existing ones. These
 are best done on your local machine, on a
@@ -101,7 +102,7 @@ You are encouraged to serve a local version of the site for testing before
 and issuing a
 [pull request](https://help.github.com/articles/creating-a-pull-request/).
 
-### Build and Serve the Site
+<h5> Build and Serve the Site </h5>
 
 The site uses the [Jekyll][JEKYLL] static web site generator. To build
 the environment required to serve the site, use the following
@@ -124,7 +125,7 @@ At this point [Jekyll][JEKYLL] should be serving the site. Go to
 or the link [Jekyll][JEKYLL] provides on the terminal, to view the
 site.
 
-### Update and Build the Hexbin
+<h5> Update and Build the Hexbin </h5>
 
 To build the Hexbin, a Python environment is required. To setup the
 environment use [Conda][CONDA].
@@ -158,7 +159,7 @@ associated with the image.  After updating rebuild the Hexbin.
 
 [Jekyll][JEKYLL] should automatically update the site.
 
-### Add a Jupyter Notebook
+<h5> Add a Jupyter Notebook </h5>
 
 A lot of the site is built using Jupyter Notebooks. To render the
 notebooks as HTML, first generate the Python environment outlined
@@ -177,7 +178,7 @@ render it on the site. For example, a notebook in the base directory
 named `my_notebook.ipynb` will be rendered at
 `http://localhost:4000/chimad-phase-field/my_notebook.ipynb`.
 
-### Add a New Benchmark Problem
+<h5> Add a New Benchmark Problem </h5>
 
 To add a new benchmark problem include a notebook describing the new
 problem and then link to it via the [`benchmarks.yaml`]({{
@@ -189,7 +190,7 @@ the following fields.
       description: Test the diffusion of a solute in a matrix.
       image: http://www.comsol.com/model/image/2054/big.png
 
-### Testing
+<h5> Testing </h5>
 
 The site can be tested at the command line using
 [HTMLProofer][HTMLPROOFER]. This validates the generated HTML
@@ -224,7 +225,7 @@ correctly.
 [GITHUB]: https://github.com
 [HTMLPROOFER]: https://github.com/gjtorikian/html-proofer
 
-## Update the Community Page
+<h4> Update the Community Page </h4>
 
 An instance of this Web site is hosted at
 [NIST](https://pages.nist.gov/chimad-phase-field).
