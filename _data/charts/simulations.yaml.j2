@@ -71,6 +71,9 @@ marks:
           hover:
             cursor:
               value: pointer
+          exit:
+            cursor:
+              value: default
       - type: rect
         properties:
           enter:
@@ -95,7 +98,7 @@ marks:
               - value: "#888888"
           hover:
             cursor:
-              value: pointer
+              value: default
       - type: text
         properties:
           enter:
@@ -127,13 +130,11 @@ marks:
           hover:
             cursor:
               value: pointer
-
-
 signals:
   - name: active
     init: {}
     streams:
       - type: "image:mouseover, group:mouseover, group:mouseout, rect:mouseover, text:mouseover"
         expr: "eventGroup().datum"
-      - type: "body:mouseout"
+      - type: "body:mouseout, rect:mouseout"
         expr: "{}"

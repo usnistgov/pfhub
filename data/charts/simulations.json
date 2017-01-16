@@ -102,6 +102,11 @@
                 }
               }
             },
+            "exit": {
+              "cursor": {
+                "value": "default"
+              }
+            },
             "hover": {
               "cursor": {
                 "value": "pointer"
@@ -132,7 +137,7 @@
             },
             "hover": {
               "cursor": {
-                "value": "pointer"
+                "value": "default"
               }
             },
             "update": {
@@ -285,7 +290,7 @@
         },
         {
           "expr": "{}",
-          "type": "body:mouseout"
+          "type": "body:mouseout, rect:mouseout"
         }
       ]
     }
