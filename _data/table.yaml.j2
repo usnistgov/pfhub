@@ -9,6 +9,6 @@ data:
     author:
       email: {{ datum.metadata.email }}
       name: {{ datum.metadata.author }}
-    timestamp: {{ datum.metadata.timestamp }}
+    timestamp: {{ datum.metadata.timestamp | to_datetime(format_="%Y/%m/%d %H:%M:%S") }}
     cores: {{ datum.metadata.hardware.cores }}
 {%- endfor %}

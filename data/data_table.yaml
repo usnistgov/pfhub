@@ -4,142 +4,142 @@ data:
   cores: 1
   id_: 1a
   name: fipy_1a_travis
-  timestamp: Tue, 10 Jan 2017 00:46:24 +0000
+  timestamp: 2017/01/10 00:46:24
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: fipy, url: 'https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/no-flux/'}
   cores: 1
   id_: 1b
   name: fipy_1b_travis
-  timestamp: Tue, 10 Jan 2017 01:11:25 +0000
+  timestamp: 2017/01/10 01:11:25
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: fipy, url: 'https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/T-shape/'}
   cores: 1
   id_: 1c
   name: fipy_1c_travis
-  timestamp: Tue, 10 Jan 2017 01:27:20 +0000
+  timestamp: 2017/01/10 01:27:20
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 16
   id_: 1a
   name: mmsp_1a_raspi
-  timestamp: Wed, 11 Jan 2017 19:18:37 +0000
+  timestamp: 2017/01/11 19:18:37
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 2
   id_: 1a
   name: mmsp_1a_travis
-  timestamp: Tue, 10 Jan 2017 01:01:39 +0000
+  timestamp: 2017/01/10 01:01:39
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 12
   id_: 1a
   name: mmsp_1a_wrksttn
-  timestamp: Mon, 09 Jan 2017 20:05:21 -0500
+  timestamp: 2017/01/09 20:05:21
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/'}
   cores: 16
   id_: 1b
   name: mmsp_1b_raspi
-  timestamp: Wed, 11 Jan 2017 23:33:21 +0000
+  timestamp: 2017/01/11 23:33:21
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/'}
   cores: 2
   id_: 1b
   name: mmsp_1b_travis
-  timestamp: Tue, 10 Jan 2017 01:20:43 +0000
+  timestamp: 2017/01/10 01:20:43
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/'}
   cores: 16
   id_: 1c
   name: mmsp_1c_raspi
-  timestamp: Thu, 12 Jan 2017 03:53:30 +0000
+  timestamp: 2017/01/12 03:53:30
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/'}
   cores: 2
   id_: 1c
   name: mmsp_1c_travis
-  timestamp: Tue, 10 Jan 2017 01:40:01 +0000
+  timestamp: 2017/01/10 01:40:01
 - author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1a
   name: moose_1a_ia
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: null}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1b
   name: moose_1b_ia
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: null}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1b
   name: moose_1b_sta
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: null}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1c
   name: moose_1c_ia
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: null}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 1d
   name: moose_1d_ia
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: null}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 1d
   name: moose_1d_sta
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 2a
   name: moose_2a_ia
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 2a
   name: moose_2a_sta
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 2b
   name: moose_2b_ia
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 2b
   name: moose_2b_sta
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 2c
   name: moose_2c_ia
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 2c
   name: moose_2c_sta
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 40
   id_: 2d
   name: moose_2d_ia
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00
 - author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 40
   id_: 2d
   name: moose_2d_sta
-  timestamp: 6/28/2016
+  timestamp: 2016/06/28 00:00:00

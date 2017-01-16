@@ -7,6 +7,7 @@ charts. Run `python _data/charts.py` to build the charts.
 import glob
 import os
 import json
+from dateutil.parser import parse
 
 import jinja2
 from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby, memoize # pylint: disable=redefined-builtin, no-name-in-module
@@ -177,6 +178,12 @@ def process_chart(id_, data):
         yaml.load
     )
 
+def to_datetime(datetime_str, format_="%Y/%m/%d %H:%M:%S"):
+    """Datetime formater for Jinja template.
+    """
+    return parse(datetime_str).strftime(format_)
+
+
 @curry
 def render_yaml(tpl_path, **kwargs):
     """Return the rendered yaml template.
@@ -192,6 +199,7 @@ def render_yaml(tpl_path, **kwargs):
     loader = jinja2.FileSystemLoader(path or './')
     env = jinja2.Environment(loader=loader)
     env.filters['to_yaml'] = yaml.dump
+    env.filters['to_datetime'] = to_datetime
     return env.get_template(filename).render(**kwargs)
 
 def main():

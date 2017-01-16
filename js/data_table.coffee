@@ -45,6 +45,10 @@ d3_func = (yaml_text) ->
         render: fauthor
       }
       {
+        data: "timestamp"
+        title: "Timestamp"
+      }
+      {
         data: "cores"
         title: "Cores"
       }
