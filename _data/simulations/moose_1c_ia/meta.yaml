@@ -4,6 +4,7 @@ benchmark_id: 1c
 metadata:
   summary: Information for the Benchmark1 problems
   timestamp: 6/28/2016
+  author: A. M. Jokisaari
   software:
     name: moose
     version: Hedgehog (now Coral)
@@ -40,7 +41,7 @@ data:
       ]
     transform:
       - type: formula
-        field: value 
+        field: value
         expr: datum.value_m * 1024.0
   - name: free_energy
     url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/7a9e0b9a67528b5567c62f85d9598f580d9b4508/hackathon_p1_tshape_IA.csv

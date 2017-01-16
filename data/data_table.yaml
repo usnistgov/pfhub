@@ -65,31 +65,31 @@ data:
   id_: 1a
   name: moose_1a_ia
   timestamp: 2016/06/28 00:00:00
-- author: {email: null, name: null}
+- author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1b
   name: moose_1b_ia
   timestamp: 2016/06/28 00:00:00
-- author: {email: null, name: null}
+- author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1b
   name: moose_1b_sta
   timestamp: 2016/06/28 00:00:00
-- author: {email: null, name: null}
+- author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1c
   name: moose_1c_ia
   timestamp: 2016/06/28 00:00:00
-- author: {email: null, name: null}
+- author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 1d
   name: moose_1d_ia
   timestamp: 2016/06/28 00:00:00
-- author: {email: null, name: null}
+- author: {email: null, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 1d

@@ -39,13 +39,14 @@ mapping:
     mapping:
       "summary":
         type: str
-        required: False
+        required: True
       "author":
         type: str
-        required: False
+        required: True
       "email":
         type: str
         pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
+        required: False
       "timestamp":
         type: timestamp
         required: True
