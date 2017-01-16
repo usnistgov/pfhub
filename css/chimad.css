@@ -121,3 +121,19 @@ main {
 /* .navbar .chimad-logo { */
 /*     padding-top: 16px; */
 /* } */
+
+.dataTables_filter {
+    text-align: left !important;
+}
+
+.dataTables_filter label {
+    font-size: 14px;
+}
+
+.form-control {
+    width: 200px !important;
+}
+
+.dataTable tr {
+    line-height: 15px !important;
+}

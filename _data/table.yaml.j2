@@ -1,0 +1,14 @@
+---
+data:
+{%- for name, datum in data %}
+  - name: {{ name }}
+    code:
+      name: {{ datum.metadata.software.name }}
+      url: {{ datum.metadata.implementation.repo.url }}
+    id_: {{ datum.benchmark_id }}
+    author:
+      email: {{ datum.metadata.email }}
+      name: {{ datum.metadata.author }}
+    timestamp: {{ datum.metadata.timestamp | to_datetime(format_="%Y/%m/%d %H:%M:%S") }}
+    cores: {{ datum.metadata.hardware.cores }}
+{%- endfor %}

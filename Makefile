@@ -5,21 +5,8 @@ NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*" -
 NOTEBOOKS_HTML := $(NOTEBOOKS:%.ipynb=%.ipynb.raw.html)
 NOTEBOOKS_MD := $(NOTEBOOKS:%.ipynb=%.ipynb.md)
 
-YAML_FILES := $(shell find . -name 'meta.yaml')
-YAML_DIRS := $(subst meta.yaml,,$(YAML_FILES))
-
-vpath meta.yaml $(YAML_DIRS)
-
 YAML_FILES_IN := $(wildcard _data/simulations/*/meta.yaml)
 YAML_FILES_OUT := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
-# MODULES   := widgets test ui
-# SRC_DIR   := $(addprefix src/,$(MODULES))
-# BUILD_DIR := $(addprefix build/,$(MODULES))
-
-# SRC       := $(foreach sdir,$(SRC_DIR),$(wildcard $(sdir)/*.cpp))
-# OBJ       := $(patsubst src/%.cpp,build/%.o,$(SRC))
-# INCLUDES  := $(addprefix -I,$(SRC_DIR))
-# vpath %.yaml
 
 .PHONY: clean build_charts
 
@@ -46,13 +33,10 @@ yamllint: $(YAML_FILES_OUT)
 build_charts: _data/simulations.py $(YAML_FILES_OUT)
 	python _data/simulations.py
 
-simulations: yamllint build_charts
+data_table: _data/data_table.py
+	python _data/data_table.py
 
-# simulations: yaml
-# 	for FILE in _data/simulations/*/meta.yaml; do echo ""; echo $$FILE; pykwalify -d $$FILE -s _data/simulations/example/schema.yaml; done && python _data/simulations.py
-
-# something:
-# 	pykwalify -d _data/simulations/mmsp_1c_raspi/meta.yaml -s _data/simulations/example/schema.yaml;
+simulations: yamllint build_charts data_table
 
 hexbin: $(HEXBIN_OUT)
 
