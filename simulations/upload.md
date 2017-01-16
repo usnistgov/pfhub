@@ -114,10 +114,3 @@ the schema on Travis CI and things may need to be repaired. The web
 site dev will need to check that the formatting and links work for
 displaying the charts and tables. Repairs to the `meta.yaml` may be
 necessary at this stage.
-
-<h4> Note </h4>
-
-The process outlined above is similar to that used by Conda-Forge for
-uploading package metadata. It is a very low tech approach compared to
-maintaing a database and guarentees access to the data as it is only
-maintained in YAML files.
