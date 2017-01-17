@@ -5,8 +5,16 @@
       "type": "x"
     },
     {
+      "properties": {
+        "axis": {
+          "strokeOpacity": {
+            "value": 0
+          }
+        }
+      },
       "scale": "yscale",
-      "type": "y"
+      "type": "y",
+      "values": []
     },
     {
       "orient": "top",
@@ -18,12 +26,12 @@
         },
         "title": {
           "fontSize": {
-            "value": 20
+            "value": 15
           }
         }
       },
       "scale": "xscale",
-      "title": "Uploads per Code",
+      "title": "Uploads per Benchmark",
       "type": "x",
       "values": []
     }
@@ -34,11 +42,11 @@
       "values": [
         {
           "count": 5,
-          "name": "1a"
+          "name": "1b"
         },
         {
           "count": 5,
-          "name": "1b"
+          "name": "1a"
         },
         {
           "count": 4,
@@ -46,7 +54,7 @@
         },
         {
           "count": 2,
-          "name": "1d"
+          "name": "2a"
         },
         {
           "count": 2,
@@ -54,7 +62,7 @@
         },
         {
           "count": 2,
-          "name": "2a"
+          "name": "2d"
         },
         {
           "count": 2,
@@ -62,7 +70,7 @@
         },
         {
           "count": 2,
-          "name": "2d"
+          "name": "1d"
         }
       ]
     }
@@ -143,7 +151,7 @@
     }
   ],
   "padding": {
-    "bottom": 20,
+    "bottom": 30,
     "left": 30,
     "right": 10,
     "top": 40

@@ -42,7 +42,7 @@ def groupby_count(func):
 def code_upload_yaml_path():
     return os.path.join(get_path(), 'charts', 'code_upload.yaml.j2')
 
-def make_upload_chart(gfunc, yaml_path, json_path):
+def make_upload_chart(gfunc, yaml_path, json_path, title):
     return pipe(
         gfunc,
         groupby_count,
@@ -50,17 +50,21 @@ def make_upload_chart(gfunc, yaml_path, json_path):
         lambda data: sorted(data, key=lambda item: item[1], reverse=True),
         lambda data: j2_to_json(yaml_path,
                                 json_path,
-                                data=data)
+                                data=data,
+                                title=title)
     )
 
 if __name__ == "__main__":
     make_table_yaml()
     make_upload_chart(lambda item: item['metadata']['software']['name'],
                       code_upload_yaml_path(),
-                      os.path.join(get_path(), '../data/charts/code_upload.json'))
+                      os.path.join(get_path(), '../data/charts/code_upload.json'),
+                      'Uploads per Code')
+
     make_upload_chart(lambda item: item['benchmark_id'],
                       code_upload_yaml_path(),
-                      os.path.join(get_path(), '../data/charts/benchmark_upload.json'))
+                      os.path.join(get_path(), '../data/charts/benchmark_upload.json'),
+                      'Uploads per Benchmark')
 
     # dict(code=lambda item: item['metadata']['software']['name'],
     #      benchmark=lambda item: item['benchmark_id']),
