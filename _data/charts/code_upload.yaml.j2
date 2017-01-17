@@ -1,0 +1,101 @@
+---
+data:
+  - name: code_uploads
+    values:
+{%- for key, value in data %}
+      - name: {{ key }}
+        count: {{ value }}
+{%- endfor %}
+width: 300
+height: 150
+padding:
+  top: 40
+  left: 30
+  bottom: 20
+  right: 10
+signals:
+  - name: tooltip
+    init: {}
+    streams:
+      - type: "rect:mouseover"
+        expr: "datum"
+      - type: "rect:mouseout"
+        expr: "{}"
+scales:
+  - name: xscale
+    type: ordinal
+    range: width
+    domain:
+      data: code_uploads
+      field: name
+  - name: yscale
+    range: height
+    nice: true
+    domain:
+      data: code_uploads
+      field: count
+axes:
+  - type: x
+    scale: xscale
+  - type: y
+    scale: yscale
+  - type: x
+    scale: xscale
+    title: Uploads per Code
+    orient: top
+    values: []
+    properties:
+      title:
+        fontSize:
+          value: 20
+      axis:
+        strokeOpacity:
+          value: 0
+marks:
+  - type: rect
+    from:
+      data: code_uploads
+    properties:
+      enter:
+        x:
+          scale: xscale
+          field: name
+        width:
+          scale: xscale
+          band: true
+          offset: -1
+        y:
+          scale: yscale
+          field: count
+        y2:
+          scale: yscale
+          value: 0
+      update:
+        fill:
+          value: steelblue
+      hover:
+        fill:
+          value: red
+  - type: text
+    properties:
+      enter:
+        align:
+          value: center
+        fill:
+          value: "#333"
+      update:
+        x:
+          scale: xscale
+          signal: tooltip.name
+        dx:
+          scale: xscale
+          band: true
+          mult: 0.5
+        y:
+          scale: yscale
+          signal: tooltip.count
+          offset: -5
+        text:
+          signal: tooltip.count
+        fillOpacity:
+          value: 1

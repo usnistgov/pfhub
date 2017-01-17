@@ -4,8 +4,8 @@
 import os
 
 import yaml
-from toolz.curried import pipe, curry# pylint: disable=redefined-builtin, no-name-in-module
-from simulations import get_path, render_yaml, get_yaml_data
+from toolz.curried import pipe, curry, map, groupby, get, valmap, count # pylint: disable=redefined-builtin, no-name-in-module
+from simulations import get_path, render_yaml, get_yaml_data, j2_to_json
 
 
 def table_yaml():
@@ -21,7 +21,7 @@ def write_yaml(data, filepath):
         yaml.dump(data, stream, indent=2)
     return (filepath, data)
 
-def build_table_yaml():
+def make_table_yaml():
     """Make simulation datatable from meta.yaml's.
     """
     return pipe(
@@ -31,5 +31,36 @@ def build_table_yaml():
         write_yaml(filepath=os.path.join(get_path(), '../data/data_table.yaml')) # pylint: disable=no-value-for-parameter
     )
 
+def groupby_count(func):
+    return pipe(
+        get_yaml_data(),
+        map(get(1)),
+        groupby(func),
+        valmap(count),
+    )
+
+def code_upload_yaml_path():
+    return os.path.join(get_path(), 'charts', 'code_upload.yaml.j2')
+
+def make_upload_chart(gfunc, yaml_path, json_path):
+    return pipe(
+        gfunc,
+        groupby_count,
+        lambda data: list(data.items()),
+        lambda data: sorted(data, key=lambda item: item[1], reverse=True),
+        lambda data: j2_to_json(yaml_path,
+                                json_path,
+                                data=data)
+    )
+
 if __name__ == "__main__":
-    build_table_yaml()
+    make_table_yaml()
+    make_upload_chart(lambda item: item['metadata']['software']['name'],
+                      code_upload_yaml_path(),
+                      os.path.join(get_path(), '../data/charts/code_upload.json'))
+    make_upload_chart(lambda item: item['benchmark_id'],
+                      code_upload_yaml_path(),
+                      os.path.join(get_path(), '../data/charts/benchmark_upload.json'))
+
+    # dict(code=lambda item: item['metadata']['software']['name'],
+    #      benchmark=lambda item: item['benchmark_id']),

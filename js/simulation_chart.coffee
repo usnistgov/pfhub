@@ -1,6 +1,9 @@
 ---
 ---
 
+chart_name="simulations.json"
+div_id="#simulation_chart"
+
 on_click = (event, item) ->
   if not item
     return
@@ -13,7 +16,6 @@ make_chart = (chart) ->
   view.on('click', on_click)
 
 build_chart = (chart_json)->
-  console.log(chart_json)
   parse = (spec_json) ->
     vg.parse.spec(spec_json, make_chart)
   parse(chart_json)

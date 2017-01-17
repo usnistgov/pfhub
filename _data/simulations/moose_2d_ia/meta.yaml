@@ -5,6 +5,7 @@ metadata:
   summary: Metadata for the Benchmark2 problems
   timestamp: 6/28/2016
   author: A. M. Jokisaari
+  email: andrea.jokisaari@northwestern.edu
   software:
     name: moose
     version: Hedgehog (now Coral)

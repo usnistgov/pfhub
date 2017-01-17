@@ -28,6 +28,22 @@ comment: >-
   </div>
 </div>
 
+<div class="container">
+  <div class="row small-buffer">
+    <div class="col s5 offset-s2">
+      <div id="upload_code_barchart">
+      </div>
+    </div>
+    <div class="col s5">
+      <div id="upload_benchmark_barchart">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ site.baseurl }}/js/upload_code_barchart.js"></script>
+<script src="{{ site.baseurl }}/js/upload_benchmark_barchart.js"></script>
+
 <div class="container top-bar top-buffer">
   <div class="row small-buffer">
     <div class="col l2 m12 s12">
@@ -44,13 +60,7 @@ comment: >-
   </div>
 </div>
 
-<!-- <h4>Charts</h4> -->
 
-<!-- <div id="simulation_chart"> -->
-<!-- </div> -->
-
-<script> var chart_name="simulations.json" </script>
-<script> var div_id="#simulation_chart" </script>
 <script src="{{ site.baseurl }}/js/simulation_chart.js"></script>
 
 <div class="container top-bar top-buffer">

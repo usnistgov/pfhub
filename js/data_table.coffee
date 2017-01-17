@@ -19,7 +19,7 @@ fcode = (data, type, row) ->
 
 d3_func = (yaml_text) ->
   data_ = jsyaml.load(yaml_text)
-  console.log(data_)
+
   data = {
     lengthMenu: [15]
     lengthChange: false
@@ -54,7 +54,7 @@ d3_func = (yaml_text) ->
       }
     ]
   }
-  console.log(data)
+
   func = () ->
     $("#data_table").DataTable data
 

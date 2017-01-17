@@ -252,9 +252,16 @@ def landing_page_json():
                                                   link=name.replace("../images/", "")[:2]))(*tup)
         ),
         list,
-        lambda data: render_yaml(landing_page_j2(), data=data),
+        lambda data: j2_to_json(landing_page_j2(),
+                                os.path.join(get_path(), '../data/charts/simulations.json'),
+                                data=data)
+    )
+
+def j2_to_json(path_in, path_out, **kwargs):
+    return pipe(
+        render_yaml(path_in, **kwargs),
         yaml.load,
-        write_json(filepath=os.path.join(get_path(), '../data/charts/simulations.json')) # pylint: disable=no-value-for-parameter
+        write_json(filepath=path_out) # pylint: disable=no-value-for-parameter
     )
 
 if __name__ == "__main__":
