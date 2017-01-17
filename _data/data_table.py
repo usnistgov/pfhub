@@ -32,6 +32,14 @@ def make_table_yaml():
     )
 
 def groupby_count(func):
+    """Group the simulation data based on a function.
+
+    Args:
+      func: function to group by
+
+    Returns:
+      grouped data
+    """
     return pipe(
         get_yaml_data(),
         map(get(1)),
@@ -40,9 +48,22 @@ def groupby_count(func):
     )
 
 def code_upload_yaml_path():
+    """Path to the upload chart j2.
+    """
     return os.path.join(get_path(), 'charts', 'code_upload.yaml.j2')
 
 def make_upload_chart(gfunc, yaml_path, json_path, title):
+    """Create an upload chart
+
+    Args:
+      gfunc: the group by function
+      yaml_path: the template path
+      json_path: the path to write to
+      title: the title of the chart
+
+    Retuns:
+      the chart JSON
+    """
     return pipe(
         gfunc,
         groupby_count,
@@ -65,6 +86,3 @@ if __name__ == "__main__":
                       code_upload_yaml_path(),
                       os.path.join(get_path(), '../data/charts/benchmark_upload.json'),
                       'Uploads per Benchmark')
-
-    # dict(code=lambda item: item['metadata']['software']['name'],
-    #      benchmark=lambda item: item['benchmark_id']),

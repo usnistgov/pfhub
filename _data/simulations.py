@@ -258,6 +258,16 @@ def landing_page_json():
     )
 
 def j2_to_json(path_in, path_out, **kwargs):
+    """Render a yaml.j2 chart to JSON.
+
+    Args:
+      path_in: the j2 template path
+      path_out: the JSON path to write to
+      kwargs: data to pass to the j2 template
+
+    Returns:
+      the file path and JSON string
+    """
     return pipe(
         render_yaml(path_in, **kwargs),
         yaml.load,
