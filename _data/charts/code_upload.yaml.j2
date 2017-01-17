@@ -37,6 +37,14 @@ scales:
 axes:
   - type: x
     scale: xscale
+    tickSize: 0
+    properties:
+      labels:
+        fontSize:
+          value: 12
+      axis:
+        strokeOpacity:
+          value: 0
   - type: y
     scale: yscale
     values: []
@@ -89,6 +97,8 @@ marks:
         fill:
           value: "#333"
       update:
+        fontSize:
+          value: 12
         x:
           scale: xscale
           signal: tooltip.name

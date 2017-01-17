@@ -1,7 +1,20 @@
 {
   "axes": [
     {
+      "properties": {
+        "axis": {
+          "strokeOpacity": {
+            "value": 0
+          }
+        },
+        "labels": {
+          "fontSize": {
+            "value": 12
+          }
+        }
+      },
       "scale": "xscale",
+      "tickSize": 0,
       "type": "x"
     },
     {
@@ -112,6 +125,9 @@
           },
           "fillOpacity": {
             "value": 1
+          },
+          "fontSize": {
+            "value": 12
           },
           "text": {
             "signal": "tooltip.count"

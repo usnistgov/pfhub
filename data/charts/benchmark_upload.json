@@ -1,7 +1,20 @@
 {
   "axes": [
     {
+      "properties": {
+        "axis": {
+          "strokeOpacity": {
+            "value": 0
+          }
+        },
+        "labels": {
+          "fontSize": {
+            "value": 12
+          }
+        }
+      },
       "scale": "xscale",
+      "tickSize": 0,
       "type": "x"
     },
     {
@@ -62,15 +75,15 @@
         },
         {
           "count": 2,
+          "name": "1d"
+        },
+        {
+          "count": 2,
           "name": "2d"
         },
         {
           "count": 2,
           "name": "2c"
-        },
-        {
-          "count": 2,
-          "name": "1d"
         }
       ]
     }
@@ -132,6 +145,9 @@
           },
           "fillOpacity": {
             "value": 1
+          },
+          "fontSize": {
+            "value": 12
           },
           "text": {
             "signal": "tooltip.count"
