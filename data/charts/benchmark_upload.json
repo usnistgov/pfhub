@@ -55,19 +55,15 @@
       "values": [
         {
           "count": 5,
-          "name": "1a"
+          "name": "1b"
         },
         {
           "count": 5,
-          "name": "1b"
+          "name": "1a"
         },
         {
           "count": 4,
           "name": "1c"
-        },
-        {
-          "count": 2,
-          "name": "2b"
         },
         {
           "count": 2,
@@ -76,6 +72,10 @@
         {
           "count": 2,
           "name": "2c"
+        },
+        {
+          "count": 2,
+          "name": "2b"
         },
         {
           "count": 2,
