@@ -102,9 +102,207 @@ $( document ).ready(code_toggle);
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Benchmark-Problem-1:-Spinodal-Decomposition">Benchmark Problem 1: Spinodal Decomposition<a class="anchor-link" href="#Benchmark-Problem-1:-Spinodal-Decomposition">&#182;</a></h1>
+<h1 id="Benchmark-Problem-1:--Spinodal-Decomposition">Benchmark Problem 1:  Spinodal Decomposition<a class="anchor-link" href="#Benchmark-Problem-1:--Spinodal-Decomposition">&#182;</a></h1>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;h5&gt;Revision history&lt;/h5&gt;</span>
+
+<span class="s1">&lt;style&gt;</span>
+<span class="s1">tr:first-child {</span>
+<span class="s1">    background-color: #dddddd;</span>
+<span class="s1">  }</span>
+<span class="s1">&lt;/style&gt;</span>
+
+<span class="s1">&lt;table&gt;</span>
+<span class="s1">  &lt;thead&gt;</span>
+<span class="s1">    &lt;tr&gt;</span>
+<span class="s1">      &lt;td&gt;ID&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;Version&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;Event&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;Date&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;Commit&lt;/td&gt;</span>
+<span class="s1">    &lt;/tr&gt;</span>
+<span class="s1">  &lt;/thead&gt;</span>
+<span class="s1">  &lt;tbody&gt;</span>
+<span class="s1">    &lt;tr&gt;</span>
+<span class="s1">      &lt;td&gt;1a&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;1&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;http://dx.doi.org/10.1016/j.commatsci.2016.09.022&quot;&gt;Publication&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;1 October 2016&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://github.com/usnistgov/chimad-phase-field/tree/c4de782ed5fb2827920db11f3fb743bc28300fd9&quot;&gt;c4de782e&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">    &lt;/tr&gt;</span>
+<span class="s1">    &lt;tr&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;0&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://pages.nist.gov/chimad-phase-field/hackathon1/index.ipynb/&quot;&gt;Hackathon&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;15 October 2015&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://github.com/usnistgov/chimad-phase-field/tree/3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37&quot;&gt;3d5d8aa&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">    &lt;/tr&gt;</span>
+<span class="s1">  &lt;/tbody&gt;</span>
+<span class="s1">  &lt;tbody&gt;</span>
+<span class="s1">    &lt;tr&gt;</span>
+<span class="s1">      &lt;td&gt;1b&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;1&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;http://dx.doi.org/10.1016/j.commatsci.2016.09.022&quot;&gt;Publication&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;1 October 2016&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://github.com/usnistgov/chimad-phase-field/tree/c4de782ed5fb2827920db11f3fb743bc28300fd9&quot;&gt;c4de782e&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">    &lt;/tr&gt;</span>
+<span class="s1">    &lt;tr&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;0&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://pages.nist.gov/chimad-phase-field/hackathon1/index.ipynb/&quot;&gt;Hackathon&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;15 October 2015&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://github.com/usnistgov/chimad-phase-field/tree/3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37&quot;&gt;3d5d8aa&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">    &lt;/tr&gt;</span>
+<span class="s1">  &lt;/tbody&gt;</span>
+<span class="s1">  &lt;tbody&gt;</span>
+<span class="s1">    &lt;tr&gt;</span>
+<span class="s1">      &lt;td&gt;1c&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;1&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;http://dx.doi.org/10.1016/j.commatsci.2016.09.022&quot;&gt;Publication&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;1 October 2016&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://github.com/usnistgov/chimad-phase-field/tree/c4de782ed5fb2827920db11f3fb743bc28300fd9&quot;&gt;c4de782e&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">    &lt;/tr&gt;</span>
+<span class="s1">    &lt;tr&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;0&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://pages.nist.gov/chimad-phase-field/hackathon1/index.ipynb/&quot;&gt;Hackathon&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;15 October 2015&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://github.com/usnistgov/chimad-phase-field/tree/3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37&quot;&gt;3d5d8aa&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">    &lt;/tr&gt;</span>
+<span class="s1">  &lt;/tbody&gt;</span>
+<span class="s1">  &lt;tbody&gt;</span>
+<span class="s1">    &lt;tr&gt;</span>
+<span class="s1">      &lt;td&gt;1d&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;1&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;http://dx.doi.org/10.1016/j.commatsci.2016.09.022&quot;&gt;Pulication&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;1 October 2016&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://github.com/usnistgov/chimad-phase-field/tree/c4de782ed5fb2827920db11f3fb743bc28300fd9&quot;&gt;c4de782e&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">    &lt;/tr&gt;</span>
+<span class="s1">    &lt;tr&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;0&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://pages.nist.gov/chimad-phase-field/hackathon1/index.ipynb/&quot;&gt;Hackathon&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;15 October 2015&lt;/td&gt;</span>
+<span class="s1">      &lt;td&gt;&lt;a href=&quot;https://github.com/usnistgov/chimad-phase-field/tree/3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37&quot;&gt;3d5d8aa&lt;/a&gt;&lt;/td&gt;</span>
+<span class="s1">    &lt;/tr&gt;</span>
+<span class="s1">  &lt;/tbody&gt;</span>
+<span class="s1">&lt;/table&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<h5>Revision history</h5>
+
+<style>
+tr:first-child {
+    background-color: #dddddd;
+  }
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Version</td>
+      <td>Event</td>
+      <td>Date</td>
+      <td>Commit</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1a</td>
+      <td>1</td>
+      <td><a href="http://dx.doi.org/10.1016/j.commatsci.2016.09.022">Publication</a></td>
+      <td>1 October 2016</td>
+      <td><a href="https://github.com/usnistgov/chimad-phase-field/tree/c4de782ed5fb2827920db11f3fb743bc28300fd9">c4de782e</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td><a href="https://pages.nist.gov/chimad-phase-field/hackathon1/index.ipynb/">Hackathon</a></td>
+      <td>15 October 2015</td>
+      <td><a href="https://github.com/usnistgov/chimad-phase-field/tree/3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37">3d5d8aa</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>1b</td>
+      <td>1</td>
+      <td><a href="http://dx.doi.org/10.1016/j.commatsci.2016.09.022">Publication</a></td>
+      <td>1 October 2016</td>
+      <td><a href="https://github.com/usnistgov/chimad-phase-field/tree/c4de782ed5fb2827920db11f3fb743bc28300fd9">c4de782e</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td><a href="https://pages.nist.gov/chimad-phase-field/hackathon1/index.ipynb/">Hackathon</a></td>
+      <td>15 October 2015</td>
+      <td><a href="https://github.com/usnistgov/chimad-phase-field/tree/3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37">3d5d8aa</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>1c</td>
+      <td>1</td>
+      <td><a href="http://dx.doi.org/10.1016/j.commatsci.2016.09.022">Publication</a></td>
+      <td>1 October 2016</td>
+      <td><a href="https://github.com/usnistgov/chimad-phase-field/tree/c4de782ed5fb2827920db11f3fb743bc28300fd9">c4de782e</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td><a href="https://pages.nist.gov/chimad-phase-field/hackathon1/index.ipynb/">Hackathon</a></td>
+      <td>15 October 2015</td>
+      <td><a href="https://github.com/usnistgov/chimad-phase-field/tree/3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37">3d5d8aa</a></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>1d</td>
+      <td>1</td>
+      <td><a href="http://dx.doi.org/10.1016/j.commatsci.2016.09.022">Pulication</a></td>
+      <td>1 October 2016</td>
+      <td><a href="https://github.com/usnistgov/chimad-phase-field/tree/c4de782ed5fb2827920db11f3fb743bc28300fd9">c4de782e</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td><a href="https://pages.nist.gov/chimad-phase-field/hackathon1/index.ipynb/">Hackathon</a></td>
+      <td>15 October 2015</td>
+      <td><a href="https://github.com/usnistgov/chimad-phase-field/tree/3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37">3d5d8aa</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1060,10 +1258,10 @@ where $c_{0}=0.5$ and $\epsilon=0.01$.</p>
 
 
 
-<div id="d6800109-c385-4b54-a6cc-576fa981282e"></div>
+<div id="29a94d6b-65c1-4285-ba1c-3432f98abbe7"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#d6800109-c385-4b54-a6cc-576fa981282e');
+var element = $('#29a94d6b-65c1-4285-ba1c-3432f98abbe7');
 
 (function(global) {
   function now() {

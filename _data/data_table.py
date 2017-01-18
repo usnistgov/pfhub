@@ -82,7 +82,7 @@ if __name__ == "__main__":
                       os.path.join(get_path(), '../data/charts/code_upload.json'),
                       'Uploads per Code')
 
-    make_upload_chart(lambda item: item['benchmark_id'],
+    make_upload_chart(lambda item: item['benchmark']['id'],
                       code_upload_yaml_path(),
                       os.path.join(get_path(), '../data/charts/benchmark_upload.json'),
                       'Uploads per Benchmark')

@@ -1,5 +1,7 @@
 ---
-benchmark_id: 1b
+benchmark:
+  id: 1b
+  version: 1
 
 metadata:
   # Describe the runtime environment

@@ -67,14 +67,6 @@
         },
         {
           "count": 2,
-          "name": "2a"
-        },
-        {
-          "count": 2,
-          "name": "2b"
-        },
-        {
-          "count": 2,
           "name": "1d"
         },
         {
@@ -84,6 +76,14 @@
         {
           "count": 2,
           "name": "2c"
+        },
+        {
+          "count": 2,
+          "name": "2a"
+        },
+        {
+          "count": 2,
+          "name": "2b"
         }
       ]
     }
