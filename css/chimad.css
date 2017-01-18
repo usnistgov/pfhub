@@ -137,3 +137,7 @@ main {
 .dataTable tr {
     line-height: 15px !important;
 }
+
+table.striped tbody tr:nth-child(2n+1) {
+    background-color: #e0e0e0 !important;
+}
