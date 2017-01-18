@@ -68,7 +68,7 @@ def make_upload_chart(gfunc, yaml_path, json_path, title):
         gfunc,
         groupby_count,
         lambda data: list(data.items()),
-        lambda data: sorted(data, key=lambda item: item[1], reverse=True),
+        lambda data: sorted(data, key=lambda item: (-item[1], item[0])),
         lambda data: j2_to_json(yaml_path,
                                 json_path,
                                 data=data,
