@@ -119,7 +119,9 @@ def get_data():
     """
     return pipe(
         get_yaml_data(),
-        groupby(lambda item: item[1]['benchmark']['id'] + '.' + str(item[1]['benchmark']['version'])),
+        groupby(
+            lambda item: item[1]['benchmark']['id'] + '.' + str(item[1]['benchmark']['version'])
+        ),
         valmap(filter_data),
     )
 
@@ -234,6 +236,10 @@ def landing_page_json():
     Returns:
       (filepath, chart_json) pairs
     """
+    def extract_id(name):
+        """Extract benchmark ID from png path
+        """
+        return name.replace("../images/", "").replace('_free_energy.png', '')
     return pipe(
         ['1a.1_free_energy.png',
          '1b.1_free_energy.png',
@@ -246,10 +252,12 @@ def landing_page_json():
         map(lambda name: os.path.join("..", 'images', name)),
         enumerate,
         map(
-            lambda tup: (lambda count, name: dict(path=name,
-                                                  col=(count % 4),
-                                                  row=count // 4,
-                                                  link=name.replace("../images/", "").replace('_free_energy.png', '')))(*tup)
+            lambda tup: (
+                lambda count, name: dict(path=name,
+                                         col=(count % 4),
+                                         row=count // 4,
+                                         link=extract_id(name))
+                )(*tup)
         ),
         list,
         lambda data: j2_to_json(landing_page_j2(),
