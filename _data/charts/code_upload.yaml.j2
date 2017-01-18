@@ -6,13 +6,13 @@ data:
       - name: {{ key }}
         count: {{ value }}
 {%- endfor %}
-width: 300
-height: 150
+width: 230
+height: 115
 padding:
   top: 40
-  left: 30
+  left: 0
   bottom: 30
-  right: 10
+  right: 0
 signals:
   - name: tooltip
     init: {}
@@ -41,7 +41,9 @@ axes:
     properties:
       labels:
         fontSize:
-          value: 12
+          value: 13
+        font:
+          value: Lato
       axis:
         strokeOpacity:
           value: 0
@@ -60,7 +62,9 @@ axes:
     properties:
       title:
         fontSize:
-          value: 15
+          value: 16
+        font:
+          value: Lato
       axis:
         strokeOpacity:
           value: 0
@@ -85,20 +89,16 @@ marks:
           value: 0
       update:
         fill:
-          value: steelblue
+          value: "#90caf9"
       hover:
         fill:
-          value: red
+          value: "#f44336"
   - type: text
     properties:
       enter:
         align:
           value: center
-        fill:
-          value: "#333"
       update:
-        fontSize:
-          value: 12
         x:
           scale: xscale
           signal: tooltip.name

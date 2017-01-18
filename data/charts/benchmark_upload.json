@@ -8,8 +8,11 @@
           }
         },
         "labels": {
+          "font": {
+            "value": "Lato"
+          },
           "fontSize": {
-            "value": 12
+            "value": 13
           }
         }
       },
@@ -38,8 +41,11 @@
           }
         },
         "title": {
+          "font": {
+            "value": "Lato"
+          },
           "fontSize": {
-            "value": 15
+            "value": 16
           }
         }
       },
@@ -88,7 +94,7 @@
       ]
     }
   ],
-  "height": 150,
+  "height": 115,
   "marks": [
     {
       "from": {
@@ -116,12 +122,12 @@
         },
         "hover": {
           "fill": {
-            "value": "red"
+            "value": "#f44336"
           }
         },
         "update": {
           "fill": {
-            "value": "steelblue"
+            "value": "#90caf9"
           }
         }
       },
@@ -132,9 +138,6 @@
         "enter": {
           "align": {
             "value": "center"
-          },
-          "fill": {
-            "value": "#333"
           }
         },
         "update": {
@@ -145,9 +148,6 @@
           },
           "fillOpacity": {
             "value": 1
-          },
-          "fontSize": {
-            "value": 12
           },
           "text": {
             "signal": "tooltip.count"
@@ -168,8 +168,8 @@
   ],
   "padding": {
     "bottom": 30,
-    "left": 30,
-    "right": 10,
+    "left": 0,
+    "right": 0,
     "top": 40
   },
   "scales": [
@@ -208,5 +208,5 @@
       ]
     }
   ],
-  "width": 300
+  "width": 230
 }
