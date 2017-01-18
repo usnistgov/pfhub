@@ -138,6 +138,9 @@
         "enter": {
           "align": {
             "value": "center"
+          },
+          "fill": {
+            "value": "#333"
           }
         },
         "update": {
@@ -148,6 +151,9 @@
           },
           "fillOpacity": {
             "value": 1
+          },
+          "fontSize": {
+            "value": 12
           },
           "text": {
             "signal": "tooltip.count"
