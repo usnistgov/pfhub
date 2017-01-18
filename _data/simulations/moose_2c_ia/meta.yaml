@@ -1,5 +1,7 @@
 ---
-benchmark_id: 2c
+benchmark:
+  id: 2c
+  version: 1
 
 metadata:
   summary: Metadata for the Benchmark2 problems

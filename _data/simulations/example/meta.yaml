@@ -1,6 +1,8 @@
 ---
 ## YAML specification for a CHiMaD Phase Field Simulation
-benchmark_id: 1a # REQUIRED
+benchmark:
+  id: 1a # REQUIRED
+  version: 1 # REQUIRED
 
 metadata: # REQUIRED
   # Describe the runtime environment
