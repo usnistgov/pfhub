@@ -5,7 +5,7 @@ data:
     code:
       name: {{ datum.metadata.software.name }}
       url: {{ datum.metadata.implementation.repo.url }}
-    id_: {{ datum.benchmark_id }}
+    id_: {{ datum.benchmark.id }}.{{ datum.benchmark.version }}
     author:
       email: {{ datum.metadata.email }}
       name: {{ datum.metadata.author }}

@@ -44,13 +44,16 @@ complete schema is outlined in
 }}/example/schema.yaml). A `meta.yaml` file contains three sections:
 `benchmark_id`, `metadata` and `data`.
 
-<h5> Benchmark ID </h5>
+<h5> Benchmark </h5>
 
-The `benchmark_id` is just a key value pair that describles the
-benchmark problem. The current choices are `1a`, `1b`, `1c`, `1d`,
-`2a`, `2b`, `2c` and `2d`. e.g.
+The `benchmark` section includes a `id` and a `version`. This is in
+anticipation of version changes to the benchmark problems. The current
+choices are `1a`, `1b`, `1c`, `1d`, `2a`, `2b`, `2c` and `2d` for the
+`id` value and either `0` or `1` for the `version` value.
 
-    benchmark_id: 1a
+    benchmark:
+      id: 1a
+      version: 1
 
 <h5> Metadata </h5>
 
