@@ -132,6 +132,9 @@
           "fillOpacity": {
             "value": 1
           },
+          "font": {
+            "value": "Lato"
+          },
           "fontSize": {
             "value": 12
           },
@@ -153,7 +156,7 @@
     }
   ],
   "padding": {
-    "bottom": 30,
+    "bottom": 40,
     "left": 0,
     "right": 0,
     "top": 40
