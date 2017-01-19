@@ -12,12 +12,34 @@ axes:
     format: ".0e"
     formatType: number
     title: "Time"
+    properties:
+      title:
+        font:
+          value: Lato
+        fontSize:
+          value: 14
+      labels:
+        font:
+          value: Lato
+        fontSize:
+          value: 12
   - type: y
     scale: y
     values: {{ marks.y }}
     format: ".0e"
     formatType: number
     title: "Free Energy"
+    properties:
+      title:
+        font:
+          value: Lato
+        fontSize:
+          value: 14
+      labels:
+        font:
+          value: Lato
+        fontSize:
+          value: 12
   - type: x
     grid: true
     tickSize: 0
@@ -41,6 +63,8 @@ axes:
       title:
         fontSize:
           value: 20
+        font:
+          value: Lato
       axis:
         strokeOpacity:
           value: 0
@@ -65,6 +89,17 @@ scales:
 legends:
   - title: Simulations
     fill: color
+    properties:
+      title:
+        font:
+          value: Lato
+        fontSize:
+          value: 14
+      labels:
+        font:
+          value: Lato
+        fontSize:
+          value: 12
 marks:
 {%- for datum in data %}
   - type: line
