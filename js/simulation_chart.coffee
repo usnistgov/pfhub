@@ -20,6 +20,6 @@ build_chart = (chart_json)->
     vg.parse.spec(spec_json, make_chart)
   parse(chart_json)
 
-free_energy_json = "{{ site.baseurl }}/data/charts/" + chart_name
+chart_json = "{{ site.baseurl }}/data/charts/" + chart_name
 
-d3.json(free_energy_json, build_chart)
+d3.json(chart_json, build_chart)
