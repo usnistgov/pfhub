@@ -3,6 +3,24 @@
     {
       "format": ".0e",
       "formatType": "number",
+      "properties": {
+        "labels": {
+          "font": {
+            "value": "Lato"
+          },
+          "fontSize": {
+            "value": 12
+          }
+        },
+        "title": {
+          "font": {
+            "value": "Lato"
+          },
+          "fontSize": {
+            "value": 14
+          }
+        }
+      },
       "scale": "x",
       "title": "Time",
       "type": "x",
@@ -19,6 +37,24 @@
     {
       "format": ".0e",
       "formatType": "number",
+      "properties": {
+        "labels": {
+          "font": {
+            "value": "Lato"
+          },
+          "fontSize": {
+            "value": 12
+          }
+        },
+        "title": {
+          "font": {
+            "value": "Lato"
+          },
+          "fontSize": {
+            "value": 14
+          }
+        }
+      },
       "scale": "y",
       "title": "Free Energy",
       "type": "y",
@@ -59,6 +95,9 @@
           }
         },
         "title": {
+          "font": {
+            "value": "Lato"
+          },
           "fontSize": {
             "value": 20
           }
@@ -218,6 +257,24 @@
   "legends": [
     {
       "fill": "color",
+      "properties": {
+        "labels": {
+          "font": {
+            "value": "Lato"
+          },
+          "fontSize": {
+            "value": 12
+          }
+        },
+        "title": {
+          "font": {
+            "value": "Lato"
+          },
+          "fontSize": {
+            "value": 14
+          }
+        }
+      },
       "title": "Simulations"
     }
   ],
