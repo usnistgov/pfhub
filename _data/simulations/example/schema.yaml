@@ -80,7 +80,7 @@ mapping:
         mapping:
           "name":
             type: str
-            enum: ["fipy", "moose", "mmsp"]
+            enum: ["dune", "fenics", "fipy", "moose", "mmsp", "prisms"]
             required: True
           "version":
             type: str

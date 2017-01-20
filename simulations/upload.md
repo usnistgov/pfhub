@@ -16,12 +16,11 @@ the website and encourage community collaboration.
 
 Each simulation result is stored in a file called `meta.yaml` in a
 separate directory in
-[_data/simulations](https://github.com/usnistgov/chimad-phase-field/tree/master/_data/simulations). A
-`meta.yaml` file stores the meta data for only one simulation. A new
-directory is required for each new simulation.
+[_data/simulations](https://github.com/usnistgov/chimad-phase-field/tree/master/_data/simulations).
+A `meta.yaml` file stores the meta data for only one simulation.
+A new directory is required for each new simulation.
 
-To
-record a new simulation, use the following workflow.
+To record a new simulation, use the following workflow.
 
  1. [Fork](https://help.github.com/articles/fork-a-repo/) the [website repository]({{ site.links.github }}).
 
@@ -30,12 +29,85 @@ record a new simulation, use the following workflow.
     `meta.yaml` in the directory.
 
  3. Fill out the `meta.yaml` using the schema outlined below.
+    This is a text-based summary of the benchmark problem,
+    your implementation and the hardware used to execute it,
+    and links to key data produced by the software at runtime.    
 
  4. Submit a [pull
     request](https://help.github.com/articles/creating-a-pull-request/)
     for the new `meta.yaml`.
 
-<h4> The Schema </h4>
+
+<h4>Minimal Example</h4>
+
+Each key-value description of a specific simulation contains the following three parts:
+
+1. `benchmark`:
+   Specify the benchmark problem and version you have implemented.
+
+2. `metadata`:
+   Summarize the runtime environment, software and hardware, used to produce this result.
+
+3. `data`:
+   Capture salient outputs from the simulation, particularly the free energy evolution.
+
+Following is the minimal description of a simulation, with relevant comments.
+The definitive archetype resides at [`_data/simulations/example/example.yaml`]({{
+site.links.simmeta }}/example/meta.yaml). Anything after a # is a comment.
+Indented blocks following a field (`name+:`) are interpteted as lists,
+which may be nested several levels. The YAML format of this document is a
+list of lists of dictionaries (or an array of arrays of maps, for the C-minded).
+
+```
+---    # signifies beginning of a YAML block
+benchmark:
+  # Refer to the problem definition for appropriate value.
+  id: 1a    # number+letter, from problem description
+  version: 1    # number, from problem description
+
+metadata:
+  # Describe the runtime environment, hardware and software
+  summary: concise description of this contribution    #
+  author: name    # preferably yours
+  email: "name@organization"    # in quotes
+  timestamp: "Day, DD MM YYYY HH:MM:SS -ZONE"    #, e.g. 'date -R' on Linux
+  hardware:    #
+    # relevant details of your machine or cluster
+    cores: 6    #, number actually used if less than total available
+  software:    #
+    # software framework your application is built upon, from the (website)[{{ site.url }}]
+    name: name    # all lower-case, e.g. fipy or moose or prisms, etc.
+
+data:
+  # Values for use in tables, charts, galleries, etc.
+  # Use Vega standard to help generate graphics directly; see
+  # https://github.com/vega/vega/wiki/Data and
+  # https://vega.github.io/vega-lite/docs/data.html.
+  # Broadly, a list of key-value pairs defined minimally with
+  # two keys, 'name' and 'values', to help the parser determine
+  # where these data belong on the final site. If 'values' are
+  # multiply defined, indent and specify keys 'time' for simulation time
+  # and 'value' for appropriate datum.
+  - name: timestep
+    values: floating-point-value     # non-dimensional
+  - name: run_time
+    # wall time, in seconds, when specified simulation-times were reached
+    values:
+      sim_times: [0, 19.5312]
+      time: [0.0, 179.43]
+  - name: memory_usage
+    values: 27232    # peak, in KB
+  - name: free_energy
+    url: http://somewhere/data.csv    # gist.github.com if you're unsure where to store your data
+    format: csv    # preferred, with column headings 'time,free_energy'
+```
+
+If you would like to submit additional information, each of the blocks in the
+example admits a `details:` block. This will not be parsed for the website,
+but may be of use to other users or for future reference.
+
+
+<h5> The Schema </h5>
 
 Many examples can be found in [`_data/simulations`]({{
 site.links.simmeta }}) and these can be used as templates. The
