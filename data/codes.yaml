@@ -162,9 +162,13 @@
   examples:
     - href: https://github.com/prisms-center/phaseField/tree/master/applications/cahnHilliard
       name: Cahn-Hilliard
-    - href: https://github.com/prisms-center/phaseField/tree/master/applications/allenCahn
-      name: Allen-Cahn
-    - name: Precipitation
-      href: https://github.com/prisms-center/phaseField/tree/master/applications/betaPrimePrecipitateEvolution
-    - href: https://github.com/prisms-center/phaseField/tree/master/applications/coupledCahnHilliardAllenCahn
-      name: Coupled Cahn-Hilliard Allen-Cahn
+    - href: https://github.com/prisms-center/phaseField/tree/master/applications/CHAC_anisotropyRegularized
+      name: Regularized Anisotropy
+    - name: Precipitation (WBM)
+      href: https://github.com/prisms-center/phaseField/tree/master/applications/precipitateEvolution
+    - href: https://github.com/prisms-center/phaseField/tree/master/applications/singlePrecipitateKKS
+      name: Precipitation (KKS)
+    - href: https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark1a
+      name: CHiMaD Benchmark 1a
+    - href: https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark2a
+      name: CHiMaD Benchmark 2a
