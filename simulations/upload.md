@@ -14,11 +14,14 @@ the website and encourage community collaboration.
 
 <h4> How to Upload </h4>
 
-Each simulation result is stored in a file called `meta.yaml` in a
-separate directory in
+Each simulation result is stored in a [YAML
+file](http://docs.ansible.com/ansible/YAMLSyntax.html) called
+`meta.yaml` in a separate directory in
 [_data/simulations](https://github.com/usnistgov/chimad-phase-field/tree/master/_data/simulations).
-A `meta.yaml` file stores the meta data for only one simulation.
-A new directory is required for each new simulation.
+A [YAML file](http://docs.ansible.com/ansible/YAMLSyntax.htm) is a
+minimal, human readable syntax for structured data. The `meta.yaml`
+file stores the meta data for only one simulation and a new directory
+is required for each new simulation.
 
 To record a new simulation, use the following workflow.
 
@@ -26,40 +29,50 @@ To record a new simulation, use the following workflow.
 
  2. Edit the repository by adding a new directory to
     [`_data/simulations`]({{ site.links.simmeta }}) and create
-    `meta.yaml` in the directory.
+    `meta.yaml` in the directory. The name of the directory becomes
+    the name of the simulation result on the website so try to use a
+    descriptive name for the directory.
 
- 3. Fill out the `meta.yaml` using the schema outlined below.
-    This is a text-based summary of the benchmark problem,
-    your implementation and the hardware used to execute it,
-    and links to key data produced by the software at runtime.    
+ 3. Fill out the `meta.yaml` using the schema outlined below.  This is
+    a text-based summary of the benchmark problem, your implementation
+    and the hardware used to execute it, and links to data displayed
+    on the website.
 
  4. Submit a [pull
     request](https://help.github.com/articles/creating-a-pull-request/)
-    for the new `meta.yaml`.
-
+    for the new `meta.yaml`. At this stage the website test suite will
+    check the `meta.yaml` against the schema. The website developer
+    can then work with the benchmark uploader to refine the
+    `meta.yaml` so that all the data associated with the simulation
+    result is available to be displayed on the website.
 
 <h4>Minimal Example</h4>
 
-Each key-value description of a specific simulation contains the following three parts:
+Each [YAML](http://docs.ansible.com/ansible/YAMLSyntax.html)
+description of a specific simulation contains the following three
+parts:
 
-1. `benchmark`:
-   Specify the benchmark problem and version you have implemented.
+ 1. `benchmark`: specify the benchmark problem and version you have
+    implemented,
 
-2. `metadata`:
-   Summarize the runtime environment, software and hardware, used to produce this result.
+ 2. `metadata`: summarize the runtime environment, software and
+    hardware, used to produce this result and
 
-3. `data`:
-   Capture salient outputs from the simulation, particularly the free energy evolution.
+ 3. `data`: capture salient outputs from the simulation, particularly
+    the free energy evolution to be displayed on the website
 
-Following is the minimal description of a simulation, with relevant comments.
-The definitive archetype resides at [`_data/simulations/example/example.yaml`]({{
-site.links.simmeta }}/example/meta.yaml). Anything after a # is a comment.
-Indented blocks following a field (`name+:`) are interpteted as lists,
-which may be nested several levels. The YAML format of this document is a
-list of lists of dictionaries (or an array of arrays of maps, for the C-minded).
+The following is the minimal description of a simulation with relevant
+comments. The definitive archetype resides at
+[`_data/simulations/example/example.yaml`]({{ site.links.simmeta
+}}/example/meta.yaml). To understand the YAML syntax consult either
+the [Ansible
+documentation](http://docs.ansible.com/ansible/YAMLSyntax.html) for a
+simple overview or the [YAML site](http://www.yaml.org/) for a more in
+depth description.
 
 ```
----    # signifies beginning of a YAML block
+---
+# miminal example with the required fields
 benchmark:
   # Refer to the problem definition for appropriate value.
   id: 1a    # number+letter, from problem description
@@ -70,10 +83,11 @@ metadata:
   summary: concise description of this contribution    #
   author: name    # preferably yours
   email: "name@organization"    # in quotes
-  timestamp: "Day, DD MM YYYY HH:MM:SS -ZONE"    #, e.g. 'date -R' on Linux
+  timestamp: "Day, DD MM YYYY HH:MM:SS -ZONE"    #, e.g. 'date -R' on Linux or any valid timestamp
   hardware:    #
     # relevant details of your machine or cluster
-    cores: 6    #, number actually used if less than total available
+    architecture: i686   # architecture of the environment
+    cores: 6    # number actually used if less than total available
   software:    #
     # software framework your application is built upon, from the (website)[{{ site.url }}]
     name: name    # all lower-case, e.g. fipy or moose or prisms, etc.
@@ -88,24 +102,31 @@ data:
   # where these data belong on the final site. If 'values' are
   # multiply defined, indent and specify keys 'time' for simulation time
   # and 'value' for appropriate datum.
-  - name: timestep
-    values: floating-point-value     # non-dimensional
   - name: run_time
     # wall time, in seconds, when specified simulation-times were reached
     values:
-      sim_times: [0, 19.5312]
-      time: [0.0, 179.43]
+      - sim_time: 0.0
+        time: 0.0
+      - sim_time: 2.0
+        time: 1.0
+      - sim_time: 8.0
+        time: 2.0
   - name: memory_usage
     values: 27232    # peak, in KB
   - name: free_energy
-    url: http://somewhere/data.csv    # gist.github.com if you're unsure where to store your data
-    format: csv    # preferred, with column headings 'time,free_energy'
+    url: https://somewhere/data.csv
+    format:
+      type: csv
+      parse:
+        free_energy: number
+        time: number
+
 ```
 
-If you would like to submit additional information, each of the blocks in the
-example admits a `details:` block. This will not be parsed for the website,
-but may be of use to other users or for future reference.
-
+If you would like to submit additional information, each of the blocks
+in the example admits a `details:` block. This is currently not parsed
+for the website, but may be of use to other users aor for future
+reference.
 
 <h5> The Schema </h5>
 
@@ -157,7 +178,8 @@ used by Vega is tabular data, similar to a spreadsheet or database
 table.  Individual data sets are assumed to contain a collection of
 records (or "rows"), which may contain any number of named data
 attributes (fields, or "columns"). The `url` field can either link to
-JSON or CSV data currently.
+JSON or CSV data currently, but we can extend the possible formats as
+the need arises.
 
 For the charts, there must be a `free_energy` section with
 `free_energy` and `time` fields. Other required fields will be added
