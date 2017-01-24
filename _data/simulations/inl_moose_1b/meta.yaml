@@ -1,0 +1,58 @@
+---
+benchmark:
+  id: 1b
+  version: 1
+
+metadata:
+  summary: Information for the Benchmark1 problems
+  timestamp: 1/24/2017
+  author: D. Schwen
+  email: daniel.schwen@inl.gov
+  software:
+    name: moose
+    version: CHiMaD_Hackathon
+    details:
+      - name: time stepper
+        values: IA
+  implementation:
+    repo:
+      url: https://github.com/dschwen/CHiMaD_Hackathon
+      version: cf1ab8d
+    end_condition: Time 10000
+  hardware:
+    cores: 8
+
+data:
+  - name: run_time
+    values:
+      [
+        {
+          "time": 9850.68,
+          "sim_time": 10000.0
+        }
+      ]
+  - name: memory_usage
+    values:
+      [
+        {
+          "value_m": 4.64,
+          "unit": MB
+        }
+      ]
+    transform:
+      - type: formula
+        field: value
+        expr: datum.value_m * 1024.0
+  - name: free_energy
+    url: https://gist.githubusercontent.com/dschwen/75c5f5f47519119fdb6e934056f6fd56/raw/d865f3213e4a695dc031c37e71b280248c4a0eb5/problem_1b_out.csv
+    format:
+      type: csv
+      parse:
+        F: number
+        time: number
+    transform:
+      - type: formula
+        field: free_energy
+        expr: datum.F
+      - type: filter
+        test: "datum.time > 0.01"
