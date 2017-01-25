@@ -18,7 +18,7 @@ Each simulation result is stored in a [YAML
 file](http://docs.ansible.com/ansible/YAMLSyntax.html) called
 `meta.yaml` in a separate directory in
 [_data/simulations](https://github.com/usnistgov/chimad-phase-field/tree/master/_data/simulations).
-A [YAML file](http://docs.ansible.com/ansible/YAMLSyntax.htm) is a
+A [YAML file](http://docs.ansible.com/ansible/YAMLSyntax.html) is a
 minimal, human readable syntax for structured data. The `meta.yaml`
 file stores the meta data for only one simulation and a new directory
 is required for each new simulation.

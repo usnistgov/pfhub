@@ -13,6 +13,7 @@ install:
   - conda create -q -y -n test-environment python=3.5
   - source activate test-environment
   - conda install -q -y -n test-environment jupyter pillow numpy toolz pytest bokeh matplotlib scikit-image
+  - conda install nb_conda nb_conda_kernels nb_anacondacloud
   - pip install progressbar2 pykwalify pylint nbval vega
   - jupyter nbextension enable vega --py
   - unset VIRTUAL_ENV
