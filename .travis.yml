@@ -27,4 +27,5 @@ script:
   - make hexbin
   - rm -rf ./_site
   - jekyll build -d ./_site/chimad-phase-field && htmlproofer --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
-  - py.test --ignore=hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg .
+after_success:
+  - py.test --ignore=hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg
