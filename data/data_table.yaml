@@ -17,6 +17,12 @@ data:
   id_: 1c.1
   name: fipy_1c_travis
   timestamp: 2017/01/10 01:27:20
+- author: {email: daniel.schwen@inl.gov, name: D. Schwen}
+  code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
+  cores: 8
+  id_: 1b.1
+  name: inl_moose_1b
+  timestamp: 2017/01/24 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 16
