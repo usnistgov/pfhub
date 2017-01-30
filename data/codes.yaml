@@ -106,6 +106,8 @@
   hackathon:
     - name: Hackathon repo
       href: https://github.com/guyer/phase_field_hackathon_I
+    - name: Automated Benchmark 1
+      href: https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master
 
 # - name: SfePy
 #   logo: http://sfepy.org/doc-devel/_static/sfepy_logo_title_small.png
@@ -136,6 +138,8 @@
     #   src: http://githubbadges.herokuapp.com/mesoscale/mmsp/pulls.svg
     - href: https://www.openhub.net/p/mmsp
       src: https://www.openhub.net/p/mmsp/widgets/project_thin_badge.gif
+    - href: https://travis-ci.org/mesoscale/mmsp
+      src: https://travis-ci.org/mesoscale/mmsp.svg
   examples:
     - name: Cahn-Hilliard
       href: https://github.com/mesoscale/mmsp/tree/master/examples/phase_transitions/cahn-hilliard/convex_splitting
@@ -148,6 +152,8 @@
   hackathon:
     - name: Hackathon repo
       href: https://github.com/tkphd/CHiMaD-Hackathon
+    - name: Automated Benchmark 1
+      href: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master
 
 - name: PRISMS-PF
   home_page: https://htmlpreview.github.io/?https://raw.githubusercontent.com/prisms-center/phaseField/v0.9.2/html/index.html
@@ -168,6 +174,7 @@
       href: https://github.com/prisms-center/phaseField/tree/master/applications/precipitateEvolution
     - href: https://github.com/prisms-center/phaseField/tree/master/applications/singlePrecipitateKKS
       name: Precipitation (KKS)
+  hackathon:
     - href: https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark1a
       name: CHiMaD Benchmark 1a
     - href: https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark2a
