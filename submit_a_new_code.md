@@ -8,10 +8,19 @@ comment: >-
 
 ### Requirements
 
-The main requirements for listing a code are that the code includes an
-[open source license](http://choosealicense.com){:target="_blank"}, is
-available via a public repository and includes annotated phase field
-examples.
+The two main requirements for including a code on the front page are
+
+ 1. that at least [one simulation result]({{ site.baseurl
+    }}/simulations/#simulations) is submitted for the benchmark problems using the
+    code in question (see [instructions]({{ site.baseurl
+    }}/simulations/upload))
+
+ 2. and that the submitted benchmark results are reproducible by
+    another researcher.
+
+Note that this does not limit codes to open source only, but does
+require that the necessary input files for the benchmark simulations
+are made available for other researchers in a public repository.
 
 ### How to Submit
 
