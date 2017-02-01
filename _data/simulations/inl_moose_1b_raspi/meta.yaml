@@ -4,21 +4,31 @@ benchmark:
   version: 1
 
 metadata:
-  summary: Benchmark with MOOSE on macPro, no-flux domain
+  # Describe the runtime environment
+  summary: Raspberry Pi 3 benchmark with MOOSE, no-flux domain
   author: Daniel Schwen
   email: daniel.schwen@inl.gov
-  timestamp: 1/24/2017
+  timestamp: 1/27/2017
   hardware:
-    architecture: x86_64
-    cores: 8
+    # Required hardware details
+    architecture: armv7l
+    cores: 4
+    # Optional hardware details
+    details:
+      - name: clock
+        values: 1.2
+        # unit: GHz
   software:
     name: moose
     version: CHiMaD_Hackathon
-  implementation:
     repo:
       url: https://github.com/dschwen/CHiMaD_Hackathon
       version: cf1ab8d
+  implementation:
     end_condition: Time 10000
+    repo:
+      url: https://github.com/dschwen/CHiMaD_Hackathon
+      version: cf1ab8d
     details:
       - name: mesh
         values: uniform rectilinear 126*126 QUAD4
@@ -32,30 +42,17 @@ metadata:
         values: IterationAdaptive
       - name: time_integration
         values: second order backward euler
-
 data:
   - name: run_time
     values:
       [
         {
-          "time": 1089.121,
+          "time": 14262.998,
           "sim_time": 10000.0
         }
       ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value_m": 4.64,
-          "unit": MB
-        }
-      ]
-    transform:
-      - type: formula
-        field: value
-        expr: datum.value_m * 1024.0
   - name: free_energy
-    url: https://gist.githubusercontent.com/dschwen/75c5f5f47519119fdb6e934056f6fd56/raw/d865f3213e4a695dc031c37e71b280248c4a0eb5/problem_1b_out.csv
+    url: https://gist.githubusercontent.com/dschwen/e98885861ef77c480a74c13d09804f92/raw/a11dfd5d1d3856ec48b14fd321a7ccbfce45bd96/problem_1b_out.csv
     format:
       type: csv
       parse:
