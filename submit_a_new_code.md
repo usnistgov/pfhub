@@ -6,21 +6,40 @@ comment: >-
   href="/chimad-phase-field/#codes" target="_blank">list</a> on the front page.
 ---
 
+### Call for Community Codes
+
+This website is intended to help users judge for themselves the
+suitability of available codes for their purposes. Performance on the
+various benchmark problems are expected to form the major basis for
+comparison, but consideration should also be given to ease of
+installation, use, and comprehension of the code.
+
 ### Requirements
 
-The two main requirements for including a code on the front page are
+If you develop or use a code for phase field simulations, you are
+encouraged to submit it for inclusion on this site if it meets the
+following criteria.
 
- 1. that at least [one simulation result]({{ site.baseurl
-    }}/simulations/#simulations) is submitted for the benchmark problems using the
-    code in question (see [instructions]({{ site.baseurl
-    }}/simulations/upload))
+  1. Input files for at least one of the [benchmark problems]({{
+     site.baseurl }}/#benchmarks) are publicly available.
 
- 2. and that the submitted benchmark results are reproducible by
-    another researcher.
+  2. The program used to run the input files is accessible to members
+     of the phase field community.
 
-Note that this does not limit codes to open source only, but does
-require that the necessary input files for the benchmark simulations
-are made available for other researchers in a public repository.
+  3. The program is distributed with documentation to help new users
+     install the software and come up to speed on its use for solving
+     phase field problems.
+
+Note that these criteria do not exclude proprietary or closed-source
+software, so long as the benchmark problems can be implemented in an
+open format.  However, if your code is "internal use only" or lacks
+documentation, we cannot consider it a "community code."
+
+### Follow-up
+
+After your code is added to the list, please upload at least one
+[simulation result]({{ site.baseurl }}/simulations/#simulations) to
+provide users with a side-by-side comparison.
 
 ### How to Submit
 
