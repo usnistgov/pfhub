@@ -23,8 +23,8 @@ following criteria.
   1. Input files for at least one of the [benchmark problems]({{
      site.baseurl }}/#benchmarks) are publicly available.
 
-  2. The program used to run the input files is readily available to
-     other researchers.
+  2. The program used to run the input files is available to other
+     researchers with an appropriate license agreement.
 
   3. The program is distributed with documentation to help new users
      install the software and come up to speed on its use for solving
