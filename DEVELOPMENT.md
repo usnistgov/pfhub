@@ -109,7 +109,7 @@ the environment required to serve the site, use the following
 commands.
 
     $ sudo apt-get update
-    $ sudo apt-get install ruby nodejs
+    $ sudo apt-get install ruby ruby-dev nodejs
     $ sudo gem install jekyll jekyll-coffeescript
 
 Then clone your fork of the GitHub repository.
