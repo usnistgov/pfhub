@@ -160,7 +160,11 @@
     },
     {
       "format": {
-        "type": "json"
+        "parse": {
+          "free_energy": "number",
+          "time": "number"
+        },
+        "type": "csv"
       },
       "name": "mmsp_1a_raspi",
       "transform": [
@@ -169,7 +173,7 @@
           "type": "filter"
         }
       ],
-      "url": "https://cdn.rawgit.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/9c6eb35141a0f82ff1f0d41fdf80c7bad3fa19a1/mmsp_1a_raspi_results.json"
+      "url": "https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv"
     },
     {
       "name": "mmsp_1a_travis",
