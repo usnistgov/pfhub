@@ -160,6 +160,50 @@
     },
     {
       "format": {
+        "parse": {
+          "F": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "inl_moose_1b",
+      "transform": [
+        {
+          "expr": "datum.F",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/dschwen/75c5f5f47519119fdb6e934056f6fd56/raw/d865f3213e4a695dc031c37e71b280248c4a0eb5/problem_1b_out.csv"
+    },
+    {
+      "format": {
+        "parse": {
+          "F": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "inl_moose_1b_raspi",
+      "transform": [
+        {
+          "expr": "datum.F",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/dschwen/e98885861ef77c480a74c13d09804f92/raw/a11dfd5d1d3856ec48b14fd321a7ccbfce45bd96/problem_1b_out.csv"
+    },
+    {
+      "format": {
         "type": "json"
       },
       "name": "mmsp_1b_raspi",
@@ -332,6 +376,62 @@
     },
     {
       "from": {
+        "data": "inl_moose_1b"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "inl_moose_1b"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
+    {
+      "from": {
+        "data": "inl_moose_1b_raspi"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "inl_moose_1b_raspi"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
+    {
+      "from": {
         "data": "mmsp_1b_raspi"
       },
       "properties": {
@@ -467,6 +567,8 @@
     {
       "domain": [
         "fipy_1b_travis",
+        "inl_moose_1b",
+        "inl_moose_1b_raspi",
         "mmsp_1b_raspi",
         "mmsp_1b_travis",
         "moose_1b_ia",

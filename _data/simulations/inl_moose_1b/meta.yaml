@@ -1,0 +1,69 @@
+---
+benchmark:
+  id: 1b
+  version: 1
+
+metadata:
+  summary: Benchmark with MOOSE on macPro, no-flux domain
+  author: Daniel Schwen
+  email: daniel.schwen@inl.gov
+  timestamp: 1/24/2017
+  hardware:
+    architecture: x86_64
+    cores: 8
+  software:
+    name: moose
+    version: CHiMaD_Hackathon
+  implementation:
+    repo:
+      url: https://github.com/dschwen/CHiMaD_Hackathon
+      version: cf1ab8d
+    end_condition: Time 10000
+    details:
+      - name: mesh
+        values: uniform rectilinear 126*126 QUAD4
+      - name: numerical_method
+        values: implicit finite elements
+      - name: compiler
+        values: GNU mpic++
+      - name: parallel_model
+        values: MPI
+      - name: time_stepper
+        values: IterationAdaptive
+      - name: time_integration
+        values: second order backward euler
+
+data:
+  - name: run_time
+    values:
+      [
+        {
+          "time": 1089.121,
+          "sim_time": 10000.0
+        }
+      ]
+  - name: memory_usage
+    values:
+      [
+        {
+          "value_m": 4.64,
+          "unit": MB
+        }
+      ]
+    transform:
+      - type: formula
+        field: value
+        expr: datum.value_m * 1024.0
+  - name: free_energy
+    url: https://gist.githubusercontent.com/dschwen/75c5f5f47519119fdb6e934056f6fd56/raw/d865f3213e4a695dc031c37e71b280248c4a0eb5/problem_1b_out.csv
+    format:
+      type: csv
+      parse:
+        F: number
+        time: number
+    transform:
+      - type: formula
+        field: free_energy
+        expr: datum.F
+      - type: filter
+        test: "datum.time > 0.01"
