@@ -155,3 +155,9 @@ data:
   id_: 2d.1
   name: moose_2d_sta
   timestamp: 2016/06/28 00:00:00
+- author: {email: stvdwtt@umich.edu, name: Stephen DeWitt}
+  code: {name: prisms, url: 'https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark1a'}
+  cores: 2
+  id_: 1a.1
+  name: prismspf_1a
+  timestamp: 2017/02/10 12:32:00
