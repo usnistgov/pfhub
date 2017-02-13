@@ -25,7 +25,7 @@ metadata: # REQUIRED
         values: distributed memory
   software:
     # software framework
-    name: PRISMS-PF #required
+    name: prisms #required
     version: "1.1.1"
     repo:
       url: https://github.com/prisms-center/phaseField
