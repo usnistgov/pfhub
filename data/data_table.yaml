@@ -31,10 +31,10 @@ data:
   timestamp: 2017/01/27 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
-  cores: 16
+  cores: 18
   id_: 1a.1
   name: mmsp_1a_raspi
-  timestamp: 2017/01/11 19:18:37
+  timestamp: 2017/02/01 03:43:09
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 2
@@ -49,10 +49,10 @@ data:
   timestamp: 2017/01/09 20:05:21
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/'}
-  cores: 16
+  cores: 18
   id_: 1b.1
   name: mmsp_1b_raspi
-  timestamp: 2017/01/11 23:33:21
+  timestamp: 2017/02/04 12:48:15
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/'}
   cores: 2
@@ -61,10 +61,10 @@ data:
   timestamp: 2017/01/10 01:20:43
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/'}
-  cores: 16
+  cores: 18
   id_: 1c.1
   name: mmsp_1c_raspi
-  timestamp: 2017/01/12 03:53:30
+  timestamp: 2017/02/07 22:13:26
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/'}
   cores: 2
