@@ -87,5 +87,4 @@ data: # REQUIRED
       - value: 30240
         unit: KB
   - name: free energy
-  - name: generic global value versus time
     values: [{'time':0.0, 'value':319.0337102}, {'time':1.0, 'value':318.8273928}, {'time': 5.0, 'value': 316.9902126}, {'time': 10.0, 'value': 304.1771795, {'time': 20.0, 'value': 203.3234468}, {'time': 100.0, 'value': 115.6166174}, {'time': 200.0, 'value': 102.5245412}, {'time': 500.0, 'value': 84.678672}, {'time': 1000.0, 'value': 70.35382018}, {'time': 2000.0, 'value': 59.92824777}, {'time': 3000.0, 'value': 52.50633843}, {'time': 10000.0, 'value': 40.81065093}]
