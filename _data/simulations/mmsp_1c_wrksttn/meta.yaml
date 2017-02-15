@@ -5,30 +5,30 @@ benchmark:
 
 metadata:
   # Describe the runtime environment
-  summary: Parallel Travis CI benchmark with MMSP, T-shape domain
+  summary: MPI parallel workstation benchmark with MMSP, T-shape domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Tue, 10 Jan 2017 01:40:01 +0000
+  timestamp: Tue, 14 Feb 2017 08:42:23 -0500
   hardware:
     # Required hardware details
     architecture: x86_64
-    cores: 2
+    cores: 12
     # Optional hardware details
     details:
       - name: clock
-        values: 2300.000
-        # unit: MHz
+        values: 3.8
+        # unit: GHz
   software:
     name: mmsp
     version: "5.2"
     repo:
       url: https://github.com/mesoscale/mmsp/tree/develop
-      version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
+      version: "2352cdf62c6db99f6644d88a0c2f9917d2d1882f"
   implementation:
-    end_condition: time limit, Travis CI runs die after 50 minutes total
+    end_condition: sim time greater than 50000 (51200000 timesteps)
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/
-      version: "05a5db5111d92b916d51e143adf068547c3a654d"
+      version: "4c3af04ac4e46665eacc599b0d2cc8b4a9963461"
       # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
@@ -43,34 +43,34 @@ metadata:
 data:
   # Gather simulation output
   - name: timestep
-    values: 0.00195312
+    values: 0.00104167
   - name: free_energy
-    values: [{"time": 0, "energy": 31.8815}, {"time": 7.61719, "energy": 31.7653}, {"time": 15.2344, "energy": 31.3578}, {"time": 22.8516, "energy": 29.8382}, {"time": 30.4688, "energy": 26.3998}, {"time": 38.0859, "energy": 23.095}, {"time": 45.7031, "energy": 21.4502}, {"time": 53.3203, "energy": 20.4617}, {"time": 60.9375, "energy": 19.8369}, {"time": 68.5547, "energy": 19.3948}, {"time": 76.1719, "energy": 19.0146}]
+    url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1c_wrksttn.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
     transform:
-      - type: formula
-        field: free_energy
-        expr: datum.energy
       - type: filter
         test: "datum.time > 0.01"
   - name: run_time
     values:
       [
         {
-          "time": 189.44,
-          "sim_time": 19.0146
+          "sim_time": 53333.3,
+          "time": 48939.21 # seconds
         }
       ]
   - name: memory_usage
     values:
       [
         {
-          "value_per_rank": 32504,
+          "value_per": 28324,
           "unit": KB
         }
       ]
     transform:
-      - # Reported value is for one MPI rank, or half the total
-        type: formula
-        field: value      
-        expr: datum.value_per_rank * 2.0
+      - type: formula
+        value: 12*value_per
 

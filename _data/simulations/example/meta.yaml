@@ -75,8 +75,12 @@ data: # REQUIRED
     values:
       - value: 27232
         unit: KB
-  - name: free energy
+  - name: free_energy
     url: http://somewhere/data.csv
-    format: csv
+    format:
+      type: csv
+      parse:
+        free_energy: number
+        time: number
   - name: generic global value versus time
     values: [{'time':0.0, 'value':1}, {'time':0.1, 'value':0.2}, {'time': 0.3, 'value': 0.4}]

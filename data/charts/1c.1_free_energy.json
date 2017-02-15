@@ -159,7 +159,11 @@
     },
     {
       "format": {
-        "type": "json"
+        "parse": {
+          "free_energy": "number",
+          "time": "number"
+        },
+        "type": "csv"
       },
       "name": "mmsp_1c_raspi",
       "transform": [
@@ -168,7 +172,7 @@
           "type": "filter"
         }
       ],
-      "url": "https://cdn.rawgit.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/9c6eb35141a0f82ff1f0d41fdf80c7bad3fa19a1/mmsp_1c_raspi_results.json"
+      "url": "https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1c_raspi_results.csv"
     },
     {
       "name": "mmsp_1c_travis",
@@ -229,6 +233,23 @@
           "time": 76.1719
         }
       ]
+    },
+    {
+      "format": {
+        "parse": {
+          "free_energy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "mmsp_1c_wrksttn",
+      "transform": [
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1c_wrksttn.csv"
     },
     {
       "format": {
@@ -365,6 +386,34 @@
     },
     {
       "from": {
+        "data": "mmsp_1c_wrksttn"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1c_wrksttn"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
+    {
+      "from": {
         "data": "moose_1c_ia"
       },
       "properties": {
@@ -418,6 +467,7 @@
         "fipy_1c_travis",
         "mmsp_1c_raspi",
         "mmsp_1c_travis",
+        "mmsp_1c_wrksttn",
         "moose_1c_ia"
       ],
       "name": "color",
