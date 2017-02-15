@@ -1,34 +1,34 @@
 ---
 benchmark:
-  id: 1c
+  id: 1b
   version: 1
 
 metadata:
   # Describe the runtime environment
-  summary: Raspberry Pi 3 cluster benchmark with MMSP, T-shape domain
+  summary: MPI parallel workstation benchmark with MMSP, no-flux domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Tue, 07 Feb 2017 22:13:26 +0000
+  timestamp: Sun, 12 Feb 2017 09:16:30 -0500
   hardware:
     # Required hardware details
-    architecture: armv7l
-    cores: 18
+    architecture: x86_64
+    cores: 12
     # Optional hardware details
     details:
       - name: clock
-        values: 1.2
+        values: 3.8
         # unit: GHz
   software:
     name: mmsp
     version: "5.2"
     repo:
       url: https://github.com/mesoscale/mmsp/tree/develop
-      version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
+      version: "2352cdf62c6db99f6644d88a0c2f9917d2d1882f"
   implementation:
-    end_condition: 4000000 time steps
+    end_condition: sim time greater than 50000 (51200000 timesteps)
     repo:
-      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/
-      version: "8be003758f9d1d4ee2f1e3ccaeec3a16199a0c62"
+      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/
+      version: "4c3af04ac4e46665eacc599b0d2cc8b4a9963461"
       # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
@@ -45,7 +45,7 @@ data:
   - name: timestep
     values: 0.00104167
   - name: free_energy
-    url: https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1c_raspi_results.csv
+    url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1b_wrksttn.csv
     format:
       type: csv
       parse:
@@ -58,19 +58,19 @@ data:
     values:
       [
         {
-          "sim_time": 4166.67,
-          "time": 200039.81 # seconds
+          "sim_time": 53333.3,
+          "time": 170618.87 # seconds
         }
       ]
   - name: memory_usage
     values:
       [
         {
-          "value": 8596,
+          "value_per": 28492,
           "unit": KB
         }
       ]
     transform:
       - type: formula
-        value: 18*value_per
-              
+        value: 12*value_per
+
