@@ -237,6 +237,23 @@
     {
       "format": {
         "parse": {
+          "free_energy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "mmsp_1c_wrksttn",
+      "transform": [
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1c_wrksttn.csv"
+    },
+    {
+      "format": {
+        "parse": {
           "TotalEnergy": "number",
           "time": "number"
         },
@@ -369,6 +386,34 @@
     },
     {
       "from": {
+        "data": "mmsp_1c_wrksttn"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1c_wrksttn"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
+    },
+    {
+      "from": {
         "data": "moose_1c_ia"
       },
       "properties": {
@@ -422,6 +467,7 @@
         "fipy_1c_travis",
         "mmsp_1c_raspi",
         "mmsp_1c_travis",
+        "mmsp_1c_wrksttn",
         "moose_1c_ia"
       ],
       "name": "color",
