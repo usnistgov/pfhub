@@ -237,21 +237,20 @@
     },
     {
       "format": {
-        "type": "json"
+        "parse": {
+          "free_energy": "number",
+          "time": "number"
+        },
+        "type": "csv"
       },
       "name": "mmsp_1a_wrksttn",
       "transform": [
         {
           "test": "datum.time > 0.01",
           "type": "filter"
-        },
-        {
-          "expr": "datum.energy",
-          "field": "free_energy",
-          "type": "formula"
         }
       ],
-      "url": "https://cdn.rawgit.com/tkphd/8659310fb61efba6c97df42e12382924/raw/de90f8048f72c2abdf579987d87fa152701de397/mmsp_1a_wrksttn.json"
+      "url": "https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv"
     },
     {
       "format": {

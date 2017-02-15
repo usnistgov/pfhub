@@ -5,10 +5,10 @@ benchmark:
 
 metadata:
   # Describe the runtime environment
-  summary: Parallel Travis CI benchmark with MMSP, periodic domain
+  summary: MPI parallel workstation benchmark with MMSP, periodic domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Mon, 09 Jan 2017 20:05:21 -0500
+  timestamp: Fri, 10 Feb 2017 13:34:42 -0500
   hardware:
     # Required hardware details
     architecture: x86_64
@@ -16,19 +16,20 @@ metadata:
     # Optional hardware details
     details:
       - name: clock
-        values: 3.5
+        values: 3.8
         # unit: GHz
   software:
     name: mmsp
-    version: "4"
+    version: "5.2"
     repo:
       url: https://github.com/mesoscale/mmsp/tree/develop
-      version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
+      version: "2352cdf62c6db99f6644d88a0c2f9917d2d1882f"
   implementation:
-    end_condition: time limit, should asymptote toward steady-state beyond t=100000
+    end_condition: sim time greater than 50000 (51200000 timesteps)
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
-      version: "c51089f860f70d4e3d77881875d024ee4c01c409"
+      version: "4c3af04ac4e46665eacc599b0d2cc8b4a9963461"
+      # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
         values: uniform rectilinear
@@ -42,30 +43,34 @@ metadata:
 data:
   # Gather simulation output
   - name: timestep
-    values: 0.00195312
+    values: 0.00104167
   - name: free_energy
-    url: https://cdn.rawgit.com/tkphd/8659310fb61efba6c97df42e12382924/raw/de90f8048f72c2abdf579987d87fa152701de397/mmsp_1a_wrksttn.json
+    url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
     format:
-      type: json
+      type: csv
+      parse:
+        time: number
+        free_energy: number
     transform:
       - type: filter
         test: "datum.time > 0.01"
-      - type: formula
-        field: free_energy
-        expr: datum.energy
   - name: run_time
     values:
       [
         {
-          "time": 232301.41,
-          "sim_time": 100000
+          "sim_time": 53333.3,
+          "time": 157186.74 # seconds
         }
       ]
   - name: memory_usage
     values:
       [
         {
-          "value": 27840,
+          "value_per": 28600,
           "unit": KB
         }
       ]
+    transform:
+      - type: formula
+        value: 12*value_per
+                  

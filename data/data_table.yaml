@@ -46,7 +46,7 @@ data:
   cores: 12
   id_: 1a.1
   name: mmsp_1a_wrksttn
-  timestamp: 2017/01/09 20:05:21
+  timestamp: 2017/02/10 13:34:42
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/'}
   cores: 18
@@ -60,6 +60,12 @@ data:
   name: mmsp_1b_travis
   timestamp: 2017/01/10 01:20:43
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
+  code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/'}
+  cores: 12
+  id_: 1b.1
+  name: mmsp_1b_wrksttn
+  timestamp: 2017/02/12 09:16:30
+- author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/'}
   cores: 18
   id_: 1c.1
@@ -71,6 +77,12 @@ data:
   id_: 1c.1
   name: mmsp_1c_travis
   timestamp: 2017/01/10 01:40:01
+- author: {email: trevor.keller@nist.gov, name: Trevor Keller}
+  code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/'}
+  cores: 12
+  id_: 1c.1
+  name: mmsp_1c_wrksttn
+  timestamp: 2017/02/14 08:42:23
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
