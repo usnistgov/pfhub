@@ -26,7 +26,7 @@
       repo:
         url:
         version:
-      end_condition: Time limit
+      end_condition: Time limit (3000000)
       details:
         - name: time_stepper
           values: IA
