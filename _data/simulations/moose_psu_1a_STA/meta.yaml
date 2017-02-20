@@ -14,7 +14,7 @@ metadata:
     version: git commit 2593a61 on 2017-01-18
   hardware:
     computing plateform: Red Hat Entreprise Linux 6 (Cluster)
-    cores: 20
+    cores: 40
     details:
       - name: clock rate
         values:
