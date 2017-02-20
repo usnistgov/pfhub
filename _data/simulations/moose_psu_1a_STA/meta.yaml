@@ -1,0 +1,58 @@
+---
+benchmark:
+  id: 1a
+  version: 1
+
+metadata:
+  summary: Metadata for the Benchmark1 problems
+  timestamp: 02/20/2017
+  author: PC. Simon
+  email: pjs5523@psu.edu
+  timestamp: "Thu Feb  9 22:48:48 2017 -EST"
+  software:
+    name: moose
+    version: git commit 2593a61 on 2017-01-18
+  hardware:
+    computing plateform: Red Hat Entreprise Linux 6 (Cluster)
+    cores: 20
+    details:
+      - name: clock rate
+        values:
+          rate: 
+          unit: GHz
+      - name: processor
+        values: ""
+  implementation:
+    repo:
+      url: 
+      version: 
+    end_condition: Time limit
+    details:
+      - name: time_stepper
+        values: STA
+
+data:
+  - name: run_time
+    values:
+      [
+        {
+          "time": 3529,
+        }
+      ]
+    transform:
+      - type: formula
+        field: value
+        expr: datum.value_m * 1024.0
+  - name: free_energy
+    url:https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1a_STA.csv
+    format:
+      type: csv
+      parse:
+        f_density: number
+        time: number
+    transform:
+      - type: formula
+        field: f_density
+        expr: datum.f_density
+      - type: filter
+        test: "datum.time > 0.01"
