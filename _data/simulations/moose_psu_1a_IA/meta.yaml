@@ -8,12 +8,12 @@ metadata:
   timestamp: 02/20/2017
   author: PC. Simon
   email: pjs5523@psu.edu
-  timestamp: "Thu Jan 19 15:21:30 2017 -EST"
+  timestamp: "Thu Jan 19 15:21:30 EST 2017"
   software:
     name: moose
     version: git commit 2593a61 on 2017-01-18
   hardware:
-    computing plateform: Red Hat Entreprise Linux 6 (Cluster)
+    architecture: Red Hat Entreprise Linux 6 (Cluster)
     cores: 40
     details:
       - name: clock rate
@@ -24,8 +24,8 @@ metadata:
         values: ""
   implementation:
     repo:
-      url: 
-      version: 
+      url: https://github.com/simopier/CHiMaD/blob/master/H1.i
+      version: 1
     end_condition: Equilibrium, total energy fluctuated due to numerical noise
     details:
       - name: time_stepper
