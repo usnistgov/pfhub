@@ -52,7 +52,7 @@ data:
         time: number
     transform:
       - type: formula
-        field: f_density
-        expr: datum.f_density
+        field: free_energy
+        expr: datum.free_energy
       - type: filter
         test: "datum.time > 0.01"
