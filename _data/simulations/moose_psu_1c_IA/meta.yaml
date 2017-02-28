@@ -25,7 +25,7 @@
     implementation:
       repo:
         url: https://github.com/simopier/CHiMaD/blob/master/H5.i
-        version: 724999206
+        version: "724999206"
       end_condition: Equilibrium, total energy fluctuated due to numerical noise
       details:
         - name: time_stepper
