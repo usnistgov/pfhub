@@ -24,7 +24,7 @@ metadata:
         values: ""
   implementation:
     repo:
-      url: https://github.com/simopier/CHiMaD/blob/master/H2.i
+      url: https://github.com/simopier/CHiMaD/blob/master/H3.i
       version: 724999206
     end_condition: Time limit
     details:
