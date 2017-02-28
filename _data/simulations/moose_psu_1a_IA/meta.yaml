@@ -53,6 +53,6 @@ data:
     transform:
       - type: formula
         field: free_energy
-        expr: datum.free_energy
+        expr: datum.f_density
       - type: filter
         test: "datum.time > 0.01"
