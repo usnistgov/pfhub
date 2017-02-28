@@ -18,14 +18,14 @@ metadata:
     details:
       - name: clock rate
         values:
-          rate: 
+          rate:
           unit: GHz
       - name: processor
         values: ""
   implementation:
     repo:
       url: https://github.com/simopier/CHiMaD/blob/master/H2.i
-      version: 724999206
+      version: "724999206"
     end_condition: Time limit
     details:
       - name: time_stepper
@@ -44,7 +44,7 @@ data:
         field: value
         expr: datum.value_m * 1024.0
   - name: free_energy
-    url:https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1a_STA.csv
+    url: "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1a_STA.csv"
     format:
       type: csv
       parse:
