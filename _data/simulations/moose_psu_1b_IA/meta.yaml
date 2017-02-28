@@ -8,12 +8,12 @@ metadata:
   timestamp: 02/20/2017
   author: PC. Simon
   email: pjs5523@psu.edu
-  timestamp: "Tue Jan 31 21:00:47 2017 -EST"
+  timestamp: "Tue Jan 31 21:00:47 EST 2017"
   software:
     name: moose
     version: git commit 2593a61 on 2017-01-18
   hardware:
-    computing plateform: Red Hat Entreprise Linux 6 (Cluster)
+    architecture: x86_64
     cores: 40
     details:
       - name: clock rate
@@ -24,8 +24,8 @@ metadata:
         values: ""
   implementation:
     repo:
-      url: 
-      version: 
+      url: https://github.com/simopier/CHiMaD/blob/master/H2.i
+      version: 724999206
     end_condition: Time limit
     details:
       - name: time_stepper
@@ -52,7 +52,7 @@ data:
         time: number
     transform:
       - type: formula
-        field: f_density
-        expr: datum.f_density
+        field: free_energy
+        expr: datum.free_energy
       - type: filter
         test: "datum.time > 0.01"
