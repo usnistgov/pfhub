@@ -24,8 +24,8 @@
           values: ""
     implementation:
       repo:
-        url:https://github.com/simopier/CHiMaD/blob/master/H4.i
-        version: 724999206
+        url: https://github.com/simopier/CHiMaD/blob/master/H4.i
+        version: "724999206"
       end_condition: Time limit
       details:
         - name: time_stepper
