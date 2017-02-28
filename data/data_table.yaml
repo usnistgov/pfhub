@@ -197,6 +197,12 @@ data:
   id_: 1c.1
   name: moose_psu_1c_IA
   timestamp: 2017/02/06 19:47:34
+- author: {email: pjs5523@psu.edu, name: PC. Simon}
+  code: {name: moose, url: 'https://github.com/simopier/CHiMaD/blob/master/H6.i'}
+  cores: 60
+  id_: 1c.1
+  name: moose_psu_1c_STA
+  timestamp: 2017/02/06 19:47:34
 - author: {email: stvdwtt@umich.edu, name: Stephen DeWitt}
   code: {name: prisms, url: 'https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark1a'}
   cores: 2

@@ -294,6 +294,28 @@
         }
       ],
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1c_IA.csv"
+    },
+    {
+      "format": {
+        "parse": {
+          "f_density": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_psu_1c_STA",
+      "transform": [
+        {
+          "expr": "datum.free_energy",
+          "field": "free_energy",
+          "type": "formula"
+        },
+        {
+          "test": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1c_STA.csv"
     }
   ],
   "height": 300,
@@ -489,6 +511,34 @@
         }
       },
       "type": "line"
+    },
+    {
+      "from": {
+        "data": "moose_psu_1c_STA"
+      },
+      "properties": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_psu_1c_STA"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "type": "line"
     }
   ],
   "scales": [
@@ -519,7 +569,8 @@
         "mmsp_1c_travis",
         "mmsp_1c_wrksttn",
         "moose_1c_ia",
-        "moose_psu_1c_IA"
+        "moose_psu_1c_IA",
+        "moose_psu_1c_STA"
       ],
       "name": "color",
       "range": "category10",
