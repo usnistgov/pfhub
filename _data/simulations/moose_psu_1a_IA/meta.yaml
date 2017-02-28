@@ -13,7 +13,7 @@ metadata:
     name: moose
     version: git commit 2593a61 on 2017-01-18
   hardware:
-    architecture: Red Hat Entreprise Linux 6 (Cluster)
+    architecture: x86_64
     cores: 40
     details:
       - name: clock rate
@@ -25,7 +25,7 @@ metadata:
   implementation:
     repo:
       url: https://github.com/simopier/CHiMaD/blob/master/H1.i
-      version: 1
+      version: 724999206
     end_condition: Equilibrium, total energy fluctuated due to numerical noise
     details:
       - name: time_stepper
