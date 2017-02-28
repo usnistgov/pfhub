@@ -285,7 +285,7 @@
       "name": "moose_psu_1a_IA",
       "transform": [
         {
-          "expr": "datum.free_energy",
+          "expr": "datum.f_density",
           "field": "free_energy",
           "type": "formula"
         },
@@ -307,7 +307,7 @@
       "name": "moose_psu_1a_STA",
       "transform": [
         {
-          "expr": "datum.free_energy",
+          "expr": "datum.f_density",
           "field": "free_energy",
           "type": "formula"
         },

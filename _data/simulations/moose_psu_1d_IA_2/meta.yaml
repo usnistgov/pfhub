@@ -1,6 +1,6 @@
 ---
   benchmark:
-    id: 1c
+    id: 1d
     version: 1
 
   metadata:
@@ -8,13 +8,13 @@
     timestamp: 02/20/2017
     author: PC. Simon
     email: pjs5523@psu.edu
-    timestamp: "Mon Feb  6 19:47:34 EST 2017"
+    timestamp: "Tue Jan 31 21:01:55 EST 2017"
     software:
       name: moose
       version: git commit 2593a61 on 2017-01-18
     hardware:
       architecture: x86_64
-      cores: 60
+      cores: 40
       details:
         - name: clock rate
           values:
@@ -24,19 +24,19 @@
           values: ""
     implementation:
       repo:
-        url: https://github.com/simopier/CHiMaD/blob/master/H6.i
+        url: https://github.com/simopier/CHiMaD/blob/master/H7.i
         version: "724999206"
-      end_condition: Equilibrium, total energy fluctuated due to numerical noise
+      end_condition: Time limit (3000000)
       details:
         - name: time_stepper
-          values: STA
+          values: IA
 
   data:
     - name: run_time
       values:
         [
           {
-            "time": 1904,
+            "time": 78280,
           }
         ]
       transform:
@@ -44,7 +44,7 @@
           field: value
           expr: datum.value_m * 1024.0
     - name: free_energy
-      url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1c_STA.csv
+      url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
       format:
         type: csv
         parse:
