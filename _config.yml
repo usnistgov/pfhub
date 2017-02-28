@@ -31,6 +31,8 @@ links:
   members: https://docs.google.com/spreadsheets/d/112cDOOwzxLGbRx7yPte6HaXQgzQSXULrrVJLEmJvrKM/pubhtml?gid=764068827&single=true
   simmeta: https://github.com/usnistgov/chimad-phase-field/blob/master/_data/simulations
 
-title: CHiMaD Phase Field
+title: pages.nist.gov is broken go to <a href="https://usnistgov.github.com/chimad-phase-field">gh-pages</a>
+
+#CHiMaD Phase Field <a href="https://www.github.com">link</a>
 
 gems: [jekyll-coffeescript]
