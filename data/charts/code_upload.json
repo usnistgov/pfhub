@@ -60,16 +60,20 @@
       "name": "code_uploads",
       "values": [
         {
-          "count": 15,
+          "count": 24,
           "name": "moose"
         },
         {
-          "count": 7,
+          "count": 9,
           "name": "mmsp"
         },
         {
           "count": 3,
           "name": "fipy"
+        },
+        {
+          "count": 1,
+          "name": "prisms"
         }
       ]
     }

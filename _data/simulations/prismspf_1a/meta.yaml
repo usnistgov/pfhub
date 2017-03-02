@@ -1,0 +1,96 @@
+---
+## YAML specification for a CHiMaD Phase Field Simulation
+benchmark:
+  id: 1a # REQUIRED
+  version: 1 # REQUIRED
+
+metadata: # REQUIRED
+  # Describe the runtime environment
+  summary: Flux cluster benchmark with PRISMS-PF
+  author: Stephen DeWitt # preferably yours
+  email: "stvdwtt@umich.edu" # there may be correspondence
+  timestamp: "Fri, 10 Feb 2017 12:32:00 -0500" # REQUIRED
+  hardware:
+    # hardware details
+    architecture: x86_64 # REQUIRED
+    cores: 2 # REQUIRED
+    details:
+      - name: clock rate
+        values:
+          rate: 2.60
+          unit: GHz
+      - name: nodes # if cluster or multi-GPU, default should be 1
+        values: 1
+      - name: parallel_model
+        values: distributed memory
+  software:
+    # software framework
+    name: prisms #required
+    version: "1.1.1"
+    repo:
+      url: https://github.com/prisms-center/phaseField
+      version: acf1366651e0c9dab9108b0c881ca225730109e4
+    details:
+      - name: dependencies
+        values: [deal.ii, p4est]
+  implementation:
+    # your implementation of the problem
+    repo:
+      url: https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark1a
+      version: acf1366651e0c9dab9108b0c881ca225730109e4
+    end_condition: 10,000 simulated seconds
+    details:
+      - name: mesh
+        values: uniform linear quads
+      - name: numerical_method
+        values: explicit finite element
+      - name: compiler
+        values: GNU mpic++
+      - name: domain
+        values: [200, 200]
+
+data: # REQUIRED
+  # use Vega standard, see
+  # https://github.com/vega/vega/wiki/Data and see
+  # https://vega.github.io/vega-lite/docs/data.html
+  - name: timestep
+    values: 0.00740741
+  - name: run_time
+    # wall time, in seconds, when specified simulation-times were reached
+    values:
+      - sim_time: 0.0
+        time: 0.0
+      - sim_time: 1.0
+        time: 1.0
+      - sim_time: 5.0
+        time: 2.0
+      - sim_time: 10.0
+        time: 3.0
+      - sim_time: 20.0
+        time: 4.0
+      - sim_time: 100.0
+        time: 11.0
+      - sim_time: 200.0
+        time: 19.0
+      - sim_time: 500.0
+        time: 41.0
+      - sim_time: 1000.0
+        time: 79.0
+      - sim_time: 2000.0
+        time: 150.0
+      - sim_time: 3000.0
+        time: 221.0
+      - sim_time: 10000.0
+        time: 708.0
+  - name: memory usage
+    values:
+      - value: 30240
+        unit: KB
+  - name: free_energy
+    values: [{'time':0.0, 'value':319.0337102}, {'time':1.0, 'value':318.8273928}, {'time': 5.0, 'value': 316.9902126}, {'time': 10.0, 'value': 304.1771795}, {'time': 20.0, 'value': 203.3234468}, {'time': 100.0, 'value': 115.6166174}, {'time': 200.0, 'value': 102.5245412}, {'time': 500.0, 'value': 84.678672}, {'time': 1000.0, 'value': 70.35382018}, {'time': 2000.0, 'value': 59.92824777}, {'time': 3000.0, 'value': 52.50633843}, {'time': 10000.0, 'value': 40.81065093}]
+    transform:
+      - type: formula
+        field: free_energy
+        expr: datum.value
+      - type: filter
+        test: "datum.time > 0.01"

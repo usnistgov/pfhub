@@ -8,11 +8,11 @@ metadata:
   summary: Raspberry Pi 3 cluster benchmark with MMSP, periodic domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Wed, 11 Jan 2017 19:18:37 +0000
+  timestamp: Wed, 01 Feb 2017 03:43:09 +0000
   hardware:
     # Required hardware details
     architecture: armv7l
-    cores: 16
+    cores: 18
     # Optional hardware details
     details:
       - name: clock
@@ -20,15 +20,15 @@ metadata:
         # unit: GHz
   software:
     name: mmsp
-    version: "4"
+    version: "5.2"
     repo:
       url: https://github.com/mesoscale/mmsp/tree/develop
       version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
   implementation:
-    end_condition: time limit
+    end_condition: 4000000 time steps
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
-      version: "f79fda8582159e8326863ac6c1734d686590b825"
+      version: "8be003758f9d1d4ee2f1e3ccaeec3a16199a0c62"
       # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
     details:
       - name: mesh
@@ -43,32 +43,33 @@ metadata:
 data:
   # Gather simulation output
   - name: timestep
-    values: 0.00195312
+    values: 0.00104167
   - name: free_energy
-    url: https://cdn.rawgit.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/9c6eb35141a0f82ff1f0d41fdf80c7bad3fa19a1/mmsp_1a_raspi_results.json
+    url: https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv
     format:
-      type: json
+      type: csv
+      parse:
+        time: number
+        free_energy: number
     transform:
-    - type: filter
-      test: "datum.time > 0.01"
+      - type: filter
+        test: "datum.time > 0.01"
   - name: run_time
     values:
       [
         {
-          "time": 15242.34,
-          "sim_time": 761.719
+          "sim_time": 4166.67,
+          "time": 291820.48 # seconds
         }
       ]
   - name: memory_usage
     values:
       [
         {
-          "value_per_node": 4754,
+          "value_per": 8812,
           "unit": KB
         }
       ]
     transform:
-      # Reported value represents 1 of 16 MPI ranks
       - type: formula
-        field: value
-        expr: datum.value_per_node * 16
+        value: 18*value_per
