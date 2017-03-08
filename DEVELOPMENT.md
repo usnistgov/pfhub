@@ -251,7 +251,4 @@ form with the exact string matches.
 The main site is hosted on
 [Pages.nist.gov](https://pages.nist.gov/pages-root/), which provides
 the [build.log](https://pages.nist.gov/chimad-phase-field/build.log)
-for the Jekyll build. Other useful pointers for using
-[Pages.nist.gov](https://pages.nist.gov/pages-root/) can be found at
-the
-[NIST ODI wiki](http://odiwiki.nist.gov/ODI/GitHubFAQ#How_do_I_create_a_GitHub_Page_63).
+for the Jekyll build.
