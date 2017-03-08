@@ -20,6 +20,7 @@ install:
   - gem install jekyll jekyll-coffeescript html-proofer
 script:
   - pylint _data/*.py
+  - flake8 _data/*.py
   - make simulations
   - find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
   - make notebooks

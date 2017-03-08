@@ -12,7 +12,7 @@ import numpy as np
 import requests
 
 
-def hexbin_yaml_to_json(): # ni, nj):
+def hexbin_yaml_to_json():
     """Generate JSON image data from the YAML.
     """
     data = yaml.load(open('data/hexbin.yaml', 'r'))
@@ -23,17 +23,18 @@ def hexbin_yaml_to_json(): # ni, nj):
 
     count = len(data)
 
-    ## resize the yaml file into ni * nj sized json file to be read into
-    ## the javascript
+    # resize the yaml file into ni * nj sized json file to be read into
+    # the javascript
     data_resize = []
-    np.random.seed(98) # pylint: disable=no-member
+    np.random.seed(98)  # pylint: disable=no-member
     while len(data_resize) < 100:
-        i = np.random.randint(0, count) # pylint: disable=no-member
+        i = np.random.randint(0, count)  # pylint: disable=no-member
         data_resize.append(data[i])
     # data_resize = (data * (1 + ((ni* nj) // count)))[:ni * nj]
     data_string = json.dumps(data_resize)
     open('data/hexbin.json', 'w').write(data_string)
     return data_resize
+
 
 def thumbnail_image(image_url, size):
     """Create a thumbnail from an image URL.
@@ -55,8 +56,10 @@ def thumbnail_image(image_url, size):
     image.thumbnail(size, Image.ANTIALIAS)
     im0 = Image.new('RGBA', size, (255, 255, 255, 0))
 
-    im0.paste(image, ((size[0] - image.size[0]) // 2, (size[1] - image.size[1]) // 2))
+    im0.paste(image, ((size[0] - image.size[0]) // 2,
+                      (size[1] - image.size[1]) // 2))
     return im0
+
 
 def hexbin_image(data, x_size, y_size, ni_count, nj_count):
     """Build the combined thumbnails
@@ -77,7 +80,9 @@ def hexbin_image(data, x_size, y_size, ni_count, nj_count):
 
     pbar.finish()
 
-    blank_image = Image.new("RGB", (x_size * nj_count, y_size * ni_count), (255, 255, 255, 0))
+    blank_image = Image.new("RGB",
+                            (x_size * nj_count, y_size * ni_count),
+                            (255, 255, 255, 0))
 
     for i_count in range(ni_count):
         for j_count in range(nj_count):
@@ -87,9 +92,10 @@ def hexbin_image(data, x_size, y_size, ni_count, nj_count):
 
     blank_image.save('images/hexbin.jpg', 'JPEG')
 
+
 if __name__ == '__main__':
-    ## the 10 x 10 image is hardwired into phase_field_hexbin.js right now
+    # the 10 x 10 image is hardwired into phase_field_hexbin.js right now
     NI_SIZE, NJ_SIZE = 10, 10
-    X_SIZE, Y_SIZE = 173, 200 ## thumbnail size
-    DATA = hexbin_yaml_to_json() # ni_, nj_)
+    X_SIZE, Y_SIZE = 173, 200  # thumbnail size
+    DATA = hexbin_yaml_to_json()
     hexbin_image(DATA, X_SIZE, Y_SIZE, NI_SIZE, NJ_SIZE)
