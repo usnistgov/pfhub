@@ -1,29 +1,49 @@
 {
   "axes": [
     {
-      "format": ".0e",
-      "formatType": "number",
-      "properties": {
-        "labels": {
-          "font": {
-            "value": "Lato"
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "bottom",
+      "scale": "x",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "left",
+      "scale": "y",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "encode": {
+        "update": {
+          "labels": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           },
-          "fontSize": {
-            "value": 12
-          }
-        },
-        "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "title": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "format": ".0e",
+      "formatType": "number",
+      "orient": "bottom",
       "scale": "x",
       "title": "Time",
-      "type": "x",
       "values": [
         1,
         10,
@@ -35,29 +55,31 @@
       ]
     },
     {
-      "format": ".0e",
-      "formatType": "number",
-      "properties": {
-        "labels": {
-          "font": {
-            "value": "Lato"
+      "encode": {
+        "update": {
+          "labels": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           },
-          "fontSize": {
-            "value": 12
-          }
-        },
-        "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "title": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "format": ".0e",
+      "formatType": "number",
+      "orient": "left",
       "scale": "y",
       "title": "Free Energy",
-      "type": "y",
       "values": [
         1,
         10,
@@ -66,47 +88,24 @@
       ]
     },
     {
-      "grid": true,
-      "properties": {
-        "labels": {
-          "text": ""
-        }
-      },
-      "scale": "x",
-      "tickSize": 0,
-      "type": "x"
-    },
-    {
-      "grid": true,
-      "properties": {
-        "labels": {
-          "text": ""
-        }
-      },
-      "scale": "y",
-      "tickSize": 0,
-      "type": "y"
-    },
-    {
-      "orient": "top",
-      "properties": {
-        "axis": {
-          "strokeOpacity": {
-            "value": 0
-          }
-        },
+      "domain": false,
+      "encode": {
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 20
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 20
+            }
           }
         }
       },
+      "labels": false,
+      "orient": "top",
       "scale": "x",
+      "ticks": false,
       "title": "Free Energy for Benchmark 1b.1",
-      "type": "x",
       "values": []
     }
   ],
@@ -115,7 +114,7 @@
       "name": "fipy_1b_travis",
       "transform": [
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -169,12 +168,12 @@
       "name": "inl_moose_1b",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.F",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -191,12 +190,12 @@
       "name": "inl_moose_1b_raspi",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.F",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -213,7 +212,7 @@
       "name": "mmsp_1b_raspi",
       "transform": [
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -223,12 +222,12 @@
       "name": "mmsp_1b_travis",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.energy",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -290,7 +289,7 @@
       "name": "mmsp_1b_wrksttn",
       "transform": [
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -307,12 +306,12 @@
       "name": "moose_1b_ia",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.TotalEnergy",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -329,12 +328,12 @@
       "name": "moose_1b_sta",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.TotalEnergy",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -351,12 +350,12 @@
       "name": "moose_psu_1b_IA",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.f_density",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -373,12 +372,12 @@
       "name": "moose_psu_1b_STA",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.f_density",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -388,8 +387,7 @@
   "height": 300,
   "legends": [
     {
-      "fill": "color",
-      "properties": {
+      "encode": {
         "labels": {
           "font": {
             "value": "Lato"
@@ -407,15 +405,13 @@
           }
         }
       },
+      "fill": "color",
       "title": "Simulations"
     }
   ],
   "marks": [
     {
-      "from": {
-        "data": "fipy_1b_travis"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -437,13 +433,13 @@
           }
         }
       },
+      "from": {
+        "data": "fipy_1b_travis"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "inl_moose_1b"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -465,13 +461,13 @@
           }
         }
       },
+      "from": {
+        "data": "inl_moose_1b"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "inl_moose_1b_raspi"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -493,13 +489,13 @@
           }
         }
       },
+      "from": {
+        "data": "inl_moose_1b_raspi"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "mmsp_1b_raspi"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -521,13 +517,13 @@
           }
         }
       },
+      "from": {
+        "data": "mmsp_1b_raspi"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "mmsp_1b_travis"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -549,13 +545,13 @@
           }
         }
       },
+      "from": {
+        "data": "mmsp_1b_travis"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "mmsp_1b_wrksttn"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -577,13 +573,13 @@
           }
         }
       },
+      "from": {
+        "data": "mmsp_1b_wrksttn"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_1b_ia"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -605,13 +601,13 @@
           }
         }
       },
+      "from": {
+        "data": "moose_1b_ia"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_1b_sta"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -633,13 +629,13 @@
           }
         }
       },
+      "from": {
+        "data": "moose_1b_sta"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_psu_1b_IA"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -661,13 +657,13 @@
           }
         }
       },
+      "from": {
+        "data": "moose_psu_1b_IA"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_psu_1b_STA"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -688,6 +684,9 @@
             "scale": "y"
           }
         }
+      },
+      "from": {
+        "data": "moose_psu_1b_STA"
       },
       "type": "line"
     }
@@ -727,7 +726,9 @@
         "moose_psu_1b_STA"
       ],
       "name": "color",
-      "range": "category10",
+      "range": {
+        "scheme": "category20"
+      },
       "type": "ordinal"
     }
   ],

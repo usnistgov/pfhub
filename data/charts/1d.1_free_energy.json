@@ -1,29 +1,49 @@
 {
   "axes": [
     {
-      "format": ".0e",
-      "formatType": "number",
-      "properties": {
-        "labels": {
-          "font": {
-            "value": "Lato"
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "bottom",
+      "scale": "x",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "left",
+      "scale": "y",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "encode": {
+        "update": {
+          "labels": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           },
-          "fontSize": {
-            "value": 12
-          }
-        },
-        "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "title": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "format": ".0e",
+      "formatType": "number",
+      "orient": "bottom",
       "scale": "x",
       "title": "Time",
-      "type": "x",
       "values": [
         1,
         10,
@@ -35,29 +55,31 @@
       ]
     },
     {
-      "format": ".0e",
-      "formatType": "number",
-      "properties": {
-        "labels": {
-          "font": {
-            "value": "Lato"
+      "encode": {
+        "update": {
+          "labels": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           },
-          "fontSize": {
-            "value": 12
-          }
-        },
-        "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "title": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "format": ".0e",
+      "formatType": "number",
+      "orient": "left",
       "scale": "y",
       "title": "Free Energy",
-      "type": "y",
       "values": [
         10,
         100,
@@ -65,47 +87,24 @@
       ]
     },
     {
-      "grid": true,
-      "properties": {
-        "labels": {
-          "text": ""
-        }
-      },
-      "scale": "x",
-      "tickSize": 0,
-      "type": "x"
-    },
-    {
-      "grid": true,
-      "properties": {
-        "labels": {
-          "text": ""
-        }
-      },
-      "scale": "y",
-      "tickSize": 0,
-      "type": "y"
-    },
-    {
-      "orient": "top",
-      "properties": {
-        "axis": {
-          "strokeOpacity": {
-            "value": 0
-          }
-        },
+      "domain": false,
+      "encode": {
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 20
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 20
+            }
           }
         }
       },
+      "labels": false,
+      "orient": "top",
       "scale": "x",
+      "ticks": false,
       "title": "Free Energy for Benchmark 1d.1",
-      "type": "x",
       "values": []
     }
   ],
@@ -121,16 +120,16 @@
       "name": "moose_1d_ia",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.TotalEnergy",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 1",
+          "expr": "datum.time > 1",
           "type": "filter"
         },
         {
-          "test": "datum.time < 1e6",
+          "expr": "datum.time < 1e6",
           "type": "filter"
         }
       ],
@@ -147,16 +146,16 @@
       "name": "moose_1d_sta",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.TotalEnergy",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 1.0",
+          "expr": "datum.time > 1.0",
           "type": "filter"
         },
         {
-          "test": "datum.time < 1e6",
+          "expr": "datum.time < 1e6",
           "type": "filter"
         }
       ],
@@ -173,12 +172,12 @@
       "name": "moose_psu_1d_IA_2",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.f_density",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -195,12 +194,12 @@
       "name": "moose_psu_1d_STA",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.f_density",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -210,8 +209,7 @@
   "height": 300,
   "legends": [
     {
-      "fill": "color",
-      "properties": {
+      "encode": {
         "labels": {
           "font": {
             "value": "Lato"
@@ -229,15 +227,13 @@
           }
         }
       },
+      "fill": "color",
       "title": "Simulations"
     }
   ],
   "marks": [
     {
-      "from": {
-        "data": "moose_1d_ia"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -259,13 +255,13 @@
           }
         }
       },
+      "from": {
+        "data": "moose_1d_ia"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_1d_sta"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -287,13 +283,13 @@
           }
         }
       },
+      "from": {
+        "data": "moose_1d_sta"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_psu_1d_IA_2"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -315,13 +311,13 @@
           }
         }
       },
+      "from": {
+        "data": "moose_psu_1d_IA_2"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_psu_1d_STA"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -342,6 +338,9 @@
             "scale": "y"
           }
         }
+      },
+      "from": {
+        "data": "moose_psu_1d_STA"
       },
       "type": "line"
     }
@@ -375,7 +374,9 @@
         "moose_psu_1d_STA"
       ],
       "name": "color",
-      "range": "category10",
+      "range": {
+        "scheme": "category20"
+      },
       "type": "ordinal"
     }
   ],

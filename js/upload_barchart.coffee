@@ -8,7 +8,8 @@ run = (chart_name, div_id) ->
 
   build_chart = (chart_json)->
     parse = (spec_json) ->
-      vg.parse.spec(spec_json, make_chart)
+      # vg.parse.spec(spec_json, make_chart)
+      vega.parse(spec_json, make_chart)
     parse(chart_json)
 
   chart_json = "{{ site.baseurl }}/data/charts/" + chart_name

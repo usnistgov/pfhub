@@ -10,7 +10,7 @@ import json
 from dateutil.parser import parse
 
 import jinja2
-from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby, memoize # pylint: disable=redefined-builtin, no-name-in-module
+from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby, memoize, assoc_in, update_in, keymap, compose # pylint: disable=redefined-builtin, no-name-in-module
 import yaml
 
 
@@ -110,6 +110,42 @@ def get_yaml_data():
         filter(lambda item: item[0] not in ['example', 'example_minimal'])
     )
 
+
+def fcompose(*args):
+    """Helper function to compose functions.
+
+    >>> f = lambda x: x - 2
+    >>> g = lambda x: 2 * x
+    >>> f(g(3))
+    4
+    >>> fcompose(g, f)(3)
+    4
+
+    Args:xb
+      *args: tuple of funct]ions
+
+    Retuns:
+      composed functions
+    """
+    return compose(*args[::-1])
+
+
+def vega2to3(data):
+    def keymapping(key):
+        return  dict(test='expr',
+                     field='as').get(key, key)
+    update_transform = fcompose(
+        map(keymap(keymapping)),
+        list
+    )
+    return pipe(
+        data,
+        map(update_in(keys=['transform'],
+                      func=update_transform,
+                      default=[])),
+        list
+    )
+
 def get_data():
     """Read in the YAML data and group by benchmark id
 
@@ -123,6 +159,7 @@ def get_data():
             lambda item: item[1]['benchmark']['id'] + '.' + str(item[1]['benchmark']['version'])
         ),
         valmap(filter_data),
+        valmap(vega2to3)
     )
 
 def get_chart_file():
