@@ -1,0 +1,229 @@
+{
+  "axes": [
+    {
+      "properties": {
+        "axis": {
+          "strokeOpacity": {
+            "value": 0
+          }
+        },
+        "labels": {
+          "align": {
+            "value": "right"
+          },
+          "angle": {
+            "value": -60
+          },
+          "dx": {
+            "value": -5
+          },
+          "dy": {
+            "value": 5
+          },
+          "font": {
+            "value": "Lato"
+          },
+          "fontSize": {
+            "value": 12
+          }
+        }
+      },
+      "scale": "xscale",
+      "tickSize": 0,
+      "type": "x"
+    },
+    {
+      "properties": {
+        "axis": {
+          "strokeOpacity": {
+            "value": 0
+          }
+        }
+      },
+      "scale": "yscale",
+      "type": "y",
+      "values": []
+    },
+    {
+      "orient": "top",
+      "properties": {
+        "axis": {
+          "strokeOpacity": {
+            "value": 0
+          }
+        },
+        "title": {
+          "font": {
+            "value": "Lato"
+          },
+          "fontSize": {
+            "value": 16
+          }
+        }
+      },
+      "scale": "xscale",
+      "title": "Affiliation",
+      "type": "x",
+      "values": []
+    }
+  ],
+  "data": [
+    {
+      "name": "code_uploads",
+      "values": [
+        {
+          "count": 5,
+          "name": "NIST"
+        },
+        {
+          "count": 4,
+          "name": "Michigan"
+        },
+        {
+          "count": 2,
+          "name": "Connecticut"
+        },
+        {
+          "count": 2,
+          "name": "INL"
+        },
+        {
+          "count": 2,
+          "name": "ORNL"
+        },
+        {
+          "count": 1,
+          "name": "LLNL"
+        },
+        {
+          "count": 1,
+          "name": "Northwestern"
+        }
+      ]
+    }
+  ],
+  "height": 115,
+  "marks": [
+    {
+      "from": {
+        "data": "code_uploads"
+      },
+      "properties": {
+        "enter": {
+          "width": {
+            "band": true,
+            "offset": -1,
+            "scale": "xscale"
+          },
+          "x": {
+            "field": "name",
+            "scale": "xscale"
+          },
+          "y": {
+            "field": "count",
+            "scale": "yscale"
+          },
+          "y2": {
+            "scale": "yscale",
+            "value": 0
+          }
+        },
+        "hover": {
+          "fill": {
+            "value": "#f44336"
+          }
+        },
+        "update": {
+          "fill": {
+            "value": "#90caf9"
+          }
+        }
+      },
+      "type": "rect"
+    },
+    {
+      "properties": {
+        "enter": {
+          "align": {
+            "value": "center"
+          },
+          "fill": {
+            "value": "#333"
+          }
+        },
+        "update": {
+          "dx": {
+            "band": true,
+            "mult": 0.5,
+            "scale": "xscale"
+          },
+          "fillOpacity": {
+            "value": 1
+          },
+          "font": {
+            "value": "Lato"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "text": {
+            "signal": "tooltip.count"
+          },
+          "x": {
+            "scale": "xscale",
+            "signal": "tooltip.name"
+          },
+          "y": {
+            "offset": -5,
+            "scale": "yscale",
+            "signal": "tooltip.count"
+          }
+        }
+      },
+      "type": "text"
+    }
+  ],
+  "padding": {
+    "bottom": 100,
+    "left": 10,
+    "right": 20,
+    "top": 40
+  },
+  "scales": [
+    {
+      "domain": {
+        "data": "code_uploads",
+        "field": "name"
+      },
+      "name": "xscale",
+      "range": "width",
+      "type": "ordinal"
+    },
+    {
+      "domain": {
+        "data": "code_uploads",
+        "field": "count"
+      },
+      "name": "yscale",
+      "nice": true,
+      "range": "height"
+    }
+  ],
+  "signals": [
+    {
+      "init": {},
+      "name": "tooltip",
+      "streams": [
+        {
+          "expr": "datum",
+          "type": "rect:mouseover"
+        },
+        {
+          "expr": "{}",
+          "type": "rect:mouseout"
+        }
+      ]
+    }
+  ],
+  "width": 230
+}
