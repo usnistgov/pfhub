@@ -70,7 +70,7 @@ def make_upload_chart(gfunc, yaml_path, json_path, title):
       json_path: the path to write to
       title: the title of the chart
 
-    Retuns:
+    Returns:
       the chart JSON
     """
     return pipe(

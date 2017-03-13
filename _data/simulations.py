@@ -27,10 +27,10 @@ def fcompose(*args):
     >>> fcompose(g, f)(3)
     4
 
-    Args:xb
-      *args: tuple of funct]ions
+    Args:
+      *args: tuple of functions
 
-    Retuns:
+    Returns:
       composed functions
     """
     return compose(*args[::-1])
@@ -234,7 +234,7 @@ def render_yaml(tpl_path, **kwargs):
       tpl_path: path to the YAML jinja template
       **kwargs: data to render in the template
 
-    Retuns:
+    Returns:
       the rendered template string
     """
     path, filename = os.path.split(tpl_path)
