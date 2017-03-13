@@ -3,6 +3,7 @@
 Extracts benchmark YAML and combines with template chart YAML for Vega
 charts. Run `python _data/charts.py` to build the charts.
 """
+# pylint: disable=no-value-for-parameter
 
 import glob
 import os
@@ -10,8 +11,29 @@ import json
 from dateutil.parser import parse
 
 import jinja2
-from toolz.curried import map, pipe, get, curry, filter, valmap, itemmap, groupby, memoize # pylint: disable=redefined-builtin, no-name-in-module
+# pylint: disable=redefined-builtin, no-name-in-module
+from toolz.curried import map, pipe, get, curry, filter, compose
+from toolz.curried import valmap, itemmap, groupby, memoize
 import yaml
+
+
+def fcompose(*args):
+    """Helper function to compose functions.
+
+    >>> f = lambda x: x - 2
+    >>> g = lambda x: 2 * x
+    >>> f(g(3))
+    4
+    >>> fcompose(g, f)(3)
+    4
+
+    Args:xb
+      *args: tuple of funct]ions
+
+    Retuns:
+      composed functions
+    """
+    return compose(*args[::-1])
 
 
 def free_energy_file():
@@ -21,6 +43,7 @@ def free_energy_file():
       the file name
     """
     return 'free_energy.yaml.j2'
+
 
 def read_yaml(filepath):
     """Read a YAML file
@@ -34,6 +57,7 @@ def read_yaml(filepath):
     with open(filepath) as stream:
         data = yaml.safe_load(stream)
     return data
+
 
 @curry
 def write_json(data, filepath):
@@ -50,6 +74,7 @@ def write_json(data, filepath):
         json.dump(data, stream, sort_keys=True, indent=2)
     return (filepath, data)
 
+
 def get_path():
     """Return the local file path for this file.
 
@@ -63,6 +88,7 @@ def get_path():
         get(0)
     )
 
+
 @curry
 def update_dict(dict_, **kwargs):
     """Add keys to a new dictionary.
@@ -75,6 +101,7 @@ def update_dict(dict_, **kwargs):
       a new dictionary
     """
     return dict(list(dict_.items()) + list(kwargs.items()))
+
 
 def filter_data(yaml_data):
     """Extract the free_energy data from the YAML files.
@@ -93,8 +120,10 @@ def filter_data(yaml_data):
         valmap(list),
         valmap(get(0)),
         itemmap(lambda item: (item[0], update_dict(item[1], name=item[0]))),
-        lambda dict_: sorted(list(dict_.values()), key=lambda item: item['name'])
+        lambda dict_: sorted(list(dict_.values()),
+                             key=lambda item: item['name'])
     )
+
 
 def get_yaml_data():
     """Read in the YAML data but don't group
@@ -106,9 +135,11 @@ def get_yaml_data():
         os.path.join(get_path(), 'simulations/*/meta.yaml'),
         glob.glob,
         sorted,
-        map(lambda path_: (os.path.split(os.path.split(path_)[0])[1], read_yaml(path_))),
+        map(lambda path_: (os.path.split(os.path.split(path_)[0])[1],
+                           read_yaml(path_))),
         filter(lambda item: item[0] not in ['example', 'example_minimal'])
     )
+
 
 def get_data():
     """Read in the YAML data and group by benchmark id
@@ -120,10 +151,12 @@ def get_data():
     return pipe(
         get_yaml_data(),
         groupby(
-            lambda item: item[1]['benchmark']['id'] + '.' + str(item[1]['benchmark']['version'])
+            lambda item: "{0}.{1}".format(item[1]['benchmark']['id'],
+                                          str(item[1]['benchmark']['version']))
         ),
         valmap(filter_data),
     )
+
 
 def get_chart_file():
     """Get the name of the chart file
@@ -144,12 +177,18 @@ def write_chart_json(item):
     Returns:
       returns the (filepath, json_data) pair
     """
+    file_name = fcompose(
+        free_energy_file,
+        lambda x: x.replace('.yaml', '.json'),
+        lambda x: x.replace('.j2', '')
+    )
     return pipe(
         item[0],
-        lambda id_: item[0] + "_" + free_energy_file().replace('.yaml', '.json').replace('.j2', ''),
+        lambda id_: "{0}_{1}".format(item[0], file_name()),
         lambda file_: os.path.join(get_path(), '../data/charts', file_),
-        write_json(item[1]) # pylint: disable=no-value-for-parameter
+        write_json(item[1])
     )
+
 
 @memoize
 def get_marks():
@@ -176,9 +215,10 @@ def process_chart(id_, data):
     """
     return pipe(
         get_chart_file(),
-        render_yaml(data=data, id_=id_, marks=get_marks()[id_]), # pylint: disable=no-value-for-parameter
+        render_yaml(data=data, id_=id_, marks=get_marks()[id_]),
         yaml.load
     )
+
 
 def to_datetime(datetime_str, format_="%Y/%m/%d %H:%M:%S"):
     """Datetime formater for Jinja template.
@@ -204,6 +244,7 @@ def render_yaml(tpl_path, **kwargs):
     env.filters['to_datetime'] = to_datetime
     return env.get_template(filename).render(**kwargs)
 
+
 def main():
     """Generate the chart JSON files
 
@@ -221,6 +262,7 @@ def main():
         itemmap(write_chart_json)
     )
 
+
 def landing_page_j2():
     """Get the name of the chart file
 
@@ -229,6 +271,7 @@ def landing_page_j2():
 
     """
     return os.path.join(get_path(), 'charts', 'simulations.yaml.j2')
+
 
 def landing_page_json():
     """Generate the landing page JSON vega spec.
@@ -261,9 +304,12 @@ def landing_page_json():
         ),
         list,
         lambda data: j2_to_json(landing_page_j2(),
-                                os.path.join(get_path(), '../data/charts/simulations.json'),
+                                os.path.join(get_path(),
+                                             '../data/charts',
+                                             'simulations.json'),
                                 data=data)
     )
+
 
 def j2_to_json(path_in, path_out, **kwargs):
     """Render a yaml.j2 chart to JSON.
@@ -279,8 +325,9 @@ def j2_to_json(path_in, path_out, **kwargs):
     return pipe(
         render_yaml(path_in, **kwargs),
         yaml.load,
-        write_json(filepath=path_out) # pylint: disable=no-value-for-parameter
+        write_json(filepath=path_out)
     )
+
 
 if __name__ == "__main__":
     main()
