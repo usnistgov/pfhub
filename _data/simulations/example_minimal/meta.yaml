@@ -1,49 +1,51 @@
---- # signifies beginning of a YAML block
-# miminal example with the required fields
-benchmark:
-  # Refer to the problem definition for appropriate value.
-  id: 1a    # number+letter, from problem description
-  version: 1    # number, from problem description
+# CHiMaD Phase-Field simulation submission
+# minimal example: every line is required,
+# comments (prefixed by '#') are optional.
 
-metadata:
-  # Describe the runtime environment, hardware and software
-  summary: concise description of this contribution    #
-  author: name    # preferably yours
-  email: "name@organization.com"    # in quotes
-  timestamp: "Mon, 10 03 1982 15:03:32 -0000"    #, e.g. 'date -R' on Linux or any valid timestamp
-  hardware:    #
-    # relevant details of your machine or cluster
-    architecture: i686   # architecture of the environment
-    cores: 6    # number actually used if less than total available
-  software:    #
-    # software framework your application is built upon, from the (website)[{{ site.url }}]
-    name: moose    # all lower-case, e.g. fipy or moose or prisms, etc.
+---  # tag start of YAML block
 
-data:
-  # Values for use in tables, charts, galleries, etc.
-  # Use Vega standard to help generate graphics directly; see
-  # https://github.com/vega/vega/wiki/Data and
-  # https://vega.github.io/vega-lite/docs/data.html.
-  # Broadly, a list of key-value pairs defined minimally with
-  # two keys, 'name' and 'values', to help the parser determine
-  # where these data belong on the final site. If 'values' are
-  # multiply defined, indent and specify keys 'time' for simulation time
-  # and 'value' for appropriate datum.
-  - name: run_time
-    # wall time, in seconds, when specified simulation-times were reached
-    values:
-      - sim_time: 0.0
-        time: 0.0
-      - sim_time: 2.0
-        time: 1.0
-      - sim_time: 8.0
-        time: 2.0
-  - name: memory_usage
-    values: 27232    # peak, in KB
-  - name: free_energy
+benchmark:  # Refer to the problem definition for appropriate values
+  id: 1a  # number+letter
+  version: 1  # number
+
+metadata:  # Describe the runtime environment, hardware and software
+  summary: concise description of this contribution
+  author: Given and Surname
+  email: "alias@organization.com"  # in quotes
+  timestamp: Mon, 10 Mar 1982 15:03:32 -0500  # 'date -R' on Linux or any valid timestamp
+  hardware:  # relevant details of your machine or cluster
+    architecture: x86_64  # architecture of the environment
+    cores: 6  # number actually used if less than total available
+  software:  # software framework your application is built upon
+    name: fipy  # all lower-case, e.g. fipy or moose or prisms, etc.
+  implementation:  # your code to solve this problem
+    end_condition: equilibrium
+    repo:
+      url: http://somewhere/source_code
+
+data:  # Use Vega data standard, https://vega.github.io/vega-lite/docs/data.html
+  - name: free_energy  # for GitHub Gist data, provide URL from "raw" link
     url: https://somewhere/data.csv
     format:
       type: csv
       parse:
         free_energy: number
         time: number
+    transform:  # eliminate zero for logarithmic time-axis scaling
+      - type: filter
+        test: "datum.time > 0.01"
+  - name: run_time  # seconds elapsed when final simulation-time was reached
+    values:
+      [
+        {
+          "sim_time": 53333.3,
+          "time": 170618.87
+        }
+      ]
+  - name: memory_usage  # peak memory used by the whole cluster
+    [
+      {
+        "value": 27232,
+        "unit": KB
+      }
+    ]
