@@ -27,13 +27,14 @@ axes:
     formatType: number
     title: "Time"
     encode:
-      update:
-        title:
+      title:
+        update:
           font:
             value: Lato
           fontSize:
             value: 14
-        labels:
+      labels:
+        update:
           font:
             value: Lato
           fontSize:
@@ -45,13 +46,14 @@ axes:
     formatType: number
     title: "Free Energy"
     encode:
-      update:
-        title:
+      title:
+        update:
           font:
             value: Lato
           fontSize:
             value: 14
-        labels:
+      labels:
+        update:
           font:
             value: Lato
           fontSize:
@@ -63,6 +65,7 @@ axes:
     domain: false
     labels: false
     ticks: false
+    titlePadding: 20
     encode:
       title:
         update:
@@ -94,15 +97,17 @@ legends:
     fill: color
     encode:
       title:
-        font:
-          value: Lato
-        fontSize:
-          value: 14
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 14
       labels:
-        font:
-          value: Lato
-        fontSize:
-          value: 12
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 12
 marks:
 {%- for datum in data %}
   - type: line

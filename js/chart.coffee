@@ -8,9 +8,10 @@ build_chart = (chart_json)->
   # parse(chart_json)
   runtime = vega.parse(chart_json)
   view = new vega.View(runtime)
-  view = view.initialize(div_id)
-  view = view.renderer('svg')
-  view = view.hover().run()
+    .initialize(div_id)
+    .renderer('svg')
+    .hover()
+    .run()
 
 
 free_energy_json = "{{ site.baseurl }}/data/charts/" + chart_name

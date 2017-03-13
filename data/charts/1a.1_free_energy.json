@@ -20,16 +20,18 @@
     },
     {
       "encode": {
-        "update": {
-          "labels": {
+        "labels": {
+          "update": {
             "font": {
               "value": "Lato"
             },
             "fontSize": {
               "value": 12
             }
-          },
-          "title": {
+          }
+        },
+        "title": {
+          "update": {
             "font": {
               "value": "Lato"
             },
@@ -56,16 +58,18 @@
     },
     {
       "encode": {
-        "update": {
-          "labels": {
+        "labels": {
+          "update": {
             "font": {
               "value": "Lato"
             },
             "fontSize": {
               "value": 12
             }
-          },
-          "title": {
+          }
+        },
+        "title": {
+          "update": {
             "font": {
               "value": "Lato"
             },
@@ -106,6 +110,7 @@
       "scale": "x",
       "ticks": false,
       "title": "Free Energy for Benchmark 1a.1",
+      "titlePadding": 20,
       "values": []
     }
   ],
@@ -387,19 +392,23 @@
     {
       "encode": {
         "labels": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 12
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           }
         },
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
