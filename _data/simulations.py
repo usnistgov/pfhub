@@ -142,9 +142,28 @@ def get_yaml_data():
 
 
 def vega2to3(data):
+    """Transform a Vega data list from version 2 to 3.
+
+    Args:
+      data: vega data list
+
+    Returns:
+      update vega data list
+    """
     def keymapping(key):
-        return  dict(test='expr',
-                     field='as').get(key, key)
+        """Map vega data  keys from version 2 to 3
+
+        The mapping is `test` -> `expr` and `field` -> `as` otherwise
+        the input key is just returned.
+
+        Args:
+          key: the key to map
+
+        Returns:
+          a new key
+        """
+        return dict(test='expr',
+                    field='as').get(key, key)
     update_transform = fcompose(
         map(keymap(keymapping)),
         list
