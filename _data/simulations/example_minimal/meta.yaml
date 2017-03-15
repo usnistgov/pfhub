@@ -43,9 +43,10 @@ data:  # Use Vega data standard, https://vega.github.io/vega-lite/docs/data.html
         }
       ]
   - name: memory_usage  # peak memory used by the whole cluster
-    [
-      {
-        "value": 27232,
-        "unit": KB
-      }
-    ]
+    values:
+      [
+        {
+          "value": 27232,
+          "unit": KB
+        }
+      ]
