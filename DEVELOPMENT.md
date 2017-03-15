@@ -245,3 +245,10 @@ form with the exact string matches.
     - "Twitter Handle"
     - "GitHub Handle"
     - "Other Links"
+
+<h4> Pages.nist.gov </h4>
+
+The main site is hosted on
+[Pages.nist.gov](https://pages.nist.gov/pages-root/), which provides
+the [build.log](https://pages.nist.gov/chimad-phase-field/build.log)
+for the Jekyll build.

@@ -1,10 +1,13 @@
 """Data pipeline to build data for simulation data table.
 """
+# pylint: disable=no-value-for-parameter
 
 import os
 
 import yaml
-from toolz.curried import pipe, curry, map, groupby, get, valmap, count # pylint: disable=redefined-builtin, no-name-in-module
+# pylint: disable=redefined-builtin, no-name-in-module
+from toolz.curried import pipe, curry, map, groupby, get, valmap, count
+
 from simulations import get_path, render_yaml, get_yaml_data, j2_to_json
 
 
@@ -12,6 +15,7 @@ def table_yaml():
     """Path to table YAML.
     """
     return os.path.join(get_path(), 'table.yaml.j2')
+
 
 @curry
 def write_yaml(data, filepath):
@@ -21,6 +25,7 @@ def write_yaml(data, filepath):
         yaml.dump(data, stream, indent=2)
     return (filepath, data)
 
+
 def make_table_yaml():
     """Make simulation datatable from meta.yaml's.
     """
@@ -28,8 +33,10 @@ def make_table_yaml():
         get_yaml_data(),
         lambda data: render_yaml(table_yaml(), data=data),
         yaml.load,
-        write_yaml(filepath=os.path.join(get_path(), '../data/data_table.yaml')) # pylint: disable=no-value-for-parameter
+        write_yaml(filepath=os.path.join(get_path(),
+                                         '../data/data_table.yaml'))
     )
+
 
 def groupby_count(func):
     """Group the simulation data based on a function.
@@ -47,10 +54,12 @@ def groupby_count(func):
         valmap(count),
     )
 
+
 def code_upload_yaml_path():
     """Path to the upload chart j2.
     """
     return os.path.join(get_path(), 'charts', 'code_upload.yaml.j2')
+
 
 def make_upload_chart(gfunc, yaml_path, json_path, title):
     """Create an upload chart
@@ -61,7 +70,7 @@ def make_upload_chart(gfunc, yaml_path, json_path, title):
       json_path: the path to write to
       title: the title of the chart
 
-    Retuns:
+    Returns:
       the chart JSON
     """
     return pipe(
@@ -75,14 +84,17 @@ def make_upload_chart(gfunc, yaml_path, json_path, title):
                                 title=title)
     )
 
+
 if __name__ == "__main__":
     make_table_yaml()
     make_upload_chart(lambda item: item['metadata']['software']['name'],
                       code_upload_yaml_path(),
-                      os.path.join(get_path(), '../data/charts/code_upload.json'),
+                      os.path.join(get_path(),
+                                   '../data/charts/code_upload.json'),
                       'Uploads per Code')
 
     make_upload_chart(lambda item: item['benchmark']['id'],
                       code_upload_yaml_path(),
-                      os.path.join(get_path(), '../data/charts/benchmark_upload.json'),
+                      os.path.join(get_path(),
+                                   '../data/charts/benchmark_upload.json'),
                       'Uploads per Benchmark')
