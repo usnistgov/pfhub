@@ -73,12 +73,40 @@
   "height": 224,
   "marks": [
     {
+      "encode": {
+        "enter": {
+          "clip": {
+            "value": true
+          },
+          "fill": {
+            "value": null
+          },
+          "height": {
+            "band": true,
+            "offset": -5,
+            "scale": "y"
+          },
+          "width": {
+            "band": true,
+            "offset": -5,
+            "scale": "x"
+          },
+          "x": {
+            "field": "col",
+            "scale": "x"
+          },
+          "y": {
+            "field": "row",
+            "scale": "y"
+          }
+        }
+      },
       "from": {
         "data": "images"
       },
       "marks": [
         {
-          "properties": {
+          "encode": {
             "enter": {
               "align": {
                 "value": "left"
@@ -116,7 +144,7 @@
           "type": "image"
         },
         {
-          "properties": {
+          "encode": {
             "enter": {
               "height": {
                 "field": {
@@ -164,7 +192,7 @@
           "type": "rect"
         },
         {
-          "properties": {
+          "encode": {
             "enter": {
               "align": {
                 "value": "center"
@@ -219,7 +247,7 @@
                 }
               ],
               "text": {
-                "template": "Free Energy  {{ parent.link }} "
+                "signal": "'Free Energy ' +   parent.link "
               }
             }
           },
@@ -227,34 +255,6 @@
         }
       ],
       "name": "example",
-      "properties": {
-        "enter": {
-          "clip": {
-            "value": true
-          },
-          "fill": {
-            "value": null
-          },
-          "height": {
-            "band": true,
-            "offset": -5,
-            "scale": "y"
-          },
-          "width": {
-            "band": true,
-            "offset": -5,
-            "scale": "x"
-          },
-          "x": {
-            "field": "col",
-            "scale": "x"
-          },
-          "y": {
-            "field": "row",
-            "scale": "y"
-          }
-        }
-      },
       "type": "group"
     }
   ],
@@ -267,7 +267,7 @@
       },
       "name": "x",
       "range": "width",
-      "type": "ordinal"
+      "type": "band"
     },
     {
       "domain": {
@@ -276,23 +276,23 @@
       },
       "name": "y",
       "range": "height",
-      "type": "ordinal"
+      "type": "band"
     }
   ],
   "signals": [
     {
-      "init": {},
       "name": "active",
-      "streams": [
+      "on": [
         {
-          "expr": "eventGroup().datum",
-          "type": "image:mouseover, group:mouseover, group:mouseout, rect:mouseover, text:mouseover"
+          "events": "image:mouseover, group:mouseover, group:mouseout, rect:mouseover, text:mouseover",
+          "update": "group().datum"
         },
         {
-          "expr": "{}",
-          "type": "body:mouseout, rect:mouseout"
+          "events": "body:mouseout, rect:mouseout",
+          "update": "{}"
         }
-      ]
+      ],
+      "value": {}
     }
   ],
   "width": 672
