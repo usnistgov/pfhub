@@ -1,7 +1,7 @@
 ---
 ---
 
-data_file = "data/codes.yaml"
+data_json = {{ site.data.codes | jsonify }}
 
 add_logo = (selection) ->
   subselection = selection.filter((d) -> "logo" of d)
@@ -63,8 +63,7 @@ add_examples = (selection, key) ->
 
   span_ = span.append("span").html(add_separator)
 
-build_function = (data_text) ->
-  data = jsyaml.load(data_text)
+build_function = (data) ->
   selection = d3.select("#codes").selectAll()
   .data(data).enter()
   .append("li").attr("class", "collection-item avatar light-green lighten-4")
@@ -80,4 +79,4 @@ build_function = (data_text) ->
   add_examples(selection, "examples")
   add_examples(selection, "hackathon")
 
-d3.text(data_file, build_function)
+build_functions(data_json)
