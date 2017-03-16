@@ -79,4 +79,4 @@ build_function = (data) ->
   add_examples(selection, "examples")
   add_examples(selection, "hackathon")
 
-build_functions(data_json)
+build_function(data_json)
