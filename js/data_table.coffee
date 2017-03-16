@@ -17,8 +17,8 @@ fcode = (data, type, row) ->
     data.name
 
 
-d3_func = (yaml_text) ->
-  data_raw = jsyaml.load(yaml_text)['data']
+create_table = (data_in) ->
+  data_raw = data_in['data']
 
   data_filter = (datum for datum in data_raw when datum['id_'] is benchmark_id)
 
@@ -64,4 +64,4 @@ d3_func = (yaml_text) ->
 
   $(document).ready func
 
-d3.text("{{ site.baseurl }}/data/data_table.yaml", d3_func)
+create_table({{ site.data.data_table | jsonify }})

@@ -34,7 +34,7 @@ def make_table_yaml():
         lambda data: render_yaml(table_yaml(), data=data),
         yaml.load,
         write_yaml(filepath=os.path.join(get_path(),
-                                         '../data/data_table.yaml'))
+                                         '../_data/data_table.yaml'))
     )
 
 
