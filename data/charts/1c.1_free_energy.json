@@ -1,29 +1,51 @@
 {
   "axes": [
     {
-      "format": ".0e",
-      "formatType": "number",
-      "properties": {
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "bottom",
+      "scale": "x",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "left",
+      "scale": "y",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "encode": {
         "labels": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 12
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           }
         },
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "format": ".0e",
+      "formatType": "number",
+      "orient": "bottom",
       "scale": "x",
       "title": "Time",
-      "type": "x",
       "values": [
         1,
         10,
@@ -35,29 +57,33 @@
       ]
     },
     {
-      "format": ".0e",
-      "formatType": "number",
-      "properties": {
+      "encode": {
         "labels": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 12
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           }
         },
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "format": ".0e",
+      "formatType": "number",
+      "orient": "left",
       "scale": "y",
       "title": "Free Energy",
-      "type": "y",
       "values": [
         1,
         10,
@@ -65,47 +91,25 @@
       ]
     },
     {
-      "grid": true,
-      "properties": {
-        "labels": {
-          "text": ""
-        }
-      },
-      "scale": "x",
-      "tickSize": 0,
-      "type": "x"
-    },
-    {
-      "grid": true,
-      "properties": {
-        "labels": {
-          "text": ""
-        }
-      },
-      "scale": "y",
-      "tickSize": 0,
-      "type": "y"
-    },
-    {
-      "orient": "top",
-      "properties": {
-        "axis": {
-          "strokeOpacity": {
-            "value": 0
-          }
-        },
+      "domain": false,
+      "encode": {
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 20
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 20
+            }
           }
         }
       },
+      "labels": false,
+      "orient": "top",
       "scale": "x",
+      "ticks": false,
       "title": "Free Energy for Benchmark 1c.1",
-      "type": "x",
+      "titlePadding": 20,
       "values": []
     }
   ],
@@ -114,7 +118,7 @@
       "name": "fipy_1c_travis",
       "transform": [
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -168,7 +172,7 @@
       "name": "mmsp_1c_raspi",
       "transform": [
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -178,12 +182,12 @@
       "name": "mmsp_1c_travis",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.energy",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -245,7 +249,7 @@
       "name": "mmsp_1c_wrksttn",
       "transform": [
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -262,12 +266,12 @@
       "name": "moose_1c_ia",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.TotalEnergy",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -284,12 +288,12 @@
       "name": "moose_psu_1c_IA",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.f_density",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -306,12 +310,12 @@
       "name": "moose_psu_1c_STA",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.f_density",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -321,34 +325,35 @@
   "height": 300,
   "legends": [
     {
-      "fill": "color",
-      "properties": {
+      "encode": {
         "labels": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 12
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           }
         },
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "fill": "color",
       "title": "Simulations"
     }
   ],
   "marks": [
     {
-      "from": {
-        "data": "fipy_1c_travis"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -370,13 +375,13 @@
           }
         }
       },
+      "from": {
+        "data": "fipy_1c_travis"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "mmsp_1c_raspi"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -398,13 +403,13 @@
           }
         }
       },
+      "from": {
+        "data": "mmsp_1c_raspi"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "mmsp_1c_travis"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -426,13 +431,13 @@
           }
         }
       },
+      "from": {
+        "data": "mmsp_1c_travis"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "mmsp_1c_wrksttn"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -454,13 +459,13 @@
           }
         }
       },
+      "from": {
+        "data": "mmsp_1c_wrksttn"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_1c_ia"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -482,13 +487,13 @@
           }
         }
       },
+      "from": {
+        "data": "moose_1c_ia"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_psu_1c_IA"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -510,13 +515,13 @@
           }
         }
       },
+      "from": {
+        "data": "moose_psu_1c_IA"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_psu_1c_STA"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -537,6 +542,9 @@
             "scale": "y"
           }
         }
+      },
+      "from": {
+        "data": "moose_psu_1c_STA"
       },
       "type": "line"
     }
@@ -573,7 +581,9 @@
         "moose_psu_1c_STA"
       ],
       "name": "color",
-      "range": "category10",
+      "range": {
+        "scheme": "category20"
+      },
       "type": "ordinal"
     }
   ],

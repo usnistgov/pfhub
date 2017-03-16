@@ -13,7 +13,7 @@ from dateutil.parser import parse
 import jinja2
 # pylint: disable=redefined-builtin, no-name-in-module
 from toolz.curried import map, pipe, get, curry, filter, compose
-from toolz.curried import valmap, itemmap, groupby, memoize
+from toolz.curried import valmap, itemmap, groupby, memoize, keymap, update_in
 import yaml
 
 
@@ -141,6 +141,42 @@ def get_yaml_data():
     )
 
 
+def vega2to3(data):
+    """Transform a Vega data list from version 2 to 3.
+
+    Args:
+      data: vega data list
+
+    Returns:
+      update vega data list
+    """
+    def keymapping(key):
+        """Map vega data  keys from version 2 to 3
+
+        The mapping is `test` -> `expr` and `field` -> `as` otherwise
+        the input key is just returned.
+
+        Args:
+          key: the key to map
+
+        Returns:
+          a new key
+        """
+        return dict(test='expr',
+                    field='as').get(key, key)
+    update_transform = fcompose(
+        map(keymap(keymapping)),
+        list
+    )
+    return pipe(
+        data,
+        map(update_in(keys=['transform'],
+                      func=update_transform,
+                      default=[])),
+        list
+    )
+
+
 def get_data():
     """Read in the YAML data and group by benchmark id
 
@@ -155,6 +191,7 @@ def get_data():
                                           str(item[1]['benchmark']['version']))
         ),
         valmap(filter_data),
+        valmap(vega2to3)
     )
 
 

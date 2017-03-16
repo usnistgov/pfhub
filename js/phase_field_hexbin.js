@@ -10,7 +10,7 @@ d3.json( '{{site.baseurl}}/data/hexbin.json' , function(data){
     d.j = i / 10 | 0;
   });
 
-  Math.seedrandom(+d3.time.hour(new Date));
+  Math.seedrandom(+d3.timeHour(new Date));
 
   d3.shuffle(data);
 

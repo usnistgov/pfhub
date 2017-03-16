@@ -1,29 +1,51 @@
 {
   "axes": [
     {
-      "format": ".0e",
-      "formatType": "number",
-      "properties": {
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "bottom",
+      "scale": "x",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "left",
+      "scale": "y",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "encode": {
         "labels": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 12
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           }
         },
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "format": ".0e",
+      "formatType": "number",
+      "orient": "bottom",
       "scale": "x",
       "title": "Time",
-      "type": "x",
       "values": [
         0.1,
         1,
@@ -36,29 +58,33 @@
       ]
     },
     {
-      "format": ".0e",
-      "formatType": "number",
-      "properties": {
+      "encode": {
         "labels": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 12
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           }
         },
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "format": ".0e",
+      "formatType": "number",
+      "orient": "left",
       "scale": "y",
       "title": "Free Energy",
-      "type": "y",
       "values": [
         100,
         1000,
@@ -67,47 +93,25 @@
       ]
     },
     {
-      "grid": true,
-      "properties": {
-        "labels": {
-          "text": ""
-        }
-      },
-      "scale": "x",
-      "tickSize": 0,
-      "type": "x"
-    },
-    {
-      "grid": true,
-      "properties": {
-        "labels": {
-          "text": ""
-        }
-      },
-      "scale": "y",
-      "tickSize": 0,
-      "type": "y"
-    },
-    {
-      "orient": "top",
-      "properties": {
-        "axis": {
-          "strokeOpacity": {
-            "value": 0
-          }
-        },
+      "domain": false,
+      "encode": {
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 20
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 20
+            }
           }
         }
       },
+      "labels": false,
+      "orient": "top",
       "scale": "x",
+      "ticks": false,
       "title": "Free Energy for Benchmark 2d.1",
-      "type": "x",
+      "titlePadding": 20,
       "values": []
     }
   ],
@@ -123,12 +127,12 @@
       "name": "moose_2d_ia",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.TotalEnergy",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -145,12 +149,12 @@
       "name": "moose_2d_sta",
       "transform": [
         {
+          "as": "free_energy",
           "expr": "datum.TotalEnergy",
-          "field": "free_energy",
           "type": "formula"
         },
         {
-          "test": "datum.time > 0.01",
+          "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
@@ -160,34 +164,35 @@
   "height": 300,
   "legends": [
     {
-      "fill": "color",
-      "properties": {
+      "encode": {
         "labels": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 12
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
           }
         },
         "title": {
-          "font": {
-            "value": "Lato"
-          },
-          "fontSize": {
-            "value": 14
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
           }
         }
       },
+      "fill": "color",
       "title": "Simulations"
     }
   ],
   "marks": [
     {
-      "from": {
-        "data": "moose_2d_ia"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -209,13 +214,13 @@
           }
         }
       },
+      "from": {
+        "data": "moose_2d_ia"
+      },
       "type": "line"
     },
     {
-      "from": {
-        "data": "moose_2d_sta"
-      },
-      "properties": {
+      "encode": {
         "enter": {
           "stroke": {
             "scale": "color",
@@ -236,6 +241,9 @@
             "scale": "y"
           }
         }
+      },
+      "from": {
+        "data": "moose_2d_sta"
       },
       "type": "line"
     }
@@ -267,7 +275,9 @@
         "moose_2d_sta"
       ],
       "name": "color",
-      "range": "category10",
+      "range": {
+        "scheme": "category20"
+      },
       "type": "ordinal"
     }
   ],
