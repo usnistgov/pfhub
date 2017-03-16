@@ -16,6 +16,8 @@ fcode = (data, type, row) ->
   else
     data.name
 
+fbenchmark = (data, type, row) ->
+  '<a href="{{ site.baseurl }}/simulations/' + data + '/" target="_blank">' + data + '</a>'
 
 create_table = (data_in) ->
   data_raw = data_in['data']
@@ -42,6 +44,7 @@ create_table = (data_in) ->
       {
         data: "id_"
         title: "Benchmark"
+        render: fbenchmark
       }
       {
         data: "author"
