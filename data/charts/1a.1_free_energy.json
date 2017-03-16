@@ -109,7 +109,7 @@
       "orient": "top",
       "scale": "x",
       "ticks": false,
-      "title": "Free Energy for Benchmark 1a.1",
+      "title": "Free Energy",
       "titlePadding": 20,
       "values": []
     }

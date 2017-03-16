@@ -1,4 +1,22 @@
 <div class="container">
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <h2 class="header">
+        Benchmark {{ include.benchmark_id }} Results
+      </h2>
+      <h5>
+        <i>Simulation results for the
+          <a href="{{ site.baseurl }}/benchmarks/benchmark1.ipynb/"
+             target="_blank">
+            {{ include.benchmark_id }} benchmark spec
+          </a>
+        </i>
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div class="row small-buffer">
     <br>
     <div class="col s8 offset-s2" id="free_energy_chart">
@@ -11,3 +29,22 @@
 <script> var chart_name="{{ include.benchmark_id }}_free_energy.json" </script>
 <script> var div_id="#free_energy_chart" </script>
 <script src="{{ site.baseurl }}/js/chart.js"></script>
+
+<div class="container top-bar top-buffer">
+  <div class="row small-buffer">
+    <div class="col l2 m12 s12">
+      <h5 class="sideheader" id="simulations">Simulations</h5>
+    </div>
+    <div class="col s10">
+      <div class="flow-text" style="font-size: 20px">
+        <i>Table of {{ include.benchmark_id }} simulation uploads</i>
+      </div>
+      <br>
+      <table id="data_table" class="mdl-data-table striped" cellspacing="0"></table>
+    </div>
+  </div>
+</div>
+
+
+<script> var benchmark_id="{{ include.benchmark_id }}" </script>
+<script src="{{ site.baseurl }}/js/data_table.js"></script>

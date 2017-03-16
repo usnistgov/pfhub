@@ -18,12 +18,16 @@ fcode = (data, type, row) ->
 
 
 d3_func = (yaml_text) ->
-  data_ = jsyaml.load(yaml_text)
+  data_raw = jsyaml.load(yaml_text)['data']
+
+  data_filter = (datum for datum in data_raw when datum['id_'] is benchmark_id)
+
+  data_table = if benchmark_id is '' then data_raw else data_filter
 
   data = {
     lengthMenu: [15]
     lengthChange: false
-    data: data_['data']
+    data: data_table
     columns: [
       {
         data: "name"
@@ -60,4 +64,4 @@ d3_func = (yaml_text) ->
 
   $(document).ready func
 
-d3.text("../data/data_table.yaml", d3_func)
+d3.text("{{ site.baseurl }}/data/data_table.yaml", d3_func)
