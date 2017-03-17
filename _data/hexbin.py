@@ -15,7 +15,7 @@ import requests
 def hexbin_yaml_to_json():
     """Generate JSON image data from the YAML.
     """
-    data = yaml.load(open('data/hexbin.yaml', 'r'))
+    data = yaml.load(open('_data/hexbin.yaml', 'r'))
 
     for item in data:
         print("getting item: ", item['url'])

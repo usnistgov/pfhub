@@ -1,5 +1,5 @@
-HEXBIN_OUT = images/hexbin.jpg data/hexbin.json
-HEXBIN_IN = data/hexbin.yaml _data/hexbin.py
+HEXBIN_OUT = images/hexbin.jpg _data/hexbin.json
+HEXBIN_IN = _data/hexbin.yaml _data/hexbin.py
 
 NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*" -not -path "./_site/*" -not -path "./_data/*")
 NOTEBOOKS_HTML := $(NOTEBOOKS:%.ipynb=%.ipynb.raw.html)
@@ -11,9 +11,6 @@ YAML_FILES_OUT := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
 .PHONY: clean build_charts
 
 all: hexbin notebooks simulations
-
-$(JS_DIR)/%.js: $(COFFEE_DIR)/%.coffee
-	coffee --compile --output js $<
 
 $(HEXBIN_OUT): $(HEXBIN_IN)
 	python _data/hexbin.py
