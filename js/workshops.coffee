@@ -2,7 +2,7 @@
 title: check
 ---
 
-data_file = "../data/workshops.yaml"
+data_json = {{ site.data.workshops | jsonify }}
 
 add_logo = (selection) ->
   i = selection.append("i").attr("class", "circle light-green lighen-1")
@@ -66,8 +66,7 @@ add_examples = (selection, key) ->
 
   span_ = span.append("span").html(add_separator)
 
-build_function = (data_text) ->
-  data = jsyaml.load(data_text)
+build_function = (data) ->
   selection = d3.select("#workshops").selectAll()
   .data(data).enter()
   .append("li").attr("class", "collection-item avatar light-green lighten-4")
@@ -82,4 +81,4 @@ build_function = (data_text) ->
   add_icon_links(selection)
   add_examples(selection, "links")
 
-d3.text(data_file, build_function)
+build_function(data_json)

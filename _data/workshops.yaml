@@ -1,4 +1,5 @@
 ---
+
 - name: "Phase Field Methods Workshop I"
   date: "Jan 9-10, 2015"
   href: http://planitpurple.northwestern.edu/event/474167/xJDsFEfb
@@ -36,7 +37,7 @@
 
 - name: "Phase Field Methods Workshop III"
   date: "May 3-5, 2016"
-  href: {{ site.baseurl }}/#workshops
+  href: "{{ site.baseurl }}/#workshops"
   number: 3
   contact: daniel.wheeler@nist.gov
   description: >-
@@ -56,7 +57,7 @@
 
 - name: "Phase Field Methods Workshop IV"
   date: "January 18-20, 2017"
-  href: {{ site.baseurl }}/#workshops
+  href: "{{ site.baseurl }}/#workshops"
   number: 4
   contact: e-gulsoy@northwestern.edu
   description: >-
