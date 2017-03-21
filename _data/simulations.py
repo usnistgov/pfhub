@@ -344,7 +344,7 @@ def landing_page_json():
         list,
         lambda data: j2_to_json(landing_page_j2(),
                                 os.path.join(get_path(),
-                                             '../data/charts',
+                                             '../_data/charts',
                                              'simulations.json'),
                                 data=data)
     )
