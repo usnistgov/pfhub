@@ -32,7 +32,7 @@ def hexbin_yaml_to_json():
         data_resize.append(data[i])
     # data_resize = (data * (1 + ((ni* nj) // count)))[:ni * nj]
     data_string = json.dumps(data_resize)
-    open('data/hexbin.json', 'w').write(data_string)
+    open('_data/hexbin.json', 'w').write(data_string)
     return data_resize
 
 

@@ -24,7 +24,7 @@ script:
   - make simulations
   - find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
   - make notebooks
-  - touch data/hexbin.yaml
+  - touch _data/hexbin.yaml
   - make hexbin
   - rm -rf ./_site
   - jekyll build -d ./_site/chimad-phase-field && htmlproofer --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
