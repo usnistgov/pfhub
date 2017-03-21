@@ -9,6 +9,7 @@ import glob
 import os
 import json
 from dateutil.parser import parse
+import re
 
 import jinja2
 # pylint: disable=redefined-builtin, no-name-in-module
@@ -215,14 +216,15 @@ def write_chart_json(item):
       returns the (filepath, json_data) pair
     """
     file_name = fcompose(
-        free_energy_file,
-        lambda x: x.replace('.yaml', '.json'),
-        lambda x: x.replace('.j2', '')
+        lambda x: r"{0}_{1}".format(x, free_energy_file()),
+        lambda x: re.sub(r"([0-9]+[abcd])\.(.+)\.yaml\.j2",
+                         r"\1\2.json",
+                         x)
     )
     return pipe(
         item[0],
-        lambda id_: "{0}_{1}".format(item[0], file_name()),
-        lambda file_: os.path.join(get_path(), '../data/charts', file_),
+        file_name,
+        lambda file_: os.path.join(get_path(), '../_data/charts', file_),
         write_json(item[1])
     )
 
