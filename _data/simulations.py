@@ -8,9 +8,9 @@ charts. Run `python _data/charts.py` to build the charts.
 import glob
 import os
 import json
-from dateutil.parser import parse
 import re
 
+from dateutil.parser import parse
 import jinja2
 # pylint: disable=redefined-builtin, no-name-in-module
 from toolz.curried import map, pipe, get, curry, filter, compose
