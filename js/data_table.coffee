@@ -16,14 +16,20 @@ fcode = (data, type, row) ->
   else
     data.name
 
+fbenchmark = (data, type, row) ->
+  '<a href="{{ site.baseurl }}/simulations/' + data + '/" target="_blank">' + data + '</a>'
 
-d3_func = (yaml_text) ->
-  data_ = jsyaml.load(yaml_text)
+create_table = (data_in) ->
+  data_raw = data_in['data']
+
+  data_filter = (datum for datum in data_raw when datum['id_'] is benchmark_id)
+
+  data_table = if benchmark_id is '' then data_raw else data_filter
 
   data = {
     lengthMenu: [15]
     lengthChange: false
-    data: data_['data']
+    data: data_table
     columns: [
       {
         data: "name"
@@ -38,6 +44,7 @@ d3_func = (yaml_text) ->
       {
         data: "id_"
         title: "Benchmark"
+        render: fbenchmark
       }
       {
         data: "author"
@@ -60,4 +67,4 @@ d3_func = (yaml_text) ->
 
   $(document).ready func
 
-d3.text("../data/data_table.yaml", d3_func)
+create_table({{ site.data.data_table | jsonify }})

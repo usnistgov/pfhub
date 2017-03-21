@@ -1,7 +1,7 @@
 ---
 ---
 
-chart_name="simulations.json"
+chart_json = {{ site.data.charts.simulations | jsonify }}
 div_id="#simulation_chart"
 
 on_click = (event, item) ->
@@ -19,6 +19,4 @@ build_chart = (chart_json)->
     .run()
   view.addEventListener('click', on_click)
 
-chart_json = "{{ site.baseurl }}/data/charts/" + chart_name
-
-d3.json(chart_json, build_chart)
+build_chart(chart_json)
