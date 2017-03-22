@@ -44,7 +44,7 @@ provide users with a side-by-side comparison.
 ### How to Submit
 
 To add a code to the list, update the [`codes.yaml`]({{
-site.links.github }}/blob/nist-pages/data/codes.yaml){:target="_blank"}
+site.links.github }}/blob/nist-pages/_data/codes.yaml){:target="_blank"}
 file via the GitHub repository for this web site and submit a
 pull-request.
 
