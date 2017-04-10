@@ -1,7 +1,7 @@
 ---
 ## YAML specification for a CHiMaD Phase Field Simulation
 benchmark:
-  id: 1a # REQUIRED
+  id: 1b # REQUIRED
   version: 1 # REQUIRED
 
 metadata: # REQUIRED
@@ -71,23 +71,23 @@ data: # REQUIRED
       - sim_time: 100.0
         time: 11.0
       - sim_time: 200.0
-        time: 19.0
+        time: 21.0
       - sim_time: 500.0
-        time: 41.0
+        time: 48.0
       - sim_time: 1000.0
-        time: 79.0
+        time: 92.0
       - sim_time: 2000.0
-        time: 150.0
+        time: 183.0
       - sim_time: 3000.0
-        time: 221.0
+        time: 273.0
       - sim_time: 10000.0
-        time: 708.0
+        time: 882.0
   - name: memory usage
     values:
-      - value: 30240
+      - value: 29928
         unit: KB
   - name: free_energy
-    values: [{'time':0.0, 'value':319.0337102}, {'time':1.0, 'value':318.8273928}, {'time': 5.0, 'value': 316.9902126}, {'time': 10.0, 'value': 304.1771795}, {'time': 20.0, 'value': 203.3234468}, {'time': 100.0, 'value': 115.6166174}, {'time': 200.0, 'value': 102.5245412}, {'time': 500.0, 'value': 84.678672}, {'time': 1000.0, 'value': 70.35382018}, {'time': 2000.0, 'value': 59.92824777}, {'time': 3000.0, 'value': 52.50633843}, {'time': 10000.0, 'value': 40.81065093}]
+    values: [{'time':0.0, 'value':319.1087496}, {'time':1.0, 'value':318.8532431}, {'time': 5.0, 'value': 316.3930324}, {'time': 10.0, 'value': 297.6413587}, {'time': 20.0, 'value': 206.0186162}, {'time': 100.0, 'value': 116.9931797}, {'time': 200.0, 'value': 102.6644347}, {'time': 500.0, 'value': 82.53981151}, {'time': 1000.0, 'value': 69.7133687}, {'time': 2000.0, 'value': 52.2692085}, {'time': 3000.0, 'value': 47.20469271}, {'time': 10000.0, 'value': 27.72619387}]
     transform:
       - type: formula
         field: free_energy
