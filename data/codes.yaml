@@ -166,7 +166,7 @@
     - href: https://www.openhub.net/p/prismsPF
       src: https://www.openhub.net/p/prismsPF/widgets/project_thin_badge.gif
     - href: https://travis-ci.org/prisms-center/phaseField
-      src: https://travis-ci.org/prisms-center/phaseField.svg
+      src: https://travis-ci.org/prisms-center/phaseField.svg?branch=master
   examples:
     - href: https://github.com/prisms-center/phaseField/tree/master/applications/cahnHilliard
       name: Cahn-Hilliard
