@@ -12,7 +12,7 @@ install:
   - conda info -a
   - conda create -q -y -n test-environment python=3.5
   - source activate test-environment
-  - conda install -q -y -n test-environment jupyter pillow numpy toolz pytest bokeh matplotlib scikit-image
+  - conda install -q -y -n test-environment jupyter pillow numpy toolz pytest bokeh matplotlib scikit-image flake8
   - conda install nb_conda nb_conda_kernels nb_anacondacloud
   - pip install progressbar2 pykwalify pylint nbval vega
   - jupyter nbextension enable vega --py
@@ -20,10 +20,11 @@ install:
   - gem install jekyll jekyll-coffeescript html-proofer
 script:
   - pylint _data/*.py
+  - flake8 _data/*.py
   - make simulations
   - find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
   - make notebooks
-  - touch data/hexbin.yaml
+  - touch _data/hexbin.yaml
   - make hexbin
   - rm -rf ./_site
   - jekyll build -d ./_site/chimad-phase-field && htmlproofer --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site

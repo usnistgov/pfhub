@@ -15,15 +15,15 @@ padding:
   right: 0
 signals:
   - name: tooltip
-    init: {}
-    streams:
-      - type: "rect:mouseover"
-        expr: "datum"
-      - type: "rect:mouseout"
-        expr: "{}"
+    value: {}
+    "on":
+      - events: "rect:mouseover"
+        update: "datum"
+      - events: "rect:mouseout"
+        update: "{}"
 scales:
   - name: xscale
-    type: ordinal
+    type: band
     range: width
     domain:
       data: code_uploads
@@ -35,44 +35,39 @@ scales:
       data: code_uploads
       field: count
 axes:
-  - type: x
+  - orient: bottom
     scale: xscale
     tickSize: 0
-    properties:
+    domain: false
+    encode:
       labels:
-        fontSize:
-          value: 13
-        font:
-          value: Lato
-      axis:
-        strokeOpacity:
-          value: 0
-  - type: y
+        update:
+          fontSize:
+            value: 13
+          font:
+            value: Lato
+  - orient: left
     scale: yscale
+    domain: false
     values: []
-    properties:
-      axis:
-        strokeOpacity:
-          value: 0
-  - type: x
-    scale: xscale
+  - scale: xscale
     title: {{ title }}
     orient: top
     values: []
-    properties:
+    domain: false
+    titlePadding: 20
+    encode:
       title:
-        fontSize:
-          value: 16
-        font:
-          value: Lato
-      axis:
-        strokeOpacity:
-          value: 0
+        update:
+          fontSize:
+            value: 16
+          font:
+            value: Lato
 marks:
   - type: rect
     from:
       data: code_uploads
-    properties:
+    encode:
       enter:
         x:
           scale: xscale
@@ -94,7 +89,7 @@ marks:
         fill:
           value: "#f44336"
   - type: text
-    properties:
+    encode:
       enter:
         align:
           value: center
@@ -105,18 +100,15 @@ marks:
           value: 12
         font:
           value: Lato
+        fillOpacity:
+          value: 1
         x:
           scale: xscale
           signal: tooltip.name
-        dx:
-          scale: xscale
-          band: true
-          mult: 0.5
+          band: 0.5
         y:
           scale: yscale
           signal: tooltip.count
           offset: -5
         text:
           signal: tooltip.count
-        fillOpacity:
-          value: 1

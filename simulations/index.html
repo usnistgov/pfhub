@@ -27,9 +27,16 @@ comment: >-
     </div>
   </div>
 </div>
-<br>
+
 <div class="container">
   <div class="row small-buffer">
+    <div class="col s8 offset-s2" id="overview">
+      <p>
+        <h5>
+          Total Uploads: {{ site.data.data_table.data | size }}
+        </h5>
+      </p>
+    </div>
     <div class="col s12 m12 l4 offset-l2 offset-m2 offset-s2">
       <div id="upload_code_barchart">
       </div>
@@ -79,5 +86,5 @@ comment: >-
 </div>
 
 
-
+<script> var benchmark_id="" </script>
 <script src="{{ site.baseurl }}/js/data_table.js"></script>
