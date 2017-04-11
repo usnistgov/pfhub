@@ -387,6 +387,70 @@
         }
       ],
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1b_STA.csv"
+    },
+    {
+      "name": "prismspf_1b",
+      "transform": [
+        {
+          "as": "free_energy",
+          "expr": "datum.value",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.time > 0.01",
+          "type": "filter"
+        }
+      ],
+      "values": [
+        {
+          "time": 0.0,
+          "value": 319.1087496
+        },
+        {
+          "time": 1.0,
+          "value": 318.8532431
+        },
+        {
+          "time": 5.0,
+          "value": 316.3930324
+        },
+        {
+          "time": 10.0,
+          "value": 297.6413587
+        },
+        {
+          "time": 20.0,
+          "value": 206.0186162
+        },
+        {
+          "time": 100.0,
+          "value": 116.9931797
+        },
+        {
+          "time": 200.0,
+          "value": 102.6644347
+        },
+        {
+          "time": 500.0,
+          "value": 82.53981151
+        },
+        {
+          "time": 1000.0,
+          "value": 69.7133687
+        },
+        {
+          "time": 2000.0,
+          "value": 52.2692085
+        },
+        {
+          "time": 3000.0,
+          "value": 47.20469271
+        },
+        {
+          "time": 10000.0,
+          "value": 27.72619387
+        }
+      ]
     }
   ],
   "height": 300,
@@ -698,6 +762,34 @@
         "data": "moose_psu_1b_STA"
       },
       "type": "line"
+    },
+    {
+      "encode": {
+        "enter": {
+          "stroke": {
+            "scale": "color",
+            "value": "prismspf_1b"
+          },
+          "strokeOpacity": {
+            "value": 1.0
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "prismspf_1b"
+      },
+      "type": "line"
     }
   ],
   "scales": [
@@ -732,7 +824,8 @@
         "moose_1b_ia",
         "moose_1b_sta",
         "moose_psu_1b_IA",
-        "moose_psu_1b_STA"
+        "moose_psu_1b_STA",
+        "prismspf_1b"
       ],
       "name": "color",
       "range": {
