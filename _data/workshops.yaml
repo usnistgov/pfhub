@@ -75,3 +75,15 @@
     - name: Hackathon 3
       href: "{{ site.baseurl }}/hackathon3/"
       type: link
+
+- name: "Phase Field Methods Workshop V"
+  date: "August 1-3, 2017"
+  href: "{{ site.baseurl }}/#workshops"
+  number: 5
+  contact: e-gulsoy@northwestern.edu
+  description: >-
+    To be announced - currently in the planning stages!
+  icon_links:
+    - name: contact organizer
+      type: email
+      href: "mailto:e-gulsoy@northwestern.edu?subject=Fifth Phase Field Methods Workshop"
