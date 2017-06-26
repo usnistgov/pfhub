@@ -6,13 +6,17 @@ collections:
   - header: Benchmark Problems
     tag: benchmarks
     js: benchmarks
-    comment:
-
+    comment: >-
       Benchmark problems vetted by the community to test, validate and
       verify phase field codes (read the journal pulication entitled
-      ["Benchmark problems for numerical implementations of phase field models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}
-      or the [extended overview](benchmarks){:target="_blank"}). See
-      [simulations that implement the benchmarks](simulations){:target="_blank"}.
+      ["Benchmark problems for numerical implementations of phase
+      field
+      models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"},
+      the [extended overview](benchmarks){:target="_blank"} or
+      ["Benchmark Problems for Phase Field
+      Methods"](http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html)).
+      A complete list of uploaded benchmark simulations is available,
+      see ["Benchmark Simulations"](simulations){:target="_blank"}.
 
   - header: Codes
     tag: codes
