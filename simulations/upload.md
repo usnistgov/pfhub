@@ -210,10 +210,13 @@ filters time values that are either too large or too small.
 Please read the [Vega data
 spec](https://github.com/vega/vega/wiki/Data) for more details.
 
-<h4> Testing </h4>
+<h4> Automated Testing of Simulation Uploads</h4>
 
-After submitting a pull request, the `meta.yaml` is checked against
-the schema on Travis CI and things may need to be repaired. The web
-site dev will need to check that the formatting and links work for
-displaying the charts and tables. Repairs to the `meta.yaml` may be
+The uploaded `meta.yaml` file is automatically tested to check that it
+is in compliance with the schema when the pull-request is
+submitted. The results of this check will appear on the pull-request
+page. Repairs to the `meta.yaml` may be necessary to pass the tests.
+If the tests all pass, the web site dev will need to check that the
+formatting and links work for displaying the charts and tables, which
+is not entirely automated by the test suite. Further repairs may be
 necessary at this stage.
