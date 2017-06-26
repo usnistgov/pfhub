@@ -8,7 +8,7 @@ collections:
     js: benchmarks
     comment: >-
       Benchmark problems vetted by the community to test, validate and
-      verify phase field codes (read the journal pulication entitled
+      verify phase field codes (read the journal publication entitled
       ["Benchmark problems for numerical implementations of phase
       field
       models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"},
