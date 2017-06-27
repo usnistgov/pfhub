@@ -2,7 +2,7 @@
 # different config blocks for different sections of your site.
 # For example, you can have one property to handle comment submission and
 # another one to handle posts.
-comments:
+simulations:
   allowedFields: ["benchmark", "metadata", "data"]
   allowedOrigins: ["localhost", "pages.nist.gov"]
   branch: "master"
@@ -17,4 +17,4 @@ comments:
   moderation: true
   name: "https://pages.nist.gov/chimad-phase-field/"
   path: "_data/simulations/{@id}"
-  requiredFields: ["benchmark, "metadata", "data"]
+  requiredFields: ["benchmark", "metadata", "data"]
