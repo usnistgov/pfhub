@@ -12,8 +12,6 @@ feel free to upload simulation results via pull requests on
 GitHub. More simulations results will greatly improve the utility of
 the website and encourage community collaboration.
 
-<h4> How to Upload </h4>
-
 Each simulation result is stored in a [YAML
 file](http://docs.ansible.com/ansible/YAMLSyntax.html) called
 `meta.yaml` in a separate directory in
@@ -22,6 +20,8 @@ A [YAML file](http://docs.ansible.com/ansible/YAMLSyntax.html) is a
 minimal, human readable syntax for structured data. The `meta.yaml`
 file stores the meta data for only one simulation and a new directory
 is required for each new simulation.
+
+<h4> How to Upload </h4>
 
 To record a new simulation, use the following workflow.
 
@@ -46,7 +46,7 @@ To record a new simulation, use the following workflow.
     `meta.yaml` so that all the data associated with the simulation
     result is available to be displayed on the website.
 
-<h4>Minimal Example</h4>
+<h4>Minimal Example of a YAML Simulation File</h4>
 
 Each [YAML](http://docs.ansible.com/ansible/YAMLSyntax.html)
 description of a specific simulation contains the following three
@@ -128,7 +128,7 @@ in the example admits a `details:` block. This is currently not parsed
 for the website, but may be of use to other users aor for future
 reference.
 
-<h5> The Schema </h5>
+<h5> The Schema (Layout of the YAML File) </h5>
 
 Many examples can be found in [`_data/simulations`]({{
 site.links.simmeta }}) and these can be used as templates. The
