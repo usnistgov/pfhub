@@ -2,11 +2,11 @@
 # different config blocks for different sections of your site.
 # For example, you can have one property to handle comment submission and
 # another one to handle posts.
-comments:
+simulations:
   allowedFields: ["benchmark", "metadata", "data"]
   allowedOrigins: ["localhost", "pages.nist.gov"]
   branch: "master"
-  commitMessage: "Add a new simulation"
+  commitMessage: "New simulation"
   filename: "meta"
   format: "yaml"
   generatedFields:
@@ -17,9 +17,4 @@ comments:
   moderation: true
   name: "https://pages.nist.gov/chimad-phase-field/"
   path: "_data/simulations/{@id}"
-  requiredFields: []
-
-  # List of transformations to apply to any of the fields supplied. Keys are
-  # the name of the field and values are possible transformation types.
-  # transforms:
-  #   email: md5
+  requiredFields: ["benchmark, "metadata", "data"]
