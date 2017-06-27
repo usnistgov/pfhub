@@ -3,7 +3,7 @@
 # For example, you can have one property to handle comment submission and
 # another one to handle posts.
 comments:
-  allowedFields: ["benchmark.id", "benchmark.version"]
+  allowedFields: ["benchmark"]
   allowedOrigins: ["localhost", "pages.nist.gov"]
   branch: "master"
   commitMessage: "Add a new simulation"
