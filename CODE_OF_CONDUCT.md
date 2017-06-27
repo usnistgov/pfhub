@@ -6,19 +6,20 @@ comment: The code of conduct for the CHiMaD phase field community
 
 ### 1. Purpose
 
-A primary goal of Chimad Phase Field is to be inclusive to the largest
-number of contributors, with the most varied and diverse backgrounds
-possible. As such, we are committed to providing a friendly, safe and
-welcoming environment for all, regardless of gender, sexual
-orientation, ability, ethnicity, socioeconomic status, and religion
-(or lack thereof).
+A primary goal of the CHiMaD phase field community is to be inclusive
+to the largest number of contributors, with the most varied and
+diverse backgrounds possible. As such, we are committed to providing a
+friendly, safe and welcoming environment for all, regardless of
+gender, sexual orientation, ability, ethnicity, socioeconomic status,
+and religion (or lack thereof).
 
 This code of conduct outlines our expectations for all those who
 participate in our community, as well as the consequences for
 unacceptable behavior.
 
-We invite all those who participate in Chimad Phase Field to help us
-create safe and positive experiences for everyone.
+We invite all those who participate in the CHiMaD phase field
+community to help us create safe and positive experiences for
+everyone.
 
 ### 2. Open Source Citizenship
 
@@ -77,14 +78,20 @@ If a community member engages in unacceptable behavior, the community organizers
 
 ### 6. Reporting Guidelines
 
-If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community organizer as soon as possible. <devops@nist.gov>.
+If you are subject to or witness unacceptable behavior, or have any
+other concerns, please notify the NIST GitHub moderator as soon as
+possible at <devops@nist.gov>.
 
-Additionally, community organizers are available to help community members engage with local law enforcement or to otherwise help those experiencing unacceptable behavior feel safe. In the context of in-person events, organizers will also provide escorts as desired by the person experiencing distress.
+Additionally, community organizers are available to help community
+members engage with local law enforcement or to otherwise help those
+experiencing unacceptable behavior feel safe. In the context of
+in-person events, organizers will also provide escorts as desired by
+the person experiencing distress.
 
 ### 7. Addressing Grievances
 
 If you feel you have been falsely or unfairly accused of violating
-this Code of Conduct, you should notify the NIST GitHub moderator's
+this Code of Conduct, you should notify the NIST GitHub moderator at
 <devops@nist.gov> with a concise description of your grievance. Your
 grievance will be handled in accordance with our existing governing
 policies.
@@ -103,7 +110,7 @@ the safety and well-being of community members.
 
 ### 9. Contact info
 
-<devops@nist.gov>
+Please contact the NIST GitHub moderator at <devops@nist.gov>
 
 ### 10. License and attribution
 
