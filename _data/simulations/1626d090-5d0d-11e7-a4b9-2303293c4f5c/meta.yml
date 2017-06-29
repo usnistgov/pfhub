@@ -1,0 +1,29 @@
+_id: 1626d090-5d0d-11e7-a4b9-2303293c4f5c
+metadata:
+  author: kjhkjh
+  email: a@b
+  name: test_sim
+  summary: asfasf
+  timestamp: '28 June, 2017'
+  implementation:
+    repo:
+      url: 'http://github.com'
+      version: dfasdasf3
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '0.0004'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: 'on'
+    version: '3.1'
+    repo:
+      url: 'http://github.com'
+      version: dsfasd5
+benchmark:
+  id: 1a
+data:
+  - url: 'http://github.com'
+date: 1498769645
