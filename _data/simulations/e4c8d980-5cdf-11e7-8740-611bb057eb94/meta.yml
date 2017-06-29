@@ -1,0 +1,19 @@
+_id: e4c8d980-5cdf-11e7-8740-611bb057eb94
+metadata:
+  author: dfasdfads
+  email: a@b.com
+  timestamp: '9 June, 2017'
+  summary: asdfasf
+  hardware:
+    architecture: x86_64
+    clock_rate: '7.9'
+benchmark:
+  id: 1a
+data:
+  name: asdfasdf
+date: 1498750234
+layout: post
+aanwezig: true
+nieuwe_inschrijving: true
+doet_mee: true
+datum_inschrijving: '2017-06-29T15:30:34.816Z'
