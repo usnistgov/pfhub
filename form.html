@@ -18,30 +18,25 @@ comment: >-
     </div>
     <div class="col s10">
       <form method="POST" action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
-
-        <div class="row top-buffer">
-          <div class="input-field col s1">
-            <select id="benchmark_id" name="fields[benchmark][id]" type="text">
-              <option value="1a" selected>1a</option>
-              <option value="1b">1b</option>
-              <option value="1c">1c</option>
-              <option value="1d">1d</option>
-              <option value="2a">2a</option>
-              <option value="2b">2b</option>
-              <option value="2c">2c</option>
-              <option value="2d">2d</option>
-            </select>
-            <label class="active" for="benchmark_id">Benchmark ID</label>
-          </div>
-        </div>
+        <input name="options[redirect]"
+               type="hidden"
+               value="https://github.com/usnistgov/chimad-phase-field/pulls">
 
         <div class="row">
+          <p>
+            <h5>
+              Author
+            </h5>
+          </p>
           <div class="input-field col s5">
             <i class="material-icons prefix">account_circle</i>
-            <input required id="author" name="fields[metadata][author]" type="text" class="validate">
+            <input required
+                   id="author"
+                   name="fields[metadata][author]"
+                   type="text"
+                   class="validate">
             <label for="author">Author Name</label>
           </div>
-
           <div class="input-field col s5">
             <i class="material-icons prefix">email</i>
             <input required
@@ -53,18 +48,54 @@ comment: >-
           </div>
         </div>
 
-        <div class="row">
-          <div class="input-field col s8">
+        <div class="row small-buffer top-bar-thin">
+          <p>
+            <h5>
+              Simulation
+            </h5>
+          </p>
+          <div class="input-field col s3" style="margin-top: 50px">
+            <input required
+                   id="name"
+                   name="fields[metadata][name]"
+                   class="validate"
+                   type="text"></input>
+            <label class="active" for="name">Short Simulation Name</label>
+          </div>
+          <div class="input-field col s7">
+            <i class="material-icons prefix">mode_edit</i>
             <textarea required
                       id="summary"
                       name="fields[metadata][summary]"
-                      class="materialize-textarea"
+                      class="materialize-textarea validate"
                       type="text"
                       value="Concise reason for this contribution"></textarea>
             <label class="active" for="summary">Summary</label>
           </div>
+        </div>
 
-          <div class="input-field col s2">
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input name="fields[benchmark][version]"
+                   type="hidden"
+                   value="1">
+            <select id="benchmark_id"
+                    name="fields[benchmark][id]"
+                    type="text">
+              <option value="1a" selected>1a</option>
+              <option value="1b">1b</option>
+              <option value="1c">1c</option>
+              <option value="1d">1d</option>
+              <option value="2a">2a</option>
+              <option value="2b">2b</option>
+              <option value="2c">2c</option>
+              <option value="2d">2d</option>
+            </select>
+            <label class="active" for="benchmark_id">Benchmark ID</label>
+          </div>
+          <div class="input-field col s5">
+            <i class="material-icons prefix">today</i>
             <input required
                    id="timestamp"
                    name="fields[metadata][timestamp]"
@@ -72,42 +103,219 @@ comment: >-
                    type="date"></input>
             <label class="active" for="timestamp">Simulation Date</label>
           </div>
-
         </div>
 
         <div class="row">
           <div class="input-field col s5">
+            <input required
+                   id="sim_url"
+                   name="fields[metadata][implementation][repo][url]"
+                   type="url"
+                   class="validate">
+            <label for="sim_url">Simulation Repository URL</label>
+          </div>
+          <div class="input-field col s5">
+            <input required
+                   id="sim_sha"
+                   name="fields[metadata][implementation][repo][version]"
+                   type="text"
+                   class="validate">
+            <label for="sim_sha">Simulation Commit ID (SHA)</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input id="container_url"
+                   name="fields[metadata][implementation][container_url]"
+                   type="url"
+                   class="validate">
+            <label for="container_url">Simulation Container URL</label>
+          </div>
+        </div>
+
+
+        <div class="row top-bar-thin">
+          <p>
+            <h5>
+              Hardware
+            </h5>
+          </p>
+          <div class="input-field col s5 big-buffer">
             <select id="architecture" name="fields[metadata][hardware][architecture]" type="text">
               {% include architecture.html %}
             </select>
             <label class="active" for="benchmark_id">Architecture</label>
           </div>
-        </div>
-
-        <div class="row top-buffer">
-          <div class="range-field col s5">
-            <input type="range"
-                   id="clock_rate"
-                   name="fields[metadata][hardware][clock_rate]"
-                   type="number"
-                   min="0.0"
-                   max="10.0"
-                   value="3.5"
-                   step="0.1">
-            <label for="clock_rate">Clock Rate (GHz)</label>
+          <div class="input-field col s5 big-buffer">
+            <select id="parallel_model" name="fields[metadata][hardware][parallel_model]" type="text">
+              <option value="serial" selected>Serial</option>
+              <option value="distributed">Distributed</option>
+              <option value="threaded">Threaded</option>
+              <option value="multiprocessing">Multiprocessing</option>
+            </select>
+            <label class="active" for="parallel_model">Parallel Model</label>
           </div>
         </div>
 
-          <!-- <label><input name="fields[benchmark][id]" type="text">ID</label> -->
-          <!-- <label><input name="fields[benchmark][version]" type="text">Version</label> -->
-
-          <!-- <label><input name="fields[data][0][name]" type="text">Data name</label> -->
-          <!-- <label><input name="fields[data][0][values]" type="text">Data values</label> -->
-          <!-- <label><input name="fields[data][1][name]" type="text">Data name</label> -->
-          <!-- <label><input name="fields[data][1][values]" type="text">Data values</label> -->
-          <!-- <button type="submit">Go!</button> -->
-
+        <div class="row">
+          <div class="input-field col s3">
+            <input id="clock_rate"
+                   name="fields[metadata][hardware][clock_rate]"
+                   type="number"
+                   class="validate"
+                   min="0.0"
+                   max="10.0"
+                   step="0.0001">
+            <label for="clock_rate">Median Clock Rate (GHz)</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="cores"
+                   name="fields[metadata][hardware][cores]"
+                   type="number"
+                   class="validate"
+                   value="1"
+                   min="1">
+            <label for="cores">Number of Cores</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="nodes"
+                   name="fields[metadata][hardware][nodes]"
+                   type="number"
+                   class="validate"
+                   value="1"
+                   min="1">
+            <label for="nodes">Number of Nodes</label>
+          </div>
         </div>
+
+        <div class="row top-bar-thin">
+          <p>
+            <h5>
+              Software
+            </h5>
+          </p>
+          <div class="col s3">
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="custom" />
+              <label for="custom">Custom Code</label>
+            </p>
+
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="moose" />
+              <label for="moose">Moose</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="fenics" />
+              <label for="fenics">Fenics</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="fipy"  />
+              <label for="fipy">FiPy</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="mmsp" />
+              <label for="mmsp">MMSP</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="prisms" />
+              <label for="prisms">Prisims-PF</label>
+            </p>
+          </div>
+
+          <div class="col s5">
+            <div class="row">
+              <div class="input-field col s12">
+                <input required
+                       id="version"
+                       name="fields[metadata][software][version]"
+                       type="text"
+                       class="validate">
+                <label for="version">Software Version Number</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input required
+                       id="repo_url"
+                       name="fields[metadata][software][repo][url]"
+                       type="url"
+                       class="validate">
+                <label for="repo_url">Software Repository URL</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input required
+                       id="repo_sha"
+                       name="fields[metadata][software][repo][version]"
+                       type="text"
+                       class="validate">
+                <label for="repo_sha">Software Commit ID (SHA)</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row top-bar-thin">
+          <p>
+            <h5>
+              Data
+            </h5>
+          </p>
+          <div class="input-field col s5">
+            <input name="fields[data][0][name]"
+                   type="hidden"
+                   value="free_energy">
+            <input required
+                   id="free_energy_url"
+                   name="fields[data][0][url]"
+                   type="url"
+                   class="validate">
+            <label for="free_energy_url">Free Energy Data URL (CSV, JSON)</label>
+          </div>
+          <div class="col s5">
+            <p>
+              <input class="with-gap" name="fields[data][0][format][type]" type="radio" id="csv" />
+              <label for="csv">CSV</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[data][0][format][type]" type="radio" id="json" />
+              <label for="json">JSON</label>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input required
+                   id="free_energy_name"
+                   name="fields[data][0][format][parse][]"
+                   type="text"
+                   class="validate">
+            <label for="free_energy_name">Free Energy Field Name</label>
+          </div>
+        </div>
+
+        <!-- <label><input name="fields[data][name]" type="text">Data name</label> -->
+        <!-- <label><input name="fields[benchmark][id]" type="text">ID</label> -->
+        <!-- <label><input name="fields[benchmark][version]" type="text">Version</label> -->
+
+        <!-- <label><input name="fields[data][0][name]" type="text">Data name</label> -->
+        <!-- <label><input name="fields[data][0][values]" type="text">Data values</label> -->
+        <!-- <label><input name="fields[data][1][name]" type="text">Data name</label> -->
+        <!-- <label><input name="fields[data][1][values]" type="text">Data values</label> -->
+
+        <div class="row top-bar-thin">
+          <div class="col s12">
+            <p>
+              <button class="btn waves-effect waves-light light-green darken-1" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+              </button>
+            </p>
+          </div>
+        </div>
+
       </form>
     </div>
   </div>

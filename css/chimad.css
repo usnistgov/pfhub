@@ -30,9 +30,14 @@ main {
 
 .top-buffer { margin-top: 40px; }
 .small-buffer { margin-top: 10px; }
+.big-buffer { margin-top: 50px; }
 
 .top-bar {
     border-top: 3px solid #9ccc65;
+}
+
+.top-bar-thin {
+    border-top: 1px solid #33691e;
 }
 
 .card {
