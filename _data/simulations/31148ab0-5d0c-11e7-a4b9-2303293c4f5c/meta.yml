@@ -1,0 +1,29 @@
+_id: 31148ab0-5d0c-11e7-a4b9-2303293c4f5c
+metadata:
+  author: Daniel wheeler
+  email: daniel.wheeler2@gmail.com
+  name: test_upload
+  summary: This is a test upload to check the web form
+  timestamp: '29 June, 2017'
+  implementation:
+    repo:
+      url: 'https://github.com'
+      version: sdfjh23lkjskl
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '3.5'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: 'on'
+    version: '3.1'
+    repo:
+      url: 'http://github.com'
+      version: asdf987234n
+benchmark:
+  id: 1a
+data:
+  - url: 'http://github.com'
+date: 1498769260
