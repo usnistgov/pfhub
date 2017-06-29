@@ -1,27 +1,145 @@
 ---
 layout: default
-title: "Submit a Simulation Result"
+title: "Submit a new simulation result"
 comment: >-
-  Submit a simulation result via a GitHub pull-request. Please go to
-  [https://github.com/usnistgov/chimad-phase-field/pulls](https://github.com/usnistgov/chimad-phase-field/pulls)
+  Fill out this form to submit a new simulation result to the
+  website. The data will be submitted to the this website via a
+  pull-request on GitHub. Please go to
+  <a href="https://github.com/usnistgov/chimad-phase-field/pulls">usnistgov/chimad-phase-field</a>
   to view the pull-requst.
-
 ---
 
-<div class="container">
+{% include title.html %}
+
+<div class="container top-bar top-buffer">
   <div class="row small-buffer">
-    <div class="col s12">
+    <div class="col l2 m12 s12">
+      <h5 class="sideheader">Upload Form</h5>
+    </div>
+    <div class="col s10">
       <form method="POST" action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
-        <!-- e.g. "2016-01-02-this-is-a-post" -->
-        <label><input name="fields[benchmark][id]" type="text">ID</label>
-        <label><input name="fields[benchmark][version]" type="text">Version</label>
-        <label><input name="fields[metadata][summary]" type="text">Summary</label>
-        <label><input name="fields[data][0][name]" type="text">Data name</label>
-        <label><input name="fields[data][0][values]" type="text">Data values</label>
-        <label><input name="fields[data][1][name]" type="text">Data name</label>
-        <label><input name="fields[data][1][values]" type="text">Data values</label>
-        <button type="submit">Go!</button>
+
+        <div class="row top-buffer">
+          <div class="input-field col s1">
+            <select id="benchmark_id" name="fields[benchmark][id]" type="text">
+              <option value="1a" selected>1a</option>
+              <option value="1b">1b</option>
+              <option value="1c">1c</option>
+              <option value="1d">1d</option>
+              <option value="2a">2a</option>
+              <option value="2b">2b</option>
+              <option value="2c">2c</option>
+              <option value="2d">2d</option>
+            </select>
+            <label class="active" for="benchmark_id">Benchmark ID</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <i class="material-icons prefix">account_circle</i>
+            <input required id="author" name="fields[metadata][author]" type="text" class="validate">
+            <label for="author">Author Name</label>
+          </div>
+
+          <div class="input-field col s5">
+            <i class="material-icons prefix">email</i>
+            <input required
+                   id="email"
+                   name="fields[metadata][email]"
+                   type="email"
+                   class="validate">
+            <label for="email">Author Email</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s8">
+            <textarea required
+                      id="summary"
+                      name="fields[metadata][summary]"
+                      class="materialize-textarea"
+                      type="text"
+                      value="Concise reason for this contribution"></textarea>
+            <label class="active" for="summary">Summary</label>
+          </div>
+
+          <div class="input-field col s2">
+            <input required
+                   id="timestamp"
+                   name="fields[metadata][timestamp]"
+                   class="datepicker"
+                   type="date"></input>
+            <label class="active" for="timestamp">Simulation Date</label>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <select id="architecture" name="fields[metadata][hardware][architecture]" type="text">
+              {% include architecture.html %}
+            </select>
+            <label class="active" for="benchmark_id">Architecture</label>
+          </div>
+        </div>
+
+        <div class="row top-buffer">
+          <div class="range-field col s5">
+            <input type="range"
+                   id="clock_rate"
+                   name="fields[metadata][hardware][clock_rate]"
+                   type="number"
+                   min="0.0"
+                   max="10.0"
+                   value="3.5"
+                   step="0.1">
+            <label for="clock_rate">Clock Rate (GHz)</label>
+          </div>
+        </div>
+
+          <!-- <label><input name="fields[benchmark][id]" type="text">ID</label> -->
+          <!-- <label><input name="fields[benchmark][version]" type="text">Version</label> -->
+
+          <!-- <label><input name="fields[data][0][name]" type="text">Data name</label> -->
+          <!-- <label><input name="fields[data][0][values]" type="text">Data values</label> -->
+          <!-- <label><input name="fields[data][1][name]" type="text">Data name</label> -->
+          <!-- <label><input name="fields[data][1][values]" type="text">Data values</label> -->
+          <!-- <button type="submit">Go!</button> -->
+
+        </div>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+  $('select').material_select();
+  });
+
+  $(document).ready(function() {
+  Materialize.updateTextFields();
+  });
+
+  $('.datepicker').pickadate({
+  selectMonths: true, // Creates a dropdown to control month
+  selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+
+
+  <!-- var slider = document.getElementById('clock_rate'); -->
+  <!-- noUiSlider.create(slider, { -->
+  <!--  start: [3.5], -->
+  <!--  connect: true, -->
+  <!--  step: 1, -->
+  <!--  range: { -->
+  <!--    'min': 0.0, -->
+  <!--    'max': 10.0 -->
+  <!--  }, -->
+  <!--  format: wNumb({ -->
+  <!--    decimals: 1 -->
+  <!--  }) -->
+  <!-- }); -->
+
+</script>
