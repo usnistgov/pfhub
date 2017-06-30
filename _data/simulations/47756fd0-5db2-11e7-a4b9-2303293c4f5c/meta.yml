@@ -1,0 +1,35 @@
+_id: 47756fd0-5db2-11e7-a4b9-2303293c4f5c
+metadata:
+  author: jhkjhkjh
+  email: a@b
+  name: kjhkjhkjh
+  summary: kjhkjhkjhk
+  timestamp: '8 June, 2017'
+  implementation:
+    repo:
+      url: 'http://github.com'
+      version: aaaaaaaaaa
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '3.5'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: 'on'
+    version: '1'
+    repo:
+      url: 'http://github.com'
+      version: aaaaaa
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: 'http://github.com'
+  - name: run_time
+    url: 'http://github.com'
+  - url: ''
+  - values: '3'
+date: 1498840594
