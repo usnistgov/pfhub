@@ -18,11 +18,9 @@ comment: >-
     </div>
     <div class="col s10">
       <form name="simulation_form"
-            action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations"
-            method="POST"
             onsubmit="my_submit()">
             <!-- method="POST" -->
-            <!-- action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations" -->
+            <!-- action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations"> -->
 
         <!-- <input name="options[redirect]" -->
         <!--        type="hidden" -->
@@ -360,11 +358,18 @@ comment: >-
   });
 
   function my_submit(){
-    var x = document.getElementsByName("simulation_form");
+    var cores = document.getElementById("cores");
+    var form = document.getElementsByName("simulation_form");
+    delete cores.value;
+    cores.value = 2;
+    console.log(typeof cores.value);
+    console.log(cores.value);
+    console.log(form[0]);
+    form[0].submit();
+    console.log(form[0]);
 
-    x[0].submit();
-    console.log(x);
     console.log("wow0");
+    <!-- console.log(cores); -->
     alert("Submitting form");
     console.log("wow1");
   };
