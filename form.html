@@ -17,10 +17,16 @@ comment: >-
       <h5 class="sideheader">Upload Form</h5>
     </div>
     <div class="col s10">
-      <form method="POST" action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
-        <input name="options[redirect]"
-               type="hidden"
-               value="https://github.com/usnistgov/chimad-phase-field/pulls">
+      <form name="simulation_form"
+            action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations"
+            method="POST"
+            onsubmit="my_submit()">
+            <!-- method="POST" -->
+            <!-- action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations" -->
+
+        <!-- <input name="options[redirect]" -->
+        <!--        type="hidden" -->
+        <!--        value="https://github.com/usnistgov/chimad-phase-field/pulls"> -->
 
         <div class="row">
           <p>
@@ -30,8 +36,7 @@ comment: >-
           </p>
           <div class="input-field col s5">
             <i class="material-icons prefix">account_circle</i>
-            <input required
-                   id="author"
+            <input id="author"
                    name="fields[metadata][author]"
                    type="text"
                    class="validate">
@@ -39,8 +44,7 @@ comment: >-
           </div>
           <div class="input-field col s5">
             <i class="material-icons prefix">email</i>
-            <input required
-                   id="email"
+            <input id="email"
                    name="fields[metadata][email]"
                    type="email"
                    class="validate">
@@ -54,9 +58,8 @@ comment: >-
               Simulation
             </h5>
           </p>
-          <div class="input-field col s3" style="margin-top: 50px">
-            <input required
-                   id="name"
+          <div class="input-field col s3">
+            <input id="name"
                    name="fields[metadata][name]"
                    class="validate"
                    type="text"></input>
@@ -64,8 +67,7 @@ comment: >-
           </div>
           <div class="input-field col s7">
             <i class="material-icons prefix">mode_edit</i>
-            <textarea required
-                      id="summary"
+            <textarea id="summary"
                       name="fields[metadata][summary]"
                       class="materialize-textarea validate"
                       type="text"
@@ -96,8 +98,7 @@ comment: >-
           </div>
           <div class="input-field col s5">
             <i class="material-icons prefix">today</i>
-            <input required
-                   id="timestamp"
+            <input id="timestamp"
                    name="fields[metadata][timestamp]"
                    class="datepicker"
                    type="date"></input>
@@ -107,19 +108,18 @@ comment: >-
 
         <div class="row">
           <div class="input-field col s5">
-            <input required
-                   id="sim_url"
+            <input id="sim_url"
                    name="fields[metadata][implementation][repo][url]"
                    type="url"
                    class="validate">
             <label for="sim_url">Simulation Repository URL</label>
           </div>
           <div class="input-field col s5">
-            <input required
-                   id="sim_sha"
+            <input id="sim_sha"
                    name="fields[metadata][implementation][repo][version]"
                    type="text"
-                   class="validate">
+                   class="validate"
+                   pattern="[0-9a-f]{5,40}">
             <label for="sim_sha">Simulation Commit ID (SHA)</label>
           </div>
         </div>
@@ -226,8 +226,7 @@ comment: >-
           <div class="col s5">
             <div class="row">
               <div class="input-field col s12">
-                <input required
-                       id="version"
+                <input id="version"
                        name="fields[metadata][software][version]"
                        type="text"
                        class="validate">
@@ -236,8 +235,7 @@ comment: >-
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input required
-                       id="repo_url"
+                <input id="repo_url"
                        name="fields[metadata][software][repo][url]"
                        type="url"
                        class="validate">
@@ -246,11 +244,11 @@ comment: >-
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input required
-                       id="repo_sha"
+                <input id="repo_sha"
                        name="fields[metadata][software][repo][version]"
                        type="text"
-                       class="validate">
+                       class="validate"
+                       pattern="[0-9a-f]{5,40}">
                 <label for="repo_sha">Software Commit ID (SHA)</label>
               </div>
             </div>
@@ -267,8 +265,7 @@ comment: >-
             <input name="fields[data][0][name]"
                    type="hidden"
                    value="free_energy">
-            <input required
-                   id="free_energy_url"
+            <input id="free_energy_url"
                    name="fields[data][0][url]"
                    type="url"
                    class="validate">
@@ -286,31 +283,58 @@ comment: >-
           </div>
         </div>
 
+
         <div class="row">
           <div class="input-field col s5">
-            <input required
-                   id="free_energy_name"
-                   name="fields[data][0][format][parse][]"
-                   type="text"
+            <input name="fields[data][1][name]"
+                   type="hidden"
+                   value="run_time">
+            <input id="run_time_url"
+                   name="fields[data][1][url]"
+                   type="url"
                    class="validate">
-            <label for="free_energy_name">Free Energy Field Name</label>
+            <label for="run_time_url">Run Time Data URL (CSV, JSON)</label>
+          </div>
+          <div class="col s5">
+            <p>
+              <input class="with-gap" name="fields[data][1][format][type]" type="radio" id="csv" />
+              <label for="csv">CSV</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[data][1][format][type]" type="radio" id="json" />
+              <label for="json">JSON</label>
+            </p>
           </div>
         </div>
 
-        <!-- <label><input name="fields[data][name]" type="text">Data name</label> -->
-        <!-- <label><input name="fields[benchmark][id]" type="text">ID</label> -->
-        <!-- <label><input name="fields[benchmark][version]" type="text">Version</label> -->
-
-        <!-- <label><input name="fields[data][0][name]" type="text">Data name</label> -->
-        <!-- <label><input name="fields[data][0][values]" type="text">Data values</label> -->
-        <!-- <label><input name="fields[data][1][name]" type="text">Data name</label> -->
-        <!-- <label><input name="fields[data][1][values]" type="text">Data values</label> -->
+        <div class="row">
+          <div class="input-field col s5">
+            <input id="youtube"
+                   name="fields[data][2][url]"
+                   type="text"
+                   class="validate"
+                   pattern="^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$">
+            <label for="youtube">Youtube URL</label>
+          </div>
+          <div class="input-field col s5">
+            <input id="memory_usage"
+                   name="fields[data][3][values]"
+                   type="number"
+                   class="validate"
+                   min="0"
+                   step="1">
+            <label for="memory_usage">Memory Usage (MB)</label>
+          </div>
+        </div>
 
         <div class="row top-bar-thin">
           <div class="col s12">
             <p>
-              <button class="btn waves-effect waves-light light-green darken-1" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
+              <button class="btn waves-effect waves-light light-green darken-1"
+                      type="submit"
+                      name="action">
+                Submit
+                <i class="material-icons right">send</i>
               </button>
             </p>
           </div>
@@ -335,6 +359,17 @@ comment: >-
   selectYears: 15 // Creates a dropdown of 15 years to control year
   });
 
+  function my_submit(){
+    var x = document.getElementsByName("simulation_form");
+
+    x[0].submit();
+    console.log(x);
+    console.log("wow0");
+    alert("Submitting form");
+    console.log("wow1");
+  };
+
+ <!-- https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations" -->
 
   <!-- var slider = document.getElementById('clock_rate'); -->
   <!-- noUiSlider.create(slider, { -->
