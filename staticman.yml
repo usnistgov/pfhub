@@ -10,7 +10,9 @@ simulations:
   filename: "meta"
   format: "yaml"
   generatedFields:
-    test_field: "hi!"
+    test_field: "hi1!"
+    another_field:
+      sub_field: "hi2!"
     date:
       type: date
       options:
