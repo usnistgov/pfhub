@@ -13,3 +13,8 @@ simulations:
   name: "https://pages.nist.gov/chimad-phase-field/"
   path: "_data/simulations/{fields.metadata.simulation_name}"
   requiredFields: ["benchmark", "metadata", "data"]
+  generatedFields:
+    date:
+      type: date
+      options:
+        format: "timestamp-seconds"
