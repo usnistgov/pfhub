@@ -9,16 +9,6 @@ simulations:
   commitMessage: "New simulation"
   filename: "meta"
   format: "yaml"
-  generatedFields:
-    test_field: "hi1!"
-    another_field: [sub_field : 3]
-    another_field3: {sub_field : hi}
-    another_field1: "stuff"
-    another_field4: {fields.metadata.email}
-    date:
-      type: date
-      options:
-        format: "timestamp-seconds"
   moderation: true
   name: "https://pages.nist.gov/chimad-phase-field/"
   path: "_data/simulations/{@id}"

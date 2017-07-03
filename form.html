@@ -18,9 +18,10 @@ comment: >-
     </div>
     <div class="col s10">
       <form name="simulation_form"
+            id="my_form"
             method="POST"
             action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
-            <!-- onsubmit="my_submit()"> -->
+            <!-- onsubmit="my_submit()" -->
         <!-- <input name="options[redirect]" -->
         <!--        type="hidden" -->
         <!--        value="https://github.com/usnistgov/chimad-phase-field/pulls"> -->
@@ -163,7 +164,7 @@ comment: >-
                    class="validate"
                    min="0.0"
                    max="10.0"
-                   step="0.0001">
+                   step="any">
             <label for="clock_rate">Median Clock Rate (GHz)</label>
           </div>
           <div class="input-field col s3">
@@ -269,12 +270,24 @@ comment: >-
             <label for="free_energy_url">Free Energy Data URL (CSV, JSON)</label>
           </div>
           <div class="col s5">
+            <input name="fields[data][0][format][parse][time]"
+                   type="hidden"
+                   value="number">
+            <input name="fields[data][0][format][parse][free_energy]"
+                   type="hidden"
+                   value="number">
+            <input name="fields[data][0][transform][0][type]"
+                   type="hidden"
+                   value="filter">
+            <input name="fields[data][0][transform][0][test]"
+                   type="hidden"
+                   value="datum.time > 0.01">
             <p>
-              <input class="with-gap" name="fields[data][0][format][type]" type="radio" id="csv" />
+              <input class="with-gap" name="fields[data][0][format][type]" type="radio" value="csv" id="csv" />
               <label for="csv">CSV</label>
             </p>
             <p>
-              <input class="with-gap" name="fields[data][0][format][type]" type="radio" id="json" />
+              <input class="with-gap" name="fields[data][0][format][type]" type="radio" value="json" id="json" />
               <label for="json">JSON</label>
             </p>
           </div>
@@ -286,26 +299,30 @@ comment: >-
             <input name="fields[data][1][name]"
                    type="hidden"
                    value="run_time">
-            <input id="run_time_url"
-                   name="fields[data][1][url]"
-                   type="url"
-                   class="validate">
-            <label for="run_time_url">Run Time Data URL (CSV, JSON)</label>
+            <input id="run_time"
+                   name="fields[data][1][values][0][time]"
+                   type="number"
+                   step="any"
+                   class="validate"
+                   min="0">
+            <label for="run_time">Run Time (s)</label>
           </div>
-          <div class="col s5">
-            <p>
-              <input class="with-gap" name="fields[data][1][format][type]" type="radio" id="csv" />
-              <label for="csv">CSV</label>
-            </p>
-            <p>
-              <input class="with-gap" name="fields[data][1][format][type]" type="radio" id="json" />
-              <label for="json">JSON</label>
-            </p>
+          <div class="input-field col s5">
+            <input id="sim_time"
+                   name="fields[data][1][values][0][sim_time]"
+                   type="number"
+                   step="any"
+                   class="validate"
+                   min="0">
+            <label for="sim_time">Simulation End Time (s)</label>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s5">
+            <input name="fields[data][2][name]"
+                   type="hidden"
+                   value="youtube">
             <input id="youtube"
                    name="fields[data][2][url]"
                    type="text"
@@ -314,13 +331,16 @@ comment: >-
             <label for="youtube">Youtube URL</label>
           </div>
           <div class="input-field col s5">
+            <input name="fields[data][3][name]"
+                   type="hidden"
+                   value="memory_usage">
             <input id="memory_usage"
                    name="fields[data][3][values]"
                    type="number"
                    class="validate"
                    min="0"
-                   step="1">
-            <label for="memory_usage">Memory Usage (MB)</label>
+                   step="any">
+            <label for="memory_usage">Memory Usage (KB)</label>
           </div>
         </div>
 
@@ -356,37 +376,25 @@ comment: >-
   selectYears: 15 // Creates a dropdown of 15 years to control year
   });
 
-  function my_submit(){
-    var cores = document.getElementById("cores");
-    var form = document.getElementsByName("simulation_form");
-    delete cores.value;
-    cores.value = 2;
-    console.log(typeof cores.value);
-    console.log(cores.value);
-    console.log(form[0]);
-    form[0].submit();
-    console.log(form[0]);
+  <!-- function my_submit(){ -->
+  <!--   $('<input />').attr("type", "hidden").attr("id", "testit").attr("name", "fields[metadata][add_int_field]").attr('value', 2).appendTo("#my_form"); -->
 
-    console.log("wow0");
-    <!-- console.log(cores); -->
-    alert("Submitting form");
-    console.log("wow1");
-  };
+  <!--   var cores = document.getElementById("testit"); -->
+  <!--   var form = document.getElementsByName("simulation_form"); -->
+  <!--   delete cores.value; -->
 
- <!-- https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations" -->
 
-  <!-- var slider = document.getElementById('clock_rate'); -->
-  <!-- noUiSlider.create(slider, { -->
-  <!--  start: [3.5], -->
-  <!--  connect: true, -->
-  <!--  step: 1, -->
-  <!--  range: { -->
-  <!--    'min': 0.0, -->
-  <!--    'max': 10.0 -->
-  <!--  }, -->
-  <!--  format: wNumb({ -->
-  <!--    decimals: 1 -->
-  <!--  }) -->
-  <!-- }); -->
+  <!--   console.log(typeof cores.value); -->
+  <!--   console.log(cores.value); -->
+  <!--   console.log(form[0]); -->
+  <!--   form[0].submit(); -->
+  <!--   console.log(form[0]); -->
+
+  <!--   console.log("wow0"); -->
+  <!--   <\!-- console.log(cores); -\-> -->
+  <!--   alert("Submitting form"); -->
+  <!--   console.log("wow1"); -->
+  <!-- }; -->
+
 
 </script>
