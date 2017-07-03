@@ -14,6 +14,7 @@ simulations:
     another_field: [sub_field : 3]
     another_field3: {sub_field : hi}
     another_field1: "stuff"
+    another_field4: {fields.metadata.email}
     date:
       type: date
       options:
