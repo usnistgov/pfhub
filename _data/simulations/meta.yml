@@ -1,0 +1,53 @@
+_id: be0851a0-6017-11e7-99f0-07446257ec6f
+metadata:
+  author: Daniel Wheeler
+  email: daniel.wheeler2@gmail.com
+  name: my_new_sim
+  summary: Testing Staticman
+  timestamp: '3 July, 2017'
+  implementation:
+    repo:
+      url: >-
+        https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
+      version: 8be003758f9d1d4ee2f1e3ccaeec3a16199a0c62
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '3.5'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: 'on'
+    version: '78'
+    repo:
+      url: 'https://github.com/mesoscale/mmsp/tree/develop'
+      version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - time: '987987'
+        sim_time: '987987'
+  - name: youtube
+    url: ''
+  - name: memory_usage
+    values: '786876876'
+date: 1499104074
+test_field: hi1!
+another_field:
+  - sub_field: 3
+another_field1: stuff
