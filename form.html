@@ -1,20 +1,393 @@
 ---
 layout: default
-title: "Test Staticman"
+title: "Submit a new simulation result"
 comment: >-
-  Testing staticman
-
+  Fill out this form to submit a new simulation result to the
+  website. The data will be submitted to the this website via a
+  pull-request on GitHub. Please go to
+  <a href="https://github.com/usnistgov/chimad-phase-field/pulls">usnistgov/chimad-phase-field</a>
+  to view the pull-requst.
 ---
 
+{% include title.html %}
 
-<form method="POST" action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
-   <!-- e.g. "2016-01-02-this-is-a-post" -->
-   <label><input name="fields[benchmark][id]" type="text">ID</label>
-   <label><input name="fields[benchmark][version]" type="text">Version</label>
-   <label><input name="fields[metadata][summary]" type="text">Summary</label>
-   <label><input name="fields[data][0][name]" type="text">Data name</label>
-   <label><input name="fields[data][0][values]" type="text">Data values</label>
-   <label><input name="fields[data][1][name]" type="text">Data name</label>
-   <label><input name="fields[data][1][values]" type="text">Data values</label>
-   <button type="submit">Go!</button>
-</form>
+<div class="container top-bar top-buffer">
+  <div class="row small-buffer">
+    <div class="col l2 m12 s12">
+      <h5 class="sideheader">Upload Form</h5>
+    </div>
+    <div class="col s10">
+      <form name="simulation_form"
+            onsubmit="my_submit()">
+            <!-- method="POST" -->
+            <!-- action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations"> -->
+
+        <!-- <input name="options[redirect]" -->
+        <!--        type="hidden" -->
+        <!--        value="https://github.com/usnistgov/chimad-phase-field/pulls"> -->
+
+        <div class="row">
+          <p>
+            <h5>
+              Author
+            </h5>
+          </p>
+          <div class="input-field col s5">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="author"
+                   name="fields[metadata][author]"
+                   type="text"
+                   class="validate">
+            <label for="author">Author Name</label>
+          </div>
+          <div class="input-field col s5">
+            <i class="material-icons prefix">email</i>
+            <input id="email"
+                   name="fields[metadata][email]"
+                   type="email"
+                   class="validate">
+            <label for="email">Author Email</label>
+          </div>
+        </div>
+
+        <div class="row small-buffer top-bar-thin">
+          <p>
+            <h5>
+              Simulation
+            </h5>
+          </p>
+          <div class="input-field col s3">
+            <input id="name"
+                   name="fields[metadata][name]"
+                   class="validate"
+                   type="text"></input>
+            <label class="active" for="name">Short Simulation Name</label>
+          </div>
+          <div class="input-field col s7">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="summary"
+                      name="fields[metadata][summary]"
+                      class="materialize-textarea validate"
+                      type="text"
+                      value="Concise reason for this contribution"></textarea>
+            <label class="active" for="summary">Summary</label>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input name="fields[benchmark][version]"
+                   type="hidden"
+                   value="1">
+            <select id="benchmark_id"
+                    name="fields[benchmark][id]"
+                    type="text">
+              <option value="1a" selected>1a</option>
+              <option value="1b">1b</option>
+              <option value="1c">1c</option>
+              <option value="1d">1d</option>
+              <option value="2a">2a</option>
+              <option value="2b">2b</option>
+              <option value="2c">2c</option>
+              <option value="2d">2d</option>
+            </select>
+            <label class="active" for="benchmark_id">Benchmark ID</label>
+          </div>
+          <div class="input-field col s5">
+            <i class="material-icons prefix">today</i>
+            <input id="timestamp"
+                   name="fields[metadata][timestamp]"
+                   class="datepicker"
+                   type="date"></input>
+            <label class="active" for="timestamp">Simulation Date</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input id="sim_url"
+                   name="fields[metadata][implementation][repo][url]"
+                   type="url"
+                   class="validate">
+            <label for="sim_url">Simulation Repository URL</label>
+          </div>
+          <div class="input-field col s5">
+            <input id="sim_sha"
+                   name="fields[metadata][implementation][repo][version]"
+                   type="text"
+                   class="validate"
+                   pattern="[0-9a-f]{5,40}">
+            <label for="sim_sha">Simulation Commit ID (SHA)</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input id="container_url"
+                   name="fields[metadata][implementation][container_url]"
+                   type="url"
+                   class="validate">
+            <label for="container_url">Simulation Container URL</label>
+          </div>
+        </div>
+
+
+        <div class="row top-bar-thin">
+          <p>
+            <h5>
+              Hardware
+            </h5>
+          </p>
+          <div class="input-field col s5 big-buffer">
+            <select id="architecture" name="fields[metadata][hardware][architecture]" type="text">
+              {% include architecture.html %}
+            </select>
+            <label class="active" for="benchmark_id">Architecture</label>
+          </div>
+          <div class="input-field col s5 big-buffer">
+            <select id="parallel_model" name="fields[metadata][hardware][parallel_model]" type="text">
+              <option value="serial" selected>Serial</option>
+              <option value="distributed">Distributed</option>
+              <option value="threaded">Threaded</option>
+              <option value="multiprocessing">Multiprocessing</option>
+            </select>
+            <label class="active" for="parallel_model">Parallel Model</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s3">
+            <input id="clock_rate"
+                   name="fields[metadata][hardware][clock_rate]"
+                   type="number"
+                   class="validate"
+                   min="0.0"
+                   max="10.0"
+                   step="0.0001">
+            <label for="clock_rate">Median Clock Rate (GHz)</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="cores"
+                   name="fields[metadata][hardware][cores]"
+                   type="number"
+                   class="validate"
+                   value="1"
+                   min="1">
+            <label for="cores">Number of Cores</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="nodes"
+                   name="fields[metadata][hardware][nodes]"
+                   type="number"
+                   class="validate"
+                   value="1"
+                   min="1">
+            <label for="nodes">Number of Nodes</label>
+          </div>
+        </div>
+
+        <div class="row top-bar-thin">
+          <p>
+            <h5>
+              Software
+            </h5>
+          </p>
+          <div class="col s3">
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="custom" />
+              <label for="custom">Custom Code</label>
+            </p>
+
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="moose" />
+              <label for="moose">Moose</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="fenics" />
+              <label for="fenics">Fenics</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="fipy"  />
+              <label for="fipy">FiPy</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="mmsp" />
+              <label for="mmsp">MMSP</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="prisms" />
+              <label for="prisms">Prisims-PF</label>
+            </p>
+          </div>
+
+          <div class="col s5">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="version"
+                       name="fields[metadata][software][version]"
+                       type="text"
+                       class="validate">
+                <label for="version">Software Version Number</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="repo_url"
+                       name="fields[metadata][software][repo][url]"
+                       type="url"
+                       class="validate">
+                <label for="repo_url">Software Repository URL</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="repo_sha"
+                       name="fields[metadata][software][repo][version]"
+                       type="text"
+                       class="validate"
+                       pattern="[0-9a-f]{5,40}">
+                <label for="repo_sha">Software Commit ID (SHA)</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row top-bar-thin">
+          <p>
+            <h5>
+              Data
+            </h5>
+          </p>
+          <div class="input-field col s5">
+            <input name="fields[data][0][name]"
+                   type="hidden"
+                   value="free_energy">
+            <input id="free_energy_url"
+                   name="fields[data][0][url]"
+                   type="url"
+                   class="validate">
+            <label for="free_energy_url">Free Energy Data URL (CSV, JSON)</label>
+          </div>
+          <div class="col s5">
+            <p>
+              <input class="with-gap" name="fields[data][0][format][type]" type="radio" id="csv" />
+              <label for="csv">CSV</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[data][0][format][type]" type="radio" id="json" />
+              <label for="json">JSON</label>
+            </p>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input name="fields[data][1][name]"
+                   type="hidden"
+                   value="run_time">
+            <input id="run_time_url"
+                   name="fields[data][1][url]"
+                   type="url"
+                   class="validate">
+            <label for="run_time_url">Run Time Data URL (CSV, JSON)</label>
+          </div>
+          <div class="col s5">
+            <p>
+              <input class="with-gap" name="fields[data][1][format][type]" type="radio" id="csv" />
+              <label for="csv">CSV</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[data][1][format][type]" type="radio" id="json" />
+              <label for="json">JSON</label>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input id="youtube"
+                   name="fields[data][2][url]"
+                   type="text"
+                   class="validate"
+                   pattern="^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$">
+            <label for="youtube">Youtube URL</label>
+          </div>
+          <div class="input-field col s5">
+            <input id="memory_usage"
+                   name="fields[data][3][values]"
+                   type="number"
+                   class="validate"
+                   min="0"
+                   step="1">
+            <label for="memory_usage">Memory Usage (MB)</label>
+          </div>
+        </div>
+
+        <div class="row top-bar-thin">
+          <div class="col s12">
+            <p>
+              <button class="btn waves-effect waves-light light-green darken-1"
+                      type="submit"
+                      name="action">
+                Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </p>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+  $('select').material_select();
+  });
+
+  $(document).ready(function() {
+  Materialize.updateTextFields();
+  });
+
+  $('.datepicker').pickadate({
+  selectMonths: true, // Creates a dropdown to control month
+  selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+
+  function my_submit(){
+    var cores = document.getElementById("cores");
+    var form = document.getElementsByName("simulation_form");
+    delete cores.value;
+    cores.value = 2;
+    console.log(typeof cores.value);
+    console.log(cores.value);
+    console.log(form[0]);
+    form[0].submit();
+    console.log(form[0]);
+
+    console.log("wow0");
+    <!-- console.log(cores); -->
+    alert("Submitting form");
+    console.log("wow1");
+  };
+
+ <!-- https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations" -->
+
+  <!-- var slider = document.getElementById('clock_rate'); -->
+  <!-- noUiSlider.create(slider, { -->
+  <!--  start: [3.5], -->
+  <!--  connect: true, -->
+  <!--  step: 1, -->
+  <!--  range: { -->
+  <!--    'min': 0.0, -->
+  <!--    'max': 10.0 -->
+  <!--  }, -->
+  <!--  format: wNumb({ -->
+  <!--    decimals: 1 -->
+  <!--  }) -->
+  <!-- }); -->
+
+</script>
