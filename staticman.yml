@@ -11,5 +11,5 @@ simulations:
   format: "yaml"
   moderation: true
   name: "https://pages.nist.gov/chimad-phase-field/"
-  path: "_data/simulations/{@id}"
+  path: "_data/simulations/{fields.metadata.simulation_name}"
   requiredFields: ["benchmark", "metadata", "data"]
