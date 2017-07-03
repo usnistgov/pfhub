@@ -11,8 +11,7 @@ simulations:
   format: "yaml"
   generatedFields:
     test_field: "hi1!"
-    another_field:
-      sub_field: "hi2!"
+    another_field: {"sub_field" : "blah"}
     date:
       type: date
       options:
