@@ -1,0 +1,43 @@
+_id: 37333c10-600f-11e7-99f0-07446257ec6f
+metadata:
+  author: ''
+  email: ''
+  name: ''
+  summary: ''
+  timestamp: ''
+  implementation:
+    repo:
+      url: ''
+      version: ''
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: ''
+    cores: '1'
+    nodes: '1'
+  software:
+    version: ''
+    repo:
+      url: ''
+      version: ''
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
+    format:
+      type: 'on'
+  - name: run_time
+    values:
+      - time: ''
+        sim_time: ''
+  - url: ''
+  - values: ''
+date: 1499100412
+test_field: hi1!
+another_field:
+  - sub_field: 3
+another_field1: stuff
