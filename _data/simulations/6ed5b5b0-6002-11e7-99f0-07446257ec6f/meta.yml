@@ -1,0 +1,38 @@
+_id: 6ed5b5b0-6002-11e7-99f0-07446257ec6f
+metadata:
+  author: ''
+  email: ''
+  name: ''
+  summary: ''
+  timestamp: ''
+  implementation:
+    repo:
+      url: ''
+      version: ''
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: ''
+    cores: '1'
+    nodes: '1'
+  software:
+    version: ''
+    repo:
+      url: ''
+      version: ''
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: ''
+  - name: run_time
+    url: ''
+  - url: ''
+  - values: ''
+date: 1499094922
+test_field: hi1!
+another_field:
+  - sub_field: blah
+another_field1: stuff
