@@ -1,0 +1,48 @@
+_id: a4b0a840-61c2-11e7-81a9-f90aa26fd17e
+metadata:
+  author: ''
+  email: ''
+  simulation_name: ''
+  summary: ''
+  timestamp: '21 June, 2017'
+  implementation:
+    repo:
+      url: ''
+      version: ''
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: ''
+    cores: '1'
+    nodes: '1'
+  software:
+    version: ''
+    repo:
+      url: ''
+      version: ''
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: ''
+    format:
+      parse:
+        time: number
+        free_energy: number
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - time: ''
+        sim_time: ''
+  - name: youtube
+    url: ''
+  - name: memory_usage
+    values: ''
+date: 1499287427
+datum_inschrijving: '2017-07-05T20:43:47.716Z'
+doet_mee: true
+nieuwe_inschrijving: true
