@@ -1,0 +1,48 @@
+_id: 1bad9be0-61ca-11e7-abb2-050f30cdd33c
+metadata:
+  author: Daniel Wheeler
+  email: daniel.wheeler2@gmail.com
+  simulation_name: klj_3
+  summary: My crazy simulation
+  timestamp: '28 July, 2017'
+  implementation:
+    repo:
+      url: 'https://github.com/mesoscale/mmsp/tree/develop'
+      version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '3.50'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: mmsp
+    version: '5.2'
+    repo:
+      url: >-
+        https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
+      version: 05a5db5111d92b916d51e143adf068547c3a654d
+benchmark:
+  version: '1'
+  id: 1b
+data:
+  - name: free_energy
+    url: ' https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv'
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - time: '565765'
+        sim_time: '5675765'
+  - name: youtube
+    url: ''
+  - name: memory_usage
+    values: '5.6'
+date: 1499290633
