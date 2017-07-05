@@ -5,8 +5,9 @@ NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*" -
 NOTEBOOKS_HTML := $(NOTEBOOKS:%.ipynb=%.ipynb.raw.html)
 NOTEBOOKS_MD := $(NOTEBOOKS:%.ipynb=%.ipynb.md)
 
-YAML_FILES_IN := $(wildcard _data/simulations/*/meta.yaml)
-YAML_FILES_OUT := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
+YAML_FILES_IN := $(wildcard _data/simulations/*/meta.y*ml)
+YAML_FILES_OUT_TMP := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
+YAML_FILES_OUT := $(subst meta.yml,meta.yml.out,$(YAML_FILES_OUT_TMP))
 
 .PHONY: clean build_charts
 

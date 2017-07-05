@@ -60,7 +60,8 @@ comment: >-
             <input id="simulation_name"
                    name="fields[metadata][simulation_name]"
                    class="validate"
-                   type="text"></input>
+                   type="text"
+                   pattern="^[\w]{2,32}$"></input>
             <label class="active" for="name">Short Simulation Name</label>
           </div>
           <div class="input-field col s7">
@@ -195,28 +196,53 @@ comment: >-
           </p>
           <div class="col s3">
             <p>
-              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="custom" />
+              <input class="with-gap"
+                     name="fields[metadata][software][name]"
+                     type="radio"
+                     id="custom"
+                     selected
+                     value="custom" />
               <label for="custom">Custom Code</label>
             </p>
 
             <p>
-              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="moose" />
+              <input class="with-gap"
+                     name="fields[metadata][software][name]"
+                     type="radio"
+                     id="moose"
+                     value="moose" />
               <label for="moose">Moose</label>
             </p>
             <p>
-              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="fenics" />
+              <input class="with-gap"
+                     name="fields[metadata][software][name]"
+                     type="radio"
+                     id="fenics"
+                     value="fenics" />
               <label for="fenics">Fenics</label>
             </p>
             <p>
-              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="fipy"  />
+              <input class="with-gap"
+                     name="fields[metadata][software][name]"
+                     type="radio"
+                     id="fipy"
+                     value="fipy" />
               <label for="fipy">FiPy</label>
             </p>
             <p>
-              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="mmsp" />
+              <input class="with-gap"
+                     name="fields[metadata][software][name]"
+                     type="radio"
+                     id="mmsp"
+                     value="mmsp" />
               <label for="mmsp">MMSP</label>
             </p>
             <p>
-              <input class="with-gap" name="fields[metadata][software][name]" type="radio" id="prisms" />
+              <input class="with-gap"
+                     name="fields[metadata][software][name]"
+                     type="radio"
+                     id="prisms"
+                     value="prisms" />
               <label for="prisms">Prisims-PF</label>
             </p>
           </div>
