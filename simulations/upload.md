@@ -1,7 +1,11 @@
 ---
-title: "Simulation Upload"
+title: "Manually Simulation Upload"
 layout: essay
-comment: How to add a new simulation result
+comment: >-
+  How to add a new simulation result manually. However, in most cases
+  it is easier to use the automated <a target="_blank"
+  href="/chimad-phase-field/simulations/upload_form">upload form</a>.
+
 ---
 
 <h4> Overview </h4>
