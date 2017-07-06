@@ -23,7 +23,12 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 	cp ./template.ipynb.md $@
 	sed -i -- 's/notebook_name/$(notdir $<)/' $@
 
+kwalify:
+
 %.yaml.out: %.yaml
+	pykwalify -d $< -s _data/simulations/example/schema.yaml
+
+%.yml.out: %.yml
 	pykwalify -d $< -s _data/simulations/example/schema.yaml
 
 yamllint: $(YAML_FILES_OUT)
