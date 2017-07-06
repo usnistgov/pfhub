@@ -34,18 +34,22 @@ comment: >-
           </p>
           <div class="input-field col s5">
             <i class="material-icons prefix">account_circle</i>
-            <input id="author"
+            <input required
+		   id="author"
                    name="fields[metadata][author]"
                    type="text"
-                   class="validate">
+                   class="validate"
+		   length="200">
             <label for="author">Author Name</label>
           </div>
           <div class="input-field col s5">
             <i class="material-icons prefix">email</i>
-            <input id="email"
+            <input required
+		   id="email"
                    name="fields[metadata][email]"
                    type="email"
-                   class="validate">
+                   class="validate"
+		   length="260">
             <label for="email">Author Email</label>
           </div>
         </div>
@@ -57,19 +61,23 @@ comment: >-
             </h5>
           </p>
           <div class="input-field col s3">
-            <input id="simulation_name"
+            <input required
+		   id="simulation_name"
                    name="fields[metadata][simulation_name]"
                    class="validate"
                    type="text"
+		   length="32"
                    pattern="^[\w]{2,32}$"></input>
-            <label class="active" for="name">Short Simulation Name</label>
+            <label for="simulation_name">Short Simulation Name</label>
           </div>
           <div class="input-field col s7">
             <i class="material-icons prefix">mode_edit</i>
-            <textarea id="summary"
+            <textarea required
+		      id="summary"
                       name="fields[metadata][summary]"
                       class="materialize-textarea validate"
                       type="text"
+		      length="500"
                       value="Concise reason for this contribution"></textarea>
             <label class="active" for="summary">Summary</label>
           </div>
@@ -81,7 +89,8 @@ comment: >-
             <input name="fields[benchmark][version]"
                    type="hidden"
                    value="1">
-            <select id="benchmark_id"
+            <select required
+		    id="benchmark_id"
                     name="fields[benchmark][id]"
                     type="text">
               <option value="1a" selected>1a</option>
@@ -97,7 +106,8 @@ comment: >-
           </div>
           <div class="input-field col s5">
             <i class="material-icons prefix">today</i>
-            <input id="timestamp"
+            <input required
+		   id="timestamp"
                    name="fields[metadata][timestamp]"
                    class="datepicker"
                    type="date"></input>
@@ -107,17 +117,20 @@ comment: >-
 
         <div class="row">
           <div class="input-field col s5">
-            <input id="sim_url"
+            <input required
+		   id="sim_url"
                    name="fields[metadata][implementation][repo][url]"
                    type="url"
                    class="validate">
             <label for="sim_url">Simulation Repository URL</label>
           </div>
           <div class="input-field col s5">
-            <input id="sim_sha"
+            <input required
+		   id="sim_sha"
                    name="fields[metadata][implementation][repo][version]"
                    type="text"
                    class="validate"
+		   length="40"
                    pattern="[0-9a-f]{5,40}">
             <label for="sim_sha">Simulation Commit ID (SHA)</label>
           </div>
@@ -147,7 +160,7 @@ comment: >-
             <label class="active" for="benchmark_id">Architecture</label>
           </div>
           <div class="input-field col s5 big-buffer">
-            <select id="parallel_model" name="fields[metadata][hardware][parallel_model]" type="text">
+            <select required id="parallel_model" name="fields[metadata][hardware][parallel_model]" type="text">
               <option value="serial" selected>Serial</option>
               <option value="distributed">Distributed</option>
               <option value="threaded">Threaded</option>
@@ -159,7 +172,8 @@ comment: >-
 
         <div class="row">
           <div class="input-field col s3">
-            <input id="clock_rate"
+            <input required
+		   id="clock_rate"
                    name="fields[metadata][hardware][clock_rate]"
                    type="number"
                    class="validate"
@@ -169,7 +183,8 @@ comment: >-
             <label for="clock_rate">Median Clock Rate (GHz)</label>
           </div>
           <div class="input-field col s3">
-            <input id="cores"
+            <input required
+		   id="cores"
                    name="fields[metadata][hardware][cores]"
                    type="number"
                    class="validate"
@@ -178,7 +193,8 @@ comment: >-
             <label for="cores">Number of Cores</label>
           </div>
           <div class="input-field col s3">
-            <input id="nodes"
+            <input required
+		   id="nodes"
                    name="fields[metadata][hardware][nodes]"
                    type="number"
                    class="validate"
@@ -196,11 +212,12 @@ comment: >-
           </p>
           <div class="col s3">
             <p>
-              <input class="with-gap"
+              <input required
+		     checked="checked"
+		     class="with-gap"
                      name="fields[metadata][software][name]"
                      type="radio"
                      id="custom"
-                     selected
                      value="custom" />
               <label for="custom">Custom Code</label>
             </p>
@@ -250,7 +267,8 @@ comment: >-
           <div class="col s5">
             <div class="row">
               <div class="input-field col s12">
-                <input id="version"
+                <input required
+		       id="version"
                        name="fields[metadata][software][version]"
                        type="text"
                        class="validate">
@@ -259,7 +277,8 @@ comment: >-
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="repo_url"
+                <input required
+		       id="repo_url"
                        name="fields[metadata][software][repo][url]"
                        type="url"
                        class="validate">
@@ -268,10 +287,12 @@ comment: >-
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="repo_sha"
+                <input required
+		       id="repo_sha"
                        name="fields[metadata][software][repo][version]"
                        type="text"
                        class="validate"
+		       length="40"
                        pattern="[0-9a-f]{5,40}">
                 <label for="repo_sha">Software Commit ID (SHA)</label>
               </div>
@@ -289,7 +310,8 @@ comment: >-
             <input name="fields[data][0][name]"
                    type="hidden"
                    value="free_energy">
-            <input id="free_energy_url"
+            <input required
+		   id="free_energy_url"
                    name="fields[data][0][url]"
                    type="url"
                    class="validate">
@@ -309,7 +331,7 @@ comment: >-
                    type="hidden"
                    value="datum.time > 0.01">
             <p>
-              <input class="with-gap" name="fields[data][0][format][type]" type="radio" value="csv" id="csv" />
+              <input required checked="checked" class="with-gap" name="fields[data][0][format][type]" type="radio" value="csv" id="csv" />
               <label for="csv">CSV</label>
             </p>
             <p>
@@ -325,7 +347,8 @@ comment: >-
             <input name="fields[data][1][name]"
                    type="hidden"
                    value="run_time">
-            <input id="run_time"
+            <input required
+		   id="run_time"
                    name="fields[data][1][values][0][time]"
                    type="number"
                    step="any"
@@ -334,7 +357,8 @@ comment: >-
             <label for="run_time">Run Time (s)</label>
           </div>
           <div class="input-field col s5">
-            <input id="sim_time"
+            <input required
+		   id="sim_time"
                    name="fields[data][1][values][0][sim_time]"
                    type="number"
                    step="any"
@@ -360,7 +384,8 @@ comment: >-
             <input name="fields[data][3][name]"
                    type="hidden"
                    value="memory_usage">
-            <input id="memory_usage"
+            <input required
+		   id="memory_usage"
                    name="fields[data][3][values]"
                    type="number"
                    class="validate"
