@@ -3,10 +3,10 @@ layout: default
 title: "Submit a new simulation result"
 comment: >-
   Fill out this form to submit a new simulation result to the
-  website. The data will be submitted to the this website via a
+  website. The data will be submitted to the website via a
   pull-request on GitHub. Please go to
-  <a href="https://github.com/usnistgov/chimad-phase-field/pulls">usnistgov/chimad-phase-field</a>
-  to view the pull-requst.
+  <a href="https:/github.com/usnistgov/chimad-phase-field/pulls">usnistgov/chimad-phase-field</a>
+  to view the pull-request.
 ---
 
 {% include title.html %}
@@ -21,10 +21,9 @@ comment: >-
             id="my_form"
             method="POST"
             action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
-            <!-- onsubmit="my_submit()" -->
-        <!-- <input name="options[redirect]" -->
-        <!--        type="hidden" -->
-        <!--        value="https://github.com/usnistgov/chimad-phase-field/pulls"> -->
+        <input name="options[redirect]"
+               type="hidden"
+               value="https://github.com/usnistgov/chimad-phase-field/pulls" \>
 
         <div class="row">
           <p>
@@ -68,18 +67,32 @@ comment: >-
                    type="text"
 		   length="32"
                    pattern="^[\w]{2,32}$"></input>
-            <label for="simulation_name">Short Simulation Name</label>
+            <label for="simulation_name">
+              Short Simulation Name
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="Name for this simulation using alphanumeric characters and _, but at least 2 characters long.">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
           </div>
           <div class="input-field col s7">
             <i class="material-icons prefix">mode_edit</i>
             <textarea required
 		      id="summary"
                       name="fields[metadata][summary]"
-                      class="materialize-textarea validate"
+                      class="materialize-textarea validate active"
                       type="text"
 		      length="500"
                       value="Concise reason for this contribution"></textarea>
-            <label class="active" for="summary">Summary</label>
+            <label class="active" for="summary">
+              Summary
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="Concise reason for this contribution">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
           </div>
         </div>
 
@@ -122,7 +135,14 @@ comment: >-
                    name="fields[metadata][implementation][repo][url]"
                    type="url"
                    class="validate">
-            <label for="sim_url">Simulation Repository URL</label>
+            <label for="sim_url">
+              Simulation Repository URL
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="Link to the repository code for this simulation (not the software repository)">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
           </div>
           <div class="input-field col s5">
             <input required
@@ -132,7 +152,14 @@ comment: >-
                    class="validate"
 		   length="40"
                    pattern="[0-9a-f]{5,40}">
-            <label for="sim_sha">Simulation Commit ID (SHA)</label>
+            <label for="sim_sha">
+              Simulation Commit ID (SHA)
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="The repository code SHA for this simulation (not the software SHA)">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
           </div>
         </div>
 
@@ -142,10 +169,16 @@ comment: >-
                    name="fields[metadata][implementation][container_url]"
                    type="url"
                    class="validate">
-            <label for="container_url">Simulation Container URL</label>
+            <label for="container_url">
+              Simulation Container URL
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="Link to a container (such as a Dockerfile or Docker container) for this simulation">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
           </div>
         </div>
-
 
         <div class="row top-bar-thin">
           <p>
@@ -267,12 +300,18 @@ comment: >-
           <div class="col s5">
             <div class="row">
               <div class="input-field col s12">
-                <input required
-		       id="version"
+                <input id="version"
                        name="fields[metadata][software][version]"
                        type="text"
                        class="validate">
-                <label for="version">Software Version Number</label>
+                <label for="version">
+                  Software Version Number
+                  <a class="tooltipped"
+                     data-position="bottom"
+                     data-tooltip="Version number of the software used for the simulation">
+                    <i class="tiny material-icons">help</i>
+                  </a>
+                </label>
               </div>
             </div>
             <div class="row">
@@ -282,7 +321,14 @@ comment: >-
                        name="fields[metadata][software][repo][url]"
                        type="url"
                        class="validate">
-                <label for="repo_url">Software Repository URL</label>
+                <label for="repo_url">
+                  Software Repository URL
+                  <a class="tooltipped"
+                     data-position="bottom"
+                     data-tooltip="Link to the software repository (not the simulation implementation repository)">
+                    <i class="tiny material-icons">help</i>
+                  </a>
+                </label>
               </div>
             </div>
             <div class="row">
@@ -294,7 +340,13 @@ comment: >-
                        class="validate"
 		       length="40"
                        pattern="[0-9a-f]{5,40}">
-                <label for="repo_sha">Software Commit ID (SHA)</label>
+                <label for="repo_sha">Software Commit ID (SHA)
+                  <a class="tooltipped"
+                     data-position="bottom"
+                     data-tooltip="The software SHA (not the simulation implementation SHA)">
+                    <i class="tiny material-icons">help</i>
+                  </a>
+                </label>
               </div>
             </div>
           </div>
@@ -315,7 +367,17 @@ comment: >-
                    name="fields[data][0][url]"
                    type="url"
                    class="validate">
-            <label for="free_energy_url">Free Energy Data URL (CSV, JSON)</label>
+            <label for="free_energy_url">
+              Free Energy Data URL (CSV, JSON)
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="Free energy data either in CSV of JSON
+                 format. CSV requires both 'time' and 'free_energy'
+                 fields. JSON should be formatted as a list with each
+                 item having 'time' and 'free_energy' keys.">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
           </div>
           <div class="col s5">
             <input name="fields[data][0][format][parse][time]"
@@ -354,7 +416,14 @@ comment: >-
                    step="any"
                    class="validate"
                    min="0">
-            <label for="run_time">Run Time (s)</label>
+            <label for="run_time">
+              Run Time (s)
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="The wall clock time for the simulation in seconds">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
           </div>
           <div class="input-field col s5">
             <input required
@@ -364,34 +433,55 @@ comment: >-
                    step="any"
                    class="validate"
                    min="0">
-            <label for="sim_time">Simulation End Time (s)</label>
+            <label for="sim_time">
+              Simulation End Time (s)
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="The simulation end time (not wall clock time) in seconds">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
           </div>
         </div>
 
         <div class="row">
+          <!-- <div class="input-field col s5"> -->
+          <!--   <input name="fields[data][2][name]" -->
+          <!--          type="hidden" -->
+          <!--          value="youtube"> -->
+          <!--   <input id="youtube" -->
+          <!--          name="fields[data][2][url]" -->
+          <!--          type="text" -->
+          <!--          class="validate" -->
+          <!--          pattern="^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$"> -->
+          <!--   <label for="youtube"> -->
+          <!--     Youtube URL -->
+          <!--     <a class="tooltipped" -->
+          <!--        data-position="bottom" -->
+          <!--        data-tooltip="A youtube movie of the simulation evolving to be displayed on the simulation landing page"> -->
+          <!--       <i class="tiny material-icons">help</i> -->
+          <!--     </a> -->
+          <!--   </label> -->
+          <!-- </div> -->
           <div class="input-field col s5">
             <input name="fields[data][2][name]"
-                   type="hidden"
-                   value="youtube">
-            <input id="youtube"
-                   name="fields[data][2][url]"
-                   type="text"
-                   class="validate"
-                   pattern="^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$">
-            <label for="youtube">Youtube URL</label>
-          </div>
-          <div class="input-field col s5">
-            <input name="fields[data][3][name]"
                    type="hidden"
                    value="memory_usage">
             <input required
 		   id="memory_usage"
-                   name="fields[data][3][values]"
+                   name="fields[data][2][values]"
                    type="number"
                    class="validate"
                    min="0"
                    step="any">
-            <label for="memory_usage">Memory Usage (KB)</label>
+            <label for="memory_usage">
+              Memory Usage (KB)
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="The memory usage in total across all nodes in KB">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
           </div>
         </div>
 
@@ -424,28 +514,8 @@ comment: >-
 
   $('.datepicker').pickadate({
   selectMonths: true, // Creates a dropdown to control month
-  selectYears: 15 // Creates a dropdown of 15 years to control year
+  selectYears: 15, // Creates a dropdown of 15 years to control year
+  max: true
   });
-
-  <!-- function my_submit(){ -->
-  <!--   $('<input />').attr("type", "hidden").attr("id", "testit").attr("name", "fields[metadata][add_int_field]").attr('value', 2).appendTo("#my_form"); -->
-
-  <!--   var cores = document.getElementById("testit"); -->
-  <!--   var form = document.getElementsByName("simulation_form"); -->
-  <!--   delete cores.value; -->
-
-
-  <!--   console.log(typeof cores.value); -->
-  <!--   console.log(cores.value); -->
-  <!--   console.log(form[0]); -->
-  <!--   form[0].submit(); -->
-  <!--   console.log(form[0]); -->
-
-  <!--   console.log("wow0"); -->
-  <!--   <\!-- console.log(cores); -\-> -->
-  <!--   alert("Submitting form"); -->
-  <!--   console.log("wow1"); -->
-  <!-- }; -->
-
 
 </script>
