@@ -1,0 +1,47 @@
+_id: dc8b1400-6274-11e7-abb2-050f30cdd33c
+metadata:
+  author: asfasdf
+  email: jkhkjh@hkjhkjh
+  simulation_name: kjhkjhkjhk
+  summary: kjhkjhkjh
+  timestamp: '5 July, 2017'
+  implementation:
+    repo:
+      url: >-
+        https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
+      version: 4c3af04ac4e46665eacc599b0d2cc8b4a9963461
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '3'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: mmsp
+    version: '3'
+    repo:
+      url: 'https://github.com/mesoscale/mmsp/tree/develop'
+      version: 2352cdf62c6db99f6644d88a0c2f9917d2d1882f
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - time: '1'
+        sim_time: '1'
+  - name: memory_usage
+    values: '1'
+date: 1499363971
