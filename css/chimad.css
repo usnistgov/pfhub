@@ -146,3 +146,11 @@ main {
 table.striped tbody tr:nth-child(2n+1) {
     background-color: #e0e0e0 !important;
 }
+
+/* .backdrop{ */
+/*        background-color: purple; */
+/* } */
+
+.tooltipped {
+    color: rgb(158, 158, 158);
+}
