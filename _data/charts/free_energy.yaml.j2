@@ -5,6 +5,107 @@ signal:
   - name: hover
     init: null
 
+signals: [
+        {
+            "name" : "zoom",
+            "value" : 1,
+            "on" :
+            [
+                {
+                    "events" : "wheel!",
+                    "force" : true,
+                    "update" : "pow(1.005, event.deltaY * pow(16, event.deltaMode))"
+                }
+            ]
+        },
+        {
+            "name": "down",
+            "value": null,
+            "on": [
+                {"events": "touchend", "update": "null"},
+                {"events": "mousedown, touchstart", "update": "xy()"}
+            ]
+        },
+        {
+            "name": "delta",
+            "value": [0, 0],
+            "on": [
+                {
+                    "events": [
+                        {
+                            "source": "window", "type": "mousemove", "consume": true,
+                            "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]
+                        },
+                        {
+                            "type": "touchmove", "consume": true,
+                            "filter": "event.touches.length === 1"
+                        }
+                    ],
+                    "update": "down ? [down[0]-x(), y()-down[1]] : [0,0]"
+                }
+            ]
+        },
+        {
+            "name" : "xdomlog",
+            "value" : [{{ marks.x | first }}, {{ marks.x | last}}],
+            "on" : [
+                {
+                    "events": {"signal": "zoom"},
+                    "update": "[xcur[0] - log(zoom), xcur[1] + log(zoom)]"
+                },
+                {
+                    "events" : {"signal" : "delta"},
+                    "update" : "[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]"
+                },
+
+            ]
+        },
+        {
+            "name": "xcur",
+            "value": null,
+            "on": [
+                {
+                    "events": "mousedown, touchstart, touchend, wheel!",
+                    "update": "[xdomlog[0], xdomlog[1]]"
+                }
+            ]
+        },
+        {
+            "name" : "xdom",
+            "value" : null,
+            "update" : "[pow(10, xdomlog[0]), pow(10, xdomlog[1])]"
+        },
+        {
+            "name" : "ydomlog",
+            "value" : [{{ marks.y | first }}, {{ marks.y | last}}],
+            "on" : [
+                {
+                    "events": {"signal": "zoom"},
+                    "update": "[ycur[0] - log(zoom) * span(ycur) / span(xcur), ycur[1] + log(zoom) * span(ycur) / span(xcur)]"
+                },
+                {
+                    "events" : {"signal" : "delta"},
+                    "update" : "[ycur[0] + span(ycur) * delta[1] / height, ycur[1] + span(ycur) * delta[1] / height]"
+                },
+
+            ]
+        },
+        {
+            "name": "ycur",
+            "value": null,
+            "on": [
+                {
+                    "events": "mousedown, touchstart, touchend, wheel!",
+                    "update": "[ydomlog[0], ydomlog[1]]"
+                }
+            ]
+        },
+        {
+            "name" : "ydom",
+            "value" : null,
+            "update" : "[pow(10, ydomlog[0]), pow(10, ydomlog[1])]"
+        }
+    ]
 axes:
   - orient: bottom
     grid: true
@@ -22,7 +123,8 @@ axes:
     scale: y
   - orient: bottom
     scale: x
-    values: {{ marks.x }}
+    tickCount: 5
+    labelOverlap: greedy
     format: ".0e"
     formatType: number
     title: "Time"
@@ -41,7 +143,8 @@ axes:
             value: 12
   - orient: left
     scale: y
-    values: {{ marks.y }}
+    tickCount: 5
+    labelOverlap: greedy
     format: ".0e"
     formatType: number
     title: "Free Energy"
@@ -75,15 +178,17 @@ axes:
             value: Lato
 scales:
   - name: x
-    nice: true
+    nice: false
     type: log
     range: width
-    domain: [{{ marks.x | first }}, {{ marks.x | last }}]
+    domain:
+      signal: xdom
   - name: y
-    nice: true
+    nice: false
     type: log
     range: height
-    domain: [{{ marks.y | first }}, {{ marks.y | last }}]
+    domain:
+      signal: ydom
   - name: color
     range:
       scheme: category20
@@ -114,7 +219,7 @@ marks:
     from:
       data: {{ datum.name }}
     encode:
-      enter:
+      update:
         x:
           scale: x
           field: time

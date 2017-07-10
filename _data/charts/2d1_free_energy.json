@@ -43,19 +43,11 @@
       },
       "format": ".0e",
       "formatType": "number",
+      "labelOverlap": "greedy",
       "orient": "bottom",
       "scale": "x",
-      "title": "Time",
-      "values": [
-        0.1,
-        1,
-        10,
-        100,
-        1000,
-        10000,
-        100000,
-        1000000
-      ]
+      "tickCount": 5,
+      "title": "Time"
     },
     {
       "encode": {
@@ -82,15 +74,11 @@
       },
       "format": ".0e",
       "formatType": "number",
+      "labelOverlap": "greedy",
       "orient": "left",
       "scale": "y",
-      "title": "Free Energy",
-      "values": [
-        100,
-        1000,
-        10000,
-        100000
-      ]
+      "tickCount": 5,
+      "title": "Free Energy"
     },
     {
       "domain": false,
@@ -193,7 +181,7 @@
   "marks": [
     {
       "encode": {
-        "enter": {
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "moose_2d_ia"
@@ -221,7 +209,7 @@
     },
     {
       "encode": {
-        "enter": {
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "moose_2d_sta"
@@ -250,22 +238,20 @@
   ],
   "scales": [
     {
-      "domain": [
-        0.1,
-        1000000
-      ],
+      "domain": {
+        "signal": "xdom"
+      },
       "name": "x",
-      "nice": true,
+      "nice": false,
       "range": "width",
       "type": "log"
     },
     {
-      "domain": [
-        100,
-        100000
-      ],
+      "domain": {
+        "signal": "ydom"
+      },
       "name": "y",
-      "nice": true,
+      "nice": false,
       "range": "height",
       "type": "log"
     },
@@ -285,6 +271,138 @@
     {
       "init": null,
       "name": "hover"
+    }
+  ],
+  "signals": [
+    {
+      "name": "zoom",
+      "on": [
+        {
+          "events": "wheel!",
+          "force": true,
+          "update": "pow(1.005, event.deltaY * pow(16, event.deltaMode))"
+        }
+      ],
+      "value": 1
+    },
+    {
+      "name": "down",
+      "on": [
+        {
+          "events": "touchend",
+          "update": "null"
+        },
+        {
+          "events": "mousedown, touchstart",
+          "update": "xy()"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "delta",
+      "on": [
+        {
+          "events": [
+            {
+              "between": [
+                {
+                  "type": "mousedown"
+                },
+                {
+                  "source": "window",
+                  "type": "mouseup"
+                }
+              ],
+              "consume": true,
+              "source": "window",
+              "type": "mousemove"
+            },
+            {
+              "consume": true,
+              "filter": "event.touches.length === 1",
+              "type": "touchmove"
+            }
+          ],
+          "update": "down ? [down[0]-x(), y()-down[1]] : [0,0]"
+        }
+      ],
+      "value": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "xdomlog",
+      "on": [
+        {
+          "events": {
+            "signal": "zoom"
+          },
+          "update": "[xcur[0] - log(zoom), xcur[1] + log(zoom)]"
+        },
+        {
+          "events": {
+            "signal": "delta"
+          },
+          "update": "[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]"
+        }
+      ],
+      "value": [
+        -1,
+        6
+      ]
+    },
+    {
+      "name": "xcur",
+      "on": [
+        {
+          "events": "mousedown, touchstart, touchend, wheel!",
+          "update": "[xdomlog[0], xdomlog[1]]"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "xdom",
+      "update": "[pow(10, xdomlog[0]), pow(10, xdomlog[1])]",
+      "value": null
+    },
+    {
+      "name": "ydomlog",
+      "on": [
+        {
+          "events": {
+            "signal": "zoom"
+          },
+          "update": "[ycur[0] - log(zoom) * span(ycur) / span(xcur), ycur[1] + log(zoom) * span(ycur) / span(xcur)]"
+        },
+        {
+          "events": {
+            "signal": "delta"
+          },
+          "update": "[ycur[0] + span(ycur) * delta[1] / height, ycur[1] + span(ycur) * delta[1] / height]"
+        }
+      ],
+      "value": [
+        2,
+        5
+      ]
+    },
+    {
+      "name": "ycur",
+      "on": [
+        {
+          "events": "mousedown, touchstart, touchend, wheel!",
+          "update": "[ydomlog[0], ydomlog[1]]"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "ydom",
+      "update": "[pow(10, ydomlog[0]), pow(10, ydomlog[1])]",
+      "value": null
     }
   ],
   "width": 500
