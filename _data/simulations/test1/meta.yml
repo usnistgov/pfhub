@@ -1,0 +1,46 @@
+_id: 51314420-65a2-11e7-a6e9-ed95feff97b6
+metadata:
+  author: Daniel Wheeler
+  email: daniel.wheeler2@gmail.com
+  simulation_name: test1
+  summary: asdfasfdasf
+  timestamp: '10 July, 2017'
+  implementation:
+    repo:
+      url: 'https://github.com'
+      version: aaaaaaaaaa
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '1'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: moose
+    version: '1'
+    repo:
+      url: 'https://github.com/mesoscale/mmsp/tree/develop'
+      version: aaaaaaaaa
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - time: '1'
+        sim_time: '1'
+  - name: memory_usage
+    values: '1'
+date: 1499713348
