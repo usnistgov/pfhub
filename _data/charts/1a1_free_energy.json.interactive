@@ -45,11 +45,13 @@
       "formatType": "number",
       "orient": "bottom",
       "scale": "x",
-      "title": "Time"
+        "title": "Time",
+        "tickCount" : 5,
+        "labelOverlap" : "greedy"
     },
     {
       "encode": {
-        "labels": {
+          "labels": {
           "update": {
             "font": {
               "value": "Lato"
@@ -74,13 +76,9 @@
       "formatType": "number",
       "orient": "left",
       "scale": "y",
-      "title": "Free Energy",
-      "values": [
-        1,
-        10,
-        100,
-        1000
-      ]
+        "title": "Free Energy",
+        "tickCount" : 5,
+        "labelOverlap" : "greedy"
     },
     {
       "domain": false,
@@ -632,24 +630,7 @@
         "data": "prismspf_1a"
       },
         "type" : "line"
-    },
-      {
-          "encode" : {
-              "update" : {
-                  "text" : {
-                      "signal" : "xdomlog"
-                  },
-                  "x" : {
-                      "value" : 200
-                  },
-                  "y" : {
-                      "value" : 0
-                  }
-              }
-          },
-          "type" : "text"
-      }
-
+    }
   ],
 
 
@@ -698,13 +679,14 @@
             "value" : [0, 6],
             "on" : [
                 {
+                    "events": {"signal": "zoom"},
+                    "update": "[xcur[0] - log(zoom), xcur[1] + log(zoom)]"
+                },
+                {
                     "events" : {"signal" : "delta"},
                     "update" : "[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]"
                 },
-                {
-                    "events": {"signal": "zoom"},
-                    "update": "[xcur[0] / zoom, xcur[1] * zoom]"
-                }
+
             ]
         },
         {
@@ -712,7 +694,7 @@
             "value": null,
             "on": [
                 {
-                    "events": "mousedown, touchstart, touchend",
+                    "events": "mousedown, touchstart, touchend, wheel!",
                     "update": "[xdomlog[0], xdomlog[1]]"
                 }
             ]
@@ -721,6 +703,36 @@
             "name" : "xdom",
             "value" : [1, 1000000],
             "update" : "[pow(10, xdomlog[0]), pow(10, xdomlog[1])]"
+        },
+        {
+            "name" : "ydomlog",
+            "value" : [0, 3],
+            "on" : [
+                {
+                    "events": {"signal": "zoom"},
+                    "update": "[ycur[0] - log(zoom) * span(ycur) / span(xcur), ycur[1] + log(zoom) * span(ycur) / span(xcur)]"
+                },
+                {
+                    "events" : {"signal" : "delta"},
+                    "update" : "[ycur[0] + span(ycur) * delta[1] / height, ycur[1] + span(ycur) * delta[1] / height]"
+                },
+
+            ]
+        },
+        {
+            "name": "ycur",
+            "value": null,
+            "on": [
+                {
+                    "events": "mousedown, touchstart, touchend, wheel!",
+                    "update": "[ydomlog[0], ydomlog[1]]"
+                }
+            ]
+        },
+        {
+            "name" : "ydom",
+            "value" : [1, 1000],
+            "update" : "[pow(10, ydomlog[0]), pow(10, ydomlog[1])]"
         }
 
 
@@ -734,12 +746,9 @@
       "type": "log"
     },
     {
-      "domain": [
-        1,
-        1000
-      ],
+        "domain": {"signal": "ydom"},
       "name": "y",
-      "nice": true,
+      "nice": false,
       "range": "height",
       "type": "log"
     },
