@@ -1,10 +1,7 @@
 ---
 width: 500
 height: 300
-signal:
-  - name: hover
-    init: null
-
+autosize: {"type": "pad", "resize": false}
 signals: [
         {
             "name" : "zoom",
@@ -104,7 +101,8 @@ signals: [
             "name" : "ydom",
             "value" : null,
             "update" : "[pow(10, ydomlog[0]), pow(10, ydomlog[1])]"
-        }
+        },
+
     ]
 axes:
   - orient: bottom
@@ -230,9 +228,17 @@ marks:
           scale: color
           value: {{ datum.name }}
         strokeWidth:
-          value: 2
+          value: 3
         strokeOpacity:
           value: 1.0
+      hover:
+        tooltip:
+          value: {{ datum.name }}
+        strokeWidth:
+          value: 4
+        strokeOpacity:
+          value: 0.6
+
 {%- endfor %}
 data:
 {{ data | to_yaml() }}

@@ -1,4 +1,8 @@
 {
+  "autosize": {
+    "resize": false,
+    "type": "pad"
+  },
   "axes": [
     {
       "domain": false,
@@ -181,6 +185,17 @@
   "marks": [
     {
       "encode": {
+        "hover": {
+          "strokeOpacity": {
+            "value": 0.6
+          },
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": {
+            "value": "moose_2d_ia"
+          }
+        },
         "update": {
           "stroke": {
             "scale": "color",
@@ -190,7 +205,7 @@
             "value": 1.0
           },
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
             "field": "time",
@@ -209,6 +224,17 @@
     },
     {
       "encode": {
+        "hover": {
+          "strokeOpacity": {
+            "value": 0.6
+          },
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": {
+            "value": "moose_2d_sta"
+          }
+        },
         "update": {
           "stroke": {
             "scale": "color",
@@ -218,7 +244,7 @@
             "value": 1.0
           },
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
             "field": "time",
@@ -265,12 +291,6 @@
         "scheme": "category20"
       },
       "type": "ordinal"
-    }
-  ],
-  "signal": [
-    {
-      "init": null,
-      "name": "hover"
     }
   ],
   "signals": [
