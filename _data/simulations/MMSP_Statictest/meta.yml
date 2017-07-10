@@ -1,0 +1,46 @@
+_id: f973cbd0-6589-11e7-a6e9-ed95feff97b6
+metadata:
+  author: Trevor Keller
+  email: trevor.keller@nist.gov
+  simulation_name: MMSP_Statictest
+  summary: Test of Staticman with MMSP data
+  timestamp: '10 July, 2017'
+  implementation:
+    repo:
+      url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark'
+      version: 0b30a6f
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '3.8'
+    cores: '12'
+    nodes: '1'
+  software:
+    name: mmsp
+    version: '5.2'
+    repo:
+      url: 'https://github.com/mesoscale/mmsp'
+      version: 2352cdf6
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - time: '157186.74'
+        sim_time: '53333.3'
+  - name: memory_usage
+    values: '28600'
+date: 1499702893
