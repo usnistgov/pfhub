@@ -112,11 +112,7 @@
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
-        },
-          {
-              "expr" : "datum.time < zoom[1]",
-              "type" : "filter"
-          }
+        }
       ],
       "values": [
         {
@@ -170,11 +166,7 @@
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
-        },
-          {
-              "expr" : "datum.time < zoom[1]",
-              "type" : "filter"
-          }
+        }
       ],
       "url": "https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv"
     },
@@ -189,11 +181,7 @@
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
-        },
-          {
-              "expr" : "datum.time < zoom[1]",
-              "type" : "filter"
-          }
+        }
       ],
       "values": [
         {
@@ -255,11 +243,7 @@
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
-        },
-          {
-              "expr" : "datum.time < zoom[1]",
-              "type" : "filter"
-          }
+        }
       ],
       "url": "https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv"
     },
@@ -278,10 +262,6 @@
           "expr": "datum.TotalEnergy",
           "type": "formula"
         },
-          {
-              "expr" : "datum.time < zoom[1]",
-              "type" : "filter"
-          },
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
@@ -307,11 +287,7 @@
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
-        },
-          {
-              "expr" : "datum.time < zoom[1]",
-              "type" : "filter"
-          }
+        }
       ],
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1a_IA.csv"
     },
@@ -333,11 +309,7 @@
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
-        },
-          {
-              "expr" : "datum.time < zoom[1]",
-              "type" : "filter"
-          }
+        }
       ],
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1a_STA.csv"
     },
@@ -352,11 +324,7 @@
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
-        },
-          {
-              "expr" : "datum.time < zoom[1]",
-              "type" : "filter"
-          }
+        }
       ],
       "values": [
         {
@@ -664,34 +632,102 @@
         "data": "prismspf_1a"
       },
         "type" : "line"
-    }
+    },
+      {
+          "encode" : {
+              "update" : {
+                  "text" : {
+                      "signal" : "xdomlog"
+                  },
+                  "x" : {
+                      "value" : 200
+                  },
+                  "y" : {
+                      "value" : 0
+                  }
+              }
+          },
+          "type" : "text"
+      }
+
   ],
 
 
     "signals" : [
         {
-            "name" : "scale",
+            "name" : "zoom",
             "value" : 1,
             "on" :
             [
                 {
                     "events" : "wheel!",
                     "force" : true,
-                    "update" : "scale * pow(1.005, event.deltaY * pow(16, event.deltaMode))"
+                    "update" : "pow(1.005, event.deltaY * pow(16, event.deltaMode))"
                 }
             ]
         },
         {
-            "name" : "zoom",
+            "name": "down",
+            "value": null,
+            "on": [
+                {"events": "touchend", "update": "null"},
+                {"events": "mousedown, touchstart", "update": "xy()"}
+            ]
+        },
+        {
+            "name": "delta",
+            "value": [0, 0],
+            "on": [
+                {
+                    "events": [
+                        {
+                            "source": "window", "type": "mousemove", "consume": true,
+                            "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]
+                        },
+                        {
+                            "type": "touchmove", "consume": true,
+                            "filter": "event.touches.length === 1"
+                        }
+                    ],
+                    "update": "down ? [down[0]-x(), y()-down[1]] : [0,0]"
+                }
+            ]
+        },
+        {
+            "name" : "xdomlog",
+            "value" : [0, 6],
+            "on" : [
+                {
+                    "events" : {"signal" : "delta"},
+                    "update" : "[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]"
+                },
+                {
+                    "events": {"signal": "zoom"},
+                    "update": "[xcur[0] / zoom, xcur[1] * zoom]"
+                }
+            ]
+        },
+        {
+            "name": "xcur",
+            "value": null,
+            "on": [
+                {
+                    "events": "mousedown, touchstart, touchend",
+                    "update": "[xdomlog[0], xdomlog[1]]"
+                }
+            ]
+        },
+        {
+            "name" : "xdom",
             "value" : [1, 1000000],
-            "update" : "[1 / scale, 1000000 * scale]"
+            "update" : "[pow(10, xdomlog[0]), pow(10, xdomlog[1])]"
         }
+
+
     ],
-
-
   "scales": [
     {
-        "domain": {"signal": "zoom"},
+        "domain": {"signal": "xdom"},
       "name": "x",
       "nice": false,
         "range": [0, 500],
