@@ -1,148 +1,148 @@
 {
   "data": [
     {
-      "name": "images",
+      "name": "images", 
       "values": [
         {
-          "col": 0,
-          "height": 108,
-          "link": "1a.1",
-          "path": "../images/1a.1_free_energy.png",
-          "row": 0,
+          "col": 0, 
+          "height": 108, 
+          "link": "1a.1", 
+          "path": "../images/1a.1_free_energy.png", 
+          "row": 0, 
           "width": 204
-        },
+        }, 
         {
-          "col": 1,
-          "height": 108,
-          "link": "1b.1",
-          "path": "../images/1b.1_free_energy.png",
-          "row": 0,
+          "col": 1, 
+          "height": 108, 
+          "link": "1b.1", 
+          "path": "../images/1b.1_free_energy.png", 
+          "row": 0, 
           "width": 204
-        },
+        }, 
         {
-          "col": 2,
-          "height": 108,
-          "link": "1c.1",
-          "path": "../images/1c.1_free_energy.png",
-          "row": 0,
+          "col": 2, 
+          "height": 108, 
+          "link": "1c.1", 
+          "path": "../images/1c.1_free_energy.png", 
+          "row": 0, 
           "width": 204
-        },
+        }, 
         {
-          "col": 3,
-          "height": 108,
-          "link": "1d.1",
-          "path": "../images/1d.1_free_energy.png",
-          "row": 0,
+          "col": 3, 
+          "height": 108, 
+          "link": "1d.1", 
+          "path": "../images/1d.1_free_energy.png", 
+          "row": 0, 
           "width": 204
-        },
+        }, 
         {
-          "col": 0,
-          "height": 108,
-          "link": "2a.1",
-          "path": "../images/2a.1_free_energy.png",
-          "row": 1,
+          "col": 0, 
+          "height": 108, 
+          "link": "2a.1", 
+          "path": "../images/2a.1_free_energy.png", 
+          "row": 1, 
           "width": 204
-        },
+        }, 
         {
-          "col": 1,
-          "height": 108,
-          "link": "2b.1",
-          "path": "../images/2b.1_free_energy.png",
-          "row": 1,
+          "col": 1, 
+          "height": 108, 
+          "link": "2b.1", 
+          "path": "../images/2b.1_free_energy.png", 
+          "row": 1, 
           "width": 204
-        },
+        }, 
         {
-          "col": 2,
-          "height": 108,
-          "link": "2c.1",
-          "path": "../images/2c.1_free_energy.png",
-          "row": 1,
+          "col": 2, 
+          "height": 108, 
+          "link": "2c.1", 
+          "path": "../images/2c.1_free_energy.png", 
+          "row": 1, 
           "width": 204
-        },
+        }, 
         {
-          "col": 3,
-          "height": 108,
-          "link": "2d.1",
-          "path": "../images/2d.1_free_energy.png",
-          "row": 1,
+          "col": 3, 
+          "height": 108, 
+          "link": "2d.1", 
+          "path": "../images/2d.1_free_energy.png", 
+          "row": 1, 
           "width": 204
         }
       ]
     }
-  ],
-  "height": 224,
+  ], 
+  "height": 224, 
   "marks": [
     {
       "encode": {
         "enter": {
           "clip": {
             "value": true
-          },
+          }, 
           "fill": {
             "value": null
-          },
+          }, 
           "height": {
-            "band": true,
-            "offset": -5,
+            "band": true, 
+            "offset": -5, 
             "scale": "y"
-          },
+          }, 
           "width": {
-            "band": true,
-            "offset": -5,
+            "band": true, 
+            "offset": -5, 
             "scale": "x"
-          },
+          }, 
           "x": {
-            "field": "col",
+            "field": "col", 
             "scale": "x"
-          },
+          }, 
           "y": {
-            "field": "row",
+            "field": "row", 
             "scale": "y"
           }
         }
-      },
+      }, 
       "from": {
         "data": "images"
-      },
+      }, 
       "marks": [
         {
           "encode": {
             "enter": {
               "align": {
                 "value": "left"
-              },
+              }, 
               "baseline": {
                 "value": "center"
-              },
+              }, 
               "height": {
                 "field": {
                   "parent": "height"
                 }
-              },
+              }, 
               "url": {
                 "field": {
                   "parent": "path"
                 }
-              },
+              }, 
               "width": {
                 "field": {
                   "parent": "width"
                 }
               }
-            },
+            }, 
             "exit": {
               "cursor": {
                 "value": "default"
               }
-            },
+            }, 
             "hover": {
               "cursor": {
                 "value": "pointer"
               }
             }
-          },
+          }, 
           "type": "image"
-        },
+        }, 
         {
           "encode": {
             "enter": {
@@ -150,150 +150,150 @@
                 "field": {
                   "group": "height"
                 }
-              },
+              }, 
               "width": {
                 "field": {
                   "group": "width"
                 }
-              },
+              }, 
               "x": {
                 "value": 0
-              },
+              }, 
               "y": {
                 "value": 0
               }
-            },
+            }, 
             "hover": {
               "cursor": {
                 "value": "default"
               }
-            },
+            }, 
             "update": {
               "stroke": [
                 {
-                  "test": "parent._id == active._id",
+                  "test": "parent._id == active._id", 
                   "value": "#d5a928"
-                },
+                }, 
                 {
                   "value": "#888888"
                 }
-              ],
+              ], 
               "strokeWidth": [
                 {
-                  "test": "parent._id == active._id",
+                  "test": "parent._id == active._id", 
                   "value": 4
-                },
+                }, 
                 {
                   "value": 2
                 }
               ]
             }
-          },
+          }, 
           "type": "rect"
-        },
+        }, 
         {
           "encode": {
             "enter": {
               "align": {
                 "value": "center"
-              },
+              }, 
               "dx": {
                 "value": 80
-              },
+              }, 
               "dy": {
                 "value": 55
               }
-            },
+            }, 
             "hover": {
               "cursor": {
                 "value": "pointer"
               }
-            },
+            }, 
             "update": {
               "fill": [
                 {
-                  "test": "parent._id == active._id",
+                  "test": "parent._id == active._id", 
                   "value": "#d5a928"
-                },
+                }, 
                 {
                   "value": "#888888"
                 }
-              ],
+              ], 
               "fontSize": [
                 {
-                  "test": "parent._id == active._id",
+                  "test": "parent._id == active._id", 
                   "value": 14
-                },
+                }, 
                 {
                   "value": 12
                 }
-              ],
+              ], 
               "fontWeight": [
                 {
-                  "test": "parent._id == active._id",
+                  "test": "parent._id == active._id", 
                   "value": "bold"
-                },
+                }, 
                 {
                   "value": "normal"
                 }
-              ],
+              ], 
               "opacity": [
                 {
-                  "test": "parent._id == active._id",
+                  "test": "parent._id == active._id", 
                   "value": 1
-                },
+                }, 
                 {
                   "value": 0.7
                 }
-              ],
+              ], 
               "text": {
                 "signal": "'Free Energy ' +   parent.link "
               }
             }
-          },
+          }, 
           "type": "text"
         }
-      ],
-      "name": "example",
+      ], 
+      "name": "example", 
       "type": "group"
     }
-  ],
-  "padding": 0,
+  ], 
+  "padding": 0, 
   "scales": [
     {
       "domain": {
-        "data": "images",
+        "data": "images", 
         "field": "col"
-      },
-      "name": "x",
-      "range": "width",
+      }, 
+      "name": "x", 
+      "range": "width", 
       "type": "band"
-    },
+    }, 
     {
       "domain": {
-        "data": "images",
+        "data": "images", 
         "field": "row"
-      },
-      "name": "y",
-      "range": "height",
+      }, 
+      "name": "y", 
+      "range": "height", 
       "type": "band"
     }
-  ],
+  ], 
   "signals": [
     {
-      "name": "active",
+      "name": "active", 
       "on": [
         {
-          "events": "image:mouseover, group:mouseover, group:mouseout, rect:mouseover, text:mouseover",
+          "events": "image:mouseover, group:mouseover, group:mouseout, rect:mouseover, text:mouseover", 
           "update": "group().datum"
-        },
+        }, 
         {
-          "events": "body:mouseout, rect:mouseout",
+          "events": "body:mouseout, rect:mouseout", 
           "update": "{}"
         }
-      ],
+      ], 
       "value": {}
     }
-  ],
+  ], 
   "width": 672
 }

@@ -3,6 +3,16 @@ width: 500
 height: 300
 autosize: {"type": "pad", "resize": false}
 signals: [
+   {
+      "name": "clicked", "value": null,
+      "on": [
+        {
+          "events": "@legendSymbol:click, @legendLabel:click",
+          "update": "{value: datum.value}",
+          "force":  true
+        }
+      ]
+    },
         {
             "name" : "zoom",
             "value" : 1,
@@ -206,14 +216,29 @@ legends:
           fontSize:
             value: 14
       labels:
+        name: legendLabel
+        iteractive: true
         update:
           font:
             value: Lato
           fontSize:
             value: 12
+          opacity:
+            - test: "!indata('selected', 'value', datum.value)"
+              value: 1.0
+            - value: 0.2
+      symbols:
+        name: legendSymbol
+        interactive: true
+        update:
+          opacity:
+            - test: "!indata('selected', 'value', datum.value)"
+              value: 1.0
+            - value: 0.2
 marks:
 {%- for datum in data %}
   - type: line
+    interactive: true
     from:
       data: {{ datum.name }}
     encode:
@@ -230,15 +255,24 @@ marks:
         strokeWidth:
           value: 3
         strokeOpacity:
-          value: 1.0
+          - test: "!indata('selected', 'value', '{{ datum.name }}')"
+            value: 1.0
+          - value: 0.0
       hover:
         tooltip:
-          value: {{ datum.name }}
+          - test: "!indata('selected', 'value', '{{ datum.name }}')"
+            value: {{ datum.name }}
+          - value: ""
         strokeWidth:
           value: 4
         strokeOpacity:
-          value: 0.6
-
+          - test: "!indata('selected', 'value', '{{ datum.name }}')"
+            value: 0.6
+          - value: 0.0
 {%- endfor %}
 data:
 {{ data | to_yaml() }}
+- name: selected
+  "on":
+    - trigger: clicked
+      toggle: clicked
