@@ -3,6 +3,110 @@
     "resize": false,
     "type": "pad"
   },
+  "axes": [
+    {
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "bottom",
+      "scale": "x",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "domain": false,
+      "grid": true,
+      "labels": false,
+      "orient": "left",
+      "scale": "y",
+      "tickSize": 0,
+      "ticks": false
+    },
+    {
+      "encode": {
+        "labels": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
+          }
+        },
+        "title": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
+          }
+        }
+      },
+      "format": ".0e",
+      "formatType": "number",
+      "labelOverlap": "greedy",
+      "orient": "bottom",
+      "scale": "x",
+      "tickCount": 5,
+      "title": "Sim Time (s) / Wall Time (s)"
+    },
+    {
+      "encode": {
+        "labels": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
+          }
+        },
+        "title": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
+          }
+        }
+      },
+      "format": ".0e",
+      "formatType": "number",
+      "labelOverlap": "greedy",
+      "orient": "left",
+      "scale": "y",
+      "tickCount": 5,
+      "title": "Memory Usage (KB)"
+    },
+    {
+      "domain": false,
+      "encode": {
+        "title": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 20
+            }
+          }
+        }
+      },
+      "labels": false,
+      "orient": "top",
+      "scale": "x",
+      "ticks": false,
+      "title": "Efficiency",
+      "titlePadding": 20,
+      "values": []
+    }
+  ],
   "data": [
     {
       "name": "fipy_1a_travis",
@@ -153,17 +257,29 @@
     {
       "encode": {
         "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_1a_travis')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
           "strokeOpacity": [
             {
               "test": "!indata('selected', 'value', 'fipy_1a_travis')",
-              "value": 0.6
+              "value": 0.4
             },
             {
               "value": 0.0
             }
           ],
           "strokeWidth": {
-            "value": 4
+            "size": 0
           },
           "tooltip": [
             {
@@ -176,11 +292,11 @@
           ]
         },
         "update": {
-          "stroke": {
+          "fill": {
             "scale": "color",
             "value": "fipy_1a_travis"
           },
-          "strokeOpacity": [
+          "fillOpacity": [
             {
               "test": "!indata('selected', 'value', 'fipy_1a_travis')",
               "value": 1.0
@@ -189,15 +305,22 @@
               "value": 0.0
             }
           ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "fipy_1a_travis"
+          },
           "strokeWidth": {
-            "value": 3
+            "value": 0
           },
           "x": {
-            "field": "time",
+            "field": "time_ratio",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "memory_usage",
             "scale": "y"
           }
         }
@@ -206,22 +329,34 @@
         "data": "fipy_1a_travis"
       },
       "interactive": true,
-      "type": "line"
+      "type": "symbol"
     },
     {
       "encode": {
         "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1a_raspi')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
           "strokeOpacity": [
             {
               "test": "!indata('selected', 'value', 'mmsp_1a_raspi')",
-              "value": 0.6
+              "value": 0.4
             },
             {
               "value": 0.0
             }
           ],
           "strokeWidth": {
-            "value": 4
+            "size": 0
           },
           "tooltip": [
             {
@@ -234,11 +369,11 @@
           ]
         },
         "update": {
-          "stroke": {
+          "fill": {
             "scale": "color",
             "value": "mmsp_1a_raspi"
           },
-          "strokeOpacity": [
+          "fillOpacity": [
             {
               "test": "!indata('selected', 'value', 'mmsp_1a_raspi')",
               "value": 1.0
@@ -247,15 +382,22 @@
               "value": 0.0
             }
           ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1a_raspi"
+          },
           "strokeWidth": {
-            "value": 3
+            "value": 0
           },
           "x": {
-            "field": "time",
+            "field": "time_ratio",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "memory_usage",
             "scale": "y"
           }
         }
@@ -264,22 +406,34 @@
         "data": "mmsp_1a_raspi"
       },
       "interactive": true,
-      "type": "line"
+      "type": "symbol"
     },
     {
       "encode": {
         "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1a_travis')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
           "strokeOpacity": [
             {
               "test": "!indata('selected', 'value', 'mmsp_1a_travis')",
-              "value": 0.6
+              "value": 0.4
             },
             {
               "value": 0.0
             }
           ],
           "strokeWidth": {
-            "value": 4
+            "size": 0
           },
           "tooltip": [
             {
@@ -292,11 +446,11 @@
           ]
         },
         "update": {
-          "stroke": {
+          "fill": {
             "scale": "color",
             "value": "mmsp_1a_travis"
           },
-          "strokeOpacity": [
+          "fillOpacity": [
             {
               "test": "!indata('selected', 'value', 'mmsp_1a_travis')",
               "value": 1.0
@@ -305,15 +459,22 @@
               "value": 0.0
             }
           ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1a_travis"
+          },
           "strokeWidth": {
-            "value": 3
+            "value": 0
           },
           "x": {
-            "field": "time",
+            "field": "time_ratio",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "memory_usage",
             "scale": "y"
           }
         }
@@ -322,22 +483,34 @@
         "data": "mmsp_1a_travis"
       },
       "interactive": true,
-      "type": "line"
+      "type": "symbol"
     },
     {
       "encode": {
         "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1a_wrksttn')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
           "strokeOpacity": [
             {
               "test": "!indata('selected', 'value', 'mmsp_1a_wrksttn')",
-              "value": 0.6
+              "value": 0.4
             },
             {
               "value": 0.0
             }
           ],
           "strokeWidth": {
-            "value": 4
+            "size": 0
           },
           "tooltip": [
             {
@@ -350,11 +523,11 @@
           ]
         },
         "update": {
-          "stroke": {
+          "fill": {
             "scale": "color",
             "value": "mmsp_1a_wrksttn"
           },
-          "strokeOpacity": [
+          "fillOpacity": [
             {
               "test": "!indata('selected', 'value', 'mmsp_1a_wrksttn')",
               "value": 1.0
@@ -363,15 +536,22 @@
               "value": 0.0
             }
           ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1a_wrksttn"
+          },
           "strokeWidth": {
-            "value": 3
+            "value": 0
           },
           "x": {
-            "field": "time",
+            "field": "time_ratio",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "memory_usage",
             "scale": "y"
           }
         }
@@ -380,22 +560,34 @@
         "data": "mmsp_1a_wrksttn"
       },
       "interactive": true,
-      "type": "line"
+      "type": "symbol"
     },
     {
       "encode": {
         "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1a_ia')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
           "strokeOpacity": [
             {
               "test": "!indata('selected', 'value', 'moose_1a_ia')",
-              "value": 0.6
+              "value": 0.4
             },
             {
               "value": 0.0
             }
           ],
           "strokeWidth": {
-            "value": 4
+            "size": 0
           },
           "tooltip": [
             {
@@ -408,11 +600,11 @@
           ]
         },
         "update": {
-          "stroke": {
+          "fill": {
             "scale": "color",
             "value": "moose_1a_ia"
           },
-          "strokeOpacity": [
+          "fillOpacity": [
             {
               "test": "!indata('selected', 'value', 'moose_1a_ia')",
               "value": 1.0
@@ -421,15 +613,22 @@
               "value": 0.0
             }
           ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "moose_1a_ia"
+          },
           "strokeWidth": {
-            "value": 3
+            "value": 0
           },
           "x": {
-            "field": "time",
+            "field": "time_ratio",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "memory_usage",
             "scale": "y"
           }
         }
@@ -438,22 +637,34 @@
         "data": "moose_1a_ia"
       },
       "interactive": true,
-      "type": "line"
+      "type": "symbol"
     },
     {
       "encode": {
         "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1a_IA')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
           "strokeOpacity": [
             {
               "test": "!indata('selected', 'value', 'moose_psu_1a_IA')",
-              "value": 0.6
+              "value": 0.4
             },
             {
               "value": 0.0
             }
           ],
           "strokeWidth": {
-            "value": 4
+            "size": 0
           },
           "tooltip": [
             {
@@ -466,11 +677,11 @@
           ]
         },
         "update": {
-          "stroke": {
+          "fill": {
             "scale": "color",
             "value": "moose_psu_1a_IA"
           },
-          "strokeOpacity": [
+          "fillOpacity": [
             {
               "test": "!indata('selected', 'value', 'moose_psu_1a_IA')",
               "value": 1.0
@@ -479,15 +690,22 @@
               "value": 0.0
             }
           ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "moose_psu_1a_IA"
+          },
           "strokeWidth": {
-            "value": 3
+            "value": 0
           },
           "x": {
-            "field": "time",
+            "field": "time_ratio",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "memory_usage",
             "scale": "y"
           }
         }
@@ -496,22 +714,34 @@
         "data": "moose_psu_1a_IA"
       },
       "interactive": true,
-      "type": "line"
+      "type": "symbol"
     },
     {
       "encode": {
         "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1a_STA')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
           "strokeOpacity": [
             {
               "test": "!indata('selected', 'value', 'moose_psu_1a_STA')",
-              "value": 0.6
+              "value": 0.4
             },
             {
               "value": 0.0
             }
           ],
           "strokeWidth": {
-            "value": 4
+            "size": 0
           },
           "tooltip": [
             {
@@ -524,11 +754,11 @@
           ]
         },
         "update": {
-          "stroke": {
+          "fill": {
             "scale": "color",
             "value": "moose_psu_1a_STA"
           },
-          "strokeOpacity": [
+          "fillOpacity": [
             {
               "test": "!indata('selected', 'value', 'moose_psu_1a_STA')",
               "value": 1.0
@@ -537,15 +767,22 @@
               "value": 0.0
             }
           ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "moose_psu_1a_STA"
+          },
           "strokeWidth": {
-            "value": 3
+            "value": 0
           },
           "x": {
-            "field": "time",
+            "field": "time_ratio",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "memory_usage",
             "scale": "y"
           }
         }
@@ -554,22 +791,34 @@
         "data": "moose_psu_1a_STA"
       },
       "interactive": true,
-      "type": "line"
+      "type": "symbol"
     },
     {
       "encode": {
         "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_1a')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
           "strokeOpacity": [
             {
               "test": "!indata('selected', 'value', 'prismspf_1a')",
-              "value": 0.6
+              "value": 0.4
             },
             {
               "value": 0.0
             }
           ],
           "strokeWidth": {
-            "value": 4
+            "size": 0
           },
           "tooltip": [
             {
@@ -582,11 +831,11 @@
           ]
         },
         "update": {
-          "stroke": {
+          "fill": {
             "scale": "color",
             "value": "prismspf_1a"
           },
-          "strokeOpacity": [
+          "fillOpacity": [
             {
               "test": "!indata('selected', 'value', 'prismspf_1a')",
               "value": 1.0
@@ -595,15 +844,22 @@
               "value": 0.0
             }
           ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "prismspf_1a"
+          },
           "strokeWidth": {
-            "value": 3
+            "value": 0
           },
           "x": {
-            "field": "time",
+            "field": "time_ratio",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "memory_usage",
             "scale": "y"
           }
         }
@@ -612,7 +868,7 @@
         "data": "prismspf_1a"
       },
       "interactive": true,
-      "type": "line"
+      "type": "symbol"
     }
   ],
   "scales": [
@@ -739,8 +995,8 @@
         }
       ],
       "value": [
-        0,
-        6
+        -2,
+        3
       ]
     },
     {
@@ -775,8 +1031,8 @@
         }
       ],
       "value": [
-        0,
-        3
+        2,
+        8
       ]
     },
     {

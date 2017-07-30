@@ -40,8 +40,8 @@ data:
     values:
       [
         {
-          "time": 3529,
-          "sim_time": 984
+          "time": 3529.0,
+          "sim_time": 984.0
         }
       ]
     transform:

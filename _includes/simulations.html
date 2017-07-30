@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col s8 offset-s2" id="free_energy_chart">
+    <div class="col s8 offset-s2">
       <div class="flow-text" style="font-size: 12px">
         Click and drag to pan, wheel or pinch to zoom and click on
         legend symbols to add or remove data.
@@ -36,8 +36,30 @@
 {% capture chart_path %}{{ include.benchmark_id | replace: '.', '' }}_free_energy{% endcapture %}
 <script> var chart_json = {{ site.data.charts | jsonify }}["{{ chart_path }}"] </script>
 <script> var div_id="#free_energy_chart" </script>
-
 <script src="{{ site.baseurl }}/js/chart.js"></script>
+
+<div class="container">
+  <div class="row small-buffer">
+    <br>
+    <div class="col s8 offset-s2" id="memory_chart">
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <div class="flow-text" style="font-size: 12px">
+        Click and drag to pan, wheel or pinch to zoom and click on
+        legend symbols to add or remove data.
+      </div>
+    </div>
+  </div>
+</div>
+
+{% capture chart_path %}{{ include.benchmark_id | replace: '.', '' }}_memory{% endcapture %}
+<script> var chart_json = {{ site.data.charts | jsonify }}["{{ chart_path }}"] </script>
+<script> var div_id="#memory_chart" </script>
+<script src="{{ site.baseurl }}/js/chart.js"></script>
+
 
 <div class="container top-bar top-buffer">
   <div class="row small-buffer">

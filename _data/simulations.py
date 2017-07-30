@@ -130,11 +130,8 @@ def filter_memory_data(yaml_data):
     """
     def time_ratio(data):
         if 'sim_time' in data[-1]:
-            try:
-                return data[-1].get('sim_time') / data[-1].get('wall_time',
-                                                               data[-1].get('time'))
-            except:
-                import ipdb; ipdb.set_trace()
+            return data[-1].get('sim_time') / float(data[-1].get('wall_time',
+                                                                     data[-1].get('time')))
         else:
             return data[-1].get('sim_time',
                                 data[-1].get('time')) / data[-1].get('wall_time')
