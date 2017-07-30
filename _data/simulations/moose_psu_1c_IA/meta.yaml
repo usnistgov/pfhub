@@ -32,11 +32,16 @@
           values: IA
 
   data:
+    - name: memory_usage
+      values:
+        value: 100
+        unit: GB
     - name: run_time
       values:
         [
           {
             "time": 6850,
+            "sim_time": 570101
           }
         ]
       transform:

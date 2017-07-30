@@ -33,12 +33,12 @@ data:
   - name: run_time
     values:
       - wall_time: 28320
-        sim_time: 0
+        sim_time: 74169
         unit: s
   - name: memory_usage
     values:
-      value: 3.0
-      unit: GB
+      - value: 3.0
+        unit: GB
   - name: free_energy
     url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_NF_STA_dfdt.csv
     format:

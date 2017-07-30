@@ -32,11 +32,16 @@ metadata:
         values: STA
 
 data:
+  - name: memory_usage
+    values:
+      value: 100
+      unit: GB
   - name: run_time
     values:
       [
         {
           "time": 3529,
+          "sim_time": 984
         }
       ]
     transform:

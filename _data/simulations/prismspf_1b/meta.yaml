@@ -82,7 +82,7 @@ data: # REQUIRED
         time: 273.0
       - sim_time: 10000.0
         time: 882.0
-  - name: memory usage
+  - name: memory_usage
     values:
       - value: 29928
         unit: KB

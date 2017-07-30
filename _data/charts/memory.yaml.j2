@@ -1,0 +1,207 @@
+---
+width: 500
+height: 300
+autosize: {"type": "pad", "resize": false}
+signals: [
+   {
+      "name": "clicked", "value": null,
+      "on": [
+        {
+          "events": "@legendSymbol:click, @legendLabel:click",
+          "update": "{value: datum.value}",
+          "force":  true
+        }
+      ]
+    },
+        {
+            "name" : "zoom",
+            "value" : 1,
+            "on" :
+            [
+                {
+                    "events" : "wheel!",
+                    "force" : true,
+                    "update" : "pow(1.005, event.deltaY * pow(16, event.deltaMode))"
+                }
+            ]
+        },
+        {
+            "name": "down",
+            "value": null,
+            "on": [
+                {"events": "touchend", "update": "null"},
+                {"events": "mousedown, touchstart", "update": "xy()"}
+            ]
+        },
+        {
+            "name": "delta",
+            "value": [0, 0],
+            "on": [
+                {
+                    "events": [
+                        {
+                            "source": "window", "type": "mousemove", "consume": true,
+                            "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]
+                        },
+                        {
+                            "type": "touchmove", "consume": true,
+                            "filter": "event.touches.length === 1"
+                        }
+                    ],
+                    "update": "down ? [down[0]-x(), y()-down[1]] : [0,0]"
+                }
+            ]
+        },
+        {
+            "name" : "xdomlog",
+            "value" : [{{ marks.x | first }}, {{ marks.x | last}}],
+            "on" : [
+                {
+                    "events": {"signal": "zoom"},
+                    "update": "[xcur[0] - log(zoom), xcur[1] + log(zoom)]"
+                },
+                {
+                    "events" : {"signal" : "delta"},
+                    "update" : "[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]"
+                },
+
+            ]
+        },
+        {
+            "name": "xcur",
+            "value": null,
+            "on": [
+                {
+                    "events": "mousedown, touchstart, touchend, wheel!",
+                    "update": "[xdomlog[0], xdomlog[1]]"
+                }
+            ]
+        },
+        {
+            "name" : "xdom",
+            "value" : null,
+            "update" : "[pow(10, xdomlog[0]), pow(10, xdomlog[1])]"
+        },
+        {
+            "name" : "ydomlog",
+            "value" : [{{ marks.y | first }}, {{ marks.y | last}}],
+            "on" : [
+                {
+                    "events": {"signal": "zoom"},
+                    "update": "[ycur[0] - log(zoom) * span(ycur) / span(xcur), ycur[1] + log(zoom) * span(ycur) / span(xcur)]"
+                },
+                {
+                    "events" : {"signal" : "delta"},
+                    "update" : "[ycur[0] + span(ycur) * delta[1] / height, ycur[1] + span(ycur) * delta[1] / height]"
+                },
+
+            ]
+        },
+        {
+            "name": "ycur",
+            "value": null,
+            "on": [
+                {
+                    "events": "mousedown, touchstart, touchend, wheel!",
+                    "update": "[ydomlog[0], ydomlog[1]]"
+                }
+            ]
+        },
+        {
+            "name" : "ydom",
+            "value" : null,
+            "update" : "[pow(10, ydomlog[0]), pow(10, ydomlog[1])]"
+        },
+    ]
+scales:
+  - name: x
+    nice: false
+    type: log
+    range: width
+    domain:
+      signal: xdom
+  - name: y
+    nice: false
+    type: log
+    range: height
+    domain:
+      signal: ydom
+  - name: color
+    range:
+      scheme: category20
+    type: ordinal
+    domain:
+{%- for datum in data %}
+      - {{ datum.name }}
+{%- endfor %}
+legends:
+  - title: Simulations
+    fill: color
+    encode:
+      title:
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 14
+      labels:
+        name: legendLabel
+        iteractive: true
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 12
+          opacity:
+            - test: "!indata('selected', 'value', datum.value)"
+              value: 1.0
+            - value: 0.2
+      symbols:
+        name: legendSymbol
+        interactive: true
+        update:
+          opacity:
+            - test: "!indata('selected', 'value', datum.value)"
+              value: 1.0
+            - value: 0.2
+marks:
+{%- for datum in data %}
+  - type: line
+    interactive: true
+    from:
+      data: {{ datum.name }}
+    encode:
+      update:
+        x:
+          scale: x
+          field: time
+        y:
+          scale: y
+          field: free_energy
+        stroke:
+          scale: color
+          value: {{ datum.name }}
+        strokeWidth:
+          value: 3
+        strokeOpacity:
+          - test: "!indata('selected', 'value', '{{ datum.name }}')"
+            value: 1.0
+          - value: 0.0
+      hover:
+        tooltip:
+          - test: "!indata('selected', 'value', '{{ datum.name }}')"
+            value: {{ datum.name }}
+          - value: ""
+        strokeWidth:
+          value: 4
+        strokeOpacity:
+          - test: "!indata('selected', 'value', '{{ datum.name }}')"
+            value: 0.6
+          - value: 0.0
+{%- endfor %}
+data:
+{{ data | to_yaml() }}
+- name: selected
+  "on":
+    - trigger: clicked
+      toggle: clicked

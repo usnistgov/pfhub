@@ -1,0 +1,799 @@
+{
+  "autosize": {
+    "resize": false,
+    "type": "pad"
+  },
+  "data": [
+    {
+      "name": "fipy_1c_travis",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 306448.0,
+          "time_ratio": 1.4458816825392542
+        }
+      ]
+    },
+    {
+      "name": "inl_moose_1c",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 283842.56,
+          "time_ratio": 43.11143875804567
+        }
+      ]
+    },
+    {
+      "name": "mmsp_1c_raspi",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 8596.0,
+          "time_ratio": 0.02082920394695436
+        }
+      ]
+    },
+    {
+      "name": "mmsp_1c_travis",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 32504.0,
+          "time_ratio": 0.10037267736486487
+        }
+      ]
+    },
+    {
+      "name": "mmsp_1c_wrksttn",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 28324.0,
+          "time_ratio": 1.089786696597677
+        }
+      ]
+    },
+    {
+      "name": "moose_1c_ia",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 425984.0,
+          "time_ratio": 753.0534940127047
+        }
+      ]
+    },
+    {
+      "name": "moose_psu_1c_IA",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 104857600.0,
+          "time_ratio": 83.22642335766423
+        }
+      ]
+    },
+    {
+      "name": "moose_psu_1c_STA",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 104857600.0,
+          "time_ratio": 98.31670168067227
+        }
+      ]
+    },
+    {
+      "name": "selected",
+      "on": [
+        {
+          "toggle": "clicked",
+          "trigger": "clicked"
+        }
+      ]
+    }
+  ],
+  "height": 300,
+  "legends": [
+    {
+      "encode": {
+        "labels": {
+          "iteractive": true,
+          "name": "legendLabel",
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            },
+            "opacity": [
+              {
+                "test": "!indata('selected', 'value', datum.value)",
+                "value": 1.0
+              },
+              {
+                "value": 0.2
+              }
+            ]
+          }
+        },
+        "symbols": {
+          "interactive": true,
+          "name": "legendSymbol",
+          "update": {
+            "opacity": [
+              {
+                "test": "!indata('selected', 'value', datum.value)",
+                "value": 1.0
+              },
+              {
+                "value": 0.2
+              }
+            ]
+          }
+        },
+        "title": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
+          }
+        }
+      },
+      "fill": "color",
+      "title": "Simulations"
+    }
+  ],
+  "marks": [
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_1c_travis')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_1c_travis')",
+              "value": "fipy_1c_travis"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "fipy_1c_travis"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_1c_travis')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "fipy_1c_travis"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_1c')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_1c')",
+              "value": "inl_moose_1c"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "inl_moose_1c"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_1c')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "inl_moose_1c"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1c_raspi')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1c_raspi')",
+              "value": "mmsp_1c_raspi"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1c_raspi"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1c_raspi')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "mmsp_1c_raspi"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1c_travis')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1c_travis')",
+              "value": "mmsp_1c_travis"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1c_travis"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1c_travis')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "mmsp_1c_travis"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1c_wrksttn')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1c_wrksttn')",
+              "value": "mmsp_1c_wrksttn"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "mmsp_1c_wrksttn"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1c_wrksttn')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "mmsp_1c_wrksttn"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1c_ia')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1c_ia')",
+              "value": "moose_1c_ia"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_1c_ia"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1c_ia')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_1c_ia"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1c_IA')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1c_IA')",
+              "value": "moose_psu_1c_IA"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_psu_1c_IA"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1c_IA')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_psu_1c_IA"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1c_STA')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1c_STA')",
+              "value": "moose_psu_1c_STA"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_psu_1c_STA"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1c_STA')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "time",
+            "scale": "x"
+          },
+          "y": {
+            "field": "free_energy",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_psu_1c_STA"
+      },
+      "interactive": true,
+      "type": "line"
+    }
+  ],
+  "scales": [
+    {
+      "domain": {
+        "signal": "xdom"
+      },
+      "name": "x",
+      "nice": false,
+      "range": "width",
+      "type": "log"
+    },
+    {
+      "domain": {
+        "signal": "ydom"
+      },
+      "name": "y",
+      "nice": false,
+      "range": "height",
+      "type": "log"
+    },
+    {
+      "domain": [
+        "fipy_1c_travis",
+        "inl_moose_1c",
+        "mmsp_1c_raspi",
+        "mmsp_1c_travis",
+        "mmsp_1c_wrksttn",
+        "moose_1c_ia",
+        "moose_psu_1c_IA",
+        "moose_psu_1c_STA"
+      ],
+      "name": "color",
+      "range": {
+        "scheme": "category20"
+      },
+      "type": "ordinal"
+    }
+  ],
+  "signals": [
+    {
+      "name": "clicked",
+      "on": [
+        {
+          "events": "@legendSymbol:click, @legendLabel:click",
+          "force": true,
+          "update": "{value: datum.value}"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "zoom",
+      "on": [
+        {
+          "events": "wheel!",
+          "force": true,
+          "update": "pow(1.005, event.deltaY * pow(16, event.deltaMode))"
+        }
+      ],
+      "value": 1
+    },
+    {
+      "name": "down",
+      "on": [
+        {
+          "events": "touchend",
+          "update": "null"
+        },
+        {
+          "events": "mousedown, touchstart",
+          "update": "xy()"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "delta",
+      "on": [
+        {
+          "events": [
+            {
+              "between": [
+                {
+                  "type": "mousedown"
+                },
+                {
+                  "source": "window",
+                  "type": "mouseup"
+                }
+              ],
+              "consume": true,
+              "source": "window",
+              "type": "mousemove"
+            },
+            {
+              "consume": true,
+              "filter": "event.touches.length === 1",
+              "type": "touchmove"
+            }
+          ],
+          "update": "down ? [down[0]-x(), y()-down[1]] : [0,0]"
+        }
+      ],
+      "value": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "xdomlog",
+      "on": [
+        {
+          "events": {
+            "signal": "zoom"
+          },
+          "update": "[xcur[0] - log(zoom), xcur[1] + log(zoom)]"
+        },
+        {
+          "events": {
+            "signal": "delta"
+          },
+          "update": "[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]"
+        }
+      ],
+      "value": [
+        0,
+        6
+      ]
+    },
+    {
+      "name": "xcur",
+      "on": [
+        {
+          "events": "mousedown, touchstart, touchend, wheel!",
+          "update": "[xdomlog[0], xdomlog[1]]"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "xdom",
+      "update": "[pow(10, xdomlog[0]), pow(10, xdomlog[1])]",
+      "value": null
+    },
+    {
+      "name": "ydomlog",
+      "on": [
+        {
+          "events": {
+            "signal": "zoom"
+          },
+          "update": "[ycur[0] - log(zoom) * span(ycur) / span(xcur), ycur[1] + log(zoom) * span(ycur) / span(xcur)]"
+        },
+        {
+          "events": {
+            "signal": "delta"
+          },
+          "update": "[ycur[0] + span(ycur) * delta[1] / height, ycur[1] + span(ycur) * delta[1] / height]"
+        }
+      ],
+      "value": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "ycur",
+      "on": [
+        {
+          "events": "mousedown, touchstart, touchend, wheel!",
+          "update": "[ydomlog[0], ydomlog[1]]"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "ydom",
+      "update": "[pow(10, ydomlog[0]), pow(10, ydomlog[1])]",
+      "value": null
+    }
+  ],
+  "width": 500
+}

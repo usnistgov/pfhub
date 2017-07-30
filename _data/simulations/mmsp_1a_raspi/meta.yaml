@@ -59,7 +59,7 @@ data:
       [
         {
           "sim_time": 4166.67,
-          "time": 291820.48 # seconds
+          "wall_time": 291820.48 # seconds
         }
       ]
   - name: memory_usage
