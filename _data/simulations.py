@@ -13,7 +13,7 @@ import re
 from dateutil.parser import parse
 import jinja2
 # pylint: disable=redefined-builtin, no-name-in-module
-from toolz.curried import map, pipe, get, curry, filter, compose
+from toolz.curried import map, pipe, get, curry, filter, compose, juxt
 from toolz.curried import valmap, itemmap, groupby, memoize, keymap, update_in
 import yaml
 
@@ -118,6 +118,7 @@ def filter_data(field, yaml_data):
                              key=lambda item: item['name'])
     )
 
+
 @curry
 def filter_memory_data(yaml_data):
     """Filter the memory time data from the meta.yaml's
@@ -129,18 +130,22 @@ def filter_memory_data(yaml_data):
       memory versus time data
     """
     def time_ratio(data):
-        if 'sim_time' in data[-1]:
-            return data[-1].get('sim_time') / float(data[-1].get('wall_time',
-                                                                     data[-1].get('time')))
-        else:
-            return data[-1].get('sim_time',
-                                data[-1].get('time')) / data[-1].get('wall_time')
+        """Calcuate the sim_time over wall_time ration
+        """
+        return pipe(
+            data[-1],
+            juxt(lambda x: x.get('sim_time', x.get('time')),
+                 lambda x: x.get('wall_time', x.get('time'))),
+            lambda x: float(x[0]) / float(x[1])
+        )
 
     def memory_usage(data):
+        """Calculate the memory usage in KB
+        """
         unit_map = dict(GB=1048576.,
                         KB=1.,
                         MB=1024.)
-        if type(data) is dict:
+        if isinstance(data, dict):
             data_ = data
         else:
             data_ = data[-1]
@@ -148,6 +153,8 @@ def filter_memory_data(yaml_data):
         return data_[key] * unit_map[data_.get('unit', 'KB')]
 
     def make_datum(data):
+        """Build an item in the data list for one simulation
+        """
         return dict(
             name='efficiency',
             values=[dict(time_ratio=time_ratio(data['run_time']),
@@ -158,7 +165,12 @@ def filter_memory_data(yaml_data):
         yaml_data,
         dict,
         valmap(lambda x: x['data']),
-        valmap(filter(lambda item: item['name'].lower() in ('memory_usage', 'run_time'))),
+        valmap(
+            filter(
+                lambda item: item['name'].lower() in ('memory_usage',
+                                                      'run_time')
+            )
+        ),
         valmap(map(lambda x: (x['name'], x['values']))),
         valmap(dict),
         valmap(make_datum),
@@ -166,6 +178,7 @@ def filter_memory_data(yaml_data):
         lambda dict_: sorted(list(dict_.values()),
                              key=lambda item: item['name'])
     )
+
 
 def get_yaml_data():
     """Read in the YAML data but don't group
