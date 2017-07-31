@@ -30,7 +30,7 @@ data:
     values:
       [
         {
-          "time": 525,
+          "wall_time": 525,
           "sim_time": 395353.08435667
         }
       ]

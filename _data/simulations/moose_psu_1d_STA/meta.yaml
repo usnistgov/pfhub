@@ -37,12 +37,17 @@
         [
           {
             "time": 99851,
+            "sim_time": 3000000
           }
         ]
       transform:
         - type: formula
           field: value
           expr: datum.value_m * 1024.0
+    - name: memory_usage
+      values:
+        value: 100
+        unit: GB
     - name: free_energy
       url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_STA.csv
       format:

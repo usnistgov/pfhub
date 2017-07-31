@@ -33,7 +33,7 @@ data:
   - name: run_time
     values:
       - wall_time: 5580
-        sim_time: 0
+        sim_time: 20618.762735099
         unit: s
   - name: memory_usage
     values:

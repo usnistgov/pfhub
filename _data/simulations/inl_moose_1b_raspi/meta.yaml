@@ -51,6 +51,10 @@ data:
           "sim_time": 10000.0
         }
       ]
+  - name: memory_usage
+    values:
+      - value: 796
+        unit: MB
   - name: free_energy
     url: https://gist.githubusercontent.com/dschwen/e98885861ef77c480a74c13d09804f92/raw/a11dfd5d1d3856ec48b14fd321a7ccbfce45bd96/problem_1b_out.csv
     format:
