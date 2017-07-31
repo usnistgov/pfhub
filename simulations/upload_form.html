@@ -480,9 +480,12 @@ comment: >-
             <input name="fields[data][2][name]"
                    type="hidden"
                    value="memory_usage">
+            <input name="fields[data][2][values][0][unit]"
+                   type="hidden"
+                   value="KB">
             <input required
 		   id="memory_usage"
-                   name="fields[data][2][values]"
+                   name="fields[data][2][values][0][value]"
                    type="number"
                    class="validate"
                    min="0"
