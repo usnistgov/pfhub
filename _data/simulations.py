@@ -150,7 +150,7 @@ def filter_memory_data(yaml_data):
         else:
             data_ = data[-1]
         key = next(k for k in data_.keys() if 'value' in k)
-        return data_[key] * unit_map[data_.get('unit', 'KB')]
+        return float(data_[key]) * unit_map[data_.get('unit', 'KB')]
 
     def make_datum(data):
         """Build an item in the data list for one simulation
