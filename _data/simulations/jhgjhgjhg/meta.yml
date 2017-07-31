@@ -1,0 +1,48 @@
+_id: f75b0060-7610-11e7-afac-b124940f35fd
+metadata:
+  author: kjlkjlkj
+  email: a@b
+  simulation_name: jhgjhgjhg
+  summary: jhgjg
+  timestamp: ''
+  implementation:
+    repo:
+      url: 'https://github.com/wd15/mks-tutorial'
+      version: aaaaaaaaaa
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '1'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: moose
+    version: '1'
+    repo:
+      url: 'https://github.com/wd15/mks-tutorial'
+      version: aaaaaa
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/dschwen/75c5f5f47519119fdb6e934056f6fd56/raw/d865f3213e4a695dc031c37e71b280248c4a0eb5/problem_1b_out.csv
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - time: '6'
+        sim_time: '6'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '6'
+date: 1501520090
