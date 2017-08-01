@@ -104,10 +104,7 @@ comment: >-
 
 
         <div class="row">
-          <div class="input-field col s5">
-            <input name="fields[benchmark][version]"
-                   type="hidden"
-                   value="1">
+          <div class="input-field col s3">
             <select required
 		    id="benchmark_id"
                     name="fields[benchmark][id]"
@@ -125,6 +122,19 @@ comment: >-
             </select>
             <label class="active" for="benchmark_id">Benchmark ID</label>
           </div>
+
+          <div class="input-field col s2">
+            <select required
+		    id="version"
+                    name="fields[benchmark][version]"
+                    type="number">
+              <option value="1" selected>1</option>
+              <option value="0">0</option>
+            </select>
+            <label class="active" for="benchmark_id">Benchmark ID</label>
+          </div>
+
+
           <div class="input-field col s5">
             <i class="material-icons prefix">today</i>
             <input required
