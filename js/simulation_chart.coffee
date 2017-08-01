@@ -1,7 +1,7 @@
 ---
 ---
 
-chart_name="simulations.json"
+chart_json = {{ site.data.charts.simulations | jsonify }}
 div_id="#simulation_chart"
 
 on_click = (event, item) ->
@@ -11,15 +11,12 @@ on_click = (event, item) ->
     link = item.mark.group.datum.link
     window.location = "{{ site.baseurl }}/simulations/" + link
 
-make_chart = (chart) ->
-  view = chart({el: div_id, renderer: "svg"}).update()
-  view.on('click', on_click)
-
 build_chart = (chart_json)->
-  parse = (spec_json) ->
-    vg.parse.spec(spec_json, make_chart)
-  parse(chart_json)
+  view = new vega.View(vega.parse(chart_json))
+    .initialize(div_id)
+    .renderer('svg')
+    .hover()
+    .run()
+  view.addEventListener('click', on_click)
 
-chart_json = "{{ site.baseurl }}/data/charts/" + chart_name
-
-d3.json(chart_json, build_chart)
+build_chart(chart_json)

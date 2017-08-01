@@ -1,19 +1,17 @@
-HEXBIN_OUT = images/hexbin.jpg data/hexbin.json
-HEXBIN_IN = data/hexbin.yaml _data/hexbin.py
+HEXBIN_OUT = images/hexbin.jpg _data/hexbin.json
+HEXBIN_IN = _data/hexbin.yaml _data/hexbin.py
 
 NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*" -not -path "./_site/*" -not -path "./_data/*")
 NOTEBOOKS_HTML := $(NOTEBOOKS:%.ipynb=%.ipynb.raw.html)
 NOTEBOOKS_MD := $(NOTEBOOKS:%.ipynb=%.ipynb.md)
 
-YAML_FILES_IN := $(wildcard _data/simulations/*/meta.yaml)
-YAML_FILES_OUT := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
+YAML_FILES_IN := $(wildcard _data/simulations/*/meta.y*ml)
+YAML_FILES_OUT_TMP := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
+YAML_FILES_OUT := $(subst meta.yml,meta.yml.out,$(YAML_FILES_OUT_TMP))
 
 .PHONY: clean build_charts
 
 all: hexbin notebooks simulations
-
-$(JS_DIR)/%.js: $(COFFEE_DIR)/%.coffee
-	coffee --compile --output js $<
 
 $(HEXBIN_OUT): $(HEXBIN_IN)
 	python _data/hexbin.py
@@ -25,7 +23,12 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 	cp ./template.ipynb.md $@
 	sed -i -- 's/notebook_name/$(notdir $<)/' $@
 
+kwalify:
+
 %.yaml.out: %.yaml
+	pykwalify -d $< -s _data/simulations/example/schema.yaml
+
+%.yml.out: %.yml
 	pykwalify -d $< -s _data/simulations/example/schema.yaml
 
 yamllint: $(YAML_FILES_OUT)

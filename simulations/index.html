@@ -15,21 +15,37 @@ comment: >-
         The following charts and tables present data from simulations
         implementing the benchmarks problems for different code bases.
         Please feel free to submit your own simulation results using
-        the upload instructions.
+        the
+        <a href="/chimad-phase-field/simulations/upload_form"
+           target="_blank">
+          simulation upload form
+        </a>.
+        This site aims to provide a facility for practitioners to
+        upload results from their phase field codes to compare and
+        contrast with results from other phase field codes. Phase
+        field enthusiasts are encouraged to upload simulation results
+        for the <a href="/chimad-phase-field/#benchmarks">benchmark problems</a>.
         <p>
           <a class="waves-effect waves-light btn blue lighten-3"
-             href="/chimad-phase-field/simulations/upload"
+             href="/chimad-phase-field/simulations/upload_form"
              target="_blank">
-            Upload Instructions
+            Simulation Upload Form
           </a>
         </p>
       </div>
     </div>
   </div>
 </div>
-<br>
+
 <div class="container">
   <div class="row small-buffer">
+    <div class="col s8 offset-s2" id="overview">
+      <p>
+        <h5>
+          Total Uploads: {{ site.data.data_table.data | size }}
+        </h5>
+      </p>
+    </div>
     <div class="col s12 m12 l4 offset-l2 offset-m2 offset-s2">
       <div id="upload_code_barchart">
       </div>
@@ -47,7 +63,7 @@ comment: >-
 <div class="container top-bar top-buffer">
   <div class="row small-buffer">
     <div class="col l2 m12 s12">
-      <h5 class="sideheader">Charts</h5>
+      <h5 class="sideheader" id="charts">Charts</h5>
     </div>
     <div class="col s10">
       <div class="flow-text" style="font-size: 20px">
@@ -66,7 +82,7 @@ comment: >-
 <div class="container top-bar top-buffer">
   <div class="row small-buffer">
     <div class="col l2 m12 s12">
-      <h5 class="sideheader">Simulations</h5>
+      <h5 class="sideheader" id="simulations">Simulations</h5>
     </div>
     <div class="col s10">
       <div class="flow-text" style="font-size: 20px">
@@ -79,5 +95,5 @@ comment: >-
 </div>
 
 
-
+<script> var benchmark_id="" </script>
 <script src="{{ site.baseurl }}/js/data_table.js"></script>

@@ -1,86 +1,204 @@
 ---
 width: 500
 height: 300
-signal:
-  - name: hover
-    init: null
+autosize: {"type": "pad", "resize": false}
+signals: [
+   {
+      "name": "clicked", "value": null,
+      "on": [
+        {
+          "events": "@legendSymbol:click, @legendLabel:click",
+          "update": "{value: datum.value}",
+          "force":  true
+        }
+      ]
+    },
+        {
+            "name" : "zoom",
+            "value" : 1,
+            "on" :
+            [
+                {
+                    "events" : "wheel!",
+                    "force" : true,
+                    "update" : "pow(1.005, event.deltaY * pow(16, event.deltaMode))"
+                }
+            ]
+        },
+        {
+            "name": "down",
+            "value": null,
+            "on": [
+                {"events": "touchend", "update": "null"},
+                {"events": "mousedown, touchstart", "update": "xy()"}
+            ]
+        },
+        {
+            "name": "delta",
+            "value": [0, 0],
+            "on": [
+                {
+                    "events": [
+                        {
+                            "source": "window", "type": "mousemove", "consume": true,
+                            "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]
+                        },
+                        {
+                            "type": "touchmove", "consume": true,
+                            "filter": "event.touches.length === 1"
+                        }
+                    ],
+                    "update": "down ? [down[0]-x(), y()-down[1]] : [0,0]"
+                }
+            ]
+        },
+        {
+            "name" : "xdomlog",
+            "value" : [{{ marks.x | first }}, {{ marks.x | last}}],
+            "on" : [
+                {
+                    "events": {"signal": "zoom"},
+                    "update": "[xcur[0] - log(zoom), xcur[1] + log(zoom)]"
+                },
+                {
+                    "events" : {"signal" : "delta"},
+                    "update" : "[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]"
+                },
 
+            ]
+        },
+        {
+            "name": "xcur",
+            "value": null,
+            "on": [
+                {
+                    "events": "mousedown, touchstart, touchend, wheel!",
+                    "update": "[xdomlog[0], xdomlog[1]]"
+                }
+            ]
+        },
+        {
+            "name" : "xdom",
+            "value" : null,
+            "update" : "[pow(10, xdomlog[0]), pow(10, xdomlog[1])]"
+        },
+        {
+            "name" : "ydomlog",
+            "value" : [{{ marks.y | first }}, {{ marks.y | last}}],
+            "on" : [
+                {
+                    "events": {"signal": "zoom"},
+                    "update": "[ycur[0] - log(zoom) * span(ycur) / span(xcur), ycur[1] + log(zoom) * span(ycur) / span(xcur)]"
+                },
+                {
+                    "events" : {"signal" : "delta"},
+                    "update" : "[ycur[0] + span(ycur) * delta[1] / height, ycur[1] + span(ycur) * delta[1] / height]"
+                },
+
+            ]
+        },
+        {
+            "name": "ycur",
+            "value": null,
+            "on": [
+                {
+                    "events": "mousedown, touchstart, touchend, wheel!",
+                    "update": "[ydomlog[0], ydomlog[1]]"
+                }
+            ]
+        },
+        {
+            "name" : "ydom",
+            "value" : null,
+            "update" : "[pow(10, ydomlog[0]), pow(10, ydomlog[1])]"
+        },
+    ]
 axes:
-  - type: x
+  - orient: bottom
+    grid: true
+    tickSize: 0
+    ticks: false
+    labels: false
+    domain: false
     scale: x
-    values: {{ marks.x }}
+  - orient: left
+    grid: true
+    labels: false
+    ticks: false
+    domain: false
+    tickSize: 0
+    scale: y
+  - orient: bottom
+    scale: x
+    tickCount: 5
+    labelOverlap: greedy
     format: ".0e"
     formatType: number
     title: "Time"
-    properties:
+    encode:
       title:
-        font:
-          value: Lato
-        fontSize:
-          value: 14
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 14
       labels:
-        font:
-          value: Lato
-        fontSize:
-          value: 12
-  - type: y
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 12
+  - orient: left
     scale: y
-    values: {{ marks.y }}
+    tickCount: 5
+    labelOverlap: greedy
     format: ".0e"
     formatType: number
     title: "Free Energy"
-    properties:
+    encode:
       title:
-        font:
-          value: Lato
-        fontSize:
-          value: 14
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 14
       labels:
-        font:
-          value: Lato
-        fontSize:
-          value: 12
-  - type: x
-    grid: true
-    tickSize: 0
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 12
+  - orient: top
     scale: x
-    properties:
-      labels:
-        text: ""
-  - type: y
-    grid: true
-    tickSize: 0
-    scale: y
-    properties:
-      labels:
-        text: ""
-  - type: x
-    scale: x
-    title: Free Energy for Benchmark {{ id_ }}
-    orient: top
+    title: Free Energy
     values: []
-    properties:
+    domain: false
+    labels: false
+    ticks: false
+    titlePadding: 20
+    encode:
       title:
-        fontSize:
-          value: 20
-        font:
-          value: Lato
-      axis:
-        strokeOpacity:
-          value: 0
+        update:
+          fontSize:
+            value: 20
+          font:
+            value: Lato
 scales:
   - name: x
-    nice: true
+    nice: false
     type: log
     range: width
-    domain: [{{ marks.x | first }}, {{ marks.x | last }}]
+    domain:
+      signal: xdom
   - name: y
-    nice: true
+    nice: false
     type: log
     range: height
-    domain: [{{ marks.y | first }}, {{ marks.y | last }}]
+    domain:
+      signal: ydom
   - name: color
-    range: category10
+    range:
+      scheme: category20
     type: ordinal
     domain:
 {%- for datum in data %}
@@ -89,24 +207,41 @@ scales:
 legends:
   - title: Simulations
     fill: color
-    properties:
+    encode:
       title:
-        font:
-          value: Lato
-        fontSize:
-          value: 14
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 14
       labels:
-        font:
-          value: Lato
-        fontSize:
-          value: 12
+        name: legendLabel
+        iteractive: true
+        update:
+          font:
+            value: Lato
+          fontSize:
+            value: 12
+          opacity:
+            - test: "!indata('selected', 'value', datum.value)"
+              value: 1.0
+            - value: 0.2
+      symbols:
+        name: legendSymbol
+        interactive: true
+        update:
+          opacity:
+            - test: "!indata('selected', 'value', datum.value)"
+              value: 1.0
+            - value: 0.2
 marks:
 {%- for datum in data %}
   - type: line
+    interactive: true
     from:
       data: {{ datum.name }}
-    properties:
-      enter:
+    encode:
+      update:
         x:
           scale: x
           field: time
@@ -117,9 +252,26 @@ marks:
           scale: color
           value: {{ datum.name }}
         strokeWidth:
-          value: 2
+          value: 3
         strokeOpacity:
-          value: 1.0
+          - test: "!indata('selected', 'value', '{{ datum.name }}')"
+            value: 1.0
+          - value: 0.0
+      hover:
+        tooltip:
+          - test: "!indata('selected', 'value', '{{ datum.name }}')"
+            value: {{ datum.name }}
+          - value: ""
+        strokeWidth:
+          value: 4
+        strokeOpacity:
+          - test: "!indata('selected', 'value', '{{ datum.name }}')"
+            value: 0.6
+          - value: 0.0
 {%- endfor %}
 data:
 {{ data | to_yaml() }}
+- name: selected
+  "on":
+    - trigger: clicked
+      toggle: clicked

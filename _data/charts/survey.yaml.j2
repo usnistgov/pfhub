@@ -1,0 +1,130 @@
+---
+data:
+  - name: code_uploads
+    values:
+{%- for key, value in data %}
+      - name: {{ key }}
+        count: {{ value }}
+{%- endfor %}
+width: 230
+height: 115
+padding:
+  top: 40
+  left: 10
+  bottom: 100
+  right: 20
+signals:
+  - name: tooltip
+    init: {}
+    streams:
+      - type: "rect:mouseover"
+        expr: "datum"
+      - type: "rect:mouseout"
+        expr: "{}"
+scales:
+  - name: xscale
+    type: ordinal
+    range: width
+    domain:
+      data: code_uploads
+      field: name
+  - name: yscale
+    range: height
+    nice: true
+    domain:
+      data: code_uploads
+      field: count
+axes:
+  - type: x
+    scale: xscale
+    tickSize: 0
+    properties:
+      labels:
+        fontSize:
+          value: 12
+        font:
+          value: Lato
+        angle:
+          value: -60
+        dx:
+          value: -5
+        dy:
+          value: 5
+        align:
+          value: right
+      axis:
+        strokeOpacity:
+          value: 0
+  - type: y
+    scale: yscale
+    values: []
+    properties:
+      axis:
+        strokeOpacity:
+          value: 0
+  - type: x
+    scale: xscale
+    title: {{ title }}
+    orient: top
+    values: []
+    properties:
+      title:
+        fontSize:
+          value: 16
+        font:
+          value: Lato
+      axis:
+        strokeOpacity:
+          value: 0
+marks:
+  - type: rect
+    from:
+      data: code_uploads
+    properties:
+      enter:
+        x:
+          scale: xscale
+          field: name
+        width:
+          scale: xscale
+          band: true
+          offset: -1
+        y:
+          scale: yscale
+          field: count
+        y2:
+          scale: yscale
+          value: 0
+      update:
+        fill:
+          value: "#90caf9"
+      hover:
+        fill:
+          value: "#f44336"
+  - type: text
+    properties:
+      enter:
+        align:
+          value: center
+        fill:
+          value: "#333"
+      update:
+        fontSize:
+          value: 12
+        font:
+          value: Lato
+        x:
+          scale: xscale
+          signal: tooltip.name
+        dx:
+          scale: xscale
+          band: true
+          mult: 0.5
+        y:
+          scale: yscale
+          signal: tooltip.count
+          offset: -5
+        text:
+          signal: tooltip.count
+        fillOpacity:
+          value: 1

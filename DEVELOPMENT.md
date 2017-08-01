@@ -49,7 +49,7 @@ automatically rebuild the site after `codes.yaml` is edited.
 <h5> Add a New Workshop </h5>
 
 To add a new workshop edit the [`workshop.yaml`]({{ site.links.github
-}}/blob/nist-pages/data/workshops.yaml) file. The following fields need to
+}}/blob/nist-pages/_data/workshops.yaml) file. The following fields need to
 be included for each entry.
 
     - name: "Phase Field Methods Workshop I"
@@ -143,7 +143,7 @@ Create an environment with the required packages
     $ conda install progressbar2
 
 Update the data in the [`hexbin.yaml`]({{ site.links.github
-}}/blob/nist-pages/data/hexbin.yaml) file. The following format is
+}}/blob/nist-pages/_data/hexbin.yaml) file. The following format is
 used for each entry.
 
     - image: http://www.mem.drexel.edu/ysun/files/density.png
@@ -182,7 +182,7 @@ named `my_notebook.ipynb` will be rendered at
 
 To add a new benchmark problem include a notebook describing the new
 problem and then link to it via the [`benchmarks.yaml`]({{
-site.links.github }}/blob/nist-pages/data/benchmarks.yaml) file with
+site.links.github }}/blob/nist-pages/_data/benchmarks.yaml) file with
 the following fields.
 
     - title: Spinodal Decomposition
@@ -245,3 +245,10 @@ form with the exact string matches.
     - "Twitter Handle"
     - "GitHub Handle"
     - "Other Links"
+
+<h4> Pages.nist.gov </h4>
+
+The main site is hosted on
+[Pages.nist.gov](https://pages.nist.gov/pages-root/), which provides
+the [build.log](https://pages.nist.gov/chimad-phase-field/build.log)
+for the Jekyll build.

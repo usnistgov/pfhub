@@ -1,0 +1,20 @@
+# Name of the property. You can have multiple properties with completely
+# different config blocks for different sections of your site.
+# For example, you can have one property to handle comment submission and
+# another one to handle posts.
+simulations:
+  allowedFields: ["benchmark", "metadata", "data"]
+  allowedOrigins: ["localhost", "pages.nist.gov"]
+  branch: "master"
+  commitMessage: "New simulation: {fields.metadata.simulation_name}"
+  filename: "meta"
+  format: "yaml"
+  moderation: true
+  name: "https://pages.nist.gov/chimad-phase-field/"
+  path: "_data/simulations/{fields.metadata.simulation_name}"
+  requiredFields: ["benchmark", "metadata", "data"]
+  generatedFields:
+    date:
+      type: date
+      options:
+        format: "timestamp-seconds"

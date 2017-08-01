@@ -15,13 +15,13 @@ data:
 {%- endfor %}
 scales:
   - name: x
-    type: ordinal
+    type: band
     domain:
       data: images
       field: col
     range: width
   - name: y
-    type: ordinal
+    type: band
     domain:
       data: images
       field: row
@@ -31,7 +31,7 @@ marks:
     type: group
     from:
       data: images
-    properties:
+    encode:
       enter:
         width:
           band: true
@@ -53,7 +53,7 @@ marks:
           value: #fff
     marks:
       - type: image
-        properties:
+        encode:
           enter:
             width:
               field:
@@ -75,7 +75,7 @@ marks:
             cursor:
               value: default
       - type: rect
-        properties:
+        encode:
           enter:
             x:
               value: 0
@@ -91,7 +91,7 @@ marks:
             strokeWidth:
               - test: "parent._id == active._id"
                 value: 4
-              - value: 1
+              - value: 2
             stroke:
               - test: "parent._id == active._id"
                 value: "#d5a928"
@@ -100,7 +100,7 @@ marks:
             cursor:
               value: default
       - type: text
-        properties:
+        encode:
           enter:
             align:
               value: center
@@ -110,7 +110,7 @@ marks:
               value: 55
           update:
             text:
-              template: "Free Energy {% raw %} {{ parent.link }} {% endraw %}"
+              signal: "'Free Energy ' +  {% raw %} parent.link {% endraw %}"
             fontSize:
               - test: "parent._id == active._id"
                 value: 14
@@ -132,9 +132,9 @@ marks:
               value: pointer
 signals:
   - name: active
-    init: {}
-    streams:
-      - type: "image:mouseover, group:mouseover, group:mouseout, rect:mouseover, text:mouseover"
-        expr: "eventGroup().datum"
-      - type: "body:mouseout, rect:mouseout"
-        expr: "{}"
+    value: {}
+    "on":
+      - events: "image:mouseover, group:mouseover, group:mouseout, rect:mouseover, text:mouseover"
+        update: "group().datum"
+      - events: "body:mouseout, rect:mouseout"
+        update: "{}"

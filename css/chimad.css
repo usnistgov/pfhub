@@ -30,9 +30,14 @@ main {
 
 .top-buffer { margin-top: 40px; }
 .small-buffer { margin-top: 10px; }
+.big-buffer { margin-top: 50px; }
 
 .top-bar {
     border-top: 3px solid #9ccc65;
+}
+
+.top-bar-thin {
+    border-top: 1px solid #33691e;
 }
 
 .card {
@@ -142,10 +147,10 @@ table.striped tbody tr:nth-child(2n+1) {
     background-color: #e0e0e0 !important;
 }
 
-/* .mark-text text { */
-/*     font: 12px Lato !important; */
+/* .backdrop{ */
+/*        background-color: purple; */
 /* } */
 
-/* .mark-group .mark-text text { */
-/*     font: bold 16px Lato !important; */
-/* } */
+.tooltipped {
+    color: rgb(158, 158, 158);
+}
