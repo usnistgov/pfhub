@@ -116,14 +116,14 @@
         },
         "type": "csv"
       },
-      "name": "trevs_sim",
+      "name": "mmsp_6a_wrksttn",
       "transform": [
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
-      "url": "https://gist.githubusercontent.com/wd15/ce3c8620fd19ba58f80e4f35da562dda/raw/06a64e9cec087634f5094d101a69cc0c0bcd13a5/energy_dx10.csv"
+      "url": "https://gist.githubusercontent.com/tkphd/0e6057ada4de47098d5d39a27d8866ab/raw/fc51bc61c389df0b21341781e5f60bd098e09aa5/energy_6a_dx10.csv"
     },
     {
       "name": "selected",
@@ -196,7 +196,7 @@
         "hover": {
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'trevs_sim')",
+              "test": "!indata('selected', 'value', 'mmsp_6a_wrksttn')",
               "value": 0.6
             },
             {
@@ -208,8 +208,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'trevs_sim')",
-              "value": "trevs_sim"
+              "test": "!indata('selected', 'value', 'mmsp_6a_wrksttn')",
+              "value": "mmsp_6a_wrksttn"
             },
             {
               "value": ""
@@ -219,11 +219,11 @@
         "update": {
           "stroke": {
             "scale": "color",
-            "value": "trevs_sim"
+            "value": "mmsp_6a_wrksttn"
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'trevs_sim')",
+              "test": "!indata('selected', 'value', 'mmsp_6a_wrksttn')",
               "value": 1.0
             },
             {
@@ -244,7 +244,7 @@
         }
       },
       "from": {
-        "data": "trevs_sim"
+        "data": "mmsp_6a_wrksttn"
       },
       "interactive": true,
       "type": "line"
@@ -271,7 +271,7 @@
     },
     {
       "domain": [
-        "trevs_sim"
+        "mmsp_6a_wrksttn"
       ],
       "name": "color",
       "range": {
