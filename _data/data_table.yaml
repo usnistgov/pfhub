@@ -233,3 +233,9 @@ data:
   id_: 1b.1
   name: prismspf_1b
   timestamp: 2017/02/10 12:32:00
+- author: {email: trevor.keller@nist.gov, name: Trevor Keller}
+  code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
+  cores: 18
+  id_: 6a.0
+  name: prob6
+  timestamp: 2017/02/01 03:43:09
