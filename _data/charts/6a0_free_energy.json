@@ -116,14 +116,14 @@
         },
         "type": "csv"
       },
-      "name": "prob6",
+      "name": "trevs_sim",
       "transform": [
         {
           "expr": "datum.time > 0.01",
           "type": "filter"
         }
       ],
-      "url": "https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv"
+      "url": "https://gist.githubusercontent.com/wd15/ce3c8620fd19ba58f80e4f35da562dda/raw/06a64e9cec087634f5094d101a69cc0c0bcd13a5/energy_dx10.csv"
     },
     {
       "name": "selected",
@@ -196,7 +196,7 @@
         "hover": {
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'prob6')",
+              "test": "!indata('selected', 'value', 'trevs_sim')",
               "value": 0.6
             },
             {
@@ -208,8 +208,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'prob6')",
-              "value": "prob6"
+              "test": "!indata('selected', 'value', 'trevs_sim')",
+              "value": "trevs_sim"
             },
             {
               "value": ""
@@ -219,11 +219,11 @@
         "update": {
           "stroke": {
             "scale": "color",
-            "value": "prob6"
+            "value": "trevs_sim"
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'prob6')",
+              "test": "!indata('selected', 'value', 'trevs_sim')",
               "value": 1.0
             },
             {
@@ -244,7 +244,7 @@
         }
       },
       "from": {
-        "data": "prob6"
+        "data": "trevs_sim"
       },
       "interactive": true,
       "type": "line"
@@ -271,7 +271,7 @@
     },
     {
       "domain": [
-        "prob6"
+        "trevs_sim"
       ],
       "name": "color",
       "range": {
@@ -368,7 +368,7 @@
       ],
       "value": [
         -1,
-        6
+        3
       ]
     },
     {

@@ -109,12 +109,12 @@
   ],
   "data": [
     {
-      "name": "prob6",
+      "name": "trevs_sim",
       "transform": [],
       "values": [
         {
-          "memory_usage": 8812.0,
-          "time_ratio": 0.014278195964861686
+          "memory_usage": 10000.0,
+          "time_ratio": 1.0
         }
       ]
     },
@@ -189,7 +189,7 @@
         "hover": {
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'prob6')",
+              "test": "!indata('selected', 'value', 'trevs_sim')",
               "value": 0.4
             },
             {
@@ -201,7 +201,7 @@
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'prob6')",
+              "test": "!indata('selected', 'value', 'trevs_sim')",
               "value": 0.4
             },
             {
@@ -213,8 +213,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'prob6')",
-              "value": "prob6"
+              "test": "!indata('selected', 'value', 'trevs_sim')",
+              "value": "trevs_sim"
             },
             {
               "value": ""
@@ -224,11 +224,11 @@
         "update": {
           "fill": {
             "scale": "color",
-            "value": "prob6"
+            "value": "trevs_sim"
           },
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'prob6')",
+              "test": "!indata('selected', 'value', 'trevs_sim')",
               "value": 1.0
             },
             {
@@ -240,7 +240,7 @@
           },
           "stroke": {
             "scale": "color",
-            "value": "prob6"
+            "value": "trevs_sim"
           },
           "strokeWidth": {
             "value": 0
@@ -256,7 +256,7 @@
         }
       },
       "from": {
-        "data": "prob6"
+        "data": "trevs_sim"
       },
       "interactive": true,
       "type": "symbol"
@@ -283,7 +283,7 @@
     },
     {
       "domain": [
-        "prob6"
+        "trevs_sim"
       ],
       "name": "color",
       "range": {
