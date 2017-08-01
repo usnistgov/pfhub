@@ -1,0 +1,64 @@
+_id: 50e5dd40-76fb-11e7-a3e9-cb63094aa20f
+metadata:
+  author: Daniel Wheeler
+  email: daniel.wheeler2@gmail.com
+  simulation_name: demo_1a
+  summary: jhgjkhgjkhgjhgjhg
+  timestamp: '1 August, 2017'
+  implementation:
+    repo:
+      url: 'https://gist.github.com/wd15/ce3c8620fd19ba58f80e4f35da562dda'
+      version: aaaaaaaaaa
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '2'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: custom
+    version: ''
+    repo:
+      url: 'https://github.com/wd15/mks-tutorial'
+      version: aaaaaaaaa
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/dschwen/75c5f5f47519119fdb6e934056f6fd56/raw/d865f3213e4a695dc031c37e71b280248c4a0eb5/problem_1b_out.csv
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name:
+      - run_time
+      - cut_plane_x
+    values:
+      - wall_time: '1'
+        sim_time: '1'
+    url: 'http://github.com'
+    format:
+      parse:
+        x: number
+        concentration: number
+      type: csv
+  - name:
+      - memory_usage
+      - cut_plane_y
+    values:
+      - unit: KB
+        value: '1'
+    url: 'https://www.youtube.com/watch?v=Kfrv7K9U5do'
+    format:
+      parse:
+        'y': number
+        concentration: number
+      type: csv
+date: 1501620742
