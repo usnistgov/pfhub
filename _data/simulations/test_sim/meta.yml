@@ -1,0 +1,48 @@
+_id: 54ee4190-76b8-11e7-a3e9-cb63094aa20f
+metadata:
+  author: Daniel Wheeler
+  email: daniel.wheeler2@gmail.com
+  simulation_name: test_sim
+  summary: Live test demo of uploading simulation data
+  timestamp: '1 August, 2017'
+  implementation:
+    repo:
+      url: 'https://gist.github.com/wd15/ce3c8620fd19ba58f80e4f35da562dda'
+      version: b5c1a39be098
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '2.4'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: custom
+    version: ''
+    repo:
+      url: 'https://github.com/wd15/fmks'
+      version: 703185ee0e48
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/wd15/ce3c8620fd19ba58f80e4f35da562dda/raw/b5c1a39be0981e40f6cc4ea5a1ce0d752182c165/free_energy.csv
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - wall_time: '7.97'
+        sim_time: '1000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '119388'
+date: 1501591973
