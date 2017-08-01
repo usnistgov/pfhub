@@ -1,0 +1,50 @@
+_id: d0968fd0-76f6-11e7-a3e9-cb63094aa20f
+metadata:
+  author: Stephen DeWitt
+  email: stvdwtt@umich.edu
+  simulation_name: prismspf_6b
+  summary: >-
+    Results data for problem 2b using PRISMS-PF v2.0pre and the Flux cluster at
+    the University of Michigan
+  timestamp: '28 July, 2017'
+  implementation:
+    repo:
+      url: >-
+        https://github.com/prisms-center/phaseField/tree/v2.0pre/applications/cahnHilliard_electrostatics_Curved
+      version: 5005c86bb9106861f3cb134c0e7e1b115e15bb85
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: distributed
+    clock_rate: '2.6'
+    cores: '16'
+    nodes: '1'
+  software:
+    name: prisms
+    version: 2.0pre
+    repo:
+      url: 'https://github.com/prisms-center/phaseField/tree/v2.0pre'
+      version: 5005c86bb9106861f3cb134c0e7e1b115e15bb85
+benchmark:
+  version: '1'
+  id: 6b
+data:
+  - name: free_energy
+    url: 'http://www-personal.umich.edu/~wband/energy_6b.txt'
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - wall_time: '10140'
+        sim_time: '400'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1024000'
+date: 1501618809
