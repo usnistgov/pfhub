@@ -1,0 +1,48 @@
+_id: 11749830-76ed-11e7-a3e9-cb63094aa20f
+metadata:
+  author: trev
+  email: trev@blah.com
+  simulation_name: trevs_sim
+  summary: test
+  timestamp: '1 August, 2017'
+  implementation:
+    repo:
+      url: 'https://github.com/wd15/mks-tutorial'
+      version: aaaaaaaaaa
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '5'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: mmsp
+    version: '1'
+    repo:
+      url: 'https://github.com/wd15/mks-tutorial'
+      version: aaaaaaaaa
+benchmark:
+  version: '1'
+  id: 6a
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/wd15/ce3c8620fd19ba58f80e4f35da562dda/raw/06a64e9cec087634f5094d101a69cc0c0bcd13a5/energy_dx10.csv
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - wall_time: '10'
+        sim_time: '10'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '10000'
+date: 1501614623
