@@ -1,0 +1,48 @@
+_id: bfc23df0-76d1-11e7-a3e9-cb63094aa20f
+metadata:
+  author: Daniel Wheeler
+  email: daniel.wheeler2@gmail.com
+  simulation_name: demo_sim_1a
+  summary: "Demonstration simulation showing mapping from -1 to 1 free energy (1-phi)**2 * (1 + phi)**2\r\n"
+  timestamp: '1 August, 2017'
+  implementation:
+    repo:
+      url: 'https://gist.github.com/wd15/ce3c8620fd19ba58f80e4f35da562dda'
+      version: d39f3457a904
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '2.5'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: custom
+    version: ''
+    repo:
+      url: 'https://github.com/wd15/fmks'
+      version: 703185ee0e487e
+benchmark:
+  version: '1'
+  id: 1a
+data:
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/wd15/ce3c8620fd19ba58f80e4f35da562dda/raw/d39f3457a90423179e98290910603db9b7a39708/free_energy_demo.csv
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - wall_time: '8.75'
+        sim_time: '1000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '117964'
+date: 1501602890
