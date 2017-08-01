@@ -1,0 +1,61 @@
+_id: 7e9c5420-76fc-11e7-a3e9-cb63094aa20f
+metadata:
+  author: adfa
+  email: a@b
+  simulation_name: afafasdas
+  summary: aaaaaaa
+  timestamp: '1 August, 2017'
+  implementation:
+    repo:
+      url: 'https://github.com/wd15/mks-tutorial'
+      version: aaaaaaaaaa
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '4'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: custom
+    version: ''
+    repo:
+      url: 'https://github.com/wd15/mks-tutorial'
+      version: aaaaaaaaa
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1'
+        sim_time: '1'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1'
+  - name: free_energy
+    url: 'https://www.youtube.com/watch?v=Kfrv7K9U5do'
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: cut_plane_x
+    url: 'https://www.youtube.com/watch?v=Kfrv7K9U5do'
+    format:
+      parse:
+        x: number
+        concentration: number
+      type: csv
+  - name: cut_plane_y
+    url: 'https://www.youtube.com/watch?v=Kfrv7K9U5do'
+    format:
+      parse:
+        'y': number
+        concentration: number
+      type: csv
+date: 1501621249
