@@ -1,76 +1,80 @@
----
 benchmark:
   id: 1b
   version: 1
-
+data:
+- name: timestep
+  values: 0.00195312
+- name: free_energy
+  transform:
+  - expr: datum.energy
+    field: free_energy
+    type: formula
+  - test: datum.time > 0.01
+    type: filter
+  values:
+  - energy: 319.045
+    time: 0
+  - energy: 318.155
+    time: 7.61719
+  - energy: 315.555
+    time: 15.2344
+  - energy: 307.135
+    time: 22.8516
+  - energy: 283.973
+    time: 30.4688
+  - energy: 242.644
+    time: 38.0859
+  - energy: 214.109
+    time: 45.7031
+  - energy: 205.499
+    time: 53.3203
+  - energy: 200.944
+    time: 60.9375
+  - energy: 196.86
+    time: 68.5547
+  - energy: 192.77
+    time: 76.1719
+- name: run_time
+  values:
+  - sim_time: 192.77
+    time: 1142.51
+- name: memory_usage
+  transform:
+  - expr: datum.value_per_rank * 2.0
+    field: value
+    type: formula
+  values:
+  - unit: KB
+    value_per_rank: 33844
 metadata:
-  # Describe the runtime environment
-  summary: Parallel Travis CI benchmark with MMSP, no-flux domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Tue, 10 Jan 2017 01:20:43 +0000
+  github_id: ''
   hardware:
-    # Required hardware details
     architecture: x86_64
     cores: 2
-    # Optional hardware details
     details:
-      - name: clock
-        values: 2300.000
-        # unit: MHz
-  software:
-    name: mmsp
-    version: "5.2"
-    repo:
-      url: https://github.com/mesoscale/mmsp/tree/develop
-      version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
+    - name: clock
+      values: 2300.0
   implementation:
+    details:
+    - name: mesh
+      values: uniform rectilinear
+    - name: numerical_method
+      values: explicit finite difference
+    - name: compiler
+      values: GNU mpic++
+    - name: parallel_model
+      values: MPI
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/
-      version: "05a5db5111d92b916d51e143adf068547c3a654d"
-      # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
-    details:
-      - name: mesh
-        values: uniform rectilinear
-      - name: numerical_method
-        values: explicit finite difference
-      - name: compiler
-        values: GNU mpic++
-      - name: parallel_model
-        values: MPI
-data:
-  # Gather simulation output
-  - name: timestep
-    values: 0.00195312
-  - name: free_energy
-    # JSON list of {time, energy} pairs
-    values: [{"time": 0, "energy": 319.045}, {"time": 7.61719, "energy": 318.155}, {"time": 15.2344, "energy": 315.555}, {"time": 22.8516, "energy": 307.135}, {"time": 30.4688, "energy": 283.973}, {"time": 38.0859, "energy": 242.644}, {"time": 45.7031, "energy": 214.109}, {"time": 53.3203, "energy": 205.499}, {"time": 60.9375, "energy": 200.944}, {"time": 68.5547, "energy": 196.86}, {"time": 76.1719, "energy": 192.77}]
-    transform:
-      - type: formula
-        field: free_energy
-        expr: datum.energy
-      - type: filter
-        test: "datum.time > 0.01"
-  - name: run_time
-    values:
-      [
-        {
-          "time": 1142.51,
-          "sim_time": 192.77
-        }
-      ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value_per_rank": 33844,
-          "unit": KB
-        }
-      ]
-    transform:
-      - # Reported value is for one MPI rank, or half the total
-        type: formula
-        field: value      
-        expr: datum.value_per_rank * 2.0
-
+      version: 05a5db5111d92b916d51e143adf068547c3a654d
+  software:
+    name: mmsp
+    repo:
+      url: https://github.com/mesoscale/mmsp/tree/develop
+      version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
+    version: '5.2'
+  summary: Parallel Travis CI benchmark with MMSP, no-flux domain
+  timestamp: Tue, 10 Jan 2017 01:20:43 +0000

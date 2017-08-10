@@ -1,61 +1,63 @@
----
 benchmark:
   id: 1a
   version: 1
-
+data:
+- name: free_energy
+  transform:
+  - test: datum.time > 0.01
+    type: filter
+  values:
+  - free_energy: 319.09096487896744
+    time: 0.0
+  - free_energy: 318.83057833279986
+    time: 0.9834705943388384
+  - free_energy: 283.6148043822506
+    time: 10.432280700761654
+  - free_energy: 207.903541306264
+    time: 20.81378117476748
+  - free_energy: 197.39411290020013
+    time: 27.567792571902892
+  - free_energy: 188.64120084392533
+    time: 33.79300496867283
+  - free_energy: 178.87382145157355
+    time: 40.24119682471971
+  - free_energy: 169.26132300018622
+    time: 46.746063504583994
+  - free_energy: 162.25546973386005
+    time: 52.746625481564735
+- name: run_time
+  values:
+  - sim_time: 52.746625481564735
+    time: 1495.47
+- name: memory_usage
+  values:
+  - unit: KB
+    value: 470976
 metadata:
-  # Describe the runtime environment
-  summary: Serial Travis CI benchmark with FiPy, periodic domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Tue, 10 Jan 2017 00:46:24 +0000
+  github_id: ''
   hardware:
-    # Required hardware details
     architecture: x86_64
     cores: 1
-    # Optional hardware details
     details:
-      - name: clock
-        values: 2.3
-        # unit: GHz
-  software:
-    name: fipy
-    version: "3.1"
-    repo:
-      url: https://github.com/usnistgov/fipy/tree/develop
-      version: "5fcf04e8f2e4808318055fb41e567c7d58a93153"
+    - name: clock
+      values: 2.3
   implementation:
+    details:
+    - name: mesh
+      values: uniform rectilinear
+    - name: numerical_method
+      values: finite volume
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/periodic/
-      version: "944284638f00c3a411a71981d27becf97a2eb0e4"
-      # badge: https://travis-ci.org/usnistgov/FiPy-spinodal-decomposition-benchmark.svg?branch=master
-    details:
-      - name: mesh
-        values: uniform rectilinear
-      - name: numerical_method
-        values: finite volume
-
-data:
-  # Gather simulation output
-  - name: free_energy
-    values: [{"free_energy": 319.09096487896744, "time": 0.0}, {"free_energy": 318.83057833279986, "time": 0.9834705943388384}, {"free_energy": 283.6148043822506, "time": 10.432280700761654}, {"free_energy": 207.903541306264, "time": 20.81378117476748}, {"free_energy": 197.39411290020013, "time": 27.567792571902892}, {"free_energy": 188.64120084392533, "time": 33.79300496867283}, {"free_energy": 178.87382145157355, "time": 40.24119682471971}, {"free_energy": 169.26132300018622, "time": 46.746063504583994}, {"free_energy": 162.25546973386005, "time": 52.746625481564735}]
-    transform:
-      - type: filter
-        test: "datum.time > 0.01"
-  - name: run_time
-    values:
-      [
-        {
-          "time": 1495.47,
-          "sim_time": 52.746625481564735
-        }
-      ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value": 470976,
-          "unit": KB
-        }
-      ]
+      version: 944284638f00c3a411a71981d27becf97a2eb0e4
+  software:
+    name: fipy
+    repo:
+      url: https://github.com/usnistgov/fipy/tree/develop
+      version: 5fcf04e8f2e4808318055fb41e567c7d58a93153
+    version: '3.1'
+  summary: Serial Travis CI benchmark with FiPy, periodic domain
+  timestamp: Tue, 10 Jan 2017 00:46:24 +0000

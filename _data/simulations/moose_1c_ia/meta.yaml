@@ -1,61 +1,51 @@
----
 benchmark:
   id: 1c
   version: 1
-
+data:
+- name: run_time
+  values:
+  - sim_time: 395353.08435667
+    wall_time: 525
+- name: memory_usage
+  transform:
+  - expr: datum.value_m * 1024.0
+    field: value
+    type: formula
+  values:
+  - unit: MB
+    value_m: 416
+- format:
+    parse:
+      TotalEnergy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - expr: datum.TotalEnergy
+    field: free_energy
+    type: formula
+  - test: datum.time > 0.01
+    type: filter
+  url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/7a9e0b9a67528b5567c62f85d9598f580d9b4508/hackathon_p1_tshape_IA.csv
 metadata:
-  summary: Information for the Benchmark1 problems
-  timestamp: 6/28/2016
   author: A. M. Jokisaari
   email: andrea.jokisaari@northwestern.edu
-  software:
-    name: moose
-    version: Hedgehog (now Coral)
-    details:
-      - name: time stepper
-        values: IA
-  implementation:
-    repo:
-      url: https://bitbucket.org/ajokisaari/coral
-      version: e8fc74f
-    end_condition: "Equilibrium, total energy of 4.797239, (1/V)dE/dt ~ -2e-15"
+  github_id: ''
   hardware:
     cores: 6
     details:
-      - name: processor
-        values: "Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz"
-
-data:
-  - name: run_time
-    values:
-      [
-        {
-          "wall_time": 525,
-          "sim_time": 395353.08435667
-        }
-      ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value_m": 416,
-          "unit": MB
-        }
-      ]
-    transform:
-      - type: formula
-        field: value
-        expr: datum.value_m * 1024.0
-  - name: free_energy
-    url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/7a9e0b9a67528b5567c62f85d9598f580d9b4508/hackathon_p1_tshape_IA.csv
-    format:
-      type: csv
-      parse:
-        TotalEnergy: number
-        time: number
-    transform:
-      - type: formula
-        field: free_energy
-        expr: datum.TotalEnergy
-      - type: filter
-        test: "datum.time > 0.01"
+    - name: processor
+      values: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
+  implementation:
+    end_condition: Equilibrium, total energy of 4.797239, (1/V)dE/dt ~ -2e-15
+    repo:
+      url: https://bitbucket.org/ajokisaari/coral
+      version: e8fc74f
+  software:
+    details:
+    - name: time stepper
+      values: IA
+    name: moose
+    version: Hedgehog (now Coral)
+  summary: Information for the Benchmark1 problems
+  timestamp: 6/28/2016

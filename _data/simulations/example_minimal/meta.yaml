@@ -11,6 +11,7 @@ benchmark:  # Refer to the problem definition for appropriate values
 metadata:  # Describe the runtime environment, hardware and software
   summary: concise description of this contribution
   author: Given and Surname
+  github_id: Users Github ID
   email: alias@organization.com
   timestamp: Mon, 10 Mar 1982 15:03:32 -0500  # 'date -R' on Linux or any valid timestamp
   hardware:  # relevant details of your machine or cluster

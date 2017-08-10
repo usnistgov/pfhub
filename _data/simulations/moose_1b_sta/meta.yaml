@@ -1,58 +1,48 @@
----
 benchmark:
   id: 1b
   version: 1
-
+data:
+- name: run_time
+  values:
+  - sim_time: 1013318.2801021
+    time: 3720
+- name: memory_usage
+  transform:
+  - expr: datum.value_m * 1024.0
+    field: value
+    type: formula
+  values:
+  - unit: MB
+    value_m: 796
+- format:
+    parse:
+      TotalEnergy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - expr: datum.TotalEnergy
+    field: free_energy
+    type: formula
+  - test: datum.time > 0.01
+    type: filter
+  url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/49d3f4ebc29a373687b3e7f4ec0b8219dd098cb7/hackathon_p1_square_NF_STA.csv
 metadata:
-  summary: Information for the Benchmark1 problems
-  timestamp: 6/28/2016
   author: A. M. Jokisaari
   email: andrea.jokisaari@northwestern.edu
-  software:
-    name: moose
-    version: Hedgehog (now Coral)
-    details:
-      - name: time stepper
-        values: STA
+  github_id: ''
+  hardware:
+    cores: 6
   implementation:
+    end_condition: Equilibrium, total energy fluctuated due to numerical noise
     repo:
       url: https://bitbucket.org/ajokisaari/coral
       version: e8fc74f
-    end_condition: Equilibrium, total energy fluctuated due to numerical noise
-  hardware:
-    cores: 6
-
-data:
-  - name: run_time
-    values:
-      [
-        {
-          "time": 3720,
-          "sim_time": 1013318.2801021
-        }
-      ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value_m": 796,
-          "unit": MB
-        }
-      ]
-    transform:
-      - type: formula
-        field: value
-        expr: datum.value_m * 1024.0
-  - name: free_energy
-    url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/49d3f4ebc29a373687b3e7f4ec0b8219dd098cb7/hackathon_p1_square_NF_STA.csv
-    format:
-      type: csv
-      parse:
-        TotalEnergy: number
-        time: number
-    transform:
-      - type: formula
-        field: free_energy
-        expr: datum.TotalEnergy
-      - type: filter
-        test: "datum.time > 0.01"
+  software:
+    details:
+    - name: time stepper
+      values: STA
+    name: moose
+    version: Hedgehog (now Coral)
+  summary: Information for the Benchmark1 problems
+  timestamp: 6/28/2016

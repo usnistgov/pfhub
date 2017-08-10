@@ -1,63 +1,56 @@
----
 benchmark:
   id: 1b
   version: 1
-
+data:
+- name: memory_usage
+  values:
+    unit: GB
+    value: 100
+- name: run_time
+  transform:
+  - expr: datum.value_m * 1024.0
+    field: value
+    type: formula
+  values:
+  - sim_time: 146098
+    time: 1787
+- format:
+    parse:
+      f_density: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - expr: datum.f_density
+    field: free_energy
+    type: formula
+  - test: datum.time > 0.01
+    type: filter
+  url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1b_IA.csv
 metadata:
-  summary: Metadata for the Benchmark1 problems
-  timestamp: 02/20/2017
   author: PC. Simon
   email: pjs5523@psu.edu
-  timestamp: "Tue Jan 31 21:00:47 EST 2017"
-  software:
-    name: moose
-    version: git commit 2593a61 on 2017-01-18
+  github_id: ''
   hardware:
     architecture: x86_64
     cores: 40
     details:
-      - name: clock rate
-        values:
-          rate:
-          unit: GHz
-      - name: processor
-        values: ""
+    - name: clock rate
+      values:
+        rate: null
+        unit: GHz
+    - name: processor
+      values: ''
   implementation:
+    details:
+    - name: time_stepper
+      values: IA
+    end_condition: Time limit
     repo:
       url: https://github.com/simopier/CHiMaD/blob/master/H3.i
-      version: "724999206"
-    end_condition: Time limit
-    details:
-      - name: time_stepper
-        values: IA
-
-data:
-  - name: memory_usage
-    values:
-      value: 100
-      unit: GB
-  - name: run_time
-    values:
-      [
-        {
-          "time": 1787,
-          "sim_time": 146098
-        }
-      ]
-    transform:
-      - type: formula
-        field: value
-        expr: datum.value_m * 1024.0
-  - name: free_energy
-    url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1b_IA.csv
-    format:
-      type: csv
-      parse:
-        f_density: number
-        time: number
-    transform:
-      - type: formula
-        field: free_energy
-        expr: datum.f_density
-      - type: filter
-        test: "datum.time > 0.01"
+      version: '724999206'
+  software:
+    name: moose
+    version: git commit 2593a61 on 2017-01-18
+  summary: Metadata for the Benchmark1 problems
+  timestamp: Tue Jan 31 21:00:47 EST 2017

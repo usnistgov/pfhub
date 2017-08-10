@@ -1,51 +1,49 @@
 _id: 1abf01c0-76f5-11e7-a3e9-cb63094aa20f
-metadata:
-  author: Trevor Keller
-  email: trevor.keller@nist.gov
-  simulation_name: mmsp_6a_wrksttn
-  summary: >-
-    MMSP 12-core workstation, red-black Gauss-Seidel solver, dx=1.0, dt=0.05,
-    CFL=240
-  timestamp: '28 July, 2017'
-  implementation:
-    repo:
-      url: >-
-        https://github.com/tkphd/CHiMaD-Hackathon/tree/master/Workshop5/electrochem
-      version: f35b6a0
-    container_url: ''
-  hardware:
-    architecture: x86_64
-    parallel_model: threaded
-    clock_rate: '3.50'
-    cores: '12'
-    nodes: '1'
-  software:
-    name: mmsp
-    version: ''
-    repo:
-      url: 'https://github.com/mesoscale/mmsp'
-      version: b37d52e
 benchmark:
   id: 6a
   version: '0'
 data:
-  - name: free_energy
-    url: >-
-      https://gist.githubusercontent.com/tkphd/0e6057ada4de47098d5d39a27d8866ab/raw/fc51bc61c389df0b21341781e5f60bd098e09aa5/energy_6a_dx10.csv
-    format:
-      parse:
-        time: number
-        free_energy: number
-      type: csv
-    transform:
-      - type: filter
-        test: datum.time > 0.01
-  - name: run_time
-    values:
-      - wall_time: '32640'
-        sim_time: '1000'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '2500'
+- format:
+    parse:
+      free_energy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - test: datum.time > 0.01
+    type: filter
+  url: https://gist.githubusercontent.com/tkphd/0e6057ada4de47098d5d39a27d8866ab/raw/fc51bc61c389df0b21341781e5f60bd098e09aa5/energy_6a_dx10.csv
+- name: run_time
+  values:
+  - sim_time: '1000'
+    wall_time: '32640'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '2500'
 date: 1501618075
+metadata:
+  author: Trevor Keller
+  email: trevor.keller@nist.gov
+  github_id: ''
+  hardware:
+    architecture: x86_64
+    clock_rate: '3.50'
+    cores: '12'
+    nodes: '1'
+    parallel_model: threaded
+  implementation:
+    container_url: ''
+    repo:
+      url: https://github.com/tkphd/CHiMaD-Hackathon/tree/master/Workshop5/electrochem
+      version: f35b6a0
+  simulation_name: mmsp_6a_wrksttn
+  software:
+    name: mmsp
+    repo:
+      url: https://github.com/mesoscale/mmsp
+      version: b37d52e
+    version: ''
+  summary: MMSP 12-core workstation, red-black Gauss-Seidel solver, dx=1.0, dt=0.05,
+    CFL=240
+  timestamp: 28 July, 2017

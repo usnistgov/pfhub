@@ -50,6 +50,9 @@ mapping:
     type: map
     required: True
     mapping:
+      "github_id":
+        type: str
+        required: True
       "simulation_name":
         type: str
         required: False

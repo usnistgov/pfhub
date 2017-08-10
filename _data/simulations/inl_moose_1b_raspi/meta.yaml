@@ -1,70 +1,61 @@
----
 benchmark:
   id: 1b
   version: 1
-
+data:
+- name: run_time
+  values:
+  - sim_time: 10000.0
+    time: 14262.998
+- name: memory_usage
+  values:
+  - unit: MB
+    value: 796
+- format:
+    parse:
+      F: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - expr: datum.F
+    field: free_energy
+    type: formula
+  - test: datum.time > 0.01
+    type: filter
+  url: https://gist.githubusercontent.com/dschwen/e98885861ef77c480a74c13d09804f92/raw/a11dfd5d1d3856ec48b14fd321a7ccbfce45bd96/problem_1b_out.csv
 metadata:
-  # Describe the runtime environment
-  summary: Raspberry Pi 3 benchmark with MOOSE, no-flux domain
   author: Daniel Schwen
   email: daniel.schwen@inl.gov
-  timestamp: 1/27/2017
+  github_id: ''
   hardware:
-    # Required hardware details
     architecture: armv7l
     cores: 4
-    # Optional hardware details
     details:
-      - name: clock
-        values: 1.2
-        # unit: GHz
-  software:
-    name: moose
-    version: CHiMaD_Hackathon
-    repo:
-      url: https://github.com/dschwen/CHiMaD_Hackathon
-      version: cf1ab8d
+    - name: clock
+      values: 1.2
   implementation:
+    details:
+    - name: mesh
+      values: uniform rectilinear 126*126 QUAD4
+    - name: numerical_method
+      values: implicit finite elements
+    - name: compiler
+      values: GNU mpic++
+    - name: parallel_model
+      values: MPI
+    - name: time_stepper
+      values: IterationAdaptive
+    - name: time_integration
+      values: second order backward euler
     end_condition: Time 10000
     repo:
       url: https://github.com/dschwen/CHiMaD_Hackathon
       version: cf1ab8d
-    details:
-      - name: mesh
-        values: uniform rectilinear 126*126 QUAD4
-      - name: numerical_method
-        values: implicit finite elements
-      - name: compiler
-        values: GNU mpic++
-      - name: parallel_model
-        values: MPI
-      - name: time_stepper
-        values: IterationAdaptive
-      - name: time_integration
-        values: second order backward euler
-data:
-  - name: run_time
-    values:
-      [
-        {
-          "time": 14262.998,
-          "sim_time": 10000.0
-        }
-      ]
-  - name: memory_usage
-    values:
-      - value: 796
-        unit: MB
-  - name: free_energy
-    url: https://gist.githubusercontent.com/dschwen/e98885861ef77c480a74c13d09804f92/raw/a11dfd5d1d3856ec48b14fd321a7ccbfce45bd96/problem_1b_out.csv
-    format:
-      type: csv
-      parse:
-        F: number
-        time: number
-    transform:
-      - type: formula
-        field: free_energy
-        expr: datum.F
-      - type: filter
-        test: "datum.time > 0.01"
+  software:
+    name: moose
+    repo:
+      url: https://github.com/dschwen/CHiMaD_Hackathon
+      version: cf1ab8d
+    version: CHiMaD_Hackathon
+  summary: Raspberry Pi 3 benchmark with MOOSE, no-flux domain
+  timestamp: 1/27/2017

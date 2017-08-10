@@ -1,63 +1,53 @@
----
 benchmark:
   id: 1d
   version: 1
-
+data:
+- name: run_time
+  values:
+  - sim_time: 1927051.4311553
+    time: 5520
+- name: memory_usage
+  transform:
+  - expr: datum.value_g * 1048576.0
+    field: value
+    type: formula
+  values:
+  - unit: GB
+    value_g: 3.57
+- format:
+    parse:
+      TotalEnergy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - expr: datum.TotalEnergy
+    field: free_energy
+    type: formula
+  - test: datum.time > 1.0
+    type: filter
+  - test: datum.time < 1e6
+    type: filter
+  url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_STA.csv
 metadata:
-  summary: Information for the Benchmark1 problems
-  timestamp: 6/28/2016
   author: A. M. Jokisaari
   email: andrea.jokisaari@northwestern.edu
-  software:
-    name: moose
-    version: Hedgehog (now Coral)
-    details:
-      - name: time stepper
-        values: STA
-  implementation:
-    repo:
-      url: https://bitbucket.org/ajokisaari/coral
-      version: e8fc74f
-    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+  github_id: ''
   hardware:
     cores: 20
     details:
-      - name: processor
-        values: "Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GH"
-
-data:
-  - name: run_time
-    values:
-      [
-        {
-          "time": 5520,
-          "sim_time": 1927051.4311553
-        }
-      ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value_g": 3.57,
-          "unit": GB
-        }
-      ]
-    transform:
-      - type: formula
-        field: value
-        expr: datum.value_g * 1048576.0
-  - name: free_energy
-    url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_STA.csv
-    format:
-      type: csv
-      parse:
-        TotalEnergy: number
-        time: number
-    transform:
-      - type: formula
-        field: free_energy
-        expr: datum.TotalEnergy
-      - type: filter
-        test: "datum.time > 1.0"
-      - type: filter
-        test: "datum.time < 1e6"
+    - name: processor
+      values: Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GH
+  implementation:
+    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+    repo:
+      url: https://bitbucket.org/ajokisaari/coral
+      version: e8fc74f
+  software:
+    details:
+    - name: time stepper
+      values: STA
+    name: moose
+    version: Hedgehog (now Coral)
+  summary: Information for the Benchmark1 problems
+  timestamp: 6/28/2016
