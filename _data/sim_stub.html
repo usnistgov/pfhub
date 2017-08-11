@@ -1,0 +1,6 @@
+---
+layout: default
+---
+
+{% assign sim_name = page.url | replace: '/simulations/all/', '' | replace: '/' '' %}
+{% include simulation.html sim_name=sim_name %}

@@ -9,6 +9,8 @@ YAML_FILES_IN := $(wildcard _data/simulations/*/meta.y*ml)
 YAML_FILES_OUT_TMP := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
 YAML_FILES_OUT := $(subst meta.yml,meta.yml.out,$(YAML_FILES_OUT_TMP))
 
+
+
 .PHONY: clean build_charts
 
 all: hexbin notebooks simulations
@@ -38,6 +40,11 @@ build_charts: _data/simulations.py $(YAML_FILES_OUT)
 
 data_table: _data/data_table.py
 	python _data/data_table.py
+
+%.html: %.yaml
+	cp _data/sim_stub.html simulations/all/$<
+
+sim_landing
 
 simulations: yamllint build_charts data_table
 
