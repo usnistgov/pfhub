@@ -187,7 +187,7 @@ def get_yaml_data():
       list of tuples of (name, data_dict)
     """
     return pipe(
-        os.path.join(get_path(), 'simulations/*/meta.y*ml'),
+        os.path.join(get_path(), 'simulations/*/meta.yaml'),
         glob.glob,
         sorted,
         map(lambda path_: (os.path.split(os.path.split(path_)[0])[1],
