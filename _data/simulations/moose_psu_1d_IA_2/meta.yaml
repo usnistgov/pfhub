@@ -13,7 +13,7 @@ data:
     type: formula
   values:
   - sim_time: 3000000
-    time: 78280
+    wall_time: 78280
 - format:
     parse:
       f_density: number
@@ -30,7 +30,7 @@ data:
 metadata:
   author: PC. Simon
   email: pjs5523@psu.edu
-  github_id: ''
+  github_id: 'simopier'
   hardware:
     architecture: x86_64
     cores: 40

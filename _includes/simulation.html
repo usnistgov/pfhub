@@ -1,19 +1,150 @@
 {% assign sim_data = site.data.simulations[include.sim_name].meta %}
+{% assign sim_name = include.sim_name %}
+{% assign github_id = sim_data.metadata.github_id %}
+{% capture benchmark %}{{ sim_data.benchmark.id }}.{{ sim_data.benchmark.version }}{% endcapture %}
+{% assign cores = sim_data.metadata.hardware.cores %}
+{% assign code = sim_data.metadata.software.name %}
+{% capture date %}{{ sim_data.metadata.timestamp | date_to_string }}{% endcapture %}
+
+{% capture memory_usage %}
+  {% for datum in sim_data.data %}
+    {% if datum.name == "memory_usage" %}
+       {{ datum.values.value }} {{ datum.values.unit }}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% capture wall_time %}
+  {% for datum in sim_data.data %}
+    {% if datum.name == "run_time" %}
+       {{ datum.values[0].wall_time }} s
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% capture sim_time %}
+  {% for datum in sim_data.data %}
+    {% if datum.name == "run_time" %}
+       {{ datum.values[0].sim_time }} s
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% capture code_url %}
+  {% for datum in site.data.codes %}
+    {% assign code_name = datum.name | downcase %}
+    {% if code_name == code %}
+       {{ datum.home_page }}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+
 
 <div class="container">
+
   <div class="row top-buffer">
     <div class="col s8 offset-s2">
       <h5>
-        {{ include.sim_name }}
+        <a href="{{ site.links.simmeta }}/{{ sim_name }}/meta.yaml"
+           target="_blank">
+        {{ sim_name }}
+        </a>
       </h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s8 offset-s2">
+
+      <i class="material-icons prefix" style="vertical-align: top;">account_circle</i>
+      <a href="mailto:{{ sim_data.metadata.email }}?Subject={{ sim_name }}"
+         target="_top">
+        {{ sim_data.metadata.author }}
+      </a>
+
+      {% if sim_data.metadata.github_id != '' %}
+        <i class="material-icons prefix" style="vertical-align: top; padding-left: 20px" >
+          <img style="width: 22px; height: 22px; padding-bottom: 2px" src="{{ site.baseurl}}/images/github-black.svg" alt="Github">
+        </i>
+        <a href="https://github.com/{{ github_id }}"
+           target="_blank">
+          {{ github_id }}
+        </a>
+      {% endif %}
+
+      <i class="material-icons prefix" style="vertical-align: top; padding-left: 20px">code</i>
+      <a href="{{ code_url }}"
+         target="_blank">
+        {{ code }}
+      </a>
+
 
     </div>
   </div>
-  <div class="row">
-    <div class="col s8 offset-s2">
-      <i class="material-icons prefix">account_circle</i>
+
+
+  <div class="row top-buffer">
+    <div class="col s3 offset-s2">
+      <table class="bordered">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> Benchmark </td>
+            <td>
+              <a href="{{ site.baseurl }}/benchmarks/benchmark{{ benchmark | split: "" | first }}.ipynb"
+                 target="_blank">
+
+                {{ benchmark }}
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td> Date </td>
+            <td>
+              {{ date }}
+            </td>
+          </tr>
+
+          <tr>
+            <td> Cores </td>
+            <td>
+              {{ cores }}
+            </td>
+          </tr>
+
+          <tr>
+            <td> Memory Usage </td>
+            <td>
+              {{ memory_usage }}
+            </td>
+          </tr>
+
+          <tr>
+            <td> Wall Time </td>
+            <td>
+              {{ wall_time }}
+            </td>
+          </tr>
+
+          <tr>
+            <td> Sim Time </td>
+            <td>
+              {{ sim_time }}
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
     </div>
   </div>
+
+
   <div class="row">
     <div class="col s8 offset-s2">
       <div class="flow-text" style="font-size: 16px">
