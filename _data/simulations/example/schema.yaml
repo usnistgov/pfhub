@@ -35,6 +35,9 @@ mapping:
           "modify":
             type: any
             required: False
+          "description":
+            type: str
+            required: False
   "benchmark":
     type: map
     required: True

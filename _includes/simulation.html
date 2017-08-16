@@ -1,48 +1,41 @@
 <div class="container">
 
   <div class="row top-buffer">
-    <div class="col s8 offset-s2">
-      <h5 id="header">
-      </h5>
+    <div class="col s4 offset-s2">
+      <div class="row">
+        <h5 id="header">
+        </h5>
+      </div>
+
+      <div class="row">
+        <i class="material-icons prefix" style="vertical-align: top;">account_circle</i>
+        <span id="author"></span>
+        <span id="github_id"></span>
+          <i class="material-icons prefix" style="vertical-align: top; padding-left: 20px">code</i>
+          <span id="code"></span>
+      </div>
+
+      <div class="row top-buffer">
+        <table class="bordered">
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody id="table">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="flow-text" style="font-size: 16px" id="summary">
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col s8 offset-s2">
-
-      <i class="material-icons prefix" style="vertical-align: top;">account_circle</i>
-      <span id="author"></span>
-
-      <span id="github_id"></span>
-
-      <i class="material-icons prefix" style="vertical-align: top; padding-left: 20px">code</i>
-      <span id="code"></span>
-
-    </div>
-  </div>
-
-
-  <div class="row top-buffer">
-    <div class="col s3 offset-s2">
-      <table class="bordered">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-        <tbody id="table">
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col s8 offset-s2">
-      <div class="flow-text" style="font-size: 16px" id="summary">
+    <div class="col s3 offset-s1">
+      <div class="row top-buffer" id="logo_image">
       </div>
     </div>
   </div>
-
 </div>
 
 <div class="container top-bar-thin">
@@ -50,18 +43,45 @@
     <div class="col l2 m12 s12">
       <h5 class="sideheader">Results</h5>
     </div>
-    <div class="col s3 small-buffer">
-      <table class="bordered">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-        <tbody id="results_table">
-        </tbody>
-      </table>
+    <div class="col s4 small-buffer">
+      <div class="row">
+        <table class="bordered">
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody id="results_table">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col s3 offset-s1">
+      <div class="row top-buffer" id="youtube">
+      </div>
     </div>
   </div>
+
+
+
+  <div class="row">
+    <div class="col s8 offset-s2" id="images">
+    </div>
+  </div>
+
 </div>
+
+
 
 <script> var sim_name="{{ include.sim_name }}" </script>
 <script src="{{ site.baseurl }}/js/simulation.js"></script>
+<script>
+  $(document).ready(function(){
+  $('.materialboxed').materialbox();
+  });
+</script>
+<script>
+ $(document).ready(function(){
+      $('.carousel').carousel();
+    });
+</script>

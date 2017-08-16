@@ -137,6 +137,59 @@ results_table = (data) ->
     td.text(item[1])
 
 
+image_formats = ['jpg', 'png', 'svg', 'bmp']
+
+
+get_images = (data) ->
+   (d for d in data.data when ('format' of d and d.format.type in image_formats))
+
+
+get_youtube = (data) ->
+  (d for d in data.data when ('format' of d and d.format.type == "youtube"))[0]
+
+
+logo_image = (data) ->
+  images = [get_images(data)[0]]
+  selection = d3.select("#logo_image").selectAll().data(images).enter()
+  card_image(selection)
+
+
+youtube = (data) ->
+  selection = d3.select("#youtube").selectAll().data([data]).enter()
+  div = selection.append("div")
+  div.attr("class", "video-container")
+  iframe = div.append("iframe")
+  iframe.attr("frameborder", 0)
+  iframe.attr("allowfullscreen")
+  iframe.attr("src", (d) -> get_youtube(d).url)
+  div = selection.append("div")
+  div.attr("class", "flow-text")
+  div.attr("style", "font-size: 16px")
+  div.text((d) -> get_youtube(d).description)
+
+
+card_image = (selection) ->
+  div1 = selection.append("div")
+  div1.attr("class", "card small")
+  div2 = div1.append("div")
+  div2.attr("class", "card-image")
+  img = div2.append("img")
+  img.attr("class", "materialboxed responsive-img")
+  img.attr("src", (d) -> d.url)
+  div3 = div1.append("span")
+  div3.attr("class", "card-content")
+  p = div3.append("p")
+  p.text((d) -> d.description)
+
+
+card_images = (data) ->
+  images = get_images(data)
+  selection = d3.select("#images").selectAll().data(images).enter()
+  div0 = selection.append("div")
+  div0.attr("class", "col s4")
+  card_image(div0)
+
+
 header(data_json)
 summary(data_json)
 author(data_json)
@@ -145,3 +198,6 @@ if data_json.metadata.github_id != ""
 code(data_json)
 table(data_json)
 results_table(data_json)
+logo_image(data_json)
+youtube(data_json)
+card_images(data_json)
