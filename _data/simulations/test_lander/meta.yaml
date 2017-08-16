@@ -7,10 +7,6 @@ data:
     unit: GB
     value: 100
 - name: run_time
-  transform:
-  - expr: datum.value_m * 1024.0
-    field: value
-    type: formula
   values:
   - sim_time: 3000000
     wall_time: 78280
@@ -20,6 +16,7 @@ data:
       time: number
     type: csv
   name: free_energy
+  type: line
   transform:
   - expr: datum.f_density
     field: free_energy
@@ -30,28 +27,23 @@ data:
 - name: logo_image
   description: A puppy picture
   url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
-  format:
-    type: jpg
-- name: something
+  type: image
+- name: image0
   description: A puppy picture
   url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
-  format:
-    type: jpg
-- name: another one
+  type: image
+- name: image1
   description: A puppy picture
   url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
-  format:
-    type: jpg
-- name: another one
+  type: image
+- name: image2
   description: A puppy picture
   url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
-  format:
-    type: jpg
+  type: image
 - name: youtube
   description: My youtube video
   url: https://www.youtube.com/embed/Q8TXgCzxEnw?rel=0
-  format:
-    type: youtube
+  type: youtube
 
 metadata:
   author: PC. Simon

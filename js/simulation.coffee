@@ -137,15 +137,12 @@ results_table = (data) ->
     td.text(item[1])
 
 
-image_formats = ['jpg', 'png', 'svg', 'bmp']
-
-
 get_images = (data) ->
-   (d for d in data.data when ('format' of d and d.format.type in image_formats))
+   (d for d in data.data when (d.type == 'image'))
 
 
 get_youtube = (data) ->
-  (d for d in data.data when ('format' of d and d.format.type == "youtube"))[0]
+  (d for d in data.data when (d.type == "youtube"))[0]
 
 
 logo_image = (data) ->
@@ -184,6 +181,7 @@ card_image = (selection) ->
 
 card_images = (data) ->
   images = get_images(data)
+  console.log(images)
   selection = d3.select("#images").selectAll().data(images).enter()
   div0 = selection.append("div")
   div0.attr("class", "col s4")
