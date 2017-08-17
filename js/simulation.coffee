@@ -167,7 +167,7 @@ youtube = (data) ->
 
 card_image = (selection) ->
   div1 = selection.append("div")
-  div1.attr("class", "card small")
+  div1.attr("class", "card medium")
   div2 = div1.append("div")
   div2.attr("class", "card-image")
   img = div2.append("img")
@@ -181,10 +181,9 @@ card_image = (selection) ->
 
 card_images = (data) ->
   images = get_images(data)
-  console.log(images)
   selection = d3.select("#images").selectAll().data(images).enter()
   div0 = selection.append("div")
-  div0.attr("class", "col s4")
+  div0.attr("class", "col s6")
   card_image(div0)
 
 
@@ -199,3 +198,35 @@ results_table(data_json)
 logo_image(data_json)
 youtube(data_json)
 card_images(data_json)
+
+
+add_chart = (chart_json) ->
+  selection = d3.select("#images").selectAll().data([chart_json]).enter()
+
+  div = selection.append("div")
+  div.attr("class", "col s6")
+
+  div1 = div.append("div")
+  div1.attr("class", "card medium")
+
+  div2 = div1.append("div")
+  div2.attr("class", "card-image")
+
+  img = div2.append("img")
+  img.attr("class", "materialboxed responsive-img")
+  img.attr("id", "chart")
+
+  div3 = div1.append("span")
+  div3.attr("class", "card-content")
+
+  p = div3.append("p")
+  p.text((d) -> "My Graph")
+
+  view = new vega.View(vega.parse(chart_json))
+    .initialize("#chart")
+    .renderer('svg')
+    .hover()
+    .run()
+
+chart_json = {{ site.data.charts | jsonify }}['1a1_free_energy']
+add_chart(chart_json)

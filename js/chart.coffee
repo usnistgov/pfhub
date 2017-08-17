@@ -8,5 +8,4 @@ build_chart = (chart_json, div_id)->
     .hover()
     .run()
 
-console.log(chart_json)
 build_chart(chart_json, div_id)
