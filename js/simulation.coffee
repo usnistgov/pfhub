@@ -151,25 +151,12 @@ logo_image = (data) ->
   card_image(selection)
 
 
-youtube = (data) ->
-  selection = d3.select("#youtube").selectAll().data([data]).enter()
-  div = selection.append("div")
-  div.attr("class", "video-container")
-  iframe = div.append("iframe")
-  iframe.attr("frameborder", 0)
-  iframe.attr("allowfullscreen")
-  iframe.attr("src", (d) -> get_youtube(d).url)
-  div = selection.append("div")
-  div.attr("class", "flow-text")
-  div.attr("style", "font-size: 16px")
-  div.text((d) -> get_youtube(d).description)
-
-
 card_image = (selection) ->
   div1 = selection.append("div")
-  div1.attr("class", "card medium")
+  div1.attr("class", "card small")
   div2 = div1.append("div")
   div2.attr("class", "card-image")
+  div2.attr("style", "max-height: 70%")
   img = div2.append("img")
   img.attr("class", "materialboxed responsive-img")
   img.attr("src", (d) -> d.url)
@@ -179,12 +166,80 @@ card_image = (selection) ->
   p.text((d) -> d.description)
 
 
+youtube_card = (data) ->
+  data_ = get_youtube(data)
+  selection = d3.select("#youtube").selectAll().data([data_]).enter()
+
+  div0 = selection.append("div")
+  div0.attr("class", "card small")
+
+  div1 = div0.append("div")
+  div1.attr("class", "card-image")
+  div1.attr("style", "max-height: 70%")
+
+  div2 = div1.append("div")
+  div2.attr("class", "video-container")
+
+  iframe = div2.append("iframe")
+  iframe.attr("frameborder", 0)
+  iframe.attr("allowfullscreen")
+  iframe.attr("src", (d) -> d.url)
+
+  span = div0.append("span")
+  span.attr("class", "card-content")
+  p = span.append("p")
+  p.text((d) -> d.description)
+
+
 card_images = (data) ->
   images = get_images(data)
   selection = d3.select("#images").selectAll().data(images).enter()
   div0 = selection.append("div")
-  div0.attr("class", "col s6")
+  div0.attr("class", "col s4")
   card_image(div0)
+
+
+add_data_to_chart = (data, chart_json) ->
+  if data.name = "free_energy"
+    chart_json.axes[1].title = "Free Energy"
+    chart_json.axes[0].title = "Time"
+    chart_json.scales[0].type = "log"
+    chart_json.scales[1].type = "log"
+  chart_json['data'].push(data)
+  chart_json['data'][0]['name'] = "the_data"
+  delete chart_json['data'][0].type
+  return chart_json
+
+
+add_chart = (chart_json) ->
+  selection = d3.select("#images").selectAll().data([chart_json]).enter()
+
+  div = selection.append("div")
+  div.attr("class", "col s4")
+
+  div1 = div.append("div")
+  div1.attr("class", "card small")
+
+  div2 = div1.append("div")
+  div2.attr("class", "card-image")
+  div2.attr("style", "max-height: 70%")
+  img = div2.append("img")
+  img.attr("class", "materialboxed responsive-img")
+  img.attr("id", "chart")
+  img.attr("style", "background-color: white;")
+
+  div3 = div1.append("span")
+  div3.attr("class", "card-content")
+
+  p = div3.append("p")
+  p.text((d) -> "My Graph")
+
+  width = img.node().getBoundingClientRect().width
+  height = img.node().getBoundingClientRect().width
+
+  view = new vega.View(vega.parse(chart_json))
+  prom = view.toImageURL('svg')
+  prom.then((url) -> img.attr("src", url))
 
 
 header(data_json)
@@ -196,37 +251,12 @@ code(data_json)
 table(data_json)
 results_table(data_json)
 logo_image(data_json)
-youtube(data_json)
+youtube_card(data_json)
 card_images(data_json)
 
-
-add_chart = (chart_json) ->
-  selection = d3.select("#images").selectAll().data([chart_json]).enter()
-
-  div = selection.append("div")
-  div.attr("class", "col s6")
-
-  div1 = div.append("div")
-  div1.attr("class", "card medium")
-
-  div2 = div1.append("div")
-  div2.attr("class", "card-image")
-
-  img = div2.append("img")
-  img.attr("class", "materialboxed responsive-img")
-  img.attr("id", "chart")
-
-  div3 = div1.append("span")
-  div3.attr("class", "card-content")
-
-  p = div3.append("p")
-  p.text((d) -> "My Graph")
-
-  view = new vega.View(vega.parse(chart_json))
-    .initialize("#chart")
-    .renderer('svg')
-    .hover()
-    .run()
-
-chart_json = {{ site.data.charts | jsonify }}['1a1_free_energy']
-add_chart(chart_json)
+line_data = (d for d in data_json.data when d.type == "line")
+console.log(line_data)
+for datum in line_data
+  chart_json = {{ site.data.charts | jsonify }}['plot1d']
+  chart_json = add_data_to_chart(datum, chart_json)
+  add_chart(chart_json)
