@@ -19,13 +19,36 @@ data:
   type: line
   transform:
   - expr: datum.f_density
-    field: free_energy
+    as: y
     type: formula
-  - test: datum.time > 0.01
+  - expr: datum.time > 0.01
     type: filter
+  - expr: datum.time
+    as: x
+    type: formula
   url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
+- format:
+    parse:
+      f_density: number
+      time: number
+    type: csv
+  name: blah
+  type: line
+  transform:
+  - expr: datum.f_density
+    as: y
+    type: formula
+  - expr: datum.time > 0.01
+    type: filter
+  - expr: datum.time
+    as: x
+    type: formula
+  url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
+
+
 - name: logo_image
-  description: A puppy picture
+  description: >-
+    Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet,
   url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
   type: image
 - name: image0
