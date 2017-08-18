@@ -11,8 +11,8 @@
         <i class="material-icons prefix" style="vertical-align: top;">account_circle</i>
         <span id="author"></span>
         <span id="github_id"></span>
-          <i class="material-icons prefix" style="vertical-align: top; padding-left: 20px">code</i>
-          <span id="code"></span>
+        <i class="material-icons prefix" style="vertical-align: top; padding-left: 20px">code</i>
+        <span id="code"></span>
       </div>
 
       <div class="row top-buffer">
@@ -22,6 +22,27 @@
             </tr>
           </thead>
           <tbody id="table">
+            <tr>
+              <td>
+                Benchmark
+              </td>
+              <td id="benchmark">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Date
+              </td>
+              <td id="date">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Software
+              </td>
+              <td id="software">
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -74,7 +95,10 @@
 
 
 
-<script> var sim_name="{{ include.sim_name }}" </script>
+<script>
+  var SIM_NAME="{{ include.sim_name }}"
+  var DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta
+</script>
 <script src="{{ site.baseurl }}/js/simulation.js"></script>
 <script>
   $(document).ready(function(){

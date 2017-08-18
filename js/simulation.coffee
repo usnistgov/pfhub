@@ -1,154 +1,319 @@
 ---
-title: check
 ---
 
-all_data = {{ site.data.simulations | jsonify }}
-simmeta = "{{ site.links.simmeta }}"
-baseurl = "{{ site.baseurl }}"
-data_json = all_data[sim_name]['meta']
-software = {{ site.data.codes | jsonify }}
+###
+Build the individual simulation landing pages
+
+Used by _include/simulation.html
+
+Required variables:
+  SIM_NAME: the directory name for the simulations from
+    _data/simulations/SIM_NAME/meta.yaml
+  DATA: the simulation data from the meta.yaml
+
+Required tags:
+  #summary
+  #author
+  #header
+  #github_id
+  #code
+  #table
+  #results_table
+  #logo_image
+  #youtube
+  #images
+###
 
 
-get_selection = (data, tag) ->
-  d3.select("#summary").selectAll().data([data]).enter()
+select_tag = (data, tag) ->
+  ### Select based on tag and bind the data
+
+  Args:
+    data: the data to add to the selection
+    tag: the tag to select
+  ###
+  d3.select(tag).selectAll().data(data).enter()
+
+
+header = (sim_name) ->
+  ### Add the header data
+
+  Args:
+    sim_name: the name of the simulation
+  ###
+  select_tag([sim_name], "#header")
+    .append("a")
+    .attr("href", (d) -> "{{ site.links.simmeta }}" + "/" + d + "/meta.yaml")
+    .attr("target", "_blank")
+    .text((d) -> d)
+
+
+author = (data, sim_name) ->
+  ### Add the author data
+
+  Args:
+    data: the simulation data
+    sim_name: the name of the simulation
+  ###
+  select_tag([[data.metadata, sim_name]], "#author")
+    .append("a")
+    .attr("href", (d) -> "mailto:" + d[0].email + "?Subject=" + d[1])
+    .attr("target", "_top")
+    .text((d) -> d[0].author)
 
 
 summary = (data) ->
-  selection = d3.select("#summary").selectAll().data([data]).enter()
-  p = selection.append("p")
-  p.text((d) -> d.metadata.summary)
+  ### Add the summary data
+
+  Args:
+    data: the simulation data
+  ###
+  select_tag([data.metadata.summary], "#summary").append("p").text((d) -> d)
 
 
-author = (data) ->
-  selection = d3.select("#author").selectAll().data([data]).enter()
-  a = selection.append("a")
-  a.attr("href", (d) -> "mailto:" + d.metadata.email + "?Subject=" + sim_name)
-  a.attr("target", (d) -> "_top")
-  a.text((d) -> d.metadata.author)
-
-
-header = (data) ->
-  selection = d3.select("#header").selectAll().data([data]).enter()
-  a = selection.append("a")
-  a.attr("href", (d) -> simmeta + "/" + sim_name + "/meta.yaml")
-  a.attr("target", (d) -> "_blank")
-  a.text((d) -> sim_name)
+github_icon = () ->
+  ### Add the Github badge
+  ###
+  select_tag(['x'], "#github_id")
+    .append("i")
+    .attr("class", "material-icons prefix")
+    .attr("style", "vertical-align: top; padding-left: 20px; padding-right: 3px")
+    .append("img")
+    .attr("style", "width: 22px; height: 22px; padding-bottom: 2px")
+    .attr("src", "{{ site.baseurl }}" + "/images/github-black.svg")
+    .attr("alt", "github")
 
 
 github_id = (data) ->
-  selection = d3.select("#github_id").selectAll().data([data]).enter()
-  i = selection.append("i")
-  i.attr("class", (d) -> "material-icons prefix")
-  i.attr("style", (d) -> "vertical-align: top; padding-left: 20px; padding-right: 3px")
-  img = i.append("img")
-  img.attr("style", (d) -> "width: 22px; height: 22px; padding-bottom: 2px")
-  img.attr("src", (d) -> baseurl + "/images/github-black.svg")
-  img.attr("alt", "github")
-  a = selection.append("a")
-  a.attr("href", (d) -> "https://github.com/" + d.metadata.github_id)
-  a.attr("target", "_blank")
-  a.text((d) -> d.metadata.github_id)
+  ### Add the Github user name
+
+  Args:
+    data: the simulation data
+  ###
+  select_tag([data.metadata.github_id], "#github_id")
+    .append("a")
+    .attr("href", (d) -> "https://github.com/" + d)
+    .attr("target", "_blank")
+    .text((d) -> d)
 
 
-user_repo = (data) ->
-  data_a = data + "/a"
-  out = /https:\/\/.*?\/(.*?)\/(.*?)\/.*/i.exec data_a
-  out[1] + "/" + out[2]
+github = (data) ->
+  ### Add the Github badge and user name
+
+  Args:
+    data: the simualtion data
+  ###
+  if data.metadata.github_id isnt ""
+    github_icon()
+    github_id(data)
+
+
+user_repo = (url) ->
+  ### Construct the username/repo string from a Github URL
+
+  Args:
+    url: the Github URL
+
+  Returns:
+    the "user/repo" string
+  ###
+  /https:\/\/.*?\/(.*?)\/(.*?)\/.*/i
+    .exec(url + "/a")[1..2]
+    .join("/")
 
 
 code = (data) ->
-  selection = d3.select("#code").selectAll().data([data]).enter()
-  a = selection.append("a")
-  a.attr("href", (d) -> d.metadata.implementation.repo.url)
-  a.attr("target", (d) -> "_blank")
-  a.text((d) -> user_repo(d.metadata.implementation.repo.url))
+  ### Add the link to the code repository
+
+  Args:
+    data: the simulation data
+  ###
+  select_tag([data.metadata.implementation.repo.url], "#code")
+    .append("a")
+    .attr("href", (d) -> d)
+    .attr("target", (d) -> "_blank")
+    .text((d) -> user_repo(d))
 
 
-get_software = (name) ->
-  (s for s in software when s.name.toLowerCase() == name)[0]
+benchmark = (data) ->
+  ### Add the benchmark ID
+
+  Args:
+    data: the simulation data
+  ###
+  select_tag([data.benchmark], "#benchmark")
+    .append("a")
+    .attr("href", (d) -> "{{ site.baseurl }}" + "/benchmarks/benchmark" + d.id[0] + ".ipynb")
+    .attr("target", "_blank")
+    .text((d) -> d.id + "." + d.version)
 
 
-table = (data) ->
-  selection = d3.select("#table").selectAll().data([data]).enter()
-  tr = selection.append("tr")
 
-  td = tr.append("td")
-  td.text("Benchmark")
 
-  td = tr.append("td")
-  a = td.append("a")
-  a.attr("href", (d) -> baseurl + "/benchmarks/benchmark" + d.benchmark.id[0] + ".ipynb")
-  a.attr("target", (d) -> "_blank")
-  a.text((d) -> d.benchmark.id + "." + d.benchmark.version)
+to_date = (x) ->
+  ### Change a time stamp into a date
 
-  tr = selection.append("tr")
-  td = tr.append("td")
-  td.text("Date")
+  Args:
+    x: timestamp with format "Tue Jan 31 21:01:55 EST 2017"
 
-  td = tr.append("td")
+  Returns:
+    date with format "Jan 31, 2017"
+  ###
+  format = (s) ->
+    s[4..9] + ", " + s[11..14]
+  format(new Date(Date.parse(x)).toString())
 
-  make_date = (s) ->
-    obj = new Date(Date.parse(s))
-    s = obj.toString()
-    return s.substring(4, 10) + ", " + s.substring(11, 15)
 
-  td.text((d) -> make_date(d.metadata.timestamp))
 
-  tr = selection.append("tr")
-  td = tr.append("td")
-  td.text("Code")
-  td = tr.append("td")
-  a = td.append("a")
-  a.attr("href", (d) -> get_software(d.metadata.software.name).home_page)
-  a.attr("target", (d) -> "_blank")
-  a.text((d) -> d.metadata.software.name)
+date = (data) ->
+  ### Add the simulation date
+
+  Args:
+    data: the simulation date
+  ###
+  select_tag([data.metadata.timestamp], "#date")
+    .append("span")
+    .text((d) -> to_date(d))
+
+
+get_software = (x) ->
+  ### Get the software data that matches x
+
+  Args:
+    x: the name of the software to match
+
+  Returns:
+    the software data corresponding to x
+  ###
+  {{ site.data.codes | jsonify }}.filter((y) -> y.name.toLowerCase() is x)[0]
+
+
+software = (data) ->
+  ### Add the software name and link
+
+  Args:
+    data: the simulation date
+  ###
+  select_tag([data.metadata.software.name], "#software")
+    .append("a")
+    .attr("href", (d) -> get_software(d).home_page)
+    .attr("target", "_blank")
+    .text((d) -> d)
+
+
+get_data = (data, name) ->
+  ### Get the named data from the simulation data
+
+  Args:
+    data: the simulation data
+    name: the name of the data
+
+  Returns:
+    the named data
+  ###
+  data.data.filter((x) -> x.name is name)[0]
 
 
 memory_usage = (data) ->
-  v = (d for d in data.data when d.name == "memory_usage")[0]
-  return v.values.value + " " + v.values.unit
+  ### Get the memory usage for the simulation
+
+  Args:
+    data: the simulation data
+
+  Returns:
+    the memory usage string
+  ###
+  format = (x) ->
+    x.value + " " + x.unit
+  format(get_data(data, "memory_usage").values)
 
 
 wall_time = (data) ->
-  v = (d for d in data.data when d.name == "run_time")[0]
-  l = v.values.length
-  return v.values[l - 1].wall_time + " s"
+  ### Get the simulation wall time
+
+  Args:
+    data: the simulation data
+
+  Returns:
+    the simulation wall time as a string
+  ###
+  get_data(data, "run_time").values[..].pop().wall_time + " s"
 
 
 sim_time = (data) ->
-  v = (d for d in data.data when d.name == "run_time")[0]
-  l = v.values.length
-  return v.values[l - 1].sim_time + " s"
+  ### Get the simulation time
+
+  Args:
+    data: the simulation data
+
+  Returns:
+    the simulation time as a string
+  ###
+  get_data(data, "run_time").values[..].pop().sim_time + " s"
 
 
-results_table = (data) ->
-  selection = d3.select("#results_table").selectAll().data([data]).enter()
-  table_data = [
+get_table_data = (data) ->
+  ### The data for the results table
+
+  Args:
+    data: the simualation data
+
+  Returns:
+    data for the results table as a nested array
+  ###
+  out = [
     ["Memory Usage", memory_usage(data)]
     ["Wall Time", wall_time(data)]
     ["Sim Time", sim_time(data)]
     ["Cores", "53"]
   ]
-  for item in table_data
-    tr = selection.append("tr")
-    td = tr.append("td")
-    td.text(item[0])
-    td = tr.append("td")
-    td.text(item[1])
 
 
-get_images = (data) ->
-   (d for d in data.data when (d.type == 'image'))
+results_table = (data) ->
+  ### Create the results table
+
+  Args:
+    data: the simulation data
+  ###
+  select_tag(get_table_data(data), "#results_table")
+    .append("tr")
+    .append("td")
+    .text((d) -> d[0])
+    .select(() -> this.parentNode)
+    .append("td")
+    .text((d) -> d[1])
 
 
-get_youtube = (data) ->
-  (d for d in data.data when (d.type == "youtube"))[0]
+get_data_by_type = (data, type) ->
+  data.data.filter((x) -> x.type is type)
 
+
+# card_image_ = (selection) ->
+#   selection.append("img")
+#     .attr("class", "materialboxed responsive-img")
+#     .attr("src", (d) -> d.url)
+
+# card = (selection, f) ->
+#   div1 = selection.append("div")
+#   div1.attr("class", "card small")
+#   div2 = div1.append("div")
+#   div2.attr("class", "card-image")
+#   div2.attr("style", "max-height: 70%")
+#   img = div2.append("img")
+#   img.attr("class", "materialboxed responsive-img")
+#   img.attr("src", (d) -> d.url)
+#   div3 = div1.append("span")
+#   div3.attr("class", "card-content")
+#   p = div3.append("p")
+#   p.text((d) -> d.description)
 
 logo_image = (data) ->
-  images = [get_images(data)[0]]
-  selection = d3.select("#logo_image").selectAll().data(images).enter()
-  card_image(selection)
+  card_image(select_tag([get_data_by_type(data, "image")[0]], "#logo_image"))
+
+
+  # images = [get_data_by_type(data, "image")[0]]
+  # selection = d3.select("#logo_image").selectAll().data(images).enter()
+  # card_image(selection)
 
 
 card_image = (selection) ->
@@ -167,7 +332,7 @@ card_image = (selection) ->
 
 
 youtube_card = (data) ->
-  data_ = get_youtube(data)
+  data_ = get_data_by_type(data, "youtube")[0]
   selection = d3.select("#youtube").selectAll().data([data_]).enter()
 
   div0 = selection.append("div")
@@ -192,7 +357,7 @@ youtube_card = (data) ->
 
 
 card_images = (data) ->
-  images = get_images(data)
+  images = get_data_by_type(data, "image")
   selection = d3.select("#images").selectAll().data(images).enter()
   div0 = selection.append("div")
   div0.attr("class", "col s4")
@@ -242,20 +407,21 @@ add_chart = (chart_json) ->
   prom.then((url) -> img.attr("src", url))
 
 
-header(data_json)
-summary(data_json)
-author(data_json)
-if data_json.metadata.github_id != ""
-  github_id(data_json)
-code(data_json)
-table(data_json)
-results_table(data_json)
-logo_image(data_json)
-youtube_card(data_json)
-card_images(data_json)
+header(SIM_NAME)
+author(DATA, SIM_NAME)
+summary(DATA)
+github(DATA)
+code(DATA)
+benchmark(DATA)
+date(DATA)
+software(DATA)
+results_table(DATA)
 
-line_data = (d for d in data_json.data when d.type == "line")
-console.log(line_data)
+logo_image(DATA)
+youtube_card(DATA)
+card_images(DATA)
+
+line_data = (d for d in DATA.data when d.type == "line")
 for datum in line_data
   chart_json = {{ site.data.charts | jsonify }}['plot1d']
   chart_json = add_data_to_chart(datum, chart_json)
