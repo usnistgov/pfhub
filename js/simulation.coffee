@@ -366,7 +366,7 @@ build_card = (addf) ->
   )
 
 
-card_bind = (type, tag, take_=id) ->
+card_bind = (type, tag, take_func=id) ->
   ### Bind data to a card selection
 
   Args:
@@ -380,12 +380,12 @@ card_bind = (type, tag, take_=id) ->
   sequence(
     (x) -> x.data,
     filter((x) -> x.type is type),
-    take_,
+    take_func,
     select_tag(tag),
   )
 
 
-add_card = (addf, type, tag) ->
+add_card = (addf, type, tag, with_div=id, take_func=take(1)) ->
   ### Constuct a data card
 
   Args:
@@ -397,17 +397,10 @@ add_card = (addf, type, tag) ->
     a function to build the card
   ###
   sequence(
-    card_bind(type, tag, take_=take(1)),
+    card_bind(type, tag, take_func=take_func),
+    with_div,
     build_card(addf)
   )
-
-
-card_images = sequence(
-  card_bind("image", "#images"),
-  (x) -> x.append("div").attr("class", "col s4"),
-  build_card(add_image)
-)
-
 
 
 update_data = (x) ->
@@ -429,11 +422,6 @@ combine_data = curry(
 )
 
 
-prom = (x, i, a) ->
-  view = new vega.View(vega.parse(x))
-  prom_ = view.toImageURL('svg')
-
-
 add_src = (x) ->
   new vega.View(vega.parse(x.datum()))
     .toImageURL("svg")
@@ -442,21 +430,18 @@ add_src = (x) ->
 
 add_chart = (x) ->
   add_src(add_card_image_(x)
-    # .attr("id", "chart")
     .attr("style", "backgroud-color: white;"))
 
 
-card_charts = sequence(
-  (x) -> x.data,
-  filter((x) -> x.type is "line"),
+take_data = sequence(
   map(combine_data({{ site.data.charts.plot1d | jsonify }})),
-  map(update_data),
-  select_tag("#images"),
-  (x) -> x.append("div").attr("class", "col s4"),
-  (x) -> x.append("div").attr("class", "card small"),
-  do_(add_chart),
-  add_description
+  map(update_data)
 )
+
+
+add_card_col = (addf, type, take_func) ->
+  with_div = (x) -> x.append("div").attr("class", "col s4")
+  add_card(addf, type, "#images", with_div=with_div, take_func=take_func)
 
 
 header(SIM_NAME)
@@ -470,5 +455,5 @@ software(DATA)
 results_table(DATA)
 add_card(add_image, "image", "#logo_image")(DATA)
 add_card(add_youtube, "youtube", "#youtube")(DATA)
-card_images(DATA)
-card_charts(DATA)
+add_card_col(add_image, "image", id)(DATA)
+add_card_col(add_chart, "line", take_data)(DATA)
