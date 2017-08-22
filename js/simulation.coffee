@@ -24,15 +24,16 @@ Required tags:
   #images
 ###
 
+{% include essential.coffee %}
 
-select_tag = (data, tag) ->
+select_tag = (tag) ->
   ### Select based on tag and bind the data
 
   Args:
     data: the data to add to the selection
     tag: the tag to select
   ###
-  d3.select(tag).selectAll().data(data).enter()
+  (x) -> d3.select(tag).selectAll().data(x).enter()
 
 
 header = (sim_name) ->
@@ -41,7 +42,7 @@ header = (sim_name) ->
   Args:
     sim_name: the name of the simulation
   ###
-  select_tag([sim_name], "#header")
+  select_tag("#header")([sim_name])
     .append("a")
     .attr("href", (d) -> "{{ site.links.simmeta }}" + "/" + d + "/meta.yaml")
     .attr("target", "_blank")
@@ -55,7 +56,7 @@ author = (data, sim_name) ->
     data: the simulation data
     sim_name: the name of the simulation
   ###
-  select_tag([[data.metadata, sim_name]], "#author")
+  select_tag("#author")([[data.metadata, sim_name]])
     .append("a")
     .attr("href", (d) -> "mailto:" + d[0].email + "?Subject=" + d[1])
     .attr("target", "_top")
@@ -68,13 +69,13 @@ summary = (data) ->
   Args:
     data: the simulation data
   ###
-  select_tag([data.metadata.summary], "#summary").append("p").text((d) -> d)
+  select_tag("#summary")([data.metadata.summary]).append("p").text((d) -> d)
 
 
 github_icon = () ->
   ### Add the Github badge
   ###
-  select_tag(['x'], "#github_id")
+  select_tag("#github_id")(['x'])
     .append("i")
     .attr("class", "material-icons prefix")
     .attr("style", "vertical-align: top; padding-left: 20px; padding-right: 3px")
@@ -90,7 +91,7 @@ github_id = (data) ->
   Args:
     data: the simulation data
   ###
-  select_tag([data.metadata.github_id], "#github_id")
+  select_tag("github_id")([data.metadata.github_id])
     .append("a")
     .attr("href", (d) -> "https://github.com/" + d)
     .attr("target", "_blank")
@@ -128,7 +129,7 @@ code = (data) ->
   Args:
     data: the simulation data
   ###
-  select_tag([data.metadata.implementation.repo.url], "#code")
+  select_tag("#code")([data.metadata.implementation.repo.url])
     .append("a")
     .attr("href", (d) -> d)
     .attr("target", (d) -> "_blank")
@@ -141,7 +142,7 @@ benchmark = (data) ->
   Args:
     data: the simulation data
   ###
-  select_tag([data.benchmark], "#benchmark")
+  select_tag("#benchmark")([data.benchmark])
     .append("a")
     .attr("href", (d) -> "{{ site.baseurl }}" + "/benchmarks/benchmark" + d.id[0] + ".ipynb")
     .attr("target", "_blank")
@@ -171,7 +172,7 @@ date = (data) ->
   Args:
     data: the simulation date
   ###
-  select_tag([data.metadata.timestamp], "#date")
+  select_tag("#date")([data.metadata.timestamp])
     .append("span")
     .text((d) -> to_date(d))
 
@@ -194,7 +195,7 @@ software = (data) ->
   Args:
     data: the simulation date
   ###
-  select_tag([data.metadata.software.name], "#software")
+  select_tag("#software")([data.metadata.software.name])
     .append("a")
     .attr("href", (d) -> get_software(d).home_page)
     .attr("target", "_blank")
@@ -261,7 +262,7 @@ get_table_data = (data) ->
   Returns:
     data for the results table as a nested array
   ###
-  out = [
+  return [
     ["Memory Usage", memory_usage(data)]
     ["Wall Time", wall_time(data)]
     ["Sim Time", sim_time(data)]
@@ -275,7 +276,7 @@ results_table = (data) ->
   Args:
     data: the simulation data
   ###
-  select_tag(get_table_data(data), "#results_table")
+  select_tag("#results_table")(get_table_data(data))
     .append("tr")
     .append("td")
     .text((d) -> d[0])
@@ -284,127 +285,178 @@ results_table = (data) ->
     .text((d) -> d[1])
 
 
-get_data_by_type = (data, type) ->
-  data.data.filter((x) -> x.type is type)
+add_card_image = (x) ->
+  ### Add a card-image div
+
+  Args:
+    x: the current selection
+
+  Returns:
+    the div selection
+  ###
+  x.append("div")
+    .attr("class", "card-image")
+    .attr("style", "max-height: 70%")
 
 
-# card_image_ = (selection) ->
-#   selection.append("img")
-#     .attr("class", "materialboxed responsive-img")
-#     .attr("src", (d) -> d.url)
-
-# card = (selection, f) ->
-#   div1 = selection.append("div")
-#   div1.attr("class", "card small")
-#   div2 = div1.append("div")
-#   div2.attr("class", "card-image")
-#   div2.attr("style", "max-height: 70%")
-#   img = div2.append("img")
-#   img.attr("class", "materialboxed responsive-img")
-#   img.attr("src", (d) -> d.url)
-#   div3 = div1.append("span")
-#   div3.attr("class", "card-content")
-#   p = div3.append("p")
-#   p.text((d) -> d.description)
-
-logo_image = (data) ->
-  card_image(select_tag([get_data_by_type(data, "image")[0]], "#logo_image"))
+add_card_image_ = (x) ->
+  add_card_image(x)
+    .append("img")
+    .attr("class", "materialboxed responsive-img")
 
 
-  # images = [get_data_by_type(data, "image")[0]]
-  # selection = d3.select("#logo_image").selectAll().data(images).enter()
-  # card_image(selection)
+add_image = (x) ->
+  ### Add a responsive image
+
+  Args:
+    x: the current selection
+
+  Returns:
+    the img selection
+  ###
+  add_card_image_(x).attr("src", (d) -> d.url)
 
 
-card_image = (selection) ->
-  div1 = selection.append("div")
-  div1.attr("class", "card small")
-  div2 = div1.append("div")
-  div2.attr("class", "card-image")
-  div2.attr("style", "max-height: 70%")
-  img = div2.append("img")
-  img.attr("class", "materialboxed responsive-img")
-  img.attr("src", (d) -> d.url)
-  div3 = div1.append("span")
-  div3.attr("class", "card-content")
-  p = div3.append("p")
-  p.text((d) -> d.description)
+add_youtube = (x) ->
+  ### Add a youtube container
+
+  Args:
+    x: the current selection
+
+  Returns:
+    the iframe selection
+  ###
+  add_card_image(x)
+    .append("div")
+    .attr("class", "video-container")
+    .append("iframe")
+    .attr("frameborder", 0)
+    .attr("allowfullscreen", '')
+    .attr("src", (d) -> d.url)
 
 
-youtube_card = (data) ->
-  data_ = get_data_by_type(data, "youtube")[0]
-  selection = d3.select("#youtube").selectAll().data([data_]).enter()
+add_description = (x) ->
+  ### Add a card description
 
-  div0 = selection.append("div")
-  div0.attr("class", "card small")
+  Args:
+    x: the current selection
 
-  div1 = div0.append("div")
-  div1.attr("class", "card-image")
-  div1.attr("style", "max-height: 70%")
-
-  div2 = div1.append("div")
-  div2.attr("class", "video-container")
-
-  iframe = div2.append("iframe")
-  iframe.attr("frameborder", 0)
-  iframe.attr("allowfullscreen")
-  iframe.attr("src", (d) -> d.url)
-
-  span = div0.append("span")
-  span.attr("class", "card-content")
-  p = span.append("p")
-  p.text((d) -> d.description)
+  Returns:
+    the p selection
+  ###
+  x.append("span")
+    .attr("class", "card-content")
+    .append("p")
+    .text((d) -> d.description)
 
 
-card_images = (data) ->
-  images = get_data_by_type(data, "image")
-  selection = d3.select("#images").selectAll().data(images).enter()
-  div0 = selection.append("div")
-  div0.attr("class", "col s4")
-  card_image(div0)
+build_card = (addf) ->
+  ### Make a card given a selection
+
+  Args:
+    addf: the content of the card
+
+  Returns:
+    a function for building a card
+  ###
+  sequence(
+    (x) -> x.append("div").attr("class", "card small"),
+    do_(addf),
+    add_description
+  )
 
 
-add_data_to_chart = (data, chart_json) ->
-  if data.name = "free_energy"
-    chart_json.axes[1].title = "Free Energy"
-    chart_json.axes[0].title = "Time"
-    chart_json.scales[0].type = "log"
-    chart_json.scales[1].type = "log"
-  chart_json['data'].push(data)
-  chart_json['data'][0]['name'] = "the_data"
-  delete chart_json['data'][0].type
-  return chart_json
+card_bind = (type, tag, take_=id) ->
+  ### Bind data to a card selection
+
+  Args:
+    type: the type of the data either image or youtube
+    tag: the tag element to append to
+    take_: how much of the data to append
+
+  Returns:
+    a function to bind the data
+  ###
+  sequence(
+    (x) -> x.data,
+    filter((x) -> x.type is type),
+    take_,
+    select_tag(tag),
+  )
 
 
-add_chart = (chart_json) ->
-  selection = d3.select("#images").selectAll().data([chart_json]).enter()
+add_card = (addf, type, tag) ->
+  ### Constuct a data card
 
-  div = selection.append("div")
-  div.attr("class", "col s4")
+  Args:
+    addf: the content of the card
+    type: the type of the data either image or youtube
+    tag: the tag element to append to
 
-  div1 = div.append("div")
-  div1.attr("class", "card small")
+  Returns:
+    a function to build the card
+  ###
+  sequence(
+    card_bind(type, tag, take_=take(1)),
+    build_card(addf)
+  )
 
-  div2 = div1.append("div")
-  div2.attr("class", "card-image")
-  div2.attr("style", "max-height: 70%")
-  img = div2.append("img")
-  img.attr("class", "materialboxed responsive-img")
-  img.attr("id", "chart")
-  img.attr("style", "background-color: white;")
 
-  div3 = div1.append("span")
-  div3.attr("class", "card-content")
+card_images = sequence(
+  card_bind("image", "#images"),
+  (x) -> x.append("div").attr("class", "col s4"),
+  build_card(add_image)
+)
 
-  p = div3.append("p")
-  p.text((d) -> "My Graph")
 
-  width = img.node().getBoundingClientRect().width
-  height = img.node().getBoundingClientRect().width
 
-  view = new vega.View(vega.parse(chart_json))
-  prom = view.toImageURL('svg')
-  prom.then((url) -> img.attr("src", url))
+update_data = (x) ->
+  if x.data[0].name == "free_energy"
+    x.axes[0].title = "Time"
+    x.axes[1].title = "Free Energy"
+    x.scales[0].type = "log"
+    x.scales[1].type = "log"
+  x.data[0].name = "the_data"
+  delete x.data[0].type
+  x
+
+
+combine_data = curry(
+  (chart_data, data) ->
+    out = copy_(chart_data)
+    out.data[0] = copy_(data)
+    out
+)
+
+
+prom = (x, i, a) ->
+  view = new vega.View(vega.parse(x))
+  prom_ = view.toImageURL('svg')
+
+
+add_src = (x) ->
+  new vega.View(vega.parse(x.datum()))
+    .toImageURL("svg")
+    .then((url) -> x.attr("src", url))
+
+
+add_chart = (x) ->
+  add_src(add_card_image_(x)
+    # .attr("id", "chart")
+    .attr("style", "backgroud-color: white;"))
+
+
+card_charts = sequence(
+  (x) -> x.data,
+  filter((x) -> x.type is "line"),
+  map(combine_data({{ site.data.charts.plot1d | jsonify }})),
+  map(update_data),
+  select_tag("#images"),
+  (x) -> x.append("div").attr("class", "col s4"),
+  (x) -> x.append("div").attr("class", "card small"),
+  do_(add_chart),
+  add_description
+)
 
 
 header(SIM_NAME)
@@ -416,13 +468,7 @@ benchmark(DATA)
 date(DATA)
 software(DATA)
 results_table(DATA)
-
-logo_image(DATA)
-youtube_card(DATA)
+add_card(add_image, "image", "#logo_image")(DATA)
+add_card(add_youtube, "youtube", "#youtube")(DATA)
 card_images(DATA)
-
-line_data = (d for d in DATA.data when d.type == "line")
-for datum in line_data
-  chart_json = {{ site.data.charts | jsonify }}['plot1d']
-  chart_json = add_data_to_chart(datum, chart_json)
-  add_chart(chart_json)
+card_charts(DATA)
