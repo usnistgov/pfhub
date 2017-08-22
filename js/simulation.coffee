@@ -392,6 +392,8 @@ add_card = (addf, type, tag, with_div=id, take_func=take(1)) ->
     addf: the content of the card
     type: the type of the data either image or youtube
     tag: the tag element to append to
+    with_div: function to add an extra div for columns
+    take_func: data preprocessing function before bind
 
   Returns:
     a function to build the card
@@ -404,6 +406,14 @@ add_card = (addf, type, tag, with_div=id, take_func=take(1)) ->
 
 
 update_data = (x) ->
+  ### Update chart data depending on name of the data
+
+  Args:
+    x: the data to update
+
+  Returns:
+    the updated data
+  ###
   if x.data[0].name == "free_energy"
     x.axes[0].title = "Time"
     x.axes[1].title = "Free Energy"
@@ -423,12 +433,22 @@ combine_data = curry(
 
 
 add_src = (x) ->
+  ### Extract Vega chart as SVG url
+
+  Args:
+    x: the img selection to add the Vega src to
+  ###
   new vega.View(vega.parse(x.datum()))
     .toImageURL("svg")
     .then((url) -> x.attr("src", url))
 
 
 add_chart = (x) ->
+  ### Build a div for a card with a Vega chart
+
+  Args:
+    x: the selection
+  ###
   add_src(add_card_image_(x)
     .attr("style", "backgroud-color: white;"))
 
@@ -440,6 +460,13 @@ take_data = sequence(
 
 
 add_card_col = (addf, type, take_func) ->
+  ### Construct a data card in columns and rows for #images
+
+  Args:
+    addf: the content of the card
+    type: the type of the data either image, line or youtube
+    take_func: the data preprocessing function
+  ###
   with_div = (x) -> x.append("div").attr("class", "col s4")
   add_card(addf, type, "#images", with_div=with_div, take_func=take_func)
 
