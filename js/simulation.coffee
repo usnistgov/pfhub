@@ -471,16 +471,26 @@ add_card_col = (addf, type, take_func) ->
   add_card(addf, type, "#images", with_div=with_div, take_func=take_func)
 
 
-header(SIM_NAME)
-author(DATA, SIM_NAME)
-summary(DATA)
-github(DATA)
-code(DATA)
-benchmark(DATA)
-date(DATA)
-software(DATA)
-results_table(DATA)
-add_card(add_image, "image", "#logo_image")(DATA)
-add_card(add_youtube, "youtube", "#youtube")(DATA)
-add_card_col(add_image, "image", id)(DATA)
-add_card_col(add_chart, "line", take_data)(DATA)
+build = (data, sim_name) ->
+  ### Build the simulation landing page
+
+  Args:
+    data: the metadata for the simulation
+    sim_name: the name of the simulation
+  ###
+  header(sim_name)
+  author(data, sim_name)
+  summary(data)
+  github(data)
+  code(data)
+  benchmark(data)
+  date(data)
+  software(data)
+  results_table(data)
+  add_card(add_image, "image", "#logo_image")(data)
+  add_card(add_youtube, "youtube", "#youtube")(data)
+  add_card_col(add_image, "image", id)(data)
+  add_card_col(add_chart, "line", take_data)(data)
+
+
+build(DATA, SIM_NAME)
