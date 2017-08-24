@@ -96,8 +96,10 @@
 
 
 <script>
-  var SIM_NAME="{{ include.sim_name }}"
-  var DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta
+  var CHART_DATA={{ site.data.charts.plot1d | jsonify }};
+  var SIM_NAME="{{ include.sim_name }}";
+  var DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta;
+  var CODES_DATA={{ site.data.codes | jsonify }};
 </script>
 <script src="{{ site.baseurl }}/js/simulation.js"></script>
 <script>
