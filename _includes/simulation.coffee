@@ -1,25 +1,26 @@
-#
-# Build the individual simulation landing pages
+###
+Build the individual simulation landing pages
 
-# Used by _include/simulation.html
+Used by _include/simulation.html
 
-# Required variables:
-#   SIM_NAME: the directory name for the simulations from
-#     _data/simulations/SIM_NAME/meta.yaml
-#   DATA: the simulation data from the meta.yaml
+Required variables:
+  SIM_NAME: the directory name for the simulations from
+    _data/simulations/SIM_NAME/meta.yaml
+  DATA: the simulation data from the meta.yaml
 
-# Required tags:
-#   #summary
-#   #author
-#   #header
-#   #github_id
-#   #code
-#   #table
-#   #results_table
-#   #logo_image
-#   #youtube
-#   #images
-#
+Required tags:
+  #summary
+  #author
+  #header
+  #github_id
+  #code
+  #table
+  #results_table
+  #logo_image
+  #youtube
+  #images
+###
+
 
 select_tag = (tag) ->
   ### Select based on tag and bind the data
