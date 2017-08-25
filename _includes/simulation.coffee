@@ -236,7 +236,7 @@ memory_usage = (data) ->
 
   to_human = sequence(
     (x) -> [x, Math.log(x) / Math.log(1024) | 0]
-    (x) -> [(x[0] / Math.pow(1024, x[1])).toFixed(2), x[1]]
+    (x) -> [(x[0] / Math.pow(1024, x[1])).toFixed(1), x[1]]
     (x) -> x[0] + ' ' + make_unit(x[1])
   )
 
@@ -255,11 +255,12 @@ to_human_time = sequence(
 )
 
 
-# in_seconds = sequence(
-#   (x) -> [x, Math.log(x) / Math.log(1000) | 0]
-#   (x) -> [(x[0] / Math.pow(1024, x[1])).toFixed(2), x[1]]
-#   (x) -> moment().add(x).diff(moment(), 'seconds')
-# )
+metric_prefix = sequence(
+  (x) -> parseFloat(x) * 1e9
+  (x) -> [x, Math.log(x) / Math.log(1000) | 0]
+  (x) -> [(x[0] / Math.pow(1000, x[1])).toFixed(1), x[1]]
+  (x) -> x[0] + "nµm kMGTPE"[x[1]]
+)
 
 
 get_table_data = (data) ->
@@ -275,7 +276,7 @@ get_table_data = (data) ->
   return [
     ['Memory Usage', memory_usage(data)]
     ['Wall Clock Time', to_human_time(get_times(data).wall_time)]
-    ['Simulation Time', (get_times(data).sim_time + " seconds")]
+    ['Simulation Time', (metric_prefix(get_times(data).sim_time) + " seconds")]
     ['Cores', data.metadata.hardware.cores]
   ]
 
