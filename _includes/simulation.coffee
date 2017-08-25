@@ -72,14 +72,10 @@ github_icon = ->
   ### Add the Github badge
   ###
   select_tag('#github_id')(['x'])
-    .append('i')
-    .attr('class', 'material-icons prefix')
-    .attr('style',
-          'vertical-align: top; padding-left: 20px; padding-right: 3px')
     .append('img')
-    .attr('style', 'width: 22px; height: 22px; padding-bottom: 2px')
+    .attr('style', 'width: 23px; height: 23px; padding-top: 4px')
     .attr('src', '{{ site.baseurl }}' + '/images/github-black.svg')
-    .attr('alt', 'github')
+    .attr('alt', '')
 
 
 github_id = (data) ->

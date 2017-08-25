@@ -8,11 +8,20 @@
       </div>
 
       <div class="row">
-        <i class="material-icons prefix" style="vertical-align: top;">account_circle</i>
-        <span id="author"></span>
-        <span id="github_id"></span>
-        <i class="material-icons prefix" style="vertical-align: top; padding-left: 20px">code</i>
-        <span id="code"></span>
+        <div class="chip">
+          <img src="{{ site.baseurl }}/images/ic_account_circle_24px.svg"
+               alt=""
+               style="width: 25px; height: 25px; padding-top: 3px;">
+          <span id="author"></span>
+        </div>
+        <div class="chip" id="github_id">
+        </div>
+        <div class="chip">
+          <img src="{{ site.baseurl }}/images/ic_code_24px.svg"
+               alt=""
+               style="width: 25px; height: 25px; padding-top: 3px;">
+          <span id="code"></span>
+        </div>
       </div>
 
       <div class="row top-buffer">
