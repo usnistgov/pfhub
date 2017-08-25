@@ -28,7 +28,7 @@ data:
 metadata:
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  github_id: ''
+  github_id: tkphd
   hardware:
     architecture: x86_64
     cores: 12

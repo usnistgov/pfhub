@@ -30,7 +30,7 @@ data:
 metadata:
   author: PC. Simon
   email: pjs5523@psu.edu
-  github_id: 'simopier'
+  github_id: simopier
   hardware:
     architecture: x86_64
     cores: 40
