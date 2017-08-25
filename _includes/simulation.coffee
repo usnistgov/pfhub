@@ -248,28 +248,18 @@ memory_usage = (data) ->
   format(get_data(data, 'memory_usage').values)
 
 
-wall_time = (data) ->
-  ### Get the simulation wall time
-
-  Args:
-    data: the simulation data
-
-  Returns:
-    the simulation wall time as a string
-  ###
-  get_data(data, 'run_time').values[..].pop().wall_time + ' s'
+to_human_time = sequence(
+  (x) -> moment.duration(x * 1000)
+  (x) -> moment.preciseDiff(moment(), moment().add(x))
+  (x) -> x.split(" ")[..3].join(" ")
+)
 
 
-sim_time = (data) ->
-  ### Get the simulation time
-
-  Args:
-    data: the simulation data
-
-  Returns:
-    the simulation time as a string
-  ###
-  get_data(data, 'run_time').values[..].pop().sim_time + ' s'
+# in_seconds = sequence(
+#   (x) -> [x, Math.log(x) / Math.log(1000) | 0]
+#   (x) -> [(x[0] / Math.pow(1024, x[1])).toFixed(2), x[1]]
+#   (x) -> moment().add(x).diff(moment(), 'seconds')
+# )
 
 
 get_table_data = (data) ->
@@ -281,10 +271,11 @@ get_table_data = (data) ->
   Returns:
     data for the results table as a nested array
   ###
+  get_times = (data) -> get_data(data, 'run_time').values[..].pop()
   return [
     ['Memory Usage', memory_usage(data)]
-    ['Wall Time', wall_time(data)]
-    ['Sim Time', sim_time(data)]
+    ['Wall Clock Time', to_human_time(get_times(data).wall_time)]
+    ['Simulation Time', (get_times(data).sim_time + " seconds")]
     ['Cores', data.metadata.hardware.cores]
   ]
 
