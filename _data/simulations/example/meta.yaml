@@ -67,13 +67,22 @@ data:  # REQUIRED
         free_energy: number
     transform:  # REQUIRED: remove zero for logarithmic time-axis scaling
       - type: filter
-        test: "datum.time > 0.01"
+        expr: "datum.time > 0.01"
+      - expr: datum.time > 0.01
+        type: filter
+      - expr: datum.time
+        as: x
+        type: formula
+      - expr: datum.free_energy
+        as: y
+        type: formula
+    type: line
   - name: run_time  # REQUIRED
     values:
       [
         {
           "sim_time": 53333.3,
-          "time": 170618.87 # wall time, seconds
+          "wall_time": 170618.87 # wall time, seconds
         }
       ]
   - name: memory_usage  # REQUIRED

@@ -65,7 +65,14 @@ def write_yaml_data(filepath, data):
 
 
 if __name__ == '__main__':
-    migrate(
-        update_in(keys=['metadata'],
-                  func=assoc(key='github_id', value=""))
-        )
+    # migrate(
+    #     update_in(keys=['metadata'],
+    #               func=assoc(key='github_id', value=""))
+    #     )
+
+    def ff(dd):
+        if dd['metadata']['author'] == "Trevor Keller":
+            if dd['metadata']['github_id'] == '':
+                dd['metadata']['github_id'] = 'tkphd'
+        return dd
+    migrate(ff)

@@ -241,7 +241,7 @@ memory_usage = (data) ->
     to_human
   )
 
-  format(get_data(data, 'memory_usage').values)
+  format(get_data(data, 'memory_usage').values[0])
 
 
 to_human_time = sequence(
@@ -434,7 +434,9 @@ update_data = (data) ->
     x.axes[1].title = 'Free Energy'
     x.scales[0].type = 'log'
     x.scales[1].type = 'log'
+    x.data[0].transform.push({expr: 'datum.x > 0.01', type: 'filter'})
   x.data[0].name = 'the_data'
+
 #  delete x.data[0].type
   x
 

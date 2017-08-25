@@ -38,6 +38,9 @@ mapping:
           "description":
             type: str
             required: False
+          "type":
+            type: str
+            enum: ["line", "contour", "image", "youtube"]
   "benchmark":
     type: map
     required: True

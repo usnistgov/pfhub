@@ -51,6 +51,9 @@ main {
     margin-bottom: 25px;
 }
 
+.chip {
+    margin-bottom: 3px;
+}
 
 .indent {
     margin-left: 10px;
