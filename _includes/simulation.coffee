@@ -88,7 +88,7 @@ github_id = (data) ->
   Args:
     data: the simulation data
   ###
-  select_tag('github_id')([data.metadata.github_id])
+  select_tag('#github_id')([data.metadata.github_id])
     .append('a')
     .attr('href', (d) -> 'https://github.com/' + d)
     .attr('target', '_blank')
@@ -216,6 +216,7 @@ get_data = (data, name) ->
   data.data.filter((x) -> x.name is name)[0]
 
 
+
 memory_usage = (data) ->
   ### Get the memory usage for the simulation
 
@@ -224,9 +225,26 @@ memory_usage = (data) ->
 
   Returns:
     the memory usage string
+
+  See https://stackoverflow.com/questions/
+              10420352/converting-file-size-in-bytes-to-human-readable
   ###
-  format = (x) ->
-    x.value + ' ' + x.unit
+  to_bytes = (value, unit) ->
+    Math.pow(1024, 'BKMGTPEZY'.indexOf(unit[0].toUpperCase())) * value
+
+  make_unit = (x) -> if x is 0 then 'bytes' else ('KMGTPEZY'[x - 1] + 'B')
+
+  to_human = sequence(
+    (x) -> [x, Math.log(x) / Math.log(1024) | 0]
+    (x) -> [(x[0] / Math.pow(1024, x[1])).toFixed(2), x[1]]
+    (x) -> x[0] + ' ' + make_unit(x[1])
+  )
+
+  format = sequence(
+    (x) -> to_bytes(x.value, x.unit)
+    to_human
+  )
+
   format(get_data(data, 'memory_usage').values)
 
 
@@ -267,7 +285,7 @@ get_table_data = (data) ->
     ['Memory Usage', memory_usage(data)]
     ['Wall Time', wall_time(data)]
     ['Sim Time', sim_time(data)]
-    ['Cores', '53']
+    ['Cores', data.metadata.hardware.cores]
   ]
 
 
@@ -306,6 +324,7 @@ add_card_image_ = (x) ->
   add_card_image(x)
     .append('img')
     .attr('class', 'materialboxed responsive-img')
+    .attr('data-caption', (d) -> d.description)
 
 
 add_image = (x) ->
@@ -350,7 +369,9 @@ add_description = (x) ->
   x.append('span')
     .attr('class', 'card-content')
     .append('p')
-    .text((d) -> d.description)
+    .attr('class', 'truncate')
+    .text((d) ->
+      if d.description? then d.description else d.data[0].description)
 
 
 build_card = (addf) ->
@@ -363,8 +384,10 @@ build_card = (addf) ->
     a function for building a card
   ###
   sequence(
-    (x) -> x.append('div').attr('class', 'card small light-green lighten-3'),
-    do_(addf),
+    (x) ->
+      x.append('div')
+        .attr('class', 'card small light-green lighten-3')
+    do_(addf)
     add_description
   )
 
@@ -424,7 +447,7 @@ update_data = (data) ->
     x.scales[0].type = 'log'
     x.scales[1].type = 'log'
   x.data[0].name = 'the_data'
-  delete x.data[0].type
+#  delete x.data[0].type
   x
 
 
@@ -460,7 +483,7 @@ add_chart = (x) ->
     x: the selection
   ###
   add_src(add_card_image_(x)
-    .attr('style', 'background-color: white;'))
+    .attr('style', 'background-color: #dcedc8;'))
 
 
 take_data = (chart_data) ->
