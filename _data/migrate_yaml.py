@@ -110,16 +110,25 @@ if __name__ == '__main__':
     #     if x["metadata"]["author"] == "Daniel Schwen":
     #         x["metadata"]["github_id"] = "dschwen"
     #     return x
-    def f(x):
-        def h(y):
-            if "expr" in y and "field" in y and "type" in y:
-                y["as"] = y["field"]
-                del y["field"]
-            return y
+    # def f(x):
+    #     def h(y):
+    #         if "expr" in y and "field" in y and "type" in y:
+    #             y["as"] = y["field"]
+    #             del y["field"]
+    #         return y
 
+    #     def g(y):
+    #         if y["name"] == "free_energy":
+    #             y['transform'] = list(map(h, y['transform']))
+    #         return y
+    #     x['data'] = list(map(g, x['data']))
+    #     return x
+    def f(x):
         def g(y):
-            if y["name"] == "free_energy":
-                y['transform'] = list(map(h, y['transform']))
+            if y["name"] == "memory_usage":
+                if "value_per" in y["values"][0]:
+                    y["values"][0]["value"] = y["values"][0]["value_per"]
+                    del y["values"][0]["value_per"]
             return y
         x['data'] = list(map(g, x['data']))
         return x

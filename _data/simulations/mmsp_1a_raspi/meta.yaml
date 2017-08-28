@@ -26,7 +26,7 @@ data:
 - name: memory_usage
   values:
   - unit: KB
-    value_per: 8812
+    value: 8812
 metadata:
   author: Trevor Keller
   email: trevor.keller@nist.gov
