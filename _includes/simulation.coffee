@@ -261,7 +261,7 @@ to_human_time = sequence(
 metric_prefix = sequence(
   (x) -> parseFloat(x) * 1e9
   (x) -> [x, Math.log(x) / Math.log(1000) | 0]
-  (x) -> [(x[0] / Math.pow(1000, x[1])).toFixed(1), x[1]]
+  (x) -> [(x[0] / Math.pow(1000, x[1])).toFixed(0), x[1]]
   (x) -> x[0] + "nµm kMGTPE"[x[1]]
 )
 

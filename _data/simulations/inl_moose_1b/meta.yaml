@@ -17,8 +17,8 @@ data:
     type: csv
   name: free_energy
   transform:
-  - expr: datum.F
-    field: free_energy
+  - as: free_energy
+    expr: datum.F
     type: formula
   - as: y
     expr: datum.free_energy

@@ -6,8 +6,8 @@ data:
   values: 0.00195312
 - name: free_energy
   transform:
-  - expr: datum.energy
-    field: free_energy
+  - as: free_energy
+    expr: datum.energy
     type: formula
   - as: y
     expr: datum.free_energy
