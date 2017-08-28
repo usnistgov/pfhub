@@ -45,18 +45,24 @@ header = (sim_name) ->
     .text((d) -> d)
 
 
-author = (data, sim_name) ->
+author = (data) ->
   ### Add the author data
 
   Args:
     data: the simulation data
-    sim_name: the name of the simulation
   ###
-  select_tag('#author')([[data.metadata, sim_name]])
-    .append('a')
-    .attr('href', (d) -> 'mailto:' + d[0].email + '?Subject=' + d[1])
-    .attr('target', '_top')
-    .text((d) -> d[0].author)
+  select_tag('#author')([data.metadata.author])
+    .append('span')
+    .text((d) -> d)
+
+
+author_icon = (data) ->
+  select_tag('#author')([data.metadata.github_id])
+    .append('img')
+    .attr('style', 'width: 20px; height: 20px; margin-top: 5px;
+  margin-left: 1px')
+    .attr('src', (d) -> 'https://github.com/' + d + '.png')
+    .attr('alt', '')
 
 
 summary = (data) ->
@@ -73,7 +79,8 @@ github_icon = ->
   ###
   select_tag('#github_id')(['x'])
     .append('img')
-    .attr('style', 'width: 23px; height: 23px; padding-top: 4px')
+    .attr('style', 'width: 20px; height: 20px; margin-top: 5px;
+    margin-left: 1px')
     .attr('src', '{{ site.baseurl }}' + '/images/github-black.svg')
     .attr('alt', '')
 
@@ -513,6 +520,7 @@ build = (data, sim_name, codes_data, chart_data) ->
     chart_data: Vega data for 1D charts
   ###
   header(sim_name)
+  author_icon(data)
   author(data, sim_name)
   summary(data)
   github(data)
