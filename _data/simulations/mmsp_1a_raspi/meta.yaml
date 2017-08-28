@@ -11,8 +11,13 @@ data:
     type: csv
   name: free_energy
   transform:
-  - test: datum.time > 0.01
-    type: filter
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
   url: https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv
 - name: run_time
   values:

@@ -443,8 +443,6 @@ update_data = (data) ->
     x.scales[1].type = 'log'
     x.data[0].transform.push({expr: 'datum.x > 0.01', type: 'filter'})
   x.data[0].name = 'the_data'
-
-#  delete x.data[0].type
   x
 
 
@@ -480,7 +478,7 @@ add_chart = (x) ->
     x: the selection
   ###
   add_src(add_card_image_(x)
-    .attr('style', 'background-color: #dcedc8;'))
+    .attr('style', 'background-color: white;'))
 
 
 take_data = (chart_data) ->

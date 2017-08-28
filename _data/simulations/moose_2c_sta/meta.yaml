@@ -21,8 +21,13 @@ data:
   - expr: datum.TotalEnergy
     field: free_energy
     type: formula
-  - test: datum.time > 0.01
-    type: filter
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
   url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_STA_dfdt.csv
 metadata:
   author: A. M. Jokisaari

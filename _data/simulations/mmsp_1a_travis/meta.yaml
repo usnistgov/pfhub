@@ -9,8 +9,13 @@ data:
   - expr: datum.energy
     field: free_energy
     type: formula
-  - test: datum.time > 0.01
-    type: filter
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
   values:
   - energy: 319.094
     time: 0

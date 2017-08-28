@@ -10,8 +10,13 @@ data:
     type: csv
   name: free_energy
   transform:
-  - test: datum.time > 0.01
-    type: filter
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
   url: https://gist.githubusercontent.com/tkphd/0e6057ada4de47098d5d39a27d8866ab/raw/fc51bc61c389df0b21341781e5f60bd098e09aa5/energy_6a_dx10.csv
 - name: run_time
   values:

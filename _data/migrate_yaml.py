@@ -75,13 +75,21 @@ if __name__ == '__main__':
     #         if dd['metadata']['github_id'] == '':
     #             dd['metadata']['github_id'] = 'tkphd'
     #     return dd
-    def ff(dd):
-        def update(d):
-            if d["name"] == "run_time":
-                if "sim_time" in d["values"][0] and "time" in d["values"][0]:
-                    d['values'][0]["wall_time"] = d["values"][0]["time"]
-                    del d["values"][0]["time"]
-            return d
-        dd["data"] = list(map(update, dd['data']))
-        return dd
-    migrate(ff)
+    # def ff(dd):
+    #     def update(d):
+    #         if d["name"] == "run_time":
+    #             if "sim_time" in d["values"][0] and "time" in d["values"][0]:
+    #                 d['values'][0]["wall_time"] = d["values"][0]["time"]
+    #                 del d["values"][0]["time"]
+    #         return d
+    #     dd["data"] = list(map(update, dd['data']))
+    #     return dd
+    def f(x):
+        def g(y):
+            if y["name"] == "free_energy":
+                y["transform"] = list(filter(lambda xx: xx["type"] != "filter",
+                                             y["transform"]))
+            return y
+        x["data"] = list(map(g, x["data"]))
+        return x
+    migrate(f)

@@ -20,8 +20,13 @@ data:
   - expr: datum.F
     field: free_energy
     type: formula
-  - test: datum.time > 0.01
-    type: filter
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
   url: https://gist.github.com/anonymous/898a197718cf02b643e78841e54dba41
 metadata:
   author: Daniel Schwen

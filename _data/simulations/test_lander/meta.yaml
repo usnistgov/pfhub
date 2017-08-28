@@ -25,11 +25,12 @@ data:
     type: csv
   name: free_energy
   transform:
-  - as: y
+  - as: free_energy
     expr: datum.f_density
     type: formula
-  - expr: datum.time > 0.01
-    type: filter
+  - as: y
+    expr: datum.free_energy
+    type: formula
   - as: x
     expr: datum.time
     type: formula
@@ -46,8 +47,6 @@ data:
   - as: y
     expr: datum.f_density
     type: formula
-  - expr: datum.time > 0.01
-    type: filter
   - as: x
     expr: datum.time
     type: formula

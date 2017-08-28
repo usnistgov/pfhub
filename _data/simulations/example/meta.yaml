@@ -65,11 +65,7 @@ data:  # REQUIRED
       parse:
         time: number
         free_energy: number
-    transform:  # REQUIRED: remove zero for logarithmic time-axis scaling
-      - type: filter
-        expr: "datum.time > 0.01"
-      - expr: datum.time > 0.01
-        type: filter
+    transform:
       - expr: datum.time
         as: x
         type: formula

@@ -4,8 +4,13 @@ benchmark:
 data:
 - name: free_energy
   transform:
-  - test: datum.time > 0.01
-    type: filter
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
   values:
   - free_energy: 31.882942771008185
     time: 0.0

@@ -39,8 +39,13 @@ data:
   - expr: datum.value
     field: free_energy
     type: formula
-  - test: datum.time > 0.01
-    type: filter
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
   values:
   - time: 0.0
     value: 319.1087496
