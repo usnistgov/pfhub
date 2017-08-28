@@ -9,7 +9,7 @@ data:
 - name: memory_usage
   values:
   - unit: GB
-    value_g: 3.57
+    value: 3.57
 - format:
     parse:
       TotalEnergy: number
@@ -31,7 +31,7 @@ data:
 metadata:
   author: A. M. Jokisaari
   email: andrea.jokisaari@northwestern.edu
-  github_id: ''
+  github_id: amjokisaari
   hardware:
     cores: 20
     details:
