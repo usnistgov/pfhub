@@ -7,13 +7,9 @@ data:
   - sim_time: 10000.0
     wall_time: 1089.121
 - name: memory_usage
-  transform:
-  - expr: datum.value_m * 1024.0
-    field: value
-    type: formula
   values:
   - unit: MB
-    value_m: 4.64
+    value: 4.64
 - format:
     parse:
       F: number
@@ -35,7 +31,7 @@ data:
 metadata:
   author: Daniel Schwen
   email: daniel.schwen@inl.gov
-  github_id: ''
+  github_id: dschwen
   hardware:
     architecture: x86_64
     cores: 8

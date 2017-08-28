@@ -9,7 +9,7 @@ import os
 import glob
 
 # pylint: disable=redefined-builtin
-from toolz.curried import pipe, valmap, itemmap, do, map, update_in, assoc, filter
+from toolz.curried import pipe, valmap, itemmap, do, map, assoc
 import yaml
 
 from simulations import get_path, read_yaml
@@ -84,12 +84,30 @@ if __name__ == '__main__':
     #         return d
     #     dd["data"] = list(map(update, dd['data']))
     #     return dd
+    # def f(x):
+    #     def g(y):
+    #         if y["name"] == "free_energy":
+    #             y["transform"] = list(filter(lambda xx: xx["type"] != "filter",
+    #                                          y["transform"]))
+    #         return y
+    #     x["data"] = list(map(g, x["data"]))
+    #     return x
+    # def f(x):
+    #     if x["metadata"]["author"] == "Daniel Schwen":
+    #         x["metadata"]["github_id"] = "dschwen"
+    #     return x
     def f(x):
         def g(y):
-            if y["name"] == "free_energy":
-                y["transform"] = list(filter(lambda xx: xx["type"] != "filter",
-                                             y["transform"]))
+            if y["name"] == "memory_usage":
+                y.pop("transform", None)
+                if type(y["values"]) is dict:
+                    y["values"] = [y["values"]]
+                if "value_m" in y["values"][0]:
+                    y["values"][0]["value"] = y["values"][0]["value_m"]
+                    del y["values"][0]["value_m"]
             return y
-        x["data"] = list(map(g, x["data"]))
+        x['data'] = list(map(g, x['data']))
+        if x["metadata"]["author"] == "Daniel Schwen":
+            x["metadata"]["github_id"] = "dschwen"
         return x
     migrate(f)

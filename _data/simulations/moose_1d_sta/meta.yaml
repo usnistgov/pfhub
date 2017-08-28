@@ -7,10 +7,6 @@ data:
   - sim_time: 1927051.4311553
     wall_time: 5520
 - name: memory_usage
-  transform:
-  - expr: datum.value_g * 1048576.0
-    field: value
-    type: formula
   values:
   - unit: GB
     value_g: 3.57

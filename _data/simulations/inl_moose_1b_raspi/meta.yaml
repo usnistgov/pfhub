@@ -31,7 +31,7 @@ data:
 metadata:
   author: Daniel Schwen
   email: daniel.schwen@inl.gov
-  github_id: ''
+  github_id: dschwen
   hardware:
     architecture: armv7l
     cores: 4

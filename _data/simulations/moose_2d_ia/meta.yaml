@@ -9,7 +9,7 @@ data:
     wall_time: 141240
 - name: memory_usage
   values:
-    unit: GB
+  - unit: GB
     value: 14.8
 - format:
     parse:

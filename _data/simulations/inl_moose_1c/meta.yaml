@@ -9,7 +9,7 @@ data:
 - name: memory_usage
   values:
   - unit: MB
-    value_m: 277.19
+    value: 277.19
 - format:
     parse:
       F: number
@@ -31,7 +31,7 @@ data:
 metadata:
   author: Daniel Schwen
   email: daniel.schwen@inl.gov
-  github_id: ''
+  github_id: dschwen
   hardware:
     architecture: x86_64
     cores: 4

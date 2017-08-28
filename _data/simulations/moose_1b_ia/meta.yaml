@@ -8,13 +8,9 @@ data:
     sim_time: 317187.47772665
     24.153613: null
 - name: memory_usage
-  transform:
-  - expr: datum.value_m * 1024.0
-    field: value
-    type: formula
   values:
   - unit: MB
-    value_m: 796
+    value: 796
 - format:
     parse:
       TotalEnergy: number

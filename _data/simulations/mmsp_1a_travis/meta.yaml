@@ -44,10 +44,6 @@ data:
   - sim_time: 192.545
     wall_time: 1125.39
 - name: memory_usage
-  transform:
-  - expr: datum.value_per_rank * 2.0
-    field: value
-    type: formula
   values:
   - unit: KB
     value_per_rank: 33984

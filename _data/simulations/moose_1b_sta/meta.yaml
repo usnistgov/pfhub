@@ -7,13 +7,9 @@ data:
   - sim_time: 1013318.2801021
     wall_time: 3720
 - name: memory_usage
-  transform:
-  - expr: datum.value_m * 1024.0
-    field: value
-    type: formula
   values:
   - unit: MB
-    value_m: 796
+    value: 796
 - format:
     parse:
       TotalEnergy: number

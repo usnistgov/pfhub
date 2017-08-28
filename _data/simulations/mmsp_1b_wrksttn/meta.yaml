@@ -24,9 +24,6 @@ data:
   - sim_time: 53333.3
     wall_time: 170618.87
 - name: memory_usage
-  transform:
-  - type: formula
-    value: 12*value_per
   values:
   - unit: KB
     value_per: 28492
