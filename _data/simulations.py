@@ -106,6 +106,13 @@ def filter_data(field, yaml_data):
     Returns:
       the filtered data from the YAML data
     """
+    def debug(x):
+        def f(y):
+            y = update_in(y, ['transform'], lambda xx: xx + [dict(expr="datum.x > 0.01", type="filter")])
+            # y['transform'].append(dict(expr="datum.x > 0.01", type="filter"))
+            return y
+        return list(map(f, x))
+
     return pipe(
         yaml_data,
         dict,
@@ -115,7 +122,10 @@ def filter_data(field, yaml_data):
         valmap(get(0)),
         itemmap(lambda item: (item[0], update_dict(item[1], name=item[0]))),
         lambda dict_: sorted(list(dict_.values()),
-                             key=lambda item: item['name'])
+                             key=lambda item: item['name']),
+        map(update_in(keys=['transform'],
+                      func=lambda x: x + [dict(expr="datum.x > 0.01",
+                                               type="filter")]))
     )
 
 
@@ -242,6 +252,7 @@ def get_data(filter_func):
       a dictionary with benchmark ids as keys and lists of appropriate
       data for values
     """
+
     return pipe(
         get_yaml_data(),
         groupby(
