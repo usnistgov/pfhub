@@ -9,27 +9,27 @@ data:
   - sim_time: 0.0
     wall_time: 0.0
   - sim_time: 1.0
-    time: 1.0
+    wall_time: 1.0
   - sim_time: 5.0
-    time: 2.0
+    wall_time: 2.0
   - sim_time: 10.0
-    time: 3.0
+    wall_time: 3.0
   - sim_time: 20.0
-    time: 4.0
+    wall_time: 4.0
   - sim_time: 100.0
-    time: 11.0
+    wall_time: 11.0
   - sim_time: 200.0
-    time: 21.0
+    wall_time: 21.0
   - sim_time: 500.0
-    time: 48.0
+    wall_time: 48.0
   - sim_time: 1000.0
-    time: 92.0
+    wall_time: 92.0
   - sim_time: 2000.0
-    time: 183.0
+    wall_time: 183.0
   - sim_time: 3000.0
-    time: 273.0
+    wall_time: 273.0
   - sim_time: 10000.0
-    time: 882.0
+    wall_time: 882.0
 - name: memory_usage
   values:
   - unit: KB
@@ -74,7 +74,7 @@ data:
 metadata:
   author: Stephen DeWitt
   email: stvdwtt@umich.edu
-  github_id: ''
+  github_id: 'stvdwtt'
   hardware:
     architecture: x86_64
     cores: 2

@@ -189,7 +189,7 @@ get_software = (x, codes_data) ->
   Returns:
     the software data corresponding to x
   ###
-  codes_data.filter((y) -> y.name.toLowerCase() is x)[0]
+  codes_data.filter((y) -> y.name.toLowerCase().includes(x))[0]
 
 
 software = (data, codes_data) ->
