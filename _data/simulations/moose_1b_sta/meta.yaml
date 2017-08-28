@@ -5,7 +5,7 @@ data:
 - name: run_time
   values:
   - sim_time: 1013318.2801021
-    time: 3720
+    wall_time: 3720
 - name: memory_usage
   transform:
   - expr: datum.value_m * 1024.0

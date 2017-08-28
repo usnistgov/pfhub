@@ -9,7 +9,7 @@ import os
 import glob
 
 # pylint: disable=redefined-builtin
-from toolz.curried import pipe, valmap, itemmap, do, map, update_in, assoc
+from toolz.curried import pipe, valmap, itemmap, do, map, update_in, assoc, filter
 import yaml
 
 from simulations import get_path, read_yaml
@@ -70,9 +70,18 @@ if __name__ == '__main__':
     #               func=assoc(key='github_id', value=""))
     #     )
 
+    # def ff(dd):
+    #     if dd['metadata']['author'] == "Trevor Keller":
+    #         if dd['metadata']['github_id'] == '':
+    #             dd['metadata']['github_id'] = 'tkphd'
+    #     return dd
     def ff(dd):
-        if dd['metadata']['author'] == "Trevor Keller":
-            if dd['metadata']['github_id'] == '':
-                dd['metadata']['github_id'] = 'tkphd'
+        def update(d):
+            if d["name"] == "run_time":
+                if "sim_time" in d["values"][0] and "time" in d["values"][0]:
+                    d['values'][0]["wall_time"] = d["values"][0]["time"]
+                    del d["values"][0]["time"]
+            return d
+        dd["data"] = list(map(update, dd['data']))
         return dd
     migrate(ff)

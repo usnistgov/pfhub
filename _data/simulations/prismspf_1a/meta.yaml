@@ -7,7 +7,7 @@ data:
 - name: run_time
   values:
   - sim_time: 0.0
-    time: 0.0
+    wall_time: 0.0
   - sim_time: 1.0
     time: 1.0
   - sim_time: 5.0

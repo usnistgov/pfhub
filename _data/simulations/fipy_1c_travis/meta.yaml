@@ -28,7 +28,7 @@ data:
 - name: run_time
   values:
   - sim_time: 463.10144410049776
-    time: 320.29
+    wall_time: 320.29
 - name: memory_usage
   values:
   - unit: KB

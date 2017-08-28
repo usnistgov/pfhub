@@ -17,7 +17,7 @@ data:
 - name: run_time
   values:
   - sim_time: 53333.3
-    time: 48939.21
+    wall_time: 48939.21
 - name: memory_usage
   transform:
   - type: formula

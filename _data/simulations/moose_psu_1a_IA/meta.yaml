@@ -13,7 +13,7 @@ data:
     type: formula
   values:
   - sim_time: 526338
-    time: 3964
+    wall_time: 3964
 - format:
     parse:
       f_density: number

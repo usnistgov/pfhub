@@ -37,7 +37,7 @@ data:
 - name: run_time
   values:
   - sim_time: 192.545
-    time: 1125.39
+    wall_time: 1125.39
 - name: memory_usage
   transform:
   - expr: datum.value_per_rank * 2.0

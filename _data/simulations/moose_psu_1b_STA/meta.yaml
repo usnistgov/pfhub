@@ -9,7 +9,7 @@ data:
     type: formula
   values:
   - sim_time: 2924
-    time: 2471
+    wall_time: 2471
 - name: memory_usage
   values:
   - unit: GB

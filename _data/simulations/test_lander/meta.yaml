@@ -10,86 +10,79 @@ data:
   values:
   - sim_time: 3000000
     wall_time: 78280
-- format:
+- description: the free energy plot Metadata for the Benchmark1 problems Lorem ipsum
+    dolor sit amet Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+    id est laborum.
+  format:
     parse:
       f_density: number
       time: number
     type: csv
   name: free_energy
-  type: line
   transform:
-  - expr: datum.f_density
-    as: y
+  - as: y
+    expr: datum.f_density
     type: formula
   - expr: datum.time > 0.01
     type: filter
-  - expr: datum.time
-    as: x
+  - as: x
+    expr: datum.time
     type: formula
+  type: line
   url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
-  description: >-
-    the free energy plot Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet
-    Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate
-    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-    occaecat cupidatat non proident, sunt in culpa qui officia
-    deserunt mollit anim id est laborum.
-- format:
+- description: not a free energy plot
+  format:
     parse:
       f_density: number
       time: number
     type: csv
   name: blah
-  type: line
   transform:
-  - expr: datum.f_density
-    as: y
+  - as: y
+    expr: datum.f_density
     type: formula
   - expr: datum.time > 0.01
     type: filter
-  - expr: datum.time
-    as: x
+  - as: x
+    expr: datum.time
     type: formula
+  type: line
   url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
-  description: not a free energy plot
-
-- name: logo_image
-  description: >-
-    Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet,
-    Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate
-    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-    occaecat cupidatat non proident, sunt in culpa qui officia
-    deserunt mollit anim id est laborum.
-  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+- description: Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet, Metadata
+    for the Benchmark1 problems Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  name: logo_image
   type: image
-- name: image0
-  description: A puppy picture
   url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+- description: A puppy picture
+  name: image0
   type: image
-- name: image1
-  description: A puppy picture
   url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+- description: A puppy picture
+  name: image1
   type: image
-- name: image2
-  description: A puppy picture
   url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+- description: A puppy picture
+  name: image2
   type: image
-- name: youtube
-  description: My youtube video
-  url: https://www.youtube.com/embed/Q8TXgCzxEnw?rel=0
+  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+- description: My youtube video
+  name: youtube
   type: youtube
-
+  url: https://www.youtube.com/embed/Q8TXgCzxEnw?rel=0
 metadata:
   author: PC. Simon
   email: pjs5523@psu.edu
-  github_id: 'simopier'
+  github_id: simopier
   hardware:
     architecture: x86_64
     cores: 40
@@ -111,13 +104,10 @@ metadata:
   software:
     name: moose
     version: git commit 2593a61 on 2017-01-18
-  summary: >-
-    Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate
-    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-    occaecat cupidatat non proident, sunt in culpa qui officia
-    deserunt mollit anim id est laborum.
+  summary: Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   timestamp: Tue Jan 31 21:01:55 EST 2017
