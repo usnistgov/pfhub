@@ -126,9 +126,9 @@ if __name__ == '__main__':
     def f(x):
         def g(y):
             if y["name"] == "memory_usage":
-                if "value_per" in y["values"][0]:
-                    y["values"][0]["value"] = y["values"][0]["value_per"]
-                    del y["values"][0]["value_per"]
+                if "value_per_rank" in y["values"][0]:
+                    y["values"][0]["value"] = y["values"][0]["value_per_rank"]
+                    del y["values"][0]["value_per_rank"]
             return y
         x['data'] = list(map(g, x['data']))
         return x
