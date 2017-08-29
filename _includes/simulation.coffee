@@ -387,31 +387,11 @@ build_card = (addf) ->
   )
 
 
-card_bind = (type, tag, take_func = id) ->
-  ### Bind data to a card selection
-
-  Args:
-    type: the type of the data either image or youtube
-    tag: the tag element to append to
-    take_func: how much of the data to append
-
-  Returns:
-    a function to bind the data
-  ###
-  sequence(
-    (x) -> x.data,
-    filter((x) -> x.type is type),
-    take_func,
-    select_tag(tag),
-  )
-
-
-add_card = (addf, type, tag, with_div = id, take_func = take(1)) ->
+add_card = (addf, tag, with_div = id) ->
   ### Constuct a data card
 
   Args:
     addf: the content of the card
-    type: the type of the data either image or youtube
     tag: the tag element to append to
     with_div: function to add an extra div for columns
     take_func: data preprocessing function before bind
@@ -420,8 +400,8 @@ add_card = (addf, type, tag, with_div = id, take_func = take(1)) ->
     a function to build the card
   ###
   sequence(
-    card_bind(type, tag, take_func = take_func),
-    with_div,
+    select_tag(tag)
+    with_div
     build_card(addf)
   )
 
@@ -481,7 +461,7 @@ add_chart = (x) ->
     .attr('style', 'background-color: white;'))
 
 
-take_data = (chart_data) ->
+vegarize = (chart_data) ->
   ### Generate function to combine a Vega plot and its data
 
   Args:
@@ -494,18 +474,6 @@ take_data = (chart_data) ->
     map(combine_data(chart_data)),
     map(update_data)
   )
-
-
-add_card_col = (addf, type, take_func) ->
-  ### Construct a data card in columns and rows for #images
-
-  Args:
-    addf: the content of the card
-    type: the type of the data either image, line or youtube
-    take_func: the data preprocessing function
-  ###
-  with_div = (x) -> x.append('div').attr('class', 'col s4')
-  add_card(addf, type, '#images', with_div = with_div, take_func = take_func)
 
 
 build = (data, sim_name, codes_data, chart_data) ->
@@ -527,10 +495,21 @@ build = (data, sim_name, codes_data, chart_data) ->
   date(data)
   software(data, codes_data)
   results_table(data)
-  add_card(add_image, 'image', '#logo_image')(data)
-  add_card(add_youtube, 'youtube', '#youtube')(data)
-  add_card_col(add_image, 'image', id)(data)
-  add_card_col(add_chart, 'line', take_data(chart_data))(data)
 
+  result_data = groupBy(((x) -> x.type), data.data)
+  vega_data = vegarize(chart_data)(result_data.line)
+
+  if result_data.image?
+    add_card(add_image, '#logo_image', with_div = id)(result_data.image[0..0])
+    result_data.image = result_data.image[1..]
+  else if vega_data.length > 0
+    add_card(add_chart, '#logo_image', with_div = id)(vega_data[0..0])
+    vega_data = vega_data[1..]
+
+  with_div = (x) -> x.append('div').attr('class', 'col s4')
+  add_card(add_image, '#images', with_div = with_div)(result_data.image)
+  # with_div = (x) -> x.append('div').attr('class', 'col s4')
+  add_card(add_chart, '#images', with_div = with_div)(vega_data)
+  add_card(add_youtube, '#youtube', with_div = id)(result_data.youtube[0..0])
 
 build(DATA, SIM_NAME, CODES_DATA, CHART_DATA)
