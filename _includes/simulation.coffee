@@ -507,9 +507,10 @@ build = (data, sim_name, codes_data, chart_data) ->
     vega_data = vega_data[1..]
 
   with_div = (x) -> x.append('div').attr('class', 'col s4')
-  add_card(add_image, '#images', with_div = with_div)(result_data.image)
-  # with_div = (x) -> x.append('div').attr('class', 'col s4')
+  if result_data.image?
+    add_card(add_image, '#images', with_div = with_div)(result_data.image)
   add_card(add_chart, '#images', with_div = with_div)(vega_data)
-  add_card(add_youtube, '#youtube', with_div = id)(result_data.youtube[0..0])
+  if result_data.youtube?
+    add_card(add_youtube, '#youtube', with_div = id)(result_data.youtube[0..0])
 
 build(DATA, SIM_NAME, CODES_DATA, CHART_DATA)
