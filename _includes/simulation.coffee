@@ -381,7 +381,7 @@ build_card = (addf) ->
   sequence(
     (x) ->
       x.append('div')
-        .attr('class', 'card small light-green lighten-3')
+        .attr('class', 'card small light-green lighten-4')
     do_(addf)
     add_description
   )
@@ -434,7 +434,7 @@ combine_data = curry(
 )
 
 
-add_src = (x) ->
+add_vega_src = (x) ->
   ### Extract Vega chart as SVG url and set src attribute
 
   Args:
@@ -451,14 +451,48 @@ add_src = (x) ->
   map(vega_promise, x.data())
 
 
-add_chart = (x) ->
-  ### Build a div for a card with a Vega chart
+add_plotly_src = (x) ->
+  ### Attach plotly chart as an svg to an img element
 
   Args:
-    x: the selection
+    x: the img selection to add the plotly src to
   ###
-  add_src(add_card_image_(x)
-    .attr('style', 'background-color: white;'))
+  data = [
+    x: [0.0, 1.0, 2.0, 0.0, 1.0, 2.0, 0.0]
+    y: [0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.1]
+    z:  [0.0, 0.0, 1.0, 1.0, 2.0, 2.0, 10.0]
+    type: 'contour'
+  ]
+
+  style = {format: 'svg', height: 400, width: 400}
+
+  Plotly.newPlot('plotly_div', data, {})
+    .then(
+      (gd) ->
+        Plotly.toImage(gd, {height: 400, width: 400})
+          .then(
+            (url) ->
+              x.attr('src', url)
+              Plotly.toImage(gd, style)
+          )
+    )
+
+
+add_chart = curry(
+  (add_src, x) ->
+    ### Build a div for a card with a Vega chart
+
+    Args:
+      x: the selection
+      add_src: function to add the src for the img tag
+    ###
+    add_src(add_card_image_(x)
+      .attr('style', 'background-color: white'))
+)
+
+
+add_vega = add_chart(add_vega_src)
+add_plotly = add_chart(add_plotly_src)
 
 
 vegarize = (chart_data) ->
@@ -503,14 +537,17 @@ build = (data, sim_name, codes_data, chart_data) ->
     add_card(add_image, '#logo_image', with_div = id)(result_data.image[0..0])
     result_data.image = result_data.image[1..]
   else if vega_data.length > 0
-    add_card(add_chart, '#logo_image', with_div = id)(vega_data[0..0])
+    add_card(add_vega, '#logo_image', with_div = id)(vega_data[0..0])
     vega_data = vega_data[1..]
 
   with_div = (x) -> x.append('div').attr('class', 'col s4')
   if result_data.image?
     add_card(add_image, '#images', with_div = with_div)(result_data.image)
-  add_card(add_chart, '#images', with_div = with_div)(vega_data)
+  add_card(add_vega, '#images', with_div = with_div)(vega_data)
   if result_data.youtube?
     add_card(add_youtube, '#youtube', with_div = id)(result_data.youtube[0..0])
+  with_div = (x) -> x.append('div').attr('class', 'col s4')
+  plotly_data = {data: 'my plotly plot'}
+  add_card(add_plotly, '#images', with_div = with_div)([plotly_data])
 
 build(DATA, SIM_NAME, CODES_DATA, CHART_DATA)
