@@ -406,77 +406,29 @@ add_card = (addf, tag, with_div = id) ->
   )
 
 
-update_data = (data) ->
-  ### Update chart data depending on name of the data
-
-  Args:
-    data: the data to update
-
-  Returns:
-    the updated data
-  ###
-  x = copy_(data)
-  if x.data[0].name is 'free_energy'
-    x.axes[0].title = 'Time'
-    x.axes[1].title = 'Free Energy'
-    x.scales[0].type = 'log'
-    x.scales[1].type = 'log'
-    x.data[0].transform.push({expr: 'datum.x > 0.01', type: 'filter'})
-  x.data[0].name = 'the_data'
-  x
-
-
-combine_data = curry(
-  (chart_data, data) ->
-    out = copy_(chart_data)
-    out.data[0] = copy_(data)
-    out
-)
-
-
-add_vega_src = (x) ->
-  ### Extract Vega chart as SVG url and set src attribute
-
-  Args:
-    x: the img selection to add the Vega src to
-  ###
-  urlfunc = (d) ->
-    (url) -> x.filter((d_) -> d is d_).attr('src', url)
-
-  vega_promise = (d) ->
-    new vega.View(vega.parse(d))
-      .toImageURL('svg')
-      .then(urlfunc(d))
-
-  map(vega_promise, x.data())
-
-
 add_plotly_src = (x) ->
   ### Attach plotly chart as an svg to an img element
 
   Args:
     x: the img selection to add the plotly src to
   ###
-  data = [
-    x: [0.0, 1.0, 2.0, 0.0, 1.0, 2.0, 0.0]
-    y: [0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.1]
-    z:  [0.0, 0.0, 1.0, 1.0, 2.0, 2.0, 10.0]
-    type: 'contour'
-  ]
+  style = {format: 'svg', height: 100, width: 100}
 
-  style = {format: 'svg', height: 400, width: 400}
+  urlfunc = curry(
+    (gd, data, url) ->
+      x.filter((data_) -> data is data_).attr('src', url)
+      Plotly.toImage(gd)
+  )
 
-  Plotly.newPlot('plotly_div', data, {})
-    .then(
-      (gd) ->
-        Plotly.toImage(gd, {height: 400, width: 400})
-          .then(
-            (url) ->
-              x.attr('src', url)
-              Plotly.toImage(gd, style)
-          )
-    )
+  plotly_promise = (data) ->
+    Plotly.newPlot('plotly_div', data.plotly, {})
+      .then(
+        (gd) ->
+          Plotly.toImage(gd, {height: 400, width: 400})
+            .then(urlfunc(gd, data))
+      )
 
+  map(plotly_promise, x.data())
 
 add_chart = curry(
   (add_src, x) ->
@@ -493,21 +445,6 @@ add_chart = curry(
 
 add_vega = add_chart(add_vega_src)
 add_plotly = add_chart(add_plotly_src)
-
-
-vegarize = (chart_data) ->
-  ### Generate function to combine a Vega plot and its data
-
-  Args:
-    chart_data: Vega data for a 1D chart
-
-  Returns:
-    a function that takes plot data
-  ###
-  sequence(
-    map(combine_data(chart_data)),
-    map(update_data)
-  )
 
 
 build = (data, sim_name, codes_data, chart_data) ->
@@ -547,7 +484,30 @@ build = (data, sim_name, codes_data, chart_data) ->
   if result_data.youtube?
     add_card(add_youtube, '#youtube', with_div = id)(result_data.youtube[0..0])
   with_div = (x) -> x.append('div').attr('class', 'col s4')
-  plotly_data = {data: 'my plotly plot'}
-  add_card(add_plotly, '#images', with_div = with_div)([plotly_data])
+
+  # plotly_data = [
+  #   {
+  #     name: "plotly_data"
+  #     values: [
+  #       {x: 0.0, y: 0.0, z: 0.0}
+  #       {x: 1.0, y: 0.0, z: 0.0}
+  #       {x: 2.0, y: 0.0, z: 1.0}
+  #       {x: 0.0, y: 1.0, z: 1.0}
+  #     ]
+  #     description: "my plotly data"
+  #   }
+  # ]
+
+  # # console.log(unzipObject(plotly_data.values))
+
+  # console.log(plotly_data)
+  # keys = (for k in plotly_data)
+
+
+  # values = read_vega_data(plotly_data[0])
+
+
+  # add_card(add_plotly, '#images', with_div = with_div)(all_data)
+
 
 build(DATA, SIM_NAME, CODES_DATA, CHART_DATA)
