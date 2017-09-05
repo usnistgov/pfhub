@@ -5,16 +5,6 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 
-collections:
-  # these collections can be used later as static api endpoints
-  # /<site.baseurl>/repos/fipy.json
-  # is a static file for the fipy github api response
-  # this is not dynamic enough.  webhoooooooks
-  repos:
-    output: true
-  cards:
-    output: true
-
 exclude:
   - "*.ipynb"
   - "*.ipynb.raw.html"

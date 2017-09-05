@@ -119,10 +119,21 @@
       "name": "mmsp_6a_wrksttn",
       "transform": [
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/tkphd/0e6057ada4de47098d5d39a27d8866ab/raw/fc51bc61c389df0b21341781e5f60bd098e09aa5/energy_6a_dx10.csv"
     },
     {
@@ -234,11 +245,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }

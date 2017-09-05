@@ -1,0 +1,133 @@
+<div class="container">
+
+  <div class="row top-buffer">
+    <div class="col s4 offset-s2">
+      <div class="row">
+        <h5 id="header">
+        </h5>
+      </div>
+
+      <div class="row">
+        <div class="chip" id="author">
+        </div>
+        <div class="chip" id="github_id">
+        </div>
+        <div class="chip" >
+          <img src="{{ site.baseurl }}/images/ic_code_24px.svg"
+               alt=""
+               style="width: 20px; height: 20px; margin-top: 5px; margin-left: 1px">
+          <span id="code"></span>
+        </div>
+      </div>
+
+      <div class="row top-buffer">
+        <table class="bordered">
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody id="table">
+            <tr>
+              <td>
+                Benchmark
+              </td>
+              <td id="benchmark">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Date
+              </td>
+              <td id="date">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Software
+              </td>
+              <td id="software">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="flow-text" style="font-size: 16px" id="summary">
+        </div>
+      </div>
+    </div>
+    <div class="col s3 offset-s1">
+      <div class="row top-buffer" id="logo_image">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container top-bar-thin">
+  <div class="row small-buffer">
+    <div class="col l2 m12 s12">
+      <h5 class="sideheader">Results</h5>
+    </div>
+    <div class="col s4 small-buffer">
+      <div class="row">
+        <table class="bordered">
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody id="results_table">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col s3 offset-s1">
+      <div class="row small-buffer" id="youtube">
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="row">
+    <div class="col s8 offset-s2" id="images">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <img id="plotly_div_0"></img>
+      <img id="plotly_div_1"></img>
+      <img id="plotly_div_2"></img>
+      <img id="plotly_div_3"></img>
+      <img id="plotly_div_4"></img>
+    </div>
+  </div
+</div>
+
+
+
+<script>
+  var CHART_DATA={{ site.data.charts.plot1d | jsonify }};
+  var SIM_NAME="{{ include.sim_name }}";
+  var DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta;
+  var CODES_DATA={{ site.data.codes | jsonify }};
+</script>
+<script src="{{ site.baseurl }}/js/simulation.js"></script>
+<script>
+  $(document).ready(function(){
+  $('.materialboxed').materialbox();
+  });
+</script>
+<script>
+ $(document).ready(function(){
+ $('.carousel').carousel();
+ $("#plotly_div_0").hide();
+ $("#plotly_div_1").hide();
+ $("#plotly_div_2").hide();
+ $("#plotly_div_3").hide();
+ $("#plotly_div_4").hide();
+  });
+</script>
