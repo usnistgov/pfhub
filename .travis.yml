@@ -16,6 +16,7 @@ install:
   - conda install nb_conda nb_conda_kernels nb_anacondacloud
   - pip install progressbar2 pykwalify pylint nbval vega
   - jupyter nbextension enable vega --py
+  - conda install -q -y -n test-environment npm
   - unset VIRTUAL_ENV
   - gem install jekyll jekyll-coffeescript html-proofer
   - sudo npm install coffeelint
