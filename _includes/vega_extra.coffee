@@ -90,7 +90,7 @@ vega_transform = (spec) ->
 
 
 # read vega data item and apply transforms
-read_vega_data = sequence(
+read_vega_data_ = sequence(
   (x) ->
     {
       transforms: map(vega_transform, if x.transform? then x.transform else [])
@@ -99,3 +99,8 @@ read_vega_data = sequence(
 
   (x) -> sequence.apply(@, x.transforms.concat(id))(x.values)
 )
+
+
+read_vega_data = (x) ->
+  x.values = read_vega_data_(x)
+  x

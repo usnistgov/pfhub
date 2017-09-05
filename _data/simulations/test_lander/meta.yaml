@@ -78,6 +78,25 @@ data:
   name: youtube
   type: youtube
   url: https://www.youtube.com/embed/Q8TXgCzxEnw?rel=0
+- name: contour_test
+  type: contour
+  values:
+    - {x: 0.0, y: 0.0, z: 0.0}
+    - {x: 1.0, y: 0.0, z: 0.0}
+    - {x: 2.0, y: 0.0, z: 1.0}
+    - {x: 0.0, y: 1.0, z: 1.0}
+    - {x: 2.0, y: 1.0, z: 3.0}
+  description: contour plot data
+- name: contour_from_file
+  type: contour
+  url: https://gist.githubusercontent.com/wd15/daa604e1846433c0723129504c8b7c09/raw/c01c102f9823fba27888b503b8b0bb2aa42ac74d/contour.csv
+  format:
+    parse:
+      x: number
+      y: number
+      z: number
+    type: csv
+  description: test csv data
 metadata:
   author: PC. Simon
   email: pjs5523@psu.edu

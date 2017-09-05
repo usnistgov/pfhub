@@ -420,15 +420,28 @@ add_plotly_src = (x) ->
       Plotly.toImage(gd)
   )
 
-  plotly_promise = (data) ->
-    Plotly.newPlot('plotly_div', data.plotly, {})
+  layout = {
+    margin: {
+      l: 50,
+      r: 70,
+      b: 120,
+      t: 40,
+      pad: 5
+    }
+    title: false
+  }
+
+  plotly_promise = (data, div) ->
+    Plotly.newPlot(div, data.plotly, layout)
       .then(
         (gd) ->
           Plotly.toImage(gd, {height: 400, width: 400})
             .then(urlfunc(gd, data))
       )
 
-  map(plotly_promise, x.data())
+  x.data().forEach((d, i) ->
+    plotly_promise(d, "plotly_div_" + i)
+  )
 
 add_chart = curry(
   (add_src, x) ->
@@ -445,6 +458,16 @@ add_chart = curry(
 
 add_vega = add_chart(add_vega_src)
 add_plotly = add_chart(add_plotly_src)
+
+
+ploterize = (data) ->
+  data.plotly = [{
+    x: (xx.x for xx in data.values)
+    y: (xx.y for xx in data.values)
+    z: (xx.z for xx in data.values)
+    type: 'contour'
+  }]
+  return data
 
 
 build = (data, sim_name, codes_data, chart_data) ->
@@ -478,36 +501,19 @@ build = (data, sim_name, codes_data, chart_data) ->
     vega_data = vega_data[1..]
 
   with_div = (x) -> x.append('div').attr('class', 'col s4')
+
   if result_data.image?
     add_card(add_image, '#images', with_div = with_div)(result_data.image)
   add_card(add_vega, '#images', with_div = with_div)(vega_data)
+
   if result_data.youtube?
     add_card(add_youtube, '#youtube', with_div = id)(result_data.youtube[0..0])
-  with_div = (x) -> x.append('div').attr('class', 'col s4')
 
-  # plotly_data = [
-  #   {
-  #     name: "plotly_data"
-  #     values: [
-  #       {x: 0.0, y: 0.0, z: 0.0}
-  #       {x: 1.0, y: 0.0, z: 0.0}
-  #       {x: 2.0, y: 0.0, z: 1.0}
-  #       {x: 0.0, y: 1.0, z: 1.0}
-  #     ]
-  #     description: "my plotly data"
-  #   }
-  # ]
-
-  # # console.log(unzipObject(plotly_data.values))
-
-  # console.log(plotly_data)
-  # keys = (for k in plotly_data)
-
-
-  # values = read_vega_data(plotly_data[0])
-
-
-  # add_card(add_plotly, '#images', with_div = with_div)(all_data)
+  if result_data.contour?
+    with_div = (x) -> x.append('div').attr('class', 'col s4')
+    contour_data = map(read_vega_data, result_data.contour)
+    plotly_data = map(ploterize, contour_data)
+    add_card(add_plotly, '#images', with_div = with_div)(plotly_data)
 
 
 build(DATA, SIM_NAME, CODES_DATA, CHART_DATA)
