@@ -9,7 +9,7 @@ import os
 import glob
 
 # pylint: disable=redefined-builtin
-from toolz.curried import pipe, valmap, itemmap, do, map, assoc
+from toolz.curried import pipe, valmap, itemmap, do, map
 import yaml
 
 from simulations import get_path, read_yaml
@@ -65,76 +65,11 @@ def write_yaml_data(filepath, data):
 
 
 if __name__ == '__main__':
-    # migrate(
-    #     update_in(keys=['metadata'],
-    #               func=assoc(key='github_id', value=""))
-    #     )
+    def migrate_f(data):
+        """Migrate function for github_id
+        """
+        if data["metadata"]["author"] == "PC. Simon":
+            data["metadata"]["github_id"] = "simopier"
+        return data
 
-    # def ff(dd):
-    #     if dd['metadata']['author'] == "Trevor Keller":
-    #         if dd['metadata']['github_id'] == '':
-    #             dd['metadata']['github_id'] = 'tkphd'
-    #     return dd
-    # def ff(dd):
-    #     def update(d):
-    #         if d["name"] == "run_time":
-    #             if "sim_time" in d["values"][0] and "time" in d["values"][0]:
-    #                 d['values'][0]["wall_time"] = d["values"][0]["time"]
-    #                 del d["values"][0]["time"]
-    #         return d
-    #     dd["data"] = list(map(update, dd['data']))
-    #     return dd
-    # def f(x):
-    #     def g(y):
-    #         if y["name"] == "free_energy":
-    #             y["transform"] = list(filter(lambda xx: xx["type"] != "filter",
-    #                                          y["transform"]))
-    #         return y
-    #     x["data"] = list(map(g, x["data"]))
-    #     return x
-    # def f(x):
-    #     if x["metadata"]["author"] == "Daniel Schwen":
-    #         x["metadata"]["github_id"] = "dschwen"
-    #     return x
-    # def f(x):
-    #     def g(y):
-    #         if y["name"] == "memory_usage":
-    #             y.pop("transform", None)
-    #             if type(y["values"]) is dict:
-    #                 y["values"] = [y["values"]]
-    #             if "value_m" in y["values"][0]:
-    #                 y["values"][0]["value"] = y["values"][0]["value_m"]
-    #                 del y["values"][0]["value_m"]
-    #         return y
-    #     x['data'] = list(map(g, x['data']))
-    #     if x["metadata"]["author"] == "Daniel Schwen":
-    #         x["metadata"]["github_id"] = "dschwen"
-    #     return x
-    # def f(x):
-    #     def h(y):
-    #         if "expr" in y and "field" in y and "type" in y:
-    #             y["as"] = y["field"]
-    #             del y["field"]
-    #         return y
-
-    #     def g(y):
-    #         if y["name"] == "free_energy":
-    #             y['transform'] = list(map(h, y['transform']))
-    #         return y
-    #     x['data'] = list(map(g, x['data']))
-    #     return x
-    # def f(x):
-    #     def g(y):
-    #         if y["name"] == "memory_usage":
-    #             if "value_per_rank" in y["values"][0]:
-    #                 y["values"][0]["value"] = y["values"][0]["value_per_rank"]
-    #                 del y["values"][0]["value_per_rank"]
-    #         return y
-    #     x['data'] = list(map(g, x['data']))
-    #     return x
-    def f(x):
-        if x["metadata"]["author"] == "PC. Simon":
-            x["metadata"]["github_id"] = "simopier"
-        return x
-
-    migrate(f)
+    migrate(migrate_f)

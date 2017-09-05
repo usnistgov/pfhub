@@ -106,13 +106,6 @@ def filter_data(field, yaml_data):
     Returns:
       the filtered data from the YAML data
     """
-    def debug(x):
-        def f(y):
-            y = update_in(y, ['transform'], lambda xx: xx + [dict(expr="datum.x > 0.01", type="filter")])
-            # y['transform'].append(dict(expr="datum.x > 0.01", type="filter"))
-            return y
-        return list(map(f, x))
-
     return pipe(
         yaml_data,
         dict,

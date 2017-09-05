@@ -18,10 +18,8 @@ install:
   - jupyter nbextension enable vega --py
   - unset VIRTUAL_ENV
   - gem install jekyll jekyll-coffeescript html-proofer
-  - npm install
   - npm cache clean
   - npm install -g npm
-  - npm install
   - npm install -g coffeelint
 script:
   - pylint _data/*.py
