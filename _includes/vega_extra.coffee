@@ -18,7 +18,7 @@ update_vega_data = (data) ->
     x.axes[1].title = 'Free Energy'
     x.scales[0].type = 'log'
     x.scales[1].type = 'log'
-    x.data[0].transform.push({expr: 'datum.x > 0.01', type: 'filter'})
+    x.data[0].transform.push({expr:'datum.x > 0.01', type:'filter'})
   x.data[0].name = 'the_data'
   x
 
@@ -65,7 +65,7 @@ add_vega_src = (x) ->
 
 # read vega data with a url
 read_vega_url = sequence(
-  (x) -> [x.format, dl.load({url: x.url})]
+  (x) -> [x.format, dl.load({url:x.url})]
   (x) -> dl.read(x[1], x[0])
 )
 
@@ -82,7 +82,7 @@ vega_transform = (spec) ->
   if spec.type is 'formula'
     (values) ->
       f = (datum) ->
-        datum[spec.as] = evalexpr.Parser.evaluate(spec.expr, {datum: datum})
+        datum[spec.as] = evalexpr.Parser.evaluate(spec.expr, {datum:datum})
         datum
       map(f, values)
   else
@@ -93,11 +93,15 @@ vega_transform = (spec) ->
 read_vega_data_ = sequence(
   (x) ->
     {
-      transforms: map(vega_transform, if x.transform? then x.transform else [])
-      values: if x.url? then read_vega_url(x) else x.values
+      transforms:map(vega_transform, if x.transform? then x.transform else [])
+      values:if x.url? then read_vega_url(x) else x.values
     }
 
+  # coffeelint: disable=no_stand_alone_at
+  # coffeelint: disable=missing_fat_arrows
   (x) -> sequence.apply(@, x.transforms.concat(id))(x.values)
+  # coffeelint: enable=no_stand_alone_at
+  # coffeelint: enable=missing_fat_arrows
 )
 
 

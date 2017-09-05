@@ -195,7 +195,9 @@ def get_yaml_data():
         sorted,
         map(lambda path_: (os.path.split(os.path.split(path_)[0])[1],
                            read_yaml(path_))),
-        filter(lambda item: item[0] not in ['example', 'example_minimal', 'test_lander'])
+        filter(lambda item: item[0] not in ['example',
+                                            'example_minimal',
+                                            'test_lander'])
     )
 
 

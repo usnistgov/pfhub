@@ -254,7 +254,7 @@ memory_usage = (data) ->
 to_human_time = sequence(
   (x) -> moment.duration(x * 1000)
   (x) -> moment.preciseDiff(moment(), moment().add(x))
-  (x) -> x.split(" ")[..3].join(" ")
+  (x) -> x.split(' ')[..3].join(' ')
 )
 
 
@@ -262,7 +262,7 @@ metric_prefix = sequence(
   (x) -> parseFloat(x) * 1e9
   (x) -> [x, Math.log(x) / Math.log(1000) | 0]
   (x) -> [(x[0] / Math.pow(1000, x[1])).toFixed(0), x[1]]
-  (x) -> x[0] + "nµm kMGTPE"[x[1]]
+  (x) -> x[0] + 'nµm kMGTPE'[x[1]]
 )
 
 
@@ -279,7 +279,7 @@ get_table_data = (data) ->
   return [
     ['Memory Usage', memory_usage(data)]
     ['Wall Clock Time', to_human_time(get_times(data).wall_time)]
-    ['Simulation Time', (metric_prefix(get_times(data).sim_time) + " seconds")]
+    ['Simulation Time', (metric_prefix(get_times(data).sim_time) + ' seconds')]
     ['Cores', data.metadata.hardware.cores]
   ]
 
@@ -412,7 +412,7 @@ add_plotly_src = (x) ->
   Args:
     x: the img selection to add the plotly src to
   ###
-  style = {format: 'svg', height: 100, width: 100}
+  style = {format:'svg', height:100, width:100}
 
   urlfunc = curry(
     (gd, data, url) ->
@@ -421,26 +421,26 @@ add_plotly_src = (x) ->
   )
 
   layout = {
-    margin: {
-      l: 50,
-      r: 70,
-      b: 120,
-      t: 40,
-      pad: 5
+    margin:{
+      l:50,
+      r:70,
+      b:120,
+      t:40,
+      pad:5
     }
-    title: false
+    title:false
   }
 
   plotly_promise = (data, div) ->
     Plotly.newPlot(div, data.plotly, layout)
       .then(
         (gd) ->
-          Plotly.toImage(gd, {height: 400, width: 400})
+          Plotly.toImage(gd, {height:400, width:400})
             .then(urlfunc(gd, data))
       )
 
   x.data().forEach((d, i) ->
-    plotly_promise(d, "plotly_div_" + i)
+    plotly_promise(d, 'plotly_div_' + i)
   )
 
 add_chart = curry(
@@ -462,10 +462,10 @@ add_plotly = add_chart(add_plotly_src)
 
 ploterize = (data) ->
   data.plotly = [{
-    x: (xx.x for xx in data.values)
-    y: (xx.y for xx in data.values)
-    z: (xx.z for xx in data.values)
-    type: 'contour'
+    x:(xx.x for xx in data.values)
+    y:(xx.y for xx in data.values)
+    z:(xx.z for xx in data.values)
+    type:'contour'
   }]
   return data
 
