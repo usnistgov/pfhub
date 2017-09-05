@@ -17,9 +17,9 @@ install:
   - pip install progressbar2 pykwalify pylint nbval vega
   - jupyter nbextension enable vega --py
   - conda install -q -y -n test-environment nodejs
+  - npm install coffeelint
   - unset VIRTUAL_ENV
   - gem install jekyll jekyll-coffeescript html-proofer
-  - sudo npm install coffeelint
 script:
   - pylint _data/*.py
   - flake8 _data/*.py
