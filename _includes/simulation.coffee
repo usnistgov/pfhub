@@ -352,21 +352,41 @@ add_youtube = (x) ->
     .attr('src', (d) -> d.url)
 
 
-add_description = (x) ->
-  ### Add a card description
+add_content = sequence(
+  (x) ->
+    x.append('div')
+      .attr('class', 'card-content')
+  do_((x) ->
+    x.append('span')
+      .attr('class', 'activator')
+      .html('<i class="material-icons right">more_vert</i>'))
+  (x) ->
+    x.append('p')
+      .attr('class', 'truncate')
+      .text((d) ->
+        if d.description? then d.description else d.data[0].description)
+)
 
-  Args:
-    x: the current selection
 
-  Returns:
-    the p selection
-  ###
-  x.append('span')
-    .attr('class', 'card-content')
-    .append('p')
-    .attr('class', 'truncate')
-    .text((d) ->
-      if d.description? then d.description else d.data[0].description)
+add_reveal = sequence(
+  (x) ->
+    x.append('div')
+      .attr('class', 'card-reveal')
+  do_((x) ->
+    x.append('span')
+      .attr('class', 'card-title')
+      .html('<i class="material-icons right">close</i>'))
+  (x) ->
+    x.append('p')
+      .text((d) ->
+        if d.description? then d.description else d.data[0].description)
+)
+
+
+add_description = sequence(
+  do_(add_content)
+  do_(add_reveal)
+)
 
 
 build_card = (addf) ->
