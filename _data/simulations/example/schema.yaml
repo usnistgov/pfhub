@@ -35,6 +35,12 @@ mapping:
           "modify":
             type: any
             required: False
+          "description":
+            type: str
+            required: False
+          "type":
+            type: str
+            enum: ["line", "contour", "image", "youtube"]
   "benchmark":
     type: map
     required: True
@@ -50,6 +56,9 @@ mapping:
     type: map
     required: True
     mapping:
+      "github_id":
+        type: str
+        required: True
       "simulation_name":
         type: str
         required: False

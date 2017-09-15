@@ -2,7 +2,7 @@
 ---
 
 fname = (data, type, row) ->
-  '<a href="{{ site.links.simmeta }}/' + data + '/meta.yaml" target="_blank">' + data + '</a>'
+  '<a href="{{ site.baseurl }}/simulations/' + data + '" target="_blank">' + data + '</a>'
 
 fauthor = (data, type, row) ->
   if data.email
