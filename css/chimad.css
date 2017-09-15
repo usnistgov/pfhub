@@ -37,7 +37,7 @@ main {
 }
 
 .top-bar-thin {
-    border-top: 1px solid #33691e;
+    border-top: 1px solid #9ccc65;
 }
 
 .card {
@@ -51,6 +51,9 @@ main {
     margin-bottom: 25px;
 }
 
+.chip {
+    margin-bottom: 3px;
+}
 
 .indent {
     margin-left: 10px;
@@ -106,7 +109,7 @@ main {
 }
 
 .chimad-collections {
-    color: "light-green lighten-4"
+    color: "light-green lighten-3"
 }
 
 .navbar-text {

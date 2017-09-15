@@ -124,14 +124,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 1",
-          "type": "filter"
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
         },
         {
-          "expr": "datum.time < 1e6",
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_IA.csv"
     },
     {
@@ -150,14 +157,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 1.0",
-          "type": "filter"
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
         },
         {
-          "expr": "datum.time < 1e6",
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_STA.csv"
     },
     {
@@ -176,10 +190,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv"
     },
     {
@@ -198,10 +223,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_STA.csv"
     },
     {
@@ -313,11 +349,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -371,11 +407,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -429,11 +465,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -487,11 +523,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }

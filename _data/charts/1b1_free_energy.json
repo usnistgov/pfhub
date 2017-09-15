@@ -112,10 +112,21 @@
       "name": "fipy_1b_travis",
       "transform": [
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "values": [
         {
           "free_energy": 319.04044215271733,
@@ -171,10 +182,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/dschwen/75c5f5f47519119fdb6e934056f6fd56/raw/d865f3213e4a695dc031c37e71b280248c4a0eb5/problem_1b_out.csv"
     },
     {
@@ -193,10 +215,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/dschwen/e98885861ef77c480a74c13d09804f92/raw/a11dfd5d1d3856ec48b14fd321a7ccbfce45bd96/problem_1b_out.csv"
     },
     {
@@ -210,10 +243,21 @@
       "name": "mmsp_1b_raspi",
       "transform": [
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1b_raspi_results.csv"
     },
     {
@@ -225,10 +269,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "values": [
         {
           "energy": 319.045,
@@ -287,10 +342,21 @@
       "name": "mmsp_1b_wrksttn",
       "transform": [
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1b_wrksttn.csv"
     },
     {
@@ -309,10 +375,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_PBC_IA.csv"
     },
     {
@@ -331,10 +408,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/49d3f4ebc29a373687b3e7f4ec0b8219dd098cb7/hackathon_p1_square_NF_STA.csv"
     },
     {
@@ -353,10 +441,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1b_IA.csv"
     },
     {
@@ -375,10 +474,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1b_STA.csv"
     },
     {
@@ -390,10 +500,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "values": [
         {
           "time": 0.0,
@@ -554,11 +675,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -612,11 +733,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -670,11 +791,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -728,11 +849,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -786,11 +907,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -844,11 +965,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -902,11 +1023,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -960,11 +1081,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -1018,11 +1139,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -1076,11 +1197,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -1134,11 +1255,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
