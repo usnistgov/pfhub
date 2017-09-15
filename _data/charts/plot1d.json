@@ -79,7 +79,7 @@
             "value": 2
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
