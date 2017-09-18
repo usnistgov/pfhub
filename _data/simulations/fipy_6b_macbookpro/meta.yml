@@ -1,0 +1,47 @@
+metadata:
+  author: Jon Guyer
+  email: guyer@nist.gov
+  simulation_name: fipy_6b_macbookpro
+  summary: Serial benchmark with FiPy on Gmsh mesh with round right
+  timestamp: '1 August, 2017'
+  implementation:
+    repo:
+      url: 'https://github.com/guyer/hackathonIII'
+      version: 0b52c55d
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: serial
+    clock_rate: '2.9'
+    cores: '1'
+    nodes: '1'
+  software:
+    name: fipy
+    version: 3.1.3.dev167+g8b4ec87c
+    repo:
+      url: 'https://github.com/usnistgov/fipy'
+      version: ecbe868f2aff6
+benchmark:
+  version: '1'
+  id: 6b
+data:
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/guyer/hackathonIII/master/Data/99faa0c9-6a3b-493c-b8c8-e4c7376c6e30/energy.txt
+    format:
+      parse:
+        time: number
+        free_energy: number
+      type: csv
+    transform:
+      - type: filter
+        test: datum.time > 0.01
+  - name: run_time
+    values:
+      - wall_time: '4350'
+        sim_time: '1000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '266000'
+date: 1501621688
