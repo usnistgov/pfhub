@@ -2,6 +2,7 @@ _id: 0dc3d1f0-76fd-11e7-a3e9-cb63094aa20f
 metadata:
   author: Andrea Jokisaari
   email: andrea.jokisaari@northwestern.edu
+  github_id: amjokisaari
   simulation_name: coral_6a
   summary: Upload-a-thon August 2017 test upload
   timestamp: '31 July, 2017'
@@ -23,7 +24,7 @@ metadata:
       url: 'https://github.com/idaholab/moose'
       version: '00000'
 benchmark:
-  version: '1'
+  version: '0'
   id: 6a
 data:
   - name: free_energy
@@ -31,11 +32,17 @@ data:
     format:
       parse:
         time: number
-        free_energy: number
+        TotalEnergy: number
       type: csv
     transform:
-      - type: filter
-        test: datum.time > 0.01
+      - as: y
+        expr: datum.TotalEnergy
+        type: formula
+      - as: x
+        expr: datum.time
+        type: formula
+    type: line
+    description: Free Energy Plot
   - name: run_time
     values:
       - wall_time: '1800'
