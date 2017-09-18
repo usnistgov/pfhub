@@ -13,6 +13,7 @@ metadata: # REQUIRED
   # Describe the runtime environment
   summary: MPI parallel workstation benchmark with MMSP  # REQUIRED
   author: Trevor Keller  # REQUIRED
+  github_id: tkphd # REQUIRED
   email: trevor.keller@nist.gov  # REQUIRED
   timestamp: Thu, 22 Dec 2016 15:20:53 -0500  # REQUIRED
   hardware:
@@ -64,15 +65,20 @@ data:  # REQUIRED
       parse:
         time: number
         free_energy: number
-    transform:  # REQUIRED: remove zero for logarithmic time-axis scaling
-      - type: filter
-        test: "datum.time > 0.01"
+    transform:
+      - expr: datum.time
+        as: x
+        type: formula
+      - expr: datum.free_energy
+        as: y
+        type: formula
+    type: line
   - name: run_time  # REQUIRED
     values:
       [
         {
           "sim_time": 53333.3,
-          "time": 170618.87 # wall time, seconds
+          "wall_time": 170618.87 # wall time, seconds
         }
       ]
   - name: memory_usage  # REQUIRED

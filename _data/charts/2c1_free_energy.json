@@ -124,10 +124,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_IA_dfdt.csv"
     },
     {
@@ -146,10 +157,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_STA_dfdt.csv"
     },
     {
@@ -261,11 +283,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -319,11 +341,11 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }

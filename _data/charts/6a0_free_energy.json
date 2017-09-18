@@ -119,11 +119,51 @@
       "name": "mmsp_6a_wrksttn",
       "transform": [
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/tkphd/0e6057ada4de47098d5d39a27d8866ab/raw/fc51bc61c389df0b21341781e5f60bd098e09aa5/energy_6a_dx10.csv"
+    },
+    {
+      "description": "Free Energy Plot",
+      "format": {
+        "parse": {
+          "Energy": "number",
+          "Time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "prismspf_6a_flux_med",
+      "transform": [
+        {
+          "as": "y",
+          "expr": "datum.Energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.Time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://gist.githubusercontent.com/wd15/23c6f2d74c4c41d8da883feee30efdee/raw/12633176adddfb4375c780cfa10678d251520d3d/energy_6a.csv"
     },
     {
       "name": "selected",
@@ -234,17 +274,75 @@
             "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
       },
       "from": {
         "data": "mmsp_6a_wrksttn"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": "prismspf_6a_flux_med"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "prismspf_6a_flux_med"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "prismspf_6a_flux_med"
       },
       "interactive": true,
       "type": "line"
@@ -271,7 +369,8 @@
     },
     {
       "domain": [
-        "mmsp_6a_wrksttn"
+        "mmsp_6a_wrksttn",
+        "prismspf_6a_flux_med"
       ],
       "name": "color",
       "range": {
@@ -367,7 +466,7 @@
         }
       ],
       "value": [
-        -1,
+        -2,
         3
       ]
     },
@@ -403,8 +502,8 @@
         }
       ],
       "value": [
-        0,
-        5
+        1,
+        3
       ]
     },
     {
