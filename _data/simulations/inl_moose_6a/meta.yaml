@@ -1,6 +1,7 @@
 _id: c67a5650-76f9-11e7-a3e9-cb63094aa20f
 metadata:
   author: Larry Aagesen
+  github_id: laagesen
   email: Larry.Aagesen@inl.gov
   simulation_name: inl_moose_6a
   summary: >-
@@ -26,18 +27,24 @@ metadata:
       version: 6e33f5a4bfddd4a5c951ba493a87526c91509bfa
 benchmark:
   id: 6a
-  version: '1'
+  version: '0'
 data:
   - name: free_energy
-    url: 'https://gist.github.com/laagesen/d8ed181db58d77625336461c21f989b3'
+    url: 'https://gist.githubusercontent.com/laagesen/d8ed181db58d77625336461c21f989b3/raw/9e5679ea74730616d7ee39fb7900a00e1bcc02a6/problem2a_out_160_dtIA8_upload.csv'
     format:
       parse:
         time: number
         free_energy: number
       type: csv
     transform:
-      - type: filter
-        test: datum.time > 0.01
+      - as: y
+        expr: datum.free_energy
+        type: formula
+      - as: x
+        expr: datum.time
+        type: formula
+    description: Free Energy Plot
+    type: line
   - name: run_time
     values:
       - wall_time: '495'
