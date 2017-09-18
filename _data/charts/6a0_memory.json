@@ -119,6 +119,16 @@
       ]
     },
     {
+      "name": "prismspf_6a_flux_med",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 124000.0,
+          "time_ratio": 0.7889546351084813
+        }
+      ]
+    },
+    {
       "name": "selected",
       "on": [
         {
@@ -260,6 +270,83 @@
       },
       "interactive": true,
       "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": "prismspf_6a_flux_med"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "prismspf_6a_flux_med"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "prismspf_6a_flux_med"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "prismspf_6a_flux_med"
+      },
+      "interactive": true,
+      "type": "symbol"
     }
   ],
   "scales": [
@@ -283,7 +370,8 @@
     },
     {
       "domain": [
-        "mmsp_6a_wrksttn"
+        "mmsp_6a_wrksttn",
+        "prismspf_6a_flux_med"
       ],
       "name": "color",
       "range": {
