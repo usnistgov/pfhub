@@ -124,7 +124,9 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>-A*(-c_m + c_var)**2/2 + B*(-c_m + c_var)**4/4 + c_alpha*(-c_alpha + c_var)**4/4 + c_beta*(-c_beta + c_var)**4/4
 </pre>
@@ -151,7 +153,9 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -169,7 +173,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first step in implementing any problem in FiPy is to define the mesh. For <a href="{{ site.baseurl }}/hackathons/hackathon1/problems.ipynb/#a.-Square-Periodic">Problem 1a</a> the solution domain is just a square domain, but the boundary conditions are periodic, so a <code>PeriodicGrid2D</code> object is used. No other boundary conditions are required.</p>
+<p>The first step in implementing any problem in FiPy is to define the mesh. For <a href="{{ site.baseurl }}/hackathons/hackathon1/problems.ipynb/#1.a-Square-Periodic">Problem 1a</a> the solution domain is just a square domain, but the boundary conditions are periodic, so a <code>PeriodicGrid2D</code> object is used. No other boundary conditions are required.</p>
 
 </div>
 </div>
@@ -213,7 +217,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">))</span>
 <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.01</span>
 
-<span class="n">c_var</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">CellVariable</span><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">r&quot;$c$&quot;</span><span class="p">,</span> <span class="n">hasOld</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">c_var</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">CellVariable</span><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$c$&quot;</span><span class="p">,</span> <span class="n">hasOld</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -250,7 +254,9 @@ $$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \ve
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>/home/wd15/anaconda/lib/python2.7/site-packages/matplotlib/collections.py:590: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
   if self._edgecolors == str(&#39;face&#39;):
@@ -258,7 +264,9 @@ $$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \ve
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -659,7 +667,9 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -698,7 +708,9 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -739,7 +751,7 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 <span class="n">steps</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="n">total_sweeps</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">tolerance</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mf">1e-1</span>
 <span class="n">total_steps</span> <span class="o">=</span> <span class="mi">100</span>
 </pre></div>
 
@@ -785,7 +797,9 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -1469,14 +1483,18 @@ qvBqAAAAAElFTkSuQmCC
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>elapsed_time: 26.0630126019
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_text output_subarea ">
@@ -1589,7 +1607,9 @@ while steps &lt; total_steps:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Writing fipy_hackathon_1b.py
 </pre>
@@ -1641,7 +1661,9 @@ $ ffmpeg -f image2 -r 6 -i 'image%05d.png' output.mp4</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[18]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -1674,3 +1696,5 @@ $ ffmpeg -f image2 -r 6 -i 'image%05d.png' output.mp4</code></pre>
 </div>
 
 </div>
+ 
+

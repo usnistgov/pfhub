@@ -109,12 +109,22 @@
   ],
   "data": [
     {
-      "name": "trevs_sim",
+      "name": "mmsp_6a_wrksttn",
       "transform": [],
       "values": [
         {
-          "memory_usage": 10000.0,
-          "time_ratio": 1.0
+          "memory_usage": 2500.0,
+          "time_ratio": 0.030637254901960783
+        }
+      ]
+    },
+    {
+      "name": "prismspf_6a_flux_med",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 124000.0,
+          "time_ratio": 0.7889546351084813
         }
       ]
     },
@@ -189,7 +199,7 @@
         "hover": {
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'trevs_sim')",
+              "test": "!indata('selected', 'value', 'mmsp_6a_wrksttn')",
               "value": 0.4
             },
             {
@@ -201,7 +211,7 @@
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'trevs_sim')",
+              "test": "!indata('selected', 'value', 'mmsp_6a_wrksttn')",
               "value": 0.4
             },
             {
@@ -213,8 +223,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'trevs_sim')",
-              "value": "trevs_sim"
+              "test": "!indata('selected', 'value', 'mmsp_6a_wrksttn')",
+              "value": "mmsp_6a_wrksttn"
             },
             {
               "value": ""
@@ -224,11 +234,11 @@
         "update": {
           "fill": {
             "scale": "color",
-            "value": "trevs_sim"
+            "value": "mmsp_6a_wrksttn"
           },
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'trevs_sim')",
+              "test": "!indata('selected', 'value', 'mmsp_6a_wrksttn')",
               "value": 1.0
             },
             {
@@ -240,7 +250,7 @@
           },
           "stroke": {
             "scale": "color",
-            "value": "trevs_sim"
+            "value": "mmsp_6a_wrksttn"
           },
           "strokeWidth": {
             "value": 0
@@ -256,7 +266,84 @@
         }
       },
       "from": {
-        "data": "trevs_sim"
+        "data": "mmsp_6a_wrksttn"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": "prismspf_6a_flux_med"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "prismspf_6a_flux_med"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_6a_flux_med')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "prismspf_6a_flux_med"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "prismspf_6a_flux_med"
       },
       "interactive": true,
       "type": "symbol"
@@ -283,7 +370,8 @@
     },
     {
       "domain": [
-        "trevs_sim"
+        "mmsp_6a_wrksttn",
+        "prismspf_6a_flux_med"
       ],
       "name": "color",
       "range": {

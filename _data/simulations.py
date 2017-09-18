@@ -115,7 +115,10 @@ def filter_data(field, yaml_data):
         valmap(get(0)),
         itemmap(lambda item: (item[0], update_dict(item[1], name=item[0]))),
         lambda dict_: sorted(list(dict_.values()),
-                             key=lambda item: item['name'])
+                             key=lambda item: item['name']),
+        map(update_in(keys=['transform'],
+                      func=lambda x: x + [dict(expr="datum.x > 0.01",
+                                               type="filter")]))
     )
 
 
@@ -187,12 +190,14 @@ def get_yaml_data():
       list of tuples of (name, data_dict)
     """
     return pipe(
-        os.path.join(get_path(), 'simulations/*/meta.y*ml'),
+        os.path.join(get_path(), 'simulations/*/meta.yaml'),
         glob.glob,
         sorted,
         map(lambda path_: (os.path.split(os.path.split(path_)[0])[1],
                            read_yaml(path_))),
-        filter(lambda item: item[0] not in ['example', 'example_minimal'])
+        filter(lambda item: item[0] not in ['example',
+                                            'example_minimal',
+                                            'test_lander'])
     )
 
 
@@ -242,6 +247,7 @@ def get_data(filter_func):
       a dictionary with benchmark ids as keys and lists of appropriate
       data for values
     """
+
     return pipe(
         get_yaml_data(),
         groupby(

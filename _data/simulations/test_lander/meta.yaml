@@ -1,0 +1,131 @@
+benchmark:
+  id: 1d
+  version: 1
+data:
+- name: memory_usage
+  values:
+  - unit: bytes
+    value: 10000
+- name: run_time
+  values:
+  - sim_time: 3000000
+    wall_time: 78280
+- description: the free energy plot Metadata for the Benchmark1 problems Lorem ipsum
+    dolor sit amet Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+    id est laborum.
+  format:
+    parse:
+      f_density: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: free_energy
+    expr: datum.f_density
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
+- description: not a free energy plot
+  format:
+    parse:
+      f_density: number
+      time: number
+    type: csv
+  name: blah
+  transform:
+  - as: y
+    expr: datum.f_density
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
+- description: Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet, Metadata
+    for the Benchmark1 problems Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  name: logo_image
+  type: image
+  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+- description: A puppy picture
+  name: image0
+  type: image
+  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+- description: A puppy picture
+  name: image1
+  type: image
+  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+- description: A puppy picture
+  name: image2
+  type: image
+  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+- description: My youtube video
+  name: youtube
+  type: youtube
+  url: https://www.youtube.com/embed/Q8TXgCzxEnw?rel=0
+- name: contour_test
+  type: contour
+  values:
+    - {x: 0.0, y: 0.0, z: 0.0}
+    - {x: 1.0, y: 0.0, z: 0.0}
+    - {x: 2.0, y: 0.0, z: 1.0}
+    - {x: 0.0, y: 1.0, z: 1.0}
+    - {x: 2.0, y: 1.0, z: 3.0}
+  description: contour plot data
+- name: contour_from_file
+  type: contour
+  url: https://gist.githubusercontent.com/wd15/daa604e1846433c0723129504c8b7c09/raw/c01c102f9823fba27888b503b8b0bb2aa42ac74d/contour.csv
+  format:
+    parse:
+      x: number
+      y: number
+      z: number
+    type: csv
+  description: test csv data
+metadata:
+  author: PC. Simon
+  email: pjs5523@psu.edu
+  github_id: simopier
+  hardware:
+    architecture: x86_64
+    cores: 40
+    details:
+    - name: clock rate
+      values:
+        rate: null
+        unit: GHz
+    - name: processor
+      values: ''
+  implementation:
+    details:
+    - name: time_stepper
+      values: IA
+    end_condition: Time limit (3000000)
+    repo:
+      url: https://github.com/simopier/CHiMaD/blob/master/H7.i
+      version: '724999206'
+  software:
+    name: moose
+    version: git commit 2593a61 on 2017-01-18
+  summary: Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  timestamp: Tue Jan 31 21:01:55 EST 2017
