@@ -1,6 +1,7 @@
 metadata:
   author: Jon Guyer
   email: guyer@nist.gov
+  github_id: guyer
   simulation_name: fipy_6b_macbookpro
   summary: Serial benchmark with FiPy on Gmsh mesh with round right
   timestamp: '1 August, 2017'
@@ -22,20 +23,27 @@ metadata:
       url: 'https://github.com/usnistgov/fipy'
       version: ecbe868f2aff6
 benchmark:
-  version: '1'
+  version: '0'
   id: 6b
 data:
   - name: free_energy
     url: >-
-      https://raw.githubusercontent.com/guyer/hackathonIII/master/Data/99faa0c9-6a3b-493c-b8c8-e4c7376c6e30/energy.txt
+      https://gist.githubusercontent.com/wd15/9986ba35b6dfef5bdffef15db52de547/raw/ccb55df9b1a4d5b826fd4a8bb09c666336ad8d1c/energy.txt
     format:
       parse:
         time: number
         free_energy: number
-      type: csv
+      type: dsv
+      delimiter: ' '
     transform:
-      - type: filter
-        test: datum.time > 0.01
+      - as: y
+        expr: datum.free_energy
+        type: formula
+      - as: x
+        expr: datum.time
+        type: formula
+    description: Free Energy Plot
+    type: line
   - name: run_time
     values:
       - wall_time: '4350'
