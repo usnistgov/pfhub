@@ -29,14 +29,12 @@ comment: >-
             action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
         <input name="options[redirect]"
                type="hidden"
-               value="https://github.com/usnistgov/chimad-phase-field/pulls" \>
+               value="https://github.com/usnistgov/chimad-phase-field/pulls">
 
         <div class="row">
-          <p>
-            <h5>
-              Author
-            </h5>
-          </p>
+          <h5>
+            Author
+          </h5>
           <div class="input-field col s5">
             <i class="material-icons prefix">account_circle</i>
             <input required
@@ -60,11 +58,9 @@ comment: >-
         </div>
 
         <div class="row small-buffer top-bar-thin">
-          <p>
-            <h5>
-              Simulation
-            </h5>
-          </p>
+          <h5>
+            Simulation
+          </h5>
           <div class="input-field col s3">
             <input required
 		   id="simulation_name"
@@ -72,7 +68,7 @@ comment: >-
                    class="validate"
                    type="text"
 		   length="32"
-                   pattern="^[\w]{2,32}$"></input>
+                   pattern="^[\w]{2,32}$">
             <label for="simulation_name">
               Short Simulation Name
               <a class="tooltipped"
@@ -125,13 +121,13 @@ comment: >-
 
           <div class="input-field col s2">
             <select required
-		    id="version"
+		    id="version1"
                     name="fields[benchmark][version]"
                     type="number">
               <option value="1" selected>Published</option>
               <option value="0">Hackathon</option>
             </select>
-            <label class="active" for="version">Version</label>
+            <label class="active" for="version1">Version</label>
           </div>
 
 
@@ -141,7 +137,7 @@ comment: >-
 		   id="timestamp"
                    name="fields[metadata][timestamp]"
                    class="datepicker"
-                   type="date"></input>
+                   type="date">
             <label class="active" for="timestamp">
               Simulation Date
               <a class="tooltipped"
@@ -206,11 +202,9 @@ comment: >-
         </div>
 
         <div class="row top-bar-thin">
-          <p>
-            <h5>
+          <h5>
               Hardware
-            </h5>
-          </p>
+          </h5>
           <div class="input-field col s5 big-buffer">
             <select id="architecture" name="fields[metadata][hardware][architecture]" type="text">
               {% include architecture.html %}
@@ -263,11 +257,9 @@ comment: >-
         </div>
 
         <div class="row top-bar-thin">
-          <p>
-            <h5>
-              Software
-            </h5>
-          </p>
+          <h5>
+            Software
+          </h5>
           <div class="col s3">
             <p>
               <input required
@@ -325,11 +317,11 @@ comment: >-
           <div class="col s5">
             <div class="row">
               <div class="input-field col s12">
-                <input id="version"
+                <input id="version2"
                        name="fields[metadata][software][version]"
                        type="text"
                        class="validate">
-                <label for="version">
+                <label for="version2">
                   Software Version Number
                   <a class="tooltipped"
                      data-position="bottom"
@@ -378,65 +370,16 @@ comment: >-
         </div>
 
         <div class="row top-bar-thin">
-          <p>
-            <h5>
-              Data
-            </h5>
-          </p>
+          <h5>
+            Efficiency Data
+          </h5>
           <div class="input-field col s5">
             <input name="fields[data][0][name]"
-                   type="hidden"
-                   value="free_energy">
-            <input required
-		   id="free_energy_url"
-                   name="fields[data][0][url]"
-                   type="url"
-                   class="validate">
-            <label for="free_energy_url">
-              Free Energy Data URL (CSV, JSON)
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="Free energy data either in CSV of JSON
-                 format. CSV requires both 'time' and 'free_energy'
-                 fields. JSON should be formatted as a list with each
-                 item having 'time' and 'free_energy' keys.">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-          <div class="col s5">
-            <input name="fields[data][0][format][parse][time]"
-                   type="hidden"
-                   value="number">
-            <input name="fields[data][0][format][parse][free_energy]"
-                   type="hidden"
-                   value="number">
-            <input name="fields[data][0][transform][0][type]"
-                   type="hidden"
-                   value="filter">
-            <input name="fields[data][0][transform][0][test]"
-                   type="hidden"
-                   value="datum.time > 0.01">
-            <p>
-              <input required checked="checked" class="with-gap" name="fields[data][0][format][type]" type="radio" value="csv" id="csv" />
-              <label for="csv">CSV</label>
-            </p>
-            <p>
-              <input class="with-gap" name="fields[data][0][format][type]" type="radio" value="json" id="json" />
-              <label for="json">JSON</label>
-            </p>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="input-field col s5">
-            <input name="fields[data][1][name]"
                    type="hidden"
                    value="run_time">
             <input required
 		   id="run_time"
-                   name="fields[data][1][values][0][wall_time]"
+                   name="fields[data][0][values][0][wall_time]"
                    type="number"
                    step="any"
                    class="validate"
@@ -453,7 +396,7 @@ comment: >-
           <div class="input-field col s5">
             <input required
 		   id="sim_time"
-                   name="fields[data][1][values][0][sim_time]"
+                   name="fields[data][0][values][0][sim_time]"
                    type="number"
                    step="any"
                    class="validate"
@@ -489,15 +432,15 @@ comment: >-
           <!--   </label> -->
           <!-- </div> -->
           <div class="input-field col s5">
-            <input name="fields[data][2][name]"
+            <input name="fields[data][1][name]"
                    type="hidden"
                    value="memory_usage">
-            <input name="fields[data][2][values][0][unit]"
+            <input name="fields[data][1][values][0][unit]"
                    type="hidden"
                    value="KB">
             <input required
 		   id="memory_usage"
-                   name="fields[data][2][values][0][value]"
+                   name="fields[data][1][values][0][value]"
                    type="number"
                    class="validate"
                    min="0"
@@ -512,6 +455,138 @@ comment: >-
             </label>
           </div>
         </div>
+
+        <div class="row top-bar-thin">
+          <h5>
+            Data Files
+          </h5>
+          <div class="input-field col s5">
+            <input name="fields[data][2][name]"
+                   type="hidden"
+                   value="free_energy">
+            <input required
+		   id="free_energy_url"
+                   name="fields[data][2][url]"
+                   type="url"
+                   class="validate">
+            <label for="free_energy_url">
+              Free Energy Data URL (CSV, JSON)
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="Free energy data either in CSV of JSON
+                 format. CSV requires both 'time' and 'free_energy'
+                 fields. JSON should be formatted as a list with each
+                 item having 'time' and 'free_energy' keys.">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
+          </div>
+          <div class="col s5">
+            <input name="fields[data][2][format][parse][time]"
+                   type="hidden"
+                   value="number">
+            <input name="fields[data][2][format][parse][free_energy]"
+                   type="hidden"
+                   value="number">
+            <input name="fields[data][2][transform][0][type]"
+                   type="hidden"
+                   value="filter">
+            <input name="fields[data][2][transform][0][test]"
+                   type="hidden"
+                   value="datum.time > 0.01">
+            <p>
+              <input required checked="checked" class="with-gap" name="fields[data][2][format][type]" type="radio" value="csv" id="csv3" />
+              <label for="csv3">CSV</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[data][2][format][type]" type="radio" value="json" id="json1" />
+              <label for="json1">JSON</label>
+            </p>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input name="fields[data][3][name]"
+                   type="hidden"
+                   value="cut_plane_x">
+            <input id="cut_plane_x_url"
+                   name="fields[data][3][url]"
+                   type="url"
+                   class="validate">
+            <label for="cut_plane_x">
+              Cut Plane X URL (CSV, JSON)
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="Cut plane data in the x direction either in CSV of JSON
+                 format. CSV requires both 'x' and 'concentration'
+                 fields. JSON should be formatted as a list with each
+                 item having 'x' and 'concentration' keys.">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
+          </div>
+          <div class="col s5">
+            <input name="fields[data][3][format][parse][x]"
+                   type="hidden"
+                   value="number">
+            <input name="fields[data][3][format][parse][concentration]"
+                   type="hidden"
+                   value="number">
+            <p>
+              <input required checked="checked" class="with-gap" name="fields[data][3][format][type]" type="radio" value="csv" id="csv1" />
+              <label for="csv1">CSV</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[data][3][format][type]" type="radio" value="json" id="json2" />
+              <label for="json2">JSON</label>
+            </p>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="input-field col s5">
+            <input name="fields[data][4][name]"
+                   type="hidden"
+                   value="cut_plane_y">
+            <input id="cut_plane_y_url"
+                   name="fields[data][4][url]"
+                   type="url"
+                   class="validate">
+            <label for="cut_plane_y">
+              Cut Plane Y URL (CSV, JSON)
+              <a class="tooltipped"
+                 data-position="bottom"
+                 data-tooltip="Cut plane data in the y direction either in CSV of JSON
+                 format. CSV requires both 'y' and 'concentration'
+                 fields. JSON should be formatted as a list with each
+                 item having 'y' and 'concentration' keys.">
+                <i class="tiny material-icons">help</i>
+              </a>
+            </label>
+          </div>
+          <div class="col s5">
+            <input name="fields[data][4][format][parse][y]"
+                   type="hidden"
+                   value="number">
+            <input name="fields[data][4][format][parse][concentration]"
+                   type="hidden"
+                   value="number">
+            <p>
+              <input required checked="checked" class="with-gap" name="fields[data][4][format][type]" type="radio" value="csv" id="csv2" />
+              <label for="csv2">CSV</label>
+            </p>
+            <p>
+              <input class="with-gap" name="fields[data][4][format][type]" type="radio" value="json" id="json3" />
+              <label for="json3">JSON</label>
+            </p>
+          </div>
+        </div>
+
+
+
 
         <div class="row top-bar-thin">
           <div class="col s12">

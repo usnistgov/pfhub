@@ -1,65 +1,60 @@
----
 benchmark:
   id: 1c
   version: 1
-
+data:
+- name: run_time
+  values:
+  - sim_time: 10000.0
+    wall_time: 231.957
+- name: memory_usage
+  values:
+  - unit: MB
+    value: 277.19
+- format:
+    parse:
+      F: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: free_energy
+    expr: datum.F
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/anonymous/898a197718cf02b643e78841e54dba41/raw/9c69964d354165708d508e3dc6655fb941d83da9/problem_1c_out.csv
 metadata:
-  summary: Benchmark with MOOSE on macPro, T-shaped no-flux domain
   author: Daniel Schwen
   email: daniel.schwen@inl.gov
-  timestamp: 6/1/2017
+  github_id: dschwen
   hardware:
     architecture: x86_64
     cores: 4
-  software:
-    name: moose
-    version: CHiMaD_Hackathon
   implementation:
+    details:
+    - name: mesh
+      values: uniform rectilinear 95*114 (with elements removed) QUAD4
+    - name: numerical_method
+      values: implicit finite elements
+    - name: compiler
+      values: clang++ 3.9.0
+    - name: parallel_model
+      values: MPI
+    - name: time_stepper
+      values: IterationAdaptive
+    - name: time_integration
+      values: second order backward euler
+    end_condition: Time 10000
     repo:
       url: https://github.com/dschwen/CHiMaD_Hackathon
       version: f6ec84570
-    end_condition: Time 10000
-    details:
-      - name: mesh
-        values: uniform rectilinear 95*114 (with elements removed) QUAD4
-      - name: numerical_method
-        values: implicit finite elements
-      - name: compiler
-        values: clang++ 3.9.0
-      - name: parallel_model
-        values: MPI
-      - name: time_stepper
-        values: IterationAdaptive
-      - name: time_integration
-        values: second order backward euler
-
-data:
-  - name: run_time
-    values:
-      [
-        {
-          "wall_time": 231.957,
-          "sim_time": 10000.0
-        }
-      ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value_m": 277.19,
-          "unit": MB
-        }
-      ]
-  - name: free_energy
-    url: https://gist.github.com/anonymous/898a197718cf02b643e78841e54dba41
-    format:
-      type: csv
-      parse:
-        F: number
-        time: number
-    transform:
-      - type: formula
-        field: free_energy
-        expr: datum.F
-      - type: filter
-        test: "datum.time > 0.01"
+  software:
+    name: moose
+    version: CHiMaD_Hackathon
+  summary: Benchmark with MOOSE on macPro, T-shaped no-flux domain
+  timestamp: 6/1/2017

@@ -1,75 +1,61 @@
----
 benchmark:
   id: 1a
   version: 1
-
+data:
+- name: timestep
+  values: 0.00104167
+- format:
+    parse:
+      free_energy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv
+- name: run_time
+  values:
+  - sim_time: 4166.67
+    wall_time: 291820.48
+- name: memory_usage
+  values:
+  - unit: KB
+    value: 8812
 metadata:
-  # Describe the runtime environment
-  summary: Raspberry Pi 3 cluster benchmark with MMSP, periodic domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Wed, 01 Feb 2017 03:43:09 +0000
+  github_id: tkphd
   hardware:
-    # Required hardware details
     architecture: armv7l
     cores: 18
-    # Optional hardware details
     details:
-      - name: clock
-        values: 1.2
-        # unit: GHz
-  software:
-    name: mmsp
-    version: "5.2"
-    repo:
-      url: https://github.com/mesoscale/mmsp/tree/develop
-      version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
+    - name: clock
+      values: 1.2
   implementation:
+    details:
+    - name: mesh
+      values: uniform rectilinear
+    - name: numerical_method
+      values: explicit finite difference
+    - name: compiler
+      values: GNU mpic++
+    - name: parallel_model
+      values: MPI
     end_condition: 4000000 time steps
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
-      version: "8be003758f9d1d4ee2f1e3ccaeec3a16199a0c62"
-      # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
-    details:
-      - name: mesh
-        values: uniform rectilinear
-      - name: numerical_method
-        values: explicit finite difference
-      - name: compiler
-        values: GNU mpic++
-      - name: parallel_model
-        values: MPI
-
-data:
-  # Gather simulation output
-  - name: timestep
-    values: 0.00104167
-  - name: free_energy
-    url: https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        free_energy: number
-    transform:
-      - type: filter
-        test: "datum.time > 0.01"
-  - name: run_time
-    values:
-      [
-        {
-          "sim_time": 4166.67,
-          "wall_time": 291820.48 # seconds
-        }
-      ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value_per": 8812,
-          "unit": KB
-        }
-      ]
-    transform:
-      - type: formula
-        value: 18*value_per
+      version: 8be003758f9d1d4ee2f1e3ccaeec3a16199a0c62
+  software:
+    name: mmsp
+    repo:
+      url: https://github.com/mesoscale/mmsp/tree/develop
+      version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
+    version: '5.2'
+  summary: Raspberry Pi 3 cluster benchmark with MMSP, periodic domain
+  timestamp: Wed, 01 Feb 2017 03:43:09 +0000

@@ -1,0 +1,122 @@
+{
+   "background" : "white",
+    "autosize": {
+        "resize": true,
+        "type": "fit"
+    },
+  "axes": [
+    {
+      "encode": {
+        "labels": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
+          }
+        },
+        "title": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
+          }
+        }
+      },
+      "orient": "bottom",
+      "scale": "x",
+      "tickCount": 5,
+        "title": "the x-axis"
+    },
+    {
+      "encode": {
+        "labels": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 12
+            }
+          }
+        },
+        "title": {
+          "update": {
+            "font": {
+              "value": "Lato"
+            },
+            "fontSize": {
+              "value": 14
+            }
+          }
+        }
+      },
+      "orient": "left",
+      "scale": "y",
+      "tickCount": 5,
+        "title": "the y-axis"
+    }
+  ],
+  "data": [
+  ],
+  "height": 300,
+  "marks": [
+    {
+      "encode": {
+        "update": {
+          "stroke": {
+              "value": "black"
+          },
+            "strokeOpacity": {
+                "value" : 1.0
+            },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "the_data"
+      },
+      "type": "line"
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+        "nice": true,
+        "zero" : false,
+        "range": "width",
+        "domain" : {
+            "data": "the_data",
+            "field":  "x"
+        },
+        "type": "linear"
+    },
+    {
+      "name": "y",
+        "nice": true,
+        "zero": false,
+        "range": "height",
+        "domain" : {
+            "data": "the_data",
+            "field":  "y"
+        },
+        "type": "linear"
+    }
+  ],
+  "width": 500
+}

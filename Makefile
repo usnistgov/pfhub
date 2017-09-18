@@ -5,9 +5,11 @@ NOTEBOOKS := $(shell find . -name '*.ipynb' -not -path "*.ipynb_checkpoints/*" -
 NOTEBOOKS_HTML := $(NOTEBOOKS:%.ipynb=%.ipynb.raw.html)
 NOTEBOOKS_MD := $(NOTEBOOKS:%.ipynb=%.ipynb.md)
 
-YAML_FILES_IN := $(wildcard _data/simulations/*/meta.y*ml)
-YAML_FILES_OUT_TMP := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
-YAML_FILES_OUT := $(subst meta.yml,meta.yml.out,$(YAML_FILES_OUT_TMP))
+YAML_FILES_IN := $(wildcard _data/simulations/*/meta.yaml)
+YAML_FILES_OUT := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
+
+HTML_FILES_OUT_TMP := $(subst _data/,,$(YAML_FILES_IN))
+HTML_FILES_OUT := $(subst meta.yaml,index.html,$(HTML_FILES_OUT_TMP))
 
 .PHONY: clean build_charts
 
@@ -23,12 +25,7 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 	cp ./template.ipynb.md $@
 	sed -i -- 's/notebook_name/$(notdir $<)/' $@
 
-kwalify:
-
 %.yaml.out: %.yaml
-	pykwalify -d $< -s _data/simulations/example/schema.yaml
-
-%.yml.out: %.yml
 	pykwalify -d $< -s _data/simulations/example/schema.yaml
 
 yamllint: $(YAML_FILES_OUT)
@@ -39,7 +36,13 @@ build_charts: _data/simulations.py $(YAML_FILES_OUT)
 data_table: _data/data_table.py
 	python _data/data_table.py
 
-simulations: yamllint build_charts data_table
+simulations/%/index.html: _data/simulations/%/meta.yaml _data/sim_stub.html
+	mkdir -p $(dir $@)
+	cp _data/sim_stub.html $@
+
+sim_landing: $(HTML_FILES_OUT)
+
+simulations: yamllint build_charts data_table sim_landing
 
 hexbin: $(HEXBIN_OUT)
 
