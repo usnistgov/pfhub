@@ -58,12 +58,12 @@
           "name": "mmsp"
         },
         {
-          "count": 3,
-          "name": "fipy"
+          "count": 4,
+          "name": "prisms"
         },
         {
           "count": 3,
-          "name": "prisms"
+          "name": "fipy"
         }
       ]
     }
