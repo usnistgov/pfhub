@@ -245,3 +245,9 @@ data:
   id_: 6a.0
   name: prismspf_6a_flux_med
   timestamp: 2017/07/28 00:00:00
+- author: {email: stvdwtt@umich.edu, name: Stephen DeWitt}
+  code: {name: prisms, url: 'https://github.com/prisms-center/phaseField/tree/v2.0pre/applications/cahnHilliard_electrostatics_Curved'}
+  cores: 16
+  id_: 6b.0
+  name: prismspf_6b
+  timestamp: 2017/07/28 00:00:00

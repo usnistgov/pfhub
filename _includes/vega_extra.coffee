@@ -56,20 +56,6 @@ add_vega_src = (x) ->
     (url) -> x.filter((d_) -> d is d_).attr('src', url)
 
   vega_promise = (d) ->
-
-    # view = new vega.View(vega.parse(d))
-    #   .logLevel(vega.Warn)
-    #   .initialize(document.querySelector('#github_id'))
-    #   .renderer('svg')
-    #   .hover()
-    #   .run()
-
-    # new view = vega.View(vega.parse(d)).toImageURL('svg')
-    # console.log(view)
-    # # view.logLevel(vega.Warn)
-    # # console.log(view)
-    console.log(d)
-
     new vega.View(vega.parse(d))
       .toImageURL('svg')
       .then(urlfunc(d))
