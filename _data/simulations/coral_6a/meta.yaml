@@ -28,7 +28,7 @@ benchmark:
   id: 6a
 data:
   - name: free_energy
-    url: 'https://www.dropbox.com/s/qusutz8g24hx54q/free_energy.csv'
+    url: 'https://dl.dropbox.com/s/qusutz8g24hx54q/free_energy.csv'
     format:
       parse:
         time: number

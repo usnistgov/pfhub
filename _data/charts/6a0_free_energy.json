@@ -109,6 +109,35 @@
   ],
   "data": [
     {
+      "description": "Free Energy Plot",
+      "format": {
+        "parse": {
+          "TotalEnergy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "coral_6a",
+      "transform": [
+        {
+          "as": "y",
+          "expr": "datum.TotalEnergy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://dl.dropbox.com/s/qusutz8g24hx54q/free_energy.csv"
+    },
+    {
       "format": {
         "parse": {
           "free_energy": "number",
@@ -231,6 +260,64 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'coral_6a')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'coral_6a')",
+              "value": "coral_6a"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "coral_6a"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'coral_6a')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "coral_6a"
+      },
+      "interactive": true,
+      "type": "line"
+    },
     {
       "encode": {
         "hover": {
@@ -369,6 +456,7 @@
     },
     {
       "domain": [
+        "coral_6a",
         "mmsp_6a_wrksttn",
         "prismspf_6a_flux_med"
       ],
