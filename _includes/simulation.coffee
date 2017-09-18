@@ -57,6 +57,8 @@ author = (data) ->
 
 
 author_icon = (data) ->
+  console.log(data.metadata)
+  console.log(data.metadata.github_id)
   select_tag('#author')([data.metadata.github_id])
     .append('img')
     .attr('style', 'width: 20px; height: 20px; margin-top: 5px;

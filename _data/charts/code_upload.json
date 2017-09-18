@@ -50,7 +50,7 @@
       "name": "code_uploads",
       "values": [
         {
-          "count": 25,
+          "count": 26,
           "name": "moose"
         },
         {
@@ -58,12 +58,12 @@
           "name": "mmsp"
         },
         {
-          "count": 3,
-          "name": "fipy"
+          "count": 4,
+          "name": "prisms"
         },
         {
           "count": 3,
-          "name": "prisms"
+          "name": "fipy"
         }
       ]
     }
