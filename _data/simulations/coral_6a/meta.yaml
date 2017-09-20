@@ -1,0 +1,54 @@
+_id: 0dc3d1f0-76fd-11e7-a3e9-cb63094aa20f
+metadata:
+  author: Andrea Jokisaari
+  email: andrea.jokisaari@northwestern.edu
+  github_id: amjokisaari
+  simulation_name: coral_6a
+  summary: Upload-a-thon August 2017 test upload
+  timestamp: '31 July, 2017'
+  implementation:
+    repo:
+      url: 'https://www.dropbox.com/s/qusutz8g24hx54q/free_energy.csv'
+      version: '00000'
+    container_url: ''
+  hardware:
+    architecture: x86_64
+    parallel_model: distributed
+    clock_rate: '2.7'
+    cores: '6'
+    nodes: '1'
+  software:
+    name: moose
+    version: 'MOOSE hash 24ad223, Coral hash b49ae39'
+    repo:
+      url: 'https://github.com/idaholab/moose'
+      version: '00000'
+benchmark:
+  version: '0'
+  id: 6a
+data:
+  - name: free_energy
+    url: 'https://dl.dropbox.com/s/qusutz8g24hx54q/free_energy.csv'
+    format:
+      parse:
+        time: number
+        TotalEnergy: number
+      type: csv
+    transform:
+      - as: y
+        expr: datum.TotalEnergy
+        type: formula
+      - as: x
+        expr: datum.time
+        type: formula
+    type: line
+    description: Free Energy Plot
+  - name: run_time
+    values:
+      - wall_time: '1800'
+        sim_time: '400'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '620000'
+date: 1501621489

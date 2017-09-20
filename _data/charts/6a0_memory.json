@@ -109,6 +109,16 @@
   ],
   "data": [
     {
+      "name": "coral_6a",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 620000.0,
+          "time_ratio": 0.2222222222222222
+        }
+      ]
+    },
+    {
       "name": "inl_moose_6a",
       "transform": [],
       "values": [
@@ -204,6 +214,83 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'coral_6a')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'coral_6a')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'coral_6a')",
+              "value": "coral_6a"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "coral_6a"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'coral_6a')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "coral_6a"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "coral_6a"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
     {
       "encode": {
         "hover": {
@@ -457,6 +544,7 @@
     },
     {
       "domain": [
+        "coral_6a",
         "inl_moose_6a",
         "mmsp_6a_wrksttn",
         "prismspf_6a_flux_med"
