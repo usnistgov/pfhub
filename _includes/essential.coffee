@@ -2,6 +2,7 @@
 # Essential.js 1.1.20
 # @author Cedric Ruiz
 # @license MIT
+# https://github.com/elclanrs/essential.js/
 ###
 
 # Core
