@@ -119,6 +119,16 @@
       ]
     },
     {
+      "name": "inl_moose_6b",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 340000.0,
+          "time_ratio": 0.7339449541284404
+        }
+      ]
+    },
+    {
       "name": "prismspf_6b",
       "transform": [],
       "values": [
@@ -276,6 +286,83 @@
         "hover": {
           "fillOpacity": [
             {
+              "test": "!indata('selected', 'value', 'inl_moose_6b')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_6b')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_6b')",
+              "value": "inl_moose_6b"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "inl_moose_6b"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_6b')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "inl_moose_6b"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "inl_moose_6b"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
               "test": "!indata('selected', 'value', 'prismspf_6b')",
               "value": 0.4
             },
@@ -371,6 +458,7 @@
     {
       "domain": [
         "fipy_6b_macbookpro",
+        "inl_moose_6b",
         "prismspf_6b"
       ],
       "name": "color",
