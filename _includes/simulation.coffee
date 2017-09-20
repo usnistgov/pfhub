@@ -354,21 +354,16 @@ add_youtube = (x) ->
     .attr('src', (d) -> d.url)
 
 
-add_description = (x) ->
-  ### Add a card description
-
-  Args:
-    x: the current selection
-
-  Returns:
-    the p selection
-  ###
-  x.append('span')
-    .attr('class', 'card-content')
-    .append('p')
-    .attr('class', 'truncate')
-    .text((d) ->
-      if d.description? then d.description else d.data[0].description)
+add_description = sequence(
+  (x) ->
+    x.append('div')
+      .attr('class', 'card-content')
+      .attr('style', 'overflow: auto; max-height: 30%;')
+  (x) ->
+    x.append('p')
+      .text((d) ->
+        if d.description? then d.description else d.data[0].description)
+)
 
 
 build_card = (addf) ->
