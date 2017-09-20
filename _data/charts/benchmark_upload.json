@@ -70,6 +70,10 @@
           "name": "6a"
         },
         {
+          "count": 3,
+          "name": "6b"
+        },
+        {
           "count": 2,
           "name": "2a"
         },
@@ -84,10 +88,6 @@
         {
           "count": 2,
           "name": "2d"
-        },
-        {
-          "count": 2,
-          "name": "6b"
         }
       ]
     }

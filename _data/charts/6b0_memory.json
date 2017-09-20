@@ -109,6 +109,16 @@
   ],
   "data": [
     {
+      "name": "fipy_6b_macbookpro",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 266000.0,
+          "time_ratio": 0.22988505747126436
+        }
+      ]
+    },
+    {
       "name": "inl_moose_6b",
       "transform": [],
       "values": [
@@ -194,6 +204,83 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_6b_macbookpro')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_6b_macbookpro')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_6b_macbookpro')",
+              "value": "fipy_6b_macbookpro"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "fipy_6b_macbookpro"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_6b_macbookpro')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "fipy_6b_macbookpro"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "fipy_6b_macbookpro"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
     {
       "encode": {
         "hover": {
@@ -370,6 +457,7 @@
     },
     {
       "domain": [
+        "fipy_6b_macbookpro",
         "inl_moose_6b",
         "prismspf_6b"
       ],

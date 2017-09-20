@@ -23,6 +23,12 @@ data:
   id_: 1c.1
   name: fipy_1c_travis
   timestamp: 2017/01/10 01:27:20
+- author: {email: guyer@nist.gov, name: Jon Guyer}
+  code: {name: fipy, url: 'https://github.com/guyer/hackathonIII'}
+  cores: 1
+  id_: 6b.0
+  name: fipy_6b_macbookpro
+  timestamp: 2017/08/01 00:00:00
 - author: {email: daniel.schwen@inl.gov, name: Daniel Schwen}
   code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
   cores: 8
