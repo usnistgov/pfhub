@@ -47,6 +47,12 @@ data:
   id_: 6a.0
   name: inl_moose_6a
   timestamp: 2017/07/26 00:00:00
+- author: {email: Larry.Aagesen@inl.gov, name: Larry Aagesen}
+  code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
+  cores: 3
+  id_: 6b.0
+  name: inl_moose_6b
+  timestamp: 2017/07/27 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 18
