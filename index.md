@@ -6,15 +6,26 @@ collections:
   - header: Benchmark Problems
     tag: benchmarks
     js: benchmarks
-    comment:
+    comment: >-
       Benchmark problems vetted by the community to test, validate and
-      verify phase field codes (read an
-      [extended overview](benchmarks){:target="_blank"}).
+      verify phase field codes (read the journal publication entitled
+      ["Benchmark problems for numerical implementations of phase
+      field
+      models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"},
+      the [extended overview](benchmarks){:target="_blank"} or
+      ["Benchmark Problems for Phase Field
+      Methods"](http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html)).
+      A complete list of uploaded benchmark simulations is available,
+      see ["Benchmark Simulations"](simulations){:target="_blank"}.
+
   - header: Codes
     tag: codes
     js: codes
-    comment:
-      Codes with well documented, annotated examples that demonstrate the phase field method.
+    comment: >-
+      Codes with well documented, annotated examples that demonstrate
+      the phase field method. See the
+      [submission page](submit_a_new_code){:target="_blank"} to submit
+      a new code to this list.
 ---
 
 In January 2015 a group of phase field theorists and code developers

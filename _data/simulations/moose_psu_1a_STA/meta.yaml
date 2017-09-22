@@ -1,0 +1,61 @@
+benchmark:
+  id: 1a
+  version: 1
+data:
+- name: memory_usage
+  values:
+  - unit: GB
+    value: 100
+- name: run_time
+  transform:
+  - expr: datum.value_m * 1024.0
+    field: value
+    type: formula
+  values:
+  - sim_time: 984.0
+    wall_time: 3529.0
+- format:
+    parse:
+      f_density: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: free_energy
+    expr: datum.f_density
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1a_STA.csv
+metadata:
+  author: PC. Simon
+  email: pjs5523@psu.edu
+  github_id: simopier
+  hardware:
+    architecture: x86_64
+    cores: 40
+    details:
+    - name: clock rate
+      values:
+        rate: null
+        unit: GHz
+    - name: processor
+      values: ''
+  implementation:
+    details:
+    - name: time_stepper
+      values: STA
+    end_condition: Time limit
+    repo:
+      url: https://github.com/simopier/CHiMaD/blob/master/H2.i
+      version: '724999206'
+  software:
+    name: moose
+    version: git commit 2593a61 on 2017-01-18
+  summary: Metadata for the Benchmark1 problems
+  timestamp: Thu Feb  9 22:48:48 EST 2017

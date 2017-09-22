@@ -1,0 +1,97 @@
+---
+layout: default
+title: "Benchmark Simulations"
+comment: >-
+  Overview of simulations that implement
+  the <a href="/chimad-phase-field/#benchmarks">benchmark problems</a>
+---
+
+{% include title.html %}
+
+<div class="container">
+  <div class="row small-buffer">
+    <div class="col s8 offset-s2">
+      <div class="flow-text" style="font-size: 20px">
+        The following charts and tables present data from simulations
+        implementing the benchmarks problems for different code bases.
+        Please feel free to submit your own simulation results using
+        the
+        <a href="/chimad-phase-field/simulations/upload_form"
+           target="_blank">
+          simulation upload form
+        </a>.
+        This site aims to provide a facility for practitioners to
+        upload results from their phase field codes to compare and
+        contrast with results from other phase field codes. Phase
+        field enthusiasts are encouraged to upload simulation results
+        for the <a href="/chimad-phase-field/#benchmarks">benchmark problems</a>.
+        <p>
+          <a class="waves-effect waves-light btn blue lighten-3"
+             href="/chimad-phase-field/simulations/upload_form"
+             target="_blank">
+            Simulation Upload Form
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row small-buffer">
+    <div class="col s8 offset-s2">
+      <h5>
+        Total Uploads: {{ site.data.data_table.data | size }}
+      </h5>
+    </div>
+    <div class="col s12 m12 l4 offset-l2 offset-m2 offset-s2">
+      <div id="upload_code_barchart">
+      </div>
+    </div>
+    <div class="col s12 m12 l4 offset-m2 offset-s2">
+      <div id="upload_benchmark_barchart">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ site.baseurl }}/js/upload_barchart.js"></script>
+<!-- <script src="{{ site.baseurl }}/js/upload_benchmark_barchart.js"></script> -->
+
+<div class="container top-bar top-buffer">
+  <div class="row small-buffer">
+    <div class="col l2 m12 s12">
+      <h5 class="sideheader" id="charts">Charts</h5>
+    </div>
+    <div class="col s10">
+      <div class="flow-text" style="font-size: 20px">
+        <i>Gallery of simulation results</i>
+      </div>
+      <br>
+      <div id="simulation_chart">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="{{ site.baseurl }}/js/simulation_chart.js"></script>
+
+<div class="container top-bar top-buffer">
+  <div class="row small-buffer">
+    <div class="col l2 m12 s12">
+      <h5 class="sideheader" id="simulations">Simulations</h5>
+    </div>
+    <div class="col s10">
+      <div class="flow-text" style="font-size: 20px">
+        <i>Table of all simulation uploads</i>
+      </div>
+      <br>
+      <table id="data_table" class="mdl-data-table striped" cellspacing="0"></table>
+    </div>
+  </div>
+</div>
+
+
+<script> var benchmark_id="" </script>
+<script src="{{ site.baseurl }}/js/data_table.js"></script>

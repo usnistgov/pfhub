@@ -1,0 +1,59 @@
+# CHiMaD Phase-Field simulation submission
+# minimal example: every line is required,
+# comments (prefixed by '#') are optional.
+
+---  # tag start of YAML block
+
+benchmark:  # Refer to the problem definition for appropriate values
+  id: 1a  # number+letter
+  version: 1  # number
+
+metadata:  # Describe the runtime environment, hardware and software
+  summary: concise description of this contribution
+  author: Given and Surname
+  github_id: Users Github ID
+  email: alias@organization.com
+  timestamp: Mon, 10 Mar 1982 15:03:32 -0500  # 'date -R' on Linux or any valid timestamp
+  hardware:  # relevant details of your machine or cluster
+    cores: 6  # number actually used if less than total available
+  software:  # software framework your application is built upon
+    name: fipy  # all lower-case, e.g. fipy or moose or prisms, etc.
+  implementation:
+    repo:
+      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic  # REQUIRED
+      version: "b949fbc4116f020db619fe1ccacbf8b13dfd5e32"
+
+
+data:  # Use Vega data standard, https://vega.github.io/vega-lite/docs/data.html
+  - name: free_energy  # for GitHub Gist data, provide URL from "raw" link
+    url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
+    type: line
+    description: my free energy plot
+    format:
+      type: csv
+      parse:
+        free_energy: number
+        time: number
+    transform:
+    - expr: datum.time
+      as: x
+      type: formula
+    - expr: datum.free_energy
+      as: y
+      type: formula
+  - name: run_time  # seconds elapsed when final simulation-time was reached
+    values:
+      [
+        {
+          "sim_time": 53333.3,
+          "wall_time": 170618.87
+        }
+      ]
+  - name: memory_usage  # peak memory used by the whole cluster
+    values:
+      [
+        {
+          "value": 27232,
+          "unit": KB
+        }
+      ]

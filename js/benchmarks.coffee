@@ -1,7 +1,7 @@
 ---
 ---
 
-data_file = "data/benchmarks.yaml"
+data_json = {{ site.data.benchmarks | jsonify }}
 
 add_logo = (selection) ->
   subselection = selection.filter((d) -> "image" of d)
@@ -21,8 +21,7 @@ add_description = (selection) ->
   p = subselection.append("p").text((d) -> d.description)
   p.attr("style", "font-size: 20px")
 
-build_function = (data_file) ->
-  data = jsyaml.load(data_file)
+build_function = (data) ->
   selection = d3.select("#benchmarks").selectAll()
   .data(data).enter()
   .append("li").attr("class", "collection-item avatar light-green lighten-4")
@@ -33,4 +32,4 @@ build_function = (data_file) ->
   add_header(selection)
   add_description(selection)
 
-d3.text(data_file, build_function)
+build_function(data_json)

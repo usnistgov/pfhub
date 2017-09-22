@@ -1,0 +1,141 @@
+type: map
+required: True
+mapping:
+  "_id":
+    type: str
+    required: False
+  "date":
+    type: timestamp
+    required: False
+  "data": &data
+    type: seq
+    required: True
+    sequence:
+      - type: map
+        required: True
+        mapping:
+          "name":
+            type: str
+            required: True
+          "format":
+            type: any
+            required: False
+          "values":
+            type: any
+            required: False
+          "source":
+            type: any
+            required: False
+          "url":
+            type: str
+            required: False
+          "transform":
+            type: any
+            required: False
+          "modify":
+            type: any
+            required: False
+          "description":
+            type: str
+            required: False
+          "type":
+            type: str
+            enum: ["line", "contour", "image", "youtube"]
+  "benchmark":
+    type: map
+    required: True
+    mapping:
+      "id":
+        type: str
+        enum: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d", "6a", "6b"]
+        required: True
+      "version":
+        type: number
+        required: True
+  "metadata":
+    type: map
+    required: True
+    mapping:
+      "github_id":
+        type: str
+        required: True
+      "simulation_name":
+        type: str
+        required: False
+      "summary":
+        type: str
+        required: True
+      "author":
+        type: str
+        required: True
+      "email":
+        type: str
+        pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
+        required: True
+      "timestamp":
+        type: timestamp
+        required: True
+      "hardware":
+        type: map
+        required: True
+        mapping:
+          "clock_rate":
+            type: number
+            required: False
+          "nodes":
+            type: number
+            required: False
+          "architecture":
+            type: str
+            required: False
+            enum: ["i386", "i686", "x86_64", "ia64", "alpha", "amd64", "arm", "armeb", "armel", "armv6l", "armv7l", "hppa", "k1om", "m32r", "m68k", "mips", "mipsel", "powerpc", "ppc", "ppc64", "s390", "s390x", "sh3", "sh3eb", "sh4", "sh4eb", "sparc", "sparc64"]
+          "cores":
+            type: number
+            required: True
+          "details":
+            <<: *data
+            required: False
+          "parallel_model":
+            type: str
+            required: False
+            enum: ["serial", "multiprocessing", "threaded", "distributed"]
+      "software":
+        type: map
+        required: True
+        mapping:
+          "name":
+            type: str
+            enum: ["dune", "fenics", "fipy", "moose", "mmsp", "prisms", "custom"]
+            required: True
+          "version":
+            type: str
+            required: False
+          "repo": &repo
+            type: map
+            required: False
+            mapping:
+              "url":
+                type: str
+                required: True
+              "version":
+                type: str
+                pattern: \b[0-9a-f]{5,40}\b
+                required: True
+          "details":
+            <<: *data
+            required: False
+      "implementation":
+        type: map
+        required: False
+        mapping:
+          "container_url":
+            type: str
+            required: False
+          "repo":
+            <<: *repo
+          "end_condition":
+            type: str
+            required: False
+          "details":
+            <<: *data
+            required: False

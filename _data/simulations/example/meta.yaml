@@ -1,0 +1,91 @@
+# CHiMaD Phase-Field Simulation submission YAML specification
+# All fields are requested, to give users a complete description
+# of your result. For a minimal example (only required fields),
+# consult  _data/simulations/example_minimal/meta.yaml
+
+---
+
+benchmark:
+  id: 1a  # REQUIRED
+  version: 1  # REQUIRED
+
+metadata: # REQUIRED
+  # Describe the runtime environment
+  summary: MPI parallel workstation benchmark with MMSP  # REQUIRED
+  author: Trevor Keller  # REQUIRED
+  github_id: tkphd # REQUIRED
+  email: trevor.keller@nist.gov  # REQUIRED
+  timestamp: Thu, 22 Dec 2016 15:20:53 -0500  # REQUIRED
+  hardware:
+    # hardware details
+    architecture: x86_64  # REQUIRED
+    cores: 6  # REQUIRED
+    details:
+      - name: clock  # processor speed
+        values:
+          rate: 3.50  # GHz
+      - name: nodes  # number of computers
+        values: 1
+      - name: parallel_model
+        values: distributed memory
+  software:
+    # software framework
+    name: mmsp  # REQUIRED
+    version: "4"  # REQUIRED
+    repo:
+      url: https://github.com/mesoscale/mmsp  # REQUIRED
+      version: "8f29eb47146b9fbbdcd17b08d12e06fceb3ed728"
+  implementation:
+    # your implementation of the problem
+    end_condition: simulation time above 50000  # or equilibrium, or whatever criterion you chose
+    repo:
+      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic  # REQUIRED
+      version: "b949fbc4116f020db619fe1ccacbf8b13dfd5e32"
+    details:
+      - name: mesh
+        values: uniform rectilinear
+      - name: numerical_method
+        values: explicit finite difference
+      - name: compiler
+        values: GNU mpic++
+      - name: domain
+        values: [200, 200]
+
+data:  # REQUIRED
+  # use Vega standard, see
+  # https://github.com/vega/vega/wiki/Data and
+  # https://vega.github.io/vega-lite/docs/data.html.
+  - name: timestep
+    values: 0.00195312
+  - name: free_energy
+    # CSV is the preferred format for free energy data, with two columns: time and free_energy.
+    url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    transform:
+      - expr: datum.time
+        as: x
+        type: formula
+      - expr: datum.free_energy
+        as: y
+        type: formula
+    type: line
+  - name: run_time  # REQUIRED
+    values:
+      [
+        {
+          "sim_time": 53333.3,
+          "wall_time": 170618.87 # wall time, seconds
+        }
+      ]
+  - name: memory_usage  # REQUIRED
+    values:
+      [
+        {
+          "value": 27232,
+          "unit": KB
+        }
+      ]

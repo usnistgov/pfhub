@@ -1,16 +1,23 @@
 body {
     min-height: 2000px;
-    font-family: "Lato", sans-serif;
+    font-family: Lato, sans-serif;
     font-size: 12pt;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
     /* display: -webkit-box; */
     /* display: -webkit-flex; */
     /* display: flex; */
 }
 
+main {
+    flex: 1 0 auto;
+}
+
 
 .header {
     font-size: 47px;
-    font-family: "Lato", sans-serif;
+    font-family: Lato, sans-serif;
     font-weight: 900;
 }
 
@@ -23,9 +30,14 @@ body {
 
 .top-buffer { margin-top: 40px; }
 .small-buffer { margin-top: 10px; }
+.big-buffer { margin-top: 50px; }
 
 .top-bar {
     border-top: 3px solid #9ccc65;
+}
+
+.top-bar-thin {
+    border-top: 1px solid #9ccc65;
 }
 
 .card {
@@ -39,6 +51,9 @@ body {
     margin-bottom: 25px;
 }
 
+.chip {
+    margin-bottom: 3px;
+}
 
 .indent {
     margin-left: 10px;
@@ -94,7 +109,7 @@ body {
 }
 
 .chimad-collections {
-    color: "light-green lighten-4"
+    color: "light-green lighten-3"
 }
 
 .navbar-text {
@@ -114,3 +129,31 @@ body {
 /* .navbar .chimad-logo { */
 /*     padding-top: 16px; */
 /* } */
+
+.dataTables_filter {
+    text-align: left !important;
+}
+
+.dataTables_filter label {
+    font-size: 14px;
+}
+
+.form-control {
+    width: 200px !important;
+}
+
+.dataTable tr {
+    line-height: 15px !important;
+}
+
+table.striped tbody tr:nth-child(2n+1) {
+    background-color: #e0e0e0 !important;
+}
+
+/* .backdrop{ */
+/*        background-color: purple; */
+/* } */
+
+.tooltipped {
+    color: rgb(158, 158, 158);
+}

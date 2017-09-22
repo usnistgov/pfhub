@@ -10,16 +10,24 @@
 
 <!-- Use d3 to replace jquery stuff -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/js/materialize.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.2.7/js-yaml.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.2/showdown.min.js"></script>
 
 <!-- get data from google spread sheets -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.3/tabletop.min.js"></script>
 
+<!-- D3 and vega -->
+<script type="text/javascript" src="{{ site.baseurl }}/js/d3.v4.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/vega.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/datalib.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/bundle.js"></script>
 
-<script src="{{site.baseurl}}/js/d3.min.js"></script>
+<!-- Data Tables -->
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/dataTables.material.min.js"></script>
 
+<script type="text/javascript" src="{{ site.baseurl }}/js/materialize.min.js"></script>
 
 <script>
   ((window.gitter = {}).chat = {}).options = {
@@ -34,7 +42,10 @@
 
 <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
 
+<script type="text/javascript" src="{{ site.baseurl }}/js/moment.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/moment-precise-range.js"></script>
 
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/css/materialize.min.css"  media="screen"/>
@@ -49,3 +60,34 @@
 </style>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<link href="https://cdn.datatables.net/1.10.13/css/dataTables.material.min.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="57x57" href="{{ site.baseurl }}/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="{{ site.baseurl }}/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ site.baseurl }}/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ site.baseurl }}/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ site.baseurl }}/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="{{ site.baseurl }}/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="{{ site.baseurl }}/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="{{ site.baseurl }}/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/images/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="{{ site.baseurl }}/images/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ site.baseurl }}/images/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="{{ site.baseurl }}/images/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="{{ site.baseurl }}/images/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-88929635-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

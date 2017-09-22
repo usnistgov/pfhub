@@ -1,0 +1,52 @@
+benchmark:
+  id: 1c
+  version: 1
+data:
+- name: run_time
+  values:
+  - sim_time: 395353.08435667
+    wall_time: 525
+- name: memory_usage
+  values:
+  - unit: MB
+    value: 416
+- format:
+    parse:
+      TotalEnergy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: free_energy
+    expr: datum.TotalEnergy
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/7a9e0b9a67528b5567c62f85d9598f580d9b4508/hackathon_p1_tshape_IA.csv
+metadata:
+  author: A. M. Jokisaari
+  email: andrea.jokisaari@northwestern.edu
+  github_id: amjokisaari
+  hardware:
+    cores: 6
+    details:
+    - name: processor
+      values: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
+  implementation:
+    end_condition: Equilibrium, total energy of 4.797239, (1/V)dE/dt ~ -2e-15
+    repo:
+      url: https://bitbucket.org/ajokisaari/coral
+      version: e8fc74f
+  software:
+    details:
+    - name: time stepper
+      values: IA
+    name: moose
+    version: Hedgehog (now Coral)
+  summary: Information for the Benchmark1 problems
+  timestamp: 6/28/2016

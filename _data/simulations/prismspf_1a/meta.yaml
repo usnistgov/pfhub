@@ -1,0 +1,118 @@
+benchmark:
+  id: 1a
+  version: 1
+data:
+- name: timestep
+  values: 0.00740741
+- name: run_time
+  values:
+  - sim_time: 0.0
+    wall_time: 0.0
+  - sim_time: 1.0
+    wall_time: 1.0
+  - sim_time: 5.0
+    wall_time: 2.0
+  - sim_time: 10.0
+    wall_time: 3.0
+  - sim_time: 20.0
+    wall_time: 4.0
+  - sim_time: 100.0
+    wall_time: 11.0
+  - sim_time: 200.0
+    wall_time: 19.0
+  - sim_time: 500.0
+    wall_time: 41.0
+  - sim_time: 1000.0
+    wall_time: 79.0
+  - sim_time: 2000.0
+    wall_time: 150.0
+  - sim_time: 3000.0
+    wall_time: 221.0
+  - sim_time: 10000.0
+    wall_time: 708.0
+- name: memory_usage
+  values:
+  - unit: KB
+    value: 30240
+- name: free_energy
+  transform:
+  - as: free_energy
+    expr: datum.value
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  values:
+  - time: 0.0
+    value: 319.0337102
+  - time: 1.0
+    value: 318.8273928
+  - time: 5.0
+    value: 316.9902126
+  - time: 10.0
+    value: 304.1771795
+  - time: 20.0
+    value: 203.3234468
+  - time: 100.0
+    value: 115.6166174
+  - time: 200.0
+    value: 102.5245412
+  - time: 500.0
+    value: 84.678672
+  - time: 1000.0
+    value: 70.35382018
+  - time: 2000.0
+    value: 59.92824777
+  - time: 3000.0
+    value: 52.50633843
+  - time: 10000.0
+    value: 40.81065093
+metadata:
+  author: Stephen DeWitt
+  email: stvdwtt@umich.edu
+  github_id: 'stvdwtt'
+  hardware:
+    architecture: x86_64
+    cores: 2
+    details:
+    - name: clock rate
+      values:
+        rate: 2.6
+        unit: GHz
+    - name: nodes
+      values: 1
+    - name: parallel_model
+      values: distributed memory
+  implementation:
+    details:
+    - name: mesh
+      values: uniform linear quads 128x128
+    - name: numerical_method
+      values: explicit finite element
+    - name: compiler
+      values: GNU mpic++
+    - name: domain
+      values:
+      - 200
+      - 200
+    end_condition: 10,000 simulated seconds
+    repo:
+      url: https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark1a
+      version: acf1366651e0c9dab9108b0c881ca225730109e4
+  software:
+    details:
+    - name: dependencies
+      values:
+      - deal.ii
+      - p4est
+    name: prisms
+    repo:
+      url: https://github.com/prisms-center/phaseField
+      version: acf1366651e0c9dab9108b0c881ca225730109e4
+    version: 1.1.1
+  summary: Flux cluster benchmark with PRISMS-PF
+  timestamp: Fri, 10 Feb 2017 12:32:00 -0500

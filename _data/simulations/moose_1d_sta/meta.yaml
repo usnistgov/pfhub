@@ -1,0 +1,52 @@
+benchmark:
+  id: 1d
+  version: 1
+data:
+- name: run_time
+  values:
+  - sim_time: 1927051.4311553
+    wall_time: 5520
+- name: memory_usage
+  values:
+  - unit: GB
+    value: 3.57
+- format:
+    parse:
+      TotalEnergy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: free_energy
+    expr: datum.TotalEnergy
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_STA.csv
+metadata:
+  author: A. M. Jokisaari
+  email: andrea.jokisaari@northwestern.edu
+  github_id: amjokisaari
+  hardware:
+    cores: 20
+    details:
+    - name: processor
+      values: Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GH
+  implementation:
+    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+    repo:
+      url: https://bitbucket.org/ajokisaari/coral
+      version: e8fc74f
+  software:
+    details:
+    - name: time stepper
+      values: STA
+    name: moose
+    version: Hedgehog (now Coral)
+  summary: Information for the Benchmark1 problems
+  timestamp: 6/28/2016
