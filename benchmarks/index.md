@@ -11,10 +11,10 @@ comment: >-
 Many important processes in materials microstructural evolution, such
 as coarsening, solidification, polycrystalline grain evolution,
 magnetic and ferroelectric domain formation and motion, occur on
-mesoscale length and time scales. Mesoscale is “in between,”, in this
+mesoscale length and time scales. The mesoscale is “in between,” in this
 case in between atomistic and macroscopic length and time
 scales. There are important conceptual distinctions, as well as
-modeling approaches , between atomistic, meso-, and macroscale
+modeling approaches, between atomistic, meso-, and macroscale
 processes. Atomistic scale modeling uses atoms and electrons as
 central entities, and the structure and dynamics are governed either
 by quantum mechanics, classical mechanics, or hybrid semiclassical
@@ -24,7 +24,7 @@ At the macroscale, on the other hand, materials properties are
 averaged over many domains (e.g., compositional, structural, magnetic,
 or ferroelectric domains). Central entities at the macroscale are
 usually materials properties that describe a response to some
-macroscopic external forces, for example conductivity, elastic
+macroscopic external forces, e.g., conductivity, elastic
 properties, or susceptibilities. The responses are given in terms of
 macroscopic constitutive equations. The relevant length and time
 scales range from micrometers and milli- or microseconds and up.
@@ -36,7 +36,7 @@ domains that are usually averaged over in macroscale modeling. The
 length scales typically span nanometers to micrometers (or larger),
 and time-scales span nanoseconds to milliseconds or microseconds (or
 longer). Conceptually, there is a key distinction between
-time-evolution in mesoscale modeling compared to atomistic
+time evolution in mesoscale modeling compared to atomistic
 modeling. Mesoscale dynamics is dissipative, so that forces give rise
 to velocities, as opposed to acceleration in atomistic modeling
 (although hydrodynamic and dissipative dynamics can be coupled).
@@ -50,22 +50,22 @@ with complex geometries (e.g., dendritic growth) and topology changes,
 such as particles merging or splitting, is challenging. The other
 mesoscale modeling approach uses diffuse (finite width)
 interfaces. This method can easily track complex interface geometries
-and topological changes such as particles merging. This benefit is not
+and topological changes such as particle merging. This benefit is not
 without cost, as the interface, typically of the order of a nanometer,
 has to be resolved, yielding considerably more computationally intense
 calculations.
 
 One way to implement diffuse interfaces is using phase fields. These
 are smooth and continuous fields that describe local
-microstructure. For example, a two-phase system, can be described by a
-single phase field that takes the value 0 in one phase, and 1 in the
-other, and smoothly interpolates between this values at a phase
+microstructure. For example, a two-phase system can be described by a
+single phase field that takes the value 0 in one phase and 1 in the
+other and that smoothly interpolates between this values at a phase
 boundary (the actual values of the phase field are essentially
 irrelevant as long as they are different in different phases). If
 there are many variants in a system, for example crystalline
 orientations in crystalline grains, there can be a number of phase
 fields, each one representing a particular variant.  The phase field
-(and other, associated, order-parameter-based approaches) method has
+(and other, associated, order parameter-based approaches) method has
 been used to study dendritic growth, spinodal decomposition, grain
 growth, and ferroelectric domain formation, to name a few phenomena.
 
