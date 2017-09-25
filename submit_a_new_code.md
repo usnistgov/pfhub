@@ -14,9 +14,9 @@ all codes are not equally suited to for solving all types of physics that may
 be incorporated into phase field models.  Or, a certain trade-off between
 performance and flexibility may be needed.  The numerical performance of the codes
 for the various benchmark problems will likely form the major basis for
-comparison, but other factors to consider include the ease of installation,
-learning curve to use the code, software compatiblity with different computing
-platforms, available documentation, etc.
+comparison, but other factors may be considered, such as the ease of installation,
+the learning curve to use the code, software compatiblity with different computing
+platforms, and available documentation.
 
 ### Requirements
 

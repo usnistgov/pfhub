@@ -21,7 +21,7 @@ by quantum mechanics, classical mechanics, or hybrid semiclassical
 approaches. The relevant length and time scales are typically
 Ångströms and femtoseconds (for electrons) or picoseconds (for atoms).
 At the macroscale, on the other hand, materials properties are
-averaged over many domains (e.g., compositional, structural, magnetic,
+averaged over many domains (*e.g.*, compositional, structural, magnetic,
 or ferroelectric domains). Central entities at the macroscale are
 usually materials properties that describe a response to some
 macroscopic external forces, e.g., conductivity, elastic
@@ -47,13 +47,12 @@ structural domains they separate, such as crystalline grains or
 domains. This approach can be very efficient when simple
 microstructural geometries are simulated. However, tracking interfaces
 with complex geometries (e.g., dendritic growth) and topology changes,
-such as particles merging or splitting, is challenging. The other
+such as the merging and splitting of particles, is challenging. The other
 mesoscale modeling approach uses diffuse (finite width)
 interfaces. This method can easily track complex interface geometries
-and topological changes such as particle merging. This benefit is not
-without cost, as the interface, typically of the order of a nanometer,
-has to be resolved, yielding considerably more computationally intense
-calculations.
+and topological changes. This benefit is not without cost, as the 
+interface, typically of the order of a nanometer, has to be resolved, 
+yielding considerably more computationally intense calculations.
 
 One way to implement diffuse interfaces is using phase fields. These
 are smooth and continuous fields that describe local

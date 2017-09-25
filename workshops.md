@@ -11,13 +11,12 @@ collections:
 
 An integral component of the CHiMaD [phase field benchmarking effort]({{ site.baseurl }}/#benchmarks)
 is regular workshops and associated [hackathons]({{ site.baseurl
-}}/hackathons).  Approximately twice a year, a spectrum of researchers
-from across the United States and internationally, including both
-graduate students and senior researchers, come together to participate.
-Workshops help us formulate, test, and revise the benchmark problems and
-allow a valuable venue for other feedback to be provided, such as
-information for developers of open-source codes on how easily their
-codes can be installed. Significant portions of the workshop are devoted to
-discussion, which provide a chance for the community to become more
-integrated and allow us to work together to determine future needs and
+}}/hackathons).  Approximately twice a year, a spectrum of United States
+and international researchers, ranging from graduate students to senior
+scientists, come together to participate. These workshops help us formulate, 
+test, and revise the benchmark problems. They are also a valuable venue for 
+gathering additional feedback, such as helping developers of open-source codes 
+find out how easily their software can be installed. Significant portions of 
+the workshops are devoted to discussion, which helps the community become more 
+integrated and enables us to work together to determine future needs and 
 avenues of work.
