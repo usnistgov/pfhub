@@ -82,8 +82,21 @@
   number: 5
   contact: e-gulsoy@northwestern.edu
   description: >-
-    To be announced - currently in the planning stages!
+    Upload-a-thon of benchmark simulation results, discussion of new benchmark problems,
+    and presentations of current-day issues in phase field modeling.
   icon_links:
     - name: contact organizer
       type: email
       href: "mailto:e-gulsoy@northwestern.edu?subject=Fifth Phase Field Methods Workshop"
+
+- name: "Phase Field Methods Workshop VI"
+  date: "February 2018"
+  href: "#workshops"
+  number: 6
+  contact: e-gulsoy@northwestern.edu
+  description: >-
+    To be announced - in the planning stages!
+  icon_links:
+    - name: contact organizer
+      type: email
+      href: "mailto:e-gulsoy@northwestern.edu?subject=Sixth Phase Field Methods Workshop"
