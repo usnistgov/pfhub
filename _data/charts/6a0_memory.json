@@ -133,7 +133,7 @@
       "transform": [],
       "values": [
         {
-          "memory_usage": 800000000.0,
+          "memory_usage": 781250.0,
           "time_ratio": 0.8080808080808081
         }
       ]
