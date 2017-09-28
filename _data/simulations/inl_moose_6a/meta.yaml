@@ -51,6 +51,6 @@ data:
         sim_time: '400'
   - name: memory_usage
     values:
-      - unit: KB
+      - unit: B
         value: '800000000'
 date: 1501620081

@@ -147,7 +147,8 @@ def filter_memory_data(yaml_data):
         """
         unit_map = dict(GB=1048576.,
                         KB=1.,
-                        MB=1024.)
+                        MB=1024.,
+                        B=1. / 1024.)
         if isinstance(data, dict):
             data_ = data
         else:
