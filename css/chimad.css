@@ -157,3 +157,9 @@ table.striped tbody tr:nth-child(2n+1) {
 .tooltipped {
     color: rgb(158, 158, 158);
 }
+
+.comment-list li {
+    list-style-type: disc;
+    padding-left: 0px;
+    margin-left: 50px;
+}
