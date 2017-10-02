@@ -1,0 +1,85 @@
+---
+title: "Community Members"
+layout: default
+comment: >-
+  Is your sketch missing from the gallery? Please e-mail
+  <a href="mailto:daniel.wheeler@nist.gov">Daniel Wheeler</a> with the
+  following details:
+  <ul class="comment-list">
+    <li>Your name, institutional affiliation, and contact information</li>
+    <li>A professional photograph or preferred avatar</li>
+    <li>A biographical sketch concisely summarizing your engagement with phase-field methods</li>
+  </ul>
+  You will be contacted for any necessary clarification, and to let
+  you know your profile has been added.
+---
+
+{% include title.html %}
+
+<div class="container top-bar-thin">
+  <div class="row small-buffer">
+    <div class="col l2 m12 s12">
+      <h5 class="sideheader">
+        Members
+      </h5>
+    </div>
+    <div class="col s10">
+      {% for item in site.data.community %}
+        <div class="col s4">
+          <div class="card small light-green lighten-4">
+            <div class="card-content"
+                 style="max-height: 95%">
+              <span class="card-title">
+                <a href="{{ item.home }}"
+                   target="_blank"
+                   title="home page">
+                  {{ item.name }}
+                </a>
+              </span>
+
+              <img class="circle"
+                   style="height: 40px; width: 40px; margin-left: 10px;"
+                   src="{{ item.avatar }}"
+                   alt="">
+
+              <br>
+              <a href="mailto:{{ item.email }}"
+                 target="blank_"
+                 title="email">
+                <i class="small material-icons"
+                   style="font-size: 20px">
+                   email
+                </i>
+              </a>
+              <a href="https://github.com/{{ item.github_id }}"
+                 target="blank_"
+                 title="github">
+                <i class="small material-icons"
+                   style="font-size: 20px">
+                  <img style="width: 20px; height: 20px;"
+                       src="{{ site.baseurl }}/images/github-blue.svg"
+                       alt="github">
+                </i>
+              </a>
+              {% if item.twitter %}
+                <a href="https://twitter.com/{{ item.twitter }}"
+                   target="blank_"
+                   title="twitter">
+                  <i class="small material-icons"
+                     style="font-size: 20px">
+                    <img style="width: 20px; height: 20px;"
+                         src="{{ site.baseurl }}/images/twitter-blue.svg"
+                         alt="twitter">
+                  </i>
+                </a>
+              {% endif %}
+              <p>
+                {{ item.text }}
+              </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
