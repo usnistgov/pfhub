@@ -31,7 +31,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[1]:</div>
+
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <script>
@@ -80,7 +84,11 @@ $( document ).ready(code_toggle);
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
+
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -97,32 +105,33 @@ $( document ).ready(code_toggle);
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Problem-2:-Linear-Elasticity-in-3D">Problem 2: Linear Elasticity in 3D<a class="anchor-link" href="#Problem-2:-Linear-Elasticity-in-3D">&#182;</a></h1><p>The linear elastic energy of a body is</p>
-\begin{equation}
+<p>\begin{equation}
 E_{\rm elastic}=\frac{1}{2}\int \sigma_{ij}\epsilon_{ij}\,dV=\frac{1}{2}\int C_{ijkl}\epsilon_{ij}\epsilon_{kl}\,dV,
-\end{equation}<p>where $\sigma_{ij}=C_{ijkl}\epsilon_{kl}$ is the stress, $C_{ijkl}$ is the elastic tensor, and $\epsilon_{ij}$ is the strain,
+\end{equation}</p>
+<p>where $\sigma_{ij}=C_{ijkl}\epsilon_{kl}$ is the stress, $C_{ijkl}$ is the elastic tensor, and $\epsilon_{ij}$ is the strain,
 \begin{equation}
 \epsilon_{ij}=\frac{1}{2}\left[\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial x_i}\right],
 \end{equation}
 with $u_i$ the displacement field. The indices $i,j,k,l$ run from 1 to 3, and $x_i,\,i=1,2,3$, are Cartesian coordinates; we are using Einstein summation convention so repeated indices are summed over.</p>
 <p>The elastic tensor obeys symmetries $C_{ijkl}=C_{jikl}=C_{ijlk}=C_{jilk}$ and $C_{ijkl}=C_{klij}$. These symmetries imply that there are only 21 independent entries in the elastic tensor. Usually Voigt notation is used, in which the four indices $ijkl$ are replaced by two indices $IJ$. The mapping for each pair $ij$ (or $kl$) is $11\to1$, $22\to2$, $33\to3$, $23\to4$ (and $32\to4$), $13\to5$ (and $31\to5$), and $12\to6$ (and $21\to6$). The crystal symmetry may further reduce the number of independent entries. In an orthorombic crystal, there are only nine independent entries, and they are (in Voigt notation) $C_{11}, C_{22}, C_{33}, C_{44}, C_{55}, C_{66}, C_{12}, C_{13}$, and $C_{23}$. The tensor $C_{IJ}$ thus has the form</p>
-\begin{equation}
+<p>\begin{equation}
 \left(
 \begin{matrix}
-C_{11} & C_{12} & C_{13} & 0 & 0 & 0\\
-C_{12} & C_{22} & C_{23} & 0 & 0 & 0 \\
-C_{13} & C_{23} & C_{33} & 0 & 0 & 0 \\
-0 & 0 & 0 &              C_{44} & 0 & 0\\
-0 & 0 & 0 & 0 & C_{55} & 0\\
-0 & 0 & 0 & 0 & 0 & C_{66}
+C_{11} &amp; C_{12} &amp; C_{13} &amp; 0 &amp; 0 &amp; 0\\
+C_{12} &amp; C_{22} &amp; C_{23} &amp; 0 &amp; 0 &amp; 0 \\
+C_{13} &amp; C_{23} &amp; C_{33} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp;              C_{44} &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; C_{55} &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; C_{66}
 \end{matrix}
 \right).
-\end{equation}<p>For tetragonal symmetry, there are six independent entries, $C_{11}, C_{33}, C_{44}, C_{66}, C_{12}$, and $C_{13}$.</p>
+\end{equation}</p>
+<p>For tetragonal symmetry, there are six independent entries, $C_{11}, C_{33}, C_{44}, C_{66}, C_{12}$, and $C_{13}$.</p>
 <p>Aluminum silicate, Al$_2$SiO$_5$ is a crystal with orthorombic symmetry and unit cell parameters $a=7.738\;\unicode{x212B}$ , $b=7.857\;\unicode{x212B}$, and $c=5.534\;\unicode{x212B}$. The elastic tensor is given by $C_{11}=233.4$, $C_{22}=289.0$, $C_{33}=380.1$, $C_{44}=99.5$, $C_{55}=87.8$, $C_{66}=112.3$; $C_{11}+C_{22}-2C_{12}=233.4$, $C_{11}+C_{33}-2C_{13}=380.9$, and $C_{22}+C_{33}-2C_{23}=506.3$, all in units of GPa.</p>
 <p>(a) (Potato in space) What is the equilibrium shape of a 0.0042~$\mu$m$^3$ volume of Al$_2$SiO$_5$ in free space (stress-free boundaries)? Take the surface energy, $\gamma$, to be equal to 200 mJ/m$^2$. The crystalline axes $a$, $b$, and $c$ are aligned with the $x$, $y$, and $z$-axes of a Cartesian lab coordinate system.</p>
 <p>This problem can be cast as a phase field problem, where the phase field $\varphi\in[0,1]$ takes the value of 1 in one phase (the "potato"), and a value of 0 in the other (the surrounding vacuum). Thus, the total free energy can be written
@@ -138,9 +147,10 @@ f(\varphi)=\varphi^2\left[\varphi-1\right]^2,
 and $h_0$ has the dimension of energy per unit volume. The interface width $W$ between approximately $\varphi=0.1$ and $\varphi=0.9$ in this model is given by $W=2\sqrt{2\kappa/h_0}$, while $\gamma=\sqrt{\kappa h_0/18}$, $\kappa=1.5\gamma W$, and $h_0=12\gamma/W$ (ignoring modification of the phase field order parameter $\varphi$ by the elastic interactions through the interface). Use $\kappa=3\times10^{-9}$~J/m, and
 $h_0=2.4\times10^{8}$~J/m$^3$.</p>
 <p>We use a simple interpolation of the elastic constants,</p>
-\begin{equation}
+<p>\begin{equation}
 C_{ijkl}=h(\varphi)C_{ijkl}^{\rm potato},%+\left[1-h(\varphi)\right]C_{ijkl}^{\rm matrix},
-\end{equation}<p>where $h(\varphi)$ is a smooth interpolation function,
+\end{equation}</p>
+<p>where $h(\varphi)$ is a smooth interpolation function,
 \begin{equation}
 h(\varphi)=\varphi^3\left[6\varphi^2-15\varphi+10\right],
 \end{equation}
@@ -155,21 +165,24 @@ that interpolates between $h(\varphi=0)=0$ and $h(\varphi=1)=1$.</p>
 where 
 $f(\varphi)$ is given by above.</p>
 <p>The interpolation of the elastic constants is now,</p>
-\begin{equation}
+<p>\begin{equation}
 C_{ijkl}=h(\varphi)C_{ijkl}^{\rm inclusion}+\left[1-h(\varphi)\right]C_{ijkl}^{\rm matrix},
-\end{equation}<p>where again $h(\varphi)$ is a smooth interpolation function given above.</p>
+\end{equation}</p>
+<p>where again $h(\varphi)$ is a smooth interpolation function given above.</p>
 <p>In the elastic energy, the relevant strain is the total strain $\epsilon_{ij}$ minus the local misfit strain $\epsilon^0_{ij}$, so</p>
-\begin{equation}
+<p>\begin{equation}
 f_{\rm elastic}=\frac{1}{2}C_{ijkl}\left(\epsilon_{ij}-\epsilon^0_{ij}\right)\left(\epsilon_{kl}-\epsilon^0_{kl}\right).
-\end{equation}<p>We will use Vegard's law to determine the local misfit strain, for which we just interpolate the crystallographic misfit strain tensor, $\epsilon^T_{ij}$:</p>
-\begin{equation}
+\end{equation}</p>
+<p>We will use Vegard's law to determine the local misfit strain, for which we just interpolate the crystallographic misfit strain tensor, $\epsilon^T_{ij}$:</p>
+<p>\begin{equation}
 \epsilon^0_{ij}=h(\varphi)\epsilon^T_{ij},
-\end{equation}<p>where $h(\varphi)$ is the interpolation function, and $\epsilon^T_{ij}$ is
+\end{equation}</p>
+<p>where $h(\varphi)$ is the interpolation function, and $\epsilon^T_{ij}$ is
 \begin{equation}
 \epsilon^T_{ij}=\left(
 \begin{matrix}
-\frac{a-a_m}{a_m} &amp; 0 &amp; 0\
-0 &amp; \frac{b-b_m}{b_m} &amp; 0\
+\frac{a-a_m}{a_m} &amp; 0 &amp; 0\\
+0 &amp; \frac{b-b_m}{b_m} &amp; 0\\
 0&amp; 0 &amp; \frac{c-c_c}{c_m}
 \end{matrix}
 \right).
@@ -180,3 +193,5 @@ f_{\rm elastic}=\frac{1}{2}C_{ijkl}\left(\epsilon_{ij}-\epsilon^0_{ij}\right)\le
 </div>
 </div>
 </div>
+ 
+
