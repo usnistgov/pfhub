@@ -1,7 +1,11 @@
 ---
-title: "Simulation Upload"
+title: "Manually Simulation Upload"
 layout: essay
-comment: How to add a new simulation result
+comment: >-
+  How to add a new simulation result manually. However, in most cases
+  it is easier to use the automated <a target="_blank"
+  href="/chimad-phase-field/simulations/upload_form">upload form</a>.
+
 ---
 
 <h4> Overview </h4>
@@ -12,8 +16,6 @@ feel free to upload simulation results via pull requests on
 GitHub. More simulations results will greatly improve the utility of
 the website and encourage community collaboration.
 
-<h4> How to Upload </h4>
-
 Each simulation result is stored in a [YAML
 file](http://docs.ansible.com/ansible/YAMLSyntax.html) called
 `meta.yaml` in a separate directory in
@@ -22,6 +24,8 @@ A [YAML file](http://docs.ansible.com/ansible/YAMLSyntax.html) is a
 minimal, human readable syntax for structured data. The `meta.yaml`
 file stores the meta data for only one simulation and a new directory
 is required for each new simulation.
+
+<h4> How to Upload </h4>
 
 To record a new simulation, use the following workflow.
 
@@ -46,7 +50,7 @@ To record a new simulation, use the following workflow.
     `meta.yaml` so that all the data associated with the simulation
     result is available to be displayed on the website.
 
-<h4>Minimal Example</h4>
+<h4>Minimal Example of a YAML Simulation File</h4>
 
 Each [YAML](http://docs.ansible.com/ansible/YAMLSyntax.html)
 description of a specific simulation contains the following three
@@ -128,7 +132,7 @@ in the example admits a `details:` block. This is currently not parsed
 for the website, but may be of use to other users aor for future
 reference.
 
-<h5> The Schema </h5>
+<h5> The Schema (Layout of the YAML File) </h5>
 
 Many examples can be found in [`_data/simulations`]({{
 site.links.simmeta }}) and these can be used as templates. The
@@ -210,10 +214,13 @@ filters time values that are either too large or too small.
 Please read the [Vega data
 spec](https://github.com/vega/vega/wiki/Data) for more details.
 
-<h4> Testing </h4>
+<h4> Automated Testing of Simulation Uploads</h4>
 
-After submitting a pull request, the `meta.yaml` is checked against
-the schema on Travis CI and things may need to be repaired. The web
-site dev will need to check that the formatting and links work for
-displaying the charts and tables. Repairs to the `meta.yaml` may be
+The uploaded `meta.yaml` file is automatically tested to check that it
+is in compliance with the schema when the pull-request is
+submitted. The results of this check will appear on the pull-request
+page. Repairs to the `meta.yaml` may be necessary to pass the tests.
+If the tests all pass, the web site dev will need to check that the
+formatting and links work for displaying the charts and tables, which
+is not entirely automated by the test suite. Further repairs may be
 necessary at this stage.

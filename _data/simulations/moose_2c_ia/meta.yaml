@@ -1,54 +1,57 @@
----
 benchmark:
   id: 2c
   version: 1
-
+data:
+- name: run_time
+  values:
+  - sim_time: 20618.762735099
+    unit: s
+    wall_time: 5580
+- name: memory_usage
+  values:
+  - unit: MB
+    value: 477
+- format:
+    parse:
+      TotalEnergy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: free_energy
+    expr: datum.TotalEnergy
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_IA_dfdt.csv
 metadata:
-  summary: Metadata for the Benchmark2 problems
-  timestamp: 6/28/2016
   author: A. M. Jokisaari
   email: andrea.jokisaari@northwestern.edu
-  software:
-    name: moose
-    version: Hedgehog (now Coral)
+  github_id: amjokisaari
   hardware:
     cores: 6
     details:
-      - name: clock rate
-        values:
-          rate: 2.70
-          unit: GHz
-      - name: processor
-        values: "Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz"
+    - name: clock rate
+      values:
+        rate: 2.7
+        unit: GHz
+    - name: processor
+      values: Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
   implementation:
+    details:
+    - name: time_stepper
+      values: IA
+    end_condition: Equilibrium, total energy fluctuated due to numerical noise
     repo:
       url: https://bitbucket.org/ajokisaari/coral
       version: e8fc74f
-    end_condition: Equilibrium, total energy fluctuated due to numerical noise
-    details:
-      - name: time_stepper
-        values: IA
-
-data:
-  - name: run_time
-    values:
-      - wall_time: 5580
-        sim_time: 0
-        unit: s
-  - name: memory_usage
-    values:
-      value: 477
-      unit: MB
-  - name: free_energy
-    url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_IA_dfdt.csv
-    format:
-      type: csv
-      parse:
-        TotalEnergy: number
-        time: number
-    transform:
-      - type: formula
-        field: free_energy
-        expr: datum.TotalEnergy
-      - type: filter
-        test: "datum.time > 0.01"
+  software:
+    name: moose
+    version: Hedgehog (now Coral)
+  summary: Metadata for the Benchmark2 problems
+  timestamp: 6/28/2016

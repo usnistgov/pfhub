@@ -8,11 +8,15 @@ comment: >-
 
 ### Call for Community Codes
 
-This website is intended to help users judge for themselves the
-suitability of available codes for their purposes. Performance on the
-various benchmark problems are expected to form the major basis for
-comparison, but consideration should also be given to ease of
-installation, use, and comprehension of the code.
+This website is intended to help users make their own decisions regarding
+the suitability of the available codes for their research goals. For example,
+all codes are not equally suited to for solving all types of physics that may
+be incorporated into phase field models.  Or, a certain trade-off between
+performance and flexibility may be needed.  The numerical performance of the codes
+for the various benchmark problems will likely form the major basis for
+comparison, but other factors may be considered, such as the ease of installation,
+the learning curve to use the code, software compatiblity with different computing
+platforms, and available documentation.
 
 ### Requirements
 
@@ -43,17 +47,17 @@ provide users with a side-by-side comparison.
 
 ### How to Submit
 
-To add a code to the list, update the [`codes.yaml`]({{
+To add a code to the list, you need to interact with the GitHub repository
+for this website.  Update the [`codes.yaml`]({{
 site.links.github }}/blob/nist-pages/_data/codes.yaml){:target="_blank"}
-file via the GitHub repository for this web site and submit a
-pull-request.
+file in the repository and submit a pull-request.
 
 The YAML file includes fields for the name of the code, a link to an
 image logo, a description and a home page. For example,
 
     - name: My Great Phase Field Code
       logo: http://goo.gl/bsTHP2
-      description: Solves all phase field problems
+      description: The Fastest Phase Field Solver in the West
       home_page: http://chimad-phase-field.org
       badges:
         - href: https://pypi.python.org/pypi/FiPy/3.1

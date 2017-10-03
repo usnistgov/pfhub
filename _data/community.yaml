@@ -1,0 +1,47 @@
+---
+
+- name: Olle Heinonen
+  text: Computational Materials Scientist omnivore at Argonne
+  email: heinonen@anl.gov
+  home: http://www.msd.anl.gov/heinonen
+  github_id: heinono1
+  avatar: http://www.msd.anl.gov/images/personnel/heinonen.jpg
+- name:	James Warren
+  text: "I'm the Director of the MGI program at NIST, and have been
+    involved in phase field modeling since 1992."
+  avatar: https://mgi.nist.gov/sites/default/files/styles/thumbnail/public/pictures/picture-124-1427377338.jpg
+  email: james.warren@nist.gov
+  home: https://mgi.nist.gov/users/dr-james-warren
+  twitter: drjamesawarren
+  github_id: drjamesawarren
+- name: Daniel Wheeler
+  text: >-
+    FiPy developer, phase field
+    enthusiast and web developer for the CHiMaD Phase Field Website
+  avatar: https://avatars0.githubusercontent.com/u/1986844?v=3&s=140
+  github_id: wd15
+  twitter: wd15dan
+  email: daniel.wheeler@nist.gov
+- name:	Daniel Schwen
+  text: >-
+    Staff Scientist at Idaho National Lab, MOOSE / Phase Field
+    developer, and lead of the MARMOT mesoscale modeling code.
+  avatar: https://avatars1.githubusercontent.com/u/202302?v=3&s=460
+  email: daniel.schwen@inl.gov
+  home: http://www.schwen.de
+  twitter: danielschwen
+  github_id: dschwen
+- name: Stephen DeWitt
+  text: >-
+    Research Scientist at the University of Michigan, lead developer
+    of PRISMS-PF
+  avatar: https://drive.google.com/uc?export=view&id=0BxqWxFb3iXvELUFjX3hiaUFUbWc
+  email: stvdwtt@umich.edu
+  github_id: stvdwtt
+- name: Andrea Jokisaari
+  text: >-
+    Post-doc at Northwestern University/Argonne National Laboratory
+    and mesoscale wrangler.
+  avatar: https://avatars0.githubusercontent.com/u/6676372?v=4&s=30
+  email: andrea.jokisaari@northwestern.edu
+  github_id: amjokisaari

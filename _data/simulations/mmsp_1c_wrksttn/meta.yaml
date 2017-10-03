@@ -1,76 +1,61 @@
----
 benchmark:
   id: 1c
   version: 1
-
+data:
+- name: timestep
+  values: 0.00104167
+- format:
+    parse:
+      free_energy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1c_wrksttn.csv
+- name: run_time
+  values:
+  - sim_time: 53333.3
+    wall_time: 48939.21
+- name: memory_usage
+  values:
+  - unit: KB
+    value: 28324
 metadata:
-  # Describe the runtime environment
-  summary: MPI parallel workstation benchmark with MMSP, T-shape domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Tue, 14 Feb 2017 08:42:23 -0500
+  github_id: tkphd
   hardware:
-    # Required hardware details
     architecture: x86_64
     cores: 12
-    # Optional hardware details
     details:
-      - name: clock
-        values: 3.8
-        # unit: GHz
-  software:
-    name: mmsp
-    version: "5.2"
-    repo:
-      url: https://github.com/mesoscale/mmsp/tree/develop
-      version: "2352cdf62c6db99f6644d88a0c2f9917d2d1882f"
+    - name: clock
+      values: 3.8
   implementation:
+    details:
+    - name: mesh
+      values: uniform rectilinear
+    - name: numerical_method
+      values: explicit finite difference
+    - name: compiler
+      values: GNU mpic++
+    - name: parallel_model
+      values: MPI
     end_condition: sim time greater than 50000 (51200000 timesteps)
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/T-shape/
-      version: "4c3af04ac4e46665eacc599b0d2cc8b4a9963461"
-      # badge: https://api.travis-ci.org/mesoscale/MMSP-spinodal-decomposition-benchmark.svg?branch=master
-    details:
-      - name: mesh
-        values: uniform rectilinear
-      - name: numerical_method
-        values: explicit finite difference
-      - name: compiler
-        values: GNU mpic++
-      - name: parallel_model
-        values: MPI
-
-data:
-  # Gather simulation output
-  - name: timestep
-    values: 0.00104167
-  - name: free_energy
-    url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1c_wrksttn.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        free_energy: number
-    transform:
-      - type: filter
-        test: "datum.time > 0.01"
-  - name: run_time
-    values:
-      [
-        {
-          "sim_time": 53333.3,
-          "time": 48939.21 # seconds
-        }
-      ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value_per": 28324,
-          "unit": KB
-        }
-      ]
-    transform:
-      - type: formula
-        value: 12*value_per
-
+      version: 4c3af04ac4e46665eacc599b0d2cc8b4a9963461
+  software:
+    name: mmsp
+    repo:
+      url: https://github.com/mesoscale/mmsp/tree/develop
+      version: 2352cdf62c6db99f6644d88a0c2f9917d2d1882f
+    version: '5.2'
+  summary: MPI parallel workstation benchmark with MMSP, T-shape domain
+  timestamp: Tue, 14 Feb 2017 08:42:23 -0500

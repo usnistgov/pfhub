@@ -8,6 +8,9 @@ NOTEBOOKS_MD := $(NOTEBOOKS:%.ipynb=%.ipynb.md)
 YAML_FILES_IN := $(wildcard _data/simulations/*/meta.yaml)
 YAML_FILES_OUT := $(subst meta.yaml,meta.yaml.out,$(YAML_FILES_IN))
 
+HTML_FILES_OUT_TMP := $(subst _data/,,$(YAML_FILES_IN))
+HTML_FILES_OUT := $(subst meta.yaml,index.html,$(HTML_FILES_OUT_TMP))
+
 .PHONY: clean build_charts
 
 all: hexbin notebooks simulations
@@ -33,7 +36,13 @@ build_charts: _data/simulations.py $(YAML_FILES_OUT)
 data_table: _data/data_table.py
 	python _data/data_table.py
 
-simulations: yamllint build_charts data_table
+simulations/%/index.html: _data/simulations/%/meta.yaml _data/sim_stub.html
+	mkdir -p $(dir $@)
+	cp _data/sim_stub.html $@
+
+sim_landing: $(HTML_FILES_OUT)
+
+simulations: yamllint build_charts data_table sim_landing
 
 hexbin: $(HEXBIN_OUT)
 

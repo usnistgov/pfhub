@@ -30,9 +30,14 @@ main {
 
 .top-buffer { margin-top: 40px; }
 .small-buffer { margin-top: 10px; }
+.big-buffer { margin-top: 50px; }
 
 .top-bar {
     border-top: 3px solid #9ccc65;
+}
+
+.top-bar-thin {
+    border-top: 1px solid #9ccc65;
 }
 
 .card {
@@ -46,6 +51,9 @@ main {
     margin-bottom: 25px;
 }
 
+.chip {
+    margin-bottom: 3px;
+}
 
 .indent {
     margin-left: 10px;
@@ -101,7 +109,7 @@ main {
 }
 
 .chimad-collections {
-    color: "light-green lighten-4"
+    color: "light-green lighten-3"
 }
 
 .navbar-text {
@@ -140,4 +148,18 @@ main {
 
 table.striped tbody tr:nth-child(2n+1) {
     background-color: #e0e0e0 !important;
+}
+
+/* .backdrop{ */
+/*        background-color: purple; */
+/* } */
+
+.tooltipped {
+    color: rgb(158, 158, 158);
+}
+
+.comment-list li {
+    list-style-type: disc;
+    padding-left: 0px;
+    margin-left: 50px;
 }

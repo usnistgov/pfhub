@@ -1,61 +1,68 @@
----
 benchmark:
   id: 1c
   version: 1
-
+data:
+- name: free_energy
+  transform:
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  values:
+  - free_energy: 31.882942771008185
+    time: 0.0
+  - free_energy: 16.67296583996265
+    time: 63.84021042362751
+  - free_energy: 12.906737883664295
+    time: 127.01883851836759
+  - free_energy: 11.983601365109191
+    time: 183.15341155666349
+  - free_energy: 10.749546784544776
+    time: 242.99355886373758
+  - free_energy: 9.954740413521417
+    time: 302.7582200539157
+  - free_energy: 9.759375327718615
+    time: 355.36246048066045
+  - free_energy: 9.61554133790171
+    time: 407.7923903446872
+  - free_energy: 9.428639867543119
+    time: 463.10144410049776
+- name: run_time
+  values:
+  - sim_time: 463.10144410049776
+    wall_time: 320.29
+- name: memory_usage
+  values:
+  - unit: KB
+    value: 306448
 metadata:
-  # Describe the runtime environment
-  summary: Serial Travis CI benchmark with FiPy, T-shape domain
   author: Trevor Keller
   email: trevor.keller@nist.gov
-  timestamp: Tue, 10 Jan 2017 01:27:20 +0000
+  github_id: tkphd
   hardware:
-    # Required hardware details
     architecture: x86_64
     cores: 1
-    # Optional hardware details
     details:
-      - name: clock
-        values: 2.3
-        # unit: GHz
-  software:
-    name: fipy
-    version: "3.1"
-    repo:
-      url: https://github.com/usnistgov/fipy/tree/develop
-      version: "5fcf04e8f2e4808318055fb41e567c7d58a93153"
+    - name: clock
+      values: 2.3
   implementation:
+    details:
+    - name: mesh
+      values: uniform rectilinear
+    - name: numerical_method
+      values: finite volume
     end_condition: time limit, Travis CI runs die after 50 minutes total
     repo:
       url: https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/T-shape/
-      version: "944284638f00c3a411a71981d27becf97a2eb0e4"
-      # badge: https://travis-ci.org/usnistgov/FiPy-spinodal-decomposition-benchmark.svg?branch=master
-    details:
-      - name: mesh
-        values: uniform rectilinear
-      - name: numerical_method
-        values: finite volume
-
-data:
-  # Gather simulation output
-  - name: free_energy
-    values: [{"free_energy": 31.882942771008185, "time": 0.0}, {"free_energy": 16.67296583996265, "time": 63.84021042362751}, {"free_energy": 12.906737883664295, "time": 127.01883851836759}, {"free_energy": 11.983601365109191, "time": 183.15341155666349}, {"free_energy": 10.749546784544776, "time": 242.99355886373758}, {"free_energy": 9.954740413521417, "time": 302.7582200539157}, {"free_energy": 9.759375327718615, "time": 355.36246048066045}, {"free_energy": 9.61554133790171, "time": 407.7923903446872}, {"free_energy": 9.428639867543119, "time": 463.10144410049776}]
-    transform:
-      - type: filter
-        test: "datum.time > 0.01"
-  - name: run_time
-    values:
-      [
-        {
-          "time": 320.29,
-          "sim_time": 463.10144410049776
-        }
-      ]
-  - name: memory_usage
-    values:
-      [
-        {
-          "value": 306448,
-          "unit": KB
-        }
-      ]
+      version: 944284638f00c3a411a71981d27becf97a2eb0e4
+  software:
+    name: fipy
+    repo:
+      url: https://github.com/usnistgov/fipy/tree/develop
+      version: 5fcf04e8f2e4808318055fb41e567c7d58a93153
+    version: '3.1'
+  summary: Serial Travis CI benchmark with FiPy, T-shape domain
+  timestamp: Tue, 10 Jan 2017 01:27:20 +0000

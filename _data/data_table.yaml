@@ -1,4 +1,10 @@
 data:
+- author: {email: andrea.jokisaari@northwestern.edu, name: Andrea Jokisaari}
+  code: {name: moose, url: 'https://www.dropbox.com/s/qusutz8g24hx54q/free_energy.csv'}
+  cores: 6
+  id_: 6a.0
+  name: coral_6a
+  timestamp: 2017/07/31 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: fipy, url: 'https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 1
@@ -17,6 +23,18 @@ data:
   id_: 1c.1
   name: fipy_1c_travis
   timestamp: 2017/01/10 01:27:20
+- author: {email: guyer@nist.gov, name: Jon Guyer}
+  code: {name: fipy, url: 'https://github.com/guyer/hackathonIII'}
+  cores: 1
+  id_: 6a.0
+  name: fipy_6a_macbookpro
+  timestamp: 2017/08/01 00:00:00
+- author: {email: guyer@nist.gov, name: Jon Guyer}
+  code: {name: fipy, url: 'https://github.com/guyer/hackathonIII'}
+  cores: 1
+  id_: 6b.0
+  name: fipy_6b_macbookpro
+  timestamp: 2017/08/01 00:00:00
 - author: {email: daniel.schwen@inl.gov, name: Daniel Schwen}
   code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
   cores: 8
@@ -29,6 +47,24 @@ data:
   id_: 1b.1
   name: inl_moose_1b_raspi
   timestamp: 2017/01/27 00:00:00
+- author: {email: daniel.schwen@inl.gov, name: Daniel Schwen}
+  code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
+  cores: 4
+  id_: 1c.1
+  name: inl_moose_1c
+  timestamp: 2017/06/01 00:00:00
+- author: {email: Larry.Aagesen@inl.gov, name: Larry Aagesen}
+  code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
+  cores: 8
+  id_: 6a.0
+  name: inl_moose_6a
+  timestamp: 2017/07/26 00:00:00
+- author: {email: Larry.Aagesen@inl.gov, name: Larry Aagesen}
+  code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
+  cores: 3
+  id_: 6b.0
+  name: inl_moose_6b
+  timestamp: 2017/07/27 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 18
@@ -83,6 +119,12 @@ data:
   id_: 1c.1
   name: mmsp_1c_wrksttn
   timestamp: 2017/02/14 08:42:23
+- author: {email: trevor.keller@nist.gov, name: Trevor Keller}
+  code: {name: mmsp, url: 'https://github.com/tkphd/CHiMaD-Hackathon/tree/master/Workshop5/electrochem'}
+  cores: 12
+  id_: 6a.0
+  name: mmsp_6a_wrksttn
+  timestamp: 2017/07/28 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
@@ -221,3 +263,21 @@ data:
   id_: 1a.1
   name: prismspf_1a
   timestamp: 2017/02/10 12:32:00
+- author: {email: stvdwtt@umich.edu, name: Stephen DeWitt}
+  code: {name: prisms, url: 'https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark1a'}
+  cores: 2
+  id_: 1b.1
+  name: prismspf_1b
+  timestamp: 2017/02/10 12:32:00
+- author: {email: dmontiel@umich.edu, name: David Montiel}
+  code: {name: prisms, url: 'https://github.com/prisms-center/phaseField/tree/v2.0pre/applications/cahnHilliard_electrostatics'}
+  cores: 16
+  id_: 6a.0
+  name: prismspf_6a_flux_med
+  timestamp: 2017/07/28 00:00:00
+- author: {email: stvdwtt@umich.edu, name: Stephen DeWitt}
+  code: {name: prisms, url: 'https://github.com/prisms-center/phaseField/tree/v2.0pre/applications/cahnHilliard_electrostatics_Curved'}
+  cores: 16
+  id_: 6b.0
+  name: prismspf_6b
+  timestamp: 2017/07/28 00:00:00

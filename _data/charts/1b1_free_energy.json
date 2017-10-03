@@ -1,4 +1,8 @@
 {
+  "autosize": {
+    "resize": false,
+    "type": "pad"
+  },
   "axes": [
     {
       "domain": false,
@@ -43,18 +47,11 @@
       },
       "format": ".0e",
       "formatType": "number",
+      "labelOverlap": "greedy",
       "orient": "bottom",
       "scale": "x",
-      "title": "Time",
-      "values": [
-        1,
-        10,
-        100,
-        1000,
-        10000,
-        100000,
-        1000000
-      ]
+      "tickCount": 5,
+      "title": "Time"
     },
     {
       "encode": {
@@ -81,15 +78,11 @@
       },
       "format": ".0e",
       "formatType": "number",
+      "labelOverlap": "greedy",
       "orient": "left",
       "scale": "y",
-      "title": "Free Energy",
-      "values": [
-        1,
-        10,
-        100,
-        1000
-      ]
+      "tickCount": 5,
+      "title": "Free Energy"
     },
     {
       "domain": false,
@@ -119,10 +112,21 @@
       "name": "fipy_1b_travis",
       "transform": [
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "values": [
         {
           "free_energy": 319.04044215271733,
@@ -178,10 +182,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/dschwen/75c5f5f47519119fdb6e934056f6fd56/raw/d865f3213e4a695dc031c37e71b280248c4a0eb5/problem_1b_out.csv"
     },
     {
@@ -200,10 +215,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/dschwen/e98885861ef77c480a74c13d09804f92/raw/a11dfd5d1d3856ec48b14fd321a7ccbfce45bd96/problem_1b_out.csv"
     },
     {
@@ -217,10 +243,21 @@
       "name": "mmsp_1b_raspi",
       "transform": [
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1b_raspi_results.csv"
     },
     {
@@ -232,10 +269,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "values": [
         {
           "energy": 319.045,
@@ -294,10 +342,21 @@
       "name": "mmsp_1b_wrksttn",
       "transform": [
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1b_wrksttn.csv"
     },
     {
@@ -316,10 +375,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_PBC_IA.csv"
     },
     {
@@ -338,10 +408,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/49d3f4ebc29a373687b3e7f4ec0b8219dd098cb7/hackathon_p1_square_NF_STA.csv"
     },
     {
@@ -360,10 +441,21 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1b_IA.csv"
     },
     {
@@ -382,11 +474,106 @@
           "type": "formula"
         },
         {
-          "expr": "datum.time > 0.01",
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
           "type": "filter"
         }
       ],
+      "type": "line",
       "url": "https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1b_STA.csv"
+    },
+    {
+      "name": "prismspf_1b",
+      "transform": [
+        {
+          "as": "free_energy",
+          "expr": "datum.value",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "values": [
+        {
+          "time": 0.0,
+          "value": 319.1087496
+        },
+        {
+          "time": 1.0,
+          "value": 318.8532431
+        },
+        {
+          "time": 5.0,
+          "value": 316.3930324
+        },
+        {
+          "time": 10.0,
+          "value": 297.6413587
+        },
+        {
+          "time": 20.0,
+          "value": 206.0186162
+        },
+        {
+          "time": 100.0,
+          "value": 116.9931797
+        },
+        {
+          "time": 200.0,
+          "value": 102.6644347
+        },
+        {
+          "time": 500.0,
+          "value": 82.53981151
+        },
+        {
+          "time": 1000.0,
+          "value": 69.7133687
+        },
+        {
+          "time": 2000.0,
+          "value": 52.2692085
+        },
+        {
+          "time": 3000.0,
+          "value": 47.20469271
+        },
+        {
+          "time": 10000.0,
+          "value": 27.72619387
+        }
+      ]
+    },
+    {
+      "name": "selected",
+      "on": [
+        {
+          "toggle": "clicked",
+          "trigger": "clicked"
+        }
+      ]
     }
   ],
   "height": 300,
@@ -394,13 +581,39 @@
     {
       "encode": {
         "labels": {
+          "iteractive": true,
+          "name": "legendLabel",
           "update": {
             "font": {
               "value": "Lato"
             },
             "fontSize": {
               "value": 12
-            }
+            },
+            "opacity": [
+              {
+                "test": "!indata('selected', 'value', datum.value)",
+                "value": 1.0
+              },
+              {
+                "value": 0.2
+              }
+            ]
+          }
+        },
+        "symbols": {
+          "interactive": true,
+          "name": "legendSymbol",
+          "update": {
+            "opacity": [
+              {
+                "test": "!indata('selected', 'value', datum.value)",
+                "value": 1.0
+              },
+              {
+                "value": 0.2
+              }
+            ]
           }
         },
         "title": {
@@ -421,23 +634,52 @@
   "marks": [
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_1b_travis')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_1b_travis')",
+              "value": "fipy_1b_travis"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "fipy_1b_travis"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fipy_1b_travis')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -445,27 +687,57 @@
       "from": {
         "data": "fipy_1b_travis"
       },
+      "interactive": true,
       "type": "line"
     },
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_1b')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_1b')",
+              "value": "inl_moose_1b"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "inl_moose_1b"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_1b')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -473,27 +745,57 @@
       "from": {
         "data": "inl_moose_1b"
       },
+      "interactive": true,
       "type": "line"
     },
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_1b_raspi')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_1b_raspi')",
+              "value": "inl_moose_1b_raspi"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "inl_moose_1b_raspi"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_1b_raspi')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -501,27 +803,57 @@
       "from": {
         "data": "inl_moose_1b_raspi"
       },
+      "interactive": true,
       "type": "line"
     },
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1b_raspi')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1b_raspi')",
+              "value": "mmsp_1b_raspi"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "mmsp_1b_raspi"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1b_raspi')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -529,27 +861,57 @@
       "from": {
         "data": "mmsp_1b_raspi"
       },
+      "interactive": true,
       "type": "line"
     },
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1b_travis')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1b_travis')",
+              "value": "mmsp_1b_travis"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "mmsp_1b_travis"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1b_travis')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -557,27 +919,57 @@
       "from": {
         "data": "mmsp_1b_travis"
       },
+      "interactive": true,
       "type": "line"
     },
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1b_wrksttn')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1b_wrksttn')",
+              "value": "mmsp_1b_wrksttn"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "mmsp_1b_wrksttn"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'mmsp_1b_wrksttn')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -585,27 +977,57 @@
       "from": {
         "data": "mmsp_1b_wrksttn"
       },
+      "interactive": true,
       "type": "line"
     },
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1b_ia')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1b_ia')",
+              "value": "moose_1b_ia"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "moose_1b_ia"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1b_ia')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -613,27 +1035,57 @@
       "from": {
         "data": "moose_1b_ia"
       },
+      "interactive": true,
       "type": "line"
     },
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1b_sta')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1b_sta')",
+              "value": "moose_1b_sta"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "moose_1b_sta"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1b_sta')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -641,27 +1093,57 @@
       "from": {
         "data": "moose_1b_sta"
       },
+      "interactive": true,
       "type": "line"
     },
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1b_IA')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1b_IA')",
+              "value": "moose_psu_1b_IA"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "moose_psu_1b_IA"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1b_IA')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -669,27 +1151,57 @@
       "from": {
         "data": "moose_psu_1b_IA"
       },
+      "interactive": true,
       "type": "line"
     },
     {
       "encode": {
-        "enter": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1b_STA')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1b_STA')",
+              "value": "moose_psu_1b_STA"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
           "stroke": {
             "scale": "color",
             "value": "moose_psu_1b_STA"
           },
-          "strokeOpacity": {
-            "value": 1.0
-          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_psu_1b_STA')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
           "strokeWidth": {
-            "value": 2
+            "value": 3
           },
           "x": {
-            "field": "time",
+            "field": "x",
             "scale": "x"
           },
           "y": {
-            "field": "free_energy",
+            "field": "y",
             "scale": "y"
           }
         }
@@ -697,27 +1209,84 @@
       "from": {
         "data": "moose_psu_1b_STA"
       },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_1b')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_1b')",
+              "value": "prismspf_1b"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "prismspf_1b"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'prismspf_1b')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "prismspf_1b"
+      },
+      "interactive": true,
       "type": "line"
     }
   ],
   "scales": [
     {
-      "domain": [
-        1,
-        1000000
-      ],
+      "domain": {
+        "signal": "xdom"
+      },
       "name": "x",
-      "nice": true,
+      "nice": false,
       "range": "width",
       "type": "log"
     },
     {
-      "domain": [
-        1,
-        1000
-      ],
+      "domain": {
+        "signal": "ydom"
+      },
       "name": "y",
-      "nice": true,
+      "nice": false,
       "range": "height",
       "type": "log"
     },
@@ -732,7 +1301,8 @@
         "moose_1b_ia",
         "moose_1b_sta",
         "moose_psu_1b_IA",
-        "moose_psu_1b_STA"
+        "moose_psu_1b_STA",
+        "prismspf_1b"
       ],
       "name": "color",
       "range": {
@@ -741,10 +1311,147 @@
       "type": "ordinal"
     }
   ],
-  "signal": [
+  "signals": [
     {
-      "init": null,
-      "name": "hover"
+      "name": "clicked",
+      "on": [
+        {
+          "events": "@legendSymbol:click, @legendLabel:click",
+          "force": true,
+          "update": "{value: datum.value}"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "zoom",
+      "on": [
+        {
+          "events": "wheel!",
+          "force": true,
+          "update": "pow(1.005, event.deltaY * pow(16, event.deltaMode))"
+        }
+      ],
+      "value": 1
+    },
+    {
+      "name": "down",
+      "on": [
+        {
+          "events": "touchend",
+          "update": "null"
+        },
+        {
+          "events": "mousedown, touchstart",
+          "update": "xy()"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "delta",
+      "on": [
+        {
+          "events": [
+            {
+              "between": [
+                {
+                  "type": "mousedown"
+                },
+                {
+                  "source": "window",
+                  "type": "mouseup"
+                }
+              ],
+              "consume": true,
+              "source": "window",
+              "type": "mousemove"
+            },
+            {
+              "consume": true,
+              "filter": "event.touches.length === 1",
+              "type": "touchmove"
+            }
+          ],
+          "update": "down ? [down[0]-x(), y()-down[1]] : [0,0]"
+        }
+      ],
+      "value": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "xdomlog",
+      "on": [
+        {
+          "events": {
+            "signal": "zoom"
+          },
+          "update": "[xcur[0] - log(zoom), xcur[1] + log(zoom)]"
+        },
+        {
+          "events": {
+            "signal": "delta"
+          },
+          "update": "[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]"
+        }
+      ],
+      "value": [
+        0,
+        6
+      ]
+    },
+    {
+      "name": "xcur",
+      "on": [
+        {
+          "events": "mousedown, touchstart, touchend, wheel!",
+          "update": "[xdomlog[0], xdomlog[1]]"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "xdom",
+      "update": "[pow(10, xdomlog[0]), pow(10, xdomlog[1])]",
+      "value": null
+    },
+    {
+      "name": "ydomlog",
+      "on": [
+        {
+          "events": {
+            "signal": "zoom"
+          },
+          "update": "[ycur[0] - log(zoom) * span(ycur) / span(xcur), ycur[1] + log(zoom) * span(ycur) / span(xcur)]"
+        },
+        {
+          "events": {
+            "signal": "delta"
+          },
+          "update": "[ycur[0] + span(ycur) * delta[1] / height, ycur[1] + span(ycur) * delta[1] / height]"
+        }
+      ],
+      "value": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "ycur",
+      "on": [
+        {
+          "events": "mousedown, touchstart, touchend, wheel!",
+          "update": "[ydomlog[0], ydomlog[1]]"
+        }
+      ],
+      "value": null
+    },
+    {
+      "name": "ydom",
+      "update": "[pow(10, ydomlog[0]), pow(10, ydomlog[1])]",
+      "value": null
     }
   ],
   "width": 500
