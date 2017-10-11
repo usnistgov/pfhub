@@ -51,16 +51,16 @@ author = (data) ->
   Args:
     data: the simulation data
   ###
-  select_tag('#author')([data.metadata.author])
-    .append('span')
-    .text((d) -> d)
+  select_tag('#author')([data.metadata])
+    .append('a')
+    .attr('href', (d) -> "mailto:" + d.email)
+    .attr('target', 'blank_')
+    .text((d) -> d.author)
 
 
 author_icon = (data) ->
   select_tag('#author')([data.metadata.github_id])
     .append('img')
-    .attr('style', 'width: 20px; height: 20px; margin-top: 5px;
-  margin-left: 1px')
     .attr('src', (d) -> 'https://github.com/' + d + '.png')
     .attr('alt', '')
 
@@ -79,8 +79,6 @@ github_icon = ->
   ###
   select_tag('#github_id')(['x'])
     .append('img')
-    .attr('style', 'width: 20px; height: 20px; margin-top: 5px;
-    margin-left: 1px')
     .attr('src', '{{ site.baseurl }}' + '/images/github-black.svg')
     .attr('alt', '')
 
@@ -312,7 +310,6 @@ add_card_image = (x) ->
   ###
   x.append('div')
     .attr('class', 'card-image')
-    .attr('style', 'max-height: 70%')
 
 
 add_card_image_ = (x) ->
@@ -355,8 +352,7 @@ add_youtube = (x) ->
 add_description = sequence(
   (x) ->
     x.append('div')
-      .attr('class', 'card-content')
-      .attr('style', 'overflow: auto; max-height: 30%;')
+      .attr('class', 'card-content scroll')
   (x) ->
     x.append('p')
       .text((d) ->
@@ -446,8 +442,7 @@ add_chart = curry(
       x: the selection
       add_src: function to add the src for the img tag
     ###
-    add_src(add_card_image_(x)
-      .attr('style', 'background-color: white'))
+    add_src(add_card_image_(x))
 )
 
 
