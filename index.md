@@ -15,8 +15,7 @@ collections:
       the [extended overview](benchmarks){:target="_blank"} or
       ["Benchmark Problems for Phase Field
       Methods"](http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html)).
-      A complete list of uploaded benchmark simulations is available,
-      see ["Benchmark Simulations"](simulations){:target="_blank"}.
+      A complete list of uploaded benchmark simulations is available under ["Benchmark Simulations"](simulations){:target="_blank"}.
 
   - header: Codes
     tag: codes

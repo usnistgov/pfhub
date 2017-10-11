@@ -23,6 +23,18 @@ data:
   id_: 1c.1
   name: fipy_1c_travis
   timestamp: 2017/01/10 01:27:20
+- author: {email: guyer@nist.gov, name: Jon Guyer}
+  code: {name: fipy, url: 'https://github.com/guyer/hackathonIII'}
+  cores: 1
+  id_: 6a.0
+  name: fipy_6a_macbookpro
+  timestamp: 2017/08/01 00:00:00
+- author: {email: guyer@nist.gov, name: Jon Guyer}
+  code: {name: fipy, url: 'https://github.com/guyer/hackathonIII'}
+  cores: 1
+  id_: 6b.0
+  name: fipy_6b_macbookpro
+  timestamp: 2017/08/01 00:00:00
 - author: {email: daniel.schwen@inl.gov, name: Daniel Schwen}
   code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
   cores: 8
@@ -41,6 +53,18 @@ data:
   id_: 1c.1
   name: inl_moose_1c
   timestamp: 2017/06/01 00:00:00
+- author: {email: Larry.Aagesen@inl.gov, name: Larry Aagesen}
+  code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
+  cores: 8
+  id_: 6a.0
+  name: inl_moose_6a
+  timestamp: 2017/07/26 00:00:00
+- author: {email: Larry.Aagesen@inl.gov, name: Larry Aagesen}
+  code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
+  cores: 3
+  id_: 6b.0
+  name: inl_moose_6b
+  timestamp: 2017/07/27 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 18
