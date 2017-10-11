@@ -27,8 +27,7 @@ comment: >-
       {% for item in site.data.community %}
         <div class="col s4">
           <div class="card small light-green lighten-4">
-            <div class="card-content"
-                 style="max-height: 95%">
+            <div class="card-content">
               <span class="card-title">
                 <a href="{{ item.home }}"
                    target="_blank"
@@ -38,7 +37,6 @@ comment: >-
               </span>
 
               <img class="circle"
-                   style="height: 40px; width: 40px; margin-left: 10px;"
                    src="{{ item.avatar }}"
                    alt="">
 
@@ -46,18 +44,16 @@ comment: >-
               <a href="mailto:{{ item.email }}"
                  target="blank_"
                  title="email">
-                <i class="small material-icons"
-                   style="font-size: 20px">
+                <i class="small material-icons">
                    email
                 </i>
               </a>
               <a href="https://github.com/{{ item.github_id }}"
                  target="blank_"
                  title="github">
-                <i class="small material-icons"
-                   style="font-size: 20px">
-                  <img style="width: 20px; height: 20px;"
-                       src="{{ site.baseurl }}/images/github-blue.svg"
+                <i class="small material-icons">
+                  <img src="{{ site.baseurl }}/images/github-blue.svg"
+                       class="github"
                        alt="github">
                 </i>
               </a>
@@ -65,11 +61,10 @@ comment: >-
                 <a href="https://twitter.com/{{ item.twitter }}"
                    target="blank_"
                    title="twitter">
-                  <i class="small material-icons"
-                     style="font-size: 20px">
-                    <img style="width: 20px; height: 20px;"
-                         src="{{ site.baseurl }}/images/twitter-blue.svg"
-                         alt="twitter">
+                  <i class="small material-icons">
+                    <img src="{{ site.baseurl }}/images/twitter-blue.svg"
+                         alt="twitter"
+                         class="github">
                   </i>
                 </a>
               {% endif %}
