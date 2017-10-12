@@ -10,7 +10,7 @@ it('test user_repo', ->
 )
 
 it('test to_date', ->
-  assert.equal(to_date('Tue Jan 31 21:01:55 EST 2017'),
+  assert.equal(to_date('Tue Jan 31 12:01:55 EST 2017'),
                'Jan 31, 2017')
 )
 
