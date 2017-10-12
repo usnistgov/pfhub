@@ -151,8 +151,6 @@ benchmark = (data) ->
     .text((d) -> d.id + '.' + d.version)
 
 
-
-
 to_date = (x) ->
   ### Change a time stamp into a date
 
@@ -165,7 +163,6 @@ to_date = (x) ->
   format = (s) ->
     s[4..9] + ', ' + s[11..14]
   format(new Date(Date.parse(x)).toString())
-
 
 
 date = (data) ->
@@ -217,7 +214,6 @@ get_data = (data, name) ->
     the named data
   ###
   data.data.filter((x) -> x.name is name)[0]
-
 
 
 memory_usage = (data) ->
@@ -509,6 +505,3 @@ build = (data, sim_name, codes_data, chart_data) ->
     contour_data = map(read_vega_data, result_data.contour)
     plotly_data = map(ploterize, contour_data)
     add_card(add_plotly, '#images', with_div = with_div)(plotly_data)
-
-
-build(DATA, SIM_NAME, CODES_DATA, CHART_DATA)
