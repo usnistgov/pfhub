@@ -22,6 +22,7 @@ install:
   - npm install -g npm
   - npm install -g coffeelint
   - npm install -g coffeescript
+  - npm install -g coffee-script
   - npm install -g mocha
   - npm install -g assert
 script:
