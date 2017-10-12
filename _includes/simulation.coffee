@@ -53,7 +53,7 @@ author = (data) ->
   ###
   select_tag('#author')([data.metadata])
     .append('a')
-    .attr('href', (d) -> "mailto:" + d.email)
+    .attr('href', (d) -> 'mailto:' + d.email)
     .attr('target', 'blank_')
     .text((d) -> d.author)
 
