@@ -18,7 +18,7 @@
   text: >-
     FiPy developer, phase field
     enthusiast and web developer for the CHiMaD Phase Field Website
-  avatar: https://avatars0.githubusercontent.com/u/1986844?v=3&s=60
+  avatar: https://avatars0.githubusercontent.com/u/1986844?v=3&s=140
   github_id: wd15
   twitter: wd15dan
   email: daniel.wheeler@nist.gov
@@ -26,7 +26,7 @@
   text: >-
     Staff Scientist at Idaho National Lab, MOOSE / Phase Field
     developer, and lead of the MARMOT mesoscale modeling code.
-  avatar: https://avatars1.githubusercontent.com/u/202302?v=3&s=60
+  avatar: https://avatars1.githubusercontent.com/u/202302?v=3&s=140
   email: daniel.schwen@inl.gov
   home: http://www.schwen.de
   twitter: danielschwen
@@ -42,7 +42,7 @@
   text: >-
     Post-doc at Northwestern University/Argonne National Laboratory
     and mesoscale wrangler.
-  avatar: https://avatars0.githubusercontent.com/u/6676372?v=4&s=60
+  avatar: https://avatars0.githubusercontent.com/u/6676372?v=4&s=140
   email: andrea.jokisaari@northwestern.edu
   github_id: amjokisaari
 - name: Trevor Keller
@@ -50,6 +50,6 @@
     HPC hardware enthusiast, <a href="https://hiperc.readthedocs.io">HiPerC</a> &
     <a href="https://github.com/mesoscale/mmsp">MMSP</a> developer, and research
     engineer at <a href="http://msed.nist.gov">NIST</a>.
-  avatar: https://avatars0.githubusercontent.com/u/2179347?v=4&s=60
+  avatar: https://avatars0.githubusercontent.com/u/2179347?v=4&s=140
   email: trevor.keller@nist.gov
   github_id: tkphd
