@@ -27,7 +27,7 @@
   text: >-
     Staff Scientist at Idaho National Lab, MOOSE / Phase Field
     developer, and lead of the MARMOT mesoscale modeling code.
-  avatar: https://avatars1.githubusercontent.com/u/202302?v=3&s=460
+  avatar: https://avatars1.githubusercontent.com/u/202302?v=3&s=140
   email: daniel.schwen@inl.gov
   home: http://www.schwen.de
   twitter: danielschwen
@@ -43,7 +43,7 @@
   text: >-
     Post-doc at Northwestern University/Argonne National Laboratory
     and mesoscale wrangler.
-  avatar: https://avatars0.githubusercontent.com/u/6676372?v=4&s=30
+  avatar: https://avatars0.githubusercontent.com/u/6676372?v=4&s=140
   email: andrea.jokisaari@northwestern.edu
   github_id: amjokisaari
 - name: Larry Aagesen
@@ -53,3 +53,12 @@
   avatar: ../images/Aagesen-resized.png
   github_id: laagesen
   email: larry.aagesen@inl.gov
+- name: Trevor Keller
+  text: >-
+    HPC hardware enthusiast, <a href="https://hiperc.readthedocs.io">HiPerC</a> &
+    <a href="https://github.com/mesoscale/mmsp">MMSP</a> developer, and research
+    engineer at <a href="https://www.nist.gov/mml/materials-science-and-engineering-division">NIST</a>.
+  avatar: https://avatars0.githubusercontent.com/u/2179347?v=4&s=140
+  email: trevor.keller@nist.gov
+  github_id: tkphd
+  home: http://www.trevorkeller.com
