@@ -1,4 +1,4 @@
-<ul id="dropdown1" class="dropdown-content" style="overflow-y: visible; width: 1000px !important">
+<ul id="dropdown1" class="dropdown-content">
   <li><a href="{{ site.baseurl }}/overview" class="navbar-text">Overview</a></li>
   <li><a href="{{ site.baseurl }}/contact" class="navbar-text">Contact</a></li>
   <li><a href="{{ site.baseurl }}/community" class="navbar-text">Community</a></li>
@@ -24,7 +24,6 @@
            data-belowOrigin="true"
            data-hover="true"
            class="dropdown-button navbar-text">
-           <!-- style="width: 150px !important"> -->
           About
           <i class="material-icons tiny right">
             arrow_drop_down
@@ -56,7 +55,9 @@
              href="{{ site.links.github }}"
              title="GitHub">
           <i class="medium material-icons">
-            <img style="width: 28px; height: 28px" src="{{ site.baseurl}}/images/circle.svg" alt="Github">
+            <img class="github-circle"
+                 src="{{ site.baseurl}}/images/circle.svg"
+                 alt="Github">
           </i>
       </a></li>
     </ul>

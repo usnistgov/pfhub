@@ -208,3 +208,32 @@ table.striped tbody tr:nth-child(2n+1) {
     width: 20px;
     height: 20px;
 }
+
+.hexbin-link {
+    float: right;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.dropdown1 {
+    overflow-y: visible;
+    width: 1000px !important;
+}
+
+.material-icons.tiny.right {
+    margin-left: 0px;
+}
+
+.github-circle {
+    width: 28px;
+    height: 28px;
+}
+
+.twitter-timeline {
+    float: left;
+    position: relative;
+}
+
+#title-page-text {
+    margin-bottom: -150px;
+}
