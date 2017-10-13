@@ -164,6 +164,31 @@ table.striped tbody tr:nth-child(2n+1) {
     margin-left: 50px;
 }
 
+
+.chip img {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    margin-left: 1px;
+}
+
+#summary {
+    font-size: 16px;
+}
+
+.card.small .card-image {
+    max-height: 70%;
+}
+
+.card.small .card-content.scroll {
+    overflow: auto;
+    max-height: 30%;
+}
+
+.materialboxed.responsive-img.initialized {
+    background-color: white;
+}
+
 .card.small .card-content {
     max-height: 95%;
 }
