@@ -22,6 +22,7 @@
   github_id: wd15
   twitter: wd15dan
   email: daniel.wheeler@nist.gov
+  home: http://wd15.github.io/
 - name:	Daniel Schwen
   text: >-
     Staff Scientist at Idaho National Lab, MOOSE / Phase Field
@@ -45,3 +46,10 @@
   avatar: https://avatars0.githubusercontent.com/u/6676372?v=4&s=30
   email: andrea.jokisaari@northwestern.edu
   github_id: amjokisaari
+- name: Larry Aagesen
+  text: >-
+    Staff Scientist at Idaho National Lab, MOOSE & MARMOT phase-field
+    developer
+  avatar: ../images/Aagesen-resized.png
+  github_id: laagesen
+  email: larry.aagesen@inl.gov
