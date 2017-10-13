@@ -164,6 +164,7 @@ table.striped tbody tr:nth-child(2n+1) {
     margin-left: 50px;
 }
 
+
 .chip img {
     width: 20px;
     height: 20px;
@@ -186,4 +187,24 @@ table.striped tbody tr:nth-child(2n+1) {
 
 .materialboxed.responsive-img.initialized {
     background-color: white;
+}
+
+.card.small .card-content {
+    max-height: 95%;
+}
+
+.circle {
+    height: 70px;
+    width: 70px;
+    margin-left: 10px;
+    object-fit: cover;
+}
+
+.small .material-icons {
+    font-size: 20px;
+}
+
+.github {
+    width: 20px;
+    height: 20px;
 }
