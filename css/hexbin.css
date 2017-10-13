@@ -1,7 +1,7 @@
 #examples {
   background: #ddd;
   height: 360px;
-  margin-bottom: 2em;
+  margin-bottom: 0px;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -59,4 +59,3 @@
   stroke: #000;
   stroke-width: 2px;
 }
-
