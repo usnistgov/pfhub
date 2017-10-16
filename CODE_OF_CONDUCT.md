@@ -95,7 +95,7 @@ If a community member engages in unacceptable behavior, the community organizers
 
 If you are subject to or witness unacceptable behavior, or have any
 other concerns, please notify the NIST GitHub moderator as soon as
-possible at <devops@nist.gov>.
+possible at <daniel.wheeler@nist.gov>.
 
 Additionally, community organizers are available to help community
 members engage with local law enforcement or to otherwise help those
@@ -107,9 +107,9 @@ the person experiencing distress.
 
 If you feel you have been falsely or unfairly accused of violating
 this Code of Conduct, you should notify the NIST GitHub moderator at
-<devops@nist.gov> with a concise description of your grievance. Your
-grievance will be handled in accordance with our existing governing
-policies.
+<daniel.wheeler@nist.gov> with a concise description of your
+grievance. Your grievance will be handled in accordance with our
+existing governing policies.
 
 ### 8. Scope
 

@@ -1,8 +1,9 @@
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="{{ site.baseurl }}/overview" class="navbar-text">Overview</a></li>
-  <li><a href="{{ site.baseurl }}/contact" class="navbar-text">Contact</a></li>
+  <li><a href="{{ site.baseurl }}/ABOUT" class="navbar-text">About</a></li>
+  <li><a href="{{ site.baseurl }}/INVOLVEMENT" class="navbar-text">Get Involved</a></li>
   <li><a href="{{ site.baseurl }}/community" class="navbar-text">Community</a></li>
   <li><a href="{{ site.baseurl }}/CODE_OF_CONDUCT">Code of Conduct</a></li>
+  <li><a href="{{ site.baseurl }}/codes">Suggested Codes</a></li>
 </ul>
 
 <nav class="light-green lighten-2">
@@ -12,14 +13,14 @@
 
     <ul class="left hide-on-med-and-down">
       <li><a href="{{ site.baseurl }}/"
-             title="home">
+             title="Home">
           <i class="medium material-icons">home</i>
       </a></li>
       <li><a href="{{ site.baseurl }}/#benchmarks" class="navbar-text">Benchmarks</a></li>
       <li><a href="{{ site.baseurl }}/workshops" class="navbar-text">Workshops</a></li>
 
       <li>
-        <a href="{{ site.baseurl }}/#benchmarks"
+        <a href="{{ site.baseurl }}/ABOUT"
            data-activates="dropdown1"
            data-belowOrigin="true"
            data-hover="true"
@@ -35,14 +36,19 @@
 
     <ul class="side-nav" id="mobile-demo">
       <li><a href="{{ site.baseurl }}/"
-             title="home">
+             title="Home">
           <i class="medium material-icons">home</i>
       </a></li>
 
       <li><a href="{{ site.baseurl }}/#benchmarks" class="navbar-text">Benchmarks</a></li>
       <li><a href="{{ site.baseurl }}/workshops" class="navbar-text">Workshops</a></li>
-      <li><a href="{{ site.baseurl }}/about" class="navbar-text">About</a></li>
-      <li><a href="{{ site.links.github }}" class="navbar-text">GitHub</a></li>
+      <li><a href="{{ site.baseurl }}/ABOUT" class="navbar-text">About</a></li>
+      <li><a href="{{ site.baseurl }}/INVOLVEMENT" class="navbar-text">Get Involved</a></li>
+      <li><a href="{{ site.baseurl }}/community" class="navbar-text">Community</a></li>
+      <li><a href="{{ site.baseurl }}/CODE_OF_CONDUCT" class="navbar-text">Code of Conduct</a></li>
+      <li><a href="{{ site.baseurl }}/codes">Suggested Codes</a></li>
+      <li><a href="{{ site.links.github }}" title="GitHub" class="navbar-text">GitHub</a></li>
+
     </ul>
 
     <ul class="right hide-on-med-and-down">
@@ -50,6 +56,11 @@
              href="{{ site.baseurl }}/mailing_list/"
              title="Mailing List">
           <i class="medium material-icons">email</i>
+      </a></li>
+      <li><a target="_blank"
+             href="{{ site.links.chat }}"
+             title="Chat">
+          <i class="medium material-icons">chat</i>
       </a></li>
       <li><a target="_blank"
              href="{{ site.links.github }}"
