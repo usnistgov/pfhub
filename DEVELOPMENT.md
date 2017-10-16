@@ -32,12 +32,9 @@ The list below gives which method should be used for various types of changes.
 Many of these tasks require that you have an
 account on [GitHub][GITHUB].
 
-***Update on Google Forms***
-
-- [Add yourself to the community page](#comm_page)
-
 ***Update directly on GitHub***
 
+- [Add yourself to the community page](#comm_page)
 - [Add a new phase field code](#new_code)
 - [Add a new workshop](#new_workshop)
 - [Add a new page](#new_page)
@@ -51,27 +48,6 @@ account on [GitHub][GITHUB].
 
 Detailed instructions for each of aspects of the site are given in the following sections.
 
-<h4> Update on Google Forms </h4>
-<h5> <a name="comm_page"></a>Update the Community Page </h5>
-
-An instance of this Web site is hosted at
-[NIST](https://pages.nist.gov/chimad-phase-field).
-The [community page](https://pages.nist.gov/chimad-phase-field/community/)
-supports dynamic additions using Google
-Forms. Google Forms stores the data in a [Google Docs spreadsheet](https://docs.google.com/spreadsheets/d/112cDOOwzxLGbRx7yPte6HaXQgzQSXULrrVJLEmJvrKM/pubhtml?gid=764068827&single=true). The
-link for the spreadsheet is stored in the [`_config.yaml`]({{
-site.links.github }}/blob/nist-pages/_config.yml) file under
-`links.members`. Currently the following fields are required in the
-Google Docs spreadsheet with the exact string matches.
-
-    - Name
-    - "Bio (one or two sentences)"
-    - URL
-    - Email
-    - "Home Page"
-    - "Twitter Handle"
-    - "GitHub Handle"
-    - "Other Links"
 
 <h4> Update Directly on GitHub </h4>
 
@@ -82,6 +58,24 @@ Doing so will automatically fork the repository to your
 [GitHub][GITHUB] account and submit a pull request to update the
 [master GitHub repository]({{ site.links.github }})
 with your content.
+
+<h5> <a name="comm_page"></a>Update the Community Page </h5>
+
+To add a new entry to the communtiy page edit the
+[`community.yaml`]({{ site.links.github
+}}/blob/nist-pages/_data/community.yaml) file. The following fields
+need to be included for each entry.
+
+    - name: Your name
+      text: A biographical sketch
+      email: Your email
+      home: Link to your home page
+      github_id: Your Github ID
+      twitter: Your Twitter handle
+      avatar: Link to your image
+
+Please also add other social media links beyond GitHub and Twitter
+that you'd like to include as well.
 
 <h5> <a name="new_code"></a>Add a New Phase Field Code </h5>
 
