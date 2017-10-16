@@ -16,15 +16,6 @@ collections:
       ["Benchmark Problems for Phase Field
       Methods"](http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html)).
       A complete list of uploaded benchmark simulations is available under ["Benchmark Simulations"](simulations){:target="_blank"}.
-
-  - header: Codes
-    tag: codes
-    js: codes
-    comment: >-
-      Codes with well documented, annotated examples that demonstrate
-      the phase field method. See the
-      [submission page](submit_a_new_code){:target="_blank"} to submit
-      a new code to this list.
 ---
 
 In January 2015 a group of phase field theorists and code developers
