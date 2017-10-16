@@ -208,3 +208,8 @@ table.striped tbody tr:nth-child(2n+1) {
     width: 20px;
     height: 20px;
 }
+
+.flow-text ul li {
+    list-style-type: disc;
+    margin-left: 40px;
+}
