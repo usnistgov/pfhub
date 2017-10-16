@@ -36,23 +36,26 @@ details.
 
 <h4> Suggested Phase Field Codes </h4>
 
-The goal of this site is to generate benchmarks, but also to evaluate
-codes that solve phase field problems. We have a list of recommend
-codes that have been used to solve some of the benchmarks.
+The goal of this site is to not only generate benchmarks, but to also
+evaluate codes that solve phase field problems. We have a list of
+[suggested codes]({{ site.baseurl}}/codes) that have been used to
+solve some of the benchmarks.
 
 <h4> FAQ </h4>
 
 <h5> Which code should I use to solve my phase field problem? </h5>
 
-We don't have the answer to this question yet. We are working on
-this. We have a list of phase field codes and also a list of benchmark
-results that might help you evaluate which code might work best for
-you.
+We don't have the answer to this question yet, but we are working on
+it. We have a [list of phase field codes]({{ site.baseurl}}/codes) and
+also a [list of benchmark results]({{ site.baseurl}}/#benchmarks) that
+might help you evaluate which code might work best for you.
 
 <h5> I don't like one of the benchmark problems. Can I help fix it? </h5>
 
 Yes. Your feedback on the benchmark problems is highly valued. The
 benchmarks are a moving target that you can contribute to. If you
 would like to propose a change or improvement then please raise it via
-chat or as an issue. The community will discuss the change and act on it if
-we can reach a consensus
+[chat](https://gitter.im/usnistgov/chimad-phase-field) or as an
+[issue](https://github.com/usnistgov/chimad-phase-field/issues/new). The
+community will discuss the change and act on it if we can reach a
+consensus
