@@ -4,23 +4,26 @@ layout: essay
 comment:
 ---
 
-The primary goal of this site is to provide a set of benchmark
-problems to compare and contrast codes for solving phase field
-equations. Further goals include
+The primary goal of the benchmarking effort is to provide a set of
+benchmark problems to compare and contrast codes for solving phase
+field equations. Further goals include
 
- - providing tools for comparing phase field codes based on performance
+ - providing quality assurance for phase field codes based on performance
    and accuracy,
 
- - providing practical educational material for phase field
-   practitioners,
+ - increasing the adoption of phase field methods in engineering and
+   academic applications with the development of practical
+   documentation,
 
- - and generating an engaged and coordinated phase field community.
+ - and by fostering an engaged and integrated phase field community.
 
 <h4> Get Involved </h4>
 
-All those interested in phase field modeling are welcome to
-participate in the community. See the [involvement guide]({{
-site.baseurl }}/INVOLVEMENT) for more details.
+We are an inclusive and expanding community and welcome new
+participants.  All those interested in phase field modeling are
+welcome to participate in a variety of different ways. See the
+[involvement guide]({{ site.baseurl }}/INVOLVEMENT) for more details
+about how you can get involved with the community.
 
 <h4> Community </h4>
 
@@ -39,7 +42,7 @@ details.
 The goal of this site is to not only generate benchmarks, but to also
 evaluate codes that solve phase field problems. We have a list of
 [suggested codes]({{ site.baseurl}}/codes) that have been used to
-solve some of the benchmarks.
+solve some of the benchmark problems.
 
 <h4> FAQ </h4>
 
