@@ -17,6 +17,17 @@ field equations. Further goals include
 
  - and by fostering an engaged and integrated phase field community.
 
+<h4> Further Reading </h4>
+
+For further details about the benchmarking effort see one of
+
+ - the [extended overview]({{ site.baseurl }}/benchmarks){:target="_blank"},
+
+ - ["Benchmark Problems for Phase Field Methods"](http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html)
+
+ - ["Benchmark problems for numerical implementations of phase field
+   models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}
+
 <h4> Get Involved </h4>
 
 We are an inclusive and expanding community and welcome new
