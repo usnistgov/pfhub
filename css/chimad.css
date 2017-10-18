@@ -243,3 +243,34 @@ table.striped tbody tr:nth-child(2n+1) {
     list-style-type: disc;
     margin-left: 30px;
 }
+
+.flow-text.mission-statement p {
+    font-size: 20px;
+}
+
+.flow-text.describe {
+    font-size: 20px;
+    font-style: italic;
+}
+
+#upload-button {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.card-content.benchmark .circle {
+    float: left;
+    margin-right: 20px;
+}
+
+.card-content.benchmark .card-title {
+    line-height: 30px;
+}
+
+.card-content.benchmark .flow-text {
+    font-size: 20px;
+}
+
+.card-content.benchmark h6 {
+    font-size: 16px;
+}
