@@ -1,0 +1,102 @@
+---
+layout: default
+comment: >-
+  Integrating the phase field community
+---
+
+{% include title.html %}
+{% include hexbin.html %}
+
+<a class="twitter-timeline"
+   data-height="400"
+   data-width="250"
+   href="https://twitter.com/hashtag/chimadphasefield"
+   data-widget-id="838863917266911234">
+  #chimadphasefield
+</a>
+
+<div class="container" id="title-page-text">
+  <div class="row small-buffer">
+    <div class="col l2 m12 s12">
+    </div>
+    <div class="col s10 offset-s1" id="overview">
+      <div class="flow-text" style="font-size: 20px">
+        <p>
+          In January 2015 a group of phase field theorists and code
+          developers met at Northwestern University to discuss ways
+          for the community to improve code collaboration
+          efforts. Everyone agreed that the community needs to become
+          more open and work in a more collaborative manner.
+        </p>
+        <p>
+          A key factor to improving community code collaboration is to
+          develop resources to compare and contrast phase field codes
+          and libraries. This site aims to provide some of these
+          resources and become a useful web service for phase field
+          practitioners.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container top-bar-thin top-buffer">
+  <div class="row small-buffer">
+    <div class="col l2 m12 s12">
+      <h5 class="sideheader">
+        The Benchmarks
+      </h5>
+    </div>
+    <div class="col s10 small-buffer">
+      <div class="flow-text" style="font-size: 20px; font-style: italic;">
+        Benchmark problems vetted by the community to test, validate and verify phase field codes
+      </div>
+
+      <div style="margin-top: 20px; margin-left: 40px">
+        <a class="waves-effect waves-light btn blue lighten-3"
+           href="/chimad-phase-field/simulations/upload_form"
+           target="_blank">
+          Upload a New Benchmark Result
+        </a>
+        <h6>
+          <br>
+          Total Uploads: {{ site.data.data_table.data | size }}
+        </h6>
+
+      </div>
+
+
+      {% for item in site.data.benchmarks %}
+      <div class="col l4 m6 s12 small-buffer">
+        <div class="card small light-green lighten-4">
+          <div class="card-content">
+
+            <img class="circle"
+                 src="{{ item.image }}"
+                 alt=""
+                 style="float: left; margin-right: 20px">
+
+            <span class="card-title" style="line-height: 30px">
+              <a href="{{ site.baseurl }}/{{ item.url }}"
+                 target="_blank"
+                 title="home page">
+                {{ item.title }}
+              </a>
+            </span>
+
+            <div class="flow-text" style="font-size: 20px">
+              <p>
+                <br>
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
