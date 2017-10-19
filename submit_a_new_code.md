@@ -2,8 +2,8 @@
 title: "Submit a New Code"
 layout: essay
 comment: >-
-  How to submit codes to the <a
-  href="/chimad-phase-field/#codes" target="_blank">list</a> on the front page.
+  How to submit a code to the list of <a
+  href="/chimad-phase-field/codes">suggest codes</a>
 ---
 
 ### Call for Community Codes
