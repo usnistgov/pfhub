@@ -239,11 +239,6 @@ table.striped tbody tr:nth-child(2n+1) {
     margin-bottom: -150px;
 }
 
-.flow-text ul li {
-    list-style-type: disc;
-    margin-left: 30px;
-}
-
 .flow-text.mission-statement p {
     font-size: 20px;
 }
@@ -277,4 +272,9 @@ table.striped tbody tr:nth-child(2n+1) {
 
 #upload-button h6 {
     font-size: 20px;
+}
+
+.flow-text ul li {
+    list-style-type: disc;
+    margin-left: 40px;
 }

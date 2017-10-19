@@ -1,7 +1,7 @@
 ---
 title: "Development Guide"
 layout: essay
-comment: How to develop this site
+comment: How to modify this site (beyond adding new simulations)
 ---
 
 <p align="center">
@@ -14,22 +14,42 @@ alt="Travis CI">
 <h4> Overview </h4>
 
 The following guide is an overview on how to update the site for each
-particular element. Many of these tasks require that you have an
-account on [GitHub][GITHUB]. Tasks are grouped below according to
-where you should edit the site: on the [master GitHub repository]({{
-site.links.github }}) or your personal
-[fork](https://help.github.com/articles/fork-a-repo/), or on your
-local machine.
-
-The site is tested on
+particular element. Each page on this site is given by a combination of
+markdown files, .yaml files, and Jupyter notebooks. These files are converted
+to HTML using Jekyll, a static web page generator. The site is tested on
 [Travis CI](https://travis-ci.org/usnistgov/chimad-phase-field) using
 [HTMLProofer][HTMLPROOFER], which automatically checks the site for
 errors. The [`.travis.yml`][TRAVISYML] file contains everything
 required to build the site. Note that if the instructions below and
 the [`.travis.yml`][TRAVISYML] are not synced then the build outlined
-in the [`travis.yml`][TRAVISYML] should be used.
+in the [`travis.yml`][TRAVISYML] should be used. The main site is hosted on
+[pages.nist.gov](https://pages.nist.gov/pages-root/), which provides
+the [build.log](https://pages.nist.gov/chimad-phase-field/build.log)
+for the Jekyll build.
 
-<h4> Updates on GitHub </h4>
+Different aspects of this site can be edited using Google Forms, GitHub, or on your local machine.
+The list below gives which method should be used for various types of changes.
+Many of these tasks require that you have an
+account on [GitHub][GITHUB].
+
+***Update directly on GitHub***
+
+- [Add yourself to the community page](#comm_page)
+- [Add a new phase field code](#new_code)
+- [Add a new workshop](#new_workshop)
+- [Add a new page](#new_page)
+
+***Update on your local machine***
+- [How to build and view the site locally](#build_site)
+- [Update and build the Hexbin (hexagonal tiles of images on the homepage)](#build_hexbin)
+- [Add a Jupyter notebook](#new_notebook)
+- [Add a new benchmark problem](#new_problem)
+- [Test the HTML output](#test_html)
+
+Detailed instructions for each of aspects of the site are given in the following sections.
+
+
+<h4> Update Directly on GitHub </h4>
 
 Several common tasks can be accomplished on [GitHub][GITHUB]
 by editing files
@@ -39,14 +59,32 @@ Doing so will automatically fork the repository to your
 [master GitHub repository]({{ site.links.github }})
 with your content.
 
-<h5> Add a New Phase Field Code </h5>
+<h5> <a name="comm_page"></a>Update the Community Page </h5>
+
+To add a new entry to the communtiy page edit the
+[`community.yaml`]({{ site.links.github
+}}/blob/nist-pages/_data/community.yaml) file. The following fields
+need to be included for each entry.
+
+    - name: Your name
+      text: A biographical sketch
+      email: Your email
+      home: Link to your home page
+      github_id: Your Github ID
+      twitter: Your Twitter handle
+      avatar: Link to your image
+
+Please also add other social media links beyond GitHub and Twitter
+that you'd like to include as well.
+
+<h5> <a name="new_code"></a>Add a New Phase Field Code </h5>
 
 To add a new phase field code to the list of codes on the front page,
 follow the [submission instructions]({{ site.baseurl
 }}/submit_a_new_code) on the main site. [Jekyll][JEKYLL] will
 automatically rebuild the site after `codes.yaml` is edited.
 
-<h5> Add a New Workshop </h5>
+<h5> <a name="new_workshop"></a>Add a New Workshop </h5>
 
 To add a new workshop edit the [`workshop.yaml`]({{ site.links.github
 }}/blob/nist-pages/_data/workshops.yaml) file. The following fields need to
@@ -69,9 +107,9 @@ be included for each entry.
           href: "{{ site.baseurl }}/docs/CHiMaD_PhaseFieldWorkshop.pdf"
 
 For each of the `icon_links`, the `type` field must correspond to a
-Materialize icon.
+[Materialize icon](http://materializecss.com/icons.html).
 
-<h5> Add a New Page </h5>
+<h5> <a name="new_page"></a>Add a New Page </h5>
 
 To add a new page create the page as a Markdown file directly on
 [GitHub]({{ site.links.github }}). For example, click "Create new
@@ -87,10 +125,10 @@ the contents
     Something about phase field ...
 
 Submit a pull request on [GitHub]({{ site.links.github }}) and this
-page will appear under `.../chimad-phase-field/test-page` after the
+page will appear under `.../chimad-phase-field/my-page` after the
 pull-request is merged.
 
-<h4> Updates on Your Local machine </h4>
+<h4> Update on Your Local Machine </h4>
 
 Some tasks involve adding new files or rebuilding existing ones. These
 are best done on your local machine, on a
@@ -102,7 +140,7 @@ You are encouraged to serve a local version of the site for testing before
 and issuing a
 [pull request](https://help.github.com/articles/creating-a-pull-request/).
 
-<h5> Build and Serve the Site </h5>
+<h5> <a name="build_site"></a>Build and Serve the Site </h5>
 
 The site uses the [Jekyll][JEKYLL] static web site generator. To build
 the environment required to serve the site, use the following
@@ -125,9 +163,9 @@ At this point [Jekyll][JEKYLL] should be serving the site. Go to
 or the link [Jekyll][JEKYLL] provides on the terminal, to view the
 site.
 
-<h5> Update and Build the Hexbin </h5>
+<h5> <a name="build_hexbin"></a>Update and Build the Hexbin </h5>
 
-To build the Hexbin, a Python environment is required. To setup the
+To build the Hexbin, the tiled hexagonal images on the homepage, a Python environment is required. To setup the
 environment use [Conda][CONDA].
 
     $ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
@@ -159,9 +197,9 @@ associated with the image.  After updating rebuild the Hexbin.
 
 [Jekyll][JEKYLL] should automatically update the site.
 
-<h5> Add a Jupyter Notebook </h5>
+<h5> <a name="new_notebook"></a>Add a Jupyter Notebook </h5>
 
-A lot of the site is built using Jupyter Notebooks. To render the
+The benchmark specifications are built using Jupyter Notebooks. To render the
 notebooks as HTML, first generate the Python environment outlined
 above, and then install Jupyter.
 
@@ -178,7 +216,7 @@ render it on the site. For example, a notebook in the base directory
 named `my_notebook.ipynb` will be rendered at
 `http://localhost:4000/chimad-phase-field/my_notebook.ipynb`.
 
-<h5> Add a New Benchmark Problem </h5>
+<h5> <a name="new_problem"></a>Add a New Benchmark Problem </h5>
 
 To add a new benchmark problem include a notebook describing the new
 problem and then link to it via the [`benchmarks.yaml`]({{
@@ -190,7 +228,7 @@ the following fields.
       description: Test the diffusion of a solute in a matrix.
       image: http://www.comsol.com/model/image/2054/big.png
 
-<h5> Testing </h5>
+<h5> <a name="test_html"></a>Testing </h5>
 
 The site can be tested at the command line using
 [HTMLProofer][HTMLPROOFER]. This validates the generated HTML
@@ -205,7 +243,7 @@ Make fresh builds of all the notebooks to check that they can be built.
 
 Make a fresh Hexbin to check its build process.
 
-    $ touch data/hexbin.yaml
+    $ touch _data/hexbin.yaml
     $ make hexbin
 
 Use [HTMLProofer][HTMLPROOFER] to check the site.
@@ -224,31 +262,3 @@ correctly.
 [JEKYLL]: https://jekyllrb.com
 [GITHUB]: https://github.com
 [HTMLPROOFER]: https://github.com/gjtorikian/html-proofer
-
-<h4> Update the Community Page </h4>
-
-An instance of this Web site is hosted at
-[NIST](https://pages.nist.gov/chimad-phase-field).
-The [community page](https://pages.nist.gov/chimad-phase-field/community/)
-supports dynamic additions using Google
-Forms. Google Forms stores the data in a Google Docs spreadsheet. The
-link for the spreadsheet is stored in the [`_config.yaml`]({{
-site.links.github }}/blob/nist-pages/_config.yml) file under
-`links.members`. Currently the following fields are required in the
-form with the exact string matches.
-
-    - Name
-    - "Bio (one or two sentences)"
-    - URL
-    - Email
-    - "Home Page"
-    - "Twitter Handle"
-    - "GitHub Handle"
-    - "Other Links"
-
-<h4> Pages.nist.gov </h4>
-
-The main site is hosted on
-[Pages.nist.gov](https://pages.nist.gov/pages-root/), which provides
-the [build.log](https://pages.nist.gov/chimad-phase-field/build.log)
-for the Jekyll build.
