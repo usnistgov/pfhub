@@ -1,3 +1,6 @@
+fake = ->
+  ['example', 'example_minimal', 'test_lander']
+
 count_uploads = (benchmark_num, data) ->
   ### Count the number of uploads per benchmark number
 
@@ -8,9 +11,10 @@ count_uploads = (benchmark_num, data) ->
   Returns:
     the number of uploads
   ###
+
   sequence(
-    (x) -> (v for k, v of x when k not in ['example', 'example_minimal', 'test_lander'])
-    (x) -> x.filter((y) -> y.meta.benchmark.id[0] == "#{benchmark_num}")
+    (x) -> (v for k, v of x when k not in fake())
+    (x) -> x.filter((y) -> y.meta.benchmark.id[0] is "#{benchmark_num}")
     (x) -> x.length
   )(data)
 

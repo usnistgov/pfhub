@@ -40,19 +40,11 @@ it('test memory_usage', ->
 
 it('test count_uploads', ->
   data = ->
-    example: {}
-    a:
-      meta:
-        benchmark:
-          id:'1a.0'
-    b:
-      meta:
-        benchmark:
-          id:'1a.0'
-    c:
-      meta:
-        benchmark:
-          id:'2a.0'
+    {example:{},
+    a:{meta:{benchmark:{id:'1a.0'}}},
+    b:{meta:{benchmark:{id:'1a.0'}}},
+    c:{meta:{benchmark:{id:'2a.0'}}}
+    }
 
   assert.equal(count_uploads(1, data()), 2)
 )
