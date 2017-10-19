@@ -42,7 +42,7 @@ documentation, we cannot consider it a "community code."
 ### Follow-up
 
 After your code is added to the list, please upload at least one
-[simulation result]({{ site.baseurl }}/simulations/#simulations) to
+[benchmark result]({{ site.baseurl }}/simulations/#simulations) to
 provide users with a side-by-side comparison.
 
 ### How to Submit
