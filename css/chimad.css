@@ -274,3 +274,7 @@ table.striped tbody tr:nth-child(2n+1) {
 .card-content.benchmark h6 {
     font-size: 16px;
 }
+
+#upload-button h6 {
+    font-size: 20px;
+}
