@@ -1,14 +1,14 @@
 ---
 title: "Code of Conduct"
 layout: essay
-comment: The code of conduct for the CHiMaD phase field community
+comment: The code of conduct for our community
 ---
 
 ### 1. Purpose
 
-A primary goal of the CHiMaD phase field community is to be inclusive
-to the largest number of contributors, with the most varied and
-diverse backgrounds possible. As such, we are committed to providing a
+A primary goal of the {{ site.title }} community is to be inclusive to
+the largest number of contributors, with the most varied and diverse
+backgrounds possible. As such, we are committed to providing a
 friendly, safe and welcoming environment for all, regardless of
 gender, sexual orientation, ability, ethnicity, socioeconomic status,
 and religion (or lack thereof).
@@ -17,9 +17,8 @@ This code of conduct outlines our expectations for all those who
 participate in our community, as well as the consequences for
 unacceptable behavior.
 
-We invite all those who participate in the CHiMaD phase field
-community to help us create safe and positive experiences for
-everyone.
+We invite all those who participate in the {{ site.title }} community
+to help us create safe and positive experiences for everyone.
 
 ### 2. Open Source Citizenship
 
@@ -40,7 +39,8 @@ contribute to the fullest extent, we want to know.
 
 The following behaviors are expected and requested of all community members:
 
-* Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.
+* Participate in an authentic and active way. In doing so, you
+  contribute to the health and longevity of this community.
 
 * Exercise consideration and respect in your speech and actions.
 
@@ -59,43 +59,58 @@ The following behaviors are expected and requested of all community members:
 
 ### 4. Unacceptable Behavior
 
-The following behaviors are considered harassment and are unacceptable within our community:
+The following behaviors are considered harassment and are unacceptable
+within our community:
 
-* Violence, threats of violence or violent language directed against another person.
+* Violence, threats of violence or violent language directed against
+  another person.
 
-* Sexist, racist, homophobic, transphobic, ableist or otherwise discriminatory jokes and language.
+* Sexist, racist, homophobic, transphobic, ableist or otherwise
+  discriminatory jokes and language.
 
 * Posting or displaying sexually explicit or violent material.
 
-* Posting or threatening to post other people's personally identifying information ("doxing").
+* Posting or threatening to post other people's personally identifying
+  information ("doxing").
 
-* Personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
+* Personal insults, particularly those related to gender, sexual
+  orientation, race, religion, or disability.
 
 * Inappropriate photography or recording.
 
-* Inappropriate physical contact. You should have someone's consent before touching them.
+* Inappropriate physical contact. You should have someone's consent
+  before touching them.
 
-* Unwelcome sexual attention. This includes, sexualized comments or jokes; inappropriate touching, groping, and unwelcomed sexual advances.
+* Unwelcome sexual attention. This includes, sexualized comments or
+  jokes; inappropriate touching, groping, and unwelcomed sexual
+  advances.
 
-* Deliberate intimidation, stalking or following (online or in person).
+* Deliberate intimidation, stalking or following (online or in
+  person).
 
 * Advocating for, or encouraging, any of the above behavior.
 
-* Sustained disruption of community events, including talks and presentations.
+* Sustained disruption of community events, including talks and
+  presentations.
 
 ### 5. Consequences of Unacceptable Behavior
 
-Unacceptable behavior from any community member, including sponsors and those with decision-making authority, will not be tolerated.
+Unacceptable behavior from any community member, including sponsors
+and those with decision-making authority, will not be tolerated.
 
-Anyone asked to stop unacceptable behavior is expected to comply immediately.
+Anyone asked to stop unacceptable behavior is expected to comply
+immediately.
 
-If a community member engages in unacceptable behavior, the community organizers may take any action they deem appropriate, up to and including a temporary ban or permanent expulsion from the community without warning (and without refund in the case of a paid event).
+If a community member engages in unacceptable behavior, the community
+organizers may take any action they deem appropriate, up to and
+including a temporary ban or permanent expulsion from the community
+without warning (and without refund in the case of a paid event).
 
 ### 6. Reporting Guidelines
 
 If you are subject to or witness unacceptable behavior, or have any
-other concerns, please notify the NIST GitHub moderator as soon as
-possible at <devops@nist.gov>.
+other concerns, please notify the {{ site.title }} GitHub moderator as
+soon as possible at <{{ site.admin_email }}>.
 
 Additionally, community organizers are available to help community
 members engage with local law enforcement or to otherwise help those
@@ -106,10 +121,10 @@ the person experiencing distress.
 ### 7. Addressing Grievances
 
 If you feel you have been falsely or unfairly accused of violating
-this Code of Conduct, you should notify the NIST GitHub moderator at
-<devops@nist.gov> with a concise description of your grievance. Your
-grievance will be handled in accordance with our existing governing
-policies.
+this Code of Conduct, you should notify the {{ site.title }} GitHub
+moderator at <{{ site.admin_email }}> with a concise description of
+your grievance. Your grievance will be handled in accordance with our
+existing governing policies.
 
 ### 8. Scope
 
@@ -125,7 +140,8 @@ the safety and well-being of community members.
 
 ### 9. Contact info
 
-Please contact the NIST GitHub moderator at <devops@nist.gov>
+Please contact the {{ site.title }} GitHub moderator at <{{
+site.admin_email }}>
 
 ### 10. License and attribution
 
