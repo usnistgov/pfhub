@@ -17,7 +17,7 @@ install:
   - pip install progressbar2 pykwalify pylint nbval vega
   - jupyter nbextension enable vega --py
   - unset VIRTUAL_ENV
-  - gem install jekyll jekyll-coffeescript html-proofer
+  - gem install jekyll jekyll-coffeescript html-proofer jekyll-redirect-from
   - npm cache clean
   - npm install -g npm
   - npm install -g coffeelint

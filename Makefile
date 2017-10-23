@@ -22,7 +22,7 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 	jupyter-nbconvert $< --output $(notdir $@) --to html --template basic
 
 %.ipynb.md: %.ipynb
-	cp ./template.ipynb.md $@
+	cp -n ./template.ipynb.md $@
 	sed -i -- 's/notebook_name/$(notdir $<)/' $@
 
 %.yaml.out: %.yaml
