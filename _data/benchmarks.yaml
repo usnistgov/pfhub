@@ -1,13 +1,45 @@
 - title: Spinodal Decomposition
-  url: "benchmarks/benchmark1.ipynb/"
   description: Test the diffusion of a solute in a matrix.
   image: http://www.comsol.com/model/image/2054/big.png
   num: 1
-  results: [1a.1, 1b.1, 1c.1, 1d.1]
+  variations: [a, b, c, d]
+  revisions:
+    - version: 1
+      event: publication
+      url: "benchmarks/benchmark1.ipynb"
+    - version: 0
+      event: hackathon
+      url: "hackathons/hackathon1/problems.ipynb"
 
 - title: Ostwald Ripening
-  url: "benchmarks/benchmark2.ipynb/"
   description: Test coupling of conserved and non-conserved dynamics.
   image: https://i.ytimg.com/vi/IWJreldRjfs/maxresdefault.jpg
   num: 2
-  results: [1a.1, 1b.1, 1c.1, 1d.1]
+  variations: [a, b, c, d]
+  revisions:
+    - version: 1
+      event: publication
+      url: "benchmarks/benchmark2.ipynb"
+    - version: 0
+      event: hackathon
+      url: "hackathons/hackathon1/problems.ipynb"
+
+- title: Dendritic Growth
+  description: Test the tip velocity of a growing dendrite
+  image: ""
+  num: 3
+  variations: [a, b, c]
+  revisions:
+    - version: 0
+      event: hackathon
+      url: "hackathons/hackathon2/problem1.ipynb"
+
+- title: Linear Elasticity
+  description: Test linear elasticity coupled with phase field
+  image: ""
+  num: 4
+  variations: [a, b, c]
+  revisions:
+    - version: 0
+      event: hackathon
+      url: "hackathons/hackathon2/problem2.ipynb"

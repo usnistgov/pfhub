@@ -36,7 +36,7 @@
                  alt="">
 
             <span class="card-title">
-              <a href="{{ site.baseurl }}/{{ item.url }}">
+              <a href="{{ site.baseurl }}/{{ item.revisions[0].url }}">
                 {{item.num}}. {{ item.title }} <br><br>
               </a>
             </span>
@@ -55,7 +55,7 @@
             </div>
 
             <div>
-              <a href="{{ site.baseurl }}/{{ item.url }}"
+              <a href="{{ site.baseurl }}/{{ item.revisions[0].url }}"
                  title="">
                 Specification
               </a>
@@ -63,10 +63,10 @@
 
             <div>
               Results:
-              {% for subitem in item.results %}
-                <a href="{{ site.baseurl }}/simulations/{{ subitem }}"
+              {% for variation in item.variations %}
+                <a href="{{ site.baseurl }}/simulations/{{ item.num }}{{ variation }}.{{ item.revisions[0].version }}"
                    title="">
-                  {{ subitem }}
+                  {{ item.num }}{{ variation }}
                 </a>
                 {% if forloop.last == true %}
                   {% break %}
