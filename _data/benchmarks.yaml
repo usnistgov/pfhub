@@ -13,7 +13,7 @@
 
 - title: Ostwald Ripening
   description: Test coupling of conserved and non-conserved dynamics.
-  image: https://i.ytimg.com/vi/IWJreldRjfs/maxresdefault.jpg
+  image: images/ostwald.jpg
   num: 2
   variations: [a, b, c, d]
   revisions:
@@ -26,7 +26,7 @@
 
 - title: Dendritic Growth
   description: Test the tip velocity of a growing dendrite
-  image: ""
+  image: https://www.ctcms.nist.gov/fipy/_static/examples/phase/anisotropy/dendrite.png
   num: 3
   variations: [a, b, c]
   revisions:

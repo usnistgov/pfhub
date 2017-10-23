@@ -31,8 +31,12 @@
         <div class="card small light-green lighten-4">
           <div class="card-content benchmark">
 
+            {% capture http %}{{ item.image | slice: 0, 4 }}{% endcapture %}
+
+            {% capture image_link %}{% if http == "http" %}{{ item.image }}{% else %}{{ site.baseurl }}/{{ item.image }}{% endif %}{% endcapture %}
+
             <img class="circle"
-                 src="{{ item.image }}"
+                 src="{{ image_link }}"
                  alt="">
 
             <span class="card-title">
