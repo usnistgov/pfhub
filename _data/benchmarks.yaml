@@ -36,7 +36,7 @@
 
 - title: Linear Elasticity
   description: Test linear elasticity coupled with phase field
-  image: ""
+  image: images/elastic1.png
   num: 4
   variations: [a, b, c]
   revisions:
