@@ -48,3 +48,12 @@ it('test count_uploads', ->
 
   assert.equal(count_uploads(1, data()), 2)
 )
+
+
+it('test get_columns', ->
+  assert.equal(get_columns()[0].data, 'num')
+)
+
+it('test get_benchmark_data', ->
+  assert.deepEqual(get_benchmark_data({a:1}).data, {a:1})
+)
