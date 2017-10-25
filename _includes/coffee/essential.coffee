@@ -7,6 +7,11 @@
 
 # Core
 #
+# coffeelint: disable=no_implicit_parens
+# coffeelint: disable=space_operators
+# coffeelint: disable=no_plusplus
+# coffeelint: disable=spacing_after_comma
+
 _ = {}
 id = (x) -> x
 K = (x) -> -> x
@@ -259,24 +264,24 @@ powerset = ([x, xs...]) ->
 
 # Fantasy
 #
-fmap = λ (f, ma) -> ma.map f
-ap = λ (mf, ma) -> ma.ap mf
-chain = λ (f, ma) -> ma.chain f
+# fmap = λ (f, ma) -> ma.map f
+# ap = λ (mf, ma) -> ma.ap mf
+# chain = λ (f, ma) -> ma.chain f
 
-liftA = λ (ctor, f, ms) ->
-  ms.reduce(
-    (acc, ma) -> acc.ap ma
-    ctor.of f
-  )
+# liftA = λ (ctor, f, ms) ->
+#   ms.reduce(
+#     (acc, ma) -> acc.ap ma
+#     ctor.of f
+#   )
 
-seqM = λ (ctor, ms) ->
-  ms.reduceRight(
-    (ma, mb) ->
-      ma.chain (a) ->
-        mb.map (b) ->
-          [b].concat a
-    ctor.of []
-  )
+# seqM = λ (ctor, ms) ->
+#   ms.reduceRight(
+#     (ma, mb) ->
+#       ma.chain (a) ->
+#         mb.map (b) ->
+#           [b].concat a
+#     ctor.of []
+#   )
 
 # # Exports
 # #
@@ -307,7 +312,13 @@ seqM = λ (ctor, ms) ->
 
 # module.exports.expose = partial extend, _, module.exports
 
-# More functions:
+
+# coffeelint: enable=space_operators
+# coffeelint: enable=no_plusplus
+# coffeelint: enable=spacing_after_comma
+# coffeelint: enable=no_implicit_parens
+#
+# More functions NOT from essential.coffee
 
 do_ = (f) ->
   (x) ->

@@ -3,7 +3,7 @@ Functions to build the benchmark table
 ###
 
 
-get_columns = () ->
+get_columns = ->
   ### Get the column data for the table
 
   Returns:
@@ -11,12 +11,12 @@ get_columns = () ->
   ###
   [
     {
-      data:"num"
-      title:"Num"
+      data:'num'
+      title:'Num'
     }
     {
-      data:"title"
-      title:"Title"
+      data:'title'
+      title:'Title'
     }
   ]
 
