@@ -2,6 +2,7 @@
 Functions to build the benchmark table
 ###
 
+
 benchmark_id = (data, type, row) ->
   "#{row.num}#{row.variations}.#{row.revisions.version}"
 
@@ -20,6 +21,10 @@ get_columns = ->
     {
       data:'num'
       title:'Num'
+    }
+    {
+      data:'variations'
+      title:'Variation'
     }
     {
       data:'revisions'
@@ -49,7 +54,7 @@ get_benchmark_data = (data) ->
     data formatted for Datatable
   ###
   {
-    lengthMenu:[10]
+    lengthMenu:[20]
     lengthChange:false
     data:transform_data(data)
     columns:get_columns()
