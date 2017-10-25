@@ -94,8 +94,8 @@ If a community member engages in unacceptable behavior, the community organizers
 ### 6. Reporting Guidelines
 
 If you are subject to or witness unacceptable behavior, or have any
-other concerns, please notify the NIST GitHub moderator as soon as
-possible at <devops@nist.gov>.
+other concerns, please notify the CHiMaD Phase Field moderator as soon
+as possible at <devops@nist.gov>.
 
 Additionally, community organizers are available to help community
 members engage with local law enforcement or to otherwise help those
@@ -106,10 +106,10 @@ the person experiencing distress.
 ### 7. Addressing Grievances
 
 If you feel you have been falsely or unfairly accused of violating
-this Code of Conduct, you should notify the NIST GitHub moderator at
-<devops@nist.gov> with a concise description of your grievance. Your
-grievance will be handled in accordance with our existing governing
-policies.
+this Code of Conduct, you should notify the CHiMaD Phase Field
+moderator at <devops@nist.gov> with a concise description of your
+grievance. Your grievance will be handled in accordance with our
+existing governing policies.
 
 ### 8. Scope
 
@@ -125,7 +125,7 @@ the safety and well-being of community members.
 
 ### 9. Contact info
 
-Please contact the NIST GitHub moderator at <devops@nist.gov>
+Please contact the CHiMaD Phase Field moderator at <devops@nist.gov>
 
 ### 10. License and attribution
 

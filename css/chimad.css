@@ -209,6 +209,71 @@ table.striped tbody tr:nth-child(2n+1) {
     height: 20px;
 }
 
+.hexbin-link {
+    float: right;
+    font-size: 14px;
+    margin-top: 2px;
+    margin-right: 10px;
+}
+
+.dropdown1 {
+    overflow-y: visible;
+    width: 1000px !important;
+}
+
+.material-icons.tiny.right {
+    margin-left: 0px;
+}
+
+.github-circle {
+    width: 28px;
+    height: 28px;
+}
+
+.twitter-timeline {
+    float: left;
+    position: relative;
+}
+
+#title-page-text {
+    margin-bottom: -150px;
+}
+
+.flow-text.mission-statement p {
+    font-size: 20px;
+}
+
+.flow-text.describe {
+    font-size: 20px;
+    font-style: italic;
+}
+
+#upload-button {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.card-content.benchmark .circle {
+    float: left;
+    margin-right: 20px;
+}
+
+.card-content.benchmark .card-title {
+    line-height: 30px;
+}
+
+.card-content.benchmark .flow-text {
+    font-size: 20px;
+}
+
+.card-content.benchmark h6 {
+    font-size: 16px;
+}
+
+#upload-button h6 {
+    font-size: 20px;
+}
+
 .flow-text ul li {
     list-style-type: disc;
     margin-left: 40px;
