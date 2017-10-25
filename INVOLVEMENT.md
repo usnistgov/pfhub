@@ -5,10 +5,8 @@ comment: "How to participate in the benchmark effort"
 ---
 
 All those interested in phase field modeling are welcome to
-participate in the effort and to join our discussions. Those involved
-in graduate or postgraduate work involving studying or implementing
-phase field problems are especially welcome.  We value all forms of
-productive input. There are a number of ways to get involved.
+participate in the effort and to join our discussions. We value all
+forms of productive input. There are a number of ways to get involved:
 
 <h4> Uploading Benchmark Results </h4>
 
