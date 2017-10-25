@@ -56,27 +56,158 @@ it('test count_uploads', ->
 )
 
 
+benchmark_data_in = ->
+  [
+    {
+      title:'first'
+      variations:['a', 'b']
+      revisions:
+        [
+          {
+            version:1
+          }
+          {
+            version:0
+          }
+        ]
+    }
+    {
+      title:'second'
+      variations:['a', 'b']
+      revisions:
+        [
+          {
+            version:1
+          }
+          {
+            version:0
+          }
+        ]
+    }
+  ]
+
+
 it('test get_columns', ->
-  assert.equal(get_columns()[0].data, 'num')
+  assert.equal(get_columns()[1].data, 'num')
 )
 
 
 it('test get_benchmark_data', ->
-  assert.deepEqual(get_benchmark_data({a:1}).data, {a:1})
+  assert.deepEqual(
+    get_benchmark_data(benchmark_data_in()).data[0].title
+    'first'
+  )
 )
 
 
-describe('test flat key', ->
+describe('test flat_key', ->
   it('with a list', ->
     assert.deepEqual(
-      flat_key({a:0, b:[0, 1]}, 'b')
+      flat_key('b', {a:0, b:[0, 1]})
       [{a:0, b:0}, {a:0, b:1}]
     )
   )
   it('with a dict', ->
     assert.deepEqual(
-      flat_key({a:0, b:[{c:0}, {c:1}]}, 'b')
+      flat_key('b', {a:0, b:[{c:0}, {c:1}]})
       [{a:0, b:{c:0}}, {a:0, b:{c:1}}]
+    )
+  )
+)
+
+
+describe('test flat_key_from_list', ->
+  it('with one key', ->
+    assert.deepEqual(
+      flat_key_from_list('b', [{a:0, b:[1, 2]}, {a:3, b:[4, 5]}])
+      [{a:0, b:1}, {a:0, b:2}, {a:3, b:4}, {a:3, b:5}]
+    )
+  )
+)
+
+
+describe('test transform_data', ->
+  it('with test data', ->
+    data_out = ->
+      [
+        {
+          title:'first'
+          variations:'a'
+          revisions:
+            {
+              version:1
+            }
+        }
+        {
+          title:'first'
+          variations:'a'
+          revisions:
+            {
+              version:0
+            }
+        }
+        {
+          title:'first'
+          variations:'b'
+          revisions:
+            {
+              version:1
+            }
+        }
+        {
+          title:'first'
+          variations:'b'
+          revisions:
+            {
+              version:0
+            }
+        }
+        {
+          title:'second'
+          variations:'a'
+          revisions:
+            {
+              version:1
+            }
+        }
+        {
+          title:'second'
+          variations:'a'
+          revisions:
+            {
+              version:0
+            }
+        }
+        {
+          title:'second'
+          variations:'b'
+          revisions:
+            {
+              version:1
+            }
+        }
+        {
+          title:'second'
+          variations:'b'
+          revisions:
+            {
+              version:0
+            }
+        }
+      ]
+    assert.deepEqual(
+      transform_data(benchmark_data_in())
+      data_out()
+    )
+  )
+)
+
+
+describe('test benchmark_id', ->
+  it('with sample data', ->
+    assert.deepEqual(
+      benchmark_id({}, {}, {num:1, variations:'a', revisions:{version:0}})
+      '1a.0'
     )
   )
 )

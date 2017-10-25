@@ -2,6 +2,9 @@
 Functions to build the benchmark table
 ###
 
+benchmark_id = (data, type, row) ->
+  "#{row.num}#{row.variations}.#{row.revisions.version}"
+
 
 get_columns = ->
   ### Get the column data for the table
@@ -11,8 +14,17 @@ get_columns = ->
   ###
   [
     {
+      title:'ID'
+      render:benchmark_id
+    }
+    {
       data:'num'
       title:'Num'
+    }
+    {
+      data:'revisions'
+      title:'Revision'
+      render:((x, ...) -> x.version)
     }
     {
       data:'title'
@@ -21,11 +33,17 @@ get_columns = ->
   ]
 
 
-get_benchmark_data = (raw_data) ->
+transform_data = sequence(
+  flat_key_from_list('variations')
+  flat_key_from_list('revisions')
+)
+
+
+get_benchmark_data = (data) ->
   ### the final data for the benchmark table
 
   Args:
-    the raw benchmark data
+    data: the raw benchmark data
 
   Returns:
     data formatted for Datatable
@@ -33,6 +51,6 @@ get_benchmark_data = (raw_data) ->
   {
     lengthMenu:[10]
     lengthChange:false
-    data:raw_data
+    data:transform_data(data)
     columns:get_columns()
   }

@@ -329,19 +329,44 @@ do_ = (f) ->
 copy_ = sequence(JSON.stringify, JSON.parse)
 
 
-flat_key = (data, key) ->
-  ### Flatten a sublist of a dictionary
+flat_key = curry(
+  (key, data) ->
+    ### Flatten a sublist of a dictionary
 
-  For example {a:0, b:[0, 1]} goes to [{a:0, b:0}, {a:0, b:1}] or
-  {a:0, b:[{c:0, c:1}]} goes to [{a:0, b:{c:0}}, {a:0, b:{c:1}}]
+    For example {a:0, b:[0, 1]} goes to [{a:0, b:0}, {a:0, b:1}] or
+    {a:0, b:[{c:0, c:1}]} goes to [{a:0, b:{c:0}}, {a:0, b:{c:1}}]
 
-  Args:
-    data: the dictionary to flatten
-    key: the key that contains the list to flatten
+    Args:
+      key: the key that contains the list to flatten
+      data: the dictionary to flatten
 
-  Returns:
-    a list of dictionaries
-  ###
-  f = (x) ->
-    extend(copy_(data), {"#{key}":x})
-  map(f, data[key])
+    Returns:
+      a list of dictionaries
+    ###
+    f = (x) ->
+      extend(copy_(data), {"#{key}":x})
+    map(f, data[key])
+)
+
+
+flat_key_from_list = curry(
+  (key, data) ->
+    ### Flatten a list of dictionaries
+
+    For example
+
+      [{a:0, b:[1, 2]}, {a:3, b:[4, 5]}]
+
+    goes to
+
+      [{a:0, b:1}, {a:0, b:2}, {a:3, b:4}, {a:3, b:5}]
+
+    Args:
+      key: the key that contains the list to flatten
+      data: the list of dictionaries to flatten
+
+    Returns:
+      a list of flattened dictionaries
+    ###
+    concat.apply(_, map(flat_key(key), data))
+)
