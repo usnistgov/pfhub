@@ -312,17 +312,36 @@ powerset = ([x, xs...]) ->
 
 # module.exports.expose = partial extend, _, module.exports
 
-
 # coffeelint: enable=space_operators
 # coffeelint: enable=no_plusplus
 # coffeelint: enable=spacing_after_comma
 # coffeelint: enable=no_implicit_parens
-#
+
 # More functions NOT from essential.coffee
+
 
 do_ = (f) ->
   (x) ->
     f(x)
     x
 
+
 copy_ = sequence(JSON.stringify, JSON.parse)
+
+
+flat_key = (data, key) ->
+  ### Flatten a sublist of a dictionary
+
+  For example {a:0, b:[0, 1]} goes to [{a:0, b:0}, {a:0, b:1}] or
+  {a:0, b:[{c:0, c:1}]} goes to [{a:0, b:{c:0}}, {a:0, b:{c:1}}]
+
+  Args:
+    data: the dictionary to flatten
+    key: the key that contains the list to flatten
+
+  Returns:
+    a list of dictionaries
+  ###
+  f = (x) ->
+    extend(copy_(data), {"#{key}":x})
+  map(f, data[key])

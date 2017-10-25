@@ -21,22 +21,6 @@ get_columns = ->
   ]
 
 
-# some_data =
-#   [
-#     {
-#       name: "wow"
-#       list: [{item: 1}, {item: 2}]
-#     }
-#     {
-#       name: "cool"
-#       list: [{item: 1}, {item: 2}]
-#     }
-#   ]
-
-# flat_dict = (data, key) ->
-#   map(extend(data), data[key])
-
-
 get_benchmark_data = (raw_data) ->
   ### the final data for the benchmark table
 
@@ -46,7 +30,6 @@ get_benchmark_data = (raw_data) ->
   Returns:
     data formatted for Datatable
   ###
-  # console.log(extend({'a':1}, {'b':2}))
   {
     lengthMenu:[10]
     lengthChange:false
