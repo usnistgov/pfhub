@@ -1,22 +1,5 @@
-fake = ->
-  ['example', 'example_minimal', 'test_lander']
-
-count_uploads = (benchmark_num, data) ->
-  ### Count the number of uploads per benchmark number
-
-  Args:
-    benchmark_num: the benchmark number (1, 2, ...)
-    data: all the benchmark data
-
-  Returns:
-    the number of uploads
-  ###
-
-  sequence(
-    (x) -> (v for k, v of x when k not in fake())
-    (x) -> x.filter((y) -> y.meta.benchmark.id[0] is "#{benchmark_num}")
-    (x) -> x.length
-  )(data)
+### Update the DOM for the benchmark uploads
+###
 
 
 build_uploads = (benchmark_num, data, tag) ->
@@ -29,6 +12,6 @@ build_uploads = (benchmark_num, data, tag) ->
   Returns:
     the number of uploads
   ###
-  select_tag(tag)([count_uploads(benchmark_num, data)])
+  select_tag(tag)([count_uploads_num(benchmark_num, data)])
     .append('span')
     .text((d) -> d)

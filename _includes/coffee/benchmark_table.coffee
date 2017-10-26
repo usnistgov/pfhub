@@ -3,12 +3,56 @@ Functions to build the benchmark table
 ###
 
 
-benchmark_id = (data, type, row) ->
+make_id = (row) ->
+  ### Construct a Benchmark ID
+
+  Args:
+    row: all the row data
+
+  Returns:
+    ID like '1a.0'
+  ###
   "#{row.num}#{row.variations}.#{row.revisions.version}"
 
 
-get_columns = ->
+benchmark_id = (data, type, row) ->
+  ### Build the benchmark ID html for the table
+
+  Args:
+    data: unused
+    type: unused
+    row: all the row data
+
+  Returns:
+    the HTML string for the table
+  ###
+  link_html(
+    row.revisions.url
+    make_id(row)
+  )
+
+
+uploads = (sim_data) ->
+  ### Make function for upload HTML link
+
+  Args:
+    sim_data: all the raw simulation data
+
+  Returns:
+    the function
+  ###
+  (data, type, row) ->
+    link_html(
+      'simulations/' + make_id(row)
+      count_uploads_id(make_id(row), sim_data)
+    )
+
+
+get_columns = (sim_data) ->
   ### Get the column data for the table
+
+  Args:
+    sim_data: the raw simulation data
 
   Returns:
     list of columns
@@ -35,6 +79,10 @@ get_columns = ->
       data:'title'
       title:'Title'
     }
+    {
+      title:'Uploads'
+      render:uploads(sim_data)
+    }
   ]
 
 
@@ -44,11 +92,12 @@ transform_data = sequence(
 )
 
 
-get_benchmark_data = (data) ->
+get_benchmark_data = (benchmark_data, sim_data) ->
   ### the final data for the benchmark table
 
   Args:
-    data: the raw benchmark data
+    benchmark_data: the raw benchmark data
+    sim_data: the raw simulation data
 
   Returns:
     data formatted for Datatable
@@ -56,6 +105,6 @@ get_benchmark_data = (data) ->
   {
     lengthMenu:[20]
     lengthChange:false
-    data:transform_data(data)
-    columns:get_columns()
+    data:transform_data(benchmark_data)
+    columns:get_columns(sim_data)
   }

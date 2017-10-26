@@ -44,7 +44,7 @@ it('test memory_usage', ->
 )
 
 
-it('test count_uploads', ->
+it('test count_uploads_num', ->
   data = ->
     {example:{},
     a:{meta:{benchmark:{id:'1a.0'}}},
@@ -52,7 +52,19 @@ it('test count_uploads', ->
     c:{meta:{benchmark:{id:'2a.0'}}}
     }
 
-  assert.equal(count_uploads(1, data()), 2)
+  assert.equal(count_uploads_num(1, data()), 2)
+)
+
+
+it('test count_uploads_id', ->
+  data = ->
+    {example:{},
+    a:{meta:{benchmark:{id:'1a', version:1}}},
+    b:{meta:{benchmark:{id:'1a', version:1}}},
+    c:{meta:{benchmark:{id:'2a', version:1}}},
+    d:{meta:{benchmark:{id:'1a', version:0}}}
+    }
+  assert.equal(count_uploads_id('1a.1', data()), 2)
 )
 
 
@@ -205,9 +217,15 @@ describe('test transform_data', ->
 
 describe('test benchmark_id', ->
   it('with sample data', ->
+    data = ->
+      {
+        num:1
+        variations:'a'
+        revisions:{version:0, url:'http://wow.com'}
+      }
     assert.deepEqual(
-      benchmark_id({}, {}, {num:1, variations:'a', revisions:{version:0}})
-      '1a.0'
+      benchmark_id({}, {}, data())
+      '<a href="/chimad-phase-field/http://wow.com">\n1a.0\n</a>'
     )
   )
 )
