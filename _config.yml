@@ -1,4 +1,3 @@
-#Change this to the name of your repo
 baseurl: '/chimad-phase-field'
 
 markdown: kramdown
@@ -10,7 +9,6 @@ exclude:
   - "*.ipynb.raw.html"
   - vendor
   - template.ipynb.md
-
 
 links:
   contributors: https://github.com/usnistgov/chimad-phase-field/graphs/contributors
@@ -24,3 +22,5 @@ links:
 title: CHiMaD Phase Field
 
 plugins: [jekyll-coffeescript, jekyll-redirect-from]
+
+admin_email: 'daniel.wheeler@nist.gov'

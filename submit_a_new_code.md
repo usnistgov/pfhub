@@ -3,7 +3,7 @@ title: "Submit a New Code"
 layout: essay
 comment: >-
   How to submit a code to the list of <a
-  href="/chimad-phase-field/codes">suggest codes</a>
+  href="/chimad-phase-field/codes">suggested codes</a>
 ---
 
 ### Call for Community Codes
