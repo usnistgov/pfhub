@@ -24,3 +24,5 @@ links:
 title: CHiMaD Phase Field
 
 plugins: [jekyll-coffeescript]
+
+admin_email: 'daniel.wheeler@nist.gov'
