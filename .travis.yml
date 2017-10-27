@@ -34,5 +34,5 @@ script:
   - rm -rf ./_site
   - jekyll build -d ./_site/chimad-phase-field && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
   - py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg
-  - coffeelint _includes/simulation.coffee _includes/vega_extra.coffee _includes/test.coffee
+  - coffeelint _includes/simulation.coffee _includes/vega_extra.coffee _includes/test.coffee _includes/uploads.coffee
   - mocha _site/chimad-phase-field/js/test.js

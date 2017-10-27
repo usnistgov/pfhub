@@ -141,12 +141,18 @@ the safety and well-being of community members.
 ### 9. Contact info
 
 Please contact the {{ site.title }} GitHub moderator at <{{
-site.admin_email }}>
+site.admin_email }}>.
 
 ### 10. License and attribution
 
-This Code of Conduct is distributed under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/).
+This Code of Conduct is distributed under a [Creative Commons
+Attribution-ShareAlike
+license](http://creativecommons.org/licenses/by-sa/3.0/).
 
-Portions of text derived from the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and the [Geek Feminism Anti-Harassment Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
+Portions of text derived from the [Django Code of
+Conduct](https://www.djangoproject.com/conduct/) and the [Geek
+Feminism Anti-Harassment
+Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
 
-Retrieved on November 22, 2016 from [http://citizencodeofconduct.org/](http://citizencodeofconduct.org/)
+Retrieved on November 22, 2016 from
+[http://citizencodeofconduct.org/](http://citizencodeofconduct.org/)
