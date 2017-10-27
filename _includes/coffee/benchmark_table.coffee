@@ -49,9 +49,37 @@ uploads = (sim_data) ->
 
 
 event = (data, type, row) ->
+  ### Make HTML for link to event in the table
+
+  Args:
+    data: unused
+    type: unused
+    row: all the row data
+
+  Returns:
+    the HTML string for the link in the table
+  ###
   link_html(
     row.revisions.event.url
     row.revisions.event.name
+  )
+
+
+commit = (data, type, row) ->
+  ### Make HTML for link to commit in table
+
+  Args:
+    data: unused
+    type: unused
+    row: all the row data
+
+  Returns:
+    the HTML string for the link to the commit
+  ###
+  link_html(
+    "{{ site.links.github }}/blob/\
+    #{row.revisions.commit.sha}/#{row.revisions.commit.url}"
+    row.revisions.commit.sha.substr(0, 7)
   )
 
 
@@ -94,7 +122,10 @@ get_columns = (sim_data) ->
       title:'Event'
       render:event
     }
-
+    {
+      title:'Commit'
+      render:commit
+    }
   ]
 
 

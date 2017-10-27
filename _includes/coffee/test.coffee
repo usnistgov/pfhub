@@ -239,3 +239,15 @@ describe('test make_http', ->
     assert.deepEqual(make_http('http://wow'), 'http://wow')
   )
 )
+
+
+describe('test commit', ->
+  it('with test data', ->
+    data_in = ->
+      {revisions:{commit:{sha:'abcd', url:'a/b'}}}
+    data_out = ->
+      '<a href="https://github.com/usnistgov/chimad-phase-field/\
+      blob/abcd/a/b">\nabcd\n</a>'
+    assert.deepEqual(commit({}, {}, data_in()), data_out())
+  )
+)
