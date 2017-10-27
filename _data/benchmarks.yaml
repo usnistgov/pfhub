@@ -5,10 +5,14 @@
   variations: [a, b, c, d]
   revisions:
     - version: 1
-      event: publication
+      event:
+        name: publication
+        url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
       url: "benchmarks/benchmark1.ipynb"
     - version: 0
-      event: hackathon
+      event:
+        name: hackathon
+        url: "hackathons/hackathon1/problems.ipynb"
       url: "hackathons/hackathon1/problems.ipynb"
 
 - title: Ostwald Ripening
@@ -18,10 +22,14 @@
   variations: [a, b, c, d]
   revisions:
     - version: 1
-      event: publication
+      event:
+        name: publication
+        url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
       url: "benchmarks/benchmark2.ipynb"
     - version: 0
-      event: hackathon
+      event:
+        name: hackathon
+        url: "hackathons/hackathon1/problems.ipynb"
       url: "hackathons/hackathon1/problems.ipynb"
 
 - title: Dendritic Growth
@@ -31,7 +39,9 @@
   variations: [a, b, c]
   revisions:
     - version: 0
-      event: hackathon
+      event:
+        name: hackathon
+        url: "hackathons/hackathon2/problem1.ipynb"
       url: "hackathons/hackathon2/problem1.ipynb"
 
 - title: Linear Elasticity
@@ -41,5 +51,7 @@
   variations: [a, b, c]
   revisions:
     - version: 0
-      event: hackathon
+      event:
+        name: hackathon
+        url: "hackathons/hackathon2/problem2.ipynb"
       url: "hackathons/hackathon2/problem2.ipynb"

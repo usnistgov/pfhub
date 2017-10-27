@@ -52,6 +52,18 @@ count_uploads_id = (benchmark_id, data) ->
   count_uploads((x) -> build_id(x) is "#{benchmark_id}")(data)
 
 
+make_http = (link) ->
+  ### Make full http if local link
+
+  Args:
+    link: the link with or without full http
+
+  Returns
+    link with full http
+  ###
+  if 'http' is link.substr(0, 4) then link else "{{ site.baseurl }}/#{link}"
+
+
 link_html = (link, data) ->
   ### Build an a element for the site
 
@@ -63,7 +75,7 @@ link_html = (link, data) ->
     the HTML
   ###
   """
-  <a href="{{ site.baseurl }}/#{link}">
+  <a href="#{make_http(link)}">
   #{data}
   </a>
   """

@@ -48,6 +48,13 @@ uploads = (sim_data) ->
     )
 
 
+event = (data, type, row) ->
+  link_html(
+    row.revisions.event.url
+    row.revisions.event.name
+  )
+
+
 get_columns = (sim_data) ->
   ### Get the column data for the table
 
@@ -83,6 +90,11 @@ get_columns = (sim_data) ->
       title:'Uploads'
       render:uploads(sim_data)
     }
+    {
+      title:'Event'
+      render:event
+    }
+
   ]
 
 

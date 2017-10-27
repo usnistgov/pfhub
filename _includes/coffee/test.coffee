@@ -225,7 +225,17 @@ describe('test benchmark_id', ->
       }
     assert.deepEqual(
       benchmark_id({}, {}, data())
-      '<a href="/chimad-phase-field/http://wow.com">\n1a.0\n</a>'
+      '<a href="http://wow.com">\n1a.0\n</a>'
     )
+  )
+)
+
+
+describe('test make_http', ->
+  it('with no http', ->
+    assert.deepEqual(make_http('wow').substr(0, 4), '/chi')
+  )
+  it('with http', ->
+    assert.deepEqual(make_http('http://wow'), 'http://wow')
   )
 )
