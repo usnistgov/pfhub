@@ -64,6 +64,22 @@ event = (data, type, row) ->
     row.revisions.event.name
   )
 
+title = (data, type, row) ->
+  ### Build the title html for the table
+
+  Args:
+    data: unused
+    type: unused
+    row: all the row data
+
+  Returns:
+    the HTML string for the table
+  ###
+  link_html(
+    row.revisions.url
+    row.title
+  )
+
 
 commit = (data, type, row) ->
   ### Make HTML for link to commit in table
@@ -94,25 +110,12 @@ get_columns = (sim_data) ->
   ###
   [
     {
+      title:'Title'
+      render:title
+    }
+    {
       title:'ID'
       render:benchmark_id
-    }
-    {
-      data:'num'
-      title:'Num'
-    }
-    {
-      data:'variations'
-      title:'Variation'
-    }
-    {
-      data:'revisions'
-      title:'Revision'
-      render:((x, ...) -> x.version)
-    }
-    {
-      data:'title'
-      title:'Title'
     }
     {
       title:'Uploads'
@@ -125,6 +128,19 @@ get_columns = (sim_data) ->
     {
       title:'Commit'
       render:commit
+    }
+    {
+      data:'num'
+      title:'Num'
+    }
+    {
+      data:'revisions'
+      title:'Revision'
+      render:((x, ...) -> x.version)
+    }
+    {
+      data:'variations'
+      title:'Variation'
     }
   ]
 
@@ -146,7 +162,7 @@ get_benchmark_data = (benchmark_data, sim_data) ->
     data formatted for Datatable
   ###
   {
-    lengthMenu:[20]
+    lengthMenu:[15]
     lengthChange:false
     data:transform_data(benchmark_data)
     columns:get_columns(sim_data)

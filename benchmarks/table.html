@@ -15,5 +15,62 @@ comment: >-
   </div>
 </div>
 
+
+<div class="container">
+  <div class="row big-buffer">
+    <div class="col s8 offset-s2">
+      <h5> Table key </h5>
+      <table>
+        <thead>
+          <tr>
+            <th>Header</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Title</td>
+            <td>Short descriptive benchmark name</td>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <td>Benchmark ID in the form
+            {Num}{Revision}.{Variation}</td>
+          </tr>
+          <tr>
+            <td>Uploads</td>
+            <td>Number of uploaded benchmark results</td>
+          </tr>
+          <tr>
+            <td>Event</td>
+            <td>The event that formalized the benchmark</td>
+          </tr>
+          <tr>
+            <td>Commit</td>
+            <td>Commit SHA when the benchmark was introduced</td>
+          </tr>
+
+          <tr>
+            <td>Num</td>
+            <td>The benchmark number for benchmarks with common
+            governing equations</td>
+          </tr>
+          <tr>
+            <td>Revision</td>
+            <td>The benchmark version number for different
+            revisions</td>
+          </tr>
+          <tr>
+            <td>Variation</td>
+            <td>The benchmark variation accounting for different
+            parameter values or geometries</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
 <script> var TAG="#data_table" </script>
 <script src="{{ site.baseurl }}/js/benchmark_data_table.js"></script>
