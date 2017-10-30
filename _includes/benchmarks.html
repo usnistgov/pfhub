@@ -31,12 +31,16 @@
         <div class="card small light-green lighten-4">
           <div class="card-content benchmark">
 
+            {% capture http %}{{ item.image | slice: 0, 4 }}{% endcapture %}
+
+            {% capture image_link %}{% if http == "http" %}{{ item.image }}{% else %}{{ site.baseurl }}/{{ item.image }}{% endif %}{% endcapture %}
+
             <img class="circle"
-                 src="{{ item.image }}"
+                 src="{{ image_link }}"
                  alt="">
 
             <span class="card-title">
-              <a href="{{ site.baseurl }}/{{ item.url }}">
+              <a href="{{ site.baseurl }}/{{ item.revisions[0].url }}">
                 {{item.num}}. {{ item.title }} <br><br>
               </a>
             </span>
@@ -55,7 +59,7 @@
             </div>
 
             <div>
-              <a href="{{ site.baseurl }}/{{ item.url }}"
+              <a href="{{ site.baseurl }}/{{ item.revisions[0].url }}"
                  title="">
                 Specification
               </a>
@@ -63,10 +67,10 @@
 
             <div>
               Results:
-              {% for subitem in item.results %}
-                <a href="{{ site.baseurl }}/simulations/{{ subitem }}"
+              {% for variation in item.variations %}
+                <a href="{{ site.baseurl }}/simulations/{{ item.num }}{{ variation }}.{{ item.revisions[0].version }}"
                    title="">
-                  {{ subitem }}
+                  {{ item.num }}{{ variation }}
                 </a>
                 {% if forloop.last == true %}
                   {% break %}
