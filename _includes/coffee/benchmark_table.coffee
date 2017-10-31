@@ -42,10 +42,9 @@ uploads = (sim_data) ->
     the function
   ###
   (data, type, row) ->
-    link_html(
-      'simulations/' + make_id(row)
-      count_uploads_id(make_id(row), sim_data)
-    )
+    cond = (x) ->
+      if x > 0 then link_html('simulations/' + make_id(row), x) else '0'
+    cond(count_uploads_id(make_id(row), sim_data))
 
 
 event = (data, type, row) ->
