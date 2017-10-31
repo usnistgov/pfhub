@@ -279,3 +279,15 @@ table.striped tbody tr:nth-child(2n+1) {
     list-style-type: disc;
     margin-left: 40px;
 }
+
+.mdl-data-table.jupyter.striped.dataTable.no-footer tr {
+    line-height: 27px !important
+}
+
+.mdl-data-table.jupyter.striped.dataTable.no-footer thead tr {
+    line-height: 34px !important
+}
+
+/* .dataTable tr { */
+/*     line-height: 15px !important; */
+/* } */

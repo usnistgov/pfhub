@@ -151,7 +151,25 @@ transform_data = sequence(
 )
 
 
-get_benchmark_data = (benchmark_data, sim_data) ->
+filter_num_revision = (num = null, revision = null) ->
+  ### return a filter function on num and revision
+
+  Args:
+    num: either null or a list of numbers
+    revision: either null or a single revision number
+
+  Returns:
+    a function to filter benchmark data
+  ###
+  (x) ->
+    num_ = (y) ->
+      if (num is null) then true else (y.num in num)
+    revision_ = (y) ->
+      if (revision is null) then true else (y.revisions.version is revision)
+    num_(x) and revision_(x)
+
+
+get_benchmark_data = (benchmark_data, sim_data, filter_func = (x) -> true) ->
   ### the final data for the benchmark table
 
   Args:
@@ -164,6 +182,6 @@ get_benchmark_data = (benchmark_data, sim_data) ->
   {
     lengthMenu:[15]
     lengthChange:false
-    data:transform_data(benchmark_data)
+    data:transform_data(benchmark_data).filter(filter_func)
     columns:get_columns(sim_data)
   }

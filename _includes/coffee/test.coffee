@@ -100,7 +100,7 @@ benchmark_data_in = ->
 
 
 it('test get_columns', ->
-  assert.equal(get_columns()[1].data, 'num')
+  assert.equal(get_columns()[5].data, 'num')
 )
 
 
@@ -249,5 +249,20 @@ describe('test commit', ->
       '<a href="https://github.com/usnistgov/chimad-phase-field/\
       blob/abcd/a/b">\nabcd\n</a>'
     assert.deepEqual(commit({}, {}, data_in()), data_out())
+  )
+)
+
+
+describe('test filter_num_revision', ->
+  data_in = ->
+    {num:1, revisions:{version:1}}
+  it('with true data', ->
+    assert.deepEqual(filter_num_revision([1], 1)(data_in()), true)
+  )
+  it('with false data', ->
+    assert.deepEqual(filter_num_revision([0], 1)(data_in()), false)
+  )
+  it('with null data', ->
+    assert.deepEqual(filter_num_revision(null, null)(data_in()), true)
   )
 )

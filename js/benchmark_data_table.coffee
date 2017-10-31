@@ -10,6 +10,7 @@ func = () ->
     get_benchmark_data(
       {{ site.data.benchmarks | jsonify }}
       {{ site.data.simulations | jsonify }}
+      filter_num_revision(BENCHMARK_NUM, BENCHMARK_REVISION)
     )
   )
 
