@@ -225,7 +225,7 @@ describe('test benchmark_id', ->
       }
     assert.deepEqual(
       benchmark_id({}, {}, data())
-      '<a href="http://wow.com">\n1a.0\n</a>'
+      '<a href="http://wow.com" target="_blank">\n1a.0\n</a>'
     )
   )
 )
@@ -247,7 +247,7 @@ describe('test commit', ->
       {revisions:{commit:{sha:'abcd', url:'a/b'}}}
     data_out = ->
       '<a href="https://github.com/usnistgov/chimad-phase-field/\
-      blob/abcd/a/b">\nabcd\n</a>'
+      blob/abcd/a/b" target="_blank">\nabcd\n</a>'
     assert.deepEqual(commit({}, {}, data_in()), data_out())
   )
 )
