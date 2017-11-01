@@ -75,7 +75,7 @@ link_html = (link, data) ->
     the HTML
   ###
   target = (link) ->
-    if 'http' is link.substr(0, 4) then "_blank" else "_self"
+    if 'http' is link.substr(0, 4) then '_blank' else '_self'
   """
   <a href="#{make_http(link)}" target="#{target(link)}">
   #{data}
