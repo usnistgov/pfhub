@@ -8,14 +8,14 @@ The primary goal of the benchmarking effort is to provide a set of
 benchmark problems to compare and contrast codes for solving phase
 field equations. Further goals include
 
- - providing quality assurance for phase field codes based on performance
-   and accuracy,
+ - providing quality assurance for phase field codes based on
+   performance and accuracy,
 
  - increasing the adoption of phase field methods in engineering and
    academic applications with the development of practical
    documentation,
 
- - and by fostering an engaged and integrated phase field community.
+ - fostering an engaged and integrated phase field community.
 
 <h4> Further Reading </h4>
 
@@ -44,9 +44,9 @@ affiliations.
 
 <h4> Code of Conduct </h4>
 
-We have a code of conduct and take it very seriously. Please the [code
-of conduct page]({{ site.baseurl}}/CODE_OF_CONDUCT) for further
-details.
+We have a code of conduct and enforce it in our online interactions
+and codebase. Please see the [code of conduct page]({{
+site.baseurl}}/CODE_OF_CONDUCT) for further details.
 
 <h4> Suggested Phase Field Codes </h4>
 
@@ -59,10 +59,15 @@ solve some of the benchmark problems.
 
 <h5> Which code should I use to solve my phase field problem? </h5>
 
-We don't have the answer to this question yet, but we are working on
-it. We have a [list of phase field codes]({{ site.baseurl}}/codes) and
-also a [list of benchmark results]({{ site.baseurl}}/#benchmarks) that
-might help you evaluate which code might work best for you.
+The right code for you depends on your familiarity with phase field
+methods and relevant software, hardware available and complexity of
+the phase field problem under consideration. We have a [list of phase
+field codes]({{ site.baseurl}}/codes) and also a [list of benchmark
+results]({{ site.baseurl}}/#benchmarks) that might help you evaluate
+which code might work best for you. Our objective is that the
+benchmarks will support users of the site in evaluating the
+suitability of codes for particular classes of phase field problems,
+but the user is the final arbiter in this process.
 
 <h5> I don't like one of the benchmark problems. Can I help fix it? </h5>
 
