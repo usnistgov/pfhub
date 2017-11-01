@@ -6,7 +6,7 @@
   revisions:
     - version: 1
       event:
-        name: publication
+        name: Publication 1
         url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
       commit:
         sha: "c4de782ed5fb2827920db11f3fb743bc28300fd9"
@@ -15,8 +15,8 @@
     - version: 0
       url: "hackathons/hackathon1/problems.ipynb"
       event:
-        name: hackathon
-        url: "hackathons/hackathon1/problems.ipynb"
+        name: Hackathon 1
+        url: "hackathons/hackathon1"
       commit:
         sha: "3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37"
         url: "hackathon1/problems.ipynb"
@@ -29,7 +29,7 @@
   revisions:
     - version: 1
       event:
-        name: publication
+        name: Publication 1
         url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
       url: "benchmarks/benchmark2.ipynb"
       commit:
@@ -38,8 +38,8 @@
     - version: 0
       url: "hackathons/hackathon1/problems.ipynb"
       event:
-        name: hackathon
-        url: "hackathons/hackathon1/problems.ipynb"
+        name: Hackathon 1
+        url: "hackathons/hackathon1"
       commit:
         url: "hackathon1/problems.ipynb"
         sha: "3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37"
@@ -52,8 +52,8 @@
   revisions:
     - version: 0
       event:
-        name: hackathon
-        url: "hackathons/hackathon2/problem1.ipynb"
+        name: Hackathon 2
+        url: "hackathons/hackathon2"
       url: "hackathons/hackathon2/problem1.ipynb"
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
@@ -67,8 +67,8 @@
   revisions:
     - version: 0
       event:
-        name: hackathon
-        url: "hackathons/hackathon2/problem2.ipynb"
+        name: Hackathon 2
+        url: "hackathons/hackathon2"
       url: "hackathons/hackathon2/problem2.ipynb"
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
