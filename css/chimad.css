@@ -185,6 +185,8 @@ table.striped tbody tr:nth-child(2n+1) {
     max-height: 30%;
 }
 
+
+
 .materialboxed.responsive-img.initialized {
     background-color: white;
 }
@@ -251,6 +253,16 @@ table.striped tbody tr:nth-child(2n+1) {
 #upload-button {
     margin-top: 20px;
     margin-left: 40px;
+}
+
+.card.small .card-content.benchmark {
+    overflow: auto;
+    max-height: 100%;
+}
+
+.card.small .card-content.community {
+    overflow: auto;
+    max-height: 100%;
 }
 
 .card-content.benchmark .circle {
