@@ -232,10 +232,27 @@ table.striped tbody tr:nth-child(2n+1) {
     height: 28px;
 }
 
-/* .twitter { */
-/*     float: right; */
-/*     position: relative; */
-/* } */
+#twitter {
+    display: inline;
+}
+
+@media (max-width: 600px)
+{
+    #twitter {
+        display: none;
+    }
+}
+
+#twitter-small {
+    display: none;
+}
+
+@media (max-width: 600px)
+{
+    #twitter-small {
+        display: inline;
+    }
+}
 
 .flow-text.mission-statement p {
     font-size: 20px;

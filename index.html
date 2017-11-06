@@ -26,21 +26,16 @@ comment: >-
       </p>
     </div>
   </div>
-  <div class="col s12 m4 l3 xl2 offset-m1 offset-l1 offset-xl1">
-    <div class="twitter">
-      <a class="twitter-timeline"
-         data-height="300"
-         data-width="250"
-         href="https://twitter.com/hashtag/chimadphasefield"
-         data-widget-id="838863917266911234">
-        #chimadphasefield
-      </a>
-    </div>
+  <div class="col s12 m4 l3 xl2 offset-m1 offset-l1 offset-xl1" id="twitter">
+    {% include twitter.html %}
   </div>
 </div>
 
-<div class="container">
-  {% include benchmarks.html upload=true %}
+{% include benchmarks.html upload=true %}
+
+<div class="col s12 m4 l12 xl12" id="twitter-small">
+  {% include twitter.html %}
 </div>
+
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
