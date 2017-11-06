@@ -232,10 +232,10 @@ table.striped tbody tr:nth-child(2n+1) {
     height: 28px;
 }
 
-.twitter {
-    float: right;
-    position: relative;
-}
+/* .twitter { */
+/*     float: right; */
+/*     position: relative; */
+/* } */
 
 .flow-text.mission-statement p {
     font-size: 20px;
@@ -251,12 +251,12 @@ table.striped tbody tr:nth-child(2n+1) {
     margin-left: 40px;
 }
 
-.card.small .card-content.benchmark {
+.card.medium .card-content.benchmark {
     overflow: auto;
     max-height: 100%;
 }
 
-.card.small .card-content.community {
+.card.medium .card-content.community {
     overflow: auto;
     max-height: 100%;
 }

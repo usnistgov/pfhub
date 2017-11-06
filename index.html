@@ -7,40 +7,40 @@ comment: >-
 {% include title.html %}
 {% include hexbin.html %}
 
-<div class="twitter">
-  <a class="twitter-timeline"
-     data-height="300"
-     data-width="150"
-     href="https://twitter.com/hashtag/chimadphasefield"
-     data-widget-id="838863917266911234">
-    #chimadphasefield
-  </a>
+<div class="row">
+  <div class="col s12 m6 l6 xl6 offset-m1 offset-l2 offset-xl3" id="overview">
+    <div class="flow-text mission-statement">
+      <p>
+        In January 2015 a group of phase field theorists and code
+        developers met at Northwestern University to discuss ways for
+        the community to improve code collaboration efforts. Everyone
+        agreed that the community needs to become more open and work
+        in a more collaborative manner.
+      </p>
+      <p>
+        A key factor to improving community code collaboration is to
+        develop resources to compare and contrast phase field codes
+        and libraries. This site aims to provide some of these
+        resources and become a useful web service for phase field
+        practitioners.
+      </p>
+    </div>
+  </div>
+  <div class="col s12 m4 l3 xl2 offset-m1 offset-l1 offset-xl1">
+    <div class="twitter">
+      <a class="twitter-timeline"
+         data-height="300"
+         data-width="250"
+         href="https://twitter.com/hashtag/chimadphasefield"
+         data-widget-id="838863917266911234">
+        #chimadphasefield
+      </a>
+    </div>
+  </div>
 </div>
 
 <div class="container">
-  <div class="row small-buffer">
-    <div class="col s12 m6 l9 xl8 offset-xl2" id="overview">
-      <div class="flow-text mission-statement">
-        <p>
-          In January 2015 a group of phase field theorists and code
-          developers met at Northwestern University to discuss ways
-          for the community to improve code collaboration
-          efforts. Everyone agreed that the community needs to become
-          more open and work in a more collaborative manner.
-        </p>
-        <p>
-          A key factor to improving community code collaboration is to
-          develop resources to compare and contrast phase field codes
-          and libraries. This site aims to provide some of these
-          resources and become a useful web service for phase field
-          practitioners.
-        </p>
-      </div>
-    </div>
-  </div>
   {% include benchmarks.html upload=true %}
 </div>
-
-
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
