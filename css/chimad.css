@@ -232,13 +232,9 @@ table.striped tbody tr:nth-child(2n+1) {
     height: 28px;
 }
 
-.twitter-timeline {
-    float: left;
+.twitter {
+    float: right;
     position: relative;
-}
-
-#title-page-text {
-    margin-bottom: -150px;
 }
 
 .flow-text.mission-statement p {
@@ -266,8 +262,9 @@ table.striped tbody tr:nth-child(2n+1) {
 }
 
 .card-content.benchmark .circle {
-    float: left;
-    margin-right: 20px;
+    /* float: left; */
+    margin-left: 0px;
+    margin-right: 10px;
     object-fit: cover;
 }
 
@@ -290,4 +287,14 @@ table.striped tbody tr:nth-child(2n+1) {
 .flow-text ul li {
     list-style-type: disc;
     margin-left: 40px;
+}
+
+.card-col-right {
+    width: 90px;
+    float: left;
+}
+
+.card-col-left {
+    width: 150px;
+    float: left;
 }

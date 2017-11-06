@@ -1,11 +1,10 @@
-<div class="container top-bar-thin top-buffer" id="benchmarks">
-  <div class="row small-buffer">
-    <div class="col l2 m12 s12">
+  <div class="row small-buffer top-bar-thin">
+    <div class="col s12 m12 l12 xl2">
       <h5 class="sideheader">
         Benchmarks
       </h5>
     </div>
-    <div class="col s10 small-buffer">
+    <div class="col s12 m12 l12 xl10 small-buffer">
       <div class="flow-text describe">
         Benchmark problems vetted by the community to test, validate and verify phase field codes
       </div>
@@ -27,7 +26,7 @@
       {% endif %}
 
       {% for item in site.data.benchmarks %}
-      <div class="col l4 m12 s12 small-buffer">
+      <div class="col s12 m6 l6 xl4 small-buffer">
         <div class="card small light-green lighten-4">
           <div class="card-content benchmark">
 
@@ -35,16 +34,20 @@
 
             {% capture image_link %}{% if http == "http" %}{{ item.image }}{% else %}{{ site.baseurl }}/{{ item.image }}{% endif %}{% endcapture %}
 
-            <img class="circle"
-                 src="{{ image_link }}"
-                 alt="">
-
-            <span class="card-title">
-              <a href="{{ site.baseurl }}/{{ item.revisions[0].url }}">
-                {{item.num}}. {{ item.title }} <br><br>
-              </a>
-            </span>
-
+            <div class="row">
+              <div class="card-col-right">
+                <img class="circle"
+                     src="{{ image_link }}"
+                     alt="">
+              </div>
+              <div class="card-col-left">
+                <span class="card-title">
+                  <a href="{{ site.baseurl }}/{{ item.revisions[0].url }}">
+                    {{item.num}}. {{ item.title }}
+                  </a>
+                </span>
+              </div>
+            </div>
 
             <div class="flow-text">
               <p>
@@ -84,7 +87,6 @@
       {% endfor %}
     </div>
   </div>
-</div>
 
 <script>
   var DATA={{ site.data.simulations | jsonify }}
