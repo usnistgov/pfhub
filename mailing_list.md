@@ -9,31 +9,25 @@ to sign up for the mailing list by sending a subscription email:
 
 To:
 
-    chimad-phase-field-request@nist.gov
+    chimad-phase-field+subscribe@list.nist.gov
 
 Subject: (optional)
 
-Body:
-
-    subscribe
+Body: (optional)
 
 Once you are subscribed, you can post messages to the list simply by
-addressing email to <chimad-phase-field@nist.gov>.
+addressing email to <chimad-phase-field@list.nist.gov>.
 
-To get off the list follow the instructions above, but place
-unsubscribe in the text body.
+To get off the list follow the instructions above, but send the email
+to:
+
+    chimad-phase-field+unsubscribe@list.nist.gov
 
 ### List Archive
 
-The list is archived at the Mail Archive,
+The list is archived as a Google Groups, see
 
-[https://www.mail-archive.com/chimad-phase-field@nist.gov/](https://www.mail-archive.com/chimad-phase-field@nist.gov/)
+<https://list.nist.gov/chimad-phase-field>
 
-<!-- The NIST email achive is dead! -->
-
-<!-- and at -->
-
-<!-- [https://email.nist.gov/pipermail/chimad-phase-field/](https://email.nist.gov/pipermail/chimad-phase-field/) -->
-
-Any mail sent to <chimad-phase-field@nist.gov> will appear in these
-publicly available archives.
+Any mail sent to <chimad-phase-field@list.nist.gov> will appear in
+these publicly available archives.
