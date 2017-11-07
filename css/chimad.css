@@ -216,6 +216,8 @@ table.striped tbody tr:nth-child(2n+1) {
     font-size: 14px;
     margin-top: 2px;
     margin-right: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 .dropdown1 {
@@ -232,24 +234,29 @@ table.striped tbody tr:nth-child(2n+1) {
     height: 28px;
 }
 
-#twitter {
+#twitter-right {
+    float: right;
+    position: relative;
     display: inline;
+    left: 55px;
+    top: 18px;
+    z-index: 1;
 }
 
-@media (max-width: 600px)
+@media (max-width: 1200px)
 {
-    #twitter {
+    #twitter-right {
         display: none;
     }
 }
 
-#twitter-small {
+#twitter-bottom {
     display: none;
 }
 
-@media (max-width: 600px)
+@media (max-width: 1200px)
 {
-    #twitter-small {
+    #twitter-bottom {
         display: inline;
     }
 }
