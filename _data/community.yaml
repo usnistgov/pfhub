@@ -1,7 +1,7 @@
 ---
 
 - name: Olle Heinonen
-  avatar: http://www.msd.anl.gov/images/personnel/heinonen.jpg
+  avatar: ../images/Heinonen-cropped.png
   email: heinonen@anl.gov
   github_id: heinono1
   home: http://www.msd.anl.gov/heinonen
@@ -9,7 +9,7 @@
   scholar: 
   text: Computational Materials Scientist omnivore at Argonne
 - name:	James Warren
-  avatar: https://mgi.nist.gov/sites/default/files/styles/thumbnail/public/pictures/picture-124-1427377338.jpg
+  avatar: ../images/Warren-cropped.png
   email: james.warren@nist.gov
   github_id: drjamesawarren
   home: https://mgi.nist.gov/users/dr-james-warren
@@ -61,7 +61,7 @@
     Post-doc at Northwestern University/Argonne National Laboratory
     and mesoscale wrangler.
 - name: Larry Aagesen
-  avatar: ../images/Aagesen-resized.png
+  avatar: ../images/Aagesen-cropped.png
   email: larry.aagesen@inl.gov
   github_id: laagesen
   home: 
@@ -83,10 +83,12 @@
     engineer at <a href="https://www.nist.gov/mml/materials-science-and-engineering-division">NIST</a>.
   twitter: tkphd
 - name: Jon Guyer
+  avatar: ../images/Guyer-cropped.png
+  email: guyer@nist.gov
+  github_id: https://github.com/guyer
+  home: https://www.nist.gov/people/jonathan-e-guyer
+  orcid: 0000-0002-1407-6589
+  scholar: 
   text: >-
     FiPy developer and a member of the research staff in the Materials
     Science and Engineering Division at NIST.
-  avatar: "https://www.nist.gov/sites/default/files/styles/300w_x_400h/public/userphotos/Johnathan-Guyer.jpg"
-  email: guyer@nist.gov
-  home: https://www.nist.gov/people/jonathan-e-guyer
-  github_id: https://github.com/guyer
