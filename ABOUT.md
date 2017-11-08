@@ -63,9 +63,9 @@ The right code for you depends on your familiarity with phase field
 methods and relevant software, hardware available and complexity of
 the phase field problem under consideration. We have a [list of phase
 field codes]({{ site.baseurl}}/codes) and also a [list of benchmark
-results]({{ site.baseurl}}/#benchmarks) that might help you evaluate
-which code might work best for you. Our objective is that the
-benchmarks will support users of the site in evaluating the
+results]({{ site.baseurl}}/simulations/#simulations) that might help
+you evaluate which code might work best for you. Our objective is that
+the benchmarks will support users of the site in evaluating the
 suitability of codes for particular classes of phase field problems,
 but the user is the final arbiter in this process.
 
