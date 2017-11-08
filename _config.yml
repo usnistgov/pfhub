@@ -23,4 +23,4 @@ title: CHiMaD Phase Field
 
 plugins: [jekyll-coffeescript, jekyll-redirect-from]
 
-admin_email: 'daniel.wheeler@nist.gov'
+admin_email: 'chimad-phase-field-admin@list.nist.gov'
