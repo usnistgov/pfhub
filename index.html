@@ -7,19 +7,14 @@ comment: >-
 {% include title.html %}
 {% include hexbin.html %}
 
-<a class="twitter-timeline"
-   data-height="400"
-   data-width="250"
-   href="https://twitter.com/hashtag/chimadphasefield"
-   data-widget-id="838863917266911234">
-  #chimadphasefield
-</a>
+<div id="twitter-right">
+  {% include twitter.html %}
+</div>
 
-<div class="container" id="title-page-text">
-  <div class="row small-buffer">
-    <div class="col l2 m12 s12">
-    </div>
-    <div class="col s10 offset-s1" id="overview">
+
+<div class="container small-buffer">
+  <div class="row">
+    <div class="col s12 m12 l12 xl8 offset-xl2" id="overview">
       <div class="flow-text mission-statement">
         <p>
           In January 2015 a group of phase field theorists and code
@@ -40,6 +35,15 @@ comment: >-
   </div>
 </div>
 
+
 {% include benchmarks.html upload=true %}
+
+<div class="container">
+  <center>
+    <div id="twitter-bottom">
+      {% include twitter.html %}
+    </div>
+  </center>
+</div>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

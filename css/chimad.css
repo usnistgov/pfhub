@@ -185,6 +185,8 @@ table.striped tbody tr:nth-child(2n+1) {
     max-height: 30%;
 }
 
+
+
 .materialboxed.responsive-img.initialized {
     background-color: white;
 }
@@ -214,6 +216,8 @@ table.striped tbody tr:nth-child(2n+1) {
     font-size: 14px;
     margin-top: 2px;
     margin-right: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 .dropdown1 {
@@ -230,13 +234,31 @@ table.striped tbody tr:nth-child(2n+1) {
     height: 28px;
 }
 
-.twitter-timeline {
-    float: left;
+#twitter-right {
+    float: right;
     position: relative;
+    display: inline;
+    left: 55px;
+    top: 18px;
+    z-index: 1;
 }
 
-#title-page-text {
-    margin-bottom: -150px;
+@media (max-width: 1200px)
+{
+    #twitter-right {
+        display: none;
+    }
+}
+
+#twitter-bottom {
+    display: none;
+}
+
+@media (max-width: 1200px)
+{
+    #twitter-bottom {
+        display: inline;
+    }
 }
 
 .flow-text.mission-statement p {
@@ -253,9 +275,20 @@ table.striped tbody tr:nth-child(2n+1) {
     margin-left: 40px;
 }
 
+.card.medium .card-content.benchmark {
+    overflow: auto;
+    max-height: 100%;
+}
+
+.card.small .card-content.community {
+    overflow: auto;
+    max-height: 100%;
+}
+
 .card-content.benchmark .circle {
-    float: left;
-    margin-right: 20px;
+    /* float: left; */
+    margin-left: 0px;
+    margin-right: 10px;
     object-fit: cover;
 }
 
@@ -278,4 +311,14 @@ table.striped tbody tr:nth-child(2n+1) {
 .flow-text ul li {
     list-style-type: disc;
     margin-left: 40px;
+}
+
+.card-col-right {
+    width: 90px;
+    float: left;
+}
+
+.card-col-left {
+    width: 150px;
+    float: left;
 }

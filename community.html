@@ -9,16 +9,16 @@ comment: >-
 
 <div class="container top-bar-thin">
   <div class="row small-buffer">
-    <div class="col l2 m12 s12">
+    <div class="col s12 m12 l2 xl2">
       <h5 class="sideheader">
         Members
       </h5>
     </div>
-    <div class="col s10">
+    <div class="col s12 m12 l10 xl10">
       {% for item in site.data.community %}
-        <div class="col s4">
+        <div class="col s12 m6 l6 xl4">
           <div class="card small light-green lighten-4">
-            <div class="card-content">
+            <div class="card-content community">
               <span class="card-title">
                 <a href="{{ item.home }}"
                    target="_blank"
@@ -36,7 +36,7 @@ comment: >-
                  target="blank_"
                  title="email">
                 <i class="small material-icons">
-                   email
+                  email
                 </i>
               </a>
               <a href="https://github.com/{{ item.github_id }}"
@@ -72,7 +72,7 @@ comment: >-
 
 <div class="container">
   <div class="row small-buffer">
-    <div class="col s8 offset-s2" id="overview">
+    <div class="col s12 m12 l10 xl10 offset-l2 offset-xl2" id="overview">
       <div class="flow-text" style="font-size: 20px">
         Is your sketch missing from the gallery? Please e-mail the
         <a href="mailto:{{ site.admin_email }}">
