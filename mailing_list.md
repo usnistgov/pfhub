@@ -27,7 +27,7 @@ to:
 
 The list is archived as a Google Groups, see
 
-<https://list.nist.gov/chimad-phase-field>
+<https://groups.google.com/a/list.nist.gov/forum/#!forum/chimad-phase-field>
 
 Any mail sent to <chimad-phase-field@list.nist.gov> will appear in
 these publicly available archives.
