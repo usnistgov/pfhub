@@ -5,11 +5,21 @@
   variations: [a, b, c, d]
   revisions:
     - version: 1
-      event: publication
+      event:
+        name: Publication 1
+        url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
+      commit:
+        sha: "c4de782ed5fb2827920db11f3fb743bc28300fd9"
+        url: "benchmarks/benchmark1.ipynb"
       url: "benchmarks/benchmark1.ipynb"
     - version: 0
-      event: hackathon
       url: "hackathons/hackathon1/problems.ipynb"
+      event:
+        name: Hackathon 1
+        url: "hackathons/hackathon1"
+      commit:
+        sha: "3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37"
+        url: "hackathon1/problems.ipynb"
 
 - title: Ostwald Ripening
   description: Coupling of conserved and non-conserved dynamics
@@ -18,11 +28,21 @@
   variations: [a, b, c, d]
   revisions:
     - version: 1
-      event: publication
+      event:
+        name: Publication 1
+        url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
       url: "benchmarks/benchmark2.ipynb"
+      commit:
+        sha: "c4de782ed5fb2827920db11f3fb743bc28300fd9"
+        url: "benchmarks/benchmark2.ipynb"
     - version: 0
-      event: hackathon
       url: "hackathons/hackathon1/problems.ipynb"
+      event:
+        name: Hackathon 1
+        url: "hackathons/hackathon1"
+      commit:
+        url: "hackathon1/problems.ipynb"
+        sha: "3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37"
 
 - title: Dendritic Growth
   description: Solidification and dendritic growth in a single-component
@@ -31,8 +51,13 @@
   variations: [a, b, c]
   revisions:
     - version: 0
-      event: hackathon
+      event:
+        name: Hackathon 2
+        url: "hackathons/hackathon2"
       url: "hackathons/hackathon2/problem1.ipynb"
+      commit:
+        sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
+        url: "hackathons/hackathon2/problem1.ipynb"
 
 - title: Linear Elasticity
   description: Linear elasticity via evolution of a constrained precipitate
@@ -41,5 +66,10 @@
   variations: [a, b, c]
   revisions:
     - version: 0
-      event: hackathon
+      event:
+        name: Hackathon 2
+        url: "hackathons/hackathon2"
       url: "hackathons/hackathon2/problem2.ipynb"
+      commit:
+        sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
+        url: "hackathons/hackathon2/problem2.ipynb"

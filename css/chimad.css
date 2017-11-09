@@ -313,6 +313,14 @@ table.striped tbody tr:nth-child(2n+1) {
     margin-left: 40px;
 }
 
+.mdl-data-table.jupyter.striped.dataTable.no-footer tr {
+    line-height: 27px !important
+}
+
+.mdl-data-table.jupyter.striped.dataTable.no-footer thead tr {
+    line-height: 34px !important
+}
+
 .card-col-right {
     width: 90px;
     float: left;
