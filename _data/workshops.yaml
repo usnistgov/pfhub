@@ -21,7 +21,7 @@
   href: http://planitpurple.northwestern.edu/event/479420/xJDsFEfb
   number: 2
   description: >-
-    Workshop and <a target="_blank" href="../hackathon1/">hackathon</a> to implement common phase field
+    Workshop and <a target="_blank" href="../hackathons/hackathon1/">hackathon</a> to implement common phase field
     problems in a variety of codes for comparison.
   icon_links:
     - name: contact organizer
@@ -32,7 +32,7 @@
       href: "../docs/PhaseFieldII_Booklet.pdf"
   links:
     - name: Hackathon 1
-      href: "../hackathon1/"
+      href: "../hackathons/hackathon1/"
       type: link
 
 - name: "Phase Field Methods Workshop III"
@@ -41,7 +41,7 @@
   number: 3
   contact: daniel.wheeler@nist.gov
   description: >-
-    Workshop and <a target="_blank" href="../hackathon2/">hackathon</a>
+    Workshop and <a target="_blank" href="../hackathons/hackathon2/">hackathon</a>
     to implement common phase field problems.
   icon_links:
     - name: contact organizer
@@ -52,7 +52,7 @@
       href: "../docs/Phase_Field_III_Booklet.pdf"
   links:
     - name: Hackathon 2
-      href: "../hackathon2/"
+      href: "../hackathons/hackathon2/"
       type: link
 
 - name: "Phase Field Methods Workshop IV"
@@ -73,7 +73,7 @@
       href: "../docs/phase_field_IV.pdf"
   links:
     - name: Hackathon 3
-      href: "../hackathon3/"
+      href: "../hackathons/hackathon3/"
       type: link
 
 - name: "Phase Field Methods Workshop V"
