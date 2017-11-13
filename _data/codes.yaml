@@ -197,5 +197,7 @@
       name: Single Grain Growth
     - href: http://www.openphase.de/examples/index.html
       name: Normal Grain Growth
-    - href: Dendritic Growth
-      name: http://www.openphase.de/examples/index.html
+    - href: http://www.openphase.de/examples/index.html
+      name: Elasticity
+    - name: Dendritic Growth
+      href: http://www.openphase.de/examples/index.html
