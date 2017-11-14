@@ -199,7 +199,8 @@ table.striped tbody tr:nth-child(2n+1) {
     height: 70px;
     width: 70px;
     margin-left: 10px;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: white;
 }
 
 .small .material-icons {
