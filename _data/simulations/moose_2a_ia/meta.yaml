@@ -30,7 +30,9 @@ data:
   type: line
   url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_PBC_IA_dfdt.csv
 metadata:
-  author: A. M. Jokisaari
+  author:
+    first: Andrea
+    last: Jokisaari
   email: andrea.jokisaari@northwestern.edu
   github_id: amjokisaari
   hardware:
