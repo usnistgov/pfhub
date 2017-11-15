@@ -42,7 +42,10 @@ simulations/%/index.html: _data/simulations/%/meta.yaml _data/sim_stub.html
 
 sim_landing: $(HTML_FILES_OUT)
 
-simulations: yamllint build_charts data_table sim_landing
+doi_data: _data/to_doi_csv.py
+	python _data/to_doi_csv.py
+
+simulations: yamllint build_charts data_table sim_landing doi_data
 
 hexbin: $(HEXBIN_OUT)
 
