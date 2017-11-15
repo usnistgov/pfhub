@@ -1,5 +1,5 @@
 ---
-title: "About the CHiMad Phase Field website"
+title: "About PFHub"
 layout: essay
 comment:
 ---
