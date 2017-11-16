@@ -30,7 +30,8 @@ alt="Travis CI">
 
 ## Overview
 
-PFHubis a location to compare and constrast phase field codes. See the
-[main web site](https://pages.nist.gov/chimad-phase-field) for more
-details. To develop or update the site, please see the [Development
+PFHub is a location to compare and constrast phase field codes. See
+the [main web site](https://pages.nist.gov/chimad-phase-field) for
+more details. To develop or update the site, please see the
+[Development
 Guide](https://pages.nist.gov/chimad-phase-field/DEVELOPMENT).
