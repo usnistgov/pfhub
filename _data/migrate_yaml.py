@@ -68,11 +68,9 @@ if __name__ == '__main__':
     def migrate_f(data):
         """Migrate function
         """
-        author = data['metadata']['author']
-        if author == "A. M. Jokisaari":
-            author = "Andrea Jokisaari"
-        data['metadata']['author'] = dict(first=author.split(' ')[0],
-                                          last=author.split(' ')[-1])
+        fname = data['metadata']['author']['first']
+        if fname == "Andrea":
+            data['metadata']['author']['first'] = "A. M."
         return data
 
     migrate(migrate_f)
