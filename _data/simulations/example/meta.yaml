@@ -12,7 +12,9 @@ benchmark:
 metadata: # REQUIRED
   # Describe the runtime environment
   summary: MPI parallel workstation benchmark with MMSP  # REQUIRED
-  author: Trevor Keller  # REQUIRED
+  author:
+    first: Trevor # REQUIRED
+    last: Keller  # REQUIRED
   github_id: tkphd # REQUIRED
   email: trevor.keller@nist.gov  # REQUIRED
   timestamp: Thu, 22 Dec 2016 15:20:53 -0500  # REQUIRED

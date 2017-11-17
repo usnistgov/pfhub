@@ -55,7 +55,7 @@ author = (data) ->
     .append('a')
     .attr('href', (d) -> 'mailto:' + d.email)
     .attr('target', 'blank_')
-    .text((d) -> d.author)
+    .text((d) -> d.author.first + ' ' + d.author.last)
 
 
 author_icon = (data) ->
