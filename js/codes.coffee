@@ -6,14 +6,12 @@ data_json = {{ site.data.codes | jsonify }}
 add_logo = (selection) ->
   subselection = selection.filter((d) -> "logo" of d)
   subselection = subselection.append("img").attr("src", (d) -> d.logo)
-  subselection = subselection.attr("style", "margin-top: 5px;")
-  subselection.attr("alt", "").attr("class", "circle")
+  subselection.attr("alt", "").attr("class", "circle logo")
 
 add_fake_logo = (selection) ->
   subselection = selection.filter((d) -> not ("logo" of d))
   subselection = subselection.append("i").attr("class",
     "material-icons circle light-green lighen-1")
-  subselection.attr("style", "font-size: 23px;").attr("style", "margin-top: 5px")
   subselection.text("code")
 
 add_header = (selection) ->
@@ -26,24 +24,20 @@ add_header = (selection) ->
 add_description = (selection) ->
   subselection = selection.filter((d) -> "description" of d)
   p = subselection.append("p").text((d) -> d.description)
-  p.attr("style", "font-size: 20px")
+  p.attr("class", "date")
 
 add_badges = (selection) ->
   subselection = selection.filter((d) -> "badges" of d)
-  p = subselection.append("p").attr("style", "padding-top: 15px")
+  p = subselection.append("p").attr("class", "badge")
   a = p.selectAll().data((d) -> d.badges).enter().append("a")
   a = a.attr("href", (d) -> d.href)
   a.attr("target", "_blank")
-  a.append("img").attr("src", (d) -> d.src).attr("style", "max-width:
-  100%; padding-right: 10px")
+  a.append("img").attr("src", (d) -> d.src).attr("class", "badge")
 
 add_examples = (selection, key) ->
   subselection = selection.filter((d) -> key of d)
-  # h5 = subselection.append("h5")
-  # h5.attr("style", "padding-top: 5px; font-size: 18px")
-  # h5.text("Examples")
   p = subselection.append("p")
-  p.attr("style", "font-size: 15px; padding-top: 10px;")
+  p.attr("class", "examples")
 
   set_size = (d) ->
     for k, i in d[key]
@@ -67,8 +61,6 @@ build_function = (data) ->
   selection = d3.select("#codes").selectAll()
   .data(data).enter()
   .append("li").attr("class", "collection-item avatar light-green lighten-4")
-  selection.attr("style", "border-color: transparent;
-  border-bottom-style: none; margin-bottom: 5px;")
   selection = selection.sort()
 
   add_logo(selection)

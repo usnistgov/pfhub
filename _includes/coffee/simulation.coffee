@@ -399,8 +399,6 @@ add_plotly_src = (x) ->
   Args:
     x: the img selection to add the plotly src to
   ###
-  style = {format:'svg', height:100, width:100}
-
   urlfunc = curry(
     (gd, data, url) ->
       x.filter((data_) -> data is data_).attr('src', url)
