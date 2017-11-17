@@ -331,3 +331,19 @@ table.striped tbody tr:nth-child(2n+1) {
     width: 150px;
     float: left;
 }
+
+.flow-text {
+    font-size: 20px;
+}
+.flow-text.comment {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.collection {
+    border-color: transparent;
+}
+
+.flow-text.chart {
+    font-size: 12px;
+}
