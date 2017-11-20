@@ -16,9 +16,7 @@ comment: >-
     </div>
     <div class="col s12 m12 l10 xl10">
       {% for item in site.data.community %}
-        {% capture github_url %}
-          https://github.com/{{ item.github_id }}
-        {% endcapture %}
+        {% capture github_url %}https://github.com/{{ item.github_id }}{% endcapture %}
         <div class="col s12 m6 l6 xl4">
           <div class="card small light-green lighten-4">
             <div class="card-content community">
