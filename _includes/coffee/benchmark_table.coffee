@@ -144,9 +144,18 @@ get_columns = (sim_data) ->
   ]
 
 
+helper = (data) ->
+  map(
+    (x) ->
+      extend(copy_(x), {variations:x.revisions.variations})
+    data
+  )
+
+
 transform_data = sequence(
-  flat_key_from_list('variations')
   flat_key_from_list('revisions')
+  map((x) -> extend(copy_(x), {variations:x.revisions.variations}))
+  flat_key_from_list('variations')
 )
 
 
