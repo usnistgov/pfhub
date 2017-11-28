@@ -149,7 +149,7 @@ describe('test transform_data', ->
           variations:'a'
           revisions:
             {
-              variations: ['a', 'b']
+              variations:['a', 'b']
               version:1
             }
         }
@@ -158,7 +158,7 @@ describe('test transform_data', ->
           variations:'b'
           revisions:
             {
-              variations: ['a', 'b']
+              variations:['a', 'b']
               version:1
             }
         }
@@ -167,7 +167,7 @@ describe('test transform_data', ->
           variations:'a'
           revisions:
             {
-              variations: ['a', 'b']
+              variations:['a', 'b']
               version:0
             }
         }
@@ -176,7 +176,7 @@ describe('test transform_data', ->
           variations:'b'
           revisions:
             {
-              variations: ['a', 'b']
+              variations:['a', 'b']
               version:0
             }
         }
@@ -185,7 +185,7 @@ describe('test transform_data', ->
           variations:'a'
           revisions:
             {
-              variations: ['a', 'b']
+              variations:['a', 'b']
               version:1
             }
         }
@@ -194,7 +194,7 @@ describe('test transform_data', ->
           variations:'b'
           revisions:
             {
-              variations: ['a', 'b']
+              variations:['a', 'b']
               version:1
             }
         }
@@ -203,7 +203,7 @@ describe('test transform_data', ->
           variations:'a'
           revisions:
             {
-              variations: ['a', 'b']
+              variations:['a', 'b']
               version:0
             }
         }
@@ -212,7 +212,7 @@ describe('test transform_data', ->
           variations:'b'
           revisions:
             {
-              variations: ['a', 'b']
+              variations:['a', 'b']
               version:0
             }
         }
