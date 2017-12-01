@@ -9,12 +9,12 @@ comment: >-
 
 <div class="container top-bar-thin">
   <div class="row small-buffer">
-    <div class="col s12 m12 l2 xl2">
+    <div class="col s12 m12 l12 xl2">
       <h5 class="sideheader">
         Members
       </h5>
     </div>
-    <div class="col s12 m12 l10 xl10">
+    <div class="col s12 m12 l12 xl10">
       {% for item in site.data.community %}
         {% capture github_url %}https://github.com/{{ item.github_id }}{% endcapture %}
         <div class="col s12 m6 l6 xl4">

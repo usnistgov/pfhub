@@ -183,4 +183,5 @@ get_benchmark_data = (benchmark_data, sim_data, filter_func = (x) -> true) ->
     lengthChange:false
     data:transform_data(benchmark_data).filter(filter_func)
     columns:get_columns(sim_data)
+    responsive:true
   }

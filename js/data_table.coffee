@@ -27,6 +27,7 @@ create_table = (data_in) ->
   data_table = if benchmark_id is '' then data_raw else data_filter
 
   data = {
+    responsive: true
     lengthMenu: [15]
     lengthChange: false
     data: data_table
