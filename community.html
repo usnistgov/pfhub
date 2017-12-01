@@ -16,11 +16,12 @@ comment: >-
     </div>
     <div class="col s12 m12 l10 xl10">
       {% for item in site.data.community %}
+        {% capture github_url %}https://github.com/{{ item.github_id }}{% endcapture %}
         <div class="col s12 m6 l6 xl4">
           <div class="card small light-green lighten-4">
             <div class="card-content community">
               <span class="card-title">
-                <a href="{{ item.home }}"
+                <a href="{% if item.home %}{{ item.home }}{% else %}{{ github_url }}{% endif %}"
                    target="_blank"
                    title="home page">
                   {{ item.name }}
@@ -39,7 +40,7 @@ comment: >-
                   email
                 </i>
               </a>
-              <a href="https://github.com/{{ item.github_id }}"
+              <a href="{{ github_url }}"
                  target="blank_"
                  title="github">
                 <i class="small material-icons">
@@ -55,6 +56,28 @@ comment: >-
                   <i class="small material-icons">
                     <img src="{{ site.baseurl }}/images/twitter-blue.svg"
                          alt="twitter"
+                         class="github">
+                  </i>
+                </a>
+              {% endif %}
+              {% if item.scholar %}
+                <a href="https://scholar.google.com/citations?user={{ item.scholar }}"
+                   target="blank_"
+                   title="scholar">
+                  <i class="small material-icons">
+                    <img src="{{ site.baseurl }}/images/gscholar-button_inactive.svg"
+                         alt="scholar"
+                         class="github">
+                  </i>
+                </a>
+              {% endif %}
+              {% if item.orcid %}
+                <a href="https://orcid.org/{{ item.orcid }}"
+                   target="blank_"
+                   title="orcid">
+                  <i class="small material-icons">
+                    <img src="{{ site.baseurl }}/images/vector_iD_icon.svg"
+                         alt="orcid"
                          class="github">
                   </i>
                 </a>
