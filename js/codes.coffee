@@ -11,7 +11,7 @@ add_logo = (selection) ->
 add_fake_logo = (selection) ->
   subselection = selection.filter((d) -> not ("logo" of d))
   subselection = subselection.append("i").attr("class",
-    "material-icons circle light-green lighen-1")
+    "material-icons circle light-green lighten-1")
   subselection.text("code")
 
 add_header = (selection) ->
