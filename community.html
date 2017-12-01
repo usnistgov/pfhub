@@ -9,18 +9,19 @@ comment: >-
 
 <div class="container top-bar-thin">
   <div class="row small-buffer">
-    <div class="col s12 m12 l2 xl2">
+    <div class="col s12 m12 l12 xl2">
       <h5 class="sideheader">
         Members
       </h5>
     </div>
-    <div class="col s12 m12 l10 xl10">
+    <div class="col s12 m12 l12 xl10">
       {% for item in site.data.community %}
+        {% capture github_url %}https://github.com/{{ item.github_id }}{% endcapture %}
         <div class="col s12 m6 l6 xl4">
           <div class="card small light-green lighten-4">
             <div class="card-content community">
               <span class="card-title">
-                <a href="{{ item.home }}"
+                <a href="{% if item.home %}{{ item.home }}{% else %}{{ github_url }}{% endif %}"
                    target="_blank"
                    title="home page">
                   {{ item.name }}
@@ -39,7 +40,7 @@ comment: >-
                   email
                 </i>
               </a>
-              <a href="https://github.com/{{ item.github_id }}"
+              <a href="{{ github_url }}"
                  target="blank_"
                  title="github">
                 <i class="small material-icons">
@@ -59,6 +60,28 @@ comment: >-
                   </i>
                 </a>
               {% endif %}
+              {% if item.scholar %}
+                <a href="https://scholar.google.com/citations?user={{ item.scholar }}"
+                   target="blank_"
+                   title="scholar">
+                  <i class="small material-icons">
+                    <img src="{{ site.baseurl }}/images/gscholar-button_inactive.svg"
+                         alt="scholar"
+                         class="github">
+                  </i>
+                </a>
+              {% endif %}
+              {% if item.orcid %}
+                <a href="https://orcid.org/{{ item.orcid }}"
+                   target="blank_"
+                   title="orcid">
+                  <i class="small material-icons">
+                    <img src="{{ site.baseurl }}/images/vector_iD_icon.svg"
+                         alt="orcid"
+                         class="github">
+                  </i>
+                </a>
+              {% endif %}
               <p>
                 {{ item.text }}
               </p>
@@ -73,7 +96,7 @@ comment: >-
 <div class="container">
   <div class="row small-buffer">
     <div class="col s12 m12 l10 xl10 offset-l2 offset-xl2" id="overview">
-      <div class="flow-text" style="font-size: 20px">
+      <div class="flow-text">
         Is your sketch missing from the gallery? Please e-mail the
         <a href="mailto:{{ site.admin_email }}">
           site admin
