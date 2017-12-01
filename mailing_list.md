@@ -25,7 +25,7 @@ to:
 
 ### List Archive
 
-The list is archived as a Google Groups, see
+The list is archived as a Google Group, see
 
 <https://groups.google.com/a/list.nist.gov/forum/#!forum/chimad-phase-field>
 

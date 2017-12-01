@@ -145,7 +145,6 @@ benchmark = (data) ->
     .attr('href',
           (d) ->
             '{{ site.baseurl }}' + '/benchmarks/benchmark' + d.id[0] + '.ipynb')
-    .attr('target', '_blank')
     .text((d) -> d.id + '.' + d.version)
 
 

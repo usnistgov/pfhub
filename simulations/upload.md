@@ -3,7 +3,7 @@ title: "Manual Result Upload"
 layout: essay
 comment: >-
   How to add a new benchmark result manually. However, in most cases
-  it is easier to use the automated <a target="_blank"
+  it is easier to use the automated <a
   href="/chimad-phase-field/simulations/upload_form">upload form</a>.
 
 ---
