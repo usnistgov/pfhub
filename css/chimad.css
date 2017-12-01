@@ -331,3 +331,77 @@ table.striped tbody tr:nth-child(2n+1) {
     width: 150px;
     float: left;
 }
+
+.flow-text {
+    font-size: 20px;
+}
+.flow-text.comment {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.collection {
+    border-color: transparent;
+}
+
+.flow-text.chart {
+    font-size: 12px;
+}
+
+.collection-item .circle {
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+p.date {
+    font-size: 20px;
+}
+
+p.description {
+    font-size: 20px;
+    padding-top: 10px
+}
+
+p.icons {
+    padding-top: 10px;
+}
+
+a.icons {
+    padding-right: 10px;
+}
+
+p.examples {
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.workshop {
+    border-color: transparent;
+    border-bottom-style: none;
+    margin-bottom: 10px;
+}
+
+.circle.logo {
+    margin-top: 5px;
+}
+
+.material-icons.circle {
+    font-size: 23px;
+    margin-top: 5px;
+}
+
+p.badge {
+    padding-top: 15px;
+}
+
+img.badge{
+    max-width: 100%;
+    padding-right: 10px;
+}
+
+.collection-item.avatar {
+    border-color: transparent;
+    border-bottom-style: none;
+    margin-bottom: 10px;
+}
