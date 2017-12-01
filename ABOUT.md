@@ -21,12 +21,20 @@ field equations. Further goals include
 
 For further details about the benchmarking effort see one of
 
- - the [extended overview]({{ site.baseurl }}/benchmarks){:target="_blank"},
+ - an [extended essay]({{ site.baseurl
+   }}/benchmarks){:target="_blank"} outlining the motivation for phase
+   field benchmark problems,
 
- - ["Benchmark Problems for Phase Field Methods"](http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html)
+ - a Computational Materials Science journal publication entitled
+   ["Benchmark problems for numerical implementations of phase field
+   models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"},
 
- - ["Benchmark problems for numerical implementations of phase field
-   models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}
+ - an essay at CHiMaD entitled ["Benchmark Problems for Phase Field
+   Methods"](http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html),
+
+ - or, an MRS write-up about the effort entitled ["Benchmarking
+   Problems for Phase Field
+   Codes"](http://materials.typepad.com/mrs_meeting_scene/2017/11/tc05-uncertainty-quantification-in-multiscale-materials-simulation-1.html).
 
 <h4> Get Involved </h4>
 
