@@ -1,56 +1,57 @@
 _id: 10b44d10-76fb-11e7-a3e9-cb63094aa20f
-metadata:
-  author: Larry Aagesen
-  github_id: laagesen
-  email: Larry.Aagesen@inl.gov
-  simulation_name: inl_moose_6b
-  summary: >-
-    Benchmark problem 6b, gmsh triangular elements with element target length 1,
-    Adaptive time stepping with IterationAdaptive, target iterations = 8
-  timestamp: '27 July, 2017'
-  implementation:
-    repo:
-      url: 'https://github.com/dschwen/CHiMaD_Hackathon'
-      version: 4b543d98c423fa719d360c16edf70960477c09d7
-    container_url: ''
-  hardware:
-    architecture: x86_64
-    parallel_model: multiprocessing
-    clock_rate: '2.8'
-    cores: '3'
-    nodes: '1'
-  software:
-    name: moose
-    version: ''
-    repo:
-      url: 'https://github.com/idaholab/moose'
-      version: 6e33f5a4bfddd4a5c951ba493a87526c91509bfa
 benchmark:
   id: 6b
   version: '0'
 data:
-  - name: free_energy
-    url: 'https://gist.githubusercontent.com/laagesen/ac2b5742ec1f2e50f25f6b9d8b4a0fc1/raw/7036afd1a6aeefea1478d11352ea1eec0f28c364/problem2b_out_l1_dtIA8_upload.csv'
-    format:
-      parse:
-        time: number
-        free_energy: number
-      type: csv
-    transform:
-      - as: y
-        expr: datum.free_energy
-        type: formula
-      - as: x
-        expr: datum.time
-        type: formula
-    description: Free Energy Plot
-    type: line
-  - name: run_time
-    values:
-      - wall_time: '545'
-        sim_time: '400'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '340000'
+- description: Free Energy Plot
+  format:
+    parse:
+      free_energy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/laagesen/ac2b5742ec1f2e50f25f6b9d8b4a0fc1/raw/7036afd1a6aeefea1478d11352ea1eec0f28c364/problem2b_out_l1_dtIA8_upload.csv
+- name: run_time
+  values:
+  - sim_time: '400'
+    wall_time: '545'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '340000'
 date: 1501620635
+metadata:
+  author:
+    first: Larry
+    last: Aagesen
+  email: Larry.Aagesen@inl.gov
+  github_id: laagesen
+  hardware:
+    architecture: x86_64
+    clock_rate: '2.8'
+    cores: '3'
+    nodes: '1'
+    parallel_model: multiprocessing
+  implementation:
+    container_url: ''
+    repo:
+      url: https://github.com/dschwen/CHiMaD_Hackathon
+      version: 4b543d98c423fa719d360c16edf70960477c09d7
+  simulation_name: inl_moose_6b
+  software:
+    name: moose
+    repo:
+      url: https://github.com/idaholab/moose
+      version: 6e33f5a4bfddd4a5c951ba493a87526c91509bfa
+    version: ''
+  summary: Benchmark problem 6b, gmsh triangular elements with element target length
+    1, Adaptive time stepping with IterationAdaptive, target iterations = 8
+  timestamp: 27 July, 2017

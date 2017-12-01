@@ -29,7 +29,9 @@ data:
   type: line
   url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_IA.csv
 metadata:
-  author: A. M. Jokisaari
+  author:
+    first: A. M.
+    last: Jokisaari
   email: andrea.jokisaari@northwestern.edu
   github_id: amjokisaari
   hardware:

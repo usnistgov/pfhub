@@ -21,6 +21,6 @@ links:
 
 title: CHiMaD Phase Field
 
-plugins: [jekyll-coffeescript, jekyll-redirect-from]
+plugins: [jekyll-coffeescript]
 
 admin_email: 'chimad-phase-field-admin@list.nist.gov'

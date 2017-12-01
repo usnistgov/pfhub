@@ -48,7 +48,9 @@ data:
   - unit: KB
     value: 33844
 metadata:
-  author: Trevor Keller
+  author:
+    first: Trevor
+    last: Keller
   email: trevor.keller@nist.gov
   github_id: tkphd
   hardware:

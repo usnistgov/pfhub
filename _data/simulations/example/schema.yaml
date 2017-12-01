@@ -66,8 +66,15 @@ mapping:
         type: str
         required: True
       "author":
-        type: str
+        type: map
         required: True
+        mapping:
+          "first":
+            type: str
+            required: True
+          "last":
+            type: str
+            required: True
       "email":
         type: str
         pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b

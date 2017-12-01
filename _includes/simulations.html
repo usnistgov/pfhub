@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col s8 offset-s2">
+    <div class="col s12 m12 l12 xl10 offset-xl2">
       <h2 class="header">
         Benchmark {{ include.benchmark_id }} Results
       </h2>
@@ -18,12 +18,12 @@
 <div class="container">
   <div class="row small-buffer">
     <br>
-    <div class="col s8 offset-s2" id="free_energy_chart">
+    <div class="col s12 m12 l12 xl10 offset-xl2" id="free_energy_chart">
       <br>
     </div>
   </div>
   <div class="row">
-    <div class="col s8 offset-s2">
+    <div class="col s12 m12 l12 xl10 offset-xl2">
       <div class="flow-text chart">
         Click and drag to pan, wheel or pinch to zoom and click on
         legend symbols to add or remove data.
@@ -40,12 +40,12 @@
 <div class="container">
   <div class="row small-buffer">
     <br>
-    <div class="col s8 offset-s2" id="memory_chart">
+    <div class="col s12 m12 l12 xl10 offset-xl2" id="memory_chart">
       <br>
     </div>
   </div>
   <div class="row">
-    <div class="col s8 offset-s2">
+    <div class="col s12 m12 l12 xl10 offset-xl2">
       <div class="flow-text chart">
         Click and drag to pan, wheel or pinch to zoom and click on
         legend symbols to add or remove data.
@@ -62,12 +62,12 @@
 
 <div class="container top-bar top-buffer">
   <div class="row small-buffer">
-    <div class="col l2 m12 s12">
+    <div class="col s12 m12 l12 xl2">
       <h5 class="sideheader" id="simulations">Table of Results</h5>
     </div>
-    <div class="col s10">
+    <div class="col s12 m12 l12 xl10">
       <div class="flow-text comment">
-        Table of {{ include.benchmark_id }} benchmark result uploads
+        <i>Table of {{ include.benchmark_id }} benchmark result uploads</i>
       </div>
       <br>
       <table id="data_table" class="mdl-data-table striped" cellspacing="0"></table>
