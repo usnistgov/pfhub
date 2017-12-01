@@ -42,7 +42,7 @@ def thumbnail_image(image_url, size):
     try:
         with urllib.request.urlopen(image_url) as stream:
             image_file = io.BytesIO(stream.read())
-    except:
+    except Exception:
         print("image_url:", image_url)
         raise
     image = Image.open(image_file)
