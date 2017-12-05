@@ -266,6 +266,15 @@ table.striped tbody tr:nth-child(2n+1) {
     font-size: 20px;
 }
 
+.flow-text.mission-statement ul {
+    margin-top: 0px;
+}
+
+.flow-text.mission-statement li {
+    font-size: 20px;
+    padding: 5px 0px;
+}
+
 .flow-text.describe {
     font-size: 20px;
     font-style: italic;
