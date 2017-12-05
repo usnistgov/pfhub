@@ -72,27 +72,29 @@ benchmark_data_in = ->
   [
     {
       title:'first'
-      variations:['a', 'b']
       revisions:
         [
           {
+            variations:['a', 'b']
             version:1
           }
           {
+            variations:['a', 'b']
             version:0
           }
         ]
     }
     {
       title:'second'
-      variations:['a', 'b']
       revisions:
         [
           {
             version:1
+            variations:['a', 'b']
           }
           {
             version:0
+            variations:['a', 'b']
           }
         ]
     }
@@ -147,22 +149,7 @@ describe('test transform_data', ->
           variations:'a'
           revisions:
             {
-              version:1
-            }
-        }
-        {
-          title:'first'
-          variations:'a'
-          revisions:
-            {
-              version:0
-            }
-        }
-        {
-          title:'first'
-          variations:'b'
-          revisions:
-            {
+              variations:['a', 'b']
               version:1
             }
         }
@@ -171,6 +158,25 @@ describe('test transform_data', ->
           variations:'b'
           revisions:
             {
+              variations:['a', 'b']
+              version:1
+            }
+        }
+        {
+          title:'first'
+          variations:'a'
+          revisions:
+            {
+              variations:['a', 'b']
+              version:0
+            }
+        }
+        {
+          title:'first'
+          variations:'b'
+          revisions:
+            {
+              variations:['a', 'b']
               version:0
             }
         }
@@ -179,6 +185,16 @@ describe('test transform_data', ->
           variations:'a'
           revisions:
             {
+              variations:['a', 'b']
+              version:1
+            }
+        }
+        {
+          title:'second'
+          variations:'b'
+          revisions:
+            {
+              variations:['a', 'b']
               version:1
             }
         }
@@ -187,6 +203,7 @@ describe('test transform_data', ->
           variations:'a'
           revisions:
             {
+              variations:['a', 'b']
               version:0
             }
         }
@@ -195,14 +212,7 @@ describe('test transform_data', ->
           variations:'b'
           revisions:
             {
-              version:1
-            }
-        }
-        {
-          title:'second'
-          variations:'b'
-          revisions:
-            {
+              variations:['a', 'b']
               version:0
             }
         }

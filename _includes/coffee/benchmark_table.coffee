@@ -145,8 +145,9 @@ get_columns = (sim_data) ->
 
 
 transform_data = sequence(
-  flat_key_from_list('variations')
   flat_key_from_list('revisions')
+  map((x) -> extend(copy_(x), {variations:x.revisions.variations}))
+  flat_key_from_list('variations')
 )
 
 
@@ -161,10 +162,12 @@ filter_num_revision = (num = null, revision = null) ->
     a function to filter benchmark data
   ###
   (x) ->
+    le_ = (x0, x1) ->
+      parseInt(x0, 10) <= parseInt(x1, 10)
     num_ = (y) ->
       if (num is null) then true else (y.num in num)
     revision_ = (y) ->
-      if (revision is null) then true else (y.revisions.version is revision)
+      if (revision is null) then true else le_(y.revisions.version, revision)
     num_(x) and revision_(x)
 
 

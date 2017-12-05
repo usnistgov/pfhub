@@ -1,0 +1,287 @@
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">code_show=true; </span>
+<span class="s1">function code_toggle() {</span>
+<span class="s1"> if (code_show){</span>
+<span class="s1"> $(&#39;div.input&#39;).hide();</span>
+<span class="s1"> $(&#39;div.prompt&#39;).hide();</span>
+<span class="s1"> } else {</span>
+<span class="s1"> $(&#39;div.input&#39;).show();</span>
+<span class="s1">$(&#39;div.prompt&#39;).show();</span>
+<span class="s1"> }</span>
+<span class="s1"> code_show = !code_show</span>
+<span class="s1">} </span>
+<span class="s1">$( document ).ready(code_toggle);</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Code Toggle&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $('div.input').hide();
+ $('div.prompt').hide();
+ } else {
+ $('div.input').show();
+$('div.prompt').show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+</script>
+<form action="javascript:code_toggle()"><input type="submit" value="Code Toggle"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;a href=&quot;https://github.com/wd15/chimad-phase-field/raw/issue550-benchmarks-3-4/benchmarks/benchmark3.ipynb&quot;</span>
+<span class="s1">   download=&quot;benchmark3.ipynb&quot;&gt;</span>
+<span class="s1">&lt;button type=&quot;submit&quot;&gt;Download Notebook&lt;/button&gt;</span>
+<span class="s1">&lt;/a&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<a href="https://github.com/wd15/chimad-phase-field/raw/issue550-benchmarks-3-4/benchmarks/benchmark3.ipynb"
+   download="benchmark3.ipynb">
+<button type="submit">Download Notebook</button>
+</a>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Benchmark-Problem-3:-Dendritic-Growth">Benchmark Problem 3: Dendritic Growth<a class="anchor-link" href="#Benchmark-Problem-3:-Dendritic-Growth">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;{</span><span class="si">% i</span><span class="s1">nclude jupyter_benchmark_table.html num=&quot;[3]&quot; revision=1 %}&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+{% include jupyter_benchmark_table.html num="[3]" revision=1 %}
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>See the journal publication entitled <a href="https://pages.nist.gov/chimad-phase-field/">"Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h2><p>Dendritic growth simulations are useful as benchmark problems being highly sensitive to both the phase field model formulation and the particular numerical implementation employed (see, for example,
+[<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>, <a href="https://doi.org/10.1016/0956-7151(94)00285-P">2</a>]). Historically, dendritic growth was one of the first applications of phase field modeling [<a href="https://doi.org/10.1007/978-3-0348-7893-7">3</a>, <a href="https://doi.org/10.1142/9789814415309_0005">4</a>], and remains a significant area of research today.  Previous analyses of both the sharp [<a href="https://doi.org/10.1142/9789814415309_0005">4</a>, <a href="https://doi.org/10.1103/PhysRevB.31.6119">5</a>, <a href="https://doi.org/10.1016/0167-2789(93)90120-P">6</a>, <a href="https://doi.org/10.1103/PhysRevE.48.2016">7</a>, <a href="https://doi.org/10.1016/0167-2789(93)90189-8">8</a>] and thin interface limits [<a href="https://doi.org/10.1103/PhysRevE.53.R3017">10</a>, <a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>, <a href="https://doi.org/10.1016/S0167-2789(00)00064-6">11</a>, <a href="https://doi.org/10.1103/PhysRevLett.87.115701">12</a>] have demonstrated that the diffuse-interface phase field formulation is asymptotically equivalent to the sharp-interface Stefan formulation. In 2001, the introduction of an "anti-trapping current" to correct for solute trapping due to the jump in chemical potential at the solid/liquid interface [<a href="https://doi.org/10.1103/PhysRevLett.87.115701">13</a>, <a href="https://doi.org/10.1103/PhysRevE.70.061604">14</a>] facilitated quantitative phase field modeling of alloy solidification using unphysically large diffuse interface widths.  Today, massive increases in computing power and the advent of scientific computing on graphical processing units enable large-scale, quantitative 3D phase field simulations of growing dendrites (see, for example, [<a href="https://doi.org/10.1016/j.actamat.2015.03.051">15</a>, <a href="https://doi.org/10.1007/s11837-015-1452-2">16</a>] and reviews [<a href="https://doi.org/10.2355/isijinternational.54.437">17</a>, <a href="https://doi.org/10.1007/s11661-013-1988-0">18</a>]).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Model-Formulation">Model Formulation<a class="anchor-link" href="#Model-Formulation">&#182;</a></h2><p>In this formulation, one order parameter, $\phi$, and one additional field variable, $U$, are evolved.  The phase of the material is described by $\phi$, which takes a value of -1 in the liquid and +1 in the solid.  In addition, the nondimensionalized temperature is indicated by $U$, 
+\begin{equation}
+U=\frac{T-T_m}{L/c_p},
+\end{equation}
+where $T$ is the local temperature, $T_m$ is the melting temperature, $L$ is the latent heat of fusion, and $c_p$ is the specific heat at constant pressure, such that $U=0$ is the nondimensionalized melting temperature (note that, for this particular problem, we do not need to supply values for $T_m$, $L$, and $c_p$). The free energy of the system, $\mathcal{F}$, is expressed as [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>]</p>
+$$
+\mathcal{F}=\int_{V}\left[\frac{1}{2} \left[W(\textbf{n})\right]^2|\nabla \phi|^2+f_{chem}(\phi,U)\right]\,dV
+$$<p>where $\left[W(\textbf{n})\right]^2$ is the gradient energy coefficient, $\textbf{n}\equiv \frac{\nabla\phi}{|\nabla\phi|}$ is the normal direction to the interface, and $f_{chem}$ is the chemical free energy density.  In this formulation, $f_{chem}$ is a double-well potential with a simple polynomial formulation [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
+$$
+f_{chem}=-\frac{1}{2}\phi^2+\frac{1}{4}\phi^4
++\lambda U\phi\left[1-\frac{2}{3}\phi^2+\frac{1}{5}\phi^4\right],
+$$<p>where $\lambda$ is a dimensionless coupling constant.  The interface thickness and directional anisotropy are controlled by $W(\textbf{n})$, which takes the form $W(\textbf{n})=W_0a(\textbf{n})$ in two dimensions. We use a simple form for $a(\textbf{n})$ to reflect in-plane symmetry [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
+\begin{equation}
+a(\textbf{n})=1+\epsilon_m\cos \left[m(\theta-\theta_0) \right],
+\end{equation}<p>where $m$ is a non-negative integer and $\theta$ is the in-plane azimuthal angle, $\tan\theta=n_y/n_x$; $\theta_0$ is an offset azimuthal angle that specifies the misorientation of the crystalline lattice relative to the laboratory frame of reference (in this case, the $x$-axis in the simulation coordinate system). We take</p>
+\begin{equation}
+\lambda=\frac{D\tau_0}{0.6267W_0^2}
+\end{equation}<p>because this choice gives quantitative agreement in the so-called ``thin interface limit'' with sharp interface models of dendritic growth in the limit of vanishing interface kinetics [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>].</p>
+<p>The time scale for the evolution of $\phi$ and $U$ are similar, so both must be described with time-dependent equations.  The evolution of $\phi$, a non-conserved quantity, is governed by the Allen-Cahn equation [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
+\begin{equation}
+\tau(\textbf{n})\frac{\partial\phi}{\partial t} = -\frac{\delta \mathcal{F}}{\delta \phi},
+\end{equation}<p>where the kinetic coefficient $\tau(\textbf{n})=\tau_0\left[a(\textbf{n})\right]^2$. The functional derivative is given as [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>]</p>
+\begin{eqnarray}
+\tau(\textbf{n})\frac{\partial\phi}{\partial t} & = & \left[\phi-\lambda U\left(1-\phi^2\right)\right]\left(1-\phi^2\right)+\nabla\cdot\left( \left[W(\textbf{n})\right]^2\nabla\phi\right)\nonumber\\
+&&+\frac{\partial}{\partial x}\left[|\nabla\phi|^2W(\textbf{n})\frac{\partial W(\textbf{n})}{\partial \left(\frac{\partial\phi}{\partial x}\right)}\right]
++\frac{\partial}{\partial y}\left[|\nabla\phi|^2W(\textbf{n})\frac{\partial W(\textbf{n})}{\partial \left(\frac{\partial\phi}{\partial y}\right)}\right] 
+\end{eqnarray}<p>for two dimensions.  We remind the reader that although  $a(\textbf{n})$, $W(\textbf{n})$ and $\tau(\textbf{n})$ have a vectorial argument, they are scalar quantities. Furthermore, the time evolution of $U$ is governed by thermal diffusion and the release of latent heat at the interface during solidification [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
+\begin{equation}
+\frac{\partial U}{\partial t} = D\nabla^2U+\frac{1}{2}\frac{\partial \phi}{\partial t}
+\end{equation}<p>where $D$ is a thermal diffusion constant.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Parameterization-and-simulation-conditions">Parameterization and simulation conditions<a class="anchor-link" href="#Parameterization-and-simulation-conditions">&#182;</a></h2><p>This section presents the specific details for the solidification and dendritic growth benchmark problem, including the model parameterization, initial conditions, boundary conditions, and computational domain size. The model is parameterized with dimensionless units, see the table below. While the diffuse interface width depends on orientation, it varies between four and five units, where the width is defined as the distance over which $-0.9 < \phi < 0.9$. The benchmark problem is formulated for two dimensions.  To further reduce computational cost, we simulate one-quarter of a growing dendrite, as is commonly done in earlier works (e.g., Ref. [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>, <a href="https://doi.org/10.1016/0956-7151(94)00285-P">2</a>]). One-quarter of a solid seed with a radius of eight units (with the position of the interface defined as $\phi=0$) and a diffuse interface width of one unit is placed in the lower-left corner of the computational domain, surrounded by liquid.  Initially, the entire system is uniformly undercooled with $U \left(t=0\right)=\Delta$.  This undercooling is chosen to challenge numerical solvers somewhat because it increases the thermal diffusion length and requires a larger computational domain size relative to more negative undercoolings.  We select a square computational domain of $(960 \textrm{ units})^2$, which is two times longer than the long dimension used in Ref. [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>] for the same model parameterization. No-flux boundary conditions are chosen for $\phi$ and $U$ on all domain boundaries.</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Quantity</th>
+<th style="text-align:left">Symbol</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Interface thickness</td>
+<td style="text-align:left">$W_0$</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">Rotational symmetry order</td>
+<td style="text-align:left">$m$</td>
+<td style="text-align:left">4</td>
+</tr>
+<tr>
+<td style="text-align:left">Anisotropy strength</td>
+<td style="text-align:left">$\epsilon_4$</td>
+<td style="text-align:left">0.05</td>
+</tr>
+<tr>
+<td style="text-align:left">Offset angle</td>
+<td style="text-align:left">$\theta_0$</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">Relaxation time</td>
+<td style="text-align:left">$\tau_0$</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">Diffusion coefficient</td>
+<td style="text-align:left">$D$</td>
+<td style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="text-align:left">Undercooling</td>
+<td style="text-align:left">$\Delta$</td>
+<td style="text-align:left">-0.3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-Result-at-$t=1500$">Example Result at $t=1500$<a class="anchor-link" href="#Example-Result-at-$t=1500$">&#182;</a></h2><p><img src="../../images/dendrite.png" alt="dendrite"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h2><p>All benchmark solutions should be run to at least $t=1500$. The following data should be collected for upload:</p>
+<ul>
+<li><p>The solid fraction in the domain (the integral of $\int_V \phi dV$)</p>
+</li>
+<li><p>The free energy, $\mathcal{F}$</p>
+</li>
+<li><p>The estimated tip position versus time (the $\phi=0.5$ contour on either the $x=0$ or $y=0$ planes)</p>
+</li>
+</ul>
+<p>These values should be obtained as frequently as possible, but at least 20 values during the simulation would be good. The data should be stored in a CSV file with the following format.</p>
+
+<pre><code>time,solid_fraction,free_energy,tip_position
+0.1,1000.0,500.0,0.1
+...
+1502.0,2000.0,100.0,50.0</code></pre>
+<p>Further data to upload can include a Youtube video or images of the dendrite at different times. These are not requied, but will help others view your work.</p>
+<p>Please use the <a href="{{ site.baseurl/simulations/upload_form/ }}">upload form</a> to upload your results.</p>
+
+</div>
+</div>
+</div>

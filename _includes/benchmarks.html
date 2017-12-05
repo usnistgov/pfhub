@@ -70,7 +70,7 @@
 
             <div>
               Results:
-              {% for variation in item.variations %}
+              {% for variation in item.revisions[0].variations %}
                 <a href="{{ site.baseurl }}/simulations/{{ item.num }}{{ variation }}.{{ item.revisions[0].version }}"
                    title="">
                   {{ item.num }}{{ variation }}

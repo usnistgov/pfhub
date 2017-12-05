@@ -2,9 +2,9 @@
   description: Diffusion of a solute in a matrix
   image: http://www.comsol.com/model/image/2054/big.png
   num: 1
-  variations: [a, b, c, d]
   revisions:
     - version: 1
+      variations: [a, b, c, d]
       event:
         name: Publication 1
         url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
@@ -13,6 +13,7 @@
         url: "benchmarks/benchmark1.ipynb"
       url: "benchmarks/benchmark1.ipynb"
     - version: 0
+      variations: [a, b, c, d]
       url: "hackathons/hackathon1/problems.ipynb"
       event:
         name: Hackathon 1
@@ -25,9 +26,9 @@
   description: Coupling of conserved and non-conserved dynamics
   image: images/ostwald.jpg
   num: 2
-  variations: [a, b, c, d]
   revisions:
     - version: 1
+      variations: [a, b, c, d]
       event:
         name: Publication 1
         url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
@@ -36,6 +37,7 @@
         sha: "c4de782ed5fb2827920db11f3fb743bc28300fd9"
         url: "benchmarks/benchmark2.ipynb"
     - version: 0
+      variations: [a, b, c, d]
       url: "hackathons/hackathon1/problems.ipynb"
       event:
         name: Hackathon 1
@@ -48,9 +50,18 @@
   description: Solidification and dendritic growth in a single-component
   image: https://www.ctcms.nist.gov/fipy/_static/examples/phase/anisotropy/dendrite.png
   num: 3
-  variations: [a, b, c]
   revisions:
+    - version: 1
+      variations: [a]
+      event:
+        name: Publication 2
+        url: "benchmarks/benchmark3.ipynb"
+      url: "benchmarks/benchmark3.ipynb"
+      commit:
+        sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
+        url: "benchmarks/benchmark3.ipynb"
     - version: 0
+      variations: [a, b, c]
       event:
         name: Hackathon 2
         url: "hackathons/hackathon2"
@@ -58,14 +69,13 @@
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
         url: "hackathons/hackathon2/problem1.ipynb"
-
 - title: Linear Elasticity
   description: Linear elasticity via evolution of a constrained precipitate
   image: images/elastic1.png
   num: 4
-  variations: [a, b, c]
   revisions:
     - version: 0
+      variations: [a, b, c]
       event:
         name: Hackathon 2
         url: "hackathons/hackathon2"
