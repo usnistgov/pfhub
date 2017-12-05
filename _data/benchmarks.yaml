@@ -58,7 +58,7 @@
         url: "benchmarks/benchmark3.ipynb"
       url: "benchmarks/benchmark3.ipynb"
       commit:
-        sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
+        sha: "e8ecca6b37f8b95f948014763e7799b450f8a623"
         url: "benchmarks/benchmark3.ipynb"
     - version: 0
       variations: [a, b, c]
@@ -69,6 +69,7 @@
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
         url: "hackathons/hackathon2/problem1.ipynb"
+
 - title: Linear Elasticity
   description: Linear elasticity via evolution of a constrained precipitate
   image: images/elastic1.png
