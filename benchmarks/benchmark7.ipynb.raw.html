@@ -1,0 +1,351 @@
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">code_show=true; </span>
+<span class="s1">function code_toggle() {</span>
+<span class="s1"> if (code_show){</span>
+<span class="s1"> $(&#39;div.input&#39;).hide();</span>
+<span class="s1"> $(&#39;div.prompt&#39;).hide();</span>
+<span class="s1"> } else {</span>
+<span class="s1"> $(&#39;div.input&#39;).show();</span>
+<span class="s1">$(&#39;div.prompt&#39;).show();</span>
+<span class="s1"> }</span>
+<span class="s1"> code_show = !code_show</span>
+<span class="s1">} </span>
+<span class="s1">$( document ).ready(code_toggle);</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Code Toggle&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $('div.input').hide();
+ $('div.prompt').hide();
+ } else {
+ $('div.input').show();
+$('div.prompt').show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+</script>
+<form action="javascript:code_toggle()"><input type="submit" value="Code Toggle"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;a href=&quot;{{ site.links.github }}/raw/nist-pages/benchmarks/benchmark1.ipynb&quot;</span>
+<span class="s1">   download&gt;</span>
+<span class="s1">&lt;button type=&quot;submit&quot;&gt;Download Notebook&lt;/button&gt;</span>
+<span class="s1">&lt;/a&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<a href="{{ site.links.github }}/raw/nist-pages/benchmarks/benchmark1.ipynb"
+   download>
+<button type="submit">Download Notebook</button>
+</a>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Benchmark-Problem-7:-MMS-Allen-Cahn">Benchmark Problem 7: MMS Allen-Cahn<a class="anchor-link" href="#Benchmark-Problem-7:-MMS-Allen-Cahn">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;{</span><span class="si">% i</span><span class="s1">nclude jupyter_benchmark_table.html num=&quot;[7]&quot; revision=0 %}&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+{% include jupyter_benchmark_table.html num="[7]" revision=0 %}
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="#Overview">Overview</a></li>
+<li><a href="#Governing-equation-and-manufactured-solution">Governing equation and manufactured solution</a></li>
+<li><a href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition</a></li>
+<li><a href="#Parameter-values">Parameter values</a></li>
+<li><a href="#Benchmark-simulation-instructions">Benchmark simulation instructions</a><ul>
+<li><a href="#Part-%28a%29">Part (a)</a></li>
+<li><a href="#Part-%28b%29">Part (b)</a></li>
+<li><a href="#Part-%28c%29">Part (c)</a></li>
+</ul>
+</li>
+<li><a href="#Results">Results</a></li>
+<li><a href="#Feedback">Feedback</a></li>
+</ul>
+<p>See the journal publication entitled <a href="http://dx.doi.org/10.1016/j.commatsci.2016.09.022">"Benchmark problems for numerical implementations of phase field models"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The Method of Manufactured Solutions (MMS) is a powerful technique for verifying the accuracy of a simulation code. In the MMS, one picks a desired solution to the problem at the outset, the "manufactured solution", and then determines the governing equation that will result in that solution. With the exact analytical form of the solution in hand, when the governing equation is solved using a particular simulation code, the deviation from the expected solution can be determined exactly. This deviation can be converted into an error metric to rigously quantify the error for a calculation. This error can be used to determine the order of accuracy of the simulation results to verify simulation codes. It can also be used to compare the computational efficiency of different codes or different approaches for a particular code at a certain level of error. Furthermore, the spatial/temporal distribution can give insight into the conditions resulting in the largest error (high gradients, changes in mesh resolution, etc.).</p>
+<p>After choosing a manufactured solution, the governing equation must be modified to force the solution to equal the manufactured solution. This is accomplished by taking the nominal equation that is to be solved (e.g.  Allen-Cahn equation, Cahn-Hilliard equation, Fick's second law, Laplace equation) and adding a source term. This source term is determined by plugging the manufactured solution into the nominal governing equation and setting the source term equal to the residual. Thus, the manufactured solution satisfies the MMS governing equation (the nominal governing equation plus the source term). A more detailed discussion of MMS can be found in <a href="http://prod.sandia.gov/techlib/access-control.cgi/2000/001444.pdf">the report by Salari and Knupp</a>.</p>
+<p>In this benchmark problem, the objective is to use the MMS to rigorously verify phase field simulation codes and then provide a basis of comparison for the computational performance between codes and for various settings for a single code, as discussed above. To this end, the benchmark problem was chosen as a balance between two factors: simplicity, to minimize the development effort required to solve the benchmark, and transferability to a real phase field system of physical interest.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Governing-equation-and-manufactured-solution">Governing equation and manufactured solution<a class="anchor-link" href="#Governing-equation-and-manufactured-solution">&#182;</a></h1><p>For this benchmark problem, we use a simple Allen-Cahn equation as the governing equation</p>
+$$
+\frac{\partial \eta}{\partial t} = - \left[ 4 \eta \left(\eta - 1 \right) \left(\eta-\frac{1}{2} \right) - \kappa \nabla^2 \eta \right] + S(x,y,t) 
+$$<p>where $S(x,y,t)$ is a the MMS source term and $\kappa$ is a constant parameter (the gradient energy coefficient).</p>
+<p>The manufactured solution, $\eta_{sol}$ is a hyperbolic tangent function, shifted to vary between 0 and 1, with the $x$ position of the middle of the interface ($\eta_{sol}=0.5$) given by the function $\alpha(y,t)$:</p>
+$$
+\eta_{sol}(x,y,t) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right) \right] 
+$$$$
+\alpha(x,t) = \frac{1}{4} + A_1 t \sin\left(B_1 x \right) + A_2 \sin \left(B_2  x + C_2 t \right)
+$$<p>where $A_1$, $B_1$, $A_2$, $B_2$, and $C_2$ are constant parameters.</p>
+<p>This manufactured solution is an equilbrium solution of the governing equation, when $S(x,y,t)=0$ and $\alpha(x,t)$ is constant. The closeness of this manufactured solution to a solution of the nominal governing equation increases the likihood that the behavior of simulation codes when solving this benchmark problem is representive of the solution of the regular Allen-Cahn equation (i.e. without the source term). The form of $\alpha(y,t)$ was chosen to yield complex behavior while still retaining a (somewhat) simple functional form. The two spatial sinusoidal terms introduce two controllable length scales to the interfacial shape. Summing them gives a  "beat" pattern with a period longer than the period of either individual term, permitting a domain size that is larger than the wavelength of the sinusoids without a repeating pattern. The temporal sinusoidal term introduces a controllable time scale to the interfacial shape in addition to the phase transformation time scale, while the linear temporal dependence of the other term ensures that the sinusoidal term can go through multiple periods without $\eta_{sol}$ repeating itself.</p>
+<p>Inserting the manufactured solution into the governing equation and solving for $S(x,y,t)$ yields:</p>
+$$
+S(x,y,t) = \frac{\text{sech}^2 \left[ \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right]}{4 \sqrt{\kappa}} \left[-2\sqrt{\kappa} \tanh \left[\frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right] \left(\frac{\partial \alpha(x,t)}{\partial x} \right)^2+\sqrt{2} \left[ \frac{\partial \alpha(x,t)}{\partial t}-\kappa \frac{\partial^2 \alpha(x,t)}{\partial x^2} \right] \right]
+$$<p>where $\alpha(x,t)$ is given above and where:</p>
+$$
+\frac{\partial \alpha(x,t)}{\partial x} = A_1 B_1 t \cos\left(B_1 x\right) + A_2 B_2 \cos \left(B_2  x + C_2 t \right)
+$$$$
+\frac{\partial^2 \alpha(x,t)}{\partial x^2} = -A_1 B_1^2 t \sin\left(B_1 x\right) - A_2 B_2^2 \sin \left(B_2  x + C_2 t \right)
+$$$$
+\frac{\partial \alpha(x,t)}{\partial t} = A_1 \sin\left(B_1 x\right) + A_2 C_2 \cos \left(B_2  x + C_2 t \right)
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition<a class="anchor-link" href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">&#182;</a></h1><p>The domain geometry is a rectangle that spans [0, 1] in $x$ and [0, 0.5] in $y$. This elongated domain was chosen to allow multiple peaks and valleys in $\eta_{sol}$ without stretching the interface too much in the $y$ direction (which causes the thickness of the interface to change) or having large regions where $\eta_{sol}$  never deviates from 0 or 1. Periodic boundary conditions are applied along the $x = 0$ and the $x = 1$ boundaries to accomodate the periodicity of $\alpha(y,t)$. Dirichlet boundary conditions of $\eta$ = 0 and $\eta$ = 1 are applied along the $y = 0$ and the $y = 0.5$ boundaries, respectively. These boundary conditions are chosen to be consistent with $\eta_{sol}(x,y,t)$. The initial condition is the manufactured solution at $t = 0$:</p>
+$$
+\eta_{sol}(x,y,0) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\left(\frac{1}{4}+A_2 \sin(B_2 x) \right)}{\sqrt{2 \kappa}} \right) \right] 
+$$<p>The stopping condition for all calculations is when t = 8 time units, which was chosen to let $\alpha(y,t)$ evolve substantially, while still being slower than the characteristic time for the phase evolution (determined by the CFL condition for a uniform mesh with a reasonable level of resolution of $\eta_{sol}$).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Parameter-values">Parameter values<a class="anchor-link" href="#Parameter-values">&#182;</a></h1><p>The nominal parameter values for the governing equation and manufactured solution are given below. The value of $\kappa$ will change in Part (b) in the following section and the values of $\kappa$ and $C_2$ will change in Part (c).</p>
+<table>
+<thead><tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\kappa$</td>
+<td>0.0004</td>
+</tr>
+<tr>
+<td>$A_1$</td>
+<td>0.0075</td>
+</tr>
+<tr>
+<td>$B_1$</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td>$A_2$</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>$B_2$</td>
+<td>22.0</td>
+</tr>
+<tr>
+<td>$C_2$</td>
+<td>0.0625</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Benchmark-simulation-instructions">Benchmark simulation instructions<a class="anchor-link" href="#Benchmark-simulation-instructions">&#182;</a></h1><p>This section describes three sets of tests to conduct using the MMS problem specified above. The primary purpose of the first test is provide a computationally inexpensive problem to verify a simulation code. The second and third tests are more computationally demanding and are primarily designed to serve as a basis for performance comparisons.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-(a)">Part (a)<a class="anchor-link" href="#Part-(a)">&#182;</a></h2><p>The objective of this test is to verify the accuracy of your simulation code in both time and space. Here, we make use of convergence tests, where either the mesh size (or grid point spacing) or the time step size is systematically changed to determine the response of the error to these quantities. Once a convergence test is completed the order of accuracy can be calculated from the result. The order of accuracy can be compared to the theoretical order of accuracy for the numerical method employed in the simulation. If the two match (to a reasonable degree), then one can be confident that the simulation code is working as expected. The remainder of this subsection will give instructions for convergence tests for this MMS problem.</p>
+<p>Implement the MMS problem specified above using the simulation code of your choice. Perform a spatial convergence test by running the simulation for a variety of mesh sizes. For each simulation, determine the $L_2$ norm of the error, $\sqrt{\int (\eta-\eta_{sol})^2 dV}$, at $t=8$. For all of these simulations, verify that the time step is small enough that any temporal error is much smaller that the total error. This can be accomplished by decreasing the time step until it has minimal effect on the error. Ensure that at least three simulation results have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. This maximum and minimum errors in the range roughly represent a poorly resolved simulation and a very well-resolved simulation.</p>
+<p>Upload to the CHiMaD website the effective mesh size and $L_2$ error for at least three simulations that have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$. Calculate the effective element size as the square root of the area of the finest part of the mesh for nonuniform meshes. For irregular meshes with continous distributions of element sizes, approximate the effective mesh size as the average of the square root of the area of the smallest 5% of the elements.</p>
+<p>Next, confirm that the observed order of accuracy is approximately equal to the expected value. Calculate the order of accuracy, $p$, with a least squares fit of the following function:</p>
+$$
+\log(E)=p \log(R) + b
+$$<p>where $E$ is the $L_2$ error, $R$ is the effective element size, and b is an intercept. Deviations of ±0.2 or more from the theoretical value are to be expected (depending on the range of errors considered and other factors).</p>
+<p>Finally, perform a similar convergence test, but for the time step, systematically changing the time step and recording the $L_2$ error. Use a time step that does not vary over the course of any single simulation. Verify that the spatial discretization error is small enough that it does not substantially contribute to the total error. Once again, ensure that at least three simulations have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. Upload to the CHiMaD website the time step size and $L_2$ error for at least three simulations in this range. Confirm that the observed order of accuracy is approximately equal to the expected value.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-(b)">Part (b)<a class="anchor-link" href="#Part-(b)">&#182;</a></h2><p>Now that your code has been verified in (a), the objective of this part is to determine the computational performance of your code at various levels of error. These results can then be used to objectively compare the performance between codes or settings within the same code. To make the problem more computationally demanding and stress solvers more than in (a), decrease $\kappa$ by a factor of $256$ to $1.5625\times10^{-6}$. This change will reduce the interfacial thickness by a factor of $16$.</p>
+<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[5\times10^{-3}, 1\times10^{-5}]$. For the best of these simulations, submit the wall time, number of computing cores, processor speed, maximum memory usage, and $L_2$ error at $t=8$ to the CHiMaD website.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-(c)">Part (c)<a class="anchor-link" href="#Part-(c)">&#182;</a></h2><p>This final part is designed to stress time integrators even further by increasing the rate of change of $\alpha(x,t)$. Increase $C_2$ to $0.5$. Keep $\kappa= 1.5625\times10^{-6}$ from (b).</p>
+<p>Repeat the process from (b), submitting the wall time, number of computing cores, processor speed, maximum memory usage, and $L_2$ error at $t=8$ to the CHiMaD website.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h1><p>Results from this benchmark problem are displayed on the <a href="{{ site.baseurl }}/simulations">simulation result page</a> for different codes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Feedback">Feedback<a class="anchor-link" href="#Feedback">&#182;</a></h1><p>Feedback on this benchmark problem is appreciated. If you have questions, comments, or seek clarification, please contact the <a href="https://pages.nist.gov/chimad-phase-field/community/">CHiMaD phase field community</a> through the <a href="https://gitter.im/usnistgov/chimad-phase-field">Gitter chat channel</a> or by <a href="https://pages.nist.gov/chimad-phase-field/mailing_list/">email</a>. If you found an error, please file an <a href="https://github.com/usnistgov/chimad-phase-field/issues/new">issue on GitHub</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>

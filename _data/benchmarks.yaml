@@ -84,3 +84,8 @@
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
         url: "hackathons/hackathon2/problem2.ipynb"
+
+- title: MMS Allen-Cahn
+  description: Method of manufactured solutions for an Allen-Cahn equation
+  num: 7
+  url: "benchmarks/benchmark7.ipynb/"
