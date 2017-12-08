@@ -55,7 +55,7 @@
       variations: [a]
       event:
         name: Publication 2
-        url: "benchmarks/benchmark3.ipynb"
+        url: "https://www.overleaf.com/read/xwzkbzzwcyqy"
       url: "benchmarks/benchmark3.ipynb"
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
@@ -75,10 +75,10 @@
   num: 4
   revisions:
     - version: 1
-      variations: [a, b]
+      variations: [a, b, c, d, e, f, g, h]
       event:
         name: Publication 2
-        url: "benchmarks/benchmark4.ipynb"
+        url: "https://www.overleaf.com/read/xwzkbzzwcyqy"
       url: "benchmarks/benchmark4.ipynb"
       commit:
         sha: "e8ecca6b37f8b95f948014763e7799b450f8a623"
