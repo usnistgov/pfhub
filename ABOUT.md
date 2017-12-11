@@ -1,5 +1,5 @@
 ---
-title: "About {{ site.title }}: {{ site.subtitle }}"
+title: "About the Phase Field Community Hub"
 layout: essay
 comment:
 ---
