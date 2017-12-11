@@ -1,40 +1,40 @@
 ---
-title: "About the CHiMad Phase Field website"
+title: "About the Phase Field Community Hub"
 layout: essay
 comment:
 ---
 
-The primary goal of the benchmarking effort is to provide a set of
-benchmark problems to compare and contrast codes for solving phase
-field equations. Further goals include
+The primary goals of {{ site.title }} are:
 
- - providing quality assurance for phase field codes based on
-   performance and accuracy,
+1. Provide a set of benchmark problems to compare and contrast codes for
+   solving phase field equations.
 
- - increasing the adoption of phase field methods in engineering and
+2. Provide quality assurance for phase field codes based on
+   performance and accuracy.
+
+3. Increase the adoption of phase field methods in engineering and
    academic applications with the development of practical
-   documentation,
+   documentation.
 
- - fostering an engaged and integrated phase field community.
+4. Foster an engaged and integrated phase field community.
 
-<h4> Further Reading </h4>
+<h4> Details and Mentions </h4>
 
-For further details about the benchmarking effort see one of
+- Olle Heinonen wrote a philosophical introduction to the {{ site.title }}
+  benchmarking effort, available as an [extended essay]({{ site.baseurl }}/benchmarks){:target="_blank"}.
 
- - an [extended essay]({{ site.baseurl
-   }}/benchmarks){:target="_blank"} outlining the motivation for phase
-   field benchmark problems,
+- [Andrea Jokisaari, Peter Voorhees, Jon Guyer, and Olle Heinonen]({{
+  site.baseurl }}/community) published a peer-reviewed journal article in
+  *Computational Materials Science* entitled ["Benchmark problems for numerical
+  implementations of phase field models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 
- - a Computational Materials Science journal publication entitled
-   ["Benchmark problems for numerical implementations of phase field
-   models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"},
+  - CHiMaD News posted an overview of the article entitled
+    ["Benchmark Problems for Phase Field Methods"](
+    http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html).
 
- - an essay at CHiMaD entitled ["Benchmark Problems for Phase Field
-   Methods"](http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html),
-
- - or, an MRS write-up about the effort entitled ["Benchmarking
-   Problems for Phase Field
-   Codes"](http://materials.typepad.com/mrs_meeting_scene/2017/11/tc05-uncertainty-quantification-in-multiscale-materials-simulation-1.html).
+- Aashutosh Mistry wrote an overview of the presentation delivered by
+  Jonathan Guyer at MRS 2017 entitled ["Benchmarking Problems for Phase Field Codes"](
+  http://materials.typepad.com/mrs_meeting_scene/2017/11/tc05-uncertainty-quantification-in-multiscale-materials-simulation-1.html).
 
 <h4> Get Involved </h4>
 
