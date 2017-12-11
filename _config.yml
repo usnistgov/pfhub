@@ -20,6 +20,7 @@ links:
   simmeta: https://github.com/usnistgov/chimad-phase-field/blob/master/_data/simulations
 
 title: CHiMaD Phase Field
+subtitle: The Phase Field Community Hub
 
 plugins: [jekyll-coffeescript]
 
