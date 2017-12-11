@@ -24,7 +24,7 @@ The primary goals of {{ site.title }} are:
   benchmarking effort, available as an [extended essay]({{ site.baseurl }}/benchmarks){:target="_blank"}.
 
 - [Andrea Jokisaari, Peter Voorhees, Jon Guyer, and Olle Heinonen]({{
-  site.url }}/community) published a peer-reviewed journal article in
+  site.baseurl }}/community) published a peer-reviewed journal article in
   *Computational Materials Science* entitled ["Benchmark problems for numerical
   implementations of phase field models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 
