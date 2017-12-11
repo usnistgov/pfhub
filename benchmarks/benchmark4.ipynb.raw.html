@@ -471,7 +471,7 @@ C_{ijkl}\left(\eta\right)= C_{ijkl}^{\text{matrix}}\left[1-h\left(\eta\right)\ri
 <ul>
 <li><p>All fields from the equilibrium state of the system including $\eta$, $u_x$ and $u_y$.</p>
 </li>
-<li><p>Global quanitites as the simulation evolves including the total free energy, $\;\;\mathcal{F},\;\;$ the interfacial free energy, $\;\;\mathcal{F}_{\text{grad}}=\int_V \frac{\kappa}{2} |\nabla \eta|^2 \; dV,\;\;$ the elastic free energy, $\;\;\mathcal{F}_{\text{el}} = \int_V f_{\text{el}} \; dV,\;\;$ as well as the volume of the precipitate $\;\;\int_V \eta dV$.</p>
+<li><p>Global quantities as the simulation evolves including the total free energy, $\;\;\mathcal{F},\;\;$ the interfacial free energy, $\;\;\mathcal{F}_{\text{grad}}=\int_V \frac{\kappa}{2} |\nabla \eta|^2 \; dV,\;\;$ the elastic free energy, $\;\;\mathcal{F}_{\text{el}} = \int_V f_{\text{el}} \; dV,\;\;$ as well as the volume of the precipitate $\;\;\int_V \eta dV$.</p>
 </li>
 </ul>
 <h3 id="Equilibrium-Fields-Format">Equilibrium Fields Format<a class="anchor-link" href="#Equilibrium-Fields-Format">&#182;</a></h3><p>The equilibrium field data should be stored in a CSV or JSON file with <code>x</code>, <code>y</code>, <code>eta</code>, <code>u_x</code> and <code>u_y</code> fields. The CSV file should be formatted as a table and the JSON file should be formatted as a list with each list item as a set of key value pairs. The spatial data is not required to be structured, but just a point cloud in space. If the data is not colocated, then values can be dropped from CSV columns (by using two commas together) or from a JSON file by either excluding the key or setting a <code>null</code> value.</p>
