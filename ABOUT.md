@@ -4,7 +4,7 @@ layout: essay
 comment:
 ---
 
-The primary goals of {{ site.title }} are:
+<h4> Primary {{ site.title }} Goals </h4>
 
 1. Provide a set of benchmark problems to compare and contrast codes for
    solving phase field equations.
@@ -22,18 +22,15 @@ The primary goals of {{ site.title }} are:
 
 - Olle Heinonen wrote a philosophical introduction to the {{ site.title }}
   benchmarking effort, available as an [extended essay]({{ site.baseurl }}/benchmarks){:target="_blank"}.
-
-- [Andrea Jokisaari, Peter Voorhees, Jon Guyer, and Olle Heinonen]({{
-  site.baseurl }}/community) published a peer-reviewed journal article in
+- [Andrea Jokisaari][aj], [Peter Voorhees][pv], [Jon Guyer][jg], and [Olle Heinonen][oh]
+  published a peer-reviewed journal article in
   *Computational Materials Science* entitled ["Benchmark problems for numerical
   implementations of phase field models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
-
   - CHiMaD News posted an overview of the article entitled
     ["Benchmark Problems for Phase Field Methods"](
     http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html).
-
 - Aashutosh Mistry wrote an overview of the presentation delivered by
-  Jonathan Guyer at MRS 2017 entitled ["Benchmarking Problems for Phase Field Codes"](
+  [Jon Guyer][jg] at MRS 2017 entitled ["Benchmarking Problems for Phase Field Codes"](
   http://materials.typepad.com/mrs_meeting_scene/2017/11/tc05-uncertainty-quantification-in-multiscale-materials-simulation-1.html).
 
 <h4> Get Involved </h4>
@@ -86,3 +83,9 @@ would like to propose a change or improvement then please raise it via
 [issue](https://github.com/usnistgov/chimad-phase-field/issues/new). The
 community will discuss the change and act on it if we can reach a
 consensus
+
+
+[aj]: {{ site.url }}/community/#andrea-jokisaari
+[jg]: {{ site.url }}/community/#jon-guyer
+[oh]: {{ site.url }}/community/#olle-heinonen
+[pv]: {{ site.url }}/community/#peter-voorhees
