@@ -25,18 +25,18 @@ install:
   - npm install -g surge
 script:
   - pylint _data/*.py
-  - flake8 _data/*.py
-  - make simulations
-  - find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
-  - make notebooks
-  - touch _data/hexbin.yaml
-  - make hexbin
-  - rm -rf ./_site
-  - jekyll build -d ./_site/chimad-phase-field && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
-  - py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg
-  - coffeelint _includes/coffee/
-  - mocha _site/chimad-phase-field/js/test.js
+  - #flake8 _data/*.py
+  - #make simulations
+  - #find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;
+  - #make notebooks
+  - #touch _data/hexbin.yaml
+  - #make hexbin
+  - #rm -rf ./_site
+  - #jekyll build -d ./_site/chimad-phase-field && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
+  - #py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg
+  - #coffeelint _includes/coffee/
+  - #mocha _site/chimad-phase-field/js/test.js
 after_success:
   - rm -rf ./_site
   - jekyll build --baseurl ''
-  - surge _site
+  - surge _site --token $SURGE_TOKEN
