@@ -20,6 +20,9 @@ comment: >-
         <div class="col s12 m6 l6 xl4">
           <div class="card small light-green lighten-4">
             <div class="card-content community">
+
+              <a name="{{ item.name | strip | downcase | replace:' ','-' }}">
+
               <span class="card-title">
                 <a href="{% if item.home %}{{ item.home }}{% else %}{{ github_url }}{% endif %}"
                    target="_blank"
@@ -28,7 +31,6 @@ comment: >-
                 </a>
               </span>
 
-              <a name="{{ item.name | strip | downcase | replace:' ','-' }}">
               <img class="circle"
                    src="{{ item.avatar }}"
                    alt="">
