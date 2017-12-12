@@ -41,6 +41,6 @@ after_success:
   - jekyll build --baseurl ''
   - export DOMAIN=chimad-phase-field-${TRAVIS_PULL_REQUEST}.surge.sh
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ] ; then
-      surge _site --token ${SURGE_TOKEN} --domain ${DOMAIN}
+      surge --project _site --domain ${DOMAIN}
     fi
   - echo ${DOMAIN}
