@@ -1,4 +1,4 @@
-baseurl: '/chimad-phase-field'
+baseurl: ''
 
 markdown: kramdown
 highlighter: rouge
