@@ -85,7 +85,7 @@ community will discuss the change and act on it if we can reach a
 consensus
 
 
-[aj]: {{ site.url }}/community/#andrea-jokisaari
-[jg]: {{ site.url }}/community/#jon-guyer
-[oh]: {{ site.url }}/community/#olle-heinonen
-[pv]: {{ site.url }}/community/#peter-voorhees
+[aj]: {{ site.baseurl }}/community/#andrea-jokisaari
+[jg]: {{ site.baseurl }}/community/#jon-guyer
+[oh]: {{ site.baseurl }}/community/#olle-heinonen
+[pv]: {{ site.baseurl }}/community/#peter-voorhees
