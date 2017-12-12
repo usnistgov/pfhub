@@ -88,4 +88,4 @@ consensus
 [aj]: {{ site.baseurl }}/community/#andrea-jokisaari
 [jg]: {{ site.baseurl }}/community/#jon-guyer
 [oh]: {{ site.baseurl }}/community/#olle-heinonen
-[pv]: {{ site.baseurl }}/community/#peter-voorhees
+[pv]: http://www.mccormick.northwestern.edu/research-faculty/directory/profiles/voorhees-peter.html
