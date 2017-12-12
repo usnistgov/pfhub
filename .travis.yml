@@ -43,3 +43,4 @@ after_success:
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ] ; then
       surge _site --token ${SURGE_TOKEN} --domain ${DOMAIN}
     fi
+  - echo ${DOMAIN}
