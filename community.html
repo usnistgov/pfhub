@@ -28,9 +28,11 @@ comment: >-
                 </a>
               </span>
 
+              <a name="{{ item.name | strip | downcase | replace:' ','-' }}">
               <img class="circle"
                    src="{{ item.avatar }}"
                    alt="">
+              </a>
 
               <br>
               <a href="mailto:{{ item.email }}"
