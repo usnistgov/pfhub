@@ -37,5 +37,5 @@ script:
   - mocha _site/chimad-phase-field/js/test.js
 after_success:
   - rm -rf ./_site
-  - jekyll build
+  - jekyll build --baseurl ''
   - surge _site
