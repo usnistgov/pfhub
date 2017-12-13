@@ -1,9 +1,5 @@
 ---
 language: python
-env:
-  - DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
-  - SURGE_LOGIN="daniel.wheeler@nist.gov"
-  - SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
 install:
   - sudo apt-get update
   - sudo apt-get install ruby ruby-dev nodejs
@@ -43,6 +39,9 @@ script:
 after_success:
   - rm -rf ./_site
   - jekyll build --baseurl ''
+  - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
+  - export SURGE_LOGIN="daniel.wheeler@nist.gov"
+  - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
   - echo ${SURGE_LOGIN}
   - echo ${SURGE_TOKEN}
   - echo ${DOMAIN}
