@@ -44,15 +44,17 @@ comment: >-
                   email
                 </i>
               </a>
-              <a href="{{ github_url }}"
-                 target="blank_"
-                 title="github">
-                <i class="small material-icons">
-                  <img src="{{ site.baseurl }}/images/github-blue.svg"
-                       class="github"
-                       alt="github">
-                </i>
-              </a>
+              {% if item.github_id %}
+                <a href="{{ github_url }}"
+                   target="blank_"
+                   title="github">
+                  <i class="small material-icons">
+                    <img src="{{ site.baseurl }}/images/github-blue.svg"
+                         class="github"
+                         alt="github">
+                  </i>
+                </a>
+              {% endif %}
               {% if item.twitter %}
                 <a href="https://twitter.com/{{ item.twitter }}"
                    target="blank_"
