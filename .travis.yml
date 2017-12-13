@@ -44,3 +44,5 @@ after_success:
       surge --project _site --domain ${DOMAIN};
     fi
   - echo ${DOMAIN}
+  - echo ${SURGE_LOGIN}
+  - echo ${SURGE_TOKEN}
