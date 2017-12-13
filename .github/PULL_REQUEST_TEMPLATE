@@ -1,39 +1,14 @@
-**Short description**
+{summary of intent}
 
-Fixes #, Addresses #
+{fixes #XXX, addresses #XXX}
 
- - short
- - list
- - of itemized
- - changes
+{description of method}
 
-## Reason
+{areas of concern}
 
-Why is this pull request necessary?
+These changes can be [viewed live][live-site].
 
-## Changes
+**Remember to tear down the [live site][live-site] when merging or
+  closing**
 
-How does this pull request address the issue?
-
-## Side Effects
-
-What side effects will this pull request have?
-
-## Review Process
-
-Please go to http://random-cat-{pull-request number}.surge.sh to view
-these changes.
-
- - list
- - of changed
- - webpages
- - on surge
-
-Alternatively, consult the [development
-guide](https://pages.nist.gov/chimad-phase-field/DEVELOPMENT/#build_site)
-to build the site locally.
-
-## ToDo
-
- - [ ] Use `surge teardown random-cat-{pull-request number}.surge.sh`
-   after merge
+[live-site]: http://random-cat-{pull-request-number}.surge.sh
