@@ -18,6 +18,15 @@
   text: "I'm the Director of the MGI program at NIST, and have been
     involved in phase field modeling since 1992."
   twitter: drjamesawarren
+- name:	Peter Voorhees
+  avatar: ../images/Voorhees-cropped.png
+  email: p-voorhees@northwestern.edu
+  home: http://speedy.ms.northwestern.edu/
+  scholar: qOwlVBoAAAAJ
+  text: "Frank C. Engelhardt Professor of Materials Science and Engineering,
+  Professor of Engineering Sciences and Applied Mathematics;
+  Co-Director, Center for Hierarchical Materials Design;
+  Co-Director, Northwestern University-Argonne National Laboratory Institute for Science and Engineering"
 - name: Daniel Wheeler
   avatar: https://avatars0.githubusercontent.com/u/1986844?v=3&s=140
   email: daniel.wheeler@nist.gov
