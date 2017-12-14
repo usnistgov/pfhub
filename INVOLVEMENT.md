@@ -48,8 +48,8 @@ about the website.
 
 <h4> Workshops </h4>
 
-An integral component of PFHub is regular [workshops]({{ site.baseurl
-}}/workshops) and associated [hackathons]({{ site.baseurl
+An integral component of {{ site.title }} is regular [workshops]({{
+site.baseurl }}/workshops) and associated [hackathons]({{ site.baseurl
 }}/hackathons). Approximately twice a year, a spectrum of United
 States and international researchers, ranging from graduate students
 to senior scientists, come together to participate. See the [workshops

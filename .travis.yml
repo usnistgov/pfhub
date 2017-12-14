@@ -18,11 +18,11 @@ install:
   - jupyter nbextension enable vega --py
   - unset VIRTUAL_ENV
   - gem install jekyll jekyll-coffeescript html-proofer jekyll-redirect-from
-  - npm cache clean
   - npm install -g npm
   - npm install -g coffeelint
   - npm install -g mocha
   - npm install -g assert
+  - npm install -g surge
 script:
   - pylint _data/*.py
   - flake8 _data/*.py
@@ -36,3 +36,12 @@ script:
   - py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg
   - coffeelint _includes/coffee/
   - mocha _site/chimad-phase-field/js/test.js
+after_success:
+  - rm -rf ./_site
+  - jekyll build --baseurl ''
+  - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
+  - export SURGE_LOGIN="daniel.wheeler@nist.gov"
+  - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
+  - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
+      surge --project _site --domain ${DOMAIN};
+    fi

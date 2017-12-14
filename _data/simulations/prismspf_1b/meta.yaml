@@ -72,9 +72,11 @@ data:
   - time: 10000.0
     value: 27.72619387
 metadata:
-  author: Stephen DeWitt
+  author:
+    first: Stephen
+    last: DeWitt
   email: stvdwtt@umich.edu
-  github_id: 'stvdwtt'
+  github_id: stvdwtt
   hardware:
     architecture: x86_64
     cores: 2

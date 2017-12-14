@@ -5,8 +5,7 @@ title: check
 data_json = {{ site.data.workshops | jsonify }}
 
 add_logo = (selection) ->
-  i = selection.append("i").attr("class", "circle light-green lighen-1")
-  i.attr("style", "font-style: normal; font-weight: bold; margin-top: 5px;")
+  i = selection.append("i").attr("class", "circle light-green lighten-1")
   i.text((d) -> d.number)
 
 add_header = (selection) ->
@@ -16,12 +15,12 @@ add_header = (selection) ->
   a.append("h5").text((d) -> d.name)
 
 add_date = (selection) ->
-  p = selection.append("p").attr("style", "font-size: 20px")
+  p = selection.append("p").attr("class", "date")
   p.text((d) -> d.date)
 
 add_description = (selection) ->
   p = selection.append("p").html((d) -> d.description)
-  p.attr("style", "font-size: 20px; padding-top: 10px")
+  p.attr("class", "description")
 
 add_download_attr = (data) ->
   if data.type == "file_download"
@@ -31,21 +30,17 @@ add_download_attr = (data) ->
 
 add_icon_links = (selection) ->
   subselection = selection.filter((d) -> "icon_links" of d)
-  p = subselection.append("p").attr("style", "padding-top: 10px")
+  p = subselection.append("p").attr("class", "icons")
   a = p.selectAll().data((d) -> d.icon_links).enter().append("a")
   a.attr("href", (d) -> d.href)
-  a.attr("target", "_blank").attr("style", "padding-right: 10px")
+  a.attr("target", "_blank").attr("class", "icons")
   a.attr("title", (d) -> d.name)
   a.append("i").attr("class", "material-icons").text((d) -> d.type)
   a.attr("download", add_download_attr)
 
 add_examples = (selection, key) ->
   subselection = selection.filter((d) -> key of d)
-  # h5 = subselection.append("h5")
-  # h5.attr("style", "padding-top: 5px; font-size: 18px")
-  # h5.text("Examples")
-  p = subselection.append("p")
-  p.attr("style", "font-size: 15px; padding-top: 10px;")
+  p = subselection.append("p").attr("class", "examples")
 
   set_size = (d) ->
     for k, i in d[key]
@@ -70,8 +65,7 @@ build_function = (data) ->
   selection = d3.select("#workshops").selectAll()
   .data(data).enter()
   .append("li").attr("class", "collection-item avatar light-green lighten-4")
-  selection.attr("style", "border-color: transparent;
-  border-bottom-style: none; margin-bottom: 5px;")
+  selection.attr("class", "workshop")
   selection = selection.sort()
 
   add_logo(selection)

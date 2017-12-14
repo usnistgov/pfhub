@@ -29,7 +29,9 @@ data:
   type: line
   url: https://gist.githubusercontent.com/dschwen/75c5f5f47519119fdb6e934056f6fd56/raw/d865f3213e4a695dc031c37e71b280248c4a0eb5/problem_1b_out.csv
 metadata:
-  author: Daniel Schwen
+  author:
+    first: Daniel
+    last: Schwen
   email: daniel.schwen@inl.gov
   github_id: dschwen
   hardware:

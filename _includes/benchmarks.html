@@ -13,8 +13,7 @@
       {% if include.upload %}
         <div id="upload-button">
           <a class="waves-effect waves-light btn blue lighten-3"
-             href="/chimad-phase-field/simulations/upload_form"
-             target="_blank">
+             href="/chimad-phase-field/simulations/upload_form">
             Upload a New Benchmark Result
           </a>
           <h6>
@@ -71,7 +70,7 @@
 
             <div>
               Results:
-              {% for variation in item.variations %}
+              {% for variation in item.revisions[0].variations %}
                 <a href="{{ site.baseurl }}/simulations/{{ item.num }}{{ variation }}.{{ item.revisions[0].version }}"
                    title="">
                   {{ item.num }}{{ variation }}
@@ -92,8 +91,8 @@
 
 <div class="container">
   <div class="row small-buffer">
-    <div class="col s8 offset-s2">
-      <div class="flow-text" style="font-size: 20px">
+    <div class="col s12 m12 l12 xl10 offset-xl2">
+      <div class="flow-text">
         <a href="{{ site.baseurl }}/benchmarks/table">
           Table of all benchmark problems including older deprecated
           versions.

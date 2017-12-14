@@ -55,7 +55,7 @@ author = (data) ->
     .append('a')
     .attr('href', (d) -> 'mailto:' + d.email)
     .attr('target', 'blank_')
-    .text((d) -> d.author)
+    .text((d) -> d.author.first + ' ' + d.author.last)
 
 
 author_icon = (data) ->
@@ -145,7 +145,6 @@ benchmark = (data) ->
     .attr('href',
           (d) ->
             '{{ site.baseurl }}' + '/benchmarks/benchmark' + d.id[0] + '.ipynb')
-    .attr('target', '_blank')
     .text((d) -> d.id + '.' + d.version)
 
 
@@ -399,8 +398,6 @@ add_plotly_src = (x) ->
   Args:
     x: the img selection to add the plotly src to
   ###
-  style = {format:'svg', height:100, width:100}
-
   urlfunc = curry(
     (gd, data, url) ->
       x.filter((data_) -> data is data_).attr('src', url)
@@ -486,7 +483,7 @@ build = (data, sim_name, codes_data, chart_data) ->
     add_card(add_vega, '#logo_image', with_div = id)(vega_data[0..0])
     vega_data = vega_data[1..]
 
-  with_div = (x) -> x.append('div').attr('class', 'col s4')
+  with_div = (x) -> x.append('div').attr('class', 'col s12 m12 l6 xl4')
 
   if result_data.image?
     add_card(add_image, '#images', with_div = with_div)(result_data.image)
@@ -496,7 +493,7 @@ build = (data, sim_name, codes_data, chart_data) ->
     add_card(add_youtube, '#youtube', with_div = id)(result_data.youtube[0..0])
 
   if result_data.contour?
-    with_div = (x) -> x.append('div').attr('class', 'col s4')
+    with_div = (x) -> x.append('div').attr('class', 'col s12 m12 l6 xl4')
     contour_data = map(read_vega_data, result_data.contour)
     plotly_data = map(ploterize, contour_data)
     add_card(add_plotly, '#images', with_div = with_div)(plotly_data)

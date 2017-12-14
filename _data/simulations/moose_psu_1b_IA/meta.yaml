@@ -33,7 +33,9 @@ data:
   type: line
   url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1b_IA.csv
 metadata:
-  author: PC. Simon
+  author:
+    first: PC.
+    last: Simon
   email: pjs5523@psu.edu
   github_id: simopier
   hardware:
