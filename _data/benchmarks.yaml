@@ -55,7 +55,7 @@
       variations: [a]
       event:
         name: Publication 2
-        url: "benchmarks/benchmark3.ipynb"
+        url: "https://www.overleaf.com/read/xwzkbzzwcyqy"
       url: "benchmarks/benchmark3.ipynb"
       commit:
         sha: "e8ecca6b37f8b95f948014763e7799b450f8a623"
@@ -75,6 +75,15 @@
   image: images/elastic1.png
   num: 4
   revisions:
+    - version: 1
+      variations: [a, b, c, d, e, f, g, h]
+      event:
+        name: Publication 2
+        url: "https://www.overleaf.com/read/xwzkbzzwcyqy"
+      url: "benchmarks/benchmark4.ipynb"
+      commit:
+        sha: "e8ecca6b37f8b95f948014763e7799b450f8a623"
+        url: "benchmarks/benchmark4.ipynb"
     - version: 0
       variations: [a, b, c]
       event:
