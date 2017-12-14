@@ -42,9 +42,6 @@ after_success:
   - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
   - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
-  - echo ${SURGE_LOGIN}
-  - echo ${SURGE_TOKEN}
-  - echo ${DOMAIN}
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
       surge --project _site --domain ${DOMAIN};
     fi
