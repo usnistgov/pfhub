@@ -1,0 +1,14 @@
+**A one line, short summary of intent.**
+
+Links to issues such as "Fixes #XXX" or "Addresses #XXX".
+
+A longer description and justification for the changes.
+
+Raise any areas of concern.
+
+These changes can be [viewed live][live-site].
+
+**Remember to tear down the [live site][live-site] when merging or
+  closing this pull-request.**
+
+[live-site]: http://random-cat-{pull-request-number}.surge.sh
