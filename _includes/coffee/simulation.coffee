@@ -185,7 +185,7 @@ get_software = (x, codes_data) ->
   ###
   codes_data.filter(
     (y) -> y.name.toLowerCase().includes(x)).concat(
-      {name:'custom',home_page:''}
+      {name:'custom', home_page:''}
   )[0]
 
 
