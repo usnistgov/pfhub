@@ -1,6 +1,8 @@
-_id: 678e1800-e433-11e7-8b3a-bb1b96b9aa20
 metadata:
-  author: Trevor Keller
+  github_id: tkphd
+  author:
+    first: Trevor
+    last: Keller
   email: trevor.keller@nist.gov
   simulation_name: HiPerC_CUDA
   summary: HiPerC spinodal decomposition result using CUDA on a Tesla P100
@@ -9,19 +11,14 @@ metadata:
     repo:
       url: 'https://github.com/usnistgov/hiperc'
       version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
-    container_url: ''
   hardware:
     architecture: x86_64
     parallel_model: threaded
     clock_rate: '1.48'
     cores: '1792'
-    nodes: '1'
   software:
     name: custom
     version: alpha
-    repo:
-      url: 'https://github.com/usnistgov/hiperc'
-      version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
 benchmark:
   id: 1b
   version: '1'
@@ -35,29 +32,19 @@ data:
       - unit: KB
         value: '308224'
   - name: free_energy
+    type: line
     url: >-
-      https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy.csv
+      https://gist.githubusercontent.com/wd15/a716010583baae7266bd7bb4b272212a/raw/a5d110e2e1d6ed0c4a0f7c97e6ff7891f1e1c946/bkah.csv
     format:
       parse:
         time: number
         free_energy: number
       type: csv
+    description: free energy data
     transform:
-      - type: filter
-        test: datum.time > 0.01
-  - name: cut_plane_x
-    url: ''
-    format:
-      parse:
-        x: number
-        concentration: number
-      type: csv
-  - name: cut_plane_y
-    url: ''
-    format:
-      parse:
-        'y': number
-        concentration: number
-      type: csv
-date: 1513629509
-timestamp: 1513629509
+      - as: y
+        expr: datum.free_energy
+        type: formula
+      - as: x
+        expr: datum.time
+        type: formula
