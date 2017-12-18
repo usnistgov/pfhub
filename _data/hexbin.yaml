@@ -46,16 +46,7 @@
       region of its phase diagram (using COMSOL).
     title: Phase Separation
 
-  # - image: http://solidification.mechanical.illinois.edu/Movies/Dantzig/scn1_033.gif
-  #   url: http://solidification.mechanical.illinois.edu/Movies/movies.html
-  #   title: Phase-field simulation of binary alloy solidification
-  #   description: >-
-  #     Simulation of directional solidification of a
-  #     Succinonitrile-Acetone alloy using the phase-field method (see
-  #     Chapter 8). The simulation uses an adaptive grid that follows
-  #     the solid-sliquid interface. (with Nik Provatas)
-
-  - image: http://www.chaos.umd.edu/gallery/spiral3.jpg
+    - image: http://www.chaos.umd.edu/gallery/spiral3.jpg
     url: http://www.chaos.umd.edu/gallery/pattern.html
     title: Ginzburg-Landau Equation
     description: >-
@@ -106,15 +97,6 @@
       incorporates noise-induced nucleation of grains with different
       crystallographic orientations, the effect of foreign particles,
       and polycrystalline branching with fixed orientational misfit.
-
-
-  - image: http://spaceflight.esa.int/impress/text/pop-up/phase.jpg
-    url: http://spaceflight.esa.int/impress/text/pop-up/phase.html
-    title: 2D Phase Field Simulations of Polycrystalline Solidification
-    description: >-
-      2D phase field simulations of polycrystalline solidification, on
-      cover of Nature Materials (Sept. 2004). (Courtesy of L. Granasy
-      et al, SZFKI, Hungary)
 
   - image: http://www.cis.kit.ac.jp/~takaki/phase/movie/pfc1_def.gif
     url: http://www.cis.kit.ac.jp/~takaki/phase/pfc1_e.html
