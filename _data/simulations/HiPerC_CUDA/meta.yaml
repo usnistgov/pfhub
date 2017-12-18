@@ -34,7 +34,7 @@ data:
   - name: free_energy
     type: line
     url: >-
-      https://gist.githubusercontent.com/wd15/a716010583baae7266bd7bb4b272212a/raw/a5d110e2e1d6ed0c4a0f7c97e6ff7891f1e1c946/bkah.csv
+      https://gist.githubusercontent.com/tkphd/c4523570be7a1615de36f40660d7d4e0/raw/6bc40070d456572881d565e788781048590e72f3/hiperc-cuda-spinodal.csv
     format:
       parse:
         time: number
