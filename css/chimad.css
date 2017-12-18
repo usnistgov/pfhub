@@ -376,7 +376,7 @@ p.examples {
     padding-top: 10px;
 }
 
-.workshop {
+#workshops .li {
     border-color: transparent;
     border-bottom-style: none;
     margin-bottom: 10px;
