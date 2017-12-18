@@ -48,13 +48,13 @@ about the website.
 
 <h4> Workshops </h4>
 
-An integral component of the CHiMaD phase field benchmarking effort is
-regular [workshops]({{ site.baseurl }}/workshops) and associated
-[hackathons]({{ site.baseurl }}/hackathons). Approximately twice a
-year, a spectrum of United States and international researchers,
-ranging from graduate students to senior scientists, come together to
-participate. See the [workshops page]({{ site.baseurl }}/workshops)
-for details about past workshops and plans for future workshops.
+An integral component of {{ site.title }} is regular [workshops]({{
+site.baseurl }}/workshops) and associated [hackathons]({{ site.baseurl
+}}/hackathons). Approximately twice a year, a spectrum of United
+States and international researchers, ranging from graduate students
+to senior scientists, come together to participate. See the [workshops
+page]({{ site.baseurl }}/workshops) for details about past workshops
+and plans for future workshops.
 
 <h4> Website Development </h4>
 

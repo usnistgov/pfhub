@@ -1,5 +1,5 @@
 ---
-title: "About the Phase Field Community Hub"
+title: "About PFHub"
 layout: essay
 comment:
 ---

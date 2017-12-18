@@ -6,7 +6,7 @@
 </p>
 
 <h1> <p align="center"><sup><strong>
-CHiMaD Phase Field Website Repository
+PFHub: Phase Field Community Hub
 </strong></sup></p>
 </h1>
 
@@ -30,8 +30,8 @@ alt="Travis CI">
 
 ## Overview
 
-The CHiMaD phase field site is a location to compare and constrast
-phase field codes. See the
-[main web site](https://pages.nist.gov/chimad-phase-field) for more
-details. To develop or update the site, please see the
-[Development Guide](https://pages.nist.gov/chimad-phase-field/DEVELOPMENT).
+PFHub is a location to compare and constrast phase field codes. See
+the [main web site](https://pages.nist.gov/chimad-phase-field) for
+more details. To develop or update the site, please see the
+[Development
+Guide](https://pages.nist.gov/chimad-phase-field/DEVELOPMENT).
