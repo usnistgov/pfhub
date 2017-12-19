@@ -33,7 +33,7 @@ data:
         value: '308224'
   - name: free_energy
     type: line
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy.csv
+    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy-9pt.csv
     format:
       parse:
         time: number
@@ -71,6 +71,10 @@ data:
     description: microstructure at t=100,000
     type: image
     url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-100000.png
+  - name: image_150
+    description: microstructure at t=150,000
+    type: image
+    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-150000.png
   - name: image_200
     description: microstructure at t=200,000
     type: image
