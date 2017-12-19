@@ -64,6 +64,10 @@
         {
           "count": 4,
           "name": "prisms"
+        },
+        {
+          "count": 1,
+          "name": "custom"
         }
       ]
     }

@@ -109,6 +109,16 @@
   ],
   "data": [
     {
+      "name": "HiPerC_CUDA",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 308224.0,
+          "time_ratio": 26.79528403001072
+        }
+      ]
+    },
+    {
       "name": "fipy_1b_travis",
       "transform": [],
       "values": [
@@ -284,6 +294,83 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
+              "value": "HiPerC_CUDA"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "HiPerC_CUDA"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "HiPerC_CUDA"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "HiPerC_CUDA"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
     {
       "encode": {
         "hover": {
@@ -1153,6 +1240,7 @@
     },
     {
       "domain": [
+        "HiPerC_CUDA",
         "fipy_1b_travis",
         "inl_moose_1b",
         "inl_moose_1b_raspi",
