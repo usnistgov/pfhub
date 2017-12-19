@@ -38,6 +38,9 @@ script:
   - mocha _site/chimad-phase-field/js/test.js
 after_success:
   - rm -rf ./_site
+  - make simulations
+  - make notebooks
+  - make hexbin
   - jekyll build --baseurl ''
   - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
