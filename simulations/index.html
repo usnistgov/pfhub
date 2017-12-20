@@ -21,12 +21,6 @@ comment: >-
         to upload results from their phase field codes to compare and
         contrast with results from other phase field codes. Phase
         field enthusiasts are encouraged to upload benchmark results.
-        <p>
-          <a class="waves-effect waves-light btn blue lighten-3"
-             href="/chimad-phase-field/simulations/upload_form">
-            Upload a New Benchmark Result
-          </a>
-        </p>
       </div>
     </div>
   </div>
@@ -53,7 +47,7 @@ comment: >-
 <script src="{{ site.baseurl }}/js/upload_barchart.js"></script>
 <script src="{{ site.baseurl }}/js/simulation_chart.js"></script>
 
-{% include benchmarks.html upload=false %}
+{% include benchmarks.html upload=true %}
 
 <div class="container top-bar-thin top-buffer">
   <div class="row small-buffer">
