@@ -105,10 +105,11 @@
   </div>
 </div>
 
-
 <script>
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var SIM_NAME = url.searchParams.get("sim");
   var CHART_DATA={{ site.data.charts.plot1d | jsonify }};
-  var SIM_NAME="{{ include.sim_name }}";
   var DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta;
   var CODES_DATA={{ site.data.codes | jsonify }};
 </script>

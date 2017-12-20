@@ -2,7 +2,7 @@
 ---
 
 fname = (data, type, row) ->
-  '<a href="{{ site.baseurl }}/simulations/' + data + '" target="_blank">' + data + '</a>'
+  '<a href="{{ site.baseurl }}/simulations/display/?sim=' + data + '" target="_blank">' + data + '</a>'
 
 fauthor = (data, type, row) ->
   if data.email
@@ -17,7 +17,7 @@ fcode = (data, type, row) ->
     data.name
 
 fbenchmark = (data, type, row) ->
-  '<a href="{{ site.baseurl }}/simulations/' + data + '/">' + data + '</a>'
+  '<a href="{{ site.baseurl }}/simulations/' + data + '">' + data + '</a>'
 
 create_table = (data_in) ->
   data_raw = data_in['data']
