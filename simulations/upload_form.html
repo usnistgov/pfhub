@@ -45,31 +45,7 @@ layout: default
                type="hidden"
                value="https://github.com/usnistgov/chimad-phase-field/pulls">
 
-        <div class="row">
-          <h5>
-            Author
-          </h5>
-          <div class="input-field col s5">
-            <i class="material-icons prefix">account_circle</i>
-            <input required
-		   id="author"
-                   name="fields[metadata][author]"
-                   type="text"
-                   class="validate"
-		   length="200">
-            <label for="author">Author Name</label>
-          </div>
-          <div class="input-field col s5">
-            <i class="material-icons prefix">email</i>
-            <input required
-		   id="email"
-                   name="fields[metadata][email]"
-                   type="email"
-                   class="validate"
-		   length="260">
-            <label for="email">Author Email</label>
-          </div>
-        </div>
+        {% include form_author.html %}
 
         <div class="row small-buffer top-bar-thin">
           <h5>
@@ -620,6 +596,12 @@ layout: default
   </div>
 </div>
 
+<!-- <script> -->
+<!--   var SIM_NAME = new URL(window.location.href).searchParams.get("sim"); -->
+<!--   var DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta; -->
+<!--   document.getElementById("author").setAttribute("value", DATA.metadata.author.first); -->
+<!-- </script> -->
+<script src="{{ site.baseurl }}/js/upload_form.js"></script>
 <script>
   $(document).ready(function() {
   $('select').material_select();
