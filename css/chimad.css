@@ -30,6 +30,7 @@ main {
 
 .top-buffer { margin-top: 40px; }
 .small-buffer { margin-top: 10px; }
+.medium-buffer { margin-top: 20px; }
 .big-buffer { margin-top: 50px; }
 
 .top-bar {

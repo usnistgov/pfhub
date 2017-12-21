@@ -2,7 +2,7 @@
   <h5>
     Author
   </h5>
-  <div class="input-field col s6 m6 l6 xl5">
+  <div class="input-field col s12 m6 l6 xl5">
     <i class="material-icons prefix">account_circle</i>
     <input required
 	   id="first"
@@ -10,9 +10,9 @@
            type="text"
            class="validate"
 	   length="200">
-    <label for="author">First Name</label>
+    <label for="first">First Name</label>
   </div>
-  <div class="input-field col s6 m6 l6 xl5">
+  <div class="input-field col s12 m6 l6 xl5">
     <!-- <i class="material-icons prefix">account_circle</i> -->
     <input required
 	   id="last"
@@ -20,7 +20,7 @@
            type="text"
            class="validate"
 	   length="200">
-    <label for="email">Last Name</label>
+    <label for="last">Last Name</label>
   </div>
   <div class="input-field col s12 m6 l6 xl5">
     <i class="material-icons prefix">email</i>
@@ -30,6 +30,19 @@
            type="email"
            class="validate"
 	   length="260">
-    <label for="email">Author Email</label>
+    <label for="email">Email</label>
   </div>
+  <div class="input-field col s12 m6 l6 xl5">
+    <i class="material-icons prefix">
+      <img class="github-circle" src="{{ site.baseurl }}/images/github-black.svg" alt="GitHub">
+    </i>
+    <input required
+	   id="github_id"
+           name="fields[metadata][github_id]"
+           type="text"
+           class="validate"
+	   length="200">
+    <label for="github_id">GitHub ID</label>
+  </div>
+
 </div>
