@@ -45,7 +45,7 @@ data:
         expr: datum.free_energy
         type: formula
       - as: x
-        expr: datum.time
+        expr: datum.sim_time
         type: formula
   - name: image_000
     description: microstructure at t=0

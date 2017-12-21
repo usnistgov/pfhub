@@ -33,7 +33,7 @@ data:
         value: '308224'
   - name: free_energy
     type: line
-    url: https://osf.io/5pef2/download
+    url: http://osf.io/5pef2/download
     format:
       parse:
         time: number
@@ -45,41 +45,41 @@ data:
         expr: datum.free_energy
         type: formula
       - as: x
-        expr: datum.time
+        expr: datum.sim_time
         type: formula
   - name: image_000
     description: microstructure at t=0
     type: image
-    url: https://osf.io/5ecbx/download
+    url: http://osf.io/5ecbx/download
   - name: image_005
     description: microstructure at t=5,000
     type: image
-    url: https://osf.io/cfk7e/download
+    url: http://osf.io/cfk7e/download
   - name: image_010
     description: microstructure at t=10,000
     type: image
-    url: https://osf.io/n5efd/download
+    url: http://osf.io/n5efd/download
   - name: image_020
     description: microstructure at t=20,000
     type: image
-    url: https://osf.io/zwp9y/download
+    url: http://osf.io/zwp9y/download
   - name: image_050
     description: microstructure at t=50,000
     type: image
-    url: https://osf.io/7asjb/download
+    url: http://osf.io/7asjb/download
   - name: image_100
     description: microstructure at t=100,000
     type: image
-    url: https://osf.io/3ub9h/download
+    url: http://osf.io/3ub9h/download
   - name: image_120
     description: microstructure at t=120,000
     type: image
-    url: https://osf.io/24x75/download
+    url: http://osf.io/24x75/download
   - name: image_150
     description: microstructure at t=150,000
     type: image
-    url: https://osf.io/cdnhe/download
+    url: http://osf.io/cdnhe/download
   - name: image_200
     description: microstructure at t=200,000
     type: image
-    url: https://osf.io/zv4pn/download
+    url: http://osf.io/zv4pn/download
