@@ -13,12 +13,15 @@ mapping = (data, sim_name) ->
     timestamp:data.metadata.timestamp
   }
 
+set_attr = (id_, attr, value) ->
+  document.getElementById(id_).setAttribute(attr, value)
+
 set_value = (item) ->
-  document.getElementById(item[0]).setAttribute("value", item[1])
+  set_attr(item[0], 'value', item[1])
 
 SIM_NAME = new URL(window.location.href).searchParams.get("sim")
 DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta
 
 map(set_value, Object.entries(mapping(DATA, SIM_NAME)))
 document.getElementById('summary').innerHTML = DATA.metadata.summary
-document.getElementById('option_' + DATA.benchmark.id).setAttribute('selected', '')
+set_attr('option_' + DATA.benchmark.id, 'selected', '')

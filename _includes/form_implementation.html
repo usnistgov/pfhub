@@ -1,0 +1,72 @@
+<div class="row top-bar-thin">
+  <h5>
+    Implementation
+  </h5>
+
+  <div class="input-field col s12 m6 l6 xl5">
+    <input required
+	   id="code_name"
+           name="fields[metadata][implemenation][name]"
+           class="validate"
+           type="text"
+	   length="32">
+    <label for="code_name">
+      Name of Code
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Name of code used to run the simulation">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+
+  <div class="input-field col s12 m6 l6 xl5">
+    <input required
+	   id="sim_url"
+           name="fields[metadata][implementation][repo][url]"
+           type="url"
+           class="validate">
+    <label for="sim_url">
+      Repository URL
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Link to the repository code for this result (not the software repository)">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12 m6 l6 xl5">
+    <input required
+	   id="sim_sha"
+           name="fields[metadata][implementation][repo][version]"
+           type="text"
+           class="validate"
+	   length="40"
+           pattern="[0-9a-f]{5,40}">
+    <label for="sim_sha">
+      Commit ID (SHA)
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="The repository code SHA for this result (not the software SHA)">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+  <div class="input-field col s12 m6 l6 xl5">
+    <input id="container_url"
+           name="fields[metadata][implementation][container_url]"
+           type="url"
+           class="validate">
+    <label for="container_url">
+      Container URL
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Link to a container (such as a Dockerfile or Docker container) to reproduce result">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+</div>
