@@ -11,6 +11,13 @@ mapping = (data, sim_name) ->
     github_id:data.metadata.github_id
     simulation_name:sim_name
     timestamp:data.metadata.timestamp
+    code_name:data.metadata.software.name
+    sim_url:data.metadata.implementation.repo.url
+    sim_sha:data.metadata.implementation.repo.version
+    container_url:data.metadata.implementation.container_url
+    clock_rate:data.metadata.hardware.clock_rate
+    cores:data.metadata.hardware.cores
+    nodes:data.metadata.hardware.nodes
   }
 
 set_attr = (id_, attr, value) ->
@@ -25,3 +32,5 @@ DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta
 map(set_value, Object.entries(mapping(DATA, SIM_NAME)))
 document.getElementById('summary').innerHTML = DATA.metadata.summary
 set_attr('option_' + DATA.benchmark.id, 'selected', '')
+set_attr('arch_' + DATA.metadata.hardware.architecture, 'selected', '')
+set_attr('par_' + DATA.metadata.hardware.parallel_model, 'selected', '')

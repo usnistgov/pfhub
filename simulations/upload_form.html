@@ -48,61 +48,7 @@ layout: default
         {% include form_author.html %}
         {% include form_overview.html %}
         {% include form_implementation.html %}
-
-        <div class="row top-bar-thin">
-          <h5>
-              Hardware
-          </h5>
-          <div class="input-field col s5 big-buffer">
-            <select id="architecture" name="fields[metadata][hardware][architecture]" type="text">
-              {% include architecture.html %}
-            </select>
-            <label class="active" for="benchmark_id">Architecture</label>
-          </div>
-          <div class="input-field col s5 big-buffer">
-            <select required id="parallel_model" name="fields[metadata][hardware][parallel_model]" type="text">
-              <option value="serial" selected>Serial</option>
-              <option value="distributed">Distributed</option>
-              <option value="threaded">Threaded</option>
-              <option value="multiprocessing">Multiprocessing</option>
-            </select>
-            <label class="active" for="parallel_model">Parallel Model</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s3">
-            <input required
-		   id="clock_rate"
-                   name="fields[metadata][hardware][clock_rate]"
-                   type="number"
-                   class="validate"
-                   min="0.0"
-                   max="10.0"
-                   step="any">
-            <label for="clock_rate">Median Clock Rate (GHz)</label>
-          </div>
-          <div class="input-field col s3">
-            <input required
-		   id="cores"
-                   name="fields[metadata][hardware][cores]"
-                   type="number"
-                   class="validate"
-                   value="1"
-                   min="1">
-            <label for="cores">Number of Cores</label>
-          </div>
-          <div class="input-field col s3">
-            <input required
-		   id="nodes"
-                   name="fields[metadata][hardware][nodes]"
-                   type="number"
-                   class="validate"
-                   value="1"
-                   min="1">
-            <label for="nodes">Number of Nodes</label>
-          </div>
-        </div>
+        {% include form_hardware.html %}
 
 
         <div class="row top-bar-thin">
