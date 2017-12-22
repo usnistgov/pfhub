@@ -45,3 +45,16 @@ if SIM_NAME?
   set_attr('arch_' + DATA.metadata.hardware.cpu_architecture, 'selected', '')
   set_attr('acc_' + DATA.metadata.hardware.acc_architecture, 'selected', '')
   set_attr('par_' + DATA.metadata.hardware.parallel_model, 'selected', '')
+
+add_data = () ->
+  console.log('got here')
+  document.getElementById('test').innerHTML = 'Hello!'
+
+$("#scale-demo").click(
+  () ->
+    console.log('got here')
+    test_ele = document.getElementById('test')
+    div_ele = document.createElement('div')
+    div_ele.innerHTML = "<p>Hi!</p>"
+    test_ele.appendChild(div_ele)
+)

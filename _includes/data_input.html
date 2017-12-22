@@ -1,0 +1,43 @@
+<div class="input-field col s5">
+  <input name="fields[data][2][name]"
+         type="hidden"
+         value="free_energy">
+  <input required
+         id="free_energy_url"
+         name="fields[data][2][url]"
+         type="url"
+         class="validate">
+  <label for="free_energy_url">
+    Free Energy Data URL (CSV, JSON)
+    <a class="tooltipped"
+       data-position="bottom"
+       data-tooltip="Free energy data either in CSV of JSON
+       format. CSV requires both 'time' and 'free_energy'
+       fields. JSON should be formatted as a list with each
+       item having 'time' and 'free_energy' keys.">
+      <i class="tiny material-icons">help</i>
+    </a>
+  </label>
+</div>
+<div class="col s5">
+  <input name="fields[data][2][format][parse][time]"
+         type="hidden"
+         value="number">
+  <input name="fields[data][2][format][parse][free_energy]"
+         type="hidden"
+         value="number">
+  <input name="fields[data][2][transform][0][type]"
+         type="hidden"
+         value="filter">
+  <input name="fields[data][2][transform][0][test]"
+         type="hidden"
+         value="datum.time > 0.01">
+  <p>
+    <input required checked="checked" class="with-gap" name="fields[data][2][format][type]" type="radio" value="csv" id="csv3" />
+    <label for="csv3">CSV</label>
+  </p>
+  <p>
+    <input class="with-gap" name="fields[data][2][format][type]" type="radio" value="json" id="json1" />
+    <label for="json1">JSON</label>
+  </p>
+</div>
