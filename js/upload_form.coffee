@@ -18,6 +18,9 @@ mapping = (data, sim_name) ->
     clock_rate:data.metadata.hardware.clock_rate
     cores:data.metadata.hardware.cores
     nodes:data.metadata.hardware.nodes
+    wall_time:run_time(data).wall_time
+    sim_time:run_time(data).sim_time
+    memory_usage:memory_usage(data)
   }
 
 set_attr = (id_, attr, value) ->
@@ -26,11 +29,18 @@ set_attr = (id_, attr, value) ->
 set_value = (item) ->
   set_attr(item[0], 'value', item[1])
 
-SIM_NAME = new URL(window.location.href).searchParams.get("sim")
-DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta
+run_time = (data) ->
+  data.data.filter((d) -> d.name == 'run_time')[0].values[0]
 
-map(set_value, Object.entries(mapping(DATA, SIM_NAME)))
-document.getElementById('summary').innerHTML = DATA.metadata.summary
-set_attr('option_' + DATA.benchmark.id, 'selected', '')
-set_attr('arch_' + DATA.metadata.hardware.architecture, 'selected', '')
-set_attr('par_' + DATA.metadata.hardware.parallel_model, 'selected', '')
+memory_usage = (data) ->
+  data.data.filter((d) -> d.name == 'memory_usage')[0].values[0].value
+
+SIM_NAME = new URL(window.location.href).searchParams.get("sim")
+
+if SIM_NAME?
+  DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta
+  map(set_value, Object.entries(mapping(DATA, SIM_NAME)))
+  document.getElementById('summary').innerHTML = DATA.metadata.summary
+  set_attr('option_' + DATA.benchmark.id, 'selected', '')
+  set_attr('arch_' + DATA.metadata.hardware.architecture, 'selected', '')
+  set_attr('par_' + DATA.metadata.hardware.parallel_model, 'selected', '')
