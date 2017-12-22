@@ -50,11 +50,15 @@ add_data = () ->
   console.log('got here')
   document.getElementById('test').innerHTML = 'Hello!'
 
-$("#scale-demo").click(
+data_file_html = () ->
+  """{% include data_input.html %}"""
+
+
+$("#data-add").click(
   () ->
-    console.log('got here')
-    test_ele = document.getElementById('test')
-    div_ele = document.createElement('div')
-    div_ele.innerHTML = "<p>Hi!</p>"
-    test_ele.appendChild(div_ele)
+    console.log(data_file_html())
+    ele = document.getElementById('data-files')
+    child_ele = document.createElement('span')
+    child_ele.innerHTML = data_file_html()
+    ele.appendChild(child_ele)
 )
