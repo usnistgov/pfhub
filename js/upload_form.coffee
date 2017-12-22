@@ -42,5 +42,6 @@ if SIM_NAME?
   map(set_value, Object.entries(mapping(DATA, SIM_NAME)))
   document.getElementById('summary').innerHTML = DATA.metadata.summary
   set_attr('option_' + DATA.benchmark.id, 'selected', '')
-  set_attr('arch_' + DATA.metadata.hardware.architecture, 'selected', '')
+  set_attr('arch_' + DATA.metadata.hardware.cpu_architecture, 'selected', '')
+  set_attr('acc_' + DATA.metadata.hardware.acc_architecture, 'selected', '')
   set_attr('par_' + DATA.metadata.hardware.parallel_model, 'selected', '')
