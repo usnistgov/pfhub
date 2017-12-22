@@ -216,3 +216,32 @@
     description: >-
       Atomistic Modeling of Crystal Plasticity and Creep Deformation
       with the Phase Field Crystal Approach
+
+  - image: http://phasefield.hu/files/abstract_images/2017_Eutectic_Ratkai_0.png
+    url: https://link.springer.com/article/10.1007/s10853-017-0853-8
+    title: Eutectic structures on the nanoscale
+    description: >-
+      A simple phase-field model is used to address anisotropic
+      eutectic freezing on the nanoscale in two (2D) and three
+      dimensions (3D). Comparing parameter-free simulations with
+      experiments, it is demonstrated that the employed model can be
+      made quantitative for Ag-Cu.
+
+  - image: https://engineering.purdue.edu/gomez/assets/phasefield.png
+    url: https://engineering.purdue.edu/gomez/publications
+    title: >-
+      (Iso)geometrically flexible collocation methods
+    description: >-
+      Accurate, efficient and (iso)geometrically flexible collocation
+      methods for phase-field models
+
+  - image: http://www.metallurgy.nist.gov/techactv2003/images/ar03_h1_fig1.jpg
+    url: http://www.metallurgy.nist.gov/techactv2003/TechnicalHighlights.html
+    title: “Dizzy” Dendrites
+    description: >-
+      During solidification, materials do not freeze in a uniform
+      manner, except under very special circumstances. Instead, a
+      whole host of patterns emerges, of which the snowflake is the
+      most familiar. The snowflake is not unique to water, however, as
+      nearly all materials can solidify having such a pattern, and
+      this process is referred to as dendritic growth.

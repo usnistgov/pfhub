@@ -4,9 +4,9 @@
   avatar: ../images/Heinonen-cropped.png
   email: heinonen@anl.gov
   github_id: heinono1
-  home: http://www.msd.anl.gov/heinonen
+  home: https://www.anl.gov/person/olle-g-heinonen
   orcid: 0000-0002-3618-6092
-  scholar: 
+  scholar:
   text: Computational Materials Scientist omnivore at Argonne
 - name:	James Warren
   avatar: ../images/Warren-cropped.png
@@ -73,9 +73,9 @@
   avatar: ../images/Aagesen-cropped.png
   email: larry.aagesen@inl.gov
   github_id: laagesen
-  home: 
-  orcid: 
-  scholar: 
+  home:
+  orcid:
+  scholar:
   text: >-
     Staff Scientist at Idaho National Lab, MOOSE & MARMOT phase-field
     developer
@@ -97,7 +97,7 @@
   github_id: guyer
   home: https://www.nist.gov/people/jonathan-e-guyer
   orcid: 0000-0002-1407-6589
-  scholar: 
+  scholar:
   text: >-
     FiPy developer and a member of the research staff in the Materials
     Science and Engineering Division at NIST.
