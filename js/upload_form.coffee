@@ -23,11 +23,9 @@ mapping = (data, sim_name) ->
     memory_usage:memory_usage(data)
   }
 
-set_attr = (id_, attr, value) ->
-  document.getElementById(id_).setAttribute(attr, value)
 
 set_value = (item) ->
-  set_attr(item[0], 'value', item[1])
+  $('#' + item[0]).attr('value', item[1])
 
 run_time = (data) ->
   data.data.filter((d) -> d.name == 'run_time')[0].values[0]
@@ -39,26 +37,39 @@ SIM_NAME = new URL(window.location.href).searchParams.get("sim")
 
 if SIM_NAME?
   DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta
-  map(set_value, Object.entries(mapping(DATA, SIM_NAME)))
-  document.getElementById('summary').innerHTML = DATA.metadata.summary
-  set_attr('option_' + DATA.benchmark.id, 'selected', '')
-  set_attr('arch_' + DATA.metadata.hardware.cpu_architecture, 'selected', '')
-  set_attr('acc_' + DATA.metadata.hardware.acc_architecture, 'selected', '')
-  set_attr('par_' + DATA.metadata.hardware.parallel_model, 'selected', '')
-
-add_data = () ->
-  console.log('got here')
-  document.getElementById('test').innerHTML = 'Hello!'
+  map(
+    (x) -> $('#' + x[0]).attr('value', x[1])
+    Object.entries(mapping(DATA, SIM_NAME))
+  )
+  $('#summary').html(DATA.metadata.summary)
+  $('#option_' + DATA.benchmark.id).attr('selected', '')
+  $('#arch_' + DATA.metadata.hardware.cpu_architecture).attr('selected', '')
+  $('#acc_' + DATA.metadata.hardware.acc_architecture).attr('selected', '')
+  $('#par_' + DATA.metadata.hardware.parallel_model).attr('selected', '')
 
 data_file_html = () ->
   """{% include data_input.html %}"""
 
-
 $("#data-add").click(
   () ->
-    console.log(data_file_html())
-    ele = document.getElementById('data-files')
-    child_ele = document.createElement('span')
-    child_ele.innerHTML = data_file_html()
-    ele.appendChild(child_ele)
+    $('#data-files').append(
+      Handlebars.compile(data_file_html())(
+        {
+          counter:$('#data-files').children().size() + 2
+        }
+      )
+    )
+)
+
+parse_field = (tag) ->
+  $(tag).attr(
+    'name'
+     $(tag).attr('name') + '[' + $(tag).val() + ']'
+  )
+  $(tag).val('number')
+
+
+$('#my_form').submit(
+  () ->
+    parse_field('#data-x-field-2')
 )

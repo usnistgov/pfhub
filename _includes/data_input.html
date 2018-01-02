@@ -1,43 +1,85 @@
-<div class="input-field col s5">
-  <input name="fields[data][2][name]"
-         type="hidden"
-         value="free_energy">
-  <input required
-         id="free_energy_url"
-         name="fields[data][2][url]"
-         type="url"
-         class="validate">
-  <label for="free_energy_url">
-    Free Energy Data URL (CSV, JSON)
-    <a class="tooltipped"
-       data-position="bottom"
-       data-tooltip="Free energy data either in CSV of JSON
-       format. CSV requires both 'time' and 'free_energy'
-       fields. JSON should be formatted as a list with each
-       item having 'time' and 'free_energy' keys.">
-      <i class="tiny material-icons">help</i>
-    </a>
-  </label>
+{% raw %}
+<div class="row top-bar-thin">
+  <div class="input-field col s12 m3 l3 xl3">
+    <input required
+           id="data-name-{{ counter }}"
+           name="fields[data][{{ counter }}][name]"
+           type="text"
+           class="validate"
+           length="32">
+    <label for="data-name-{{ counter }}">
+      Short name of data
+    </label>
+  </div>
+  <div class="input-field col s12 m5 l5 xl5">
+    <input required
+           id="data-url-{{ counter }}"
+           name="fields[data][{{ counter }}][url]"
+           type="url"
+           class="validate">
+    <label for="data-url-{{ counter }}">
+      Data File URL
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Free energy data either in CSV or JSON
+                       format. CSV requires both 'time' and 'free_energy'
+                       fields. JSON should be formatted as a list with each
+                       item having 'time' and 'free_energy' keys.">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+  <div class="col s12 m4 l4 xl4">
+    <!-- <input name="fields[data][{{ counter }}][format][parse][time]" -->
+    <!--        type="hidden" -->
+    <!--        value="number"> -->
+    <!-- <input name="fields[data][{{ counter }}][format][parse][free_energy]" -->
+    <!--        type="hidden" -->
+    <!--        value="number"> -->
+    <!-- <input name="fields[data][{{ counter }}][transform][0][type]" -->
+    <!--        type="hidden" -->
+    <!--        value="filter"> -->
+    <!-- <input name="fields[data][{{ counter }}][transform][0][test]" -->
+    <!--        type="hidden" -->
+    <!--        value="datum.time > 0.01"> -->
+    <p>
+      <input required checked="checked" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="csv" id="csv-{{ counter }}" />
+      <label for="csv-{{ counter }}">CSV</label>
+    </p>
+    <p>
+      <input class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="json" id="json-{{ counter }}" />
+      <label for="json-{{ counter }}">JSON</label>
+    </p>
+  </div>
+  <div class="input-field col s12 m6 l6 xl6">
+    <i class="material-icons prefix">mode_edit</i>
+    <textarea required
+	      id="data-desc-{{ counter }}"
+              name="fields[data][{{ counter }}][description]"
+              class="materialize-textarea validate active"
+              type="text"
+	      length="500">
+      Concise description of the data
+    </textarea>
+    <label class="active" for="data-desc-{{ counter }}">
+      Data Description
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Concise reason for this contribution">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+  <div class="input-field col s12 m3 l3 xl3">
+    <input required
+           id="data-x-field-{{ counter }}"
+           name="fields[data][{{ counter }}][format][parse]"
+           type="text"
+           class="validate"
+           length="32">
+    <label for="data-x-field-{{ counter }}">
+      Name of X field
+    </label>
+  </div>
 </div>
-<div class="col s5">
-  <input name="fields[data][2][format][parse][time]"
-         type="hidden"
-         value="number">
-  <input name="fields[data][2][format][parse][free_energy]"
-         type="hidden"
-         value="number">
-  <input name="fields[data][2][transform][0][type]"
-         type="hidden"
-         value="filter">
-  <input name="fields[data][2][transform][0][test]"
-         type="hidden"
-         value="datum.time > 0.01">
-  <p>
-    <input required checked="checked" class="with-gap" name="fields[data][2][format][type]" type="radio" value="csv" id="csv3" />
-    <label for="csv3">CSV</label>
-  </p>
-  <p>
-    <input class="with-gap" name="fields[data][2][format][type]" type="radio" value="json" id="json1" />
-    <label for="json1">JSON</label>
-  </p>
-</div>
+{% endraw %}
