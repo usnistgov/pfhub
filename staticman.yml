@@ -8,6 +8,7 @@ simulations:
   branch: "master"
   commitMessage: "New simulation: {fields.metadata.simulation_name}"
   filename: "meta"
+  extension: "yaml"
   format: "yaml"
   moderation: true
   name: "https://pages.nist.gov/chimad-phase-field/"
