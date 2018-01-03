@@ -61,6 +61,11 @@ $("#data-add").click(
     )
 )
 
+$("#data-files").on('click', '.data-remove',
+  () ->
+     $("#data-block-" + this.id.split('-')[2]).remove()
+)
+
 parse_field_ = (tag) ->
   $(tag).attr(
     'name'
@@ -73,7 +78,6 @@ parse_field = (tag) ->
     (x) -> parse_field_(tag + '-' + x)
     [2...($('#data-files').children().size() + 2)]
   )
-
 
 $('#my_form').submit(
   () ->

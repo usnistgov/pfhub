@@ -1,5 +1,13 @@
 {% raw %}
-<div class="row top-bar-thin">
+<div class="row bottom-bar-thin"
+     id="data-block-{{ counter }}">
+  <div class="input-field col s12 m1 l1 xl1">
+    <a id="data-remove-{{ counter }}"
+       href="#!"
+       class="data-remove btn-floating btn-medium grey lighten-1">
+      <i class="material-icons">remove</i>
+    </a>
+  </div>
   <div class="input-field col s12 m3 l3 xl3">
     <input required
            id="data-name-{{ counter }}"
@@ -29,7 +37,7 @@
       </a>
     </label>
   </div>
-  <div class="col s12 m4 l4 xl4">
+  <div class="col s12 m3 l3 xl3">
     <!-- <input name="fields[data][{{ counter }}][format][parse][time]" -->
     <!--        type="hidden" -->
     <!--        value="number"> -->
