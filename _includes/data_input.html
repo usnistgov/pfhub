@@ -72,13 +72,24 @@
   </div>
   <div class="input-field col s12 m3 l3 xl3">
     <input required
-           id="data-x-field-{{ counter }}"
+           id="data-x-parse-{{ counter }}"
            name="fields[data][{{ counter }}][format][parse]"
            type="text"
            class="validate"
            length="32">
-    <label for="data-x-field-{{ counter }}">
+    <label for="data-x-parse-{{ counter }}">
       Name of X field
+    </label>
+  </div>
+  <div class="input-field col s12 m3 l3 xl3">
+    <input required
+           id="data-y-parse-{{ counter }}"
+           name="fields[data][{{ counter }}][format][parse]"
+           type="text"
+           class="validate"
+           length="32">
+    <label for="data-y-parse-{{ counter }}">
+      Name of Y field
     </label>
   </div>
 </div>

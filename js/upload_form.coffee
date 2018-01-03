@@ -61,15 +61,22 @@ $("#data-add").click(
     )
 )
 
-parse_field = (tag) ->
+parse_field_ = (tag) ->
   $(tag).attr(
     'name'
      $(tag).attr('name') + '[' + $(tag).val() + ']'
   )
   $(tag).val('number')
 
+parse_field = (tag) ->
+  map(
+    (x) -> parse_field_(tag + '-' + x)
+    [2...($('#data-files').children().size() + 2)]
+  )
+
 
 $('#my_form').submit(
   () ->
-    parse_field('#data-x-field-2')
+    parse_field('#data-x-parse')
+    parse_field('#data-y-parse')
 )
