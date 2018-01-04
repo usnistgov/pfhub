@@ -56,6 +56,7 @@ $("#data-add").click(
       Handlebars.compile(data_file_html())(
         {
           counter:$('#data-files').children().size() + 2
+          fields:['x', 'y', 'z']
         }
       )
     )
@@ -79,8 +80,24 @@ parse_field = (tag) ->
     [2...($('#data-files').children().size() + 2)]
   )
 
+expr_field_ = (counter, field) ->
+  expr_tag = '#expr-' + field + '-' + counter
+  data_tag = '#data-' + field + '-parse-' + counter
+  value = $(data_tag).val()
+  $(expr_tag).val($(expr_tag).val() + value)
+
+expr_field = (field) ->
+  map(
+    (x) -> expr_field_(x, field)
+    [2...($('#data-files').children().size() + 2)]
+  )
+
 $('#my_form').submit(
   () ->
+    expr_field('x')
+    expr_field('y')
+    expr_field('z')
     parse_field('#data-x-parse')
     parse_field('#data-y-parse')
+    parse_field('#data-z-parse')
 )

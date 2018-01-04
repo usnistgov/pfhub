@@ -4,7 +4,7 @@
   <div class="input-field col s12 m1 l1 xl1">
     <a id="data-remove-{{ counter }}"
        href="#!"
-       class="data-remove btn-floating btn-medium grey lighten-1">
+       class="data-remove btn-floating btn-medium red">
       <i class="material-icons">remove</i>
     </a>
   </div>
@@ -38,18 +38,6 @@
     </label>
   </div>
   <div class="col s12 m3 l3 xl3">
-    <!-- <input name="fields[data][{{ counter }}][format][parse][time]" -->
-    <!--        type="hidden" -->
-    <!--        value="number"> -->
-    <!-- <input name="fields[data][{{ counter }}][format][parse][free_energy]" -->
-    <!--        type="hidden" -->
-    <!--        value="number"> -->
-    <!-- <input name="fields[data][{{ counter }}][transform][0][type]" -->
-    <!--        type="hidden" -->
-    <!--        value="filter"> -->
-    <!-- <input name="fields[data][{{ counter }}][transform][0][test]" -->
-    <!--        type="hidden" -->
-    <!--        value="datum.time > 0.01"> -->
     <p>
       <input required checked="checked" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="csv" id="csv-{{ counter }}" />
       <label for="csv-{{ counter }}">CSV</label>
@@ -66,9 +54,7 @@
               name="fields[data][{{ counter }}][description]"
               class="materialize-textarea validate active"
               type="text"
-	      length="500">
-      Concise description of the data
-    </textarea>
+	      length="500"></textarea>
     <label class="active" for="data-desc-{{ counter }}">
       Data Description
       <a class="tooltipped"
@@ -78,27 +64,28 @@
       </a>
     </label>
   </div>
-  <div class="input-field col s12 m3 l3 xl3">
-    <input required
-           id="data-x-parse-{{ counter }}"
-           name="fields[data][{{ counter }}][format][parse]"
-           type="text"
-           class="validate"
-           length="32">
-    <label for="data-x-parse-{{ counter }}">
-      Name of X field
-    </label>
-  </div>
-  <div class="input-field col s12 m3 l3 xl3">
-    <input required
-           id="data-y-parse-{{ counter }}"
-           name="fields[data][{{ counter }}][format][parse]"
-           type="text"
-           class="validate"
-           length="32">
-    <label for="data-y-parse-{{ counter }}">
-      Name of Y field
-    </label>
-  </div>
+  {{#each fields}}
+    <div class="input-field col s12 m2 l2 xl2">
+      <input required
+             id="data-{{ this }}-parse-{{ ../counter }}"
+             name="fields[data][{{ ../counter }}][format][parse]"
+             type="text"
+             class="validate"
+             length="32">
+      <label for="data-{{ this }}-parse-{{ ../counter }}">
+        Name of {{ this }} field
+      </label>
+      <input name="fields[data][{{ ../counter }}][transform][{{@index}}][type]"
+             type="hidden"
+             value="formula">
+      <input name="fields[data][{{ ../counter }}][transform][{{@index}}][expr]"
+             type="hidden"
+             id="expr-{{ this }}-{{ ../counter }}"
+             value="datum.">
+      <input name="fields[data][{{ ../counter }}][transform][{{@index}}][as]"
+             type="hidden"
+             value="{{ this }}">
+    </div>
+  {{/each}}
 </div>
 {% endraw %}
