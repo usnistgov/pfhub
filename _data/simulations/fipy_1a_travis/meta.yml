@@ -1,0 +1,57 @@
+_id: 0097da40-f17c-11e7-9668-8d5639c5ebab
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  simulation_name: fipy_1a_travis
+  timestamp: 'Tue, 10 Jan 2017 00:46:24 +0000'
+  summary: 'Serial Travis CI benchmark with FiPy, periodic domain'
+  implementation:
+    name: fipy
+    repo:
+      url: >-
+        https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/periodic/
+      version: 944284638f00c3a411a71981d27becf97a2eb0e4
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: threaded
+    clock_rate: '2.3'
+    cores: '2'
+    nodes: '3'
+benchmark:
+  id: 1a
+data:
+  - name: run_time
+    values:
+      - wall_time: '1495.47'
+        sim_time: '52.746625481564735'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '470976'
+  - name: hkgh
+    url: >-
+      https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        t: number
+        z: number
+    description: kjhkjh
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.t
+        as: 'y'
+      - type: formula
+        expr: datum.z
+        as: z
+date: 1515090055
+timestamp: 1515090055
