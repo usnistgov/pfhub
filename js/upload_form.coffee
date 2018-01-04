@@ -67,37 +67,35 @@ $("#data-files").on('click', '.data-remove',
      $("#data-block-" + this.id.split('-')[2]).remove()
 )
 
-parse_field_ = (tag) ->
-  $(tag).attr(
-    'name'
-     $(tag).attr('name') + '[' + $(tag).val() + ']'
-  )
-  $(tag).val('number')
-
-parse_field = (tag) ->
-  map(
-    (x) -> parse_field_(tag + '-' + x)
-    [2...($('#data-files').children().size() + 2)]
-  )
+parse_field_ = (counter, field) ->
+  f = (tag) ->
+    $(tag).attr(
+      'name'
+      $(tag).attr('name') + '[' + $(tag).val() + ']'
+    )
+    $(tag).val('number')
+  f('#data-' + field + '-parse-' + counter)
 
 expr_field_ = (counter, field) ->
-  expr_tag = '#expr-' + field + '-' + counter
-  data_tag = '#data-' + field + '-parse-' + counter
-  value = $(data_tag).val()
-  $(expr_tag).val($(expr_tag).val() + value)
+  f = (expr_tag, data_tag) ->
+    $(expr_tag).val(
+      $(expr_tag).val() + $(data_tag).val()
+    )
+  f('#expr-' + field + '-' + counter, '#data-' + field + '-parse-' + counter)
 
-expr_field = (field) ->
-  map(
-    (x) -> expr_field_(x, field)
-    [2...($('#data-files').children().size() + 2)]
-  )
+field_ = (func) ->
+  (field) ->
+    map(
+      (x) -> func(x, field)
+      [2...($('#data-files').children().size() + 2)]
+    )
 
 $('#my_form').submit(
   () ->
-    expr_field('x')
-    expr_field('y')
-    expr_field('z')
-    parse_field('#data-x-parse')
-    parse_field('#data-y-parse')
-    parse_field('#data-z-parse')
+    map(
+      (x) ->
+        field_(expr_field_)(x)
+        field_(parse_field_)(x)
+      ['x', 'y', 'z']
+    )
 )
