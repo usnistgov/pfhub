@@ -47,7 +47,7 @@
       <label for="json-{{ counter }}">JSON</label>
     </p>
   </div>
-  <div class="input-field col s12 m6 l6 xl6">
+  <div class="input-field col s12 m5 l5 xl5">
     <i class="material-icons prefix">mode_edit</i>
     <textarea required
 	      id="data-desc-{{ counter }}"
@@ -64,27 +64,46 @@
       </a>
     </label>
   </div>
+  <div class="col s12 m1 l1 xl1">
+    <p>
+      <input required checked="checked" class="dim-line with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="line" id="dim-line-{{ counter }}" />
+      <label for="dim-line-{{ counter }}">2D</label>
+    </p>
+    <p>
+      <input class="dim-contour with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="contour" id="dim-contour-{{ counter }}" />
+      <label for="dim-contour-{{ counter }}">3D</label>
+    </p>
+  </div>
   {{#each fields}}
-    <div class="input-field col s12 m2 l2 xl2">
-      <input required
-             id="data-{{ this }}-parse-{{ ../counter }}"
+    <div {{this.[1]}}
+         class="input-field col s12 m2 l2 xl2"
+         id="input-field-{{this.[0]}}-{{ ../counter }}">
+      <input {{this.[2]}}
+             {{this.[3]}}
+             id="data-{{this.[0]}}-parse-{{ ../counter }}"
              name="fields[data][{{ ../counter }}][format][parse]"
              type="text"
-             class="validate"
+             class="validate field-input-{{this.[0]}}-{{../counter}}"
              length="32">
-      <label for="data-{{ this }}-parse-{{ ../counter }}">
-        Name of {{ this }} field
+      <label for="data-{{this.[0]}}-parse-{{ ../counter }}">
+        Name of {{this.[0]}} field
       </label>
-      <input name="fields[data][{{ ../counter }}][transform][{{@index}}][type]"
+      <input {{this.[3]}}
+             class="field-input-{{this.[0]}}-{{../counter}}"
+             name="fields[data][{{ ../counter }}][transform][{{@index}}][type]"
              type="hidden"
              value="formula">
-      <input name="fields[data][{{ ../counter }}][transform][{{@index}}][expr]"
+      <input {{this.[3]}}
+             class="field-input-{{this.[0]}}-{{../counter}}"
+             name="fields[data][{{ ../counter }}][transform][{{@index}}][expr]"
              type="hidden"
-             id="expr-{{ this }}-{{ ../counter }}"
+             id="expr-{{this.[0]}}-{{ ../counter }}"
              value="datum.">
-      <input name="fields[data][{{ ../counter }}][transform][{{@index}}][as]"
+      <input {{this.[3]}}
+             class="field-input-{{this.[0]}}-{{../counter}}"
+             name="fields[data][{{ ../counter }}][transform][{{@index}}][as]"
              type="hidden"
-             value="{{ this }}">
+             value="{{this.[0]}}">
     </div>
   {{/each}}
 </div>

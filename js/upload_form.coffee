@@ -56,7 +56,9 @@ $("#data-add").click(
       Handlebars.compile(data_file_html())(
         {
           counter:$('#data-files').children().size() + 2
-          fields:['x', 'y', 'z']
+          fields:[['x', '',       'required', ''],
+                  ['y', '',       'required', ''],
+                  ['z', 'hidden', '',         'disabled']]
         }
       )
     )
@@ -86,8 +88,11 @@ expr_field_ = (counter, field) ->
 field_ = (func) ->
   (field) ->
     map(
-      (x) -> func(x, field)
-      [2...($('#data-files').children().size() + 2)]
+      (x) ->
+        func(x, field)
+      map((x) ->
+            x.id.split('-')[2]
+          $('#data-files').children())
     )
 
 $('#my_form').submit(
@@ -98,4 +103,28 @@ $('#my_form').submit(
         field_(parse_field_)(x)
       ['x', 'y', 'z']
     )
+)
+
+get_tags = (thiss) ->
+  f = (x) ->
+    ['#input-field-z-' + x,
+     '#data-z-parse-' + x,
+     '.field-input-z-' + x]
+  f(thiss.id.split('-')[2])
+
+
+$('#data-files').on('click', '.dim-line',
+  () ->
+    [div_tag, input_tag, field_class] = get_tags(this)
+    $(div_tag).attr('hidden', '')
+    $(input_tag).removeAttr('required')
+    $(field_class).attr('disabled', '')
+)
+
+$('#data-files').on('click', '.dim-contour',
+  () ->
+    [div_tag, input_tag, field_class] = get_tags(this)
+    $(div_tag).removeAttr('hidden')
+    $(input_tag).attr('required', '')
+    $(field_class).removeAttr('disabled')
 )
