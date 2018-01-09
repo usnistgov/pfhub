@@ -7,11 +7,11 @@ mapping = (data, sim_name) ->
   {
     first:data.metadata.author.first
     last:data.metadata.author.last
-    email:data.metadata.email
-    github_id:data.metadata.github_id
+    email:data.metadata.author.email
+    github_id:data.metadata.author.github_id
     simulation_name:sim_name
     timestamp:data.metadata.timestamp
-    code_name:data.metadata.software.name
+    code_name:data.metadata.implementation.name
     sim_url:data.metadata.implementation.repo.url
     sim_sha:data.metadata.implementation.repo.version
     container_url:data.metadata.implementation.container_url
