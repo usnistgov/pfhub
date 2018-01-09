@@ -53,31 +53,20 @@ add_data_file_section = () ->
   )
   counter
 
-$("#data-add").click(add_data_file_section)
-#   () ->
-#     $('#data-files').append(
-#       Handlebars.compile(data_file_html())(
-#         {
-#           counter:$('#data-files').children().size() + 2
-#           fields:[['x', '',       'required', ''],
-#                   ['y', '',       'required', ''],
-#                   ['z', 'hidden', '',         'disabled']]
-#         }
-#       )
-#     )
-# )
-
-$("#media-add").click(
-  () ->
-    $('#media-files').append(
-      Handlebars.compile(media_file_html())(
-        {
-          counter:$('#media-files').children().size() + 10
-        }
-      )
+add_media_file_section = () ->
+  counter = $('#media-files').children().size() + 10
+  $('#media-files').append(
+    Handlebars.compile(media_file_html())(
+      {
+        counter:counter
+      }
     )
-)
+  )
+  counter
 
+$("#data-add").click(add_data_file_section)
+
+$("#media-add").click(add_media_file_section)
 
 $("#data-files").on('click', '.data-remove',
   () ->
@@ -159,7 +148,16 @@ get_field_name = (datum, field) ->
   else
     field
 
-populate_datum = (datum) ->
+populate_media = (datum) ->
+  counter = add_media_file_section()
+  $('#media-name-' + counter).val(datum.name)
+  $('#media-url-' + counter).val(datum.url)
+  $('#media-desc-' + counter).val(datum.description)
+  if datum.type == 'image'
+    $('#image-' + counter).attr('checked', '')
+    $('#youtube-' + counter).removeAttr('checked')
+
+populate_data = (datum) ->
   counter = add_data_file_section()
   $('#data-name-' + counter).val(datum.name)
   $('#data-url-' + counter).val(datum.url)
@@ -175,12 +173,19 @@ populate_datum = (datum) ->
     $('#dim-contour-' + counter).attr('checked', '')
     $('#line-contour-' + counter).removeAttr('checked')
 
-
 populate_data_section = (data) ->
   map(
-    populate_datum
+    populate_data
     data.data.filter(
       (d) -> (d.type == 'contour' or d.type == 'line') and d.url?
+    )
+  )
+
+populate_media_section = (data) ->
+  map(
+    populate_media
+    data.data.filter(
+      (d) -> (d.type == 'youtube' or d.type == 'image') and d.url?
     )
   )
 
@@ -198,3 +203,4 @@ if SIM_NAME?
   $('#acc_' + DATA.metadata.hardware.acc_architecture).attr('selected', '')
   $('#par_' + DATA.metadata.hardware.parallel_model).attr('selected', '')
   populate_data_section(DATA)
+  populate_media_section(DATA)
