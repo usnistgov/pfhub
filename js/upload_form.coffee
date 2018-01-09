@@ -23,7 +23,6 @@ mapping = (data, sim_name) ->
     memory_usage:memory_usage(data)
   }
 
-
 set_value = (item) ->
   $('#' + item[0]).attr('value', item[1])
 
@@ -33,19 +32,6 @@ run_time = (data) ->
 memory_usage = (data) ->
   data.data.filter((d) -> d.name == 'memory_usage')[0].values[0].value
 
-SIM_NAME = new URL(window.location.href).searchParams.get("sim")
-
-if SIM_NAME?
-  DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta
-  map(
-    (x) -> $('#' + x[0]).attr('value', x[1])
-    Object.entries(mapping(DATA, SIM_NAME))
-  )
-  $('#summary').html(DATA.metadata.summary)
-  $('#option_' + DATA.benchmark.id).attr('selected', '')
-  $('#arch_' + DATA.metadata.hardware.cpu_architecture).attr('selected', '')
-  $('#acc_' + DATA.metadata.hardware.acc_architecture).attr('selected', '')
-  $('#par_' + DATA.metadata.hardware.parallel_model).attr('selected', '')
 
 data_file_html = () ->
   """{% include data_input.html %}"""
@@ -53,19 +39,33 @@ data_file_html = () ->
 media_file_html = () ->
   """{% include media_input.html %}"""
 
-$("#data-add").click(
-  () ->
-    $('#data-files').append(
-      Handlebars.compile(data_file_html())(
-        {
-          counter:$('#data-files').children().size() + 2
-          fields:[['x', '',       'required', ''],
-                  ['y', '',       'required', ''],
-                  ['z', 'hidden', '',         'disabled']]
-        }
-      )
+add_data_file_section = () ->
+  counter = $('#data-files').children().size() + 2
+  $('#data-files').append(
+    Handlebars.compile(data_file_html())(
+      {
+        counter:counter
+        fields:[['x', '',       'required', ''],
+                ['y', '',       'required', ''],
+                ['z', 'hidden', '',         'disabled']]
+      }
     )
-)
+  )
+  counter
+
+$("#data-add").click(add_data_file_section)
+#   () ->
+#     $('#data-files').append(
+#       Handlebars.compile(data_file_html())(
+#         {
+#           counter:$('#data-files').children().size() + 2
+#           fields:[['x', '',       'required', ''],
+#                   ['y', '',       'required', ''],
+#                   ['z', 'hidden', '',         'disabled']]
+#         }
+#       )
+#     )
+# )
 
 $("#media-add").click(
   () ->
@@ -141,10 +141,60 @@ $('#data-files').on('click', '.dim-line',
     $(field_class).attr('disabled', '')
 )
 
+add_contour = (thiss) ->
+  [div_tag, input_tag, field_class] = get_tags(thiss)
+  $(div_tag).removeAttr('hidden')
+  $(input_tag).attr('required', '')
+  $(field_class).removeAttr('disabled')
+
 $('#data-files').on('click', '.dim-contour',
   () ->
-    [div_tag, input_tag, field_class] = get_tags(this)
-    $(div_tag).removeAttr('hidden')
-    $(input_tag).attr('required', '')
-    $(field_class).removeAttr('disabled')
+    add_contour(this)
 )
+
+
+get_field_name = (datum, field) ->
+  if datum.transform?
+    datum.transform.filter((x) -> x.as == field)[0].expr.split('.')[1]
+  else
+    field
+
+populate_datum = (datum) ->
+  counter = add_data_file_section()
+  $('#data-name-' + counter).val(datum.name)
+  $('#data-url-' + counter).val(datum.url)
+  $('#data-desc-' + counter).val(datum.description)
+  if datum.format? and datum.format.type == 'json'
+    $('#json-' + counter).attr('checked', '')
+    $('#csv-' + counter).removeAttr('checked')
+  $('#data-x-parse-' + counter).val(get_field_name(datum, 'x'))
+  $('#data-y-parse-' + counter).val(get_field_name(datum, 'y'))
+  if datum.type == 'contour'
+    add_contour($('#dim-contour-' + counter)[0])
+    $('#data-z-parse-' + counter).val(get_field_name(datum, 'z'))
+    $('#dim-contour-' + counter).attr('checked', '')
+    $('#line-contour-' + counter).removeAttr('checked')
+
+
+populate_data_section = (data) ->
+  map(
+    populate_datum
+    data.data.filter(
+      (d) -> (d.type == 'contour' or d.type == 'line') and d.url?
+    )
+  )
+
+SIM_NAME = new URL(window.location.href).searchParams.get("sim")
+
+if SIM_NAME?
+  DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta
+  map(
+    (x) -> $('#' + x[0]).attr('value', x[1])
+    Object.entries(mapping(DATA, SIM_NAME))
+  )
+  $('#summary').html(DATA.metadata.summary)
+  $('#option_' + DATA.benchmark.id).attr('selected', '')
+  $('#arch_' + DATA.metadata.hardware.cpu_architecture).attr('selected', '')
+  $('#acc_' + DATA.metadata.hardware.acc_architecture).attr('selected', '')
+  $('#par_' + DATA.metadata.hardware.parallel_model).attr('selected', '')
+  populate_data_section(DATA)
