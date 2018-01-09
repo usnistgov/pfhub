@@ -50,6 +50,9 @@ if SIM_NAME?
 data_file_html = () ->
   """{% include data_input.html %}"""
 
+media_file_html = () ->
+  """{% include media_input.html %}"""
+
 $("#data-add").click(
   () ->
     $('#data-files').append(
@@ -64,9 +67,26 @@ $("#data-add").click(
     )
 )
 
+$("#media-add").click(
+  () ->
+    $('#media-files').append(
+      Handlebars.compile(media_file_html())(
+        {
+          counter:$('#media-files').children().size() + 10
+        }
+      )
+    )
+)
+
+
 $("#data-files").on('click', '.data-remove',
   () ->
      $("#data-block-" + this.id.split('-')[2]).remove()
+)
+
+$("#media-files").on('click', '.media-remove',
+  () ->
+     $("#media-block-" + this.id.split('-')[2]).remove()
 )
 
 parse_field_ = (counter, field) ->
