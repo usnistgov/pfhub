@@ -9,7 +9,7 @@ mapping = (data, sim_name) ->
     last:data.metadata.author.last
     email:data.metadata.author.email
     github_id:data.metadata.author.github_id
-    simulation_name:sim_name
+    simulation_name:sim_name + '_update'
     timestamp:data.metadata.timestamp
     code_name:data.metadata.implementation.name
     sim_url:data.metadata.implementation.repo.url
