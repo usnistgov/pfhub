@@ -78,52 +78,53 @@ data:
   name: youtube
   type: youtube
   url: https://www.youtube.com/embed/Q8TXgCzxEnw?rel=0
-- name: contour_test
+- description: contour plot data
+  name: contour_test
   type: contour
   values:
-    - {x: 0.0, y: 0.0, z: 0.0}
-    - {x: 1.0, y: 0.0, z: 0.0}
-    - {x: 2.0, y: 0.0, z: 1.0}
-    - {x: 0.0, y: 1.0, z: 1.0}
-    - {x: 2.0, y: 1.0, z: 3.0}
-  description: contour plot data
-- name: contour_from_file
-  type: contour
-  url: https://gist.githubusercontent.com/wd15/daa604e1846433c0723129504c8b7c09/raw/c01c102f9823fba27888b503b8b0bb2aa42ac74d/contour.csv
+  - x: 0.0
+    y: 0.0
+    z: 0.0
+  - x: 1.0
+    y: 0.0
+    z: 0.0
+  - x: 2.0
+    y: 0.0
+    z: 1.0
+  - x: 0.0
+    y: 1.0
+    z: 1.0
+  - x: 2.0
+    y: 1.0
+    z: 3.0
+- description: test csv data
   format:
     parse:
       x: number
       y: number
       z: number
     type: csv
-  description: test csv data
+  name: contour_from_file
+  type: contour
+  url: https://gist.githubusercontent.com/wd15/daa604e1846433c0723129504c8b7c09/raw/c01c102f9823fba27888b503b8b0bb2aa42ac74d/contour.csv
 metadata:
   author:
+    email: pjs5523@psu.edu
     first: PC.
+    github_id: simopier
     last: Simon
-  email: pjs5523@psu.edu
-  github_id: simopier
   hardware:
-    architecture: x86_64
+    acc_architecture: none
+    clock_rate: 0
     cores: 40
-    details:
-    - name: clock rate
-      values:
-        rate: null
-        unit: GHz
-    - name: processor
-      values: ''
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    details:
-    - name: time_stepper
-      values: IA
-    end_condition: Time limit (3000000)
+    container_url: ''
+    name: moose
     repo:
       url: https://github.com/simopier/CHiMaD/blob/master/H7.i
       version: '724999206'
-  software:
-    name: moose
-    version: git commit 2593a61 on 2017-01-18
   summary: Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet, consectetur
     adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip

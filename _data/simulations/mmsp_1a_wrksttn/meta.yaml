@@ -29,35 +29,21 @@ data:
     value: 28600
 metadata:
   author:
+    email: trevor.keller@nist.gov
     first: Trevor
+    github_id: tkphd
     last: Keller
-  email: trevor.keller@nist.gov
-  github_id: tkphd
   hardware:
-    architecture: x86_64
+    acc_architecture: none
+    clock_rate: 0
     cores: 12
-    details:
-    - name: clock
-      values: 3.8
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    details:
-    - name: mesh
-      values: uniform rectilinear
-    - name: numerical_method
-      values: explicit finite difference
-    - name: compiler
-      values: GNU mpic++
-    - name: parallel_model
-      values: MPI
-    end_condition: sim time greater than 50000 (51200000 timesteps)
+    container_url: ''
+    name: mmsp
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
       version: 4c3af04ac4e46665eacc599b0d2cc8b4a9963461
-  software:
-    name: mmsp
-    repo:
-      url: https://github.com/mesoscale/mmsp/tree/develop
-      version: 2352cdf62c6db99f6644d88a0c2f9917d2d1882f
-    version: '5.2'
   summary: MPI parallel workstation benchmark with MMSP, periodic domain
   timestamp: Fri, 10 Feb 2017 13:34:42 -0500

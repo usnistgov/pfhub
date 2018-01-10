@@ -87,7 +87,7 @@ def make_upload_chart(gfunc, yaml_path, json_path, title):
 
 if __name__ == "__main__":
     make_table_yaml()
-    make_upload_chart(lambda item: item['metadata']['software']['name'],
+    make_upload_chart(lambda item: item['metadata']['implementation']['name'],
                       code_upload_yaml_path(),
                       os.path.join(get_path(),
                                    '../_data/charts/code_upload.json'),

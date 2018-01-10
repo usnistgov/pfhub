@@ -34,30 +34,21 @@ data:
   url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1c_STA.csv
 metadata:
   author:
+    email: pjs5523@psu.edu
     first: PC.
+    github_id: simopier
     last: Simon
-  email: pjs5523@psu.edu
-  github_id: simopier
   hardware:
-    architecture: x86_64
+    acc_architecture: none
+    clock_rate: 0
     cores: 60
-    details:
-    - name: clock rate
-      values:
-        rate: null
-        unit: GHz
-    - name: processor
-      values: ''
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    details:
-    - name: time_stepper
-      values: STA
-    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+    container_url: ''
+    name: moose
     repo:
       url: https://github.com/simopier/CHiMaD/blob/master/H6.i
       version: '724999206'
-  software:
-    name: moose
-    version: git commit 2593a61 on 2017-01-18
   summary: Metadata for the Benchmark1 problems
   timestamp: Mon Feb  6 19:47:34 EST 2017

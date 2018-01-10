@@ -30,27 +30,23 @@ data:
 date: 1501621489
 metadata:
   author:
+    email: andrea.jokisaari@northwestern.edu
     first: A. M.
+    github_id: amjokisaari
     last: Jokisaari
-  email: andrea.jokisaari@northwestern.edu
-  github_id: amjokisaari
   hardware:
-    architecture: x86_64
+    acc_architecture: none
     clock_rate: '2.7'
     cores: '6'
+    cpu_architecture: x86_64
     nodes: '1'
     parallel_model: distributed
   implementation:
     container_url: ''
+    name: moose
     repo:
       url: https://www.dropbox.com/s/qusutz8g24hx54q/free_energy.csv
       version: '00000'
   simulation_name: coral_6a
-  software:
-    name: moose
-    repo:
-      url: https://github.com/idaholab/moose
-      version: '00000'
-    version: MOOSE hash 24ad223, Coral hash b49ae39
   summary: Upload-a-thon August 2017 test upload
   timestamp: 31 July, 2017

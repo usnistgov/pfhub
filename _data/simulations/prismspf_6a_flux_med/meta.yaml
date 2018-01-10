@@ -30,28 +30,24 @@ data:
 date: 1501618740
 metadata:
   author:
+    email: dmontiel@umich.edu
     first: David
+    github_id: david-montiel-t
     last: Montiel
-  email: dmontiel@umich.edu
-  github_id: david-montiel-t
   hardware:
-    architecture: x86_64
+    acc_architecture: none
     clock_rate: '2.6'
     cores: '16'
+    cpu_architecture: x86_64
     nodes: '2'
     parallel_model: multiprocessing
   implementation:
     container_url: ''
+    name: prisms
     repo:
       url: https://github.com/prisms-center/phaseField/tree/v2.0pre/applications/cahnHilliard_electrostatics
       version: 8a75a0f27bc157430f7fbe623265c120724d9ce5
   simulation_name: prismspf_6a_flux_med
-  software:
-    name: prisms
-    repo:
-      url: https://github.com/prisms-center/phaseField/tree/v2.0pre
-      version: 8a75a0f27bc157430f7fbe623265c120724d9ce5
-    version: 2.0pre
   summary: Solution to the 6a benchmark problem with an intermediate level of refinement.  Run
     on PRISMS dedicated hardware at the University of Michigan's Flux supercomputing
     cluster.

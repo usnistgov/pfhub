@@ -30,25 +30,21 @@ data:
   url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/a211864b3269e86eb63db6f3dd9167ed18b92d08/hackathon_p1_sphere_IA.csv
 metadata:
   author:
+    email: andrea.jokisaari@northwestern.edu
     first: A. M.
+    github_id: amjokisaari
     last: Jokisaari
-  email: andrea.jokisaari@northwestern.edu
-  github_id: amjokisaari
   hardware:
+    acc_architecture: none
+    clock_rate: 0
     cores: 20
-    details:
-    - name: processor
-      values: Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GH
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+    container_url: ''
+    name: moose
     repo:
       url: https://bitbucket.org/ajokisaari/coral
       version: e8fc74f
-  software:
-    details:
-    - name: time stepper
-      values: IA
-    name: moose
-    version: Hedgehog (now Coral)
   summary: Information for the Benchmark1 problems
   timestamp: 6/28/2016

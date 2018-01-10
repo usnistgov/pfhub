@@ -30,22 +30,21 @@ data:
   url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/49d3f4ebc29a373687b3e7f4ec0b8219dd098cb7/hackathon_p1_square_NF_STA.csv
 metadata:
   author:
+    email: andrea.jokisaari@northwestern.edu
     first: A. M.
+    github_id: amjokisaari
     last: Jokisaari
-  email: andrea.jokisaari@northwestern.edu
-  github_id: amjokisaari
   hardware:
+    acc_architecture: none
+    clock_rate: 0
     cores: 6
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+    container_url: ''
+    name: moose
     repo:
       url: https://bitbucket.org/ajokisaari/coral
       version: e8fc74f
-  software:
-    details:
-    - name: time stepper
-      values: STA
-    name: moose
-    version: Hedgehog (now Coral)
   summary: Information for the Benchmark1 problems
   timestamp: 6/28/2016

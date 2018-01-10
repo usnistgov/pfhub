@@ -73,48 +73,21 @@ data:
     value: 27.72619387
 metadata:
   author:
+    email: stvdwtt@umich.edu
     first: Stephen
+    github_id: stvdwtt
     last: DeWitt
-  email: stvdwtt@umich.edu
-  github_id: stvdwtt
   hardware:
-    architecture: x86_64
+    acc_architecture: none
+    clock_rate: 0
     cores: 2
-    details:
-    - name: clock rate
-      values:
-        rate: 2.6
-        unit: GHz
-    - name: nodes
-      values: 1
-    - name: parallel_model
-      values: distributed memory
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    details:
-    - name: mesh
-      values: uniform linear quads 128x128
-    - name: numerical_method
-      values: explicit finite element
-    - name: compiler
-      values: GNU mpic++
-    - name: domain
-      values:
-      - 200
-      - 200
-    end_condition: 10,000 simulated seconds
+    container_url: ''
+    name: prisms
     repo:
       url: https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark1a
       version: acf1366651e0c9dab9108b0c881ca225730109e4
-  software:
-    details:
-    - name: dependencies
-      values:
-      - deal.ii
-      - p4est
-    name: prisms
-    repo:
-      url: https://github.com/prisms-center/phaseField
-      version: acf1366651e0c9dab9108b0c881ca225730109e4
-    version: 1.1.1
   summary: Flux cluster benchmark with PRISMS-PF
   timestamp: Fri, 10 Feb 2017 12:32:00 -0500

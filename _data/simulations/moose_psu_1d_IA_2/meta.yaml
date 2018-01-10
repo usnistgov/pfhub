@@ -34,30 +34,21 @@ data:
   url: https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
 metadata:
   author:
+    email: pjs5523@psu.edu
     first: PC.
+    github_id: simopier
     last: Simon
-  email: pjs5523@psu.edu
-  github_id: simopier
   hardware:
-    architecture: x86_64
+    acc_architecture: none
+    clock_rate: 0
     cores: 40
-    details:
-    - name: clock rate
-      values:
-        rate: null
-        unit: GHz
-    - name: processor
-      values: ''
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    details:
-    - name: time_stepper
-      values: IA
-    end_condition: Time limit (3000000)
+    container_url: ''
+    name: moose
     repo:
       url: https://github.com/simopier/CHiMaD/blob/master/H7.i
       version: '724999206'
-  software:
-    name: moose
-    version: git commit 2593a61 on 2017-01-18
   summary: Metadata for the Benchmark1 problems
   timestamp: Tue Jan 31 21:01:55 EST 2017

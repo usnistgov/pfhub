@@ -74,7 +74,7 @@ def mapping_func(data):
             Location=os.path.join(urlbase(), data[0]),
             DOI="I WILL PROVIDE",
             ResourceType="Dataset/Benchmark",
-            Subject=",".join(keywords() + [meta(data)["software"]["name"]]),
+            Subject=",".join(keywords() + [meta(data)["implementation"]["name"]]),
             date=parse(meta(data)['timestamp']).strftime("%Y/%m/%d"),
             Language="en",
             AlternativeIdentifier=data[1]['benchmark']['id'],
