@@ -109,7 +109,17 @@
   ],
   "data": [
     {
-      "name": "HiPerC_CUDA",
+      "name": "fipy_1b_travis",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 394880.0,
+          "time_ratio": 0.05574848615414792
+        }
+      ]
+    },
+    {
+      "name": "hiperc_1b_cuda",
       "transform": [],
       "values": [
         {
@@ -119,12 +129,12 @@
       ]
     },
     {
-      "name": "fipy_1b_travis",
+      "name": "hiperc_1b_cuda_9pt",
       "transform": [],
       "values": [
         {
-          "memory_usage": 394880.0,
-          "time_ratio": 0.05574848615414792
+          "memory_usage": 308224.0,
+          "time_ratio": 27.070925825663238
         }
       ]
     },
@@ -299,83 +309,6 @@
         "hover": {
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
-              "value": 0.4
-            },
-            {
-              "value": 0.0
-            }
-          ],
-          "size": {
-            "value": 150
-          },
-          "strokeOpacity": [
-            {
-              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
-              "value": 0.4
-            },
-            {
-              "value": 0.0
-            }
-          ],
-          "strokeWidth": {
-            "size": 0
-          },
-          "tooltip": [
-            {
-              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
-              "value": "HiPerC_CUDA"
-            },
-            {
-              "value": ""
-            }
-          ]
-        },
-        "update": {
-          "fill": {
-            "scale": "color",
-            "value": "HiPerC_CUDA"
-          },
-          "fillOpacity": [
-            {
-              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
-              "value": 1.0
-            },
-            {
-              "value": 0.0
-            }
-          ],
-          "size": {
-            "value": 100
-          },
-          "stroke": {
-            "scale": "color",
-            "value": "HiPerC_CUDA"
-          },
-          "strokeWidth": {
-            "value": 0
-          },
-          "x": {
-            "field": "time_ratio",
-            "scale": "x"
-          },
-          "y": {
-            "field": "memory_usage",
-            "scale": "y"
-          }
-        }
-      },
-      "from": {
-        "data": "HiPerC_CUDA"
-      },
-      "interactive": true,
-      "type": "symbol"
-    },
-    {
-      "encode": {
-        "hover": {
-          "fillOpacity": [
-            {
               "test": "!indata('selected', 'value', 'fipy_1b_travis')",
               "value": 0.4
             },
@@ -444,6 +377,160 @@
       },
       "from": {
         "data": "fipy_1b_travis"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda')",
+              "value": "hiperc_1b_cuda"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "hiperc_1b_cuda"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "hiperc_1b_cuda"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "hiperc_1b_cuda"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda_9pt')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda_9pt')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda_9pt')",
+              "value": "hiperc_1b_cuda_9pt"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "hiperc_1b_cuda_9pt"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda_9pt')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "hiperc_1b_cuda_9pt"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "hiperc_1b_cuda_9pt"
       },
       "interactive": true,
       "type": "symbol"
@@ -1240,8 +1327,9 @@
     },
     {
       "domain": [
-        "HiPerC_CUDA",
         "fipy_1b_travis",
+        "hiperc_1b_cuda",
+        "hiperc_1b_cuda_9pt",
         "inl_moose_1b",
         "inl_moose_1b_raspi",
         "mmsp_1b_raspi",

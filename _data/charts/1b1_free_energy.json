@@ -109,35 +109,6 @@
   ],
   "data": [
     {
-      "description": "free energy data",
-      "format": {
-        "parse": {
-          "free_energy": "number",
-          "time": "number"
-        },
-        "type": "csv"
-      },
-      "name": "HiPerC_CUDA",
-      "transform": [
-        {
-          "as": "y",
-          "expr": "datum.free_energy",
-          "type": "formula"
-        },
-        {
-          "as": "x",
-          "expr": "datum.time",
-          "type": "formula"
-        },
-        {
-          "expr": "datum.x > 0.01",
-          "type": "filter"
-        }
-      ],
-      "type": "line",
-      "url": "https://gist.githubusercontent.com/tkphd/c4523570be7a1615de36f40660d7d4e0/raw/6bc40070d456572881d565e788781048590e72f3/hiperc-cuda-spinodal.csv"
-    },
-    {
       "name": "fipy_1b_travis",
       "transform": [
         {
@@ -194,6 +165,64 @@
           "time": 52.473820077453276
         }
       ]
+    },
+    {
+      "description": "free energy data",
+      "format": {
+        "parse": {
+          "free_energy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "hiperc_1b_cuda",
+      "transform": [
+        {
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.sim_time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy-9pt.csv"
+    },
+    {
+      "description": "free energy data",
+      "format": {
+        "parse": {
+          "free_energy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "hiperc_1b_cuda_9pt",
+      "transform": [
+        {
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "as": "x",
+          "expr": "datum.sim_time",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://ndownloader.figshare.com/files/10030003"
     },
     {
       "format": {
@@ -666,64 +695,6 @@
         "hover": {
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
-              "value": 0.6
-            },
-            {
-              "value": 0.0
-            }
-          ],
-          "strokeWidth": {
-            "value": 4
-          },
-          "tooltip": [
-            {
-              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
-              "value": "HiPerC_CUDA"
-            },
-            {
-              "value": ""
-            }
-          ]
-        },
-        "update": {
-          "stroke": {
-            "scale": "color",
-            "value": "HiPerC_CUDA"
-          },
-          "strokeOpacity": [
-            {
-              "test": "!indata('selected', 'value', 'HiPerC_CUDA')",
-              "value": 1.0
-            },
-            {
-              "value": 0.0
-            }
-          ],
-          "strokeWidth": {
-            "value": 3
-          },
-          "x": {
-            "field": "x",
-            "scale": "x"
-          },
-          "y": {
-            "field": "y",
-            "scale": "y"
-          }
-        }
-      },
-      "from": {
-        "data": "HiPerC_CUDA"
-      },
-      "interactive": true,
-      "type": "line"
-    },
-    {
-      "encode": {
-        "hover": {
-          "strokeOpacity": [
-            {
               "test": "!indata('selected', 'value', 'fipy_1b_travis')",
               "value": 0.6
             },
@@ -773,6 +744,122 @@
       },
       "from": {
         "data": "fipy_1b_travis"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda')",
+              "value": "hiperc_1b_cuda"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "hiperc_1b_cuda"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "hiperc_1b_cuda"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda_9pt')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda_9pt')",
+              "value": "hiperc_1b_cuda_9pt"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "hiperc_1b_cuda_9pt"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_1b_cuda_9pt')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "hiperc_1b_cuda_9pt"
       },
       "interactive": true,
       "type": "line"
@@ -1379,8 +1466,9 @@
     },
     {
       "domain": [
-        "HiPerC_CUDA",
         "fipy_1b_travis",
+        "hiperc_1b_cuda",
+        "hiperc_1b_cuda_9pt",
         "inl_moose_1b",
         "inl_moose_1b_raspi",
         "mmsp_1b_raspi",
