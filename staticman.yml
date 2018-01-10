@@ -6,13 +6,13 @@ simulations:
   allowedFields: ["benchmark", "metadata", "data"]
   allowedOrigins: ["localhost", "pages.nist.gov"]
   branch: "master"
-  commitMessage: "New simulation: {fields.metadata.simulation_name}"
+  commitMessage: "New simulation: {options.simulation_name}"
   filename: "meta"
   extension: "yaml"
   format: "yaml"
   moderation: true
   name: "https://pages.nist.gov/chimad-phase-field/"
-  path: "_data/simulations/{fields.metadata.simulation_name}"
+  path: "_data/simulations/{options.simulation_name}"
   requiredFields: ["benchmark", "metadata", "data"]
   generatedFields:
     date:
