@@ -407,3 +407,12 @@ img.badge{
     border-bottom-style: none;
     margin-bottom: 10px;
 }
+
+.sim-edit {
+    margin-left: 10px;
+    background-color: rgb(149, 117, 205);
+}
+
+.sim-edit:hover {
+    background-color: #e57373;
+}

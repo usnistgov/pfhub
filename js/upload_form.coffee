@@ -144,7 +144,11 @@ $('#data-files').on('click', '.dim-contour',
 
 get_field_name = (datum, field) ->
   if datum.transform?
-    datum.transform.filter((x) -> x.as == field)[0].expr.split('.')[1]
+    filtered = datum.transform.filter((x) -> x.as == field)
+    if filtered.length > 0
+      filtered[0].expr.split('.')[1]
+    else
+      field
   else
     field
 

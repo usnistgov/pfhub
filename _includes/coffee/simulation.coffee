@@ -43,6 +43,11 @@ header = (sim_name) ->
     .attr('href', (d) -> '{{ site.links.simmeta }}' + '/' + d + '/meta.yaml')
     .attr('target', '_blank')
     .text((d) -> d)
+  $('#header').append("""
+    <a class="btn-floating btn-medium sim-edit"
+       href="{{ site.baseurl }}/simulations/upload_form/?sim=#{sim_name}">
+       <i class="small material-icons">mode_edit</i>
+    </a>""")
 
 
 author = (data) ->
@@ -53,13 +58,13 @@ author = (data) ->
   ###
   select_tag('#author')([data.metadata])
     .append('a')
-    .attr('href', (d) -> 'mailto:' + d.email)
+    .attr('href', (d) -> 'mailto:' + d.author.email)
     .attr('target', 'blank_')
     .text((d) -> d.author.first + ' ' + d.author.last)
 
 
 author_icon = (data) ->
-  select_tag('#author')([data.metadata.github_id])
+  select_tag('#author')([data.metadata.author.github_id])
     .append('img')
     .attr('src', (d) -> 'https://github.com/' + d + '.png')
     .attr('alt', '')
@@ -89,7 +94,7 @@ github_id = (data) ->
   Args:
     data: the simulation data
   ###
-  select_tag('#github_id')([data.metadata.github_id])
+  select_tag('#github_id')([data.metadata.author.github_id])
     .append('a')
     .attr('href', (d) -> 'https://github.com/' + d)
     .attr('target', '_blank')
@@ -102,7 +107,7 @@ github = (data) ->
   Args:
     data: the simualtion data
   ###
-  if data.metadata.github_id isnt ''
+  if data.metadata.author.github_id isnt ''
     github_icon()
     github_id(data)
 
@@ -196,7 +201,7 @@ software = (data, codes_data) ->
     data: the simulation date
     codes_data: data about the possible codes
   ###
-  select_tag('#software')([data.metadata.software.name])
+  select_tag('#software')([data.metadata.implementation.name])
     .append('a')
     .attr('href', (d) -> get_software(d, codes_data).home_page)
     .attr('target', '_blank')

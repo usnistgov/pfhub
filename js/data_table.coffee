@@ -5,8 +5,9 @@ fname = (data, type, row) ->
   '<a href="{{ site.baseurl }}/simulations/display/?sim=' + data + '" target="_blank">' + data + '</a>'
 
 fauthor = (data, type, row) ->
+  console.log(data)
   if data.email
-    '<a href="mailto:' + data.email + '">' + data.name.first + ' ' + data.name.last + '</a>'
+    '<a href="mailto:' + data.email + '">' + data.name + '</a>'
   else
     data.name
 
