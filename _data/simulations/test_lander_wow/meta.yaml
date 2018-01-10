@@ -1,0 +1,138 @@
+_id: 1336b3c0-f653-11e7-9233-11f0291e4532
+metadata:
+  author:
+    first: PC.
+    last: Simon
+    email: pjs5523@psu.edu
+    github_id: simopier
+  simulation_name: test_lander_wow
+  timestamp: 'Tue Jan 31 21:01:55 EST 2017'
+  summary: >-
+    Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.
+  implementation:
+    name: moose
+    repo:
+      url: 'https://github.com/simopier/CHiMaD/blob/master/H7.i'
+      version: '724999206'
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '0'
+    cores: '40'
+    nodes: '1'
+benchmark:
+  id: 1d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '78280'
+        sim_time: '3000000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '10000'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: >-
+      the free energy plot Metadata for the Benchmark1 problems Lorem ipsum
+      dolor sit amet Metadata for the Benchmark1 problems Lorem ipsum dolor sit
+      amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+      aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+      sunt in culpa qui officia deserunt mollit anim id est laborum.
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: blah
+    url: >-
+      https://gist.githubusercontent.com/simopier/739e1e4cb6e3682badee62dbb242fd98/raw/ec506181dfd410da88ca3760fd800fe930e48338/moose_psu_1d_IA.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        f_density: number
+    description: not a free energy plot
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.f_density
+        as: 'y'
+  - name: contour_from_file
+    url: >-
+      https://gist.githubusercontent.com/wd15/daa604e1846433c0723129504c8b7c09/raw/c01c102f9823fba27888b503b8b0bb2aa42ac74d/contour.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+        z: number
+    description: test csv data
+    type: contour
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+      - type: formula
+        expr: datum.z
+        as: z
+  - name: logo_image
+    url: >-
+      http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+    type: image
+    description: >-
+      Metadata for the Benchmark1 problems Lorem ipsum dolor sit amet, Metadata
+      for the Benchmark1 problems Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+      qui officia deserunt mollit anim id est laborum.
+  - name: image0
+    url: >-
+      http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+    type: image
+    description: A puppy picture
+  - name: image1
+    url: >-
+      http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+    type: image
+    description: A puppy picture
+  - name: image2
+    url: >-
+      http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+    type: image
+    description: A puppy picture
+  - name: youtube
+    url: 'https://www.youtube.com/embed/Q8TXgCzxEnw?rel=0'
+    type: youtube
+    description: My youtube video
+date: 1515622232
