@@ -6,7 +6,12 @@ simulations:
   allowedFields: ["benchmark", "metadata", "data"]
   allowedOrigins: ["localhost", "pages.nist.gov"]
   branch: "master"
-  commitMessage: "New simulation: {options.simulation_name}"
+  commitMessage: >-
+    New simulation: {options.simulation_name}
+
+    test the commit message 1
+
+    test the commit message 2
   filename: "meta"
   extension: "yaml"
   format: "yaml"
