@@ -7,7 +7,7 @@ simulations:
   allowedOrigins: ["localhost", "pages.nist.gov"]
   branch: "master"
   commitMessage: "PFHub Upload: {options.simulation_name}"
-  pullRequestBody: "This a new PFHub upload from @{fields.metadata.author.github_id}\n\nTo review:\n\n- Wait for the tests to pass.\n\n-Go to http://random-cat-pull_request_number.surge.sh/{option.simulation_name}/simulations/{options.simulations_name}\n\n"
+  pullRequestBody: "This a new PFHub upload\n\nTo review:\n\n- Wait for the tests to pass.\n\n-Go to http://random-cat-{pull-request-number}.surge.sh/simulations/{simulation_name}\n\n"
   filename: "meta"
   extension: "yaml"
   format: "yaml"
