@@ -69,7 +69,8 @@ if __name__ == '__main__':
         """Migrate function
         """
         if 'github_id' in data['metadata']:
-            data['metadata']['author']['github_id'] = data['metadata']['github_id']
+            data['metadata']['author']['github_id'] = \
+                data['metadata']['github_id']
             del data['metadata']['github_id']
         if 'email' in data['metadata']:
             data['metadata']['author']['email'] = data['metadata']['email']
@@ -81,19 +82,21 @@ if __name__ == '__main__':
         if 'end_condition' in data['metadata']['implementation']:
             del data['metadata']['implementation']['end_condition']
         if 'software' in data['metadata']:
-            data['metadata']['implementation']['name'] = data['metadata']['software']['name']
+            data['metadata']['implementation']['name'] = \
+                data['metadata']['software']['name']
             del data['metadata']['software']
         data['metadata']['hardware']['acc_architecture'] = 'none'
         if 'architecture' in data['metadata']['hardware']:
-            data['metadata']['hardware']['cpu_architecture'] = data['metadata']['hardware']['architecture']
+            data['metadata']['hardware']['cpu_architecture'] = \
+                data['metadata']['hardware']['architecture']
             del data['metadata']['hardware']['architecture']
-        if not 'container_url' in data['metadata']['implementation']:
+        if 'container_url' not in data['metadata']['implementation']:
             data['metadata']['implementation']['container_url'] = ''
-        if not 'nodes' in data['metadata']['hardware']:
+        if 'nodes' not in data['metadata']['hardware']:
             data['metadata']['hardware']['nodes'] = 1
-        if not 'clock_rate' in data['metadata']['hardware']:
+        if 'clock_rate' not in data['metadata']['hardware']:
             data['metadata']['hardware']['clock_rate'] = 0
-        if not 'cpu_architecture' in data['metadata']['hardware']:
+        if 'cpu_architecture' not in data['metadata']['hardware']:
             data['metadata']['hardware']['cpu_architecture'] = 'x86_64'
         return data
 
