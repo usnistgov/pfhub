@@ -1,0 +1,57 @@
+_id: bd099c60-f71f-11e7-bc6e-495d4f56052a
+metadata:
+  author:
+    first: fake
+    last: fake
+    email: fake@fake.fake
+    github_id: fake
+  timestamp: '10 January, 2018'
+  summary: "      Concise reason for this contribution\r\n    fake"
+  implementation:
+    name: fake
+    repo:
+      url: 'https://fake.com'
+      version: af9ed115a952508622c3e69514b8ace7efba4b37
+    container_url: ''
+  hardware:
+    cpu_architecture: sparc64
+    acc_architecture: non-gpu
+    parallel_model: multiprocessing
+    clock_rate: '10'
+    cores: '1000'
+    nodes: '1000'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1000'
+        sim_time: '1000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1000'
+  - name: fake
+    url: >-
+      https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy-9pt.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: fake
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: fake
+    url: 'https://www.youtube.com/watch?v=IgHThXuheOM'
+    type: youtube
+    description: fake
+date: 1515710134
+timestamp: 1515710134
