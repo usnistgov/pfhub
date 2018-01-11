@@ -1,0 +1,54 @@
+_id: e196d700-f6fc-11e7-bc6e-495d4f56052a
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: '1 February, 2017'
+  summary: 'Raspberry Pi 3 cluster benchmark with MMSP, periodic domain'
+  implementation:
+    name: mmsp
+    repo:
+      url: >-
+        https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/
+      version: 8be003758f9d1d4ee2f1e3ccaeec3a16199a0c62
+    container_url: ''
+  hardware:
+    cpu_architecture: armv7l
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '0'
+    cores: '18'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '291820.48'
+        sim_time: '4166.67'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '8812'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/tkphd/93af8ee482b5a66b04ff7284e61ef716/raw/c4b4e8c606a8fe209d7a0ea42e4267f3c53056e2/mmsp_1a_raspi_results.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+date: 1515695163
+timestamp: 1515695163
