@@ -7,10 +7,10 @@ comment: >-
   website. The data will be submitted to the website via a
   pull-request on GitHub. Please go to
   <a target="_blank"
-  href="https://github.com/usnistgov/chimad-phase-field/pulls">usnistgov/chimad-phase-field</a>
+  href="https://github.com/usnistgov/pfhub/pulls">usnistgov/pfhub</a>
   to view the pull-request. To upload a new benchmark result with a
   manual pull request, please follow the <a target="_blank"
-  href="/chimad-phase-field/simulations/upload">manual upload
+  href="/pfhub/simulations/upload">manual upload
   instructions</a>.
 
 ---
@@ -26,10 +26,10 @@ comment: >-
       <form name="simulation_form"
             id="my_form"
             method="POST"
-            action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
+            action="https://api.staticman.net/v2/entry/{{ site.links.repo }}/master/simulations">
         <input name="options[redirect]"
                type="hidden"
-               value="https://github.com/usnistgov/chimad-phase-field/pulls">
+               value="{{ site.links.github }}/pulls">
 
         <div class="row">
           <h5>

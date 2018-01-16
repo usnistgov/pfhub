@@ -3,7 +3,7 @@ title: "Submit a New Code"
 layout: essay
 comment: >-
   How to submit a code to the list of <a
-  href="/chimad-phase-field/codes">suggested codes</a>
+  href="/pfhub/codes">suggested codes</a>
 ---
 
 ### Call for Community Codes
@@ -58,13 +58,13 @@ image logo, a description and a home page. For example,
     - name: My Great Phase Field Code
       logo: http://goo.gl/bsTHP2
       description: The Fastest Phase Field Solver in the West
-      home_page: http://chimad-phase-field.org
+      home_page: http://great-code.org
       badges:
         - href: https://pypi.python.org/pypi/FiPy/3.1
           src: https://img.shields.io/pypi/dm/FiPy.svg?style=flat
       examples:
         - name: Cahn-Hilliard
-          href: http://usnistgov.github.io/chimad-phase-field/hackathon1/fipy/1a.ipynb/
+          href: http://a/link.ipynb.html
 
 Badges can be added for services such as
 [Openhub](https://www.openhub.net){:target="_blank"} and

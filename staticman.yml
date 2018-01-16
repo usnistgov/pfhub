@@ -12,7 +12,7 @@ simulations:
   extension: "yaml"
   format: "yaml"
   moderation: true
-  name: "https://pages.nist.gov/chimad-phase-field/"
+  name: "https://pages.nist.gov/pfhub/"
   path: "_data/simulations/{options.simulation_name}"
   requiredFields: ["benchmark", "metadata", "data"]
   generatedFields:
