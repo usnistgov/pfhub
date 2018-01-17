@@ -18,6 +18,7 @@ links:
   chat: https://gitter.im/usnistgov/chimad-phase-field
   members: https://docs.google.com/spreadsheets/d/112cDOOwzxLGbRx7yPte6HaXQgzQSXULrrVJLEmJvrKM/pubhtml?gid=764068827&single=true
   simmeta: https://github.com/usnistgov/chimad-phase-field/blob/master/_data/simulations
+  staticman_api: https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations
 
 title: "PFHub"
 subtitle: "Phase Field Community Hub"

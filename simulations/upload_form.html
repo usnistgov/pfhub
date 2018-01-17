@@ -13,18 +13,20 @@ layout: default
           Fill out this form to submit a new benchmark result to the
           website. The data will be submitted via a pull-request on
           GitHub. Please go to
-          <a target="_blank"
-             href="https://github.com/usnistgov/chimad-phase-field/pulls">
-            usnistgov/chimad-phase-field
+          <a target="_blank" href="{{ site.links.github }}/pulls">
+             {{ site.links.repo }}
           </a>
-          to view the pull-request. To upload a new benchmark
-          result with a manual pull request, please follow
-          the
+          to view the pull-request. To upload a new benchmark result
+          with a manual pull request, please follow the
           <a target="_blank"
-             href="/chimad-phase-field/simulations/upload">
-            manual
-            upload instructions
-          </a>.
+             href="{{ site.baseurl }}/simulations/upload">
+            manual upload instructions
+          </a>. This form can be populated from an existing result by
+          choosing a result from the
+          <a href="{{ site.baseurl }}/simulations/#simulations">
+            table of uploads
+          </a>
+          and then clicking on the edit button.
         </p>
       </div>
     </div>
@@ -40,10 +42,10 @@ layout: default
       <form name="simulation_form"
             id="my_form"
             method="POST"
-            action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
+            action="{{ site.links.staticman_api }}">
         <input name="options[redirect]"
                type="hidden"
-               value="https://github.com/usnistgov/chimad-phase-field/pulls">
+               value="{{ site.links.github }}/pulls">
 
         {% include form_author.html %}
         {% include form_overview.html %}
