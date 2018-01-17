@@ -8,18 +8,30 @@
       <i class="material-icons">remove</i>
     </a>
   </div>
+
   <div class="input-field col s12 m3 l3 xl3">
+    <a class="tooltipped prefix"
+       data-position="bottom"
+       data-tooltip="Name for this data using alphanumeric characters and _, but at least 2 characters long (required)">
+      <i class="material-icons">help</i>
+    </a>
     <input required
            id="data-name-{{ counter }}"
            name="fields[data][{{ counter }}][name]"
            type="text"
            class="validate"
-           length="32">
+           length="32"
+           pattern="^[\w]{2,32}$">
     <label for="data-name-{{ counter }}">
       Short name of data
     </label>
   </div>
   <div class="input-field col s12 m5 l5 xl5">
+    <a class="tooltipped prefix"
+       data-position="bottom"
+       data-tooltip="URL for the raw data file either in JSON or CSV format (required)">
+      <i class="material-icons">help</i>
+    </a>
     <input required
            id="data-url-{{ counter }}"
            name="fields[data][{{ counter }}][url]"
@@ -27,14 +39,6 @@
            class="validate">
     <label for="data-url-{{ counter }}">
       Data File URL
-      <a class="tooltipped"
-         data-position="bottom"
-         data-tooltip="Free energy data either in CSV or JSON
-                       format. CSV requires both 'time' and 'free_energy'
-                       fields. JSON should be formatted as a list with each
-                       item having 'time' and 'free_energy' keys.">
-        <i class="tiny material-icons">help</i>
-      </a>
     </label>
   </div>
   <div class="col s12 m3 l3 xl3">
@@ -48,7 +52,11 @@
     </p>
   </div>
   <div class="input-field col s12 m5 l5 xl5">
-    <i class="material-icons prefix">mode_edit</i>
+    <a class="tooltipped prefix"
+       data-position="bottom"
+       data-tooltip="Concise reason for this data contribution (required)">
+      <i class="material-icons">mode_edit</i>
+    </a>
     <textarea required
               id="data-desc-{{ counter }}"
               name="fields[data][{{ counter }}][description]"
@@ -57,11 +65,6 @@
               length="500"></textarea>
     <label class="active" for="data-desc-{{ counter }}">
       Data Description
-      <a class="tooltipped"
-         data-position="bottom"
-         data-tooltip="Concise reason for this contribution">
-        <i class="tiny material-icons">help</i>
-      </a>
     </label>
   </div>
   <div class="col s12 m1 l1 xl1">
@@ -78,6 +81,11 @@
     <div {{this.[1]}}
          class="input-field col s12 m2 l2 xl2"
          id="input-field-{{this.[0]}}-{{ ../counter }}">
+      <a class="tooltipped prefix"
+         data-position="bottom"
+         data-tooltip="The name of the column corresponding to the data used for the {{ this.[0] }}-axis in a line plot or contour plot (required)">
+        <i class="material-icons">help</i>
+      </a>
       <input {{this.[2]}}
              {{this.[3]}}
              id="data-{{this.[0]}}-parse-{{ ../counter }}"
