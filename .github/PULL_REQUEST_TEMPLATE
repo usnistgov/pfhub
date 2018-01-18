@@ -6,9 +6,18 @@ A longer description and justification for the changes.
 
 Raise any areas of concern.
 
+
+
+<!--
+  Text below provides an easy link for PR reviewers to click.
+  After submitting your request, change the `[live-site]:` URL
+  at the end with the actual `{pull-request-number}` assigned
+  by GitHub, without the '#'.
+-->
+
 These changes can be [viewed live][live-site].
 
-**Remember to tear down the [live site][live-site] when merging or
-  closing this pull-request.**
+**Remember to tear down the [live site][live-site] when merging
+or closing this pull request.**
 
 [live-site]: http://random-cat-{pull-request-number}.surge.sh

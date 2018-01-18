@@ -32,10 +32,10 @@ script:
   - touch _data/hexbin.yaml
   - make hexbin
   - rm -rf ./_site
-  - jekyll build -d ./_site/chimad-phase-field && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
+  - jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
   - py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg
   - coffeelint _includes/coffee/
-  - mocha _site/chimad-phase-field/js/test.js
+  - mocha _site/pfhub/js/test.js
 after_success:
   - rm -rf ./_site
   - make simulations

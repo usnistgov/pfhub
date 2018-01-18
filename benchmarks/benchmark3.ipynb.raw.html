@@ -67,7 +67,7 @@ $( document ).ready(code_toggle);
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
 
 <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&lt;a href=&quot;https://github.com/wd15/chimad-phase-field/raw/master/benchmarks/benchmark3.ipynb&quot;</span>
+<span class="s1">&lt;a href=&quot;{{ site.links.github }}/raw/master/benchmarks/benchmark3.ipynb&quot;</span>
 <span class="s1">   download=&quot;benchmark3.ipynb&quot;&gt;</span>
 <span class="s1">&lt;button type=&quot;submit&quot;&gt;Download Notebook&lt;/button&gt;</span>
 <span class="s1">&lt;/a&gt;&#39;&#39;&#39;</span><span class="p">)</span>
@@ -87,7 +87,7 @@ $( document ).ready(code_toggle);
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<a href="https://github.com/wd15/chimad-phase-field/raw/master/benchmarks/benchmark3.ipynb"
+<a href="{{ site.links.github }}/raw/master/benchmarks/benchmark3.ipynb"
    download="benchmark3.ipynb">
 <button type="submit">Download Notebook</button>
 </a>
@@ -145,7 +145,8 @@ $( document ).ready(code_toggle);
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>See the journal publication entitled <a href="https://pages.nist.gov/chimad-phase-field/">"Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+<p>See the journal publication entitled ["Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"][nolink] for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+<p>[nolink]: {{ site.baseurl }}</p>
 
 </div>
 </div>

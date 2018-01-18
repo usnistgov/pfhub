@@ -20,16 +20,16 @@ to the website.
 <h4> Chat </h4>
 
 We have active discussion on the [Gitter chat
-channel](https://gitter.im/usnistgov/chimad-phase-field). Feel free to
+channel]({{ site.chat }}). Feel free to
 ask questions there.
 
 <h4> Chat Meetings </h4>
 
 We hold monthly [chat meetings on
-Gitter](https://github.com/usnistgov/chimad-phase-field/wiki#chat-meetings). Please
+Gitter]({{ site.links.github }}/wiki#chat-meetings). Please
 try and participate and either ask question or listen to the chat. The
 content from [previous chat
-meetings](https://github.com/usnistgov/chimad-phase-field/wiki#chat-meetings)
+meetings]({{ site.links.github }}/wiki#chat-meetings)
 is available
 
 <h4> Mailing List </h4>
@@ -41,7 +41,7 @@ workshops or just to ask questions.
 <h4> Via GitHub </h4>
 
 Please feel free to [open an issue on
-GitHub](https://github.com/usnistgov/chimad-phase-field/issues/new) if
+GitHub]({{ site.links.github }}/issues/new) if
 you would like to raise an issue about one of [the benchmarks
 problems]({{ site.baseurl }}/#benchmarks) or with anything at all
 about the website.

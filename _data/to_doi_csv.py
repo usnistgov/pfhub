@@ -62,7 +62,7 @@ def mapping_func(data):
     def urlbase():
         """The base URL for the simulation links.
         """
-        return "https://pages.nist.gov/chimad-phase-field/simulations"
+        return "https://pages.nist.gov/pfhub/simulations"
 
     return (
         data[0],

@@ -79,10 +79,9 @@ but the user is the final arbiter in this process.
 Yes. Your feedback on the benchmark problems is highly valued. The
 benchmarks are a moving target that you can contribute to. If you
 would like to propose a change or improvement then please raise it via
-[chat](https://gitter.im/usnistgov/chimad-phase-field) or as an
-[issue](https://github.com/usnistgov/chimad-phase-field/issues/new). The
-community will discuss the change and act on it if we can reach a
-consensus
+[chat]({{ site.links.chat }}) or as an [issue]({{ site.links.github
+}}/issues/new). The community will discuss the change and act on it if
+we can reach a consensus
 
 
 [aj]: {{ site.baseurl }}/community/#andrea-jokisaari
