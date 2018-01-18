@@ -4,7 +4,7 @@ layout: essay
 comment: >-
   How to add a new benchmark result manually. However, in most cases
   it is easier to use the automated <a
-  href="/chimad-phase-field/simulations/upload_form">upload form</a>.
+  href="/pfhub/simulations/upload_form">upload form</a>.
 
 ---
 
@@ -19,7 +19,7 @@ website and encourage community collaboration.
 Each benchmark result is stored in a [YAML
 file](http://docs.ansible.com/ansible/YAMLSyntax.html) called
 `meta.yaml` in a separate directory in
-[_data/simulations](https://github.com/usnistgov/chimad-phase-field/tree/master/_data/simulations).
+[_data/simulations]({{ site.links.github }}/tree/master/_data/simulations).
 A [YAML file](http://docs.ansible.com/ansible/YAMLSyntax.html) is a
 minimal, human readable syntax for structured data. The `meta.yaml`
 file stores the meta data for only one benchmark result and a new

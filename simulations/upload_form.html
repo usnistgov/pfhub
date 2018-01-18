@@ -40,10 +40,10 @@ layout: default
       <form name="simulation_form"
             id="my_form"
             method="POST"
-            action="https://api.staticman.net/v2/entry/usnistgov/chimad-phase-field/master/simulations">
+            action="https://api.staticman.net/v2/entry/{{ site.links.repo }}/master/simulations">
         <input name="options[redirect]"
                type="hidden"
-               value="https://github.com/usnistgov/chimad-phase-field/pulls">
+               value="{{ site.links.github }}/pulls">
 
         {% include form_author.html %}
         {% include form_overview.html %}

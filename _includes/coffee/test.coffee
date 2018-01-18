@@ -243,7 +243,7 @@ describe('test benchmark_id', ->
 
 describe('test make_http', ->
   it('with no http', ->
-    assert.deepEqual(make_http('wow').substr(0, 4), '/chi')
+    assert.deepEqual(make_http('wow').substr(0, 4), '/pfh')
   )
   it('with http', ->
     assert.deepEqual(make_http('http://wow'), 'http://wow')
@@ -256,7 +256,7 @@ describe('test commit', ->
     data_in = ->
       {revisions:{commit:{sha:'abcd', url:'a/b'}}}
     data_out = ->
-      '<a href="https://github.com/usnistgov/chimad-phase-field/\
+      '<a href="{{ site.links.github }}/\
       blob/abcd/a/b" target="_blank">\nabcd\n</a>'
     assert.deepEqual(commit({}, {}, data_in()), data_out())
   )
