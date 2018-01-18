@@ -31,7 +31,9 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[1]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <script>
@@ -65,7 +67,7 @@ $( document ).ready(code_toggle);
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
 
 <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&lt;a href=&quot;https://raw.githubusercontent.com/usnistgov/chimad-phase-field/master/benchmarks/benchmark4.ipynb&quot;</span>
+<span class="s1">&lt;a href=&quot;https://raw.githubusercontent.com/{{ site.links.repo }}/master/benchmarks/benchmark4.ipynb&quot;</span>
 <span class="s1">   download=&quot;benchmark4.ipynb&quot;&gt;</span>
 <span class="s1">&lt;button type=&quot;submit&quot;&gt;Download Notebook&lt;/button&gt;</span>
 <span class="s1">&lt;/a&gt;&#39;&#39;&#39;</span><span class="p">)</span>
@@ -79,11 +81,13 @@ $( document ).ready(code_toggle);
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[1]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<a href="https://raw.githubusercontent.com/usnistgov/chimad-phase-field/master/benchmarks/benchmark4.ipynb"
+<a href="https://raw.githubusercontent.com/{{ site.links.repo }}/master/benchmarks/benchmark4.ipynb"
    download="benchmark4.ipynb">
 <button type="submit">Download Notebook</button>
 </a>
@@ -122,7 +126,9 @@ $( document ).ready(code_toggle);
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 {% include jupyter_benchmark_table.html num="[4]" revision=1 %}
@@ -139,7 +145,8 @@ $( document ).ready(code_toggle);
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>See the journal publication entitled <a href="https://pages.nist.gov/chimad-phase-field/">"Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+<p>See the journal publication entitled ["Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"][nolink] for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+<p>[nolink]: {{ site.baseurl }}</p>
 
 </div>
 </div>
@@ -488,3 +495,5 @@ C_{ijkl}\left(\eta\right)= C_{ijkl}^{\text{matrix}}\left[1-h\left(\eta\right)\ri
 </div>
 
 </div>
+ 
+
