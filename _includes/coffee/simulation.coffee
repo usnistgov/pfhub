@@ -44,11 +44,11 @@ header = (sim_name) ->
     .attr('target', '_blank')
     .text((d) -> d)
   $('#header').append("""
-<a class="btn-floating btn-medium sim-edit"
+<p> <a class="waves-effect waves-light btn sim-edit"
    href="{{ site.baseurl }}/simulations/upload_form/?sim=#{sim_name}"
    title="Upload a new simulation result based on the data from this result">
-  <i class="small material-icons">mode_edit</i>
-</a>""")
+    Use as template for new submission
+</a></p>""")
 
 
 author = (data) ->
