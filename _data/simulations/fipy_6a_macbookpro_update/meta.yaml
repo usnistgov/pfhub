@@ -1,0 +1,93 @@
+_id: c7500b30-fca3-11e7-bf29-17e41eae8307
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: guyer
+  timestamp: '1 August, 2017'
+  summary: Serial benchmark with FiPy on uniform grid
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://github.com/guyer/hackathonIII'
+      version: f0bc7b4
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '2.9'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '40'
+        sim_time: '1000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '164000'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/wd15/db0d5558e0b60aeade766f0f847cfd06/raw/c0088b2f1cd67e8774b54150eab96b854de13c96/energy.txt
+    format:
+      type: csv
+      parse:
+        time:
+          number: number
+        free_energy:
+          number: number
+    description: Free Energy Plot
+    type: line
+    transform:
+      - type: formula
+        expr: datum.timenumber
+        as: x
+      - type: formula
+        expr: datum.free_energynumber
+        as: 'y'
+  - name: cut_plane_x_c
+    url: >-
+      https://gist.githubusercontent.com/wd15/5f2bcef626be5597e3dbb3223c976a01/raw/3a07d49d1c0e6fbab50c3b3b4d00ccae7fb58d9b/gistfile1.txt
+    format:
+      type: csv
+      parse:
+        x:
+          number: number
+        c:
+          number: number
+    description: Concentration cut-plane
+    type: line
+    transform:
+      - type: formula
+        expr: datum.xnumber
+        as: x
+      - type: formula
+        expr: datum.cnumber
+        as: 'y'
+  - name: cut_plane_x_phi
+    url: >-
+      https://gist.githubusercontent.com/wd15/5f2bcef626be5597e3dbb3223c976a01/raw/3a07d49d1c0e6fbab50c3b3b4d00ccae7fb58d9b/gistfile1.txt
+    format:
+      type: csv
+      parse:
+        x:
+          number: number
+        Phi:
+          number: number
+    description: Phi cut-plane
+    type: line
+    transform:
+      - type: formula
+        expr: datum.xnumber
+        as: x
+      - type: formula
+        expr: datum.Phinumber
+        as: 'y'
+date: 1516316601
+timestamp: 1516316601
