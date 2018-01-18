@@ -1,0 +1,53 @@
+_id: e32409d0-fca6-11e7-bf29-17e41eae8307
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: guyer
+  timestamp: '1 August, 2017'
+  summary: Serial benchmark with FiPy on Gmsh mesh with round right
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://github.com/guyer/hackathonIII'
+      version: 0b52c55d
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '2.9'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '4350'
+        sim_time: '1000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '266000'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/wd15/9986ba35b6dfef5bdffef15db52de547/raw/ccb55df9b1a4d5b826fd4a8bb09c666336ad8d1c/energy.txt
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free Energy Plot
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+date: 1516317936
+timestamp: 1516317936
