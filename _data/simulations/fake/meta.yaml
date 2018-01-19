@@ -1,0 +1,45 @@
+_id: c4a8d500-fd1c-11e7-9719-478aeadb115f
+metadata:
+  author:
+    first: Steve
+    last: DeWitt
+    email: stvdwtt@umich.edu
+    github_id: stvdwtt
+  timestamp: '19 January, 2018'
+  summary: Test submission
+  implementation:
+    name: PRISMS-PF
+    repo:
+      url: 'https://github.com/prisms-center/phaseField'
+      version: 656d722af974296fa5e5436cc1a85a815735a42e
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '2.1'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '10'
+        sim_time: '11'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '100'
+  - name: test video
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+    type: youtube
+    description: definitely real data
+  - name: test image
+    url: >-
+      https://github.com/prisms-center/phaseField/raw/master/prisms_pf_user_guide_files/logo.pdf
+    type: image
+    description: actually a logo
+date: 1516368566
+timestamp: 1516368566
