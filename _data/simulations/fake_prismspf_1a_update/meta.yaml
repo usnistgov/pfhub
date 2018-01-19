@@ -1,0 +1,53 @@
+_id: 6125de00-fd1d-11e7-9719-478aeadb115f
+metadata:
+  author:
+    first: Stephen
+    last: DeWitt
+    email: stvdwtt@umich.edu
+    github_id: stvdwtt
+  timestamp: ''
+  summary: Flux cluster benchmark with PRISMS-PF
+  implementation:
+    name: prisms
+    repo:
+      url: >-
+        https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark1a
+      version: acf1366651e0c9dab9108b0c881ca225730109e4
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '0'
+    cores: '2'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '10'
+        sim_time: '10'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '30240'
+  - name: energy data
+    url: 'http://www-personal.umich.edu/~wband/energy_6a.txt'
+    format:
+      type: csv
+      parse:
+        Time: number
+        Energy: number
+    description: From the hackathon
+    type: line
+    transform:
+      - type: formula
+        expr: datum.Time
+        as: x
+      - type: formula
+        expr: datum.Energy
+        as: 'y'
+date: 1516368828
+timestamp: 1516368828
