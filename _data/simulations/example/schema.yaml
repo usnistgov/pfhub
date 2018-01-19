@@ -100,7 +100,7 @@ mapping:
           "parallel_model":
             type: str
             required: True
-            enum: ["serial", "multiprocessing", "threaded", "distributed"]
+            enum: ["serial", "massive", "threaded", "distributed"]
 
             type: str
             required: False

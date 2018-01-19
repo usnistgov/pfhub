@@ -54,7 +54,7 @@
   <div class="input-field col s12 m5 l5 xl5">
     <a class="tooltipped prefix"
        data-position="bottom"
-       data-tooltip="Concise reason for this data contribution (required)">
+       data-tooltip="Summary or caption for data contribution (required)">
       <i class="material-icons">mode_edit</i>
     </a>
     <textarea required
@@ -82,8 +82,10 @@
          class="input-field col s12 m2 l2 xl2"
          id="input-field-{{this.[0]}}-{{ ../counter }}">
       <a class="tooltipped prefix"
-         data-position="bottom"
-         data-tooltip="The name of the column corresponding to the data used for the {{ this.[0] }}-axis in a line plot or contour plot (required)">
+         data-position="bottom" data-tooltip="Heading name used for
+         the column containing {{ this.[0] }}-axis values,
+         e.g. &quot;Time&quot; or &quot;Free-Energy&quot; (required for line or
+         contour plot data)">
         <i class="material-icons">help</i>
       </a>
       <input {{this.[2]}}

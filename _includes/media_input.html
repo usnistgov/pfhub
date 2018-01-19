@@ -19,7 +19,8 @@
            name="fields[data][{{ counter }}][name]"
            type="text"
            class="validate"
-           length="32">
+           length="32"
+           pattern="^[\w]{2,32}$">
     <label for="data-name-{{ counter }}">
       Short name of media data
     </label>
@@ -52,7 +53,7 @@
   <div class="input-field col s12 m5 l5 xl5">
     <a class="tooltipped prefix"
        data-position="bottom"
-       data-tooltip="Concise reason for this media contribution (required)">
+       data-tooltip="Summary or caption for media contribution, highlighting relevant details (required)">
       <i class="material-icons">mode_edit</i>
     </a>
     <textarea required
