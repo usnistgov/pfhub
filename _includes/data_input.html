@@ -1,0 +1,110 @@
+{% raw %}
+<div class="row bottom-bar-thin"
+     id="data-block-{{ counter }}">
+  <div class="input-field col s12 m1 l1 xl1">
+    <a id="data-remove-{{ counter }}"
+       href="#!"
+       class="data-remove btn-floating btn-medium red">
+      <i class="material-icons">remove</i>
+    </a>
+  </div>
+  <div class="input-field col s12 m3 l3 xl3">
+    <input required
+           id="data-name-{{ counter }}"
+           name="fields[data][{{ counter }}][name]"
+           type="text"
+           class="validate"
+           length="32">
+    <label for="data-name-{{ counter }}">
+      Short name of data
+    </label>
+  </div>
+  <div class="input-field col s12 m5 l5 xl5">
+    <input required
+           id="data-url-{{ counter }}"
+           name="fields[data][{{ counter }}][url]"
+           type="url"
+           class="validate">
+    <label for="data-url-{{ counter }}">
+      Data File URL
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Free energy data either in CSV or JSON
+                       format. CSV requires both 'time' and 'free_energy'
+                       fields. JSON should be formatted as a list with each
+                       item having 'time' and 'free_energy' keys.">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+  <div class="col s12 m3 l3 xl3">
+    <p>
+      <input required checked="checked" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="csv" id="csv-{{ counter }}" />
+      <label for="csv-{{ counter }}">CSV</label>
+    </p>
+    <p>
+      <input class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="json" id="json-{{ counter }}" />
+      <label for="json-{{ counter }}">JSON</label>
+    </p>
+  </div>
+  <div class="input-field col s12 m5 l5 xl5">
+    <i class="material-icons prefix">mode_edit</i>
+    <textarea required
+              id="data-desc-{{ counter }}"
+              name="fields[data][{{ counter }}][description]"
+              class="materialize-textarea validate active"
+              type="text"
+              length="500"></textarea>
+    <label class="active" for="data-desc-{{ counter }}">
+      Data Description
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Concise reason for this contribution">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+  <div class="col s12 m1 l1 xl1">
+    <p>
+      <input required checked="checked" class="dim-line with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="line" id="dim-line-{{ counter }}" />
+      <label for="dim-line-{{ counter }}">2D</label>
+    </p>
+    <p>
+      <input class="dim-contour with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="contour" id="dim-contour-{{ counter }}" />
+      <label for="dim-contour-{{ counter }}">3D</label>
+    </p>
+  </div>
+  {{#each fields}}
+    <div {{this.[1]}}
+         class="input-field col s12 m2 l2 xl2"
+         id="input-field-{{this.[0]}}-{{ ../counter }}">
+      <input {{this.[2]}}
+             {{this.[3]}}
+             id="data-{{this.[0]}}-parse-{{ ../counter }}"
+             name="fields[data][{{ ../counter }}][format][parse]"
+             type="text"
+             class="validate field-input-{{this.[0]}}-{{../counter}}"
+             length="32">
+      <label for="data-{{this.[0]}}-parse-{{ ../counter }}">
+        Name of {{this.[0]}}-axis column
+      </label>
+      <input {{this.[3]}}
+             class="field-input-{{this.[0]}}-{{../counter}}"
+             name="fields[data][{{ ../counter }}][transform][{{@index}}][type]"
+             type="hidden"
+             value="formula">
+      <input {{this.[3]}}
+             class="field-input-{{this.[0]}}-{{../counter}}"
+             name="fields[data][{{ ../counter }}][transform][{{@index}}][expr]"
+             type="hidden"
+             id="expr-{{this.[0]}}-{{ ../counter }}"
+             value="datum.">
+      <input {{this.[3]}}
+             class="field-input-{{this.[0]}}-{{../counter}}"
+             name="fields[data][{{ ../counter }}][transform][{{@index}}][as]"
+             type="hidden"
+             value="{{this.[0]}}">
+    </div>
+  {{/each}}
+</div>
+{% endraw %}

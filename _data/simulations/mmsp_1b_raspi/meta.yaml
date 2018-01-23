@@ -29,35 +29,21 @@ data:
     value: 8808
 metadata:
   author:
+    email: trevor.keller@nist.gov
     first: Trevor
+    github_id: tkphd
     last: Keller
-  email: trevor.keller@nist.gov
-  github_id: tkphd
   hardware:
-    architecture: armv7l
+    acc_architecture: none
+    clock_rate: 0
     cores: 18
-    details:
-    - name: clock
-      values: 1.2
+    cpu_architecture: armv7l
+    nodes: 1
   implementation:
-    details:
-    - name: mesh
-      values: uniform rectilinear
-    - name: numerical_method
-      values: explicit finite difference
-    - name: compiler
-      values: GNU mpic++
-    - name: parallel_model
-      values: MPI
-    end_condition: 4000000 time steps
+    container_url: ''
+    name: mmsp
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/
       version: 8be003758f9d1d4ee2f1e3ccaeec3a16199a0c62
-  software:
-    name: mmsp
-    repo:
-      url: https://github.com/mesoscale/mmsp/tree/develop
-      version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
-    version: '5.2'
   summary: Raspberry Pi 3 cluster benchmark with MMSP, no-flux domain
   timestamp: Sat, 04 Feb 2017 12:48:15 +0000

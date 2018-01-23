@@ -5,15 +5,11 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    /* display: -webkit-box; */
-    /* display: -webkit-flex; */
-    /* display: flex; */
 }
 
 main {
     flex: 1 0 auto;
 }
-
 
 .header {
     font-size: 47px;
@@ -21,15 +17,9 @@ main {
     font-weight: 900;
 }
 
-/* .navbar-default .navbar-nav > .active > a, */
-/* .navbar-default .navbar-nav > .active > a:hover, */
-/* .navbar-default .navbar-nav > .active > a:focus { */
-/*     color: #000; */
-/*     background-color: rgba(0, 255, 221, 1); */
-/* } */
-
 .top-buffer { margin-top: 40px; }
 .small-buffer { margin-top: 10px; }
+.medium-buffer { margin-top: 20px; }
 .big-buffer { margin-top: 50px; }
 
 .top-bar {
@@ -38,6 +28,10 @@ main {
 
 .top-bar-thin {
     border-top: 1px solid #9ccc65;
+}
+
+.bottom-bar-thin {
+    border-bottom: 1px solid rgb(158, 158, 158);
 }
 
 .card {
@@ -412,4 +406,13 @@ img.badge{
     border-color: transparent;
     border-bottom-style: none;
     margin-bottom: 10px;
+}
+
+.sim-edit {
+    margin-left: 10px;
+    background-color: rgb(149, 117, 205);
+}
+
+.sim-edit:hover {
+    background-color: #e57373;
 }

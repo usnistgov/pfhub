@@ -30,28 +30,24 @@ data:
 date: 1501620081
 metadata:
   author:
+    email: Larry.Aagesen@inl.gov
     first: Larry
+    github_id: laagesen
     last: Aagesen
-  email: Larry.Aagesen@inl.gov
-  github_id: laagesen
   hardware:
-    architecture: x86_64
+    acc_architecture: none
     clock_rate: '2.7'
     cores: '8'
+    cpu_architecture: x86_64
     nodes: '1'
     parallel_model: multiprocessing
   implementation:
     container_url: ''
+    name: moose
     repo:
       url: https://github.com/dschwen/CHiMaD_Hackathon
       version: 4b543d98c423fa719d360c16edf70960477c09d7
   simulation_name: inl_moose_6a
-  software:
-    name: moose
-    repo:
-      url: https://github.com/idaholab/moose
-      version: 6e33f5a4bfddd4a5c951ba493a87526c91509bfa
-    version: ''
   summary: Benchmark problem 6a, energy vs time. 160 x 160 uniform mesh, iteration
     adaptive time stepping, target iterations=8
   timestamp: 26 July, 2017

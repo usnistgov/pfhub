@@ -23,16 +23,10 @@ mapping:
           "values":
             type: any
             required: False
-          "source":
-            type: any
-            required: False
           "url":
             type: str
             required: False
           "transform":
-            type: any
-            required: False
-          "modify":
             type: any
             required: False
           "description":
@@ -56,9 +50,6 @@ mapping:
     type: map
     required: True
     mapping:
-      "github_id":
-        type: str
-        required: True
       "simulation_name":
         type: str
         required: False
@@ -75,10 +66,13 @@ mapping:
           "last":
             type: str
             required: True
-      "email":
-        type: str
-        pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
-        required: True
+          "github_id":
+            type: str
+            required: True
+          "email":
+            type: str
+            pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
+            required: True
       "timestamp":
         type: timestamp
         required: True
@@ -88,35 +82,38 @@ mapping:
         mapping:
           "clock_rate":
             type: number
-            required: False
+            required: True
           "nodes":
             type: number
-            required: False
-          "architecture":
+            required: True
+          "cpu_architecture":
             type: str
-            required: False
+            required: True
             enum: ["i386", "i686", "x86_64", "ia64", "alpha", "amd64", "arm", "armeb", "armel", "armv6l", "armv7l", "hppa", "k1om", "m32r", "m68k", "mips", "mipsel", "powerpc", "ppc", "ppc64", "s390", "s390x", "sh3", "sh3eb", "sh4", "sh4eb", "sparc", "sparc64"]
+          "acc_architecture":
+            type: str
+            required: True
+            enum: ["none", "gpu", "non-gpu"]
           "cores":
             type: number
             required: True
-          "details":
-            <<: *data
-            required: False
           "parallel_model":
             type: str
-            required: False
+            required: True
             enum: ["serial", "multiprocessing", "threaded", "distributed"]
-      "software":
+
+            type: str
+            required: False
+      "implementation":
         type: map
-        required: True
+        required: False
         mapping:
           "name":
             type: str
-            enum: ["dune", "fenics", "fipy", "moose", "mmsp", "prisms", "custom"]
             required: True
-          "version":
+          "container_url":
             type: str
-            required: False
+            required: True
           "repo": &repo
             type: map
             required: False
@@ -128,21 +125,3 @@ mapping:
                 type: str
                 pattern: \b[0-9a-f]{5,40}\b
                 required: True
-          "details":
-            <<: *data
-            required: False
-      "implementation":
-        type: map
-        required: False
-        mapping:
-          "container_url":
-            type: str
-            required: False
-          "repo":
-            <<: *repo
-          "end_condition":
-            type: str
-            required: False
-          "details":
-            <<: *data
-            required: False

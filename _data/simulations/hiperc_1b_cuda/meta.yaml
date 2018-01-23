@@ -1,9 +1,9 @@
 metadata:
-  github_id: tkphd
   author:
     first: Trevor
     last: Keller
-  email: trevor.keller@nist.gov
+    email: trevor.keller@nist.gov
+    github_id: tkphd
   simulation_name: hiperc_cuda
   summary: HiPerC spinodal decomposition result using CUDA on a Tesla P100
   timestamp: '18 December, 2017'
@@ -11,14 +11,15 @@ metadata:
     repo:
       url: 'https://github.com/usnistgov/hiperc'
       version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
+    name: custom
+    container_url: ''
   hardware:
-    architecture: x86_64
+    cpu_architecture: x86_64
+    acc_architecture: gpu
     parallel_model: threaded
     clock_rate: '1.48'
     cores: '1792'
-  software:
-    name: custom
-    version: alpha
+    nodes: 1
 benchmark:
   id: 1b
   version: '1'

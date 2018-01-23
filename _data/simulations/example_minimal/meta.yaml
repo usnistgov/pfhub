@@ -13,14 +13,19 @@ metadata:  # Describe the runtime environment, hardware and software
   author:
     first: Given name
     last: Surname
-  github_id: Users Github ID
-  email: alias@organization.com
+    github_id: Users Github ID
+    email: alias@organization.com
   timestamp: Mon, 10 Mar 1982 15:03:32 -0500  # 'date -R' on Linux or any valid timestamp
   hardware:  # relevant details of your machine or cluster
     cores: 6  # number actually used if less than total available
-  software:  # software framework your application is built upon
-    name: fipy  # all lower-case, e.g. fipy or moose or prisms, etc.
+    cpu_architecture: x86_64
+    acc_architecture: none
+    nodes: 1
+    parallel_model: serial
+    clock_rate: 2.7
   implementation:
+    name: fipy
+    container_url: ''
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic  # REQUIRED
       version: "b949fbc4116f020db619fe1ccacbf8b13dfd5e32"

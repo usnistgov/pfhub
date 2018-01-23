@@ -29,28 +29,24 @@ data:
 date: 1501618075
 metadata:
   author:
+    email: trevor.keller@nist.gov
     first: Trevor
+    github_id: tkphd
     last: Keller
-  email: trevor.keller@nist.gov
-  github_id: tkphd
   hardware:
-    architecture: x86_64
+    acc_architecture: none
     clock_rate: '3.50'
     cores: '12'
+    cpu_architecture: x86_64
     nodes: '1'
     parallel_model: threaded
   implementation:
     container_url: ''
+    name: mmsp
     repo:
       url: https://github.com/tkphd/CHiMaD-Hackathon/tree/master/Workshop5/electrochem
       version: f35b6a0
   simulation_name: mmsp_6a_wrksttn
-  software:
-    name: mmsp
-    repo:
-      url: https://github.com/mesoscale/mmsp
-      version: b37d52e
-    version: ''
   summary: MMSP 12-core workstation, red-black Gauss-Seidel solver, dx=1.0, dt=0.05,
     CFL=240
   timestamp: 28 July, 2017

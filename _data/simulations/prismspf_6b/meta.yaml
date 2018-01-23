@@ -30,28 +30,24 @@ data:
 date: 1501618809
 metadata:
   author:
+    email: stvdwtt@umich.edu
     first: Stephen
+    github_id: stvdwtt
     last: DeWitt
-  email: stvdwtt@umich.edu
-  github_id: stvdwtt
   hardware:
-    architecture: x86_64
+    acc_architecture: none
     clock_rate: '2.6'
     cores: '16'
+    cpu_architecture: x86_64
     nodes: '1'
     parallel_model: distributed
   implementation:
     container_url: ''
+    name: prisms
     repo:
       url: https://github.com/prisms-center/phaseField/tree/v2.0pre/applications/cahnHilliard_electrostatics_Curved
       version: 5005c86bb9106861f3cb134c0e7e1b115e15bb85
   simulation_name: prismspf_6b
-  software:
-    name: prisms
-    repo:
-      url: https://github.com/prisms-center/phaseField/tree/v2.0pre
-      version: 5005c86bb9106861f3cb134c0e7e1b115e15bb85
-    version: 2.0pre
   summary: Results data for problem 2b using PRISMS-PF v2.0pre and the Flux cluster
     at the University of Michigan
   timestamp: 28 July, 2017

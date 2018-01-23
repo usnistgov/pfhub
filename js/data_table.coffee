@@ -6,7 +6,7 @@ fname = (data, type, row) ->
 
 fauthor = (data, type, row) ->
   if data.email
-    '<a href="mailto:' + data.email + '">' + data.name.first + ' ' + data.name.last + '</a>'
+    '<a href="mailto:' + data.email + '">' + data.name + '</a>'
   else
     data.name
 

@@ -1,0 +1,63 @@
+<div class="row top-bar-thin">
+  <h5>
+      Hardware
+  </h5>
+  <div class="input-field col s12 m4 l4 xl3 big-buffer">
+    <select id="cpu_architecture" name="fields[metadata][hardware][cpu_architecture]" type="text">
+      {% for item in site.data.architecture %}
+        <option id="arch_{{ item }}" value="{{ item }}">{{ item }}</option>
+      {% endfor %}
+    </select>
+    <label class="active" for="cpu_architecture">CPU Architecture</label>
+  </div>
+  <div class="input-field col s12 m4 l4 xl3 big-buffer">
+    <select id="acc_architecture" name="fields[metadata][hardware][acc_architecture]" type="text">
+      <option id="acc_none" value="none">None</option>
+      <option id="acc_gpu" value="gpu">GPU</option>
+      <option id="non-gpu" value="non-gpu">Non-GPU</option>
+    </select>
+    <label class="active" for="acc_architecture">Accelerator Architecture</label>
+  </div>
+  <div class="input-field col s12 m4 l4 xl4 big-buffer">
+    <select required id="parallel_model" name="fields[metadata][hardware][parallel_model]" type="text">
+      <option id="par_serial" value="serial">Serial</option>
+      <option id="par_distributed" value="distributed">Distributed</option>
+      <option id="par_threaded" value="threaded">Threaded</option>
+      <option id="par_multiprocessing" value="multiprocessing">Multiprocessing</option>
+    </select>
+    <label class="active" for="parallel_model">Parallel Model</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12 m4 l4 xl4">
+    <input required
+	   id="clock_rate"
+           name="fields[metadata][hardware][clock_rate]"
+           type="number"
+           class="validate"
+           min="0.0"
+           max="10.0"
+           step="any">
+    <label for="clock_rate">Median Clock Rate (GHz)</label>
+  </div>
+  <div class="input-field col s12 m4 l4 xl3">
+    <input required
+	   id="cores"
+           name="fields[metadata][hardware][cores]"
+           type="number"
+           class="validate"
+           value="1"
+           min="1">
+    <label for="cores">Number of Cores</label>
+  </div>
+  <div class="input-field col s12 m4 l4 xl3">
+    <input required
+	   id="nodes"
+           name="fields[metadata][hardware][nodes]"
+           type="number"
+           class="validate"
+           min="1">
+    <label for="nodes">Number of Nodes</label>
+  </div>
+</div>

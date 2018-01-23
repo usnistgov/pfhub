@@ -31,31 +31,21 @@ data:
   url: https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_sphere_STA_v2_dfdt.csv
 metadata:
   author:
+    email: andrea.jokisaari@northwestern.edu
     first: A. M.
+    github_id: amjokisaari
     last: Jokisaari
-  email: andrea.jokisaari@northwestern.edu
-  github_id: amjokisaari
   hardware:
+    acc_architecture: none
+    clock_rate: 0
     cores: 40
-    details:
-    - name: clock_rate
-      values:
-        rate: 2.3
-        unit: GHz
-    - name: processor
-      values: Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz
-    - name: nodes
-      values: 2
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    details:
-    - name: time_stepper
-      values: STA
-    end_condition: Equilibrium, total energy fluctuated due to numerical noise
+    container_url: ''
+    name: moose
     repo:
       url: https://bitbucket.org/ajokisaari/coral
       version: e8fc74f
-  software:
-    name: moose
-    version: Hedgehog (now Coral)
   summary: Metadata for the Benchmark2 problems
   timestamp: 6/28/2016

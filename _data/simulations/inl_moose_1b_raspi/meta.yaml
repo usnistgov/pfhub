@@ -30,39 +30,21 @@ data:
   url: https://gist.githubusercontent.com/dschwen/e98885861ef77c480a74c13d09804f92/raw/a11dfd5d1d3856ec48b14fd321a7ccbfce45bd96/problem_1b_out.csv
 metadata:
   author:
+    email: daniel.schwen@inl.gov
     first: Daniel
+    github_id: dschwen
     last: Schwen
-  email: daniel.schwen@inl.gov
-  github_id: dschwen
   hardware:
-    architecture: armv7l
+    acc_architecture: none
+    clock_rate: 0
     cores: 4
-    details:
-    - name: clock
-      values: 1.2
+    cpu_architecture: armv7l
+    nodes: 1
   implementation:
-    details:
-    - name: mesh
-      values: uniform rectilinear 126*126 QUAD4
-    - name: numerical_method
-      values: implicit finite elements
-    - name: compiler
-      values: GNU mpic++
-    - name: parallel_model
-      values: MPI
-    - name: time_stepper
-      values: IterationAdaptive
-    - name: time_integration
-      values: second order backward euler
-    end_condition: Time 10000
-    repo:
-      url: https://github.com/dschwen/CHiMaD_Hackathon
-      version: cf1ab8d
-  software:
+    container_url: ''
     name: moose
     repo:
       url: https://github.com/dschwen/CHiMaD_Hackathon
       version: cf1ab8d
-    version: CHiMaD_Hackathon
   summary: Raspberry Pi 3 benchmark with MOOSE, no-flux domain
   timestamp: 1/27/2017

@@ -1,0 +1,79 @@
+<div class="row small-buffer top-bar-thin">
+  <h5>
+    Overview
+  </h5>
+  <div class="input-field col s12 m5 l5 xl4 medium-buffer">
+    <input required
+	   id="simulation_name"
+           name="options[simulation_name]"
+           class="validate"
+           type="text"
+	   length="32"
+           pattern="^[\w]{2,32}$">
+    <label for="simulation_name">
+      Short Name
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Name for this upload using alphanumeric characters and _, but at least 2 characters long.">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+
+  <div class="input-field col s12 m2 l2 xl2 medium-buffer">
+    <select required
+	    id="benchmark_id"
+            name="fields[benchmark][id]"
+            type="text">
+      {% for item in site.data.benchmarks %}
+        {% for variation in item.revisions[0].variations %}
+          {% capture id %}{{ item.num }}{{ variation }}{% endcapture %}
+          <option value="{{ id }}" id="option_{{ id }}">
+            {{ id }}
+          </option>
+        {% endfor %}
+      {% endfor %}
+    </select>
+    <label class="active" for="benchmark_id">Benchmark ID</label>
+    <input name="fields[benchmark][version]"
+           type="hidden"
+           value="1">
+  </div>
+
+  <div class="input-field col s12 m5 l5 xl4 medium-buffer">
+    <i class="material-icons prefix">today</i>
+    <input required
+	   id="timestamp"
+           name="fields[metadata][timestamp]"
+           class="datepicker"
+           type="date">
+    <label class="active" for="timestamp">
+      Execution Date
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Date the execution finished">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12 m12 l12 xl10">
+    <i class="material-icons prefix">mode_edit</i>
+    <textarea required
+	      id="summary"
+              name="fields[metadata][summary]"
+              class="materialize-textarea validate active"
+              type="text"
+	      length="500"></textarea>
+    <label class="active" for="summary">
+      Summary
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Concise reason for this contribution">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+</div>

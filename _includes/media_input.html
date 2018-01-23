@@ -1,0 +1,68 @@
+{% raw %}
+<div class="row bottom-bar-thin"
+     id="media-block-{{ counter }}">
+  <div class="input-field col s12 m1 l1 xl1">
+    <a id="media-remove-{{ counter }}"
+       href="#!"
+       class="media-remove btn-floating btn-medium red">
+      <i class="material-icons">remove</i>
+    </a>
+  </div>
+  <div class="input-field col s12 m3 l3 xl3">
+    <input required
+           id="media-name-{{ counter }}"
+           name="fields[data][{{ counter }}][name]"
+           type="text"
+           class="validate"
+           length="32">
+    <label for="data-name-{{ counter }}">
+      Short name of data
+    </label>
+  </div>
+  <div class="input-field col s12 m5 l5 xl5">
+    <input required
+           id="media-url-{{ counter }}"
+           name="fields[data][{{ counter }}][url]"
+           type="url"
+           class="validate">
+    <label for="media-url-{{ counter }}">
+      Data File URL
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Free energy data either in CSV or JSON
+                       format. CSV requires both 'time' and 'free_energy'
+                       fields. JSON should be formatted as a list with each
+                       item having 'time' and 'free_energy' keys.">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+  <div class="col s12 m3 l3 xl3">
+    <p>
+      <input required checked="checked" class="dim-line with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="youtube" id="youtube-{{ counter }}" />
+      <label for="youtube-{{ counter }}">Youtube</label>
+    </p>
+    <p>
+      <input class="dim-contour with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="image" id="image-{{ counter }}" />
+      <label for="image-{{ counter }}">Image</label>
+    </p>
+  </div>
+  <div class="input-field col s12 m5 l5 xl5">
+    <i class="material-icons prefix">mode_edit</i>
+    <textarea required
+              id="media-desc-{{ counter }}"
+              name="fields[data][{{ counter }}][description]"
+              class="materialize-textarea validate active"
+              type="text"
+              length="500"></textarea>
+    <label class="active" for="data-desc-{{ counter }}">
+      Data Description
+      <a class="tooltipped"
+         data-position="bottom"
+         data-tooltip="Concise reason for this contribution">
+        <i class="tiny material-icons">help</i>
+      </a>
+    </label>
+  </div>
+</div>
+{% endraw %}

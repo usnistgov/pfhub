@@ -68,9 +68,36 @@ if __name__ == '__main__':
     def migrate_f(data):
         """Migrate function
         """
-        fname = data['metadata']['author']['first']
-        if fname == "Andrea":
-            data['metadata']['author']['first'] = "A. M."
+        if 'github_id' in data['metadata']:
+            data['metadata']['author']['github_id'] = \
+                data['metadata']['github_id']
+            del data['metadata']['github_id']
+        if 'email' in data['metadata']:
+            data['metadata']['author']['email'] = data['metadata']['email']
+            del data['metadata']['email']
+        if 'details' in data['metadata']['hardware']:
+            del data['metadata']['hardware']['details']
+        if 'details' in data['metadata']['implementation']:
+            del data['metadata']['implementation']['details']
+        if 'end_condition' in data['metadata']['implementation']:
+            del data['metadata']['implementation']['end_condition']
+        if 'software' in data['metadata']:
+            data['metadata']['implementation']['name'] = \
+                data['metadata']['software']['name']
+            del data['metadata']['software']
+        data['metadata']['hardware']['acc_architecture'] = 'none'
+        if 'architecture' in data['metadata']['hardware']:
+            data['metadata']['hardware']['cpu_architecture'] = \
+                data['metadata']['hardware']['architecture']
+            del data['metadata']['hardware']['architecture']
+        if 'container_url' not in data['metadata']['implementation']:
+            data['metadata']['implementation']['container_url'] = ''
+        if 'nodes' not in data['metadata']['hardware']:
+            data['metadata']['hardware']['nodes'] = 1
+        if 'clock_rate' not in data['metadata']['hardware']:
+            data['metadata']['hardware']['clock_rate'] = 0
+        if 'cpu_architecture' not in data['metadata']['hardware']:
+            data['metadata']['hardware']['cpu_architecture'] = 'x86_64'
         return data
 
     migrate(migrate_f)

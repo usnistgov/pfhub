@@ -1,0 +1,48 @@
+<div class="row">
+  <h5>
+    Author
+  </h5>
+  <div class="input-field col s12 m6 l6 xl5">
+    <i class="material-icons prefix">account_circle</i>
+    <input required
+	   id="first"
+           name="fields[metadata][author][first]"
+           type="text"
+           class="validate"
+	   length="200">
+    <label for="first">First Name</label>
+  </div>
+  <div class="input-field col s12 m6 l6 xl5">
+    <!-- <i class="material-icons prefix">account_circle</i> -->
+    <input required
+	   id="last"
+           name="fields[metadata][author][last]"
+           type="text"
+           class="validate"
+	   length="200">
+    <label for="last">Last Name</label>
+  </div>
+  <div class="input-field col s12 m6 l6 xl5">
+    <i class="material-icons prefix">email</i>
+    <input required
+	   id="email"
+           name="fields[metadata][author][email]"
+           type="email"
+           class="validate"
+	   length="260">
+    <label for="email">Email</label>
+  </div>
+  <div class="input-field col s12 m6 l6 xl5">
+    <i class="material-icons prefix">
+      <img class="github-circle" src="{{ site.baseurl }}/images/github-black.svg" alt="GitHub">
+    </i>
+    <input required
+	   id="github_id"
+           name="fields[metadata][author][github_id]"
+           type="text"
+           class="validate"
+	   length="200">
+    <label for="github_id">GitHub ID</label>
+  </div>
+
+</div>

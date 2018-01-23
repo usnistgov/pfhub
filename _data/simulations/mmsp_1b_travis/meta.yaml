@@ -49,35 +49,21 @@ data:
     value: 33844
 metadata:
   author:
+    email: trevor.keller@nist.gov
     first: Trevor
+    github_id: tkphd
     last: Keller
-  email: trevor.keller@nist.gov
-  github_id: tkphd
   hardware:
-    architecture: x86_64
+    acc_architecture: none
+    clock_rate: 0
     cores: 2
-    details:
-    - name: clock
-      values: 2300.0
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    details:
-    - name: mesh
-      values: uniform rectilinear
-    - name: numerical_method
-      values: explicit finite difference
-    - name: compiler
-      values: GNU mpic++
-    - name: parallel_model
-      values: MPI
-    end_condition: time limit, Travis CI runs die after 50 minutes total
+    container_url: ''
+    name: mmsp
     repo:
       url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/no-flux/
       version: 05a5db5111d92b916d51e143adf068547c3a654d
-  software:
-    name: mmsp
-    repo:
-      url: https://github.com/mesoscale/mmsp/tree/develop
-      version: 8f29eb47146b9fbbdcd17b08d12e06fceb3ed728
-    version: '5.2'
   summary: Parallel Travis CI benchmark with MMSP, no-flux domain
   timestamp: Tue, 10 Jan 2017 01:20:43 +0000

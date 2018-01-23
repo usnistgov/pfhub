@@ -106,14 +106,14 @@
 </div>
 
 <script>
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var SIM_NAME = url.searchParams.get("sim");
+  var SIM_NAME = new URL(window.location.href).searchParams.get("sim");
   var CHART_DATA={{ site.data.charts.plot1d | jsonify }};
   var DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta;
   var CODES_DATA={{ site.data.codes | jsonify }};
 </script>
+
 <script src="{{ site.baseurl }}/js/simulation.js"></script>
+
 <script>
   $(document).ready(function(){
   $('.materialboxed').materialbox();

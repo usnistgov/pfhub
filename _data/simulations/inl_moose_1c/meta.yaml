@@ -30,33 +30,21 @@ data:
   url: https://gist.githubusercontent.com/anonymous/898a197718cf02b643e78841e54dba41/raw/9c69964d354165708d508e3dc6655fb941d83da9/problem_1c_out.csv
 metadata:
   author:
+    email: daniel.schwen@inl.gov
     first: Daniel
+    github_id: dschwen
     last: Schwen
-  email: daniel.schwen@inl.gov
-  github_id: dschwen
   hardware:
-    architecture: x86_64
+    acc_architecture: none
+    clock_rate: 0
     cores: 4
+    cpu_architecture: x86_64
+    nodes: 1
   implementation:
-    details:
-    - name: mesh
-      values: uniform rectilinear 95*114 (with elements removed) QUAD4
-    - name: numerical_method
-      values: implicit finite elements
-    - name: compiler
-      values: clang++ 3.9.0
-    - name: parallel_model
-      values: MPI
-    - name: time_stepper
-      values: IterationAdaptive
-    - name: time_integration
-      values: second order backward euler
-    end_condition: Time 10000
+    container_url: ''
+    name: moose
     repo:
       url: https://github.com/dschwen/CHiMaD_Hackathon
       version: f6ec84570
-  software:
-    name: moose
-    version: CHiMaD_Hackathon
   summary: Benchmark with MOOSE on macPro, T-shaped no-flux domain
   timestamp: 6/1/2017

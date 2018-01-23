@@ -1,592 +1,59 @@
 ---
 layout: default
-title: "Submit a new benchmark result"
-comment: >-
-
-  Fill out this form to submit a new benchmark result to the
-  website. The data will be submitted to the website via a
-  pull-request on GitHub. Please go to
-  <a target="_blank"
-  href="https://github.com/usnistgov/pfhub/pulls">usnistgov/pfhub</a>
-  to view the pull-request. To upload a new benchmark result with a
-  manual pull request, please follow the <a target="_blank"
-  href="/pfhub/simulations/upload">manual upload
-  instructions</a>.
-
 ---
 
-{% include title.html %}
+<div class="container">
+  <div class="row">
+    <div class="col s12 m12 l12 xl8 offset-xl2" id="overview">
+      <h2 class="header">
+        Submit a new benchmark result
+      </h2>
+      <div class="flow-text mission-statement">
+        <p>
+          Fill out this form to submit a new benchmark result to the
+          website. The data will be submitted via a pull-request on
+          GitHub. Please go to
+          <a target="_blank" href="{{ site.links.github }}/pulls">
+             {{ site.links.repo }}
+          </a>
+          to view the pull-request. To upload a new benchmark result
+          with a manual pull request, please follow the
+          <a target="_blank"
+             href="{{ site.baseurl }}/simulations/upload">
+            manual upload instructions
+          </a>. This form can be populated from an existing result by
+          choosing a result from the
+          <a href="{{ site.baseurl }}/simulations/#simulations">
+            table of uploads
+          </a>
+          and then clicking on the "USE AS TEMPLATE FOR NEW
+          SIMULATION" button.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="container top-bar top-buffer">
+<div class="container top-bar small-buffer">
   <div class="row small-buffer">
-    <div class="col l2 m12 s12">
+    <div class="col s12 m12 l12 xl2">
       <h5 class="sideheader">Upload Form</h5>
     </div>
-    <div class="col s10">
+    <div class="col s12 m12 l12 xl10">
       <form name="simulation_form"
             id="my_form"
             method="POST"
-            action="https://api.staticman.net/v2/entry/{{ site.links.repo }}/master/simulations">
+            action="{{ site.links.staticman_api }}">
         <input name="options[redirect]"
                type="hidden"
                value="{{ site.links.github }}/pulls">
 
-        <div class="row">
-          <h5>
-            Author
-          </h5>
-          <div class="input-field col s5">
-            <i class="material-icons prefix">account_circle</i>
-            <input required
-		   id="author"
-                   name="fields[metadata][author]"
-                   type="text"
-                   class="validate"
-		   length="200">
-            <label for="author">Author Name</label>
-          </div>
-          <div class="input-field col s5">
-            <i class="material-icons prefix">email</i>
-            <input required
-		   id="email"
-                   name="fields[metadata][email]"
-                   type="email"
-                   class="validate"
-		   length="260">
-            <label for="email">Author Email</label>
-          </div>
-        </div>
-
-        <div class="row small-buffer top-bar-thin">
-          <h5>
-            Overview
-          </h5>
-          <div class="input-field col s3">
-            <input required
-		   id="simulation_name"
-                   name="fields[metadata][simulation_name]"
-                   class="validate"
-                   type="text"
-		   length="32"
-                   pattern="^[\w]{2,32}$">
-            <label for="simulation_name">
-              Short Name
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="Name for this upload using alphanumeric characters and _, but at least 2 characters long.">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-          <div class="input-field col s7">
-            <i class="material-icons prefix">mode_edit</i>
-            <textarea required
-		      id="summary"
-                      name="fields[metadata][summary]"
-                      class="materialize-textarea validate active"
-                      type="text"
-		      length="500"
-                      value="Concise reason for this contribution"></textarea>
-            <label class="active" for="summary">
-              Summary
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="Concise reason for this contribution">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="input-field col s3">
-            <select required
-		    id="benchmark_id"
-                    name="fields[benchmark][id]"
-                    type="text">
-              <option value="1a" selected>1a</option>
-              <option value="1b">1b</option>
-              <option value="1c">1c</option>
-              <option value="1d">1d</option>
-              <option value="2a">2a</option>
-              <option value="2b">2b</option>
-              <option value="2c">2c</option>
-              <option value="2d">2d</option>
-              <option value="6a">6a</option>
-              <option value="6b">6b</option>
-            </select>
-            <label class="active" for="benchmark_id">Benchmark ID</label>
-          </div>
-
-          <div class="input-field col s2">
-            <select required
-		    id="version1"
-                    name="fields[benchmark][version]"
-                    type="number">
-              <option value="1" selected>Published</option>
-              <option value="0">Hackathon</option>
-            </select>
-            <label class="active" for="version1">Version</label>
-          </div>
-
-
-          <div class="input-field col s5">
-            <i class="material-icons prefix">today</i>
-            <input required
-		   id="timestamp"
-                   name="fields[metadata][timestamp]"
-                   class="datepicker"
-                   type="date">
-            <label class="active" for="timestamp">
-              Execution Date
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="Date the execution finished">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s5">
-            <input required
-		   id="sim_url"
-                   name="fields[metadata][implementation][repo][url]"
-                   type="url"
-                   class="validate">
-            <label for="sim_url">
-              Repository URL
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="Link to the repository code for this result (not the software repository)">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-          <div class="input-field col s5">
-            <input required
-		   id="sim_sha"
-                   name="fields[metadata][implementation][repo][version]"
-                   type="text"
-                   class="validate"
-		   length="40"
-                   pattern="[0-9a-f]{5,40}">
-            <label for="sim_sha">
-              Commit ID (SHA)
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="The repository code SHA for this result (not the software SHA)">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s5">
-            <input id="container_url"
-                   name="fields[metadata][implementation][container_url]"
-                   type="url"
-                   class="validate">
-            <label for="container_url">
-              Container URL
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="Link to a container (such as a Dockerfile or Docker container) to reproduce result">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-        </div>
-
-        <div class="row top-bar-thin">
-          <h5>
-              Hardware
-          </h5>
-          <div class="input-field col s5 big-buffer">
-            <select id="architecture" name="fields[metadata][hardware][architecture]" type="text">
-              {% include architecture.html %}
-            </select>
-            <label class="active" for="benchmark_id">Architecture</label>
-          </div>
-          <div class="input-field col s5 big-buffer">
-            <select required id="parallel_model" name="fields[metadata][hardware][parallel_model]" type="text">
-              <option value="serial" selected>Serial</option>
-              <option value="distributed">Distributed</option>
-              <option value="threaded">Threaded</option>
-              <option value="multiprocessing">Multiprocessing</option>
-            </select>
-            <label class="active" for="parallel_model">Parallel Model</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s3">
-            <input required
-		   id="clock_rate"
-                   name="fields[metadata][hardware][clock_rate]"
-                   type="number"
-                   class="validate"
-                   min="0.0"
-                   max="10.0"
-                   step="any">
-            <label for="clock_rate">Median Clock Rate (GHz)</label>
-          </div>
-          <div class="input-field col s3">
-            <input required
-		   id="cores"
-                   name="fields[metadata][hardware][cores]"
-                   type="number"
-                   class="validate"
-                   value="1"
-                   min="1">
-            <label for="cores">Number of Cores</label>
-          </div>
-          <div class="input-field col s3">
-            <input required
-		   id="nodes"
-                   name="fields[metadata][hardware][nodes]"
-                   type="number"
-                   class="validate"
-                   value="1"
-                   min="1">
-            <label for="nodes">Number of Nodes</label>
-          </div>
-        </div>
-
-        <div class="row top-bar-thin">
-          <h5>
-            Software
-          </h5>
-          <div class="col s3">
-            <p>
-              <input required
-		     checked="checked"
-		     class="with-gap"
-                     name="fields[metadata][software][name]"
-                     type="radio"
-                     id="custom"
-                     value="custom" />
-              <label for="custom">Custom Code</label>
-            </p>
-
-            <p>
-              <input class="with-gap"
-                     name="fields[metadata][software][name]"
-                     type="radio"
-                     id="moose"
-                     value="moose" />
-              <label for="moose">Moose</label>
-            </p>
-            <p>
-              <input class="with-gap"
-                     name="fields[metadata][software][name]"
-                     type="radio"
-                     id="fenics"
-                     value="fenics" />
-              <label for="fenics">Fenics</label>
-            </p>
-            <p>
-              <input class="with-gap"
-                     name="fields[metadata][software][name]"
-                     type="radio"
-                     id="fipy"
-                     value="fipy" />
-              <label for="fipy">FiPy</label>
-            </p>
-            <p>
-              <input class="with-gap"
-                     name="fields[metadata][software][name]"
-                     type="radio"
-                     id="mmsp"
-                     value="mmsp" />
-              <label for="mmsp">MMSP</label>
-            </p>
-            <p>
-              <input class="with-gap"
-                     name="fields[metadata][software][name]"
-                     type="radio"
-                     id="prisms"
-                     value="prisms" />
-              <label for="prisms">Prisims-PF</label>
-            </p>
-          </div>
-
-          <div class="col s5">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="version2"
-                       name="fields[metadata][software][version]"
-                       type="text"
-                       class="validate">
-                <label for="version2">
-                  Software Version Number
-                  <a class="tooltipped"
-                     data-position="bottom"
-                     data-tooltip="Version number of the software used for the result">
-                    <i class="tiny material-icons">help</i>
-                  </a>
-                </label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input required
-		       id="repo_url"
-                       name="fields[metadata][software][repo][url]"
-                       type="url"
-                       class="validate">
-                <label for="repo_url">
-                  Software Repository URL
-                  <a class="tooltipped"
-                     data-position="bottom"
-                     data-tooltip="Link to the software repository (not the result implementation repository)">
-                    <i class="tiny material-icons">help</i>
-                  </a>
-                </label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input required
-		       id="repo_sha"
-                       name="fields[metadata][software][repo][version]"
-                       type="text"
-                       class="validate"
-		       length="40"
-                       pattern="[0-9a-f]{5,40}">
-                <label for="repo_sha">Software Commit ID (SHA)
-                  <a class="tooltipped"
-                     data-position="bottom"
-                     data-tooltip="The software SHA (not the result implementation SHA)">
-                    <i class="tiny material-icons">help</i>
-                  </a>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row top-bar-thin">
-          <h5>
-            Efficiency Data
-          </h5>
-          <div class="input-field col s5">
-            <input name="fields[data][0][name]"
-                   type="hidden"
-                   value="run_time">
-            <input required
-		   id="run_time"
-                   name="fields[data][0][values][0][wall_time]"
-                   type="number"
-                   step="any"
-                   class="validate"
-                   min="0">
-            <label for="run_time">
-              Run Time (s)
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="The wall clock time for the result in seconds">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-          <div class="input-field col s5">
-            <input required
-		   id="sim_time"
-                   name="fields[data][0][values][0][sim_time]"
-                   type="number"
-                   step="any"
-                   class="validate"
-                   min="0">
-            <label for="sim_time">
-              Execution End Time (s)
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="The execution end time (not wall clock time) in seconds for this result">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-        </div>
-
-        <div class="row">
-          <!-- <div class="input-field col s5"> -->
-          <!--   <input name="fields[data][2][name]" -->
-          <!--          type="hidden" -->
-          <!--          value="youtube"> -->
-          <!--   <input id="youtube" -->
-          <!--          name="fields[data][2][url]" -->
-          <!--          type="text" -->
-          <!--          class="validate" -->
-          <!--          pattern="^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$"> -->
-          <!--   <label for="youtube"> -->
-          <!--     Youtube URL -->
-          <!--     <a class="tooltipped" -->
-          <!--        data-position="bottom" -->
-          <!--        data-tooltip="A youtube movie of the simulation evolving to be displayed on the simulation landing page"> -->
-          <!--       <i class="tiny material-icons">help</i> -->
-          <!--     </a> -->
-          <!--   </label> -->
-          <!-- </div> -->
-          <div class="input-field col s5">
-            <input name="fields[data][1][name]"
-                   type="hidden"
-                   value="memory_usage">
-            <input name="fields[data][1][values][0][unit]"
-                   type="hidden"
-                   value="KB">
-            <input required
-		   id="memory_usage"
-                   name="fields[data][1][values][0][value]"
-                   type="number"
-                   class="validate"
-                   min="0"
-                   step="any">
-            <label for="memory_usage">
-              Memory Usage (KB)
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="The memory usage in total across all nodes in KB">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-        </div>
-
-        <div class="row top-bar-thin">
-          <h5>
-            Data Files
-          </h5>
-          <div class="input-field col s5">
-            <input name="fields[data][2][name]"
-                   type="hidden"
-                   value="free_energy">
-            <input required
-		   id="free_energy_url"
-                   name="fields[data][2][url]"
-                   type="url"
-                   class="validate">
-            <label for="free_energy_url">
-              Free Energy Data URL (CSV, JSON)
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="Free energy data either in CSV of JSON
-                 format. CSV requires both 'time' and 'free_energy'
-                 fields. JSON should be formatted as a list with each
-                 item having 'time' and 'free_energy' keys.">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-          <div class="col s5">
-            <input name="fields[data][2][format][parse][time]"
-                   type="hidden"
-                   value="number">
-            <input name="fields[data][2][format][parse][free_energy]"
-                   type="hidden"
-                   value="number">
-            <input name="fields[data][2][transform][0][type]"
-                   type="hidden"
-                   value="filter">
-            <input name="fields[data][2][transform][0][test]"
-                   type="hidden"
-                   value="datum.time > 0.01">
-            <p>
-              <input required checked="checked" class="with-gap" name="fields[data][2][format][type]" type="radio" value="csv" id="csv3" />
-              <label for="csv3">CSV</label>
-            </p>
-            <p>
-              <input class="with-gap" name="fields[data][2][format][type]" type="radio" value="json" id="json1" />
-              <label for="json1">JSON</label>
-            </p>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="input-field col s5">
-            <input name="fields[data][3][name]"
-                   type="hidden"
-                   value="cut_plane_x">
-            <input id="cut_plane_x_url"
-                   name="fields[data][3][url]"
-                   type="url"
-                   class="validate">
-            <label for="cut_plane_x">
-              Cut Plane X URL (CSV, JSON)
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="Cut plane data in the x direction either in CSV of JSON
-                 format. CSV requires both 'x' and 'concentration'
-                 fields. JSON should be formatted as a list with each
-                 item having 'x' and 'concentration' keys.">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-          <div class="col s5">
-            <input name="fields[data][3][format][parse][x]"
-                   type="hidden"
-                   value="number">
-            <input name="fields[data][3][format][parse][concentration]"
-                   type="hidden"
-                   value="number">
-            <p>
-              <input required checked="checked" class="with-gap" name="fields[data][3][format][type]" type="radio" value="csv" id="csv1" />
-              <label for="csv1">CSV</label>
-            </p>
-            <p>
-              <input class="with-gap" name="fields[data][3][format][type]" type="radio" value="json" id="json2" />
-              <label for="json2">JSON</label>
-            </p>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="input-field col s5">
-            <input name="fields[data][4][name]"
-                   type="hidden"
-                   value="cut_plane_y">
-            <input id="cut_plane_y_url"
-                   name="fields[data][4][url]"
-                   type="url"
-                   class="validate">
-            <label for="cut_plane_y">
-              Cut Plane Y URL (CSV, JSON)
-              <a class="tooltipped"
-                 data-position="bottom"
-                 data-tooltip="Cut plane data in the y direction either in CSV of JSON
-                 format. CSV requires both 'y' and 'concentration'
-                 fields. JSON should be formatted as a list with each
-                 item having 'y' and 'concentration' keys.">
-                <i class="tiny material-icons">help</i>
-              </a>
-            </label>
-          </div>
-          <div class="col s5">
-            <input name="fields[data][4][format][parse][y]"
-                   type="hidden"
-                   value="number">
-            <input name="fields[data][4][format][parse][concentration]"
-                   type="hidden"
-                   value="number">
-            <p>
-              <input required checked="checked" class="with-gap" name="fields[data][4][format][type]" type="radio" value="csv" id="csv2" />
-              <label for="csv2">CSV</label>
-            </p>
-            <p>
-              <input class="with-gap" name="fields[data][4][format][type]" type="radio" value="json" id="json3" />
-              <label for="json3">JSON</label>
-            </p>
-          </div>
-        </div>
-
-
-
+        {% include form_author.html %}
+        {% include form_overview.html %}
+        {% include form_implementation.html %}
+        {% include form_hardware.html %}
+        {% include form_efficiency.html %}
+        {% include form_data.html %}
 
         <div class="row top-bar-thin">
           <div class="col s12">
@@ -606,6 +73,8 @@ comment: >-
   </div>
 </div>
 
+<script src="{{ site.baseurl }}/js/upload_form.js"></script>
+
 <script>
   $(document).ready(function() {
   $('select').material_select();
@@ -620,5 +89,4 @@ comment: >-
   selectYears: 15, // Creates a dropdown of 15 years to control year
   max: true
   });
-
 </script>
