@@ -7,7 +7,8 @@
   home: https://www.anl.gov/person/olle-g-heinonen
   orcid: 0000-0002-3618-6092
   scholar:
-  text: Computational Materials Scientist omnivore at Argonne
+  text: >-
+      Computational materials science omnivore at <a href="http://www.anl.gov/">Argonne</a>.
 - name:	James Warren
   avatar: ../images/Warren-cropped.png
   email: james.warren@nist.gov
@@ -15,42 +16,49 @@
   home: https://mgi.nist.gov/users/dr-james-warren
   orcid: 0000-0001-6887-1206
   scholar: 67P38dMAAAAJ
-  text: "I'm the Director of the MGI program at NIST, and have been
-    involved in phase field modeling since 1992."
+  text: >-
+      Director of the <a href="https://www.mgi.gov/">MGI</a>
+      program at <a href="https://mgi.nist.gov/">NIST</a>.
+      Involved in phase field modeling since 1992.
   twitter: drjamesawarren
 - name:	Peter Voorhees
   avatar: ../images/Voorhees-cropped.png
   email: p-voorhees@northwestern.edu
   home: http://speedy.ms.northwestern.edu/
   scholar: qOwlVBoAAAAJ
-  text: "Frank C. Engelhardt Professor of Materials Science and Engineering,
-  Professor of Engineering Sciences and Applied Mathematics;
-  Co-Director, Center for Hierarchical Materials Design;
-  Co-Director, Northwestern University-Argonne National Laboratory Institute for Science and Engineering"
+  text: >-
+      Frank C. Engelhardt Professor of Materials Science and Engineering,
+      Professor of Engineering Sciences and Applied Mathematics;
+      Co-Director, Center for Hierarchical Materials Design;
+      Co-Director, <a href="http://www.northwestern.edu/">Northwestern University</a>-<a href="http://www.anl.gov/">Argonne National Laboratory</a>
+      <a href="https://naise.northwestern.edu/">Institute for Science and Engineering</a>
 - name: Daniel Wheeler
-  avatar: https://avatars0.githubusercontent.com/u/1986844?v=3&s=140
+  avatar: ../images/Wheeler-cropped.png
   email: daniel.wheeler@nist.gov
   home: http://wd15.github.io/
   github_id: wd15
   orcid: 0000-0002-2653-7418
   scholar: IeL59VkAAAAJ
   text: >-
-    FiPy developer, phase field
-    enthusiast and web developer for the CHiMaD Phase Field Website
+    <a href="https://www.ctcms.nist.gov/fipy/">FiPy</a> developer,
+    phase field enthusiast, and lead developer of this
+    <a href="https://pages.nist.gov/chimad-phase-field/">Website</a>
   twitter: wd15dan
 - name:	Daniel Schwen
-  avatar: https://avatars1.githubusercontent.com/u/202302?v=3&s=140
+  avatar: ../images/Schwen-cropped.png
   email: daniel.schwen@inl.gov
   github_id: dschwen
   home: http://www.schwen.de
   orcid: 0000-0002-8958-4748
   scholar: 4FmymScAAAAJ
   text: >-
-    Staff Scientist at Idaho National Lab, MOOSE / Phase Field
-    developer, and lead of the MARMOT mesoscale modeling code.
+    Staff Scientist at <a href="https://www.inl.gov/">Idaho National Lab</a>,
+    <a href="http://mooseframework.org/">MOOSE</a> / Phase Field
+    developer, and lead of the <a href="https://moose.inl.gov/marmot">MARMOT</a>
+    mesoscale modeling code.
   twitter: danielschwen
 - name: Stephen DeWitt
-  avatar: https://drive.google.com/uc?export=view&id=0BxqWxFb3iXvELUFjX3hiaUFUbWc
+  avatar: ../images/DeWitt-cropped.png
   email: stvdwtt@umich.edu
   github_id: stvdwtt
   home: https://scholar.google.com/citations?user=PnfnEFgAAAAJ&hl=en
@@ -58,29 +66,30 @@
   scholar: PnfnEFgAAAAJ
   text: >-
     Research Scientist at the University of Michigan, lead developer
-    of PRISMS-PF
+    of <a href="https://github.com/prisms-center/phaseField">PRISMS-PF</a>
 - name: Andrea Jokisaari
-  avatar: https://avatars0.githubusercontent.com/u/6676372?v=4&s=140
-  email: andrea.jokisaari@northwestern.edu
+  avatar: ../images/Jokisaari-cropped.png
+  email: andrea.jokisaari@inl.gov
   github_id: amjokisaari
   home: https://scholar.google.com/citations?user=7igvmlgAAAAJ&hl=en
   orcid: 0000-0002-4945-5714
   scholar: 7igvmlgAAAAJ
   text: >-
-    Post-doc at Northwestern University/Argonne National Laboratory
+    Staff scientist at <a href="https://www.inl.gov/">Idaho National Lab</a>
     and mesoscale wrangler.
 - name: Larry Aagesen
   avatar: ../images/Aagesen-cropped.png
   email: larry.aagesen@inl.gov
   github_id: laagesen
-  home:
+  home: https://moose.inl.gov/marmot/SitePages/Team.aspx
   orcid:
   scholar:
   text: >-
-    Staff Scientist at Idaho National Lab, MOOSE & MARMOT phase-field
-    developer
+    Staff Scientist at <a href="https://www.inl.gov/">Idaho National Lab</a>,
+    <a href="http://mooseframework.org/">MOOSE</a> &
+    <a href="https://moose.inl.gov/marmot">MARMOT</a> phase-field developer
 - name: Trevor Keller
-  avatar: https://avatars0.githubusercontent.com/u/2179347?v=4&s=140
+  avatar: ../images/Keller-cropped.png
   email: trevor.keller@nist.gov
   github_id: tkphd
   home: http://www.trevorkeller.com
@@ -99,8 +108,9 @@
   orcid: 0000-0002-1407-6589
   scholar:
   text: >-
-    FiPy developer and a member of the research staff in the Materials
-    Science and Engineering Division at NIST.
+    <a href="https://www.ctcms.nist.gov/fipy/">FiPy</a> developer and a
+    member of the research staff in the <a href="https://www.nist.gov/mml/materials-science-and-engineering-division">Materials Science and Engineering Division</a>
+    at <a href="https://www.nist.gov/">NIST</a>.
 - name: Nana Ofori-Opoku
   avatar: ../images/OforiOpoku-cropped.png
   email: nana.oforiopoku@cnl.ca
