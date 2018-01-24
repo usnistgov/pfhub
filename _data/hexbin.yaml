@@ -1,11 +1,6 @@
 ---
 # Image locations for hexbin array on front page splash
 
-  - image: http://wow.com/a/broken/link/v.jpg
-    url: https://www.google.com/
-    title: broken
-    description: broken
-
   - image: http://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Phase_field_order_parameter.jpg/280px-Phase_field_order_parameter.jpg
     url: http://en.wikipedia.org/wiki/Phase_field_models
     title: Wikipedia Phase Field Entry
