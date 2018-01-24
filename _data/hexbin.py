@@ -20,14 +20,12 @@ def check_status(datum):
     """
     if requests.get(datum['url']).status_code != 200:
         return False
-    else:
-        get_ = requests.get(datum['image'])
-        if get_.status_code != 200:
-            return False
-        elif get_.url != datum['image']:
-            return False
-        else:
-            return True
+    get_ = requests.get(datum['image'])
+    if get_.status_code != 200:
+        return False
+    if get_.url != datum['image']:
+        return False
+    return True
 
 
 def hexbin_yaml_to_json():
