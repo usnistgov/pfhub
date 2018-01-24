@@ -20,8 +20,8 @@
            name="fields[data][{{ counter }}][name]"
            type="text"
            class="validate"
-           length="32"
-           pattern="^[\w]{2,32}$">
+           length="64"
+           pattern="^[\\w]{2,64}$">
     <label for="data-name-{{ counter }}">
       Short name of data
     </label>
@@ -94,7 +94,7 @@
              name="fields[data][{{ ../counter }}][format][parse]"
              type="text"
              class="validate field-input-{{this.[0]}}-{{../counter}}"
-             length="32">
+             length="64">
       <label for="data-{{this.[0]}}-parse-{{ ../counter }}">
         Name of {{this.[0]}}-axis column
       </label>
