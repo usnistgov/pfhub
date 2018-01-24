@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="row top-buffer">
+    <div class="col s12">
+      <div class="flow-text">
+        The parameter, <span id="sim_name"></span>, is not a valid
+        simulation result name, see
+        <a href="{{ site.baseurl }}/simulations/#simulations">
+          the full table of simulation results
+        </a>
+        to select a valid simulation result to display.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var SIM_NAME = new URL(window.location.href).searchParams.get("sim");
+  $('#sim_name').html(SIM_NAME);
+</script>
