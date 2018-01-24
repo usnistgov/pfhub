@@ -20,10 +20,22 @@
   </div>
   <div class="input-field col s12 m4 l4 xl4 big-buffer">
     <select required id="parallel_model" name="fields[metadata][hardware][parallel_model]" type="text">
-      <option id="par_serial" value="serial">Serial</option>
-      <option id="par_distributed" value="distributed">Distributed</option>
-      <option id="par_threaded" value="threaded">Threaded</option>
-      <option id="par_multiprocessing" value="multiprocessing">Multiprocessing</option>
+      <option id="par_serial"
+              value="serial">
+        Serial
+      </option>
+      <option id="par_distributed"
+              value="distributed">
+        Distributed (<i>e.g.</i> MPI)
+      </option>
+      <option id="par_threaded"
+              value="threaded">
+        Threaded (<i>e.g.</i> OpenMP)
+      </option>
+      <option id="par_multiprocessing"
+              value="massive">
+        Massively Parallel (<i>e.g.</i> CUDA, OpenCL)
+      </option>
     </select>
     <label class="active" for="parallel_model">Parallel Model</label>
   </div>
@@ -39,7 +51,7 @@
            min="0.0"
            max="10.0"
            step="any">
-    <label for="clock_rate">Median Clock Rate (GHz)</label>
+    <label for="clock_rate">Peak Clock Rate (GHz)</label>
   </div>
   <div class="input-field col s12 m4 l4 xl3">
     <input required

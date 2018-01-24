@@ -3,6 +3,11 @@
     Overview
   </h5>
   <div class="input-field col s12 m5 l5 xl4 medium-buffer">
+    <a class="tooltipped prefix"
+       data-position="bottom"
+       data-tooltip="Name for this upload using alphanumeric characters and _, but at least 2 characters long (required)">
+      <i class="material-icons">help</i>
+    </a>
     <input required
 	   id="simulation_name"
            name="options[simulation_name]"
@@ -12,11 +17,6 @@
            pattern="^[\w]{2,32}$">
     <label for="simulation_name">
       Short Name
-      <a class="tooltipped"
-         data-position="bottom"
-         data-tooltip="Name for this upload using alphanumeric characters and _, but at least 2 characters long.">
-        <i class="tiny material-icons">help</i>
-      </a>
     </label>
   </div>
 
@@ -41,7 +41,11 @@
   </div>
 
   <div class="input-field col s12 m5 l5 xl4 medium-buffer">
-    <i class="material-icons prefix">today</i>
+    <a class="tooltipped prefix"
+       data-position="bottom"
+       data-tooltip="Date that the simulation execution finished (required)">
+      <i class="material-icons">today</i>
+    </a>
     <input required
 	   id="timestamp"
            name="fields[metadata][timestamp]"
@@ -49,18 +53,17 @@
            type="date">
     <label class="active" for="timestamp">
       Execution Date
-      <a class="tooltipped"
-         data-position="bottom"
-         data-tooltip="Date the execution finished">
-        <i class="tiny material-icons">help</i>
-      </a>
     </label>
   </div>
 </div>
 
 <div class="row">
   <div class="input-field col s12 m12 l12 xl10">
-    <i class="material-icons prefix">mode_edit</i>
+    <a class="tooltipped prefix"
+       data-position="bottom"
+       data-tooltip="Summary of this contribution, highlighting important differences from existing results (required)">
+      <i class="material-icons">mode_edit</i>
+    </a>
     <textarea required
 	      id="summary"
               name="fields[metadata][summary]"
@@ -69,11 +72,6 @@
 	      length="500"></textarea>
     <label class="active" for="summary">
       Summary
-      <a class="tooltipped"
-         data-position="bottom"
-         data-tooltip="Concise reason for this contribution">
-        <i class="tiny material-icons">help</i>
-      </a>
     </label>
   </div>
 </div>

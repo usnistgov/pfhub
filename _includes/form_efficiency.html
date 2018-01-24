@@ -3,6 +3,11 @@
     Efficiency Data
   </h5>
   <div class="input-field col s12 m6 l6 xl5">
+    <a class="tooltipped prefix"
+       data-position="bottom"
+       data-tooltip="The wall clock time (real world time, not simulation time) for this result in seconds (required)">
+      <i class="material-icons">help</i>
+    </a>
     <input name="fields[data][0][name]"
            type="hidden"
            value="run_time">
@@ -15,14 +20,14 @@
            min="0">
     <label for="wall_time">
       Wall Clock Time (s)
-      <a class="tooltipped"
-         data-position="bottom"
-         data-tooltip="The wall clock time for the result in seconds">
-        <i class="tiny material-icons">help</i>
-      </a>
     </label>
   </div>
   <div class="input-field col s12 m6 l6 xl5">
+    <a class="tooltipped prefix"
+       data-position="bottom"
+       data-tooltip="The simulation end time (not real world time) in seconds for this result in seconds (required)">
+      <i class="material-icons">help</i>
+    </a>
     <input required
 	   id="sim_time"
            name="fields[data][0][values][0][sim_time]"
@@ -32,17 +37,17 @@
            min="0">
     <label for="sim_time">
       Simulation End Time (s)
-      <a class="tooltipped"
-         data-position="bottom"
-         data-tooltip="The execution end time (not wall clock time) in seconds for this result">
-        <i class="tiny material-icons">help</i>
-      </a>
     </label>
   </div>
 </div>
 
 <div class="row">
   <div class="input-field col s12 m6 l6 xl5">
+    <a class="tooltipped prefix"
+       data-position="bottom"
+       data-tooltip="The memory usage in total across all nodes in KB (required)">
+      <i class="material-icons">help</i>
+    </a>
     <input name="fields[data][1][name]"
            type="hidden"
            value="memory_usage">
@@ -58,11 +63,6 @@
            step="any">
     <label for="memory_usage">
       Memory Usage (KB)
-      <a class="tooltipped"
-         data-position="bottom"
-         data-tooltip="The memory usage in total across all nodes in KB">
-        <i class="tiny material-icons">help</i>
-      </a>
     </label>
   </div>
 </div>

@@ -40,7 +40,7 @@ metadata:
     cores: '16'
     cpu_architecture: x86_64
     nodes: '2'
-    parallel_model: multiprocessing
+    parallel_model: distributed
   implementation:
     container_url: ''
     name: prisms

@@ -51,6 +51,7 @@ add_data_file_section = () ->
       }
     )
   )
+  $('.tooltipped').tooltip({delay:50})
   counter
 
 add_media_file_section = () ->
@@ -62,6 +63,7 @@ add_media_file_section = () ->
       }
     )
   )
+  $('.tooltipped').tooltip({delay:50})
   counter
 
 $("#data-add").click(add_data_file_section)
