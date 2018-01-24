@@ -2,8 +2,6 @@
 """
 # pylint: disable=no-value-for-parameter
 
-import os
-
 import pandas
 from toolz.curried import pipe, do, itemmap, curry
 from dateutil.parser import parse
