@@ -62,7 +62,7 @@ def mapping_func(data):
     def urlbase():
         """The base URL for the simulation links.
         """
-        return "https://pages.nist.gov/pfhub/simulations"
+        return "https://pages.nist.gov/pfhub/simulations/display/?sim="
 
     return (
         data[0],
@@ -71,7 +71,7 @@ def mapping_func(data):
             CreatorLN=meta(data)['author']['last'],
             Title=data[0],
             PublicationYear=parse(meta(data)['timestamp']).strftime("%Y"),
-            Location=os.path.join(urlbase(), data[0]),
+            Location=urlbase() + data[0],
             DOI="I WILL PROVIDE",
             ResourceType="Dataset/Benchmark",
             Subject=",".join(
