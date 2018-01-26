@@ -276,6 +276,14 @@ table.striped tbody tr:nth-child(2n+1) {
     margin-left: 40px;
 }
 
+#upload-button .btn {
+    background-color: #9575cd;
+}
+
+#upload-button a.btn:hover {
+    background-color: #e57373;
+}
+
 .card.medium .card-content.benchmark {
     overflow: auto;
     max-height: 100%;
@@ -376,7 +384,7 @@ p.examples {
     padding-top: 10px;
 }
 
-.workshop {
+#workshops li {
     border-color: transparent;
     border-bottom-style: none;
     margin-bottom: 10px;

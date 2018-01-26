@@ -65,7 +65,6 @@ build_function = (data) ->
   selection = d3.select("#workshops").selectAll()
   .data(data).enter()
   .append("li").attr("class", "collection-item avatar light-green lighten-4")
-  selection.attr("class", "workshop")
   selection = selection.sort()
 
   add_logo(selection)

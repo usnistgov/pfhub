@@ -1,7 +1,7 @@
 data:
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://www.dropbox.com/s/qusutz8g24hx54q/free_energy.csv'}
   cores: 6
   id_: 6a.0
@@ -47,6 +47,22 @@ data:
   id_: 6b.0
   name: fipy_6b_macbookpro
   timestamp: 2017/08/01 00:00:00
+- author:
+    email: trevor.keller@nist.gov
+    name: {first: Trevor, last: Keller}
+  code: {name: custom, url: 'https://github.com/usnistgov/hiperc'}
+  cores: 1792
+  id_: 1b.1
+  name: hiperc_1b_cuda
+  timestamp: 2017/12/18 00:00:00
+- author:
+    email: trevor.keller@nist.gov
+    name: {first: Trevor, last: Keller}
+  code: {name: custom, url: 'https://github.com/usnistgov/hiperc'}
+  cores: 1792
+  id_: 1b.1
+  name: hiperc_1b_cuda_9pt
+  timestamp: 2017/12/18 00:00:00
 - author:
     email: daniel.schwen@inl.gov
     name: {first: Daniel, last: Schwen}
@@ -169,7 +185,7 @@ data:
   timestamp: 2017/07/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1a.1
@@ -177,7 +193,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1b.1
@@ -185,7 +201,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1b.1
@@ -193,7 +209,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 1c.1
@@ -201,7 +217,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 1d.1
@@ -209,7 +225,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 1d.1
@@ -217,7 +233,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 2a.1
@@ -225,7 +241,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 2a.1
@@ -233,7 +249,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 2b.1
@@ -241,7 +257,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 2b.1
@@ -249,7 +265,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 2c.1
@@ -257,7 +273,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
   id_: 2c.1
@@ -265,7 +281,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 40
   id_: 2d.1
@@ -273,7 +289,7 @@ data:
   timestamp: 2016/06/28 00:00:00
 - author:
     email: andrea.jokisaari@northwestern.edu
-    name: {first: Andrea, last: Jokisaari}
+    name: {first: A. M., last: Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 40
   id_: 2d.1
