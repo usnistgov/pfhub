@@ -2,4 +2,5 @@
 layout: default
 ---
 
-{% include simulations.html benchmark_id="6b.0" %}
+{% assign benchmark_id = page.url | remove: '/simulations/' | remove: '/' %}
+{% include simulations.html benchmark_id=benchmark_id %}

@@ -1,9 +1,91 @@
 - title: Spinodal Decomposition
-  url: "benchmarks/benchmark1.ipynb/"
-  description: Test the diffusion of a solute in a matrix.
+  description: Diffusion of a solute in a matrix
   image: http://www.comsol.com/model/image/2054/big.png
+  num: 1
+  revisions:
+    - version: 1
+      variations: [a, b, c, d]
+      event:
+        name: Publication 1
+        url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
+      commit:
+        sha: "c4de782ed5fb2827920db11f3fb743bc28300fd9"
+        url: "benchmarks/benchmark1.ipynb"
+      url: "benchmarks/benchmark1.ipynb"
+    - version: 0
+      variations: [a, b, c, d]
+      url: "hackathons/hackathon1/problems.ipynb"
+      event:
+        name: Hackathon 1
+        url: "hackathons/hackathon1"
+      commit:
+        sha: "3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37"
+        url: "hackathon1/problems.ipynb"
 
 - title: Ostwald Ripening
-  url: "benchmarks/benchmark2.ipynb/"
-  description: Test coupling of conserved and non-conserved dynamics.
-  image: https://i.ytimg.com/vi/IWJreldRjfs/maxresdefault.jpg
+  description: Coupling of conserved and non-conserved dynamics
+  image: images/ostwald.jpg
+  num: 2
+  revisions:
+    - version: 1
+      variations: [a, b, c, d]
+      event:
+        name: Publication 1
+        url: "http://dx.doi.org/10.1016/j.commatsci.2016.09.022"
+      url: "benchmarks/benchmark2.ipynb"
+      commit:
+        sha: "c4de782ed5fb2827920db11f3fb743bc28300fd9"
+        url: "benchmarks/benchmark2.ipynb"
+    - version: 0
+      variations: [a, b, c, d]
+      url: "hackathons/hackathon1/problems.ipynb"
+      event:
+        name: Hackathon 1
+        url: "hackathons/hackathon1"
+      commit:
+        url: "hackathon1/problems.ipynb"
+        sha: "3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37"
+
+- title: Dendritic Growth
+  description: Solidification and dendritic growth in a single-component
+  image: https://www.ctcms.nist.gov/fipy/_static/examples/phase/anisotropy/dendrite.png
+  num: 3
+  revisions:
+    - version: 1
+      variations: [a]
+      event:
+        name: Publication 2
+        url: "benchmarks/benchmark3.ipynb"
+      url: "benchmarks/benchmark3.ipynb"
+      commit:
+        sha: "e8ecca6b37f8b95f948014763e7799b450f8a623"
+        url: "benchmarks/benchmark3.ipynb"
+    - version: 0
+      variations: [a, b, c]
+      event:
+        name: Hackathon 2
+        url: "hackathons/hackathon2"
+      url: "hackathons/hackathon2/problem1.ipynb"
+      commit:
+        sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
+        url: "hackathons/hackathon2/problem1.ipynb"
+
+- title: Linear Elasticity
+  description: Linear elasticity via evolution of a constrained precipitate
+  image: images/elastic1.png
+  num: 4
+  revisions:
+    - version: 0
+      variations: [a, b, c]
+      event:
+        name: Hackathon 2
+        url: "hackathons/hackathon2"
+      url: "hackathons/hackathon2/problem2.ipynb"
+      commit:
+        sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
+        url: "hackathons/hackathon2/problem2.ipynb"
+
+- title: MMS Allen-Cahn
+  description: Method of manufactured solutions for an Allen-Cahn equation
+  num: 7
+  url: "benchmarks/benchmark7.ipynb/"

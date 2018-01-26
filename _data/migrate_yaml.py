@@ -66,10 +66,11 @@ def write_yaml_data(filepath, data):
 
 if __name__ == '__main__':
     def migrate_f(data):
-        """Migrate function for github_id
+        """Migrate function
         """
-        if data["metadata"]["author"] == "PC. Simon":
-            data["metadata"]["github_id"] = "simopier"
+        fname = data['metadata']['author']['first']
+        if fname == "Andrea":
+            data['metadata']['author']['first'] = "A. M."
         return data
 
     migrate(migrate_f)

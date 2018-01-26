@@ -1,47 +1,94 @@
 ---
 
 - name: Olle Heinonen
-  text: Computational Materials Scientist omnivore at Argonne
+  avatar: ../images/Heinonen-cropped.png
   email: heinonen@anl.gov
-  home: http://www.msd.anl.gov/heinonen
   github_id: heinono1
-  avatar: http://www.msd.anl.gov/images/personnel/heinonen.jpg
+  home: http://www.msd.anl.gov/heinonen
+  orcid: 0000-0002-3618-6092
+  scholar: 
+  text: Computational Materials Scientist omnivore at Argonne
 - name:	James Warren
+  avatar: ../images/Warren-cropped.png
+  email: james.warren@nist.gov
+  github_id: drjamesawarren
+  home: https://mgi.nist.gov/users/dr-james-warren
+  orcid: 0000-0001-6887-1206
+  scholar: 67P38dMAAAAJ
   text: "I'm the Director of the MGI program at NIST, and have been
     involved in phase field modeling since 1992."
-  avatar: https://mgi.nist.gov/sites/default/files/styles/thumbnail/public/pictures/picture-124-1427377338.jpg
-  email: james.warren@nist.gov
-  home: https://mgi.nist.gov/users/dr-james-warren
   twitter: drjamesawarren
-  github_id: drjamesawarren
 - name: Daniel Wheeler
+  avatar: https://avatars0.githubusercontent.com/u/1986844?v=3&s=140
+  email: daniel.wheeler@nist.gov
+  home: http://wd15.github.io/
+  github_id: wd15
+  orcid: 0000-0002-2653-7418
+  scholar: IeL59VkAAAAJ
   text: >-
     FiPy developer, phase field
     enthusiast and web developer for the CHiMaD Phase Field Website
-  avatar: https://avatars0.githubusercontent.com/u/1986844?v=3&s=140
-  github_id: wd15
   twitter: wd15dan
-  email: daniel.wheeler@nist.gov
 - name:	Daniel Schwen
+  avatar: https://avatars1.githubusercontent.com/u/202302?v=3&s=140
+  email: daniel.schwen@inl.gov
+  github_id: dschwen
+  home: http://www.schwen.de
+  orcid: 0000-0002-8958-4748
+  scholar: 4FmymScAAAAJ
   text: >-
     Staff Scientist at Idaho National Lab, MOOSE / Phase Field
     developer, and lead of the MARMOT mesoscale modeling code.
-  avatar: https://avatars1.githubusercontent.com/u/202302?v=3&s=460
-  email: daniel.schwen@inl.gov
-  home: http://www.schwen.de
   twitter: danielschwen
-  github_id: dschwen
 - name: Stephen DeWitt
-  text: >-
-    Research Scientist at the University of Michigan, lead developer
-    of PRISMS-PF
   avatar: https://drive.google.com/uc?export=view&id=0BxqWxFb3iXvELUFjX3hiaUFUbWc
   email: stvdwtt@umich.edu
   github_id: stvdwtt
+  home: https://scholar.google.com/citations?user=PnfnEFgAAAAJ&hl=en
+  orcid: 0000-0002-9550-293X
+  scholar: PnfnEFgAAAAJ
+  text: >-
+    Research Scientist at the University of Michigan, lead developer
+    of PRISMS-PF
 - name: Andrea Jokisaari
+  avatar: https://avatars0.githubusercontent.com/u/6676372?v=4&s=140
+  email: andrea.jokisaari@northwestern.edu
+  github_id: amjokisaari
+  home: https://scholar.google.com/citations?user=7igvmlgAAAAJ&hl=en
+  orcid: 0000-0002-4945-5714
+  scholar: 7igvmlgAAAAJ
   text: >-
     Post-doc at Northwestern University/Argonne National Laboratory
     and mesoscale wrangler.
-  avatar: https://avatars0.githubusercontent.com/u/6676372?v=4&s=30
-  email: andrea.jokisaari@northwestern.edu
-  github_id: amjokisaari
+- name: Larry Aagesen
+  avatar: ../images/Aagesen-cropped.png
+  email: larry.aagesen@inl.gov
+  github_id: laagesen
+  home: 
+  orcid: 
+  scholar: 
+  text: >-
+    Staff Scientist at Idaho National Lab, MOOSE & MARMOT phase-field
+    developer
+- name: Trevor Keller
+  avatar: https://avatars0.githubusercontent.com/u/2179347?v=4&s=140
+  email: trevor.keller@nist.gov
+  github_id: tkphd
+  home: http://www.trevorkeller.com
+  orcid: 0000-0002-2920-8302
+  scholar: pHf0ImgAAAAJ
+  text: >-
+    HPC hardware enthusiast, <a href="https://hiperc.readthedocs.io">HiPerC</a> &
+    <a href="https://github.com/mesoscale/mmsp">MMSP</a> developer, and research
+    engineer at <a href="https://www.nist.gov/mml/materials-science-and-engineering-division">NIST</a>.
+  twitter: tkphd
+- name: Jon Guyer
+  avatar: ../images/Guyer-cropped.png
+  email: guyer@nist.gov
+  github_id: guyer
+  home: https://www.nist.gov/people/jonathan-e-guyer
+  orcid: 0000-0002-1407-6589
+  scholar: 
+  text: >-
+    FiPy developer and a member of the research staff in the Materials
+    Science and Engineering Division at NIST.

@@ -1,14 +1,14 @@
 ---
 layout: default
-title: "Submit a new simulation result"
+title: "Submit a new benchmark result"
 comment: >-
 
-  Fill out this form to submit a new simulation result to the
+  Fill out this form to submit a new benchmark result to the
   website. The data will be submitted to the website via a
   pull-request on GitHub. Please go to
   <a target="_blank"
   href="https://github.com/usnistgov/chimad-phase-field/pulls">usnistgov/chimad-phase-field</a>
-  to view the pull-request. To upload a simulation result with a
+  to view the pull-request. To upload a new benchmark result with a
   manual pull request, please follow the <a target="_blank"
   href="/chimad-phase-field/simulations/upload">manual upload
   instructions</a>.
@@ -59,7 +59,7 @@ comment: >-
 
         <div class="row small-buffer top-bar-thin">
           <h5>
-            Simulation
+            Overview
           </h5>
           <div class="input-field col s3">
             <input required
@@ -70,10 +70,10 @@ comment: >-
 		   length="32"
                    pattern="^[\w]{2,32}$">
             <label for="simulation_name">
-              Short Simulation Name
+              Short Name
               <a class="tooltipped"
                  data-position="bottom"
-                 data-tooltip="Name for this simulation using alphanumeric characters and _, but at least 2 characters long.">
+                 data-tooltip="Name for this upload using alphanumeric characters and _, but at least 2 characters long.">
                 <i class="tiny material-icons">help</i>
               </a>
             </label>
@@ -139,10 +139,10 @@ comment: >-
                    class="datepicker"
                    type="date">
             <label class="active" for="timestamp">
-              Simulation Date
+              Execution Date
               <a class="tooltipped"
                  data-position="bottom"
-                 data-tooltip="Date the simulation finished">
+                 data-tooltip="Date the execution finished">
                 <i class="tiny material-icons">help</i>
               </a>
             </label>
@@ -157,10 +157,10 @@ comment: >-
                    type="url"
                    class="validate">
             <label for="sim_url">
-              Simulation Repository URL
+              Repository URL
               <a class="tooltipped"
                  data-position="bottom"
-                 data-tooltip="Link to the repository code for this simulation (not the software repository)">
+                 data-tooltip="Link to the repository code for this result (not the software repository)">
                 <i class="tiny material-icons">help</i>
               </a>
             </label>
@@ -174,10 +174,10 @@ comment: >-
 		   length="40"
                    pattern="[0-9a-f]{5,40}">
             <label for="sim_sha">
-              Simulation Commit ID (SHA)
+              Commit ID (SHA)
               <a class="tooltipped"
                  data-position="bottom"
-                 data-tooltip="The repository code SHA for this simulation (not the software SHA)">
+                 data-tooltip="The repository code SHA for this result (not the software SHA)">
                 <i class="tiny material-icons">help</i>
               </a>
             </label>
@@ -191,10 +191,10 @@ comment: >-
                    type="url"
                    class="validate">
             <label for="container_url">
-              Simulation Container URL
+              Container URL
               <a class="tooltipped"
                  data-position="bottom"
-                 data-tooltip="Link to a container (such as a Dockerfile or Docker container) for this simulation">
+                 data-tooltip="Link to a container (such as a Dockerfile or Docker container) to reproduce result">
                 <i class="tiny material-icons">help</i>
               </a>
             </label>
@@ -325,7 +325,7 @@ comment: >-
                   Software Version Number
                   <a class="tooltipped"
                      data-position="bottom"
-                     data-tooltip="Version number of the software used for the simulation">
+                     data-tooltip="Version number of the software used for the result">
                     <i class="tiny material-icons">help</i>
                   </a>
                 </label>
@@ -342,7 +342,7 @@ comment: >-
                   Software Repository URL
                   <a class="tooltipped"
                      data-position="bottom"
-                     data-tooltip="Link to the software repository (not the simulation implementation repository)">
+                     data-tooltip="Link to the software repository (not the result implementation repository)">
                     <i class="tiny material-icons">help</i>
                   </a>
                 </label>
@@ -360,7 +360,7 @@ comment: >-
                 <label for="repo_sha">Software Commit ID (SHA)
                   <a class="tooltipped"
                      data-position="bottom"
-                     data-tooltip="The software SHA (not the simulation implementation SHA)">
+                     data-tooltip="The software SHA (not the result implementation SHA)">
                     <i class="tiny material-icons">help</i>
                   </a>
                 </label>
@@ -388,7 +388,7 @@ comment: >-
               Run Time (s)
               <a class="tooltipped"
                  data-position="bottom"
-                 data-tooltip="The wall clock time for the simulation in seconds">
+                 data-tooltip="The wall clock time for the result in seconds">
                 <i class="tiny material-icons">help</i>
               </a>
             </label>
@@ -402,10 +402,10 @@ comment: >-
                    class="validate"
                    min="0">
             <label for="sim_time">
-              Simulation End Time (s)
+              Execution End Time (s)
               <a class="tooltipped"
                  data-position="bottom"
-                 data-tooltip="The simulation end time (not wall clock time) in seconds">
+                 data-tooltip="The execution end time (not wall clock time) in seconds for this result">
                 <i class="tiny material-icons">help</i>
               </a>
             </label>

@@ -17,10 +17,12 @@ install:
   - pip install progressbar2 pykwalify pylint nbval vega
   - jupyter nbextension enable vega --py
   - unset VIRTUAL_ENV
-  - gem install jekyll jekyll-coffeescript html-proofer
+  - gem install jekyll jekyll-coffeescript html-proofer jekyll-redirect-from
   - npm cache clean
   - npm install -g npm
   - npm install -g coffeelint
+  - npm install -g mocha
+  - npm install -g assert
 script:
   - pylint _data/*.py
   - flake8 _data/*.py
@@ -32,4 +34,5 @@ script:
   - rm -rf ./_site
   - jekyll build -d ./_site/chimad-phase-field && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
   - py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg
-  - coffeelint _includes/simulation.coffee _includes/vega_extra.coffee
+  - coffeelint _includes/coffee/
+  - mocha _site/chimad-phase-field/js/test.js

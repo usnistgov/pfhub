@@ -146,13 +146,13 @@ main {
     line-height: 15px !important;
 }
 
+#data_table {
+    width: 100%;
+}
+
 table.striped tbody tr:nth-child(2n+1) {
     background-color: #e0e0e0 !important;
 }
-
-/* .backdrop{ */
-/*        background-color: purple; */
-/* } */
 
 .tooltipped {
     color: rgb(158, 158, 158);
@@ -162,4 +162,246 @@ table.striped tbody tr:nth-child(2n+1) {
     list-style-type: disc;
     padding-left: 0px;
     margin-left: 50px;
+}
+
+
+.chip img {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    margin-left: 1px;
+}
+
+#summary {
+    font-size: 16px;
+}
+
+.card.small .card-image {
+    max-height: 70%;
+}
+
+.card.small .card-content.scroll {
+    overflow: auto;
+    max-height: 30%;
+}
+
+
+
+.materialboxed.responsive-img.initialized {
+    background-color: white;
+}
+
+.card.small .card-content {
+    max-height: 95%;
+}
+
+.circle {
+    height: 70px;
+    width: 70px;
+    margin-left: 10px;
+    object-fit: contain;
+    background-color: white;
+}
+
+.small .material-icons {
+    font-size: 20px;
+}
+
+.github {
+    width: 20px;
+    height: 20px;
+}
+
+.hexbin-link {
+    float: right;
+    font-size: 14px;
+    margin-top: 2px;
+    margin-right: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.dropdown1 {
+    overflow-y: visible;
+    width: 1000px !important;
+}
+
+.material-icons.tiny.right {
+    margin-left: 0px;
+}
+
+.github-circle {
+    width: 28px;
+    height: 28px;
+}
+
+#twitter-right {
+    float: right;
+    position: relative;
+    display: inline;
+    left: 55px;
+    top: 18px;
+    z-index: 1;
+}
+
+@media (max-width: 1200px)
+{
+    #twitter-right {
+        display: none;
+    }
+}
+
+#twitter-bottom {
+    display: none;
+}
+
+@media (max-width: 1200px)
+{
+    #twitter-bottom {
+        display: inline;
+    }
+}
+
+.flow-text.mission-statement p {
+    font-size: 20px;
+}
+
+.flow-text.describe {
+    font-size: 20px;
+    font-style: italic;
+}
+
+#upload-button {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.card.medium .card-content.benchmark {
+    overflow: auto;
+    max-height: 100%;
+}
+
+.card.small .card-content.community {
+    overflow: auto;
+    max-height: 100%;
+}
+
+.card-content.benchmark .circle {
+    /* float: left; */
+    margin-left: 0px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.card-content.benchmark .card-title {
+    line-height: 30px;
+}
+
+.card-content.benchmark .flow-text {
+    font-size: 20px;
+}
+
+.card-content.benchmark h6 {
+    font-size: 16px;
+}
+
+#upload-button h6 {
+    font-size: 20px;
+}
+
+.flow-text ul li {
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+.mdl-data-table.jupyter.striped.dataTable.no-footer tr {
+    line-height: 27px !important
+}
+
+.mdl-data-table.jupyter.striped.dataTable.no-footer thead tr {
+    line-height: 34px !important
+}
+
+.card-col-right {
+    width: 90px;
+    float: left;
+}
+
+.card-col-left {
+    width: 150px;
+    float: left;
+}
+
+.flow-text {
+    font-size: 20px;
+}
+.flow-text.comment {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.collection {
+    border-color: transparent;
+}
+
+.flow-text.chart {
+    font-size: 12px;
+}
+
+.collection-item .circle {
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+p.date {
+    font-size: 20px;
+}
+
+p.description {
+    font-size: 20px;
+    padding-top: 10px
+}
+
+p.icons {
+    padding-top: 10px;
+}
+
+a.icons {
+    padding-right: 10px;
+}
+
+p.examples {
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.workshop {
+    border-color: transparent;
+    border-bottom-style: none;
+    margin-bottom: 10px;
+}
+
+.circle.logo {
+    margin-top: 5px;
+}
+
+.material-icons.circle {
+    font-size: 23px;
+    margin-top: 5px;
+}
+
+p.badge {
+    padding-top: 15px;
+}
+
+img.badge{
+    max-width: 100%;
+    padding-right: 10px;
+}
+
+.collection-item.avatar {
+    border-color: transparent;
+    border-bottom-style: none;
+    margin-bottom: 10px;
 }

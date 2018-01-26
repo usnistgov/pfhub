@@ -1,40 +1,40 @@
 ---
-title: "Manually Simulation Upload"
+title: "Manual Result Upload"
 layout: essay
 comment: >-
-  How to add a new simulation result manually. However, in most cases
-  it is easier to use the automated <a target="_blank"
+  How to add a new benchmark result manually. However, in most cases
+  it is easier to use the automated <a
   href="/chimad-phase-field/simulations/upload_form">upload form</a>.
 
 ---
 
 <h4> Overview </h4>
 
-The following are instructions for adding simulation results to the
-[simulation tables and charts]({{ site.baseurl }}/simulations). Please
-feel free to upload simulation results via pull requests on
-GitHub. More simulations results will greatly improve the utility of
-the website and encourage community collaboration.
+The following are instructions for adding benchmark results to the
+[benchmark tables and charts]({{ site.baseurl }}/simulations). Please
+feel free to upload benchmark results via pull requests on
+GitHub. More benchmark results will greatly improve the utility of the
+website and encourage community collaboration.
 
-Each simulation result is stored in a [YAML
+Each benchmark result is stored in a [YAML
 file](http://docs.ansible.com/ansible/YAMLSyntax.html) called
 `meta.yaml` in a separate directory in
 [_data/simulations](https://github.com/usnistgov/chimad-phase-field/tree/master/_data/simulations).
 A [YAML file](http://docs.ansible.com/ansible/YAMLSyntax.html) is a
 minimal, human readable syntax for structured data. The `meta.yaml`
-file stores the meta data for only one simulation and a new directory
-is required for each new simulation.
+file stores the meta data for only one benchmark result and a new
+directory is required for each new benchmark result.
 
 <h4> How to Upload </h4>
 
-To record a new simulation, use the following workflow.
+To record a new benchmark result, use the following workflow.
 
  1. [Fork](https://help.github.com/articles/fork-a-repo/) the [website repository]({{ site.links.github }}).
 
  2. Edit the repository by adding a new directory to
     [`_data/simulations`]({{ site.links.simmeta }}) and create
     `meta.yaml` in the directory. The name of the directory becomes
-    the name of the simulation result on the website so try to use a
+    the name of the benchmark result on the website so try to use a
     descriptive name for the directory.
 
  3. Fill out the `meta.yaml` using the schema outlined below.  This is
@@ -47,14 +47,14 @@ To record a new simulation, use the following workflow.
     for the new `meta.yaml`. At this stage the website test suite will
     check the `meta.yaml` against the schema. The website developer
     can then work with the benchmark uploader to refine the
-    `meta.yaml` so that all the data associated with the simulation
+    `meta.yaml` so that all the data associated with the benchmark
     result is available to be displayed on the website.
 
-<h4>Minimal Example of a YAML Simulation File</h4>
+<h4>Minimal Example of a YAML Benchmark File</h4>
 
 Each [YAML](http://docs.ansible.com/ansible/YAMLSyntax.html)
-description of a specific simulation contains the following three
-parts:
+description of a specific benchmark result contains the following
+three parts:
 
  1. `benchmark`: specify the benchmark problem and version you have
     implemented,
@@ -62,11 +62,12 @@ parts:
  2. `metadata`: summarize the runtime environment, software and
     hardware, used to produce this result and
 
- 3. `data`: capture salient outputs from the simulation, particularly
-    the free energy evolution to be displayed on the website
+ 3. `data`: capture salient outputs from the benchmark result,
+    particularly the free energy evolution to be displayed on the
+    website
 
-The following is the minimal description of a simulation with relevant
-comments. The definitive archetype resides at
+The following is the minimal description of a benchmark result with
+relevant comments. The definitive archetype resides at
 [`_data/simulations/example/example.yaml`]({{ site.links.simmeta
 }}/example/meta.yaml). To understand the YAML syntax consult either
 the [Ansible
@@ -104,10 +105,10 @@ data:
   # Broadly, a list of key-value pairs defined minimally with
   # two keys, 'name' and 'values', to help the parser determine
   # where these data belong on the final site. If 'values' are
-  # multiply defined, indent and specify keys 'time' for simulation time
+  # multiply defined, indent and specify keys 'time' for execution time
   # and 'value' for appropriate datum.
   - name: run_time
-    # wall time, in seconds, when specified simulation-times were reached
+    # wall time, in seconds, when specified execution-times were reached
     values:
       - sim_time: 0.0
         time: 0.0
@@ -166,9 +167,9 @@ Note that the `metadata.software.details` section takes any number of
       values: any valid JSON
 
 pairs. This section is open for adding any specific details about the
-simulation that are important but not included in other fields within
-the metadata section. The `metadata.software.details` section uses the
-Vega data spec as described in the next section.
+benchmark result that are important but not included in other fields
+within the metadata section. The `metadata.software.details` section
+uses the Vega data spec as described in the next section.
 
 <h5> Data </h5>
 
@@ -176,7 +177,7 @@ The `data` section consists of any number of `name` and `values`
 pairs. For example, the `data` section can describe the run time, the
 memory usage and data about the free energy at different time
 steps. Note that this is data not known before starting the
-simulation. The format for the `data` section is the [Vega data
+execution. The format for the `data` section is the [Vega data
 spec](https://github.com/vega/vega/wiki/Data). The basic data model
 used by Vega is tabular data, similar to a spreadsheet or database
 table.  Individual data sets are assumed to contain a collection of
@@ -214,7 +215,7 @@ filters time values that are either too large or too small.
 Please read the [Vega data
 spec](https://github.com/vega/vega/wiki/Data) for more details.
 
-<h4> Automated Testing of Simulation Uploads</h4>
+<h4> Automated Testing of Benchmark Uploads</h4>
 
 The uploaded `meta.yaml` file is automatically tested to check that it
 is in compliance with the schema when the pull-request is

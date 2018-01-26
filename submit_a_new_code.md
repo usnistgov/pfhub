@@ -2,8 +2,8 @@
 title: "Submit a New Code"
 layout: essay
 comment: >-
-  How to submit codes to the <a
-  href="/chimad-phase-field/#codes" target="_blank">list</a> on the front page.
+  How to submit a code to the list of <a
+  href="/chimad-phase-field/codes">suggested codes</a>
 ---
 
 ### Call for Community Codes
@@ -42,7 +42,7 @@ documentation, we cannot consider it a "community code."
 ### Follow-up
 
 After your code is added to the list, please upload at least one
-[simulation result]({{ site.baseurl }}/simulations/#simulations) to
+[benchmark result]({{ site.baseurl }}/simulations/#simulations) to
 provide users with a side-by-side comparison.
 
 ### How to Submit

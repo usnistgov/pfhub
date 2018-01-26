@@ -175,14 +175,6 @@
       Three-Phase Flow, Phase Field interface, is a separated
       multiphase flow model.
 
-  - image: http://materials.mcmaster.ca/faculty/provatas/myimages/dendrite.gif
-    url: http://materials.mcmaster.ca/faculty/provatas/solid.php
-    title: Dendritic Growth with Surface Tension Anisotropy
-    description: >-
-      Typical computations of thermal dendrites grown at high
-      undercooling. We simulate a dendritic crystal starting from a
-      circular nucleus growing into an undercooled melt.
-
   - image: http://img.youtube.com/vi/8HZkync4Cns/0.jpg
     url: https://youtu.be/8HZkync4Cns
     title: MOOSE -- GrainTracker order parameter remapping system
@@ -220,12 +212,6 @@
     description: >-
       Phase Field Crystals by J. Dantzig, B. Athreya, A. Chang,
       L. Kale and K. Wang
-
-  - image: https://people.rit.edu/bxjsma/images/Ct.jpg
-    url: https://people.rit.edu/bxjsma/research.html
-    title: Phase field models
-    description: >-
-      From Baasansuren Jadamba at Rochester Institute of Technology
 
   - image: http://cmcs.epfl.ch/files/content/sites/cmcs/files/Images/Methodologies/IGA/WEB_IGA_PhaseField_Cahnhilliard.png
     url: http://cmcs.epfl.ch/page-132898-en.html

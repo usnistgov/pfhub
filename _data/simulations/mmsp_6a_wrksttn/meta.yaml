@@ -28,7 +28,9 @@ data:
     value: '2500'
 date: 1501618075
 metadata:
-  author: Trevor Keller
+  author:
+    first: Trevor
+    last: Keller
   email: trevor.keller@nist.gov
   github_id: tkphd
   hardware:

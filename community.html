@@ -2,35 +2,26 @@
 title: "Community Members"
 layout: default
 comment: >-
-  Is your sketch missing from the gallery? Please e-mail
-  <a href="mailto:daniel.wheeler@nist.gov">Daniel Wheeler</a> with the
-  following details:
-  <ul class="comment-list">
-    <li>Your name, institutional affiliation, and contact information</li>
-    <li>A professional photograph or preferred avatar</li>
-    <li>A biographical sketch concisely summarizing your engagement with phase-field methods</li>
-  </ul>
-  You will be contacted for any necessary clarification, and to let
-  you know your profile has been added.
+  Active members of the benchmarking effort
 ---
 
 {% include title.html %}
 
 <div class="container top-bar-thin">
   <div class="row small-buffer">
-    <div class="col l2 m12 s12">
+    <div class="col s12 m12 l12 xl2">
       <h5 class="sideheader">
         Members
       </h5>
     </div>
-    <div class="col s10">
+    <div class="col s12 m12 l12 xl10">
       {% for item in site.data.community %}
-        <div class="col s4">
+        {% capture github_url %}https://github.com/{{ item.github_id }}{% endcapture %}
+        <div class="col s12 m6 l6 xl4">
           <div class="card small light-green lighten-4">
-            <div class="card-content"
-                 style="max-height: 95%">
+            <div class="card-content community">
               <span class="card-title">
-                <a href="{{ item.home }}"
+                <a href="{% if item.home %}{{ item.home }}{% else %}{{ github_url }}{% endif %}"
                    target="_blank"
                    title="home page">
                   {{ item.name }}
@@ -38,7 +29,6 @@ comment: >-
               </span>
 
               <img class="circle"
-                   style="height: 40px; width: 40px; margin-left: 10px;"
                    src="{{ item.avatar }}"
                    alt="">
 
@@ -46,18 +36,16 @@ comment: >-
               <a href="mailto:{{ item.email }}"
                  target="blank_"
                  title="email">
-                <i class="small material-icons"
-                   style="font-size: 20px">
-                   email
+                <i class="small material-icons">
+                  email
                 </i>
               </a>
-              <a href="https://github.com/{{ item.github_id }}"
+              <a href="{{ github_url }}"
                  target="blank_"
                  title="github">
-                <i class="small material-icons"
-                   style="font-size: 20px">
-                  <img style="width: 20px; height: 20px;"
-                       src="{{ site.baseurl }}/images/github-blue.svg"
+                <i class="small material-icons">
+                  <img src="{{ site.baseurl }}/images/github-blue.svg"
+                       class="github"
                        alt="github">
                 </i>
               </a>
@@ -65,11 +53,32 @@ comment: >-
                 <a href="https://twitter.com/{{ item.twitter }}"
                    target="blank_"
                    title="twitter">
-                  <i class="small material-icons"
-                     style="font-size: 20px">
-                    <img style="width: 20px; height: 20px;"
-                         src="{{ site.baseurl }}/images/twitter-blue.svg"
-                         alt="twitter">
+                  <i class="small material-icons">
+                    <img src="{{ site.baseurl }}/images/twitter-blue.svg"
+                         alt="twitter"
+                         class="github">
+                  </i>
+                </a>
+              {% endif %}
+              {% if item.scholar %}
+                <a href="https://scholar.google.com/citations?user={{ item.scholar }}"
+                   target="blank_"
+                   title="scholar">
+                  <i class="small material-icons">
+                    <img src="{{ site.baseurl }}/images/gscholar-button_inactive.svg"
+                         alt="scholar"
+                         class="github">
+                  </i>
+                </a>
+              {% endif %}
+              {% if item.orcid %}
+                <a href="https://orcid.org/{{ item.orcid }}"
+                   target="blank_"
+                   title="orcid">
+                  <i class="small material-icons">
+                    <img src="{{ site.baseurl }}/images/vector_iD_icon.svg"
+                         alt="orcid"
+                         class="github">
                   </i>
                 </a>
               {% endif %}
@@ -80,6 +89,29 @@ comment: >-
           </div>
         </div>
       {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row small-buffer">
+    <div class="col s12 m12 l10 xl10 offset-l2 offset-xl2" id="overview">
+      <div class="flow-text">
+        Is your sketch missing from the gallery? Please e-mail the
+        <a href="mailto:{{ site.admin_email }}">
+          site admin
+        </a>
+        with the following details:
+        <ul class="comment-list">
+          <li>Your name, e-mail address, and home page</li>
+          <li>Your professional handles on GitHub and social media
+          (<em>e.g.</em> Twitter)</li>
+          <li>A link to your preferred photograph or avatar</li>
+          <li>A biographical sketch concisely summarizing your
+          engagement with phase-field methods</li>
+        </ul>
+        You will be contacted for any necessary clarification.
+      </div>
     </div>
   </div>
 </div>

@@ -32,9 +32,7 @@
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[1]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -85,9 +83,7 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[2]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -105,11 +101,44 @@ $( document ).ready(code_toggle);
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;{</span><span class="si">% i</span><span class="s1">nclude jupyter_benchmark_table.html num=&quot;[3]&quot; revision=0 %}&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[1]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+{% include jupyter_benchmark_table.html num="[3]" revision=0 %}
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Problem-1:-Dendritic-Growth-in-2D">Problem 1: Dendritic Growth in 2D<a class="anchor-link" href="#Problem-1:-Dendritic-Growth-in-2D">&#182;</a></h1><p>The solidification of an undercooled liquid can be described by a phase field model. The free energy density is given by
+<h1 id="Benchmark-Problem-3:-Dendritic-Growth-in-2D">Benchmark Problem 3: Dendritic Growth in 2D<a class="anchor-link" href="#Benchmark-Problem-3:-Dendritic-Growth-in-2D">&#182;</a></h1><p>The solidification of an undercooled liquid can be described by a phase field model. The free energy density is given by
 \begin{equation}
 {\mathcal F}=\int \left[\frac{1}{2} W^2(\hat n)|\nabla \varphi|^2+f(\varphi,u)\right]\,dV.
 \end{equation}
@@ -128,7 +157,7 @@ $
 W(\hat n)=W_0a(\hat n)$, where the unit normal vector $\hat n=\frac{\nabla\varphi}{|\nabla\varphi|}$. We will use a simple form for $a(\hat n)$ to reflect in-plane symmetry, $a(\hat n)=1+\epsilon_m\cos(m(\theta-\theta_0))$, where $m$ is a non-negative integer and $\theta$ is the in-plane azimuthal angle, $\tan\theta=n_y\;/\;n_x$; $\theta_0$ is an offset azimuthal angle that specifies the orientation of the crystalline axis relative to the $x$-axis in the laboratory coordinate system.</p>
 <p>The time evolution of the fields $u$ and $\varphi$ are given by
 \begin{eqnarray}
-\frac{\partial u}{\partial t}&amp;=&amp;D\nabla^2u+\frac{1}{2}\frac{\partial \varphi}{\partial t}\\
+\frac{\partial u}{\partial t}&amp;=&amp;D\nabla^2u+\frac{1}{2}\frac{\partial \varphi}{\partial t}\
 \tau(\hat n)\frac{\partial\varphi}{\partial t} &amp; = &amp; -
 \frac{\delta{\mathcal F}}{\delta \varphi({\mathbf r},t)},
 \end{eqnarray}
@@ -136,20 +165,19 @@ where $D$ is a thermal diffusion constant and $\tau(\hat n)=\tau_0\left[a(\hat n
 \begin{equation}\lambda=\frac{D\tau_0}{0.6267W_0^2}
 \end{equation}
 for obscure technical reasons (it makes kinetic contributions to the temperature on the interface vanish). Because of the dependence of $W$ on $\varphi$, the functional derivative becomes a little complicated:</p>
-<p>$$
+$$
 \begin{align}
-\tau(\hat n)\frac{\partial\varphi}{\partial t} &amp; = &amp; \left[\varphi-\lambda u\left(1-\varphi^2\right)\right]\left[1-\varphi^2\right]+\nabla\cdot\left[ W(\hat n)^2\nabla\varphi\right]\nonumber\\
-&amp;&amp;+\frac{\partial}{\partial x}\left[|\nabla\varphi|^2W(\hat n)\frac{\partial W(\hat n)}{\partial \left(\frac{\partial\varphi}{\partial x}\right)}\right]
+\tau(\hat n)\frac{\partial\varphi}{\partial t} & = & \left[\varphi-\lambda u\left(1-\varphi^2\right)\right]\left[1-\varphi^2\right]+\nabla\cdot\left[ W(\hat n)^2\nabla\varphi\right]\nonumber\\
+&&+\frac{\partial}{\partial x}\left[|\nabla\varphi|^2W(\hat n)\frac{\partial W(\hat n)}{\partial \left(\frac{\partial\varphi}{\partial x}\right)}\right]
 +\frac{\partial}{\partial y}\left[|\nabla\varphi|^2W(\hat n)\frac{\partial W(\hat n)}{\partial \left(\frac{\partial\varphi}{\partial y}\right)}\right].
 \end{align}
-$$</p>
-<p>We will use the following values:
+$$<p>We will use the following values:
 $W_0=1$, $\tau_0=1$, and $D=10$. The degree of undercooling, $\Delta$, is given by 
 \begin{equation}\Delta=\frac{T_m-T_0}{L/c_p},
 \end{equation}
 where $T_0$ is the initial (uniform) temperature of the system $[T({\mathbf r},t=0)=T_0]$, and also specifies the boundary condition $u({\mathbf r},t)\to-\Delta$ as $|{\mathbf r}|\to\infty$.</p>
 <p>Use as initial condition that $\varphi({\mathbf r},t=0)=1$ for 
-$|{\mathbf r}|\leq1$ and $\varphi({\mathbf r},t=0)=-1$  for $|{\mathbf r}|&gt;1$, such that the sphere of solid is centered in the computational domain. This problem involves many different length scales which may stress your meshing and solver. You should be careful to use a mesh that can resolve the interface (e.g., 5 mesh points across the interface) while still being able to include regions where the temperature $T\approx T_0$. The solution will eventually reach a steady state where the tip velocity of the solidification front is constant if the computational domain is large enough.
+$|{\mathbf r}|\leq1$ and $\varphi({\mathbf r},t=0)=-1$  for $|{\mathbf r}|>1$, such that the sphere of solid is centered in the computational domain. This problem involves many different length scales which may stress your meshing and solver. You should be careful to use a mesh that can resolve the interface (e.g., 5 mesh points across the interface) while still being able to include regions where the temperature $T\approx T_0$. The solution will eventually reach a steady state where the tip velocity of the solidification front is constant if the computational domain is large enough.
 We will embed the system in a bounding box $\Omega$ of size $L\times L$ <em>with the boundaries aligned with the $x$- and $y$-axes</em>, and with boundary $\partial \Omega$. We use Dirichlet boundary conditions $T=T_0$ so that $u=-\Delta$ on the boundary $\partial \Omega$.</p>
 <p>Plot the tip velocity as a function of time for (a), (b), and (c) below. Find the velocity both by directly measuring from your solution, and by calculating it via 
 \begin{equation}

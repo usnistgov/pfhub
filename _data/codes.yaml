@@ -156,7 +156,7 @@
       href: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master
 
 - name: PRISMS-PF
-  home_page: https://htmlpreview.github.io/?https://raw.githubusercontent.com/prisms-center/phaseField/v0.9.2/html/index.html
+  home_page: https://github.com/prisms-center/phaseField
   description: >-
     A finite element code implementing various phase field and coupled
     mechanics problems built on top of deal.II.
@@ -181,3 +181,23 @@
       name: CHiMaD Benchmark 1a
     - href: https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark2a
       name: CHiMaD Benchmark 2a
+
+- name: OpenPhase
+  logo: ../images/openphase.png
+  home_page: http://www.openphase.de/
+  description: >-
+    An open-source software library for phase-field simulation of
+    microstructure formation in multi-phase multi-component materials
+    written in object oriented C++.
+  badges:
+    - href: http://www.openphase.de/license/index.html
+      src: https://img.shields.io/badge/license-gpl-blue.svg
+  examples:
+    - href: http://www.openphase.de/examples/index.html
+      name: Single Grain Growth
+    - href: http://www.openphase.de/examples/index.html
+      name: Normal Grain Growth
+    - href: http://www.openphase.de/examples/index.html
+      name: Elasticity
+    - name: Dendritic Growth
+      href: http://www.openphase.de/examples/index.html

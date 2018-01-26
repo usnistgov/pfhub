@@ -7,6 +7,11 @@
 
 # Core
 #
+# coffeelint: disable=no_implicit_parens
+# coffeelint: disable=space_operators
+# coffeelint: disable=no_plusplus
+# coffeelint: disable=spacing_after_comma
+
 _ = {}
 id = (x) -> x
 K = (x) -> -> x
@@ -259,24 +264,24 @@ powerset = ([x, xs...]) ->
 
 # Fantasy
 #
-fmap = λ (f, ma) -> ma.map f
-ap = λ (mf, ma) -> ma.ap mf
-chain = λ (f, ma) -> ma.chain f
+# fmap = λ (f, ma) -> ma.map f
+# ap = λ (mf, ma) -> ma.ap mf
+# chain = λ (f, ma) -> ma.chain f
 
-liftA = λ (ctor, f, ms) ->
-  ms.reduce(
-    (acc, ma) -> acc.ap ma
-    ctor.of f
-  )
+# liftA = λ (ctor, f, ms) ->
+#   ms.reduce(
+#     (acc, ma) -> acc.ap ma
+#     ctor.of f
+#   )
 
-seqM = λ (ctor, ms) ->
-  ms.reduceRight(
-    (ma, mb) ->
-      ma.chain (a) ->
-        mb.map (b) ->
-          [b].concat a
-    ctor.of []
-  )
+# seqM = λ (ctor, ms) ->
+#   ms.reduceRight(
+#     (ma, mb) ->
+#       ma.chain (a) ->
+#         mb.map (b) ->
+#           [b].concat a
+#     ctor.of []
+#   )
 
 # # Exports
 # #
@@ -307,11 +312,61 @@ seqM = λ (ctor, ms) ->
 
 # module.exports.expose = partial extend, _, module.exports
 
-# More functions:
+# coffeelint: enable=space_operators
+# coffeelint: enable=no_plusplus
+# coffeelint: enable=spacing_after_comma
+# coffeelint: enable=no_implicit_parens
+
+# More functions NOT from essential.coffee
+
 
 do_ = (f) ->
   (x) ->
     f(x)
     x
 
+
 copy_ = sequence(JSON.stringify, JSON.parse)
+
+
+flat_key = curry(
+  (key, data) ->
+    ### Flatten a sublist of a dictionary
+
+    For example {a:0, b:[0, 1]} goes to [{a:0, b:0}, {a:0, b:1}] or
+    {a:0, b:[{c:0, c:1}]} goes to [{a:0, b:{c:0}}, {a:0, b:{c:1}}]
+
+    Args:
+      key: the key that contains the list to flatten
+      data: the dictionary to flatten
+
+    Returns:
+      a list of dictionaries
+    ###
+    f = (x) ->
+      extend(copy_(data), {"#{key}":x})
+    map(f, data[key])
+)
+
+
+flat_key_from_list = curry(
+  (key, data) ->
+    ### Flatten a list of dictionaries
+
+    For example
+
+      [{a:0, b:[1, 2]}, {a:3, b:[4, 5]}]
+
+    goes to
+
+      [{a:0, b:1}, {a:0, b:2}, {a:3, b:4}, {a:3, b:5}]
+
+    Args:
+      key: the key that contains the list to flatten
+      data: the list of dictionaries to flatten
+
+    Returns:
+      a list of flattened dictionaries
+    ###
+    concat.apply(_, map(flat_key(key), data))
+)

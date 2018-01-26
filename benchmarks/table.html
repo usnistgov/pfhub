@@ -1,0 +1,83 @@
+---
+layout: default
+title: "Benchmark Table"
+comment: >-
+  Table of all benchmark problems including older revisions
+---
+
+{% include title.html %}
+
+<div class="container top-bar-thin top-buffer">
+  <div class="row small-buffer">
+    <div class="col s12 m12 l12 xl2">
+      <h5 class="sideheader" id="simulations">All Benchmarks</h5>
+    </div>
+    <div class="col s12 m12 l12 xl10">
+      <table id="data_table" class="mdl-data-table striped" cellspacing="0"></table>
+    </div>
+  </div>
+</div>
+
+
+<div class="container top-bar-thin">
+  <div class="row small-buffer">
+    <div class="col s12 m12 l12 xl2">
+      <h5 class="sideheader" id="table_key">Table Key</h5>
+    </div>
+    <div class="col s12 m12 l12 xl10">
+      <table>
+        <thead>
+          <tr>
+            <th>Header</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Title</td>
+            <td>Short descriptive benchmark name</td>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <td>Benchmark ID in the form
+            {Num}{Revision}.{Variation}</td>
+          </tr>
+          <tr>
+            <td>Uploads</td>
+            <td>Number of uploaded benchmark results</td>
+          </tr>
+          <tr>
+            <td>Event</td>
+            <td>The event that formalized the benchmark</td>
+          </tr>
+          <tr>
+            <td>Commit</td>
+            <td>Commit SHA when the benchmark was introduced</td>
+          </tr>
+
+          <tr>
+            <td>Num</td>
+            <td>The benchmark number for benchmarks with common
+            governing equations</td>
+          </tr>
+          <tr>
+            <td>Revision</td>
+            <td>The benchmark version number for different
+            revisions</td>
+          </tr>
+          <tr>
+            <td>Variation</td>
+            <td>The benchmark variation accounting for different
+            parameter values or geometries</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<script> var TAG="#data_table"; </script>
+<script> var BENCHMARK_NUM=null; </script>
+<script> var BENCHMARK_REVISION=null; </script>
+<script src="{{ site.baseurl }}/js/benchmark_data_table.js"></script>

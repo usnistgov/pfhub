@@ -51,16 +51,16 @@ author = (data) ->
   Args:
     data: the simulation data
   ###
-  select_tag('#author')([data.metadata.author])
-    .append('span')
-    .text((d) -> d)
+  select_tag('#author')([data.metadata])
+    .append('a')
+    .attr('href', (d) -> 'mailto:' + d.email)
+    .attr('target', 'blank_')
+    .text((d) -> d.author.first + ' ' + d.author.last)
 
 
 author_icon = (data) ->
   select_tag('#author')([data.metadata.github_id])
     .append('img')
-    .attr('style', 'width: 20px; height: 20px; margin-top: 5px;
-  margin-left: 1px')
     .attr('src', (d) -> 'https://github.com/' + d + '.png')
     .attr('alt', '')
 
@@ -79,8 +79,6 @@ github_icon = ->
   ###
   select_tag('#github_id')(['x'])
     .append('img')
-    .attr('style', 'width: 20px; height: 20px; margin-top: 5px;
-    margin-left: 1px')
     .attr('src', '{{ site.baseurl }}' + '/images/github-black.svg')
     .attr('alt', '')
 
@@ -147,10 +145,7 @@ benchmark = (data) ->
     .attr('href',
           (d) ->
             '{{ site.baseurl }}' + '/benchmarks/benchmark' + d.id[0] + '.ipynb')
-    .attr('target', '_blank')
     .text((d) -> d.id + '.' + d.version)
-
-
 
 
 to_date = (x) ->
@@ -165,7 +160,6 @@ to_date = (x) ->
   format = (s) ->
     s[4..9] + ', ' + s[11..14]
   format(new Date(Date.parse(x)).toString())
-
 
 
 date = (data) ->
@@ -217,7 +211,6 @@ get_data = (data, name) ->
     the named data
   ###
   data.data.filter((x) -> x.name is name)[0]
-
 
 
 memory_usage = (data) ->
@@ -312,7 +305,6 @@ add_card_image = (x) ->
   ###
   x.append('div')
     .attr('class', 'card-image')
-    .attr('style', 'max-height: 70%')
 
 
 add_card_image_ = (x) ->
@@ -355,8 +347,7 @@ add_youtube = (x) ->
 add_description = sequence(
   (x) ->
     x.append('div')
-      .attr('class', 'card-content')
-      .attr('style', 'overflow: auto; max-height: 30%;')
+      .attr('class', 'card-content scroll')
   (x) ->
     x.append('p')
       .text((d) ->
@@ -407,8 +398,6 @@ add_plotly_src = (x) ->
   Args:
     x: the img selection to add the plotly src to
   ###
-  style = {format:'svg', height:100, width:100}
-
   urlfunc = curry(
     (gd, data, url) ->
       x.filter((data_) -> data is data_).attr('src', url)
@@ -446,8 +435,7 @@ add_chart = curry(
       x: the selection
       add_src: function to add the src for the img tag
     ###
-    add_src(add_card_image_(x)
-      .attr('style', 'background-color: white'))
+    add_src(add_card_image_(x))
 )
 
 
@@ -495,7 +483,7 @@ build = (data, sim_name, codes_data, chart_data) ->
     add_card(add_vega, '#logo_image', with_div = id)(vega_data[0..0])
     vega_data = vega_data[1..]
 
-  with_div = (x) -> x.append('div').attr('class', 'col s4')
+  with_div = (x) -> x.append('div').attr('class', 'col s12 m12 l6 xl4')
 
   if result_data.image?
     add_card(add_image, '#images', with_div = with_div)(result_data.image)
@@ -505,10 +493,7 @@ build = (data, sim_name, codes_data, chart_data) ->
     add_card(add_youtube, '#youtube', with_div = id)(result_data.youtube[0..0])
 
   if result_data.contour?
-    with_div = (x) -> x.append('div').attr('class', 'col s4')
+    with_div = (x) -> x.append('div').attr('class', 'col s12 m12 l6 xl4')
     contour_data = map(read_vega_data, result_data.contour)
     plotly_data = map(ploterize, contour_data)
     add_card(add_plotly, '#images', with_div = with_div)(plotly_data)
-
-
-build(DATA, SIM_NAME, CODES_DATA, CHART_DATA)

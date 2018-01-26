@@ -32,9 +32,7 @@
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[8]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -61,7 +59,40 @@ $( document ).ready(code_toggle);
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;{</span><span class="si">% i</span><span class="s1">nclude jupyter_benchmark_table.html num=&quot;[1, 2]&quot; revision=0 %}&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+{% include jupyter_benchmark_table.html num="[1, 2]" revision=0 %}
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -100,7 +131,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -108,7 +140,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -117,7 +150,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -125,31 +159,28 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The free energy density is given by,</p>
-<p>$$ f = f_0 \left[ c \left( \vec{r} \right) \right] + \frac{\kappa}{2} \left| \nabla c \left( \vec{r} \right) \right|^2 $$</p>
-<p>where $f_0$ is the bulk free energy density given by,</p>
-<p>$$ f_0\left[ c \left( \vec{r} \right) \right] =</p>
-<ul>
-<li>\frac{A}{2} \left(c - c_m\right)^2</li>
-<li>\frac{B}{4} \left(c - c_m\right)^4</li>
-<li>\frac{c<em>{\alpha}}{4} \left(c - c</em>{\alpha} \right)^4</li>
-<li>\frac{c<em>{\beta}}{4} \left(c - c</em>{\beta} \right)^4 $$</li>
-</ul>
-<p>where $c_m = \frac{1}{2} \left( c_{\alpha} + c_{\beta} \right)$ and $c_{\alpha}$ and $c_{\beta}$ are the concentrations at which the bulk free energy density has minima (corresponding to the solubilities in the matrix phase and the second phase, respectively).</p>
+$$ f = f_0 \left[ c \left( \vec{r} \right) \right] + \frac{\kappa}{2} \left| \nabla c \left( \vec{r} \right) \right|^2 $$<p>where $f_0$ is the bulk free energy density given by,</p>
+$$ f_0\left[ c \left( \vec{r} \right) \right] =
+   - \frac{A}{2} \left(c - c_m\right)^2
+   + \frac{B}{4} \left(c - c_m\right)^4
+   + \frac{c_{\alpha}}{4} \left(c - c_{\alpha} \right)^4
+   + \frac{c_{\beta}}{4} \left(c - c_{\beta} \right)^4 $$<p>where $c_m = \frac{1}{2} \left( c_{\alpha} + c_{\beta} \right)$ and $c_{\alpha}$ and $c_{\beta}$ are the concentrations at which the bulk free energy density has minima (corresponding to the solubilities in the matrix phase and the second phase, respectively).</p>
 <p>The time evolution of the concentration field, $c$, is given by the Cahn-Hilliard equation:</p>
-<p>$$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
+$$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
        D \left( c \right) \nabla \left( \frac{ \partial f_0 }{ \partial c} - \kappa \nabla^2 c \right)
-   \right] $$</p>
-<p>where $D$ is the diffusivity.</p>
+   \right] $$<p>where $D$ is the diffusivity.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -157,7 +188,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -180,13 +212,12 @@ $( document ).ready(code_toggle);
 <td> 2.0 </td>
 </tr>
 </table><p>with</p>
-<p>$$ B = \frac{A}{\left( c_{\alpha} - c_m \right)^2} $$</p>
-<p>$$ D = D_{\alpha} = D_{\beta} = \frac{2}{c_{\beta} - c_{\alpha}} $$</p>
-
+$$ B = \frac{A}{\left( c_{\alpha} - c_m \right)^2} $$$$ D = D_{\alpha} = D_{\beta} = \frac{2}{c_{\beta} - c_{\alpha}} $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -194,13 +225,13 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Set $c\left(\vec{r}, t\right)$ such that</p>
-<p>$$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \vec{r} \right) $$</p>
-<p>where</p>
+$$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \vec{r} \right) $$<p>where</p>
 <table width="200">
 <tr>
 <td> $\bar{c}_0$ </td>
@@ -218,7 +249,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -226,7 +258,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -234,7 +267,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -261,9 +295,7 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[3]:</div>
-
 
 
 <div class="output_svg output_subarea output_execute_result">
@@ -276,7 +308,8 @@ $( document ).ready(code_toggle);
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -284,7 +317,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -293,7 +327,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -301,7 +336,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -328,9 +364,7 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[4]:</div>
-
 
 
 <div class="output_svg output_subarea output_execute_result">
@@ -343,7 +377,8 @@ $( document ).ready(code_toggle);
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -351,19 +386,20 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Domain is the surface of a sphere with radius 100, but with initial conditions of</p>
-<p>$$ c\left(\theta, \phi, 0\right) = \bar{c}_0 + \epsilon \cos \left( \sqrt{233} \theta \right)
-                                                        \sin \left( \sqrt{239} \phi \right) $$</p>
-<p>where $\theta$ and $\phi$ are the polar and azimuthal angles in a spherical coordinate system. $\bar{c}_0$ and $\epsilon$ are given by the values in the table above.</p>
+$$ c\left(\theta, \phi, 0\right) = \bar{c}_0 + \epsilon \cos \left( \sqrt{233} \theta \right)
+                                                        \sin \left( \sqrt{239} \phi \right) $$<p>where $\theta$ and $\phi$ are the polar and azimuthal angles in a spherical coordinate system. $\bar{c}_0$ and $\epsilon$ are given by the values in the table above.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -371,7 +407,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -390,7 +427,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -398,59 +436,47 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Expanded problem in that the phase field, described by variables $\eta_i$, is now coupled to the concentration field $c$. The Ginzberg-Landau free energy density is now taken to be,</p>
-<p>$$ f = f_0 \left[ C \left( \vec{r} \right), \eta_1, ... , \eta_p \right]</p>
-<ul>
-<li>\frac{\kappa<em>C}{2} \left[ \nabla  C \left( \vec{r} \right) \right]^2 +
-\sum</em>{i=1}^p \frac{\kappa_C}{2} \left[ \nabla  \eta_i \left( \vec{r} \right) \right]^2
-$$</li>
-</ul>
-<p>Here, $f_0$ is a bulk free energy density,</p>
-<p>$$ f_0 \left[ C \left( \vec{r} \right), \eta_1, ... , \eta_p \right] 
-= f<em>1 \left( C \right) + \sum</em>{i=1}^p f_2 \left( C, \eta_i \right)</p>
-<ul>
-<li>\sum<em>{i=1}^p \sum</em>{j\ne i}^p f_3 \left( \eta_j, \eta_i \right) $$</li>
-</ul>
-<p>Here, $ f_1 \left( C \right) $ is the free energy density due to the concentration field, $C$, with local minima at $C_{\alpha}$ and $C_{\beta}$ corresponding to the solubilities in the matrix phase and the second phase, respectively; $f_2\left(C , \eta_i \right)$ is an interaction term between the concentration field and the phase fields, and $f_3 \left( \eta_i, \eta_j \right)$ is the free energy density of the phase fields. Simple models for these free energy densities are,</p>
-<p>$$ f_1\left( C \right) =</p>
-<ul>
-<li>\frac{A}{2} \left(C - C_m\right)^2</li>
-<li>\frac{B}{4} \left(C - C_m\right)^4</li>
-<li>\frac{D<em>{\alpha}}{4} \left(C - C</em>{\alpha} \right)^4</li>
-<li>\frac{D<em>{\beta}}{4} \left(C - C</em>{\beta} \right)^4 $$</li>
-</ul>
-<p>where</p>
-<p>$$ C_m = \frac{1}{2} \left(C_{\alpha} + C_{\beta} \right) $$</p>
-<p>and</p>
-<p>$$ f_2 \left( C, \eta_i \right) = - \frac{\gamma}{2} \left( C - C_{\alpha} \right)^2 \eta_i^2 + \frac{\beta}{2} \eta_i^4 $$</p>
-<p>where</p>
-<p>$$ f_3 \left( \eta_i, \eta_j \right) = \frac{ \epsilon_{ij} }{2} \eta_i^2 \eta_j^2, i \ne j $$</p>
-<p>The time evolution of the system is now given by coupled Cahn-Hilliard and Allen-Cahn (time dependent Gizberg-Landau) equations for the conserved concentration field and the non-conserved phase fields:</p>
-<p>$$
+$$ f = f_0 \left[ C \left( \vec{r} \right), \eta_1, ... , \eta_p \right]
++ \frac{\kappa_C}{2} \left[ \nabla  C \left( \vec{r} \right) \right]^2 +
+\sum_{i=1}^p \frac{\kappa_C}{2} \left[ \nabla  \eta_i \left( \vec{r} \right) \right]^2
+$$<p>Here, $f_0$ is a bulk free energy density,</p>
+$$ f_0 \left[ C \left( \vec{r} \right), \eta_1, ... , \eta_p \right] 
+= f_1 \left( C \right) + \sum_{i=1}^p f_2 \left( C, \eta_i \right)
++ \sum_{i=1}^p \sum_{j\ne i}^p f_3 \left( \eta_j, \eta_i \right) $$<p>Here, $ f_1 \left( C \right) $ is the free energy density due to the concentration field, $C$, with local minima at $C_{\alpha}$ and $C_{\beta}$ corresponding to the solubilities in the matrix phase and the second phase, respectively; $f_2\left(C , \eta_i \right)$ is an interaction term between the concentration field and the phase fields, and $f_3 \left( \eta_i, \eta_j \right)$ is the free energy density of the phase fields. Simple models for these free energy densities are,</p>
+$$ f_1\left( C \right) =
+   - \frac{A}{2} \left(C - C_m\right)^2
+   + \frac{B}{4} \left(C - C_m\right)^4
+   + \frac{D_{\alpha}}{4} \left(C - C_{\alpha} \right)^4
+   + \frac{D_{\beta}}{4} \left(C - C_{\beta} \right)^4 $$<p>where</p>
+$$ C_m = \frac{1}{2} \left(C_{\alpha} + C_{\beta} \right) $$<p>and</p>
+$$ f_2 \left( C, \eta_i \right) = - \frac{\gamma}{2} \left( C - C_{\alpha} \right)^2 \eta_i^2 + \frac{\beta}{2} \eta_i^4 $$<p>where</p>
+$$ f_3 \left( \eta_i, \eta_j \right) = \frac{ \epsilon_{ij} }{2} \eta_i^2 \eta_j^2, i \ne j $$<p>The time evolution of the system is now given by coupled Cahn-Hilliard and Allen-Cahn (time dependent Gizberg-Landau) equations for the conserved concentration field and the non-conserved phase fields:</p>
+$$
 \begin{eqnarray}
-\frac{\partial C}{\partial t} &amp;=&amp; \nabla \cdot  \left \{
+\frac{\partial C}{\partial t} &=& \nabla \cdot  \left \{
        D \nabla \left[ \frac{\delta F}{\delta C} \right] \right \} \\
- &amp;=&amp; D \left[ -A + 3 B \left( C- C_m \right)^2 + 3 D_{\alpha} \left( C - C_{\alpha} \right)^2 + 3 D_{\beta} \left( C - C_{\beta} \right)^2 \right] \nabla^2 C \\
-&amp; &amp; -D \gamma \sum_{i=1}^{p} \left[ \eta_i^2 \nabla^2 C + 4 \nabla C \cdot \nabla \eta_i + 2 \left( C - C_{\alpha} \right) \nabla^2 \eta_i \right] - D \kappa_C \nabla^4 C
+ &=& D \left[ -A + 3 B \left( C- C_m \right)^2 + 3 D_{\alpha} \left( C - C_{\alpha} \right)^2 + 3 D_{\beta} \left( C - C_{\beta} \right)^2 \right] \nabla^2 C \\
+& & -D \gamma \sum_{i=1}^{p} \left[ \eta_i^2 \nabla^2 C + 4 \nabla C \cdot \nabla \eta_i + 2 \left( C - C_{\alpha} \right) \nabla^2 \eta_i \right] - D \kappa_C \nabla^4 C
 \end{eqnarray}
-$$</p>
-<p>and the phase field equations</p>
-<p>$$
+$$<p>and the phase field equations</p>
+$$
 \begin{eqnarray}
-\frac{\partial \eta_i}{\partial t} &amp;=&amp; - L_i \frac{\delta F}{\delta \eta_i} \\
-          &amp;=&amp; \frac{\partial f_2}{\delta \eta_i} + \frac{\partial f_3}{\delta \eta_i} - \kappa_i \nabla^2 \eta_i \left(\vec{r}, t\right) \\
-          &amp;=&amp; L_i \gamma \left( C - C_{\alpha} \right)^2 \eta_i - L_i \beta \eta_i^3 - L_i \eta_i \sum_{j\ne i}^{p} \epsilon_{ij} \eta^2_j + L_i \kappa_i \nabla^2 \eta_i
+\frac{\partial \eta_i}{\partial t} &=& - L_i \frac{\delta F}{\delta \eta_i} \\
+          &=& \frac{\partial f_2}{\delta \eta_i} + \frac{\partial f_3}{\delta \eta_i} - \kappa_i \nabla^2 \eta_i \left(\vec{r}, t\right) \\
+          &=& L_i \gamma \left( C - C_{\alpha} \right)^2 \eta_i - L_i \beta \eta_i^3 - L_i \eta_i \sum_{j\ne i}^{p} \epsilon_{ij} \eta^2_j + L_i \kappa_i \nabla^2 \eta_i
 \end{eqnarray}
-$$</p>
-
+$$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -458,7 +484,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -501,15 +528,13 @@ $$</p>
 <td> 10 </td>
 </tr>
 </table><p>with</p>
-<p>$$ B = \frac{A}{\left( C_{\alpha} - C_m \right)^2} $$</p>
-<p>$$ \gamma = \frac{2}{\left(C_{\beta} - C_{\alpha}\right)^2} $$</p>
-<p>$$ D = D_{\alpha} = D_{\beta} = \frac{\gamma}{\delta^2} $$</p>
-<p>The diffusion coefficient, $D$, is constant and isotropic and the same (unity) for both phases; the mobility-related constants, $L_i$, are the same (unity) for all phase fields.</p>
+$$ B = \frac{A}{\left( C_{\alpha} - C_m \right)^2} $$$$ \gamma = \frac{2}{\left(C_{\beta} - C_{\alpha}\right)^2} $$$$ D = D_{\alpha} = D_{\beta} = \frac{\gamma}{\delta^2} $$<p>The diffusion coefficient, $D$, is constant and isotropic and the same (unity) for both phases; the mobility-related constants, $L_i$, are the same (unity) for all phase fields.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -517,18 +542,18 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Set $c\left(\vec{r}, t\right)$ such that</p>
-<p>$$ 
+$$ 
 \begin{eqnarray}
-c\left(\vec{r}, 0\right) &amp;=&amp; \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \vec{r} \right) \\
-\eta_i\left(\vec{r}, 0\right) &amp;=&amp; \bar{\eta}_0 + 0.01 \epsilon_i \cos^2 \left( \vec{q} \cdot \vec{r} \right)
+c\left(\vec{r}, 0\right) &=& \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \vec{r} \right) \\
+\eta_i\left(\vec{r}, 0\right) &=& \bar{\eta}_0 + 0.01 \epsilon_i \cos^2 \left( \vec{q} \cdot \vec{r} \right)
 \end{eqnarray}
-$$</p>
-<p>where</p>
+$$<p>where</p>
 <table width="200">
 <tr>
 <td> $\bar{c}_0$ </td>
@@ -559,7 +584,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -567,7 +593,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -575,7 +602,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -602,9 +630,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[5]:</div>
-
 
 
 <div class="output_svg output_subarea output_execute_result">
@@ -617,7 +643,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -625,7 +652,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -634,7 +662,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -642,7 +671,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -669,9 +699,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[7]:</div>
-
 
 
 <div class="output_svg output_subarea output_execute_result">
@@ -684,7 +712,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -692,22 +721,22 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Domain is the surface of a sphere with radius 100, but with initial conditions of</p>
-<p>$$ c\left(\theta, \phi, 0\right) = \bar{c}_0 + \epsilon \cos \left( \sqrt{233} \theta \right)
-                                                        \sin \left( \sqrt{239} \phi \right) $$</p>
-<p>and</p>
-<p>$$ \eta_i\left(\theta, \phi, 0\right) = \bar{\eta}_0 + 0.01 \epsilon_i \cos^2 \left( \sqrt{23 + i} \theta \right)
-                                                        \sin^2 \left( \sqrt{149 + i} \phi \right) $$</p>
-<p>where $\theta$ and $\phi$ are the polar and azimuthal angles in a spherical coordinate system and parameter values are in the table above.</p>
+$$ c\left(\theta, \phi, 0\right) = \bar{c}_0 + \epsilon \cos \left( \sqrt{233} \theta \right)
+                                                        \sin \left( \sqrt{239} \phi \right) $$<p>and</p>
+$$ \eta_i\left(\theta, \phi, 0\right) = \bar{\eta}_0 + 0.01 \epsilon_i \cos^2 \left( \sqrt{23 + i} \theta \right)
+                                                        \sin^2 \left( \sqrt{149 + i} \phi \right) $$<p>where $\theta$ and $\phi$ are the polar and azimuthal angles in a spherical coordinate system and parameter values are in the table above.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -715,7 +744,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">

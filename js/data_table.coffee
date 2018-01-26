@@ -6,7 +6,7 @@ fname = (data, type, row) ->
 
 fauthor = (data, type, row) ->
   if data.email
-    '<a href="mailto:' + data.email + '">' + data.name + '</a>'
+    '<a href="mailto:' + data.email + '">' + data.name.first + ' ' + data.name.last + '</a>'
   else
     data.name
 
@@ -17,7 +17,7 @@ fcode = (data, type, row) ->
     data.name
 
 fbenchmark = (data, type, row) ->
-  '<a href="{{ site.baseurl }}/simulations/' + data + '/" target="_blank">' + data + '</a>'
+  '<a href="{{ site.baseurl }}/simulations/' + data + '/">' + data + '</a>'
 
 create_table = (data_in) ->
   data_raw = data_in['data']
@@ -27,6 +27,7 @@ create_table = (data_in) ->
   data_table = if benchmark_id is '' then data_raw else data_filter
 
   data = {
+    responsive: true
     lengthMenu: [15]
     lengthChange: false
     data: data_table
