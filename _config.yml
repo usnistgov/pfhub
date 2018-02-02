@@ -17,6 +17,7 @@ links:
   license: https://github.com/usnistgov/pfhub/blob/nist-pages/LICENSE
   repo: usnistgov/pfhub
   github: https://github.com/usnistgov/pfhub
+  chat_room: usnistgov/chimad-phase-field
   chat: https://gitter.im/usnistgov/chimad-phase-field
   staticman_api: https://api.staticman.net/v2/entry/usnistgov/pfhub/master/simulations
   simmeta: https://github.com/usnistgov/pfhub/blob/master/_data/simulations
