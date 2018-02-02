@@ -1,6 +1,9 @@
 """Build the thumbnails for the hexbin
 """
 
+import itertools
+from random import shuffle
+
 import json
 import io
 import urllib
@@ -8,29 +11,30 @@ import urllib
 import yaml
 from PIL import Image
 import progressbar
-import numpy as np
 import requests
+
+
+def check_status(datum):
+    """Check that both the url and image link are valid URLs and that the
+    image link isn't just a redirect.
+    """
+    if requests.get(datum['url']).status_code != 200:
+        return False
+    get_ = requests.get(datum['image'])
+    if get_.status_code != 200:
+        return False
+    if get_.url != datum['image']:
+        return False
+    return True
 
 
 def hexbin_yaml_to_json():
     """Generate JSON image data from the YAML.
     """
     data = yaml.load(open('_data/hexbin.yaml', 'r'))
-
-    for item in data:
-        print("getting item: ", item['url'])
-        assert requests.get(item['url']).status_code == 200
-
-    count = len(data)
-
-    # resize the yaml file into ni * nj sized json file to be read into
-    # the javascript
-    data_resize = []
-    np.random.seed(98)  # pylint: disable=no-member
-    while len(data_resize) < 100:
-        i = np.random.randint(0, count)  # pylint: disable=no-member
-        data_resize.append(data[i])
-    # data_resize = (data * (1 + ((ni* nj) // count)))[:ni * nj]
+    data = list(filter(check_status, data))
+    shuffle(data)
+    data_resize = list(itertools.islice(itertools.cycle(data), 100))
     data_string = json.dumps(data_resize)
     open('_data/hexbin.json', 'w').write(data_string)
     return data_resize
