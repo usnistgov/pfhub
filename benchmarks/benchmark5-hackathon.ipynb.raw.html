@@ -61,7 +61,62 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="nx">javascript</span>
+
+<span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Queue</span><span class="p">(</span>
+  <span class="p">[</span><span class="s2">&quot;resetEquationNumbers&quot;</span><span class="p">,</span><span class="nx">MathJax</span><span class="p">.</span><span class="nx">InputJax</span><span class="p">.</span><span class="nx">TeX</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;PreProcess&quot;</span><span class="p">,</span><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Reprocess&quot;</span><span class="p">,</span><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">]</span>
+<span class="p">);</span>
+
+<span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+  <span class="nx">TeX</span><span class="o">:</span> <span class="p">{</span> <span class="nx">equationNumbers</span><span class="o">:</span> <span class="p">{</span> <span class="nx">autoNumber</span><span class="o">:</span> <span class="s2">&quot;AMS&quot;</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+
+<div id="2b0fe381-1ad5-48b0-a1e2-b0298670c350"></div>
+<div class="output_subarea output_javascript ">
+<script type="text/javascript">
+var element = $('#2b0fe381-1ad5-48b0-a1e2-b0298670c350');
+
+MathJax.Hub.Queue(
+  ["resetEquationNumbers",MathJax.InputJax.TeX],
+  ["PreProcess",MathJax.Hub],
+  ["Reprocess",MathJax.Hub]
+);
+
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
@@ -82,7 +137,7 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -110,7 +165,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
@@ -127,7 +182,7 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -168,8 +223,7 @@ $( document ).ready(code_toggle);
 <h1 id="Model-Formulation">Model Formulation<a class="anchor-link" href="#Model-Formulation">&#182;</a></h1><h2 id="Governing-Equations">Governing Equations<a class="anchor-link" href="#Governing-Equations">&#182;</a></h2><p>In this problem, two variables are used: the fluid velocity, $\textbf{u}$, which is a vector field, and the fluid pressure, $p$, which is a scalar field.  The Stokes momentum equation is given as</p>
 \begin{equation}
 -\mu \nabla^{2} \textbf{u} + \nabla p - \rho \textbf{g} = 0,
-\end{equation}<p></p>
-<p>where $\rho$ is the density, assumed constant in this problem, $\mu$ is the dynamic viscosity, and $\textbf{g}$ is the acceleration due to gravity.  To fully describe fluid flow, the momentum balance equation is supplemented with the continuity equation for mass flow,</p>
+\end{equation}<p>where $\rho$ is the density, assumed constant in this problem, $\mu$ is the dynamic viscosity, and $\textbf{g}$ is the acceleration due to gravity.  To fully describe fluid flow, the momentum balance equation is supplemented with the continuity equation for mass flow,</p>
 \begin{equation}
 \frac{d\rho}{dt}+\nabla\cdot\left(\rho{\mathbf u}\right)=0;
 \end{equation}<p>this simplifies to 
@@ -178,11 +232,7 @@ $( document ).ready(code_toggle);
 \end{equation}</p>
 <p>for incompressible flow.  Use $\rho=100$, $\mu=1$, and $\textbf{g}=(0,-0.001)$.</p>
 <h2 id="Domain">Domain<a class="anchor-link" href="#Domain">&#182;</a></h2><p>In this problem, we consider flow in a 2D channel (a) without and (b) with an obstruction.  The computational domain for case (b) is shown below with inlet boundary condition indicated by arrows for the Stokes flow benchmark problem with an obstruction (case (b).  The domain and boundary conditions, etc., for case (a) are the same as that in case (b), but without the obstruction.</p>
-<p><img src="../../images/stokes_domain.png" alt="stokes domain"></p>
-<p>All solid surfaces, including the boundary for the obstruction, have no-slip boundary conditions, that is, $u_x=u_y=0$.  The inlet velocity, on the left boundary, follows a parabolic profile described by</p>
-<h2 id="Boundary-Conditions">Boundary Conditions<a class="anchor-link" href="#Boundary-Conditions">&#182;</a></h2>\begin{equation}
-u_x(0,y) = -0.001(y-3)^2+0.009.
-\end{equation}<p>The outlet velocity (on the right boundary) is left to the solver to determine, as is the pressure over the entire domain.  However, we specify that the pressure at point (30, 6) is zero.  Finally, the obstruction is described by an ellipse centered at (7, 2.5).  The semi-major axis (in the y-direction) is $a=1.5$, and the semi-minor axis (in the x-direction) is $b=1$.</p>
+<h3 id="Figure-1:-Domain-for-variation-(b)">Figure 1: Domain for variation (b)<a class="anchor-link" href="#Figure-1:-Domain-for-variation-(b)">&#182;</a></h3><p><img src="../../images/stokes_domain.png" alt="stokes domain"></p>
 
 </div>
 </div>
@@ -192,7 +242,29 @@ u_x(0,y) = -0.001(y-3)^2+0.009.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h2><p>For both case (a) and case (b), find the steady-state pressure and velocity distributions given these boundary conditions.  Plot the pressure and all three vector components of the velocity over the lines $y=5$ and $x=7$.  Perform a mesh convergence study to illustrate the effect of mesh size on the solution.</p>
+<h2 id="Boundary-Conditions">Boundary Conditions<a class="anchor-link" href="#Boundary-Conditions">&#182;</a></h2><p>All solid surfaces, including the boundary for the obstruction, have no-slip boundary conditions, that is, $u_x=u_y=0$.  The inlet velocity, on the left boundary, follows a parabolic profile described by</p>
+\begin{equation}
+u_x(0,y) = -0.001(y-3)^2+0.009.
+\end{equation}<p>The outlet velocity (on the right boundary) is left to the solver to determine, as is the pressure over the entire domain.  However, we specify that the pressure at point (30, 6) is zero.  Finally, the obstruction is described by an ellipse centered at (7, 2.5).  The semi-major axis (in the <em>y</em>-direction) is $a=1.5$, and the semi-minor axis (in the <em>x</em>-direction) is $b=1$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h2><p>Both variation (a) and (b) should be run to steady state.
+Please submit the steady state pressure and the steady state velocity fields for both variation (a) and (b) along the $x=7$ and $y=5$ cut planes.</p>
+<p>This will require two CSV or JSON files for each variation,</p>
+<ul>
+<li><p>a CSV of JSON upload labeled as <code>x_cut_plane</code> with column titles of <code>y</code>, <code>velocity_x</code>, <code>velocity_y</code> and <code>pressure</code></p>
+</li>
+<li><p>a CSV of JSON upload labeled as <code>y_cut_plane</code> with column titles of <code>x</code>, <code>velocity_x</code>, <code>velocity_y</code> and <code>pressure</code></p>
+</li>
+</ul>
+<p>Further data to upload can include images of the pressure and velocity fields at steady state. These are not required, but will help others view your work.</p>
 
 </div>
 </div>
