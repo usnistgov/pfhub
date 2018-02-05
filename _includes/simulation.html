@@ -108,7 +108,7 @@
 <script>
   var SIM_NAME = new URL(window.location.href).searchParams.get("sim");
   var CHART_DATA={{ site.data.charts.plot1d | jsonify }};
-  var DATA={{ site.data.simulations | jsonify }}[SIM_NAME].meta;
+  var ALL_DATA={{ site.data.simulations | jsonify }};
   var CODES_DATA={{ site.data.codes | jsonify }};
 </script>
 

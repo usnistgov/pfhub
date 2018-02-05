@@ -123,3 +123,18 @@
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
         url: "benchmarks/benchmark6-hackathon.ipynb"
+
+- title: MMS Allen-Cahn
+  description: Use the Method of Manufactured Solutions to verify codes
+  image: images/elastic1.png
+  num: 7
+  revisions:
+    - version: 0
+      variations: [a, b, c]
+      event:
+        name: Hackathon 5
+        url: "benchmarks/benchmark7.ipynb"
+      url: "benchmarks/benchmark7.ipynb"
+      commit:
+        sha: "e19007361211"
+        url: "benchmarks/benchmark7.ipynb"
