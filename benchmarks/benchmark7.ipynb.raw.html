@@ -1,0 +1,1467 @@
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="nx">javascript</span>
+    <span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+      <span class="nx">TeX</span><span class="o">:</span> <span class="p">{</span> <span class="nx">equationNumbers</span><span class="o">:</span> <span class="p">{</span> <span class="nx">autoNumber</span><span class="o">:</span> <span class="s2">&quot;AMS&quot;</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="p">});</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+
+<div id="25753d50-41f0-4bd9-912c-b85adcb9631b"></div>
+<div class="output_subarea output_javascript ">
+<script type="text/javascript">
+var element = $('#25753d50-41f0-4bd9-912c-b85adcb9631b');
+    MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[159]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">code_show=true; </span>
+<span class="s1">function code_toggle() {</span>
+<span class="s1"> if (code_show){</span>
+<span class="s1"> $(&#39;div.input&#39;).hide();</span>
+<span class="s1"> $(&#39;div.prompt&#39;).hide();</span>
+<span class="s1"> } else {</span>
+<span class="s1"> $(&#39;div.input&#39;).show();</span>
+<span class="s1">$(&#39;div.prompt&#39;).show();</span>
+<span class="s1"> }</span>
+<span class="s1"> code_show = !code_show</span>
+<span class="s1">} </span>
+<span class="s1">$( document ).ready(code_toggle);</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Code Toggle&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[159]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $('div.input').hide();
+ $('div.prompt').hide();
+ } else {
+ $('div.input').show();
+$('div.prompt').show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+</script>
+<form action="javascript:code_toggle()"><input type="submit" value="Code Toggle"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;a href=&quot;https://github.com/stvdwtt/chimad-phase-field/raw/benchmark_7_for_merging/benchmarks/benchmark7.ipynb&quot;</span>
+<span class="s1">   download&gt;</span>
+<span class="s1">&lt;button type=&quot;submit&quot;&gt;Download Notebook&lt;/button&gt;</span>
+<span class="s1">&lt;/a&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<a href="https://github.com/stvdwtt/chimad-phase-field/raw/benchmark_7_for_merging/benchmarks/benchmark7.ipynb"
+   download>
+<button type="submit">Download Notebook</button>
+</a>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Benchmark-Problem-7:-MMS-Allen-Cahn">Benchmark Problem 7: MMS Allen-Cahn<a class="anchor-link" href="#Benchmark-Problem-7:-MMS-Allen-Cahn">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[161]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;{</span><span class="si">% i</span><span class="s1">nclude jupyter_benchmark_table.html num=&quot;[7]&quot; revision=0 %}&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[161]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+{% include jupyter_benchmark_table.html num="[7]" revision=0 %}
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="#Overview">Overview</a></li>
+<li><a href="#Governing-equation-and-manufactured-solution">Governing equation and manufactured solution</a></li>
+<li><a href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition</a></li>
+<li><a href="#Parameter-values">Parameter values</a></li>
+<li><a href="#Benchmark-simulation-instructions">Benchmark simulation instructions</a><ul>
+<li><a href="#Part-%28a%29">Part (a)</a></li>
+<li><a href="#Part-%28b%29">Part (b)</a></li>
+<li><a href="#Part-%28c%29">Part (c)</a></li>
+</ul>
+</li>
+<li><a href="#Results">Results</a></li>
+<li><a href="#Feedback">Feedback</a></li>
+<li><a href="#Appendix">Appendix</a><ul>
+<li><a href="#Computer-algebra-systems">Computer algebra systems</a></li>
+<li><a href="#Source-term">Source term</a></li>
+<li><a href="#Code">Code</a></li>
+</ul>
+</li>
+</ul>
+<p>See the journal publication entitled <a href="http://dx.doi.org/10.1016/j.commatsci.2016.09.022">"Benchmark problems for numerical implementations of phase field models"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The Method of Manufactured Solutions (MMS) is a powerful technique for verifying the accuracy of a simulation code. In the MMS, one picks a desired solution to the problem at the outset, the "manufactured solution", and then determines the governing equation that will result in that solution. With the exact analytical form of the solution in hand, when the governing equation is solved using a particular simulation code, the deviation from the expected solution can be determined exactly. This deviation can be converted into an error metric to rigously quantify the error for a calculation. This error can be used to determine the order of accuracy of the simulation results to verify simulation codes. It can also be used to compare the computational efficiency of different codes or different approaches for a particular code at a certain level of error. Furthermore, the spatial/temporal distribution can give insight into the conditions resulting in the largest error (high gradients, changes in mesh resolution, etc.).</p>
+<p>After choosing a manufactured solution, the governing equation must be modified to force the solution to equal the manufactured solution. This is accomplished by taking the nominal equation that is to be solved (e.g.  Allen-Cahn equation, Cahn-Hilliard equation, Fick's second law, Laplace equation) and adding a source term. This source term is determined by plugging the manufactured solution into the nominal governing equation and setting the source term equal to the residual. Thus, the manufactured solution satisfies the MMS governing equation (the nominal governing equation plus the source term). A more detailed discussion of MMS can be found in <a href="http://prod.sandia.gov/techlib/access-control.cgi/2000/001444.pdf">the report by Salari and Knupp</a>.</p>
+<p>In this benchmark problem, the objective is to use the MMS to rigorously verify phase field simulation codes and then provide a basis of comparison for the computational performance between codes and for various settings for a single code, as discussed above. To this end, the benchmark problem was chosen as a balance between two factors: simplicity, to minimize the development effort required to solve the benchmark, and transferability to a real phase field system of physical interest.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Governing-equation-and-manufactured-solution">Governing equation and manufactured solution<a class="anchor-link" href="#Governing-equation-and-manufactured-solution">&#182;</a></h1><p>For this benchmark problem, we use a simple Allen-Cahn equation as the governing equation</p>
+$$\begin{equation}
+\frac{\partial \eta}{\partial t} = - \left[ 4 \eta \left(\eta - 1 \right) \left(\eta-\frac{1}{2} \right) - \kappa \nabla^2 \eta \right] + S(x,y,t) 
+\end{equation}$$<p>where $S(x,y,t)$ is the MMS source term and $\kappa$ is a constant parameter (the gradient energy coefficient).</p>
+<p>The manufactured solution, $\eta_{sol}$ is a hyperbolic tangent function, shifted to vary between 0 and 1, with the $x$ position of the middle of the interface ($\eta_{sol}=0.5$) given by the function $\alpha(x,t)$:</p>
+$$\begin{equation}
+\eta_{sol}(x,y,t) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right) \right] 
+\end{equation}$$$$\begin{equation}
+\alpha(x,t) = \frac{1}{4} + A_1 t \sin\left(B_1 x \right) + A_2 \sin \left(B_2  x + C_2 t \right)
+\end{equation}$$<p>where $A_1$, $B_1$, $A_2$, $B_2$, and $C_2$ are constant parameters.</p>
+<p>This manufactured solution is an equilbrium solution of the governing equation, when $S(x,y,t)=0$ and $\alpha(x,t)$ is constant. The closeness of this manufactured solution to a solution of the nominal governing equation increases the likihood that the behavior of simulation codes when solving this benchmark problem is representive of the solution of the regular Allen-Cahn equation (i.e. without the source term). The form of $\alpha(x,t)$ was chosen to yield complex behavior while still retaining a (somewhat) simple functional form. The two spatial sinusoidal terms introduce two controllable length scales to the interfacial shape. Summing them gives a  "beat" pattern with a period longer than the period of either individual term, permitting a domain size that is larger than the wavelength of the sinusoids without a repeating pattern. The temporal sinusoidal term introduces a controllable time scale to the interfacial shape in addition to the phase transformation time scale, while the linear temporal dependence of the other term ensures that the sinusoidal term can go through multiple periods without $\eta_{sol}$ repeating itself.</p>
+<p>Inserting the manufactured solution into the governing equation and solving for $S(x,y,t)$ yields:</p>
+$$\begin{equation}
+S(x,y,t) = \frac{\text{sech}^2 \left[ \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right]}{4 \sqrt{\kappa}} \left[-2\sqrt{\kappa} \tanh \left[\frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right] \left(\frac{\partial \alpha(x,t)}{\partial x} \right)^2+\sqrt{2} \left[ \frac{\partial \alpha(x,t)}{\partial t}-\kappa \frac{\partial^2 \alpha(x,t)}{\partial x^2} \right] \right]
+\end{equation}$$<p>where $\alpha(x,t)$ is given above and where:</p>
+$$\begin{equation}
+\frac{\partial \alpha(x,t)}{\partial x} = A_1 B_1 t \cos\left(B_1 x\right) + A_2 B_2 \cos \left(B_2  x + C_2 t \right)
+\end{equation}$$$$\begin{equation}
+\frac{\partial^2 \alpha(x,t)}{\partial x^2} = -A_1 B_1^2 t \sin\left(B_1 x\right) - A_2 B_2^2 \sin \left(B_2  x + C_2 t \right)
+\end{equation}$$$$\begin{equation}
+\frac{\partial \alpha(x,t)}{\partial t} = A_1 \sin\left(B_1 x\right) + A_2 C_2 \cos \left(B_2  x + C_2 t \right)
+\end{equation}$$<h4 id="N.B.:-Don't-transcribe-these-equations.-Please-download-the-appropriate-files-from-the-Appendix."><em>N.B.</em>: Don't transcribe these equations. Please download the appropriate files from the <a href="#Appendix">Appendix</a>.<a class="anchor-link" href="#N.B.:-Don't-transcribe-these-equations.-Please-download-the-appropriate-files-from-the-Appendix.">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition<a class="anchor-link" href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">&#182;</a></h1><p>The domain geometry is a rectangle that spans [0, 1] in $x$ and [0, 0.5] in $y$. This elongated domain was chosen to allow multiple peaks and valleys in $\eta_{sol}$ without stretching the interface too much in the $y$ direction (which causes the thickness of the interface to change) or having large regions where $\eta_{sol}$  never deviates from 0 or 1. Periodic boundary conditions are applied along the $x = 0$ and the $x = 1$ boundaries to accomodate the periodicity of $\alpha(x,t)$. Dirichlet boundary conditions of $\eta$ = 0 and $\eta$ = 1 are applied along the $y = 0$ and the $y = 0.5$ boundaries, respectively. These boundary conditions are chosen to be consistent with $\eta_{sol}(x,y,t)$. The initial condition is the manufactured solution at $t = 0$:</p>
+$$
+\begin{equation}
+\eta_{sol}(x,y,0) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\left(\frac{1}{4}+A_2 \sin(B_2 x) \right)}{\sqrt{2 \kappa}} \right) \right] 
+\end{equation}
+$$<p>The stopping condition for all calculations is when t = 8 time units, which was chosen to let $\alpha(x,t)$ evolve substantially, while still being slower than the characteristic time for the phase evolution (determined by the CFL condition for a uniform mesh with a reasonable level of resolution of $\eta_{sol}$).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Parameter-values">Parameter values<a class="anchor-link" href="#Parameter-values">&#182;</a></h1><p>The nominal parameter values for the governing equation and manufactured solution are given below. The value of $\kappa$ will change in Part (b) in the following section and the values of $\kappa$ and $C_2$ will change in Part (c).</p>
+<table>
+<thead><tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\kappa$</td>
+<td>0.0004</td>
+</tr>
+<tr>
+<td>$A_1$</td>
+<td>0.0075</td>
+</tr>
+<tr>
+<td>$B_1$</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td>$A_2$</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>$B_2$</td>
+<td>22.0</td>
+</tr>
+<tr>
+<td>$C_2$</td>
+<td>0.0625</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Benchmark-simulation-instructions">Benchmark simulation instructions<a class="anchor-link" href="#Benchmark-simulation-instructions">&#182;</a></h1><p>This section describes three sets of tests to conduct using the MMS problem specified above. The primary purpose of the first test is provide a computationally inexpensive problem to verify a simulation code. The second and third tests are more computationally demanding and are primarily designed to serve as a basis for performance comparisons.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-(a)">Part (a)<a class="anchor-link" href="#Part-(a)">&#182;</a></h2><p>The objective of this test is to verify the accuracy of your simulation code in both time and space. Here, we make use of convergence tests, where either the mesh size (or grid point spacing) or the time step size is systematically changed to determine the response of the error to these quantities. Once a convergence test is completed the order of accuracy can be calculated from the result. The order of accuracy can be compared to the theoretical order of accuracy for the numerical method employed in the simulation. If the two match (to a reasonable degree), then one can be confident that the simulation code is working as expected. The remainder of this subsection will give instructions for convergence tests for this MMS problem.</p>
+<p>Implement the MMS problem specified above using the simulation code of your choice. Perform a spatial convergence test by running the simulation for a variety of mesh sizes. For each simulation, determine the discrete $L_2$ norm of the error at $t=8$:</p>
+$$\begin{equation}
+    L_2 = \sqrt{\sum\limits_{x,y}\left(\eta^{t=8}_{x,y} - \eta_{sol}(x,y,8)\right)^2 \Delta x \Delta y}
+\end{equation}$$<p>For all of these simulations, verify that the time step is small enough that any temporal error is much smaller that the total error. This can be accomplished by decreasing the time step until it has minimal effect on the error. Ensure that at least three simulation results have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. This maximum and minimum errors in the range roughly represent a poorly resolved simulation and a very well-resolved simulation.</p>
+<p>For at least three simulations that have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, save the effective mesh size and $L_2$ error in a CSV or JSON file. Upload this file to the PFHub website as a 2D data set with the effective mesh size as the x-axis column and the $L_2$ error as the y-axis column. Calculate the effective element size as the square root of the area of the finest part of the mesh for nonuniform meshes. For irregular meshes with continous distributions of element sizes, approximate the effective mesh size as the average of the square root of the area of the smallest 5% of the elements.</p>
+<p>Next, confirm that the observed order of accuracy is approximately equal to the expected value. Calculate the order of accuracy, $p$, with a least squares fit of the following function:</p>
+$$\begin{equation}
+    \log(E)=p \log(R) + b
+\end{equation}$$<p>where $E$ is the $L_2$ error, $R$ is the effective element size, and b is an intercept. Deviations of ±0.2 or more from the theoretical value are to be expected (depending on the range of errors considered and other factors).</p>
+<p>Finally, perform a similar convergence test, but for the time step, systematically changing the time step and recording the $L_2$ error. Use a time step that does not vary over the course of any single simulation. Verify that the spatial discretization error is small enough that it does not substantially contribute to the total error. Once again, ensure that at least three simulations have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. Save the effective mesh size and $L_2$ error for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Upload this file to the PFHub website</a> as a 2D data set with the time step size as the x-axis column and the $L_2$ error as the y-axis column. Confirm that the observed order of accuracy is approximately equal to the expected value.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-(b)">Part (b)<a class="anchor-link" href="#Part-(b)">&#182;</a></h2><p>Now that your code has been verified in (a), the objective of this part is to determine the computational performance of your code at various levels of error. These results can then be used to objectively compare the performance between codes or settings within the same code. To make the problem more computationally demanding and stress solvers more than in (a), decrease $\kappa$ by a factor of $256$ to $1.5625\times10^{-6}$. This change will reduce the interfacial thickness by a factor of $16$.</p>
+<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[5\times10^{-3}, 1\times10^{-5}]$. Use the same CPU and processor type for all simulations. For the best of these simulations, save the wall time (in seconds), number of computing cores, normalized computing cost (wall time in seconds $\times$ number of cores $\times$ nominal core speed $/$ 2 GHz), maximum memory usage, and $L_2$ error at $t=8$ for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Upload this to the PFHub website</a> as two 2D data sets. For the first data set use the $L_2$ error as the x-axis column and the normalized computational cost as the the y-axis column. For the second data set,  use the $L_2$ error as the x-axis column and the wall time as the the y-axis column.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-(c)">Part (c)<a class="anchor-link" href="#Part-(c)">&#182;</a></h2><p>This final part is designed to stress time integrators even further by increasing the rate of change of $\alpha(x,t)$. Increase $C_2$ to $0.5$. Keep $\kappa= 1.5625\times10^{-6}$ from (b).</p>
+<p>Repeat the process from (b), uploading the wall time, number of computing cores, processor speed, normalized computing cost, maximum memory usage, and $L_2$ error at $t=8$ to the PFHub website.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h1><p>Results from this benchmark problem are displayed on the <a href="{{ site.baseurl }}/simulations">simulation result page</a> for different codes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Feedback">Feedback<a class="anchor-link" href="#Feedback">&#182;</a></h1><p>Feedback on this benchmark problem is appreciated. If you have questions, comments, or seek clarification, please contact the <a href="{{ site.baseurl }}/community/">CHiMaD phase field community</a> through the <a href="{{ site.links.chat }}">Gitter chat channel</a> or by <a href="{{ site.baseurl }}/mailing_list/">email</a>. If you found an error, please file an <a href="{{ site.links.github }}/issues/new">issue on GitHub</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h1><h2 id="Computer-algebra-systems">Computer algebra systems<a class="anchor-link" href="#Computer-algebra-systems">&#182;</a></h2><p>Rigorous verification of software frameworks using MMS requires posing the equation and manufacturing the solution with as much complexity as possible. This can be straight-forward, but interesting equations produce complicated source terms. To streamline the MMS workflow, it is strongly recommended that you use a CAS such as SymPy, Maple, or Mathematica to generate source equations and turn it into executable code automatically. For accessibility, we will use <a href="http://www.sympy.org/">SymPy</a>, but so long as vector calculus is supported, and CAS will do.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Source-term">Source term<a class="anchor-link" href="#Source-term">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[162]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">Symbol</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">simplify</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">cosh</span><span class="p">,</span> <span class="n">sinh</span><span class="p">,</span> <span class="n">tanh</span><span class="p">,</span> <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.vector</span> <span class="k">import</span> <span class="n">divergence</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">ReferenceFrame</span><span class="p">,</span> <span class="n">time_derivative</span>
+<span class="kn">from</span> <span class="nn">sympy.printing</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">sympy.abc</span> <span class="k">import</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="c1"># Spatial coordinates: x=R[0], y=R[1], z=R[2]</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">ReferenceFrame</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
+
+<span class="c1"># sinusoid amplitudes</span>
+<span class="n">A1</span><span class="p">,</span> <span class="n">A2</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A1 A2&#39;</span><span class="p">)</span>
+<span class="n">B1</span><span class="p">,</span> <span class="n">B2</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;B1 B2&#39;</span><span class="p">)</span>
+<span class="n">C1</span><span class="p">,</span> <span class="n">C2</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;C1 C2&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define interface offset (alpha)</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span> <span class="o">+</span> <span class="n">A1</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">B1</span> <span class="o">*</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+             <span class="o">+</span> <span class="n">A2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">B2</span> <span class="o">*</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">C2</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})</span>
+
+<span class="c1"># Define the solution equation (eta)    </span>
+<span class="n">eta</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tanh</span><span class="p">((</span><span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">/</span>
+                        <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">kappa</span><span class="p">)))</span>
+      <span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})</span>
+
+<span class="c1"># Compute the initial condition</span>
+<span class="n">eta0</span> <span class="o">=</span> <span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})</span>
+
+<span class="c1"># Compute the source term from the equation of motion</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">time_derivative</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+             <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">eta</span> <span class="o">*</span> <span class="p">(</span><span class="n">eta</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">eta</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+             <span class="o">-</span> <span class="n">divergence</span><span class="p">(</span><span class="n">kappa</span> <span class="o">*</span> <span class="n">gradient</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">R</span><span class="p">),</span> <span class="n">R</span><span class="p">)</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[163]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">),</span> <span class="n">alpha</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>α = A₁⋅t⋅sin(B₁⋅x) + A₂⋅sin(B₂⋅x + C₂⋅t) + 0.25
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[164]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;eta&#39;</span><span class="p">),</span> <span class="n">eta</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>              ⎛√2⋅(-A₁⋅t⋅sin(B₁⋅x) - A₂⋅sin(B₂⋅x + C₂⋅t) + y - 0.25)⎞      
+η = - 0.5⋅tanh⎜─────────────────────────────────────────────────────⎟ + 0.5
+              ⎝                         2⋅√κ                        ⎠      
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[165]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;eta0&#39;</span><span class="p">),</span> <span class="n">eta0</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>               ⎛√2⋅(-A₂⋅sin(B₂⋅x) + y - 0.25)⎞      
+η₀ = - 0.5⋅tanh⎜─────────────────────────────⎟ + 0.5
+               ⎝             2⋅√κ            ⎠      
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[166]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">),</span> <span class="n">S</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>    ⎛           ⎛√2⋅(A₁⋅t⋅sin(B₁⋅x) + A₂⋅sin(B₂⋅x + C₂⋅t) - y + 0.25)⎞        
+    ⎜0.5⋅√κ⋅tanh⎜────────────────────────────────────────────────────⎟ - 0.25⋅
+    ⎝           ⎝                        2⋅√κ                        ⎠        
+S = ──────────────────────────────────────────────────────────────────────────
+                                                                              
+
+                                          ⎞ ⎛    2⎛√2⋅(A₁⋅t⋅sin(B₁⋅x) + A₂⋅sin
+√2⋅(A₁⋅sin(B₁⋅x) + A₂⋅C₂⋅cos(B₂⋅x + C₂⋅t))⎟⋅⎜tanh ⎜───────────────────────────
+                                          ⎠ ⎝     ⎝                        2⋅√
+──────────────────────────────────────────────────────────────────────────────
+                 √κ                                                           
+
+(B₂⋅x + C₂⋅t) - y + 0.25)⎞    ⎞
+─────────────────────────⎟ - 1⎟
+κ                        ⎠    ⎠
+───────────────────────────────
+                               
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Code">Code<a class="anchor-link" href="#Code">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h3><p>Copy the first cell under Source Term directly into your program.
+For a performance boost, convert the expressions into lambda functions:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.utilities.lambdify</span> <span class="kn">import</span> <span class="n">lambdify</span>
+
+<span class="n">apy</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
+<span class="n">epy</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">eta</span><span class="p">,</span>   <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
+<span class="n">ipy</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">eta0</span><span class="p">,</span>  <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
+<span class="n">Spy</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">S</span><span class="p">,</span>     <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
+</pre></div>
+<h4 id="N.B.:-You-may-need-to-add-coefficients-to-the-variables-list."><em>N.B.</em>: You may need to add coefficients to the variables list.<a class="anchor-link" href="#N.B.:-You-may-need-to-add-coefficients-to-the-variables-list.">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="C">C<a class="anchor-link" href="#C">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[167]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.utilities.codegen</span> <span class="k">import</span> <span class="n">codegen</span>
+
+<span class="p">[(</span><span class="n">c_name</span><span class="p">,</span> <span class="n">c_code</span><span class="p">),</span> <span class="p">(</span><span class="n">h_name</span><span class="p">,</span> <span class="n">c_header</span><span class="p">)]</span> <span class="o">=</span> <span class="n">codegen</span><span class="p">([(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">),</span>
+                                                  <span class="p">(</span><span class="s1">&#39;eta&#39;</span><span class="p">,</span> <span class="n">eta</span><span class="p">),</span>
+                                                  <span class="p">(</span><span class="s1">&#39;eta0&#39;</span><span class="p">,</span> <span class="n">eta0</span><span class="p">),</span>
+                                                  <span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">S</span><span class="p">)],</span>
+                                                 <span class="n">language</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;MMS&#39;</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="s1">&#39;PFHub&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c_code</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/******************************************************************************
+ *                      Code generated with sympy 1.1.1                       *
+ *                                                                            *
+ *              See http://www.sympy.org/ for more information.               *
+ *                                                                            *
+ *                        This file is part of &#39;PFHub&#39;                        *
+ ******************************************************************************/
+#include &#34;MMS.h&#34;
+#include &lt;math.h&gt;
+
+double alpha(double A1, double A2, double B1, double B2, double C2, double t, double x) {
+
+   double alpha_result;
+   alpha_result = A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) + 0.25;
+   return alpha_result;
+
+}
+
+double eta(double A1, double A2, double B1, double B2, double C2, double kappa, double t, double x, double y) {
+
+   double eta_result;
+   eta_result = -0.5*tanh((1.0L/2.0L)*sqrt(2)*(-A1*t*sin(B1*x) - A2*sin(B2*x + C2*t) + y - 0.25)/sqrt(kappa)) + 0.5;
+   return eta_result;
+
+}
+
+double eta0(double A2, double B2, double kappa, double x, double y) {
+
+   double eta0_result;
+   eta0_result = -0.5*tanh((1.0L/2.0L)*sqrt(2)*(-A2*sin(B2*x) + y - 0.25)/sqrt(kappa)) + 0.5;
+   return eta0_result;
+
+}
+
+double S(double A1, double A2, double B1, double B2, double C2, double kappa, double t, double x, double y) {
+
+   double S_result;
+   S_result = (0.5*sqrt(kappa)*tanh((1.0L/2.0L)*sqrt(2)*(A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) - y + 0.25)/sqrt(kappa)) - 0.25*sqrt(2)*(A1*sin(B1*x) + A2*C2*cos(B2*x + C2*t)))*(pow(tanh((1.0L/2.0L)*sqrt(2)*(A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) - y + 0.25)/sqrt(kappa)), 2) - 1)/sqrt(kappa);
+   return S_result;
+
+}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="C++">C++<a class="anchor-link" href="#C++">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[168]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.printing.cxxcode</span> <span class="k">import</span> <span class="n">cxxcode</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[169]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;α:&quot;</span><span class="p">)</span>
+<span class="n">cxxcode</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>α:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[169]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) + 0.25&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[170]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η:&quot;</span><span class="p">)</span>
+<span class="n">cxxcode</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[170]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;-0.5*tanh((1.0L/2.0L)*std::sqrt(2)*(-A1*t*sin(B1*x) - A2*sin(B2*x + C2*t) + y - 0.25)/std::sqrt(kappa)) + 0.5&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[171]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η₀:&quot;</span><span class="p">)</span>
+<span class="n">cxxcode</span><span class="p">(</span><span class="n">eta0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η₀:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[171]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;-0.5*tanh((1.0L/2.0L)*std::sqrt(2)*(-A2*sin(B2*x) + y - 0.25)/std::sqrt(kappa)) + 0.5&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[172]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S:&quot;</span><span class="p">)</span>
+<span class="n">cxxcode</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>S:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[172]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;(0.5*std::sqrt(kappa)*tanh((1.0L/2.0L)*std::sqrt(2)*(A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) - y + 0.25)/std::sqrt(kappa)) - 0.25*std::sqrt(2)*(A1*sin(B1*x) + A2*C2*cos(B2*x + C2*t)))*(std::pow(tanh((1.0L/2.0L)*std::sqrt(2)*(A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) - y + 0.25)/std::sqrt(kappa)), 2) - 1)/std::sqrt(kappa)&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fortran">Fortran<a class="anchor-link" href="#Fortran">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[173]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.printing</span> <span class="k">import</span> <span class="n">fcode</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[174]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;α:&quot;</span><span class="p">)</span>
+<span class="n">fcode</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>α:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[174]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;      A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) + 0.25d0&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[175]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η:&quot;</span><span class="p">)</span>
+<span class="n">fcode</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[175]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;      -0.5d0*tanh(0.707106781186548d0*kappa**(-0.5d0)*(-A1*t*sin(B1*x) -\n     @ A2*sin(B2*x + C2*t) + y - 0.25d0)) + 0.5d0&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[176]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η₀:&quot;</span><span class="p">)</span>
+<span class="n">fcode</span><span class="p">(</span><span class="n">eta0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η₀:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[176]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;      -0.5d0*tanh(0.707106781186548d0*kappa**(-0.5d0)*(-A2*sin(B2*x) + y\n     @ - 0.25d0)) + 0.5d0&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[177]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S:&quot;</span><span class="p">)</span>
+<span class="n">fcode</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>S:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[177]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;      (0.5d0*sqrt(kappa)*tanh(0.707106781186548d0*kappa**(-0.5d0)*(A1*t*\n     @ sin(B1*x) + A2*sin(B2*x + C2*t) - y + 0.25d0)) - 0.25d0*sqrt(\n     @ 2.0d0)*(A1*sin(B1*x) + A2*C2*cos(B2*x + C2*t)))*(tanh(\n     @ 0.707106781186548d0*kappa**(-0.5d0)*(A1*t*sin(B1*x) + A2*sin(B2*x\n     @ + C2*t) - y + 0.25d0))**2 - 1)/sqrt(kappa)&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Julia">Julia<a class="anchor-link" href="#Julia">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[178]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.printing</span> <span class="k">import</span> <span class="n">julia_code</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[179]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;α:&quot;</span><span class="p">)</span>
+<span class="n">julia_code</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>α:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[179]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;A1.*t.*sin(B1.*x) + A2.*sin(B2.*x + C2.*t) + 0.25&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[180]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η:&quot;</span><span class="p">)</span>
+<span class="n">julia_code</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[180]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;-0.5*tanh(sqrt(2)*(-A1.*t.*sin(B1.*x) - A2.*sin(B2.*x + C2.*t) + y - 0.25)./(2*sqrt(kappa))) + 0.5&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[181]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η₀:&quot;</span><span class="p">)</span>
+<span class="n">julia_code</span><span class="p">(</span><span class="n">eta0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η₀:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[181]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;-0.5*tanh(sqrt(2)*(-A2.*sin(B2.*x) + y - 0.25)./(2*sqrt(kappa))) + 0.5&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[182]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S:&quot;</span><span class="p">)</span>
+<span class="n">julia_code</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>S:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[182]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;(0.5*sqrt(kappa).*tanh(sqrt(2)*(A1.*t.*sin(B1.*x) + A2.*sin(B2.*x + C2.*t) - y + 0.25)./(2*sqrt(kappa))) - 0.25*sqrt(2)*(A1.*sin(B1.*x) + A2.*C2.*cos(B2.*x + C2.*t))).*(tanh(sqrt(2)*(A1.*t.*sin(B1.*x) + A2.*sin(B2.*x + C2.*t) - y + 0.25)./(2*sqrt(kappa))).^2 - 1)./sqrt(kappa)&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Mathematica">Mathematica<a class="anchor-link" href="#Mathematica">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[183]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.printing</span> <span class="k">import</span> <span class="n">mathematica_code</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[184]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;α:&quot;</span><span class="p">)</span>
+<span class="n">mathematica_code</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>α:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[184]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;A1*t*Sin[B1*x] + A2*Sin[B2*x + C2*t] + 0.25&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[185]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η:&quot;</span><span class="p">)</span>
+<span class="n">mathematica_code</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[185]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;-0.5*Tanh[(1/2)*2^(1/2)*(-A1*t*Sin[B1*x] - A2*Sin[B2*x + C2*t] + y - 0.25)/kappa^(1/2)] + 0.5&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[186]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η₀:&quot;</span><span class="p">)</span>
+<span class="n">mathematica_code</span><span class="p">(</span><span class="n">eta0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η₀:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[186]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;-0.5*Tanh[(1/2)*2^(1/2)*(-A2*Sin[B2*x] + y - 0.25)/kappa^(1/2)] + 0.5&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[187]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S:&quot;</span><span class="p">)</span>
+<span class="n">mathematica_code</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>S:
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[187]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;(0.5*kappa^(1/2)*Tanh[(1/2)*2^(1/2)*(A1*t*Sin[B1*x] + A2*Sin[B2*x + C2*t] - y + 0.25)/kappa^(1/2)] - 0.25*2^(1/2)*(A1*Sin[B1*x] + A2*C2*Cos[B2*x + C2*t]))*(Tanh[(1/2)*2^(1/2)*(A1*t*Sin[B1*x] + A2*Sin[B2*x + C2*t] - y + 0.25)/kappa^(1/2)]^2 - 1)/kappa^(1/2)&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+ 
+
