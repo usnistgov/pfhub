@@ -24,10 +24,10 @@
 
 
 
-<div id="efae500a-cf93-4460-85eb-372195fd8759"></div>
+<div id="25753d50-41f0-4bd9-912c-b85adcb9631b"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#efae500a-cf93-4460-85eb-372195fd8759');
+var element = $('#25753d50-41f0-4bd9-912c-b85adcb9631b');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -102,7 +102,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
@@ -124,7 +124,7 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[1]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -203,7 +203,7 @@ $( document ).ready(code_toggle);
 <li><a href="#Feedback">Feedback</a></li>
 <li><a href="#Appendix">Appendix</a><ul>
 <li><a href="#Computer-algebra-systems">Computer algebra systems</a></li>
-<li><a href="#Source-equation">Source equation</a></li>
+<li><a href="#Source-term">Source term</a></li>
 <li><a href="#Code">Code</a></li>
 </ul>
 </li>
@@ -358,8 +358,8 @@ $$\begin{equation}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Part-(b)">Part (b)<a class="anchor-link" href="#Part-(b)">&#182;</a></h2><p>Now that your code has been verified in (a), the objective of this part is to determine the computational performance of your code at various levels of error. These results can then be used to objectively compare the performance between codes or settings within the same code. To make the problem more computationally demanding and stress solvers more than in (a), decrease $\kappa$ by a factor of $256$ to $1.5625\times10^{-6}$. This change will reduce the interfacial thickness by a factor of $16$.</p>
-<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[5\times10^{-3}, 1\times10^{-5}]$. Use the same CPU and processor type for all simulations. For the best of these simulations, save the wall time, number of computing cores, maximum memory usage, and $L_2$ error for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Upload this to the PFHub website</a> as a 3D data set with the wall time as the x-axis column, the number of computing cores as the y-axis column, and the $L_2$ error as the z-axis column. (The PFHub upload system is currently limited to three columns of data. Once this constraint is relaxed, the maximum memory usage data will be incorporated as well.)</p>
-<!---For the best of these simulations, submit the wall time, number of computing cores, processor speed, maximum memory usage, and $L_2$ error at $t=8$ to the CHiMaD website.--->
+<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[5\times10^{-3}, 1\times10^{-5}]$. Use the same CPU and processor type for all simulations. For the best of these simulations, save the wall time (in seconds), number of computing cores, normalized computing cost (wall time in seconds $\times$ number of cores $\times$ nominal core speed $/$ 2 GHz), maximum memory usage, and $L_2$ error at $t=8$ for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Upload this to the PFHub website</a> as two 2D data sets. For the first data set use the $L_2$ error as the x-axis column and the normalized computational cost as the the y-axis column. For the second data set,  use the $L_2$ error as the x-axis column and the wall time as the the y-axis column.</p>
+
 </div>
 </div>
 </div>
@@ -369,7 +369,7 @@ $$\begin{equation}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Part-(c)">Part (c)<a class="anchor-link" href="#Part-(c)">&#182;</a></h2><p>This final part is designed to stress time integrators even further by increasing the rate of change of $\alpha(x,t)$. Increase $C_2$ to $0.5$. Keep $\kappa= 1.5625\times10^{-6}$ from (b).</p>
-<p>Repeat the process from (b), uploading the wall time, number of computing cores, processor speed, maximum memory usage, and $L_2$ error at $t=8$ to the PFHub website.</p>
+<p>Repeat the process from (b), uploading the wall time, number of computing cores, processor speed, normalized computing cost, maximum memory usage, and $L_2$ error at $t=8$ to the PFHub website.</p>
 
 </div>
 </div>
