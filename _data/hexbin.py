@@ -31,7 +31,7 @@ def check_status(datum):
 def hexbin_yaml_to_json():
     """Generate JSON image data from the YAML.
     """
-    data = yaml.load(open('_data/hexbin.yaml', 'r'))
+    data = yaml.load(open('_data/hexbin.yaml', 'r', errors='ignore'))
     data = list(filter(check_status, data))
     shuffle(data)
     data_resize = list(itertools.islice(itertools.cycle(data), 100))
