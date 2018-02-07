@@ -38,6 +38,7 @@ def fcompose(*args):
     return compose(*args[::-1])
 
 
+# pylint: disable=invalid-name
 sequence = fcompose
 
 
@@ -141,10 +142,11 @@ def filter_memory_data(yaml_data):
         """Calcuate the sim_time over wall_time ration
         """
         def not0(value):
+            """Set to 1e-10 if 0
+            """
             if value == 0:
                 return 1e-10
-            else:
-                return value
+            return value
         return pipe(
             data[-1],
             juxt(lambda x: x.get('sim_time', x.get('time')),
