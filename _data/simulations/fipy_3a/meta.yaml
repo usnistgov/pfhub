@@ -1,0 +1,107 @@
+_id: 93113e00-0c5e-11e8-b653-4f1ed6519c85
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: '2 February, 2018'
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: FiPy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '266576'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2000000'
+  - name: free_energy
+    url: 'https://ndownloader.figshare.com/files/10420491'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: 'https://ndownloader.figshare.com/files/10420491'
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: 'https://ndownloader.figshare.com/files/10420491'
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: 'https://ndownloader.figshare.com/files/10420488'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+        phase: number
+    description: Entire phase field at t=1500s
+    type: contour
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+      - type: formula
+        expr: datum.phase
+        as: z
+date: 1518046097
+layout: post
+message: ' '
