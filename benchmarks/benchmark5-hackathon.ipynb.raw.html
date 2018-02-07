@@ -1,10 +1,257 @@
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">code_show=true; </span>
+<span class="s1">function code_toggle() {</span>
+<span class="s1"> if (code_show){</span>
+<span class="s1"> $(&#39;div.input&#39;).hide();</span>
+<span class="s1"> $(&#39;div.prompt&#39;).hide();</span>
+<span class="s1"> } else {</span>
+<span class="s1"> $(&#39;div.input&#39;).show();</span>
+<span class="s1">$(&#39;div.prompt&#39;).show();</span>
+<span class="s1"> }</span>
+<span class="s1"> code_show = !code_show</span>
+<span class="s1">} </span>
+<span class="s1">$( document ).ready(code_toggle);</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Code Toggle&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[1]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $('div.input').hide();
+ $('div.prompt').hide();
+ } else {
+ $('div.input').show();
+$('div.prompt').show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+</script>
+<form action="javascript:code_toggle()"><input type="submit" value="Code Toggle"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="nx">javascript</span>
+    <span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+      <span class="nx">TeX</span><span class="o">:</span> <span class="p">{</span> <span class="nx">equationNumbers</span><span class="o">:</span> <span class="p">{</span> <span class="nx">autoNumber</span><span class="o">:</span> <span class="s2">&quot;AMS&quot;</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="p">});</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+
+<div id="98244d19-a1a2-470d-aeb5-7d5ddc833c51"></div>
+<div class="output_subarea output_javascript ">
+<script type="text/javascript">
+var element = $('#98244d19-a1a2-470d-aeb5-7d5ddc833c51');
+    MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;a href=&quot;https://raw.githubusercontent.com/{{ site.links.repo }}/master/benchmarks/benchmark5-hackathon.ipynb&quot;</span>
+<span class="s1">   download=&quot;benchmark5-hackathon.ipynb&quot;&gt;</span>
+<span class="s1">&lt;button type=&quot;submit&quot;&gt;Download Notebook&lt;/button&gt;</span>
+<span class="s1">&lt;/a&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<a href="https://raw.githubusercontent.com/{{ site.links.repo }}/master/benchmarks/benchmark5-hackathon.ipynb"
+   download="benchmark5-hackathon.ipynb">
+<button type="submit">Download Notebook</button>
+</a>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Benchmark-Problem-5-Spec">Benchmark Problem 5 Spec<a class="anchor-link" href="#Benchmark-Problem-5-Spec">&#182;</a></h1>
+<h1 id="Benchmark-Problem-5:-Stokes-Flow">Benchmark Problem 5: Stokes Flow<a class="anchor-link" href="#Benchmark-Problem-5:-Stokes-Flow">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;{</span><span class="si">% i</span><span class="s1">nclude jupyter_benchmark_table.html num=&quot;[5]&quot; revision=0 %}&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+{% include jupyter_benchmark_table.html num="[5]" revision=0 %}
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>See the Overleaf document entitled <a href="https://www.overleaf.com/read/nqjkdwyybvdz">"Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h1><p>Flow of a liquid can be incorporated into phase field models, so we present this benchmark problem for incompressible fluid flow through a channel (the flow of many liquids can be modeled as incompressible). The flow of a fluid can generally be modeled via the Navier-Stokes equations.  When length scales are small, fluid velocities are low, and/or viscosity is large, such that the Reynolds number $Re<<1$, inertial forces are small compared with viscous forces, resulting in a simplification of Navier-Stokes flow to Stokes flow.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Model-Formulation">Model Formulation<a class="anchor-link" href="#Model-Formulation">&#182;</a></h1><h2 id="Governing-Equations">Governing Equations<a class="anchor-link" href="#Governing-Equations">&#182;</a></h2><p>In this problem, two variables are used: the fluid velocity, $\textbf{u}$, which is a vector field, and the fluid pressure, $p$, which is a scalar field.  The Stokes momentum equation is given as</p>
+\begin{equation}
+-\mu \nabla^{2} \textbf{u} + \nabla p - \rho \textbf{g} = 0,
+\end{equation}<p>where $\rho$ is the density, assumed constant in this problem, $\mu$ is the dynamic viscosity, and $\textbf{g}$ is the acceleration due to gravity.  To fully describe fluid flow, the momentum balance equation is supplemented with the continuity equation for mass flow,</p>
+\begin{equation}
+\frac{d\rho}{dt}+\nabla\cdot\left(\rho{\mathbf u}\right)=0;
+\end{equation}<p>this simplifies to 
+\begin{equation}
+\nabla \cdot \textbf{u} = 0
+\end{equation}</p>
+<p>for incompressible flow.  Use $\rho=100$, $\mu=1$, and $\textbf{g}=(0,-0.001)$.</p>
+<h2 id="Domain">Domain<a class="anchor-link" href="#Domain">&#182;</a></h2><p>In this problem, we consider flow in a 2D channel (a) without and (b) with an obstruction.  The computational domain for case (b) is shown below with inlet boundary condition indicated by arrows for the Stokes flow benchmark problem with an obstruction (case (b)).  The domain and boundary conditions, etc., for case (a) are the same as that in case (b), but without the obstruction.</p>
+<h3 id="Figure-1:-Domain-for-variation-(b)">Figure 1: Domain for variation (b)<a class="anchor-link" href="#Figure-1:-Domain-for-variation-(b)">&#182;</a></h3><p><img src="../../images/stokes_domain.png" alt="stokes domain"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Boundary-Conditions">Boundary Conditions<a class="anchor-link" href="#Boundary-Conditions">&#182;</a></h2><p>All solid surfaces, including the boundary for the obstruction, have no-slip boundary conditions, that is, $u_x=u_y=0$.  The inlet velocity, on the left boundary, follows a parabolic profile described by</p>
+\begin{equation}
+u_x(0,y) = -0.001(y-3)^2+0.009.
+\end{equation}<p>The outlet velocity (on the right boundary) is left to the solver to determine, as is the pressure over the entire domain.  However, we specify that the pressure at point (30, 6) is zero.  Finally, the obstruction is described by an ellipse centered at (7, 2.5).  The semi-major axis (in the <em>y</em>-direction) is $a=1.5$, and the semi-minor axis (in the <em>x</em>-direction) is $b=1$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h2><p>Both variation (a) and (b) should be run to steady state.
+Please submit the steady state pressure and the steady state velocity fields for both variation (a) and (b) along the $x=7$ and $y=5$ cut planes.</p>
+<p>This will require two CSV or JSON files for each variation. Please,</p>
+<ul>
+<li><p>link to your first CSV or JSON file, labeled x_cut_plane in the upload form; the columns or keys should be named y, velocity_x, velocity_y and pressure</p>
+</li>
+<li><p>link to your second CSV or JSON file, labeled y_cut_plane in the upload form; the columns or keys should be named x, velocity_x, velocity_y and pressure</p>
+</li>
+</ul>
+<p>Further data to upload can include images of the pressure and velocity fields at steady state. These are not required, but will help others view your work.</p>
+
 </div>
 </div>
 </div>

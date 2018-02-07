@@ -94,6 +94,36 @@
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
         url: "hackathons/hackathon2/problem2.ipynb"
 
+- title: Stokes Flow
+  description: Incompressible Stokes flow in 2D
+  image: images/stokes-cropped.png
+  num: 5
+  revisions:
+    - version: 0
+      variations: [a, b]
+      event:
+        name: Hackathon 4
+        url: "https://www.overleaf.com/read/nqjkdwyybvdz"
+      url: "benchmarks/benchmark5-hackathon.ipynb"
+      commit:
+        sha: "1519c74da405"
+        url: "benchmarks/benchmark5-hackathon.ipynb"
+
+- title: Electrostatics
+  description: Coupled electrostatics and Cahn-Hilliard dynamics
+  image: images/electrochem-cropped.png
+  num: 6
+  revisions:
+    - version: 0
+      variations: [a, b]
+      event:
+        name: Hackathon 4
+        url: "https://www.overleaf.com/read/nqjkdwyybvdz"
+      url: "benchmarks/benchmark6-hackathon.ipynb"
+      commit:
+        sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
+        url: "benchmarks/benchmark6-hackathon.ipynb"
+
 - title: MMS Allen-Cahn
   description: Use the Method of Manufactured Solutions to verify codes
   image: images/elastic1.png
