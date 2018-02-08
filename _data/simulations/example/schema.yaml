@@ -7,6 +7,12 @@ mapping:
   "date":
     type: timestamp
     required: False
+  "layout":
+    type: str
+    required: False
+  "message":
+    type: str
+    required: False
   "data": &data
     type: seq
     required: True
@@ -41,7 +47,7 @@ mapping:
     mapping:
       "id":
         type: str
-        enum: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d", "6a", "6b"]
+        enum: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d", "6a", "6b", "7a", "7b", "7c"]
         required: True
       "version":
         type: number
