@@ -333,7 +333,9 @@ def process_chart(id_, data, j2_file_name):
     """
     return pipe(
         get_chart_file(j2_file_name),
-        render_yaml(data=data, id_=id_, marks=get_marks()[id_]),
+        render_yaml(data=data,
+                    id_=id_,
+                    marks=get_marks().get(id_, get_marks()['default'])),
         yaml.load
     )
 

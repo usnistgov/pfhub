@@ -29,6 +29,12 @@ data:
   id_: 1c.1
   name: fipy_1c_travis
   timestamp: 2017/01/10 01:27:20
+- author: {email: daniel.wheeler2@gmail.com, name: Daniel Wheeler}
+  code: {name: FiPy, url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'}
+  cores: 1
+  id_: 3a.1
+  name: fipy_3a
+  timestamp: 2018/02/02 00:00:00
 - author: {email: guyer@nist.gov, name: Jon Guyer}
   code: {name: fipy, url: 'https://github.com/guyer/hackathonIII'}
   cores: 1
