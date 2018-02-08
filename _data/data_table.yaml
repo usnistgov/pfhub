@@ -1,4 +1,10 @@
 data:
+- author: {email: stvdwtt@umich.edu, name: Stephen DeWitt}
+  code: {name: PRISMS-PF, url: 'https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark7'}
+  cores: 6
+  id_: 7a.0
+  name: PRISMSPF_Quad
+  timestamp: 2018/02/07 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://www.dropbox.com/s/qusutz8g24hx54q/free_energy.csv'}
   cores: 6

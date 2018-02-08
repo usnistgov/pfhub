@@ -15,6 +15,7 @@ import jinja2
 # pylint: disable=redefined-builtin, no-name-in-module
 from toolz.curried import map, pipe, get, curry, filter, compose, juxt
 from toolz.curried import valmap, itemmap, groupby, memoize, keymap, update_in
+from toolz.curried import valfilter
 import yaml
 
 
@@ -35,6 +36,10 @@ def fcompose(*args):
       composed functions
     """
     return compose(*args[::-1])
+
+
+# pylint: disable=invalid-name
+sequence = fcompose
 
 
 def read_yaml(filepath):
@@ -112,7 +117,8 @@ def filter_data(field, yaml_data):
         valmap(lambda val: val['data']),
         valmap(filter(lambda item: item['name'].lower() == field)),
         valmap(list),
-        valmap(get(0)),
+        valmap(get(0, default=None)),
+        valfilter(lambda x: x is not None),
         itemmap(lambda item: (item[0], update_dict(item[1], name=item[0]))),
         lambda dict_: sorted(list(dict_.values()),
                              key=lambda item: item['name']),
@@ -135,11 +141,17 @@ def filter_memory_data(yaml_data):
     def time_ratio(data):
         """Calcuate the sim_time over wall_time ration
         """
+        def not0(value):
+            """Set to 1e-10 if 0
+            """
+            if value == 0:
+                return 1e-10
+            return value
         return pipe(
             data[-1],
             juxt(lambda x: x.get('sim_time', x.get('time')),
                  lambda x: x.get('wall_time', x.get('time'))),
-            lambda x: float(x[0]) / float(x[1])
+            lambda x: float(x[0]) / not0(float(x[1]))
         )
 
     def memory_usage(data):
@@ -363,6 +375,7 @@ def main(filter_func, j2_file_name):
     """
     return pipe(
         get_data(filter_func),
+        valfilter(lambda x: len(x) > 0),
         itemmap(
             lambda item: (
                 item[0],
@@ -428,7 +441,6 @@ def j2_to_json(path_in, path_out, **kwargs):
       path_in: the j2 template path
       path_out: the JSON path to write to
       kwargs: data to pass to the j2 template
-
     Returns:
       the file path and JSON string
     """
