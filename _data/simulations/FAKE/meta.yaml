@@ -1,0 +1,38 @@
+_id: fd11b2c0-0cf0-11e8-afaf-7fed87241dc1
+metadata:
+  author:
+    first: s
+    last: s
+    email: s@a
+    github_id: s
+  timestamp: '8 February, 2018'
+  summary: s
+  implementation:
+    name: s
+    repo:
+      url: >-
+        https://github.com/prisms-center/phaseField_dev/blob/v2.0.2_MgRE/applications/_MgNd_B1/parameters.in
+      version: 38f845921fa4e4986afcc01dbaca0fb541d8c0cd
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '1'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1'
+        sim_time: '1'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1'
+commentDate: '2018-02-08T16:56:21.787Z'
+date: 1518108981
+timestamp: 1518108981
