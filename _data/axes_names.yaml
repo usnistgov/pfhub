@@ -1,0 +1,16 @@
+- name: free_energy
+  x_title: Time
+  y_title: Free Energy
+  x_scale: log
+  y_scale: log
+  minimum: 0.01
+- name: solid_fraction
+  y_title: Solid Fraction
+  x_title: Time
+  x_scale: linear
+  y_scale: linear
+- name: tip_position
+  y_title: Tip Position
+  x_title: Time
+  x_scale: linear
+  y_scale: linear
