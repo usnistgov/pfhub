@@ -35,7 +35,7 @@ data:
       - unit: KB
         value: '2000000'
   - name: free_energy
-    url: 'https://ndownloader.figshare.com/files/10420491'
+    url: 'https://ndownloader.figshare.com/files/10443456'
     format:
       type: csv
       parse:
@@ -51,7 +51,7 @@ data:
         expr: datum.free_energy
         as: 'y'
   - name: solid_fraction
-    url: 'https://ndownloader.figshare.com/files/10420491'
+    url: 'https://ndownloader.figshare.com/files/10443456'
     format:
       type: csv
       parse:
@@ -67,7 +67,7 @@ data:
         expr: datum.solid_fraction
         as: 'y'
   - name: tip_position
-    url: 'https://ndownloader.figshare.com/files/10420491'
+    url: 'https://ndownloader.figshare.com/files/10443456'
     format:
       type: csv
       parse:
