@@ -462,7 +462,7 @@ ploterize = (data) ->
   return data
 
 
-build = (data, sim_name, codes_data, chart_data) ->
+build = (data, sim_name, codes_data, chart_data, axes_names) ->
   ### Build the simulation landing page
 
   Args:
@@ -483,7 +483,7 @@ build = (data, sim_name, codes_data, chart_data) ->
   results_table(data)
 
   result_data = groupBy(((x) -> x.type), data.data)
-  vega_data = vegarize(chart_data)(result_data.line)
+  vega_data = vegarize(chart_data, axes_names)(result_data.line)
 
   if result_data.image?
     add_card(add_image, '#logo_image', with_div = id)(result_data.image[0..0])

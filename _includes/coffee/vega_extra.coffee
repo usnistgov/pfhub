@@ -3,7 +3,7 @@ Extra functions to build and parse Vega charts
 ###
 
 
-update_vega_data = (data) ->
+update_vega_data = (axes_names, data) ->
   ### Update chart data depending on name of the data
 
   Args:
@@ -13,14 +13,19 @@ update_vega_data = (data) ->
     the updated data
   ###
   x = copy_(data)
-  if x.data[0].name is 'free_energy'
-    x.axes[0].title = 'Time'
-    x.axes[1].title = 'Free Energy'
-    x.scales[0].type = 'log'
-    x.scales[1].type = 'log'
-    x.data[0].transform.push({expr:'datum.x > 0.01', type:'filter'})
+  axes_data = axes_names.filter((y) -> y.name is x.data[0].name)
+  if axes_data.length > 0
+    x.axes[0].title = axes_data[0].x_title
+    x.axes[1].title = axes_data[0].y_title
+    x.scales[0].type = axes_data[0].x_scale
+    x.scales[1].type = axes_data[0].y_scale
+    if axes_data[0].minimum?
+      x.data[0].transform.push(
+        {expr:'datum.x > ' + axes_data[0].minimum, type:'filter'}
+      )
   x.data[0].name = 'the_data'
   x
+
 
 
 combine_vega_data = curry(
@@ -31,7 +36,7 @@ combine_vega_data = curry(
 )
 
 
-vegarize = (chart_data) ->
+vegarize = (chart_data, axes_names) ->
   ### Generate function to combine a Vega plot and its data
 
   Args:
@@ -42,7 +47,7 @@ vegarize = (chart_data) ->
   ###
   sequence(
     map(combine_vega_data(chart_data)),
-    map(update_vega_data)
+    map((x) -> update_vega_data(axes_names, x))
   )
 
 
