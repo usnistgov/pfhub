@@ -24,7 +24,6 @@ update_vega_data = (axes_names, data) ->
         {expr:'datum.x > ' + axes_data[0].minimum, type:'filter'}
       )
   x.data[0].name = 'the_data'
-  console.log(x)
   x
 
 
