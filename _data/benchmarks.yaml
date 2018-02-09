@@ -69,6 +69,23 @@
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
         url: "hackathons/hackathon2/problem1.ipynb"
+  data:
+    - name: free_energy
+      title: Free Energy
+      x_title: Time
+      y_title: Free Energy
+      x_scale: log
+      y_scale: log
+      minimum: 0.01
+      type: line
+    - name: tip_position
+      title: Tip Position
+      x_title: Time
+      y_title: Free Energy
+      x_scale: log
+      y_scale: log
+      minimum: 0.01
+      type: line
 
 - title: Linear Elasticity
   description: Linear elasticity via evolution of a constrained precipitate
