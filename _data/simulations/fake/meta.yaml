@@ -1,0 +1,35 @@
+_id: ba2f5fc0-1038-11e8-9a18-e7aef873d3ef
+metadata:
+  author:
+    first: fake
+    last: fake
+    email: fake@fake.com
+    github_id: fake
+  timestamp: '12 February, 2018'
+  summary: fake
+  implementation:
+    name: fake
+    repo:
+      url: 'https://github.com/fake'
+      version: a12a12a12a12a12a12a12a12a12a12a12a12
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '10'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '0'
+        sim_time: '1000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1'
+date: 1518469646
