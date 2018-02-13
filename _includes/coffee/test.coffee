@@ -276,3 +276,29 @@ describe('test filter_num_revision', ->
     assert.deepEqual(filter_num_revision(null, null)(data_in()), true)
   )
 )
+
+
+describe('test to_list', ->
+  it('simple test', ->
+    assert.deepEqual(
+      to_list('my_key', {a:{b:1}, c:{b:2}})
+      [{my_key:'a', b:1}, {my_key:'c', b:2}]
+    )
+  )
+)
+
+
+describe('test pluck_arr', ->
+  it('simple test', ->
+    assert.deepEqual(
+      pluck_arr('a', [{a:1}, {a:2}])
+      [1, 2]
+    )
+  )
+  it('missing key', ->
+    assert.deepEqual(
+      pluck_arr('a', [{a:1}, {b:2}])
+      [1, null]
+    )
+  )
+)

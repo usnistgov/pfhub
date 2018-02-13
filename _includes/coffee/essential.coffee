@@ -374,20 +374,31 @@ flat_key_from_list = curry(
 
 to_list = curry(
   (key, dict) ->
-    ### make a dictionary into a list
+    ### Make a dictionary into a list
 
     For example
 
-      {a:{b:1}, c:{b:1}}
+      {a:{b:1}, c:{b:2}}
 
     goes to
 
-      [{key:a,b:1}, {key:c,b:1}]
+      [{key:a, b:1}, {key:c, b:2}]
     ###
     (Object.assign({}, v, {"#{key}":k}) for k, v of dict)
 )
 
 pluck_arr = curry(
   (key, arr) ->
+    ### Pluck a value from a list of dictionaries.
+
+    For example
+
+      [{a:1}, {a:2}]
+
+    goes to
+
+      [1, 2]
+
+    ###
     map((x) -> x[key])(arr)
 )
