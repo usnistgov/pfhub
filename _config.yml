@@ -14,7 +14,7 @@ links:
   live_url: https://pages.nist.gov/pfhub
   raw_name: pfhub
   contributors: https://github.com/usnistgov/pfhub/graphs/contributors
-  license: https://github.com/usnistgov/pfhub/blob/nist-pages/LICENSE
+  license: https://github.com/usnistgov/pfhub/blob/nist-pages/LICENSE.md
   repo: usnistgov/pfhub
   github: https://github.com/usnistgov/pfhub
   chat_room: usnistgov/chimad-phase-field
