@@ -18,6 +18,7 @@
 {% assign temp = include.benchmark_id | split: '.' | first %}
 {% assign size = temp | size | minus: 1 %}
 {% assign benchmark_num = temp | slice: 0, size %}
+{% assign benchmark_version = include.benchmark_id | split: '.' | last %}
 {% for item in site.data.benchmarks %}
   {% comment %}item.num needs to be a string so using capture here{% endcomment %}
   {% capture item_num %}{{ item.num }}{% endcapture %}
@@ -29,7 +30,9 @@
 <div class="container">
   <div class="row small-buffer">
     {% for item in chart_data %}
-      <div class="col s6 m6 l6 xl6" id="chart_{{ item.name }}">
+      <div class="col s6 m6 l6 xl6">
+        <div id="chart_{{ item.name }}">
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -73,7 +76,8 @@
 
 
 <script> var CHART_DATA = {{ chart_data | jsonify }}; </script>
-<script> var benchmark_id = "{{ include.benchmark_id }}"; </script>
+<script> var BENCHMARK_ID = "{{ include.benchmark_id }}"; </script>
+<script> var SIMULATION_DATA = {{ site.data.simulations | jsonify }}; </script>
 <script src="{{ site.baseurl }}/js/result_comparison.js"></script>
 <script src="{{ site.baseurl }}/js/data_table.js"></script>
 

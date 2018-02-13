@@ -370,3 +370,24 @@ flat_key_from_list = curry(
     ###
     concat.apply(_, map(flat_key(key), data))
 )
+
+
+to_list = curry(
+  (key, dict) ->
+    ### make a dictionary into a list
+
+    For example
+
+      {a:{b:1}, c:{b:1}}
+
+    goes to
+
+      [{key:a,b:1}, {key:c,b:1}]
+    ###
+    (Object.assign({}, v, {"#{key}":k}) for k, v of dict)
+)
+
+pluck_arr = curry(
+  (key, arr) ->
+    map((x) -> x[key])(arr)
+)

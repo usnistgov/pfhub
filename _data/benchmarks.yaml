@@ -84,7 +84,6 @@
       y_title: Free Energy
       x_scale: log
       y_scale: log
-      minimum: 0.01
       type: line
 
 - title: Linear Elasticity

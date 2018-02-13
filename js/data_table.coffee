@@ -22,9 +22,9 @@ fbenchmark = (data, type, row) ->
 create_table = (data_in) ->
   data_raw = data_in['data']
 
-  data_filter = (datum for datum in data_raw when datum['id_'] is benchmark_id)
+  data_filter = (datum for datum in data_raw when datum['id_'] is BENCHMARK_ID)
 
-  data_table = if benchmark_id is '' then data_raw else data_filter
+  data_table = if BENCHMARK_ID is '' then data_raw else data_filter
 
   data = {
     responsive: true
