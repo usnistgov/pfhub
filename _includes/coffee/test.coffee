@@ -302,3 +302,66 @@ describe('test pluck_arr', ->
     )
   )
 )
+
+
+describe('test get', ->
+  it('simple test', ->
+    assert.deepEqual(
+      get(1, [1, 2, 3])
+      2
+    )
+  )
+)
+
+describe('result_comparison functions', ->
+  data = ->
+    [
+      {
+        name:'test'
+        meta:
+          benchmark:
+            id: '3a'
+            version: '1'
+          data: [
+            {
+              name: 'free_energy'
+              url: 'https://ndownloader.figshare.com/files/10443456'
+              format:
+                type: 'csv'
+                parse:
+                  time: 'number'
+                  free_energy: 'number'
+              description: 'Free energy versus time'
+              type: 'line'
+              transform: [
+                {
+                  type: 'formula'
+                  expr: 'datum.time'
+                  as: 'x'
+                },
+                {
+                  type: 'formula'
+                  expr: 'datum.free_energy'
+                  as: 'y'
+                }
+              ]
+            }
+          ]
+      }
+    ]
+  chart_data = ->
+    name: 'free_energy'
+    title: 'my plot'
+  it('simple test', ->
+    assert.deepEqual(
+      data()[0]['meta']['data'][0].name
+      'free_energy'
+    )
+  )
+  it('test get_plotly_data', ->
+    assert.deepEqual(
+      get_plotly_data(data(), chart_data()).data[0].x[0]
+      0
+    )
+  )
+)

@@ -3,19 +3,36 @@ Functions to generate the comparison pages
 ###
 
 
-add_plotly_chart = (simulation_data, benchmark_id) ->
-  sequence(
-    (x) ->
-      {
-        data:get_comparison_data(benchmark_id, x.name)(simulation_data)
-        div:'chart_' + x.name
-        layout:{title:x.title, showlegend: true}
-      }
-    (x) -> Plotly.newPlot(x.div, x.data, x.layout)
-  )
+get_plotly_data = curry(
+  (data, chart_item) ->
+    ### Given a set of simulation, extract a Plotly plot for each set
+    of chart data
+
+    Args:
+      data: the simulation data
+      chart_item: an element of the chart data
+
+    Returns:
+      the Plotly data for the given chart item
+    ###
+    {
+      data:get_comparison_data(chart_item.name, data)
+      div:'chart_' + chart_item.name
+      layout:{title:chart_item.title, showlegend: true}
+    }
+)
 
 
 vega_to_plotly = (data_name, sim_name) ->
+  ### Convert a Vega data item to a Plotly data item
+
+  Args:
+    data_name: the name of the data to extract
+    sim_name: the name of the given simulation data item
+
+  Returns:
+    a func that converts Vega to Plotly
+  ###
   sequence(
     filter((x) -> x.name is data_name)
     get(0)
@@ -29,16 +46,59 @@ vega_to_plotly = (data_name, sim_name) ->
   )
 
 
-get_comparison_data = (benchmark_id, data_name) ->
+get_comparison_data = curry(
+  (data_name, data) ->
+    ### Convert Vega data to Plotly data
+
+    Args:
+      data_name: the name of the data to extract
+      data: array of simulation data
+
+    Returns:
+      an array of all the named data extracted from each simulation
+    ###
+    map(
+      (x) -> vega_to_plotly(data_name, x.name)(x.meta.data)
+      data
+    )
+)
+
+
+filter_by_id = (benchmark_id) ->
+  ### Filter all the simulation data by benchmark_id
+
+  Args:
+    benchmark_id: the benchmark_id to use
+
+  Returns:
+    a func that filters simulation data
+  ###
   sequence(
     to_list('name')
     filter(
       (x) ->
         x.meta.benchmark.id + '.' + x.meta.benchmark.version is benchmark_id
     )
-    map((x) -> vega_to_plotly(data_name, x.name)(x.meta.data))
   )
 
 
-build = (chart_data, benchmark_id, simulation_data) ->
-  -> map(add_plotly_chart(simulation_data, benchmark_id), chart_data)
+build = (chart_data, benchmark_id, data) ->
+  ### Build the Plotly plots for the comparison pages
+
+  Args:
+    chart_data: a list of chart data to determine charts to build
+    benchmark_id: benchmark_id to filter the simulations
+    data: all the simulation data
+
+  Returns:
+    a func that builds the graphs and attaches them to tagged HTML
+    elements
+  ###
+  get_plotly_data_id = get_plotly_data(
+    filter_by_id(benchmark_id)(data)
+  )
+  newplot = sequence(
+    get_plotly_data_id
+    (x) -> Plotly.newPlot(x.div, x.data, x.layout)
+  )
+  -> map(newplot, chart_data)

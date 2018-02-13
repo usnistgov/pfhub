@@ -399,7 +399,6 @@ pluck_arr = curry(
     goes to
 
       [1, 2]
-
     ###
     map((x) -> x[key])(arr)
 )
@@ -407,5 +406,17 @@ pluck_arr = curry(
 
 get = curry(
   (key, dict) ->
+    ### Get an element of an object
+    ###
     dict[key]
+)
+
+
+debug = curry(
+  (message, x) ->
+    ### Debugging helper function
+    ###
+    console.log(message)
+    console.log(x)
+    x
 )
