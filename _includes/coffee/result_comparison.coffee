@@ -18,7 +18,7 @@ get_plotly_data = curry(
     {
       data:get_comparison_data(chart_item.name, data)
       div:'chart_' + chart_item.name
-      layout:{title:chart_item.title, showlegend: true}
+      layout:{title:chart_item.title, showlegend:true}
     }
 )
 
