@@ -387,6 +387,7 @@ to_list = curry(
     (Object.assign({}, v, {"#{key}":k}) for k, v of dict)
 )
 
+
 pluck_arr = curry(
   (key, arr) ->
     ### Pluck a value from a list of dictionaries.
@@ -401,4 +402,10 @@ pluck_arr = curry(
 
     ###
     map((x) -> x[key])(arr)
+)
+
+
+get = curry(
+  (key, dict) ->
+    dict[key]
 )
