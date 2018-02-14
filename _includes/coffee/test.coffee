@@ -317,7 +317,7 @@ describe('result_comparison functions', ->
   data = ->
     [
       {
-        name:'test'
+        name: 'test'
         meta:
           {
             benchmark:
@@ -357,6 +357,12 @@ describe('result_comparison functions', ->
           }
       }
     ]
+  data_raw = ->
+    [{meta:{benchmark:{id:'3a', version:'1'}}}
+     {meta:{benchmark:{id:'3a', version:'0'}}}
+     {meta:{benchmark:{id:'1a', version:'0'}}}
+     {meta:{benchmark:{id:'2b', version:'1'}}}
+     {meta:{benchmark:{id:'3a', version:'1'}}}]
   chart_data = ->
     {
       name:'free_energy'
@@ -364,7 +370,7 @@ describe('result_comparison functions', ->
     }
   it('simple test', ->
     assert.deepEqual(
-      data()[0]['meta']['data'][0].name
+      data()[0].meta.data[0].name
       'free_energy'
     )
   )
@@ -372,6 +378,24 @@ describe('result_comparison functions', ->
     assert.deepEqual(
       get_plotly_data(data(), chart_data()).data[0].x[0]
       0
+    )
+  )
+  it('test vega_to_plotly', ->
+    assert.deepEqual(
+      vega_to_plotly('free_energy', 'test')(data()[0].meta.data).name
+      'test'
+    )
+  )
+  it('test get_comparison_data', ->
+    assert.deepEqual(
+      get_comparison_data('free_energy', data())[0].mode
+      'lines'
+    )
+  )
+  it('test filter_by_id', ->
+    assert.deepEqual(
+      filter_by_id('3a.1')(data_raw()).length
+      2
     )
   )
 )
