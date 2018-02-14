@@ -78,6 +78,7 @@
       y_scale: linear
       minimum: 0.01
       type: line
+      mode: lines
     - name: tip_position
       title: Tip Position
       x_title: Time
@@ -85,6 +86,7 @@
       x_scale: linear
       y_scale: linear
       type: line
+      mode: lines
     - name: solid_fraction
       title: Solid Fraction
       y_title: Solid Fraction
@@ -92,13 +94,26 @@
       x_scale: linear
       y_scale: linear
       type: line
+      mode: lines
     - name: phase_field_1500
-      type: contour
+      type: line
       x_scale: linear
       y_scale: linear
       x_title: ''
       y_title: ''
       title: 'Solid / Liquid Boundary at t=1500'
+      x_domain: [0, 500]
+      y_domain: [0, 500]
+      y_scaleanchor: x
+      mode: lines
+    - name: efficiency
+      type: line
+      x_scale: log
+      y_scale: log
+      x_title: 'Sim Time / Wall Time'
+      y_title: 'Memory Usage (KB)'
+      title: Efficiency
+      mode: markers
 
 - title: Linear Elasticity
   description: Linear elasticity via evolution of a constrained precipitate

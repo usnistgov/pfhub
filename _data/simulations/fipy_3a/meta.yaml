@@ -34,6 +34,17 @@ data:
     values:
       - unit: KB
         value: '2000000'
+  - name: efficiency
+    values:
+      - time_ratio: 0.005626
+        memory: 2000000.0
+    transform:
+      - type: formula
+        expr: datum.time_ratio
+        as: x
+      - type: formula
+        expr: datum.memory
+        as: 'y'
   - name: free_energy
     url: 'https://ndownloader.figshare.com/files/10443456'
     format:

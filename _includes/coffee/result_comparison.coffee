@@ -16,39 +16,46 @@ get_plotly_data = curry(
       the Plotly data for the given chart item
     ###
     {
-      data:get_comparison_data(chart_item.name, data)
+      data:get_comparison_data(chart_item, data)
       div:'chart_' + chart_item.name
       layout:
         {
           title:chart_item.title
           showlegend:true
+          autosize:true
+          width:450
+          height:450
           xaxis:
             {
               title:chart_item.x_title
               type:chart_item.x_scale
+              domain:chart_item.x_domain
+              scaleanchor:chart_item.x_scaleanchor
             }
           yaxis:
             {
+              scaleanchor:chart_item.y_scaleanchor
               title: chart_item.y_title
               type:chart_item.y_scale
+              domain:chart_item.y_domain
             }
         }
     }
 )
 
 
-vega_to_plotly = (data_name, sim_name) ->
+vega_to_plotly = (chart_item, sim_name) ->
   ### Convert a Vega data item to a Plotly data item
 
   Args:
-    data_name: the name of the data to extract
+    chart_item: the chart data item
     sim_name: the name of the given simulation data item
 
   Returns:
     a func that converts Vega to Plotly
   ###
   sequence(
-    filter((x) -> x.name is data_name)
+    filter((x) -> x.name is chart_item.name)
     get(0)
     read_vega_data
     (x) ->
@@ -56,7 +63,7 @@ vega_to_plotly = (data_name, sim_name) ->
         x:pluck_arr('x', x.values)
         y:pluck_arr('y', x.values)
         type:'scatter'
-        mode:'lines'
+        mode:chart_item.mode
         name:sim_name
       }
   )
