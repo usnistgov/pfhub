@@ -74,17 +74,31 @@
       title: Free Energy
       x_title: Time
       y_title: Free Energy
-      x_scale: log
-      y_scale: log
+      x_scale: linear
+      y_scale: linear
       minimum: 0.01
       type: line
     - name: tip_position
       title: Tip Position
       x_title: Time
-      y_title: Free Energy
-      x_scale: log
-      y_scale: log
+      y_title: Tip Position
+      x_scale: linear
+      y_scale: linear
       type: line
+    - name: solid_fraction
+      title: Solid Fraction
+      y_title: Solid Fraction
+      x_title: Time
+      x_scale: linear
+      y_scale: linear
+      type: line
+    - name: phase_field_1500
+      type: contour
+      x_scale: linear
+      y_scale: linear
+      x_title: ''
+      y_title: ''
+      title: 'Solid / Liquid Boundary at t=1500'
 
 - title: Linear Elasticity
   description: Linear elasticity via evolution of a constrained precipitate

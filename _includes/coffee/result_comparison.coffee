@@ -5,7 +5,7 @@ Functions to generate the comparison pages
 
 get_plotly_data = curry(
   (data, chart_item) ->
-    ### Given a set of simulation, extract a Plotly plot for each set
+    ### Given a set of simulations, extract a Plotly plot for each set
     of chart data
 
     Args:
@@ -18,7 +18,21 @@ get_plotly_data = curry(
     {
       data:get_comparison_data(chart_item.name, data)
       div:'chart_' + chart_item.name
-      layout:{title:chart_item.title, showlegend:true}
+      layout:
+        {
+          title:chart_item.title
+          showlegend:true
+          xaxis:
+            {
+              title:chart_item.x_title
+              type:chart_item.x_scale
+            }
+          yaxis:
+            {
+              title: chart_item.y_title
+              type:chart_item.y_scale
+            }
+        }
     }
 )
 
@@ -37,12 +51,14 @@ vega_to_plotly = (data_name, sim_name) ->
     filter((x) -> x.name is data_name)
     get(0)
     read_vega_data
-    (x) -> {
-      x:pluck_arr('x', x.values)
-      y:pluck_arr('y', x.values)
-      mode:'lines'
-      name:sim_name
-    }
+    (x) ->
+      {
+        x:pluck_arr('x', x.values)
+        y:pluck_arr('y', x.values)
+        type:'scatter'
+        mode:'lines'
+        name:sim_name
+      }
   )
 
 
