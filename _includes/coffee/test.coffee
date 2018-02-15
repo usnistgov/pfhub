@@ -317,7 +317,7 @@ describe('result_comparison functions', ->
   data = ->
     [
       {
-        name: 'test'
+        name:'test'
         meta:
           {
             benchmark:

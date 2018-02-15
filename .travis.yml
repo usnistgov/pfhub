@@ -23,8 +23,8 @@ install:
   - npm install -g mocha
   - npm install -g assert
   - npm install -g surge
-  - npm install datalib
-  - npm install expr-eval
+  - npm install -g datalib
+  - npm install -g expr-eval
 script:
   - pylint _data/*.py
   - flake8 _data/*.py

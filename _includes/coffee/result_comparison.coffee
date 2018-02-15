@@ -35,7 +35,7 @@ get_plotly_data = curry(
           yaxis:
             {
               scaleanchor:chart_item.y_scaleanchor
-              title: chart_item.y_title
+              title:chart_item.y_title
               type:chart_item.y_scale
               domain:chart_item.y_domain
             }
