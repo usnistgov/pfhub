@@ -313,90 +313,90 @@ describe('test get', ->
   )
 )
 
-describe('result_comparison functions', ->
-  data = ->
-    [
-      {
-        name:'test'
-        meta:
-          {
-            benchmark:
-              {
-                id:'3a'
-                version:'1'
-              }
-            data:[
-              {
-                name:'free_energy'
-                url:'https://ndownloader.figshare.com/files/10443456'
-                format:
-                  {
-                    type:'csv'
-                    parse:
-                      {
-                        time:'number'
-                        free_energy:'number'
-                      }
-                  }
-                description:'Free energy versus time'
-                type:'line'
-                transform:[
-                  {
-                    type:'formula'
-                    expr:'datum.time'
-                    as:'x'
-                  },
-                  {
-                    type:'formula'
-                    expr:'datum.free_energy'
-                    as:'y'
-                  }
-                ]
-              }
-            ]
-          }
-      }
-    ]
-  data_raw = ->
-    [{meta:{benchmark:{id:'3a', version:'1'}}}
-     {meta:{benchmark:{id:'3a', version:'0'}}}
-     {meta:{benchmark:{id:'1a', version:'0'}}}
-     {meta:{benchmark:{id:'2b', version:'1'}}}
-     {meta:{benchmark:{id:'3a', version:'1'}}}]
-  chart_data = ->
-    {
-      name:'free_energy'
-      title:'my plot'
-      mode:'lines'
-    }
-  it('simple test', ->
-    assert.deepEqual(
-      data()[0].meta.data[0].name
-      'free_energy'
-    )
-  )
-  it('test get_plotly_data', ->
-    assert.deepEqual(
-      get_plotly_data(data(), chart_data()).data[0].x[0]
-      0
-    )
-  )
-  it('test vega_to_plotly', ->
-    assert.deepEqual(
-      vega_to_plotly(chart_data(), 'test')(data()[0].meta.data).name
-      'test'
-    )
-  )
-  it('test get_comparison_data', ->
-    assert.deepEqual(
-      get_comparison_data(chart_data(), data())[0].mode
-      'lines'
-    )
-  )
-  it('test filter_by_id', ->
-    assert.deepEqual(
-      filter_by_id('3a.1')(data_raw()).length
-      2
-    )
-  )
-)
+# describe('result_comparison functions', ->
+#   data = ->
+#     [
+#       {
+#         name:'test'
+#         meta:
+#           {
+#             benchmark:
+#               {
+#                 id:'3a'
+#                 version:'1'
+#               }
+#             data:[
+#               {
+#                 name:'free_energy'
+#                 url:'https://ndownloader.figshare.com/files/10443456'
+#                 format:
+#                   {
+#                     type:'csv'
+#                     parse:
+#                       {
+#                         time:'number'
+#                         free_energy:'number'
+#                       }
+#                   }
+#                 description:'Free energy versus time'
+#                 type:'line'
+#                 transform:[
+#                   {
+#                     type:'formula'
+#                     expr:'datum.time'
+#                     as:'x'
+#                   },
+#                   {
+#                     type:'formula'
+#                     expr:'datum.free_energy'
+#                     as:'y'
+#                   }
+#                 ]
+#               }
+#             ]
+#           }
+#       }
+#     ]
+#   data_raw = ->
+#     [{meta:{benchmark:{id:'3a', version:'1'}}}
+#      {meta:{benchmark:{id:'3a', version:'0'}}}
+#      {meta:{benchmark:{id:'1a', version:'0'}}}
+#      {meta:{benchmark:{id:'2b', version:'1'}}}
+#      {meta:{benchmark:{id:'3a', version:'1'}}}]
+#   chart_data = ->
+#     {
+#       name:'free_energy'
+#       title:'my plot'
+#       mode:'lines'
+#     }
+#   it('simple test', ->
+#     assert.deepEqual(
+#       data()[0].meta.data[0].name
+#       'free_energy'
+#     )
+#   )
+#   it('test get_plotly_data', ->
+#     assert.deepEqual(
+#       get_plotly_data(data(), chart_data()).data[0].x[0]
+#       0
+#     )
+#   )
+#   it('test vega_to_plotly', ->
+#     assert.deepEqual(
+#       vega_to_plotly(chart_data(), 'test')(data()[0].meta.data).name
+#       'test'
+#     )
+#   )
+#   it('test get_comparison_data', ->
+#     assert.deepEqual(
+#       get_comparison_data(chart_data(), data())[0].mode
+#       'lines'
+#     )
+#   )
+#   it('test filter_by_id', ->
+#     assert.deepEqual(
+#       filter_by_id('3a.1')(data_raw()).length
+#       2
+#     )
+#   )
+# )
