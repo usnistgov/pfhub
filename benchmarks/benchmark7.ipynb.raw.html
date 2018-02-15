@@ -24,10 +24,10 @@
 
 
 
-<div id="312097b0-028f-4114-9977-1afad10e67b8"></div>
+<div id="50a21392-feb7-421d-b218-798c8815741d"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#312097b0-028f-4114-9977-1afad10e67b8');
+var element = $('#50a21392-feb7-421d-b218-798c8815741d');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -269,7 +269,7 @@ $$\begin{equation}
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition<a class="anchor-link" href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">&#182;</a></h1><p>The domain geometry is a rectangle that spans [0, 1] in $x$ and [0, 0.5] in $y$. This elongated domain was chosen to allow multiple peaks and valleys in $\eta_{sol}$ without stretching the interface too much in the $y$ direction (which causes the thickness of the interface to change) or having large regions where $\eta_{sol}$  never deviates from 0 or 1. Periodic boundary conditions are applied along the $x = 0$ and the $x = 1$ boundaries to accomodate the periodicity of $\alpha(x,t)$. Dirichlet boundary conditions of $\eta$ = 0 and $\eta$ = 1 are applied along the $y = 0$ and the $y = 0.5$ boundaries, respectively. These boundary conditions are chosen to be consistent with $\eta_{sol}(x,y,t)$. The initial condition is the manufactured solution at $t = 0$:</p>
+<h1 id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition<a class="anchor-link" href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">&#182;</a></h1><p>The domain geometry is a rectangle that spans [0, 1] in $x$ and [0, 0.5] in $y$. This elongated domain was chosen to allow multiple peaks and valleys in $\eta_{sol}$ without stretching the interface too much in the $y$ direction (which causes the thickness of the interface to change) or having large regions where $\eta_{sol}$  never deviates from 0 or 1. Periodic boundary conditions are applied along the $x = 0$ and the $x = 1$ boundaries to accomodate the periodicity of $\alpha(x,t)$. Dirichlet boundary conditions of $\eta$ = 1 and $\eta$ = 0 are applied along the $y = 0$ and the $y = 0.5$ boundaries, respectively. These boundary conditions are chosen to be consistent with $\eta_{sol}(x,y,t)$. The initial condition is the manufactured solution at $t = 0$:</p>
 $$
 \begin{equation}
 \eta_{sol}(x,y,0) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\left(\frac{1}{4}+A_2 \sin(B_2 x) \right)}{\sqrt{2 \kappa}} \right) \right] 
@@ -302,7 +302,7 @@ $$<p>The stopping condition for all calculations is when t = 8 time units, which
 </tr>
 <tr>
 <td>$B_1$</td>
-<td>8.0</td>
+<td>$8.0 \pi$</td>
 </tr>
 <tr>
 <td>$A_2$</td>
@@ -310,11 +310,11 @@ $$<p>The stopping condition for all calculations is when t = 8 time units, which
 </tr>
 <tr>
 <td>$B_2$</td>
-<td>22.0</td>
+<td>$22.0 \pi$</td>
 </tr>
 <tr>
 <td>$C_2$</td>
-<td>0.0625</td>
+<td>$0.0625 \pi$</td>
 </tr>
 </tbody>
 </table>
@@ -342,12 +342,19 @@ $$<p>The stopping condition for all calculations is when t = 8 time units, which
 $$\begin{equation}
     L_2 = \sqrt{\sum\limits_{x,y}\left(\eta^{t=8}_{x,y} - \eta_{sol}(x,y,8)\right)^2 \Delta x \Delta y}
 \end{equation}$$<p>For all of these simulations, verify that the time step is small enough that any temporal error is much smaller that the total error. This can be accomplished by decreasing the time step until it has minimal effect on the error. Ensure that at least three simulation results have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. This maximum and minimum errors in the range roughly represent a poorly resolved simulation and a very well-resolved simulation.</p>
-<p>For at least three simulations that have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, save the effective mesh size and $L_2$ error in a CSV or JSON file. Upload this file to the PFHub website as a 2D data set with the effective mesh size as the x-axis column and the $L_2$ error as the y-axis column. Calculate the effective element size as the square root of the area of the finest part of the mesh for nonuniform meshes. For irregular meshes with continous distributions of element sizes, approximate the effective mesh size as the average of the square root of the area of the smallest 5% of the elements.</p>
+<p>Save the effective element size, $h$, and the $L_2$ error for each simulation.
+<a href="https://github.com/usnistgov/pfhub/issues/491">Archive this data</a> in a
+CSV or JSON file, using one column (or key) each for $h$ and $L_2$. 
+Calculate the effective element size as the square root of the area of
+the finest part of the mesh for nonuniform meshes. For irregular meshes
+with continuous distributions of element sizes, approximate the effective
+element size as the average of the square root of the area of the smallest
+5% of the elements. Then <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">submit your results on the PFHub website</a> as a 2D data set with the effective mesh size as the x-axis column and the $L_2$ error as the y-axis column.</p>
 <p>Next, confirm that the observed order of accuracy is approximately equal to the expected value. Calculate the order of accuracy, $p$, with a least squares fit of the following function:</p>
 $$\begin{equation}
     \log(E)=p \log(R) + b
 \end{equation}$$<p>where $E$ is the $L_2$ error, $R$ is the effective element size, and b is an intercept. Deviations of ±0.2 or more from the theoretical value are to be expected (depending on the range of errors considered and other factors).</p>
-<p>Finally, perform a similar convergence test, but for the time step, systematically changing the time step and recording the $L_2$ error. Use a time step that does not vary over the course of any single simulation. Verify that the spatial discretization error is small enough that it does not substantially contribute to the total error. Once again, ensure that at least three simulations have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. Save the effective mesh size and $L_2$ error for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Upload this file to the PFHub website</a> as a 2D data set with the time step size as the x-axis column and the $L_2$ error as the y-axis column. Confirm that the observed order of accuracy is approximately equal to the expected value.</p>
+<p>Finally, perform a similar convergence test, but for the time step, systematically changing the time step and recording the $L_2$ error. Use a time step that does not vary over the course of any single simulation. Verify that the spatial discretization error is small enough that it does not substantially contribute to the total error. Once again, ensure that at least three simulations have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. <a href="https://github.com/usnistgov/pfhub/issues/491">Archive the effective mesh size and $L_2$ error</a> for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as a 2D data set with the time step size as the x-axis column and the $L_2$ error as the y-axis column. Confirm that the observed order of accuracy is approximately equal to the expected value.</p>
 
 </div>
 </div>
@@ -358,7 +365,8 @@ $$\begin{equation}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Part-(b)">Part (b)<a class="anchor-link" href="#Part-(b)">&#182;</a></h2><p>Now that your code has been verified in (a), the objective of this part is to determine the computational performance of your code at various levels of error. These results can then be used to objectively compare the performance between codes or settings within the same code. To make the problem more computationally demanding and stress solvers more than in (a), decrease $\kappa$ by a factor of $256$ to $1.5625\times10^{-6}$. This change will reduce the interfacial thickness by a factor of $16$.</p>
-<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[5\times10^{-3}, 1\times10^{-5}]$. Use the same CPU and processor type for all simulations. For the best of these simulations, save the wall time (in seconds), number of computing cores, normalized computing cost (wall time in seconds $\times$ number of cores $\times$ nominal core speed $/$ 2 GHz), maximum memory usage, and $L_2$ error at $t=8$ for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Upload this to the PFHub website</a> as two 2D data sets. For the first data set use the $L_2$ error as the x-axis column and the normalized computational cost as the the y-axis column. For the second data set,  use the $L_2$ error as the x-axis column and the wall time as the the y-axis column.</p>
+<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[5\times10^{-3}, 1\times10^{-5}]$. Use the same CPU and processor type for all simulations. For the best of these simulations, save the wall time (in seconds), number of computing cores, normalized computing cost (wall time in seconds $\times$ number of cores $\times$ nominal core speed $/$ 2 GHz), maximum memory usage, and $L_2$ error at $t=8$ for each individual simulation.  <a href="https://github.com/usnistgov/pfhub/issues/491">Archive this data</a> in a
+CSV or JSON file with one column (or key) for each of the quantities mentioned above. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as two 2D data sets. For the first data set use the $L_2$ error as the x-axis column and the normalized computational cost as the the y-axis column. For the second data set,  use the $L_2$ error as the x-axis column and the wall time as the the y-axis column.</p>
 
 </div>
 </div>
