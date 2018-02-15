@@ -1,8 +1,8 @@
 ---
 ---
 
-dl = require('datalib')
-evalexpr = require('expr-eval')
+# dl = require('datalib')
+# evalexpr = require('expr-eval')
 
 {% include coffee/essential.coffee %}
 {% include coffee/main.coffee %}
