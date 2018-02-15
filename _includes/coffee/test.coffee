@@ -367,6 +367,7 @@ describe('result_comparison functions', ->
     {
       name:'free_energy'
       title:'my plot'
+      mode:'lines'
     }
   it('simple test', ->
     assert.deepEqual(
@@ -382,13 +383,13 @@ describe('result_comparison functions', ->
   )
   it('test vega_to_plotly', ->
     assert.deepEqual(
-      vega_to_plotly('free_energy', 'test')(data()[0].meta.data).name
+      vega_to_plotly(chart_data(), 'test')(data()[0].meta.data).name
       'test'
     )
   )
   it('test get_comparison_data', ->
     assert.deepEqual(
-      get_comparison_data('free_energy', data())[0].mode
+      get_comparison_data(chart_data(), data())[0].mode
       'lines'
     )
   )

@@ -44,6 +44,7 @@ get_plotly_data = curry(
 )
 
 
+
 vega_to_plotly = (chart_item, sim_name) ->
   ### Convert a Vega data item to a Plotly data item
 
@@ -70,7 +71,7 @@ vega_to_plotly = (chart_item, sim_name) ->
 
 
 get_comparison_data = curry(
-  (data_name, data) ->
+  (chart_item, data) ->
     ### Convert Vega data to Plotly data
 
     Args:
@@ -81,7 +82,7 @@ get_comparison_data = curry(
       an array of all the named data extracted from each simulation
     ###
     map(
-      (x) -> vega_to_plotly(data_name, x.name)(x.meta.data)
+      (x) -> vega_to_plotly(chart_item, x.name)(x.meta.data)
       data
     )
 )
