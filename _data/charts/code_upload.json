@@ -67,15 +67,15 @@
         },
         {
           "count": 2,
+          "name": "PRISMS-PF"
+        },
+        {
+          "count": 2,
           "name": "custom"
         },
         {
           "count": 1,
           "name": "FiPy"
-        },
-        {
-          "count": 1,
-          "name": "PRISMS-PF"
         }
       ]
     }

@@ -51,7 +51,7 @@
       "orient": "bottom",
       "scale": "x",
       "tickCount": 5,
-      "title": "Time"
+      "title": "Sim Time (s) / Wall Time (s)"
     },
     {
       "encode": {
@@ -82,7 +82,7 @@
       "orient": "left",
       "scale": "y",
       "tickCount": 5,
-      "title": "Free Energy"
+      "title": "Memory Usage (KB)"
     },
     {
       "domain": false,
@@ -102,40 +102,21 @@
       "orient": "top",
       "scale": "x",
       "ticks": false,
-      "title": "Free Energy",
+      "title": "Efficiency",
       "titlePadding": 20,
       "values": []
     }
   ],
   "data": [
     {
-      "description": "Free energy versus time",
-      "format": {
-        "parse": {
-          "free_energy": "number",
-          "time": "number"
-        },
-        "type": "csv"
-      },
-      "name": "fipy_3a",
-      "transform": [
+      "name": "PRISMSPF_Linear",
+      "transform": [],
+      "values": [
         {
-          "as": "x",
-          "expr": "datum.time",
-          "type": "formula"
-        },
-        {
-          "as": "y",
-          "expr": "datum.free_energy",
-          "type": "formula"
-        },
-        {
-          "expr": "datum.x > 0.01",
-          "type": "filter"
+          "memory_usage": 0.0,
+          "time_ratio": 0.0
         }
-      ],
-      "type": "line",
-      "url": "https://ndownloader.figshare.com/files/10443456"
+      ]
     },
     {
       "name": "selected",
@@ -206,22 +187,34 @@
     {
       "encode": {
         "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'PRISMSPF_Linear')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'fipy_3a')",
-              "value": 0.6
+              "test": "!indata('selected', 'value', 'PRISMSPF_Linear')",
+              "value": 0.4
             },
             {
               "value": 0.0
             }
           ],
           "strokeWidth": {
-            "value": 4
+            "size": 0
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'fipy_3a')",
-              "value": "fipy_3a"
+              "test": "!indata('selected', 'value', 'PRISMSPF_Linear')",
+              "value": "PRISMSPF_Linear"
             },
             {
               "value": ""
@@ -229,37 +222,44 @@
           ]
         },
         "update": {
-          "stroke": {
+          "fill": {
             "scale": "color",
-            "value": "fipy_3a"
+            "value": "PRISMSPF_Linear"
           },
-          "strokeOpacity": [
+          "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'fipy_3a')",
+              "test": "!indata('selected', 'value', 'PRISMSPF_Linear')",
               "value": 1.0
             },
             {
               "value": 0.0
             }
           ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "PRISMSPF_Linear"
+          },
           "strokeWidth": {
-            "value": 3
+            "value": 0
           },
           "x": {
-            "field": "x",
+            "field": "time_ratio",
             "scale": "x"
           },
           "y": {
-            "field": "y",
+            "field": "memory_usage",
             "scale": "y"
           }
         }
       },
       "from": {
-        "data": "fipy_3a"
+        "data": "PRISMSPF_Linear"
       },
       "interactive": true,
-      "type": "line"
+      "type": "symbol"
     }
   ],
   "scales": [
@@ -283,7 +283,7 @@
     },
     {
       "domain": [
-        "fipy_3a"
+        "PRISMSPF_Linear"
       ],
       "name": "color",
       "range": {
@@ -379,8 +379,8 @@
         }
       ],
       "value": [
-        0,
-        6
+        -2,
+        3
       ]
     },
     {
@@ -415,8 +415,8 @@
         }
       ],
       "value": [
-        0,
-        4
+        2,
+        8
       ]
     },
     {
