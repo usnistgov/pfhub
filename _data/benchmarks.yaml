@@ -99,8 +99,8 @@
       type: line
       x_scale: linear
       y_scale: linear
-      x_title: ''
-      y_title: ''
+      x_title: 'x'
+      y_title: 'y'
       title: 'Solid / Liquid Boundary at t=1500'
       x_domain: [0, 500]
       y_domain: [0, 500]
