@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 m12 l12 xl10 offset-xl2">
+      <h2 class="header">
+        Benchmark {{ include.benchmark_id }} Results
+      </h2>
+      <h5>
+        <i>All results for the
+          <a href="{{ site.baseurl }}/benchmarks/benchmark{{ include.benchmark_id }}.ipynb/">
+            {{ include.benchmark_id }} benchmark spec.
+          </a>
+        </i>
+      </h5>
+    </div>
+  </div>
+</div>
+
+{% assign temp = include.benchmark_id | split: '.' | first %}
+{% assign size = temp | size | minus: 1 %}
+{% assign benchmark_num = temp | slice: 0, size %}
+{% assign benchmark_version = include.benchmark_id | split: '.' | last %}
+{% for item in site.data.benchmarks %}
+  {% comment %}item.num needs to be a string so using capture here{% endcomment %}
+  {% capture item_num %}{{ item.num }}{% endcapture %}
+  {% if item_num == benchmark_num %}
+    {% assign chart_data = item.data %}
+  {% endif %}
+{% endfor %}
+
+<div class="container">
+  <div class="row small-buffer">
+    {% for item in chart_data %}
+      <div class="col s12 m12 l12 xl6">
+        <div id="chart_{{ item.name }}">
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<div class="container top-bar top-buffer">
+  <div class="row small-buffer">
+    <div class="col s12 m12 l12 xl2">
+      <h5 class="sideheader" id="simulations">Table of Results</h5>
+    </div>
+    <div class="col s12 m12 l12 xl10">
+      <div class="flow-text comment">
+        <i>Table of {{ include.benchmark_id }} benchmark result uploads</i>
+      </div>
+      <br>
+      <table id="data_table" class="mdl-data-table striped" cellspacing="0"></table>
+    </div>
+  </div>
+</div>
+
+
+<script> var CHART_DATA = {{ chart_data | jsonify }}; </script>
+<script> var BENCHMARK_ID = "{{ include.benchmark_id }}"; </script>
+<script> var SIMULATION_DATA = {{ site.data.simulations | jsonify }}; </script>
+<script src="{{ site.baseurl }}/js/result_comparison.js"></script>
+<script src="{{ site.baseurl }}/js/data_table.js"></script>
+
+{% include ribbon.html %}

@@ -32,7 +32,7 @@ script:
   - touch _data/hexbin.yaml
   - make hexbin
   - rm -rf ./_site
-  - jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck ./_site
+  - jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site
   - py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg
   - coffeelint _includes/coffee/
   - mocha _site/pfhub/js/test.js

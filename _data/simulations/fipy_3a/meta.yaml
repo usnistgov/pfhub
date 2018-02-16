@@ -34,8 +34,19 @@ data:
     values:
       - unit: KB
         value: '2000000'
+  - name: efficiency
+    values:
+      - time_ratio: 0.005626
+        memory: 2000000.0
+    transform:
+      - type: formula
+        expr: datum.time_ratio
+        as: x
+      - type: formula
+        expr: datum.memory
+        as: 'y'
   - name: free_energy
-    url: 'https://ndownloader.figshare.com/files/10443456'
+    url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
     format:
       type: csv
       parse:
@@ -51,7 +62,7 @@ data:
         expr: datum.free_energy
         as: 'y'
   - name: solid_fraction
-    url: 'https://ndownloader.figshare.com/files/10443456'
+    url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
     format:
       type: csv
       parse:
@@ -67,7 +78,7 @@ data:
         expr: datum.solid_fraction
         as: 'y'
   - name: tip_position
-    url: 'https://ndownloader.figshare.com/files/10443456'
+    url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
     format:
       type: csv
       parse:
@@ -83,25 +94,14 @@ data:
         expr: datum.tip_position
         as: 'y'
   - name: phase_field_1500
-    url: 'https://ndownloader.figshare.com/files/10420488'
+    url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/d0dcd61541604127a16c017891dcda1577c92997/contour.csv
     format:
       type: csv
       parse:
         x: number
-        'y': number
-        phase: number
-    description: Entire phase field at t=1500s
-    type: contour
-    transform:
-      - type: formula
-        expr: datum.x
-        as: x
-      - type: formula
-        expr: datum.y
-        as: 'y'
-      - type: formula
-        expr: datum.phase
-        as: z
+        y: number
+    description: Zero contour at t=1500s
+    type: line
 date: 1518046097
 layout: post
 message: ' '
