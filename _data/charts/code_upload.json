@@ -5,6 +5,12 @@
       "encode": {
         "labels": {
           "update": {
+            "angle": {
+              "value": 50
+            },
+            "dx": {
+              "value": 14
+            },
             "font": {
               "value": "Lato"
             },
@@ -58,24 +64,16 @@
           "name": "mmsp"
         },
         {
-          "count": 5,
+          "count": 6,
           "name": "fipy"
         },
         {
-          "count": 4,
+          "count": 6,
           "name": "prisms"
         },
         {
           "count": 2,
-          "name": "PRISMS-PF"
-        },
-        {
-          "count": 2,
           "name": "custom"
-        },
-        {
-          "count": 1,
-          "name": "FiPy"
         }
       ]
     }

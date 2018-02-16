@@ -10,7 +10,7 @@ metadata:
     FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
     dendrite doesn't look exactly like the version in the notebook.
   implementation:
-    name: FiPy
+    name: fipy
     repo:
       url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
       version: fc9134b08a9c

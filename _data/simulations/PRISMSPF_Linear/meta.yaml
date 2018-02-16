@@ -11,7 +11,7 @@ metadata:
     elements (2nd order accurate in space) and forward Euler time stepping (1st
     order in time).
   implementation:
-    name: PRISMS-PF
+    name: prisms
     repo:
       url: >-
         https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark7
