@@ -26,7 +26,7 @@ metadata:
     nodes: '1'
 benchmark:
   id: 7a
-  version: '1'
+  version: '0'
 data:
   - name: run_time
     values:
@@ -36,7 +36,7 @@ data:
     values:
       - unit: KB
         value: '0'
-  - name: spatial_linear
+  - name: spatial
     url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_spatial_linear.csv'
     format:
       type: csv
@@ -55,7 +55,7 @@ data:
       - type: formula
         expr: datum.L2_error
         as: 'y'
-  - name: temporal_linear
+  - name: temporal
     url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_temporal_linear.csv'
     format:
       type: csv

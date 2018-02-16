@@ -36,7 +36,7 @@ data:
     values:
       - unit: KB
         value: '0'
-  - name: spatial_quad
+  - name: spatial
     url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_spatial_quad.csv'
     format:
       type: csv
@@ -55,7 +55,7 @@ data:
       - type: formula
         expr: datum.L2_error
         as: 'y'
-  - name: temporal_quad
+  - name: temporal
     url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_temporal_quad.csv'
     format:
       type: csv

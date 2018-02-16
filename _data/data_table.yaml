@@ -2,7 +2,7 @@ data:
 - author: {email: stvdwtt@umich.edu, name: Stephen DeWitt}
   code: {name: PRISMS-PF, url: 'https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark7'}
   cores: 6
-  id_: 7a.1
+  id_: 7a.0
   name: PRISMSPF_Linear
   timestamp: 2018/02/07 00:00:00
 - author: {email: stvdwtt@umich.edu, name: Stephen DeWitt}

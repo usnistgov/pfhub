@@ -183,3 +183,20 @@
       commit:
         sha: "e19007361211"
         url: "benchmarks/benchmark7.ipynb"
+  data:
+    - name: temporal
+      title: Temporal Accuracy
+      x_title: Time Step Size
+      y_title: L2 Error
+      x_scale: log
+      y_scale: log
+      type: line
+      mode: lines
+    - name: spatial
+      title: Spatial Accuracy
+      x_title: Mesh Size
+      y_title: L2 Error
+      x_scale: log
+      y_scale: log
+      type: line
+      mode: lines
