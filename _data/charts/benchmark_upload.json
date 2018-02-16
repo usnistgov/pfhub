@@ -5,6 +5,12 @@
       "encode": {
         "labels": {
           "update": {
+            "angle": {
+              "value": 50
+            },
+            "dx": {
+              "value": 14
+            },
             "font": {
               "value": "Lato"
             },
