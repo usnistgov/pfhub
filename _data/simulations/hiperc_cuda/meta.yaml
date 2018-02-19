@@ -43,10 +43,9 @@ data:
         h: number
         l: number
     description: >-
-      Spatial convergence test 9-point Laplacian stencil for explicit finite
-      differencing. The time step is constant at 1e-4 for all simulations. The
-      order of accuracy, <i>h</i><sup>1.78</sup>, is shy of the expected
-      <i>O</i>(<i>h<i><sup>2</sup>).
+      Spatial convergence test using 9-point Laplacian stencil <i>O</i>(<i>h</i><sup>4</sup>) for explicit finite
+      differencing <i>O</i>(<i>k</i><sup>1</sup>). The time step is constant at 1e-4 for all simulations. The
+      order of accuracy, <i>h</i><sup>1.78</sup>, is shy of the expected <i>O</i>(<i>h</i><sup>2</sup>).
     type: line
     transform:
       - type: formula
