@@ -109,12 +109,12 @@
   ],
   "data": [
     {
-      "name": "PRISMSPF_Linear",
+      "name": "hiperc_cuda",
       "transform": [],
       "values": [
         {
-          "memory_usage": 0.0,
-          "time_ratio": 0.0
+          "memory_usage": 122880.0,
+          "time_ratio": 0.010666666666666666
         }
       ]
     },
@@ -189,7 +189,7 @@
         "hover": {
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'PRISMSPF_Linear')",
+              "test": "!indata('selected', 'value', 'hiperc_cuda')",
               "value": 0.4
             },
             {
@@ -201,7 +201,7 @@
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'PRISMSPF_Linear')",
+              "test": "!indata('selected', 'value', 'hiperc_cuda')",
               "value": 0.4
             },
             {
@@ -213,8 +213,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'PRISMSPF_Linear')",
-              "value": "PRISMSPF_Linear"
+              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "value": "hiperc_cuda"
             },
             {
               "value": ""
@@ -224,11 +224,11 @@
         "update": {
           "fill": {
             "scale": "color",
-            "value": "PRISMSPF_Linear"
+            "value": "hiperc_cuda"
           },
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'PRISMSPF_Linear')",
+              "test": "!indata('selected', 'value', 'hiperc_cuda')",
               "value": 1.0
             },
             {
@@ -240,7 +240,7 @@
           },
           "stroke": {
             "scale": "color",
-            "value": "PRISMSPF_Linear"
+            "value": "hiperc_cuda"
           },
           "strokeWidth": {
             "value": 0
@@ -256,7 +256,7 @@
         }
       },
       "from": {
-        "data": "PRISMSPF_Linear"
+        "data": "hiperc_cuda"
       },
       "interactive": true,
       "type": "symbol"
@@ -283,7 +283,7 @@
     },
     {
       "domain": [
-        "PRISMSPF_Linear"
+        "hiperc_cuda"
       ],
       "name": "color",
       "range": {

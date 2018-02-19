@@ -412,11 +412,24 @@ get = curry(
 )
 
 
+get_or = curry(
+  (key, def, dict) ->
+    get(key, dict) || def
+)
+
+
+
 debug = curry(
   (message, x) ->
-    ### Debugging helper function
-    ###
     console.log(message)
     console.log(x)
     x
+)
+
+map_undef = curry(
+  (func, object) ->
+    sequence(
+      map(func)
+      filter((x) -> x?)
+    )(object)
 )

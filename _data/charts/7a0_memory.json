@@ -129,6 +129,16 @@
       ]
     },
     {
+      "name": "hiperc_cuda",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 122880.0,
+          "time_ratio": 0.010666666666666666
+        }
+      ]
+    },
+    {
       "name": "selected",
       "on": [
         {
@@ -347,6 +357,83 @@
       },
       "interactive": true,
       "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "value": "hiperc_cuda"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "hiperc_cuda"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "hiperc_cuda"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "hiperc_cuda"
+      },
+      "interactive": true,
+      "type": "symbol"
     }
   ],
   "scales": [
@@ -371,7 +458,8 @@
     {
       "domain": [
         "PRISMSPF_Linear",
-        "PRISMSPF_Quad"
+        "PRISMSPF_Quad",
+        "hiperc_cuda"
       ],
       "name": "color",
       "range": {

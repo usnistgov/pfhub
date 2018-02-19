@@ -10,7 +10,7 @@ metadata:
     HiPerC MMS solution using CUDA on Nvidia GTX1070. Runtime covers all
     simulations, averaging 1 minute each.
   implementation:
-    name: HiPerC
+    name: hiperc
     repo:
       url: 'https://github.com/usnistgov/hiperc'
       version: 3ab441de836ccead77c6a31ddee08e7c3de06ce8
@@ -24,7 +24,7 @@ metadata:
     nodes: '1'
 benchmark:
   id: 7a
-  version: '1'
+  version: '0'
 data:
   - name: run_time
     values:
@@ -34,7 +34,7 @@ data:
     values:
       - unit: KB
         value: '122880'
-  - name: spatial_convergence
+  - name: spatial
     url: >-
       https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-manufactured/GTX1070-7a-dt0001-9pt.csv
     format:
