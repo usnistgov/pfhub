@@ -414,7 +414,7 @@ get = curry(
 
 get_or = curry(
   (key, def, dict) ->
-    get(key, dict) || def
+    get(key, dict) or def
 )
 
 
