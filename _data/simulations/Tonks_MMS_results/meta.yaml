@@ -22,7 +22,7 @@ metadata:
     nodes: '1'
 benchmark:
   id: 7a
-  version: '1'
+  version: '0'
 data:
   - name: run_time
     values:
@@ -32,13 +32,13 @@ data:
     values:
       - unit: KB
         value: '0'
-  - name: BM7_a_h_vs_L2_error
-    url: 'https://www.dropbox.com/s/lzgrhfn5ha3d0r8/BM7_a_h_vs_L2_2ndorder.csv?dl=0'
+  - name: spatial
+    url: 'https://dl.dropboxusercontent.com/s/lzgrhfn5ha3d0r8/BM7_a_h_vs_L2_2ndorder.csv?raw=1'
     format:
       type: csv
       parse:
         h: number
-        L2 error: number
+        L2error: number
     description: element size h vs L2 error for MMS solution with MOOSE
     type: line
     transform:
@@ -46,15 +46,15 @@ data:
         expr: datum.h
         as: x
       - type: formula
-        expr: datum.L2 error
+        expr: datum.L2error
         as: 'y'
-  - name: BM7_a_dt_vs_L2_error
-    url: 'https://www.dropbox.com/s/gk07nso95tqpb7r/BM7_a_dt_vs_L2_2ndorder.csv?dl=0'
+  - name: temporal
+    url: 'https://dl.dropboxusercontent.com/s/gk07nso95tqpb7r/BM7_a_dt_vs_L2_2ndorder.csv?raw=1'
     format:
       type: csv
       parse:
         dt: number
-        L2 error: number
+        L2error: number
     description: Time step size vs L2 error for MMS solution with MOOSE
     type: line
     transform:
@@ -62,6 +62,6 @@ data:
         expr: datum.dt
         as: x
       - type: formula
-        expr: datum.L2 error
+        expr: datum.L2error
         as: 'y'
 date: 1519055018
