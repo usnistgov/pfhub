@@ -55,18 +55,19 @@ vega_to_plotly = (chart_item, sim_name) ->
   Returns:
     a func that converts Vega to Plotly
   ###
+  plotly_dict = (x) ->
+    {
+      x:pluck_arr('x', x.values)
+      y:pluck_arr('y', x.values)
+      type:'scatter'
+      mode:chart_item.mode
+      name:sim_name
+    }
   sequence(
     filter((x) -> x.name is chart_item.name)
+    map(read_vega_data)
+    map(plotly_dict)
     get(0)
-    read_vega_data
-    (x) ->
-      {
-        x:pluck_arr('x', x.values)
-        y:pluck_arr('y', x.values)
-        type:'scatter'
-        mode:chart_item.mode
-        name:sim_name
-      }
   )
 
 
@@ -81,7 +82,7 @@ get_comparison_data = curry(
     Returns:
       an array of all the named data extracted from each simulation
     ###
-    map(
+    map_undef(
       (x) -> vega_to_plotly(chart_item, x.name)(x.meta.data)
       data
     )

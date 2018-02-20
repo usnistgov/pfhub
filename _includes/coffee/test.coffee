@@ -311,7 +311,23 @@ describe('test get', ->
       2
     )
   )
+  it('simple test', ->
+    assert.deepEqual(
+      get_or(5, 'wow', [1, 2, 3])
+      'wow'
+    )
+  )
 )
+
+describe('test map_undef', ->
+  it('simple test', ->
+    assert.deepEqual(
+      map_undef(((x) -> x), [1, undefined, 3, null, 0])
+      [1, 3, 0]
+    )
+  )
+)
+
 
 # describe('result_comparison functions', ->
 #   data = ->

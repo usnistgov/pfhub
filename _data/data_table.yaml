@@ -65,6 +65,12 @@ data:
   id_: 1b.1
   name: hiperc_1b_cuda_9pt
   timestamp: 2017/12/18 00:00:00
+- author: {email: trevor.keller@nist.gov, name: Trevor Keller}
+  code: {name: hiperc, url: 'https://github.com/usnistgov/hiperc'}
+  cores: 1920
+  id_: 7a.0
+  name: hiperc_cuda
+  timestamp: 2018/02/19 00:00:00
 - author: {email: daniel.schwen@inl.gov, name: Daniel Schwen}
   code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
   cores: 8
