@@ -109,12 +109,12 @@
   ],
   "data": [
     {
-      "name": "hiperc_cuda",
+      "name": "Tonks_MMS_results",
       "transform": [],
       "values": [
         {
-          "memory_usage": 122880.0,
-          "time_ratio": 0.010666666666666666
+          "memory_usage": 0.0,
+          "time_ratio": 0.0
         }
       ]
     },
@@ -189,7 +189,7 @@
         "hover": {
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "test": "!indata('selected', 'value', 'Tonks_MMS_results')",
               "value": 0.4
             },
             {
@@ -201,7 +201,7 @@
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "test": "!indata('selected', 'value', 'Tonks_MMS_results')",
               "value": 0.4
             },
             {
@@ -213,8 +213,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'hiperc_cuda')",
-              "value": "hiperc_cuda"
+              "test": "!indata('selected', 'value', 'Tonks_MMS_results')",
+              "value": "Tonks_MMS_results"
             },
             {
               "value": ""
@@ -224,11 +224,11 @@
         "update": {
           "fill": {
             "scale": "color",
-            "value": "hiperc_cuda"
+            "value": "Tonks_MMS_results"
           },
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "test": "!indata('selected', 'value', 'Tonks_MMS_results')",
               "value": 1.0
             },
             {
@@ -240,7 +240,7 @@
           },
           "stroke": {
             "scale": "color",
-            "value": "hiperc_cuda"
+            "value": "Tonks_MMS_results"
           },
           "strokeWidth": {
             "value": 0
@@ -256,7 +256,7 @@
         }
       },
       "from": {
-        "data": "hiperc_cuda"
+        "data": "Tonks_MMS_results"
       },
       "interactive": true,
       "type": "symbol"
@@ -283,7 +283,7 @@
     },
     {
       "domain": [
-        "hiperc_cuda"
+        "Tonks_MMS_results"
       ],
       "name": "color",
       "range": {
