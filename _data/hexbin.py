@@ -18,9 +18,9 @@ def check_status(datum):
     """Check that both the url and image link are valid URLs and that the
     image link isn't just a redirect.
     """
-    if requests.get(datum['url']).status_code != 200:
+    if requests.get(datum['url'], verify=False).status_code != 200:
         return False
-    get_ = requests.get(datum['image'])
+    get_ = requests.get(datum['image'], verify=False)
     if get_.status_code != 200:
         return False
     if get_.url != datum['image']:
