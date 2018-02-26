@@ -109,6 +109,16 @@
   ],
   "data": [
     {
+      "name": "FBE_space",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 1229176.0,
+          "time_ratio": 0.9999621928166351
+        }
+      ]
+    },
+    {
       "name": "PRISMSPF_Linear",
       "transform": [],
       "values": [
@@ -214,6 +224,83 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'FBE_space')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'FBE_space')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'FBE_space')",
+              "value": "FBE_space"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "FBE_space"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'FBE_space')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "FBE_space"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "FBE_space"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
     {
       "encode": {
         "hover": {
@@ -544,6 +631,7 @@
     },
     {
       "domain": [
+        "FBE_space",
         "PRISMSPF_Linear",
         "PRISMSPF_Quad",
         "Tonks_MMS_results",
