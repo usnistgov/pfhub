@@ -49,7 +49,7 @@ data:
         expr: datum.L2error
         as: 'y'
   - name: temporal
-    url: 'https://dl.dropboxusercontent.com/s/gk07nso95tqpb7r/BM7_a_dt_vs_L2_2ndorder.csv?raw=1'
+    url: 'https://gist.githubusercontent.com/wd15/538cd800b654c09dff5031c565642fb6/raw/9c764ce49d1a08fe2ab8e09d5e8b51d7304f0fbd/data.csv'
     format:
       type: csv
       parse:
