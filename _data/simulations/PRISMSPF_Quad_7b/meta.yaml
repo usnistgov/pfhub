@@ -37,7 +37,7 @@ data:
       - unit: KB
         value: '0'
   - name: cost
-    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_linear.csv'
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7b_quad.csv'
     format:
       type: csv
       parse:
@@ -53,17 +53,17 @@ data:
         expr: datum.cost
         as: 'y'
   - name: time
-    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_linear.csv'
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7b_quad.csv'
     format:
       type: csv
       parse:
-        erro: number
+        error: number
         wall_time: number
     description: Error vs Time plot
     type: line
     transform:
       - type: formula
-        expr: datum.erro
+        expr: datum.error
         as: x
       - type: formula
         expr: datum.wall_time
