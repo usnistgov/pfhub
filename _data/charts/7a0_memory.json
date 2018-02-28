@@ -109,7 +109,7 @@
   ],
   "data": [
     {
-      "name": "FBE_space",
+      "name": "Forward_Backward_Euler",
       "transform": [],
       "values": [
         {
@@ -229,7 +229,7 @@
         "hover": {
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'FBE_space')",
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
               "value": 0.4
             },
             {
@@ -241,7 +241,7 @@
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'FBE_space')",
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
               "value": 0.4
             },
             {
@@ -253,8 +253,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'FBE_space')",
-              "value": "FBE_space"
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
+              "value": "Forward_Backward_Euler"
             },
             {
               "value": ""
@@ -264,11 +264,11 @@
         "update": {
           "fill": {
             "scale": "color",
-            "value": "FBE_space"
+            "value": "Forward_Backward_Euler"
           },
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'FBE_space')",
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
               "value": 1.0
             },
             {
@@ -280,7 +280,7 @@
           },
           "stroke": {
             "scale": "color",
-            "value": "FBE_space"
+            "value": "Forward_Backward_Euler"
           },
           "strokeWidth": {
             "value": 0
@@ -296,7 +296,7 @@
         }
       },
       "from": {
-        "data": "FBE_space"
+        "data": "Forward_Backward_Euler"
       },
       "interactive": true,
       "type": "symbol"
@@ -631,7 +631,7 @@
     },
     {
       "domain": [
-        "FBE_space",
+        "Forward_Backward_Euler",
         "PRISMSPF_Linear",
         "PRISMSPF_Quad",
         "Tonks_MMS_results",
