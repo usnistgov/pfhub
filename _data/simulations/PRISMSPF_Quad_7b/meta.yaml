@@ -26,7 +26,7 @@ metadata:
     nodes: '1'
 benchmark:
   id: 7b
-  version: '1'
+  version: '0'
 data:
   - name: run_time
     values:

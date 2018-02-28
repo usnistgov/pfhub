@@ -200,3 +200,19 @@
       y_scale: log
       type: line
       mode: lines
+    - name: cost
+      title: Cost Function v L2 Error
+      x_title: L2 Error
+      y_title: Cost Function
+      x_scale: log
+      y_scale: log
+      type: line
+      mode: lines
+    - name: time
+      title: Wall Time v L2 Error
+      x_title: L2 Error
+      y_title: Wall Time (s)
+      x_scale: log
+      y_scale: log
+      type: line
+      mode: lines
