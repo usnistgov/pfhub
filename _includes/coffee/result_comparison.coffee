@@ -59,7 +59,7 @@ vega_to_plotly = (chart_item, sim_name) ->
       y:pluck_arr('y', x.values)
       type:'scatter'
       mode:chart_item.mode
-      name:sim_name.substr(0,15)
+      name:sim_name.substr(0, 15)
     }
   sequence(
     filter((x) -> x.name is chart_item.name)
