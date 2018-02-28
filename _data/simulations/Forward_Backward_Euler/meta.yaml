@@ -28,7 +28,7 @@ metadata:
     nodes: '1'
 benchmark:
   id: 7a
-  version: '1'
+  version: '0'
 data:
   - name: run_time
     values:
@@ -83,5 +83,4 @@ data:
     type: image
     description: loglog plot of time convergence
 date: 1519768501
-foo: bar
 layout: post

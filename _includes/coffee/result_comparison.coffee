@@ -23,8 +23,6 @@ get_plotly_data = curry(
           title:chart_item.title
           showlegend:true
           autosize:true
-          width:450
-          height:450
           xaxis:
             {
               title:chart_item.x_title
@@ -61,7 +59,7 @@ vega_to_plotly = (chart_item, sim_name) ->
       y:pluck_arr('y', x.values)
       type:'scatter'
       mode:chart_item.mode
-      name:sim_name
+      name:sim_name.substr(0,15)
     }
   sequence(
     filter((x) -> x.name is chart_item.name)
