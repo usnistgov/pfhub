@@ -64,12 +64,12 @@
           "name": "mmsp"
         },
         {
-          "count": 6,
-          "name": "fipy"
+          "count": 7,
+          "name": "prisms"
         },
         {
           "count": 6,
-          "name": "prisms"
+          "name": "fipy"
         },
         {
           "count": 2,
