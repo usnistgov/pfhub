@@ -109,6 +109,16 @@
   ],
   "data": [
     {
+      "name": "Forward_Backward_Euler",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 1229176.0,
+          "time_ratio": 0.9999621928166351
+        }
+      ]
+    },
+    {
       "name": "PRISMSPF_Linear",
       "transform": [],
       "values": [
@@ -120,6 +130,16 @@
     },
     {
       "name": "PRISMSPF_Quad",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 0.0,
+          "time_ratio": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Tonks_MMS_results",
       "transform": [],
       "values": [
         {
@@ -204,6 +224,83 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
+              "value": "Forward_Backward_Euler"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "Forward_Backward_Euler"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "Forward_Backward_Euler"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "Forward_Backward_Euler"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
     {
       "encode": {
         "hover": {
@@ -363,6 +460,83 @@
         "hover": {
           "fillOpacity": [
             {
+              "test": "!indata('selected', 'value', 'Tonks_MMS_results')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Tonks_MMS_results')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'Tonks_MMS_results')",
+              "value": "Tonks_MMS_results"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "Tonks_MMS_results"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Tonks_MMS_results')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "Tonks_MMS_results"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "Tonks_MMS_results"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
               "test": "!indata('selected', 'value', 'hiperc_cuda')",
               "value": 0.4
             },
@@ -457,8 +631,10 @@
     },
     {
       "domain": [
+        "Forward_Backward_Euler",
         "PRISMSPF_Linear",
         "PRISMSPF_Quad",
+        "Tonks_MMS_results",
         "hiperc_cuda"
       ],
       "name": "color",

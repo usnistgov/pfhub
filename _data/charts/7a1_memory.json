@@ -109,12 +109,12 @@
   ],
   "data": [
     {
-      "name": "hiperc_cuda",
+      "name": "Forward_Backward_Euler",
       "transform": [],
       "values": [
         {
-          "memory_usage": 122880.0,
-          "time_ratio": 0.010666666666666666
+          "memory_usage": 1229176.0,
+          "time_ratio": 0.9999621928166351
         }
       ]
     },
@@ -189,7 +189,7 @@
         "hover": {
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
               "value": 0.4
             },
             {
@@ -201,7 +201,7 @@
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
               "value": 0.4
             },
             {
@@ -213,8 +213,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'hiperc_cuda')",
-              "value": "hiperc_cuda"
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
+              "value": "Forward_Backward_Euler"
             },
             {
               "value": ""
@@ -224,11 +224,11 @@
         "update": {
           "fill": {
             "scale": "color",
-            "value": "hiperc_cuda"
+            "value": "Forward_Backward_Euler"
           },
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'hiperc_cuda')",
+              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
               "value": 1.0
             },
             {
@@ -240,7 +240,7 @@
           },
           "stroke": {
             "scale": "color",
-            "value": "hiperc_cuda"
+            "value": "Forward_Backward_Euler"
           },
           "strokeWidth": {
             "value": 0
@@ -256,7 +256,7 @@
         }
       },
       "from": {
-        "data": "hiperc_cuda"
+        "data": "Forward_Backward_Euler"
       },
       "interactive": true,
       "type": "symbol"
@@ -283,7 +283,7 @@
     },
     {
       "domain": [
-        "hiperc_cuda"
+        "Forward_Backward_Euler"
       ],
       "name": "color",
       "range": {
