@@ -416,3 +416,7 @@ img.badge{
 .sim-edit:hover {
     background-color: #e57373;
 }
+
+.plotly-col {
+    min-width: 500px;
+}
