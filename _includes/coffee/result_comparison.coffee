@@ -30,7 +30,7 @@ get_plotly_data = curry(
               domain:chart_item.x_domain
               scaleanchor:chart_item.x_scaleanchor
               exponentformat:'E'
-              dtick:1
+              dtick:chart_item.x_dtick
             }
           yaxis:
             {
@@ -39,7 +39,7 @@ get_plotly_data = curry(
               type:chart_item.y_scale
               domain:chart_item.y_domain
               exponentformat:'E'
-              dtick:1
+              dtick:chart_item.y_dtick
             }
         }
     }

@@ -192,6 +192,8 @@
       y_scale: log
       type: line
       mode: lines
+      x_dtick: 1
+      y_dtick: 1
     - name: spatial
       title: Spatial Accuracy
       x_title: "∆<i>x</i>"
@@ -200,6 +202,8 @@
       y_scale: log
       type: line
       mode: lines
+      x_dtick: 1
+      y_dtick: 1
     - name: cost
       title: Normalized Wall Time Versus Error
       x_title: "<i>e</i><sub>L2</sub>"
@@ -208,6 +212,8 @@
       y_scale: log
       type: line
       mode: lines
+      x_dtick: 1
+      y_dtick: 1
     - name: time
       title: Wall Time Versus Error
       x_title: "<i>e</i><sub>L2</sub>"
@@ -216,3 +222,5 @@
       y_scale: log
       type: line
       mode: lines
+      y_dtick: 1
+      x_dtick: 1
