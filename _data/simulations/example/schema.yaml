@@ -13,6 +13,12 @@ mapping:
   "message":
     type: str
     required: False
+  "approved":
+    type: bool
+    required: False
+  "title":
+    type: str
+    required: False
   "data": &data
     type: seq
     required: True

@@ -29,6 +29,8 @@ get_plotly_data = curry(
               type:chart_item.x_scale
               domain:chart_item.x_domain
               scaleanchor:chart_item.x_scaleanchor
+              exponentformat:'E'
+              dtick:chart_item.x_dtick
             }
           yaxis:
             {
@@ -36,6 +38,8 @@ get_plotly_data = curry(
               title:chart_item.y_title
               type:chart_item.y_scale
               domain:chart_item.y_domain
+              exponentformat:'E'
+              dtick:chart_item.y_dtick
             }
         }
     }
@@ -122,6 +126,8 @@ build = (chart_data, benchmark_id, data) ->
   )
   newplot = sequence(
     get_plotly_data_id
-    (x) -> Plotly.newPlot(x.div, x.data, x.layout)
+    (x) ->
+      if x.data.length > 0
+        Plotly.newPlot(x.div, x.data, x.layout)
   )
   -> map(newplot, chart_data)
