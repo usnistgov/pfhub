@@ -40,7 +40,7 @@ data:
       parse:
         dx: number
         error: number
-    description: error vs meshsize with explicit double-well representation
+    description: error vs meshsize with explicit double-well representation, fixed timestep=1e-4
     type: line
     transform:
       - type: formula
@@ -57,7 +57,7 @@ data:
       parse:
         dt_exact: number
         error: number
-    description: error vs time step with explicit double-well representation
+    description: error vs time step with explicit double-well representation, fixed grid spacing=0.00125
     type: line
     transform:
       - type: formula
