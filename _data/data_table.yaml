@@ -71,6 +71,12 @@ data:
   id_: 6b.0
   name: fipy_6b_macbookpro
   timestamp: 2017/08/01 00:00:00
+- author: {email: guyer@nist.gov, name: Jonathan Guyer}
+  code: {name: fipy, url: 'https://github.com/guyer/CHiMaDPhaseFieldVI'}
+  cores: 16
+  id_: 7a.1
+  name: fipy_7a_explicitDW
+  timestamp: 2018/03/07 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: custom, url: 'https://github.com/usnistgov/hiperc'}
   cores: 1792

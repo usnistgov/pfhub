@@ -8,7 +8,7 @@ metadata:
   timestamp: '7 March, 2018'
   summary: FiPy MMS solution using explicit representation of double-well
   implementation:
-    name: FiPy
+    name: fipy
     repo:
       url: 'https://github.com/guyer/CHiMaDPhaseFieldVI'
       version: adc0b2e992386335d01cb4f6ce9924bf3fceb115
