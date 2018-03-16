@@ -34,7 +34,7 @@ data:
         value: '0'
   - name: meshsize_explicitDW
     url: >-
-      https://materialsdata.nist.gov/bitstream/handle/11256/960/meshsize_explicitDW.csv?sequence=1&isAllowed=y
+      https://mdidev.nist.gov/bitstream/handle/11256/349/meshsize_explicitDW.csv?sequence=1&isAllowed=y
     format:
       type: csv
       parse:
@@ -51,7 +51,7 @@ data:
         as: 'y'
   - name: timestep_explicitDW
     url: >-
-      https://materialsdata.nist.gov/bitstream/handle/11256/960/timestep_explicitDW.csv?sequence=2&isAllowed=y
+      https://mdidev.nist.gov/bitstream/handle/11256/349/timestep_explicitDW.csv?sequence=2&isAllowed=y
     format:
       type: csv
       parse:
