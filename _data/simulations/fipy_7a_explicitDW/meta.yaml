@@ -22,7 +22,7 @@ metadata:
     nodes: '1'
 benchmark:
   id: 7a
-  version: '1'
+  version: '0'
 data:
   - name: run_time
     values:
@@ -32,9 +32,9 @@ data:
     values:
       - unit: KB
         value: '0'
-  - name: meshsize_explicitDW
+  - name: spatial
     url: >-
-      https://mdidev.nist.gov/bitstream/handle/11256/349/meshsize_explicitDW.csv?sequence=1&isAllowed=y
+      https://materialsdata.nist.gov/bitstream/handle/11256/960/meshsize_explicitDW.csv?sequence=1&isAllowed=y
     format:
       type: csv
       parse:
@@ -49,7 +49,7 @@ data:
       - type: formula
         expr: datum.error
         as: 'y'
-  - name: timestep_explicitDW
+  - name: temporal
     url: >-
       https://mdidev.nist.gov/bitstream/handle/11256/349/timestep_explicitDW.csv?sequence=2&isAllowed=y
     format:

@@ -74,7 +74,7 @@ data:
 - author: {email: guyer@nist.gov, name: Jonathan Guyer}
   code: {name: fipy, url: 'https://github.com/guyer/CHiMaDPhaseFieldVI'}
   cores: 16
-  id_: 7a.1
+  id_: 7a.0
   name: fipy_7a_explicitDW
   timestamp: 2018/03/07 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
