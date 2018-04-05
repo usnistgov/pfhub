@@ -51,7 +51,7 @@ data:
         as: 'y'
   - name: temporal
     url: >-
-      https://mdidev.nist.gov/bitstream/handle/11256/349/timestep_explicitDW.csv?sequence=2&isAllowed=y
+      https://materialsdata.nist.gov/bitstream/handle/11256/960/timestep_explicitDW.csv?sequence=2&isAllowed=y
     format:
       type: csv
       parse:
