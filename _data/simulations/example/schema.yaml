@@ -1,6 +1,9 @@
 type: map
 required: True
 mapping:
+  "tags":
+    type: any
+    required: False
   "_id":
     type: str
     required: False

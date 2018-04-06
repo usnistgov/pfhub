@@ -36,7 +36,7 @@ data_table: _data/data_table.py
 doi_data: _data/to_doi_csv.py
 	python _data/to_doi_csv.py
 
-simulations: yamllint build_charts data_table doi_data
+simulations: yamllint build_charts data_table
 
 hexbin: $(HEXBIN_OUT)
 

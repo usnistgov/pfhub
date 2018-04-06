@@ -109,12 +109,12 @@
   ],
   "data": [
     {
-      "name": "Forward_Backward_Euler",
+      "name": "fipy_7a_explicitDW",
       "transform": [],
       "values": [
         {
-          "memory_usage": 1229176.0,
-          "time_ratio": 0.9999621928166351
+          "memory_usage": 0.0,
+          "time_ratio": 0.0
         }
       ]
     },
@@ -189,7 +189,7 @@
         "hover": {
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
+              "test": "!indata('selected', 'value', 'fipy_7a_explicitDW')",
               "value": 0.4
             },
             {
@@ -201,7 +201,7 @@
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
+              "test": "!indata('selected', 'value', 'fipy_7a_explicitDW')",
               "value": 0.4
             },
             {
@@ -213,8 +213,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
-              "value": "Forward_Backward_Euler"
+              "test": "!indata('selected', 'value', 'fipy_7a_explicitDW')",
+              "value": "fipy_7a_explicitDW"
             },
             {
               "value": ""
@@ -224,11 +224,11 @@
         "update": {
           "fill": {
             "scale": "color",
-            "value": "Forward_Backward_Euler"
+            "value": "fipy_7a_explicitDW"
           },
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'Forward_Backward_Euler')",
+              "test": "!indata('selected', 'value', 'fipy_7a_explicitDW')",
               "value": 1.0
             },
             {
@@ -240,7 +240,7 @@
           },
           "stroke": {
             "scale": "color",
-            "value": "Forward_Backward_Euler"
+            "value": "fipy_7a_explicitDW"
           },
           "strokeWidth": {
             "value": 0
@@ -256,7 +256,7 @@
         }
       },
       "from": {
-        "data": "Forward_Backward_Euler"
+        "data": "fipy_7a_explicitDW"
       },
       "interactive": true,
       "type": "symbol"
@@ -283,7 +283,7 @@
     },
     {
       "domain": [
-        "Forward_Backward_Euler"
+        "fipy_7a_explicitDW"
       ],
       "name": "color",
       "range": {
