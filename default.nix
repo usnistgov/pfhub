@@ -7,6 +7,7 @@ in
     buildInputs = [
       ( import ./_nix/build.nix { inherit nixpkgs; })
     ];
+    propagatedBuildInputs = buildInputs;
     unpackPhase = "true";
     installPhase = ''
       mkdir -p $out/bin
