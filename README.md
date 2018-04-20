@@ -35,3 +35,13 @@ the [main web site](https://pages.nist.gov/pfhub) for
 more details. To develop or update the site, please see the
 [Development
 Guide](https://pages.nist.gov/pfhub/DEVELOPMENT).
+
+## Install Using Nix
+
+To install an evironment to run the website using Nix, consult the
+[Nix Guide](./NIX.md).
+
+## Install Using Docker
+
+To install an enviroment to run the website using Docker, consult the
+[Docker Guide](./DOCKER.md).
