@@ -1,28 +1,5 @@
 ---
-language: python
-install:
-  - sudo apt-get update
-  - sudo apt-get install ruby ruby-dev nodejs
-  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-  - bash miniconda.sh -b -p $HOME/miniconda
-  - export PATH="$HOME/miniconda/bin:$PATH"
-  - hash -r
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  - conda info -a
-  - conda create -q -y -n test-environment python=3.6
-  - source activate test-environment
-  - conda install -q -y -n test-environment jupyter pillow numpy toolz pytest bokeh matplotlib scikit-image flake8
-  - conda install nb_conda nb_conda_kernels nb_anacondacloud
-  - pip install progressbar2 pykwalify pylint nbval vega
-  - jupyter nbextension enable vega --py
-  - unset VIRTUAL_ENV
-  - gem install jekyll jekyll-coffeescript html-proofer jekyll-redirect-from
-  - npm install -g npm
-  - npm install -g coffeelint
-  - npm install -g mocha
-  - npm install -g assert
-  - npm install -g surge
+language: nix
 script:
   - pylint _data/*.py
   - flake8 _data/*.py
