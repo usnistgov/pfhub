@@ -1,6 +1,7 @@
 ---
 language: nix
 script:
+  - nix-build
   - pylint _data/*.py
   - flake8 _data/*.py
   - make simulations

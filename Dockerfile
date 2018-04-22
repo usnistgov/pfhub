@@ -46,6 +46,7 @@ RUN echo "export PATH=\$PATH:/nix/var/nix/profiles/default/bin:/bin:/usr/bin" >>
 RUN echo "export NIX_USER_PROFILE_DIR=/nix/var/nix/profiles/per-user/\$USER " >> ~/nix.sh
 RUN echo "export MANPATH=/nix/var/nix/profiles/default/share/man:\$HOME/.nix-profile/share/man:\$MANPATH" >> ~/nix.sh
 COPY default.nix ./
+COPY shell.nix ./
 COPY _nix/ ./_nix/
 RUN /bin/bash -c " \
     source ~/nix.sh; \
