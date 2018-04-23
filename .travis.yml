@@ -3,7 +3,7 @@ language: nix
 script:
   - nix-shell --run "pylint _data/*.py"
   - nix-shell --run "flake8 _data/*.py"
-  - nix-shell --run "nixmake simulations"
+  - nix-shell --run "make simulations"
   - nix-shell --run 'find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;'
   - nix-shell --run "make notebooks"
   - nix-shell --run "touch _data/hexbin.yaml"
