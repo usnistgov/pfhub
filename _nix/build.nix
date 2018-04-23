@@ -16,6 +16,7 @@ in
   [
     jekyll_env
     nbval
+    pkgs.python36
     python36Packages.jupyter
     python36Packages.pillow
     python36Packages.numpy
