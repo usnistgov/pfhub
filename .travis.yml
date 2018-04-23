@@ -1,7 +1,7 @@
 ---
 language: nix
 script:
-  - nix-env -if default.nix
+  - nix-shell
   - pylint _data/*.py
   - flake8 _data/*.py
   - make simulations
