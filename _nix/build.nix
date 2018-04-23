@@ -1,4 +1,4 @@
-{ nixpkgs ? import ./nixpkgs_version.nix }:
+{ nixpkgs }:
 let
   pkgs = nixpkgs.pkgs;
   jekyll_env = nixpkgs.bundlerEnv rec {

@@ -34,7 +34,8 @@ in the new profile.
 ## Update Packages
 
 The dependencies are all fixed in the above installation. To update
-the Python, Ruby and Javascript dependencies use the following
+the Python, Ruby and Javascript dependencies use the following. First
+change directory to the `_nix` directory.
 
 ### Ruby
 
