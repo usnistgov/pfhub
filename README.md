@@ -30,18 +30,22 @@ alt="Travis CI">
 
 ## Overview
 
-PFHub is a location to compare and constrast phase field codes. See
-the [main web site](https://pages.nist.gov/pfhub) for
-more details. To develop or update the site, please see the
-[Development
+PFHub is a location to compare and contrast phase field codes. See the
+[main web site](https://pages.nist.gov/pfhub) for more details. To
+develop or update the site, please see the [Development
 Guide](https://pages.nist.gov/pfhub/DEVELOPMENT).
 
-## Install Using Nix
+## Deploy
 
-To install an evironment to run the website using Nix, consult the
+Nix is excellent choice to get started with deploying this website. If
+you don't like Nix then try the Docker container.
+
+## Deploy Using Nix
+
+To install an environment to run the website using Nix, consult the
 [Nix Guide](./NIX.md).
 
-## Install Using Docker
+## Deploy Using Docker
 
-To install an enviroment to run the website using Docker, consult the
+To install an environment to run the website using Docker, consult the
 [Docker Guide](./DOCKER.md).

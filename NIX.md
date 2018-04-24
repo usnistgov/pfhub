@@ -1,12 +1,11 @@
 # Install PFHub using Nix
 
-A nix expression to host this website.
+A nix expression to host this website. Follow these [Nix
+notes](https://github.com/wd15/nixes/NIX-NOTES.md) for installing Nix.
 
 ## Usage
 
-Follow these [Nix notes](https://github.com/wd15/nixes/NIX-NOTES.md)
-for installing Nix. After installing Nix and cloning this repository,
-run
+After installing Nix and cloning this repository, run
 
     $ nix-shell
 
