@@ -9,7 +9,7 @@ script:
   - nix-shell --run "touch _data/hexbin.yaml"
   - nix-shell --run "make hexbin"
   - nix-shell --run "rm -rf ./_site"
-  - nix-shell --run "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules --url-ignore scholar.google.com ./_site"
+  - nix-shell --run "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site"
   - nix-shell --run "py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg"
   - nix-shell --run "coffeelint _includes/coffee/"
   - nix-shell --run "mocha _site/pfhub/js/test.js"
