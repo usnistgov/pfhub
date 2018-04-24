@@ -2,26 +2,28 @@
 language: nix
 script:
   - nix-shell --run "pylint _data/*.py"
-  - nix-shell --run "flake8 _data/*.py"
-  - nix-shell --run "make simulations"
-  - nix-shell --run 'find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;'
-  - nix-shell --run "make notebooks"
-  - nix-shell --run "touch _data/hexbin.yaml"
-  - nix-shell --run "make hexbin"
-  - nix-shell --run "rm -rf ./_site"
-  - nix-shell --run "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site"
-  - nix-shell --run "py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg"
-  - nix-shell --run "coffeelint _includes/coffee/"
-  - nix-shell --run "mocha _site/pfhub/js/test.js"
+  # - nix-shell --run "flake8 _data/*.py"
+  # - nix-shell --run "make simulations"
+  # - nix-shell --run 'find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;'
+  # - nix-shell --run "make notebooks"
+  # - nix-shell --run "touch _data/hexbin.yaml"
+  # - nix-shell --run "make hexbin"
+  # - nix-shell --run "rm -rf ./_site"
+  # - nix-shell --run "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site"
+  # - nix-shell --run "py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg"
+  # - nix-shell --run "coffeelint _includes/coffee/"
+  # - nix-shell --run "mocha _site/pfhub/js/test.js"
 after_success:
   - nix-shell --run "rm -rf ./_site"
-  - nix-shell --run "make simulations"
-  - nix-shell --run "make notebooks"
-  - nix-shell --run "make hexbin"
+  # - nix-shell --run "make simulations"
+  # - nix-shell --run "make notebooks"
+  # - nix-shell --run "make hexbin"
   - nix-shell --run "jekyll build --baseurl ''"
   - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
   - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-      nix-shell --run "surge --project _site --domain ${DOMAIN};"
+      nix-shell --run " \
+        echo ${DOMAIN}; \
+        surge --project _site --domain ${DOMAIN};"
     fi
