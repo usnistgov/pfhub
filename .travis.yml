@@ -23,7 +23,5 @@ after_success:
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
   - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-      nix-shell --run " \
-        echo ${DOMAIN}; \
-        surge --project _site --domain ${DOMAIN};"
+      nix-shell --run "surge --project _site --domain ${DOMAIN}";
     fi
