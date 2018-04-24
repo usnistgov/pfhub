@@ -19,18 +19,6 @@ including
 
 to view the website locally.
 
-## Install
-
-It's also possible to install PFHub in a clean Nix profile.
-
-    $ nix-env -if default.nix
-
-and then run
-
-    $ jekyll serve
-
-in the new profile.
-
 ## Update Packages
 
 The dependencies are all fixed in the above installation. To update

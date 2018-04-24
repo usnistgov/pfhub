@@ -22,6 +22,8 @@ Run the container
 
 and then
 
+    # nix-shell
+    # cd pfhub
     # jekyll serve --host 0.0.0.0
 
 to view the website at http://127.0.0.1:4000/pfhub/ on the host.
