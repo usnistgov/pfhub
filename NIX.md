@@ -8,7 +8,7 @@ installing Nix.
 
 After installing Nix and cloning this repository, run
 
-    $ nix-shell shell.nix
+    $ nix-shell
 
 in the base directory. At that point, you should be able to run all
 the functionality as outlined in the [PFHub `travis.yml`
