@@ -1,13 +1,14 @@
 # Install PFHub using Nix
 
 A nix expression to host this website. Follow these [Nix
-notes](https://github.com/wd15/nixes/NIX-NOTES.md) for installing Nix.
+notes](https://github.com/wd15/nixes/blob/master/NIX-NOTES.md) for
+installing Nix.
 
 ## Usage
 
 After installing Nix and cloning this repository, run
 
-    $ nix-shell
+    $ nix-shell shell.nix
 
 in the base directory. At that point, you should be able to run all
 the functionality as outlined in the [PFHub `travis.yml`
