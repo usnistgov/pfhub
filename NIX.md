@@ -19,6 +19,16 @@ including
 
 to view the website locally.
 
+## Usage for OS X
+
+If using OS X run
+
+    $ nix-shell shell-osx.nix
+
+instead. This install does not install Jupyter or Bokeh which are not
+essential for running the website. Both of these packages have proved
+problematic when installing with Nix on OS X.
+
 ## Update Packages
 
 The dependencies are all fixed in the above installation. To update

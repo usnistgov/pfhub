@@ -17,11 +17,9 @@ in
     jekyll_env
     nbval
     pkgs.python36
-    python36Packages.jupyter
     python36Packages.pillow
     python36Packages.numpy
     python36Packages.toolz
-    python36Packages.bokeh
     python36Packages.matplotlib
     python36Packages.flake8
     python36Packages.pylint

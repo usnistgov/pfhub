@@ -6,7 +6,5 @@ in
     env = nixpkgs.buildEnv { name=name; paths=buildInputs; };
     buildInputs = [
       ( import ./_nix/build.nix { inherit nixpkgs; })
-      nixpkgs.python36Packages.jupyter
-      nixpkgs.python36Packages.bokeh
     ];
   }
