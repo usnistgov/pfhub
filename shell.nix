@@ -1,12 +1,8 @@
 let
   nixpkgs = import ./_nix/nixpkgs_version.nix;
+  extra = [
+    nixpkgs.python36Packages.jupyter
+    nixpkgs.python36Packages.bokeh
+  ];
 in
-  nixpkgs.stdenv.mkDerivation rec {
-    name = "pfhub";
-    env = nixpkgs.buildEnv { name=name; paths=buildInputs; };
-    buildInputs = [
-      ( import ./_nix/build.nix { inherit nixpkgs; })
-      nixpkgs.python36Packages.jupyter
-      nixpkgs.python36Packages.bokeh
-    ];
-  }
+  import ./_nix/env.nix { inherit nixpkgs; inherit extra; }
