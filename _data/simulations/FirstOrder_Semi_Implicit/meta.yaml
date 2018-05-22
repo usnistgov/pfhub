@@ -1,0 +1,59 @@
+_id: 800067c0-5dc9-11e8-a869-ff152a244da0
+metadata:
+  author:
+    first: 'Andre '
+    last: M. B. Costa
+    email: andrembc10@gmail.com
+    github_id: andrembcosta
+  timestamp: '15 May, 2018'
+  summary: >-
+    Solution to the benchmark problem 3a. For spatial discretization, adaptive
+    meshes of P1 finite elements were used (PF and temperature meshes were
+    different). For time discretization, a first order, semi-implicit scheme was
+    tested. The time step was 0.01.
+  implementation:
+    name: 1stOrderSemiOpt.edp
+    repo:
+      url: 'https://github.com/andrembcosta/1st-Order-SI-3a'
+      version: 928c69a
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '2.9'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '360000'
+        sim_time: '360000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '100000'
+  - name: all_data
+    url: 'https://github.com/andrembcosta/1st-Order-SI-3a/blob/master/data%201.csv'
+    format:
+      type: csv
+      parse:
+        data:
+          - number
+          - number
+    description: time evolution of some important quantities
+    type: line
+    transform:
+      - type: formula
+        expr: datum.data
+        as: x
+      - type: formula
+        expr: datum.data
+        as: 'y'
+date: 1526998065
+tags:
+  - comment-subscription
+timestamp: 1526998065
