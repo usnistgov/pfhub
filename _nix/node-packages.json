@@ -1,0 +1,9 @@
+[
+    "npm",
+    "coffeelint",
+    "mocha",
+    "assert",
+    "surge",
+    "coffee",
+    "execjs"
+]
