@@ -31,27 +31,69 @@ data:
   - name: run_time
     values:
       - wall_time: '360000'
-        sim_time: '360000'
+        sim_time: '1500'
   - name: memory_usage
     values:
       - unit: KB
         value: '100000'
-  - name: all_data
-    url: 'https://github.com/andrembcosta/1st-Order-SI-3a/blob/master/data%201.csv'
+  - name: efficiency
+    values:
+      - time_ratio: 0.0041666
+        memory: 100000
+    transform:
+      - type: formula
+        expr: datum.time_ratio
+        as: x
+      - type: formula
+        expr: datum.memory
+        as: 'y'
+  - name: free_energy
+    url: https://gist.githubusercontent.com/wd15/962278d3e5a881a74bc14f86e4e2bf52/raw/ebb1a0e3b7622a3a9292a4a8352871a3a83d5e5b/data.csv
     format:
       type: csv
       parse:
-        data:
-          - number
-          - number
-    description: time evolution of some important quantities
+        Time: number
+        Free_Energy: number
+    description: Free energy versus time
     type: line
     transform:
       - type: formula
-        expr: datum.data
+        expr: datum.Time
         as: x
       - type: formula
-        expr: datum.data
+        expr: datum.Free_Energy
+        as: 'y'
+  - name: solid_fraction
+    url: https://gist.githubusercontent.com/wd15/962278d3e5a881a74bc14f86e4e2bf52/raw/ebb1a0e3b7622a3a9292a4a8352871a3a83d5e5b/data.csv
+    format:
+      type: csv
+      parse:
+        Time: number
+        Solid_Area_Fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.Time
+        as: x
+      - type: formula
+        expr: datum.Solid_Area_Fraction
+        as: 'y'
+  - name: tip_position
+    url: https://gist.githubusercontent.com/wd15/962278d3e5a881a74bc14f86e4e2bf52/raw/ebb1a0e3b7622a3a9292a4a8352871a3a83d5e5b/data.csv
+    format:
+      type: csv
+      parse:
+        Time: number
+        Tip_Position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.Time
+        as: x
+      - type: formula
+        expr: datum.Tip_Position
         as: 'y'
 date: 1526998065
 tags:

@@ -112,6 +112,35 @@
       "description": "Free energy versus time",
       "format": {
         "parse": {
+          "Free_Energy": "number",
+          "Time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "FirstOrder_Semi_Implicit",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.Time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.Free_Energy",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://gist.githubusercontent.com/wd15/962278d3e5a881a74bc14f86e4e2bf52/raw/ebb1a0e3b7622a3a9292a4a8352871a3a83d5e5b/data.csv"
+    },
+    {
+      "description": "Free energy versus time",
+      "format": {
+        "parse": {
           "free_energy": "number",
           "time": "number"
         },
@@ -208,6 +237,64 @@
         "hover": {
           "strokeOpacity": [
             {
+              "test": "!indata('selected', 'value', 'FirstOrder_Semi_Implicit')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'FirstOrder_Semi_Implicit')",
+              "value": "FirstOrder_Semi_Implicit"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "FirstOrder_Semi_Implicit"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'FirstOrder_Semi_Implicit')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "FirstOrder_Semi_Implicit"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
               "test": "!indata('selected', 'value', 'fipy_3a')",
               "value": 0.6
             },
@@ -283,6 +370,7 @@
     },
     {
       "domain": [
+        "FirstOrder_Semi_Implicit",
         "fipy_3a"
       ],
       "name": "color",
