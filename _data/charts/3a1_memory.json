@@ -109,6 +109,16 @@
   ],
   "data": [
     {
+      "name": "FirstOrder_Semi_Implicit",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 100000.0,
+          "time_ratio": 0.004166666666666667
+        }
+      ]
+    },
+    {
       "name": "fipy_3a",
       "transform": [],
       "values": [
@@ -184,6 +194,83 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'FirstOrder_Semi_Implicit')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'FirstOrder_Semi_Implicit')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'FirstOrder_Semi_Implicit')",
+              "value": "FirstOrder_Semi_Implicit"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "FirstOrder_Semi_Implicit"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'FirstOrder_Semi_Implicit')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "FirstOrder_Semi_Implicit"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "FirstOrder_Semi_Implicit"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
     {
       "encode": {
         "hover": {
@@ -283,6 +370,7 @@
     },
     {
       "domain": [
+        "FirstOrder_Semi_Implicit",
         "fipy_3a"
       ],
       "name": "color",

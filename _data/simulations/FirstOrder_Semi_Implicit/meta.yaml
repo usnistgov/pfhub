@@ -1,0 +1,101 @@
+_id: 800067c0-5dc9-11e8-a869-ff152a244da0
+metadata:
+  author:
+    first: 'Andre '
+    last: M. B. Costa
+    email: andrembc10@gmail.com
+    github_id: andrembcosta
+  timestamp: '15 May, 2018'
+  summary: >-
+    Solution to the benchmark problem 3a. For spatial discretization, adaptive
+    meshes of P1 finite elements were used (PF and temperature meshes were
+    different). For time discretization, a first order, semi-implicit scheme was
+    tested. The time step was 0.01.
+  implementation:
+    name: 1stOrderSemiOpt.edp
+    repo:
+      url: 'https://github.com/andrembcosta/1st-Order-SI-3a'
+      version: 928c69a
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '2.9'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '360000'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '100000'
+  - name: efficiency
+    values:
+      - time_ratio: 0.0041666
+        memory: 100000
+    transform:
+      - type: formula
+        expr: datum.time_ratio
+        as: x
+      - type: formula
+        expr: datum.memory
+        as: 'y'
+  - name: free_energy
+    url: https://gist.githubusercontent.com/wd15/962278d3e5a881a74bc14f86e4e2bf52/raw/ebb1a0e3b7622a3a9292a4a8352871a3a83d5e5b/data.csv
+    format:
+      type: csv
+      parse:
+        Time: number
+        Free_Energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.Time
+        as: x
+      - type: formula
+        expr: datum.Free_Energy
+        as: 'y'
+  - name: solid_fraction
+    url: https://gist.githubusercontent.com/wd15/962278d3e5a881a74bc14f86e4e2bf52/raw/ebb1a0e3b7622a3a9292a4a8352871a3a83d5e5b/data.csv
+    format:
+      type: csv
+      parse:
+        Time: number
+        Solid_Area_Fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.Time
+        as: x
+      - type: formula
+        expr: datum.Solid_Area_Fraction
+        as: 'y'
+  - name: tip_position
+    url: https://gist.githubusercontent.com/wd15/962278d3e5a881a74bc14f86e4e2bf52/raw/ebb1a0e3b7622a3a9292a4a8352871a3a83d5e5b/data.csv
+    format:
+      type: csv
+      parse:
+        Time: number
+        Tip_Position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.Time
+        as: x
+      - type: formula
+        expr: datum.Tip_Position
+        as: 'y'
+date: 1526998065
+tags:
+  - comment-subscription
+timestamp: 1526998065

@@ -1,4 +1,10 @@
 data:
+- author: {email: andrembc10@gmail.com, name: Andre  M. B. Costa}
+  code: {name: 1stOrderSemiOpt.edp, url: 'https://github.com/andrembcosta/1st-Order-SI-3a'}
+  cores: 1
+  id_: 3a.1
+  name: FirstOrder_Semi_Implicit
+  timestamp: 2018/05/15 00:00:00
 - author: {email: narut.se@gmail.com, name: Narut Sereewattanawoot}
   code: {name: 'tester/FBEspace.cpp, tester/FBEtime.cpp', url: 'https://github.com/narutse/phasefield'}
   cores: 1
