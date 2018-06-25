@@ -23,9 +23,6 @@ alt="Gitter Chat">
 <img src="https://api.travis-ci.org/usnistgov/pfhub.svg"
 alt="Travis CI">
 </a>
-<a href="https://github.com/usnistgov/pfhub/blob/nist-pages/LICENSE.md">
-<img src="https://img.shields.io/badge/license-mit-blue.svg" alt="License" height="18">
-</a>
 </p>
 
 ## Overview
