@@ -1,0 +1,105 @@
+_id: 5060d3a0-7b16-11e8-b5f4-6170e8cb26a5
+metadata:
+  author:
+    first: Dong-Uk
+    last: Kim
+    email: cmskdu@gmail.com
+    github_id: eastglow-zz
+  timestamp: '27 June, 2018'
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: MOOSE-framework
+    repo:
+      url: 'https://github.com/eastglow-zz/moose'
+      version: 0b0bcf8
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '3.0'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '50121'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '7022900'
+  - name: free_energy
+    url: >-
+      https://github.com/eastglow-zz/CHiMaD3_dendritic_growth/blob/master/CHiMaD3_DK_w_postprocess_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        Total_FE: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.Total_FE
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://github.com/eastglow-zz/CHiMaD3_dendritic_growth/blob/master/CHiMaD3_DK_w_postprocess_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        Total_solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.Total_solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://github.com/eastglow-zz/CHiMaD3_dendritic_growth/blob/master/CHiMaD3_DK_w_postprocess_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        Interface_location_along_x_axis: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.Interface_location_along_x_axis
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://github.com/eastglow-zz/CHiMaD3_dendritic_growth/blob/master/CHiMaD3_DK_contour.csv
+    format:
+      type: csv
+      parse:
+        'Points:0': number
+        'Points:1': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: 'datum.Points:0'
+        as: x
+      - type: formula
+        expr: 'datum.Points:1'
+        as: 'y'
+date: 1530219641
