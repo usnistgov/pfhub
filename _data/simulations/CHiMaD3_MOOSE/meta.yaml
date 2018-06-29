@@ -46,7 +46,7 @@ data:
         as: 'y'
   - name: free_energy
     url: >-
-      https://gist.github.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa
+      https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/6918c8321a0c3f96f684b63710b42cc2fb2707b3/CHiMaD3_DK_w_postprocess_out.csv
     format:
       type: csv
       parse:
@@ -63,7 +63,7 @@ data:
         as: 'y'
   - name: solid_fraction
     url: >-
-      https://gist.github.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa
+      https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/6918c8321a0c3f96f684b63710b42cc2fb2707b3/CHiMaD3_DK_w_postprocess_out.csv
     format:
       type: csv
       parse:
@@ -80,7 +80,7 @@ data:
         as: 'y'
   - name: tip_position
     url: >-
-      https://gist.github.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa
+      https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/6918c8321a0c3f96f684b63710b42cc2fb2707b3/CHiMaD3_DK_w_postprocess_out.csv
     format:
       type: csv
       parse:
@@ -97,7 +97,7 @@ data:
         as: 'y'
   - name: phase_field_1500
     url: >-
-      https://gist.github.com/eastglow-zz/4afff20e4ed153986167119ae0e4432a
+      https://gist.githubusercontent.com/eastglow-zz/4afff20e4ed153986167119ae0e4432a/raw/5ece993f82fb2cbc9753b211a7f5cd60c13ce127/phase_field_1500.csv
     format:
       type: csv
       parse:

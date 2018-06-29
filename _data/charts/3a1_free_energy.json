@@ -135,7 +135,7 @@
         }
       ],
       "type": "line",
-      "url": "https://raw.githubusercontent.com/eastglow-zz/CHiMaD3_dendritic_growth/master/CHiMaD3_DK_w_postprocess_out.csv"
+      "url": "https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/6918c8321a0c3f96f684b63710b42cc2fb2707b3/CHiMaD3_DK_w_postprocess_out.csv"
     },
     {
       "description": "Free energy versus time",
