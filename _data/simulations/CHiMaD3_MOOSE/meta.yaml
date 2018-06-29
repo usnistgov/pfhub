@@ -7,8 +7,7 @@ metadata:
     github_id: eastglow-zz
   timestamp: '27 June, 2018'
   summary: >-
-    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
-    dendrite doesn't look exactly like the version in the notebook.
+    960x960 dendritic growth simulation was performed with MOOSE-framework
   implementation:
     name: MOOSE-framework
     repo:
@@ -47,7 +46,7 @@ data:
         as: 'y'
   - name: free_energy
     url: >-
-      https://raw.githubusercontent.com/eastglow-zz/CHiMaD3_dendritic_growth/master/CHiMaD3_DK_w_postprocess_out.csv
+      https://gist.github.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa
     format:
       type: csv
       parse:
@@ -64,7 +63,7 @@ data:
         as: 'y'
   - name: solid_fraction
     url: >-
-      https://raw.githubusercontent.com/eastglow-zz/CHiMaD3_dendritic_growth/master/CHiMaD3_DK_w_postprocess_out.csv
+      https://gist.github.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa
     format:
       type: csv
       parse:
@@ -81,7 +80,7 @@ data:
         as: 'y'
   - name: tip_position
     url: >-
-      https://raw.githubusercontent.com/eastglow-zz/CHiMaD3_dendritic_growth/master/CHiMaD3_DK_w_postprocess_out.csv
+      https://gist.github.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa
     format:
       type: csv
       parse:
@@ -98,19 +97,19 @@ data:
         as: 'y'
   - name: phase_field_1500
     url: >-
-      https://gist.githubusercontent.com/wd15/cdfe696e35fb3a9d6cf93b15babcd989/raw/c0d902cff6b640bfd6b78e5673d15311f649c247/data.csv
+      https://gist.github.com/eastglow-zz/4afff20e4ed153986167119ae0e4432a
     format:
       type: csv
       parse:
-        Points_0: number
-        Points_1: number
+        x: number
+        y: number
     description: Zero contour at t=1500s
     type: line
     transform:
       - type: formula
-        expr: datum.Points_0
+        expr: datum.x
         as: x
       - type: formula
-        expr: datum.Points_1
+        expr: datum.y
         as: 'y'
 date: 1530219641
