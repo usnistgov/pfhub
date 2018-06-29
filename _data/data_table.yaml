@@ -1,4 +1,10 @@
 data:
+- author: {email: cmskdu@gmail.com, name: Dong-Uk Kim}
+  code: {name: MOOSE-framework, url: 'https://github.com/eastglow-zz/moose'}
+  cores: 8
+  id_: 3a.1
+  name: CHiMaD3_MOOSE
+  timestamp: 2018/06/27 00:00:00
 - author: {email: andrembc10@gmail.com, name: Andre  M. B. Costa}
   code: {name: 1stOrderSemiOpt.edp, url: 'https://github.com/andrembcosta/1st-Order-SI-3a'}
   cores: 1

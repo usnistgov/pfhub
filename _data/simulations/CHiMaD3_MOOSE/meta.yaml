@@ -34,9 +34,20 @@ data:
     values:
       - unit: KB
         value: '7022900'
+  - name: efficiency
+    values:
+      - time_ratio: 0.02992
+        memory: 7022900.0
+    transform:
+      - type: formula
+        expr: datum.time_ratio
+        as: x
+      - type: formula
+        expr: datum.memory
+        as: 'y'
   - name: free_energy
     url: >-
-      https://github.com/eastglow-zz/CHiMaD3_dendritic_growth/blob/master/CHiMaD3_DK_w_postprocess_out.csv
+      https://raw.githubusercontent.com/eastglow-zz/CHiMaD3_dendritic_growth/master/CHiMaD3_DK_w_postprocess_out.csv
     format:
       type: csv
       parse:
@@ -53,7 +64,7 @@ data:
         as: 'y'
   - name: solid_fraction
     url: >-
-      https://github.com/eastglow-zz/CHiMaD3_dendritic_growth/blob/master/CHiMaD3_DK_w_postprocess_out.csv
+      https://raw.githubusercontent.com/eastglow-zz/CHiMaD3_dendritic_growth/master/CHiMaD3_DK_w_postprocess_out.csv
     format:
       type: csv
       parse:
@@ -70,7 +81,7 @@ data:
         as: 'y'
   - name: tip_position
     url: >-
-      https://github.com/eastglow-zz/CHiMaD3_dendritic_growth/blob/master/CHiMaD3_DK_w_postprocess_out.csv
+      https://raw.githubusercontent.com/eastglow-zz/CHiMaD3_dendritic_growth/master/CHiMaD3_DK_w_postprocess_out.csv
     format:
       type: csv
       parse:
@@ -87,19 +98,19 @@ data:
         as: 'y'
   - name: phase_field_1500
     url: >-
-      https://github.com/eastglow-zz/CHiMaD3_dendritic_growth/blob/master/CHiMaD3_DK_contour.csv
+      https://gist.githubusercontent.com/wd15/cdfe696e35fb3a9d6cf93b15babcd989/raw/c0d902cff6b640bfd6b78e5673d15311f649c247/data.csv
     format:
       type: csv
       parse:
-        'Points:0': number
-        'Points:1': number
+        Points_0: number
+        Points_1: number
     description: Zero contour at t=1500s
     type: line
     transform:
       - type: formula
-        expr: 'datum.Points:0'
+        expr: datum.Points_0
         as: x
       - type: formula
-        expr: 'datum.Points:1'
+        expr: datum.Points_1
         as: 'y'
 date: 1530219641
