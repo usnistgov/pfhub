@@ -112,6 +112,35 @@
       "description": "Free energy versus time",
       "format": {
         "parse": {
+          "Total_FE": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "CHiMaD3_MOOSE",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.Total_FE",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://gist.githubusercontent.com/eastglow-zz/56944749f48c7a8b03af43c30312a509/raw/ce369a3bb0a8fe79f159b9e05c99af17cb68342e/CHiMaD3_DK_Tot_FE.csv"
+    },
+    {
+      "description": "Free energy versus time",
+      "format": {
+        "parse": {
           "Free_Energy": "number",
           "Time": "number"
         },
@@ -232,6 +261,64 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'CHiMaD3_MOOSE')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'CHiMaD3_MOOSE')",
+              "value": "CHiMaD3_MOOSE"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "CHiMaD3_MOOSE"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'CHiMaD3_MOOSE')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "CHiMaD3_MOOSE"
+      },
+      "interactive": true,
+      "type": "line"
+    },
     {
       "encode": {
         "hover": {
@@ -370,6 +457,7 @@
     },
     {
       "domain": [
+        "CHiMaD3_MOOSE",
         "FirstOrder_Semi_Implicit",
         "fipy_3a"
       ],
