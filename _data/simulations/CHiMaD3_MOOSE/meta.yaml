@@ -11,8 +11,8 @@ metadata:
   implementation:
     name: MOOSE-framework
     repo:
-      url: 'https://github.com/eastglow-zz/moose'
-      version: 0b0bcf8
+      url: 'https://github.com/eastglow-zz/CHiMaD3_dendritic_growth'
+      version: 1f18606
     container_url: ''
   hardware:
     cpu_architecture: x86_64
@@ -46,7 +46,7 @@ data:
         as: 'y'
   - name: free_energy
     url: >-
-      https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/6918c8321a0c3f96f684b63710b42cc2fb2707b3/CHiMaD3_DK_w_postprocess_out.csv
+      https://gist.githubusercontent.com/eastglow-zz/56944749f48c7a8b03af43c30312a509/raw/ce369a3bb0a8fe79f159b9e05c99af17cb68342e/CHiMaD3_DK_Tot_FE.csv
     format:
       type: csv
       parse:
@@ -97,7 +97,7 @@ data:
         as: 'y'
   - name: phase_field_1500
     url: >-
-      https://gist.githubusercontent.com/eastglow-zz/4afff20e4ed153986167119ae0e4432a/raw/5ece993f82fb2cbc9753b211a7f5cd60c13ce127/phase_field_1500.csv
+      https://gist.githubusercontent.com/eastglow-zz/96ca7c17913a9d0a9bfbd0405341f31a/raw/3c1bba7f03ac4164967e99f30e24c1b4908332fd/phase_field_1500.csv
     format:
       type: csv
       parse:
