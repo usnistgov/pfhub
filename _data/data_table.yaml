@@ -1,6 +1,6 @@
 data:
 - author: {email: cmskdu@gmail.com, name: Dong-Uk Kim}
-  code: {name: MOOSE-framework, url: 'https://github.com/eastglow-zz/moose'}
+  code: {name: MOOSE-framework, url: 'https://github.com/eastglow-zz/CHiMaD3_dendritic_growth'}
   cores: 8
   id_: 3a.1
   name: CHiMaD3_MOOSE
