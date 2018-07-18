@@ -12,7 +12,7 @@ metadata:
     name: MOOSE-framework
     repo:
       url: 'https://github.com/eastglow-zz/CHiMaD3_dendritic_growth'
-      version: 5e05167
+      version: 78a47b4
     container_url: ''
   hardware:
     cpu_architecture: x86_64
