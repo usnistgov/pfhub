@@ -33,3 +33,21 @@ subtitle: "Phase Field Community Hub"
 plugins: [jekyll-coffeescript]
 
 admin_email: 'chimad-phase-field-admin@list.nist.gov'
+
+prose_base: 'http://prose.io/#usnistgov/pfhub/edit/master'
+
+prose:
+  rooturl: 'wiki'
+  siteurl: 'https://pages.nist.gov/pfhub'
+  media: 'media'
+  metadata:
+    wiki:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "essay"
+      - name: "comment"
+        field:
+          element: "text"
+          value: ""
+          label: "Comment text"
