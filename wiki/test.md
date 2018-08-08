@@ -1,7 +1,8 @@
 ---
-title: "Test Wiki"
 layout: essay
+title: Test Wiki
 comment: Testing a wiki
+published: true
 ---
 
 http://prose.io/#wd15/pfhub
@@ -11,3 +12,5 @@ http://prose.io/#wd15/pfhub
 [edit this page]({{ site.prose_base }}{{ page.url }})
 
 Some text
+
+test
