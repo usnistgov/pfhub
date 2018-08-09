@@ -34,7 +34,7 @@ plugins: [jekyll-coffeescript]
 
 admin_email: 'chimad-phase-field-admin@list.nist.gov'
 
-prose_base: 'http://prose.io/#usnistgov/pfhub/edit/prose.io'
+prose_base: 'http://prose.io/#wd15/pfhub/edit/prose.io'
 
 prose:
   rooturl: 'wiki'
