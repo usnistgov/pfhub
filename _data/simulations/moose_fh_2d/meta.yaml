@@ -1,0 +1,52 @@
+_id: c37ba430-9c10-11e8-995f-5178b29ab3fb
+metadata:
+  author:
+    first: Floyd
+    last: Hilty
+    email: fhilty@ufl.edu
+    github_id: FHilty
+  timestamp: '9 August, 2018'
+  summary: Results for benchmark 2d
+  implementation:
+    name: MOOSE framework
+    repo:
+      url: 'https://github.com/FHilty/Benchmarks/blob/master/2d.i'
+      version: a001b86
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '0'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 2d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '36195'
+        sim_time: '100000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '5404979'
+  - name: MOOSE_FH_2d
+    url: >-
+      https://gist.githubusercontent.com/FHilty/28416774cdb0401c3b901c59350215b2/raw/7acad7bc794ba7b00f6fcc9f87c269ab9265cb9a/MOOSE_FH_2d.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: Data for benchmark 2d
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
+date: 1533845645
