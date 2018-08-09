@@ -278,6 +278,19 @@ table.striped tbody tr:nth-child(2n+1) {
     background-color: #e57373;
 }
 
+#wiki-button {
+    margin-top: 10px;
+    text-align: right;
+}
+
+#wiki-button a.btn-small {
+    color: rgb(3, 155, 229);
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
 .card.medium .card-content.benchmark {
     overflow: auto;
     max-height: 100%;
@@ -419,4 +432,57 @@ img.badge{
 
 .plotly-col {
     min-width: 500px;
+}
+
+#wiki-container p {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#wiki-container li {
+    font-size: 14px;
+}
+
+#wiki-container li p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+#wiki-container ul li {
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+#wiki-container h1 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+#wiki-container h2 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 21px;
+}
+
+#wiki-container h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#wiki-container h4 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+#wiki-container ol {
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
