@@ -34,12 +34,12 @@ plugins: [jekyll-coffeescript]
 
 admin_email: 'chimad-phase-field-admin@list.nist.gov'
 
-prose_base: 'http://prose.io/#usnistgov/pfhub/edit/master'
+prose_base: 'http://prose.io/#usnistgov/pfhub/edit/prose.io'
 
 prose:
   rooturl: 'wiki'
   siteurl: 'https://pages.nist.gov/pfhub'
-  media: 'media'
+  media: 'images'
   metadata:
     wiki:
       - name: "layout"
