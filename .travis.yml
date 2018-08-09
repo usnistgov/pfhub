@@ -14,7 +14,7 @@ before_cache:
   - mkdir -p $STORE
   - nix copy --to file://$STORE -f shell.nix buildInputs
 install:
-  - nix-build shell.nix -A buildInputs
+  - nix-env -if shell.nix
 script:
   - nix-shell --pure --command "pylint _data/*.py"
   - nix-shell --pure --command "flake8 _data/*.py"
