@@ -1,0 +1,52 @@
+_id: 54873630-9c0f-11e8-995f-5178b29ab3fb
+metadata:
+  author:
+    first: Floyd
+    last: Hilty
+    email: fhilty@ufl.edu
+    github_id: FHilty
+  timestamp: '9 August, 2018'
+  summary: Results for benchmark 1c
+  implementation:
+    name: MOOSE
+    repo:
+      url: 'https://github.com/FHilty/Benchmarks/blob/master/1c.i'
+      version: a001b86
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '0'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 1c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '846'
+        sim_time: '1000000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1530828'
+  - name: MOOSE_FH_1c
+    url: >-
+      https://gist.githubusercontent.com/FHilty/35ae4be430a98a5f3e9ed3b3fdb50bb6/raw/78a8e3402c9b8c091343e8534a1e7dc56c3c6c78/MOOSE_FH_1c.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: Data for benchmark 1c
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
+date: 1533845029
