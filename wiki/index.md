@@ -4,21 +4,17 @@ title: PFHub Wiki
 published: true
 ---
 
-## PFHub wiki intro
+## Overview
 
-Lorem Ipsum is simply dummy text of the printing and typesetting
-industry. Lorem Ipsum has been the industry's standard dummy text ever
-since the 1500s, when an unknown printer took a galley of type and
-scrambled it to make a type specimen book. It has survived not only
-five centuries, but also the leap into electronic typesetting,
-remaining essentially unchanged. It was popularised in the 1960s with
-the release of Letraset sheets containing Lorem Ipsum passages, and
-more recently with desktop publishing software like Aldus PageMaker
-including versions of Lorem Ipsum.
-
-## List of Workshops
+The PFHub wiki is a place for anyone interested in the PFHub website
+to add content. See below for details on how to get started editing
+this site using [Prose.io][prose]. [Prose.io][prose] provides a
+beautifully simple content authoring environment for CMS-free
+websites.
 
 ## Current Wiki Pages
+
+List of the current wiki pages availabe on these pages.
 
 {% for file in site.pages %}
   {% assign f4 = file.path | slice: 0, 4 %}
@@ -27,14 +23,32 @@ including versions of Lorem Ipsum.
   {% endif %}
 {% endfor %}
 
-## Explain how to edit
+## How to Edit
 
-Lorem Ipsum is simply dummy text of the printing and typesetting
-industry. Lorem Ipsum has been the industry's standard dummy text ever
-since the 1500s, when an unknown printer took a galley of type and
-scrambled it to make a type specimen book. It has survived not only
-five centuries, but also the leap into electronic typesetting,
-remaining essentially unchanged. It was popularised in the 1960s with
-the release of Letraset sheets containing Lorem Ipsum passages, and
-more recently with desktop publishing software like Aldus PageMaker
-including versions of Lorem Ipsum.
+Follow these instructions to edit these wiki pages.
+
+ - If this is your first time using [Prose.io][prose]. Go to
+   [http://prose.io][prose] and click on "AUTHORIZE ON GITHUB" to get
+   started. You do need to have GitHub account to use
+   [Prose.io][prose].
+
+ - To edit a wiki page or create a new wiki page, click on the links
+   in the top right hand corner of this page. This will take you to
+   [Prose.io][prose] where you can start editing.
+
+ - Editing is done using the Markdown markup languages. See [Daring
+   Fireball](https://daringfireball.net/projects/markdown/) for a
+   guide to using Markdown.
+
+ - The right hand panel has an preview icon where you can preview your
+   changes and see how they'll look when rendered on the website.
+
+ - Once you're happy with your edits, click on the save icon. This
+   will prompt you to submit your changes with a commit message.
+
+ - The changes will be submitted as a pull request to
+   [https://github.com/wd15/pfhub/pulls](https://github.com/wd15/pfhub/pulls). After
+   review the changes will be pushed to the main site and you will be
+   notified.
+
+[prose]: http://prose.io

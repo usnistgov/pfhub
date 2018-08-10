@@ -42,7 +42,7 @@ history_edit: 'https://github.com/wd15/pfhub/commits/prose.io'
 
 prose:
   rooturl: 'wiki'
-  siteurl: 'https://pages.nist.gov/pfhub'
+  siteurl: 'http://random-cat-797.surge.sh'
   media: 'images'
   metadata:
     wiki:
