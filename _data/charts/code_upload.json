@@ -73,15 +73,15 @@
         },
         {
           "count": 2,
+          "name": "MOOSE"
+        },
+        {
+          "count": 2,
           "name": "custom"
         },
         {
           "count": 1,
           "name": "1stOrderSemiOpt.edp"
-        },
-        {
-          "count": 1,
-          "name": "MOOSE"
         },
         {
           "count": 1,
