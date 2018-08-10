@@ -32,7 +32,7 @@ data:
     values:
       - unit: KB
         value: '1664626'
-  - name: MOOSE_FH_2b
+  - name: free_energy
     url: >-
       https://gist.githubusercontent.com/FHilty/78424733cb6f3a1379ec55fe49d64b00/raw/aa3918c8e919dd1379bbb54746e60992430553de/MOOSE_FH_2b.csv
     format:
