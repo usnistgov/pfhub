@@ -43,3 +43,6 @@ hexbin: $(HEXBIN_OUT)
 notebooks: $(NOTEBOOKS_HTML) $(NOTEBOOKS_MD)
 
 print-%  : ; @echo $* = $($*)
+
+install:
+	echo "fake install"
