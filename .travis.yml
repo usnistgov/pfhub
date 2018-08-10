@@ -1,27 +1,42 @@
 ---
 language: nix
+env:
+  global:
+    - STORE=$HOME/nix-store
+cache:
+  directories:
+    - $STORE
+before_install:
+  - sudo mkdir -p /etc/nix
+  - echo "binary-caches = https://cache.nixos.org/ file://$STORE" | sudo tee -a /etc/nix/nix.conf > /dev/null
+  - echo 'require-sigs = false' | sudo tee -a /etc/nix/nix.conf > /dev/null
+before_cache:
+  - mkdir -p $STORE
+  - nix copy --to file://$STORE -f shell.nix buildInputs
+install:
+  - nix-env -if shell.nix
 script:
-  - nix-shell --run "pylint _data/*.py"
-  - nix-shell --run "flake8 _data/*.py"
-  - nix-shell --run "make simulations"
-  - nix-shell --run 'find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;'
-  - nix-shell --run "make notebooks"
-  - #nix-shell --run "touch _data/hexbin.yaml"
-  - #nix-shell --run "make hexbin"
-  - nix-shell --run "rm -rf ./_site"
-  - nix-shell --run "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site"
-  - nix-shell --run "py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg"
-  - nix-shell --run "coffeelint _includes/coffee/"
-  - nix-shell --run "mocha _site/pfhub/js/test.js"
+  - nix-shell --pure --command "pylint _data/*.py"
+  - nix-shell --pure --command "flake8 _data/*.py"
+  - nix-shell --pure --command "make simulations"
+  - nix-shell --pure --command 'find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;'
+  - nix-shell --pure --command "make notebooks"
+  - #nix-shell --pure --command "touch _data/hexbin.yaml"
+  - #nix-shell --pure --command "make hexbin"
+  - nix-shell --pure --command "rm -rf ./_site"
+  - nix-shell --pure --command "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site"
+  - nix-shell --pure --command "py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg"
+  - nix-shell --pure --command "coffeelint _includes/coffee/"
+  - nix-shell --pure --command "mocha _site/pfhub/js/test.js"
 after_success:
-  - nix-shell --run "rm -rf ./_site"
-  - nix-shell --run "make simulations"
-  - nix-shell --run "make notebooks"
-  - nix-shell --run "make hexbin"
-  - nix-shell --run "jekyll build --baseurl ''"
+  - nix-shell --pure --command "rm -rf ./_site"
+  - nix-shell --pure --command "make simulations"
+  - nix-shell --pure --command "make notebooks"
+  - nix-shell --pure --command "make hexbin"
+  - nix-shell --pure --command "jekyll build --baseurl ''"
   - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
   - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-      nix-shell --run "surge --project _site --domain ${DOMAIN}";
+      nix-shell --command "surge --project _site --domain ${DOMAIN}";
     fi
