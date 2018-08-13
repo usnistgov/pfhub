@@ -2,6 +2,18 @@
 layout: default
 ---
 
+<div class="col s0 m0 l0 xl12" id="wiki-nav">
+  <h5> Pages </h5>
+  <ul id="slide-out" class="sidenav sidenav-fixed">
+    {% for file in site.pages %}
+      {% assign f4 = file.path | slice: 0, 4 %}
+      {% if f4 == 'wiki' %}
+        <li><a class="truncate" href="{{ site.baseurl }}{{ file.url }}">{{ file.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
 <div class="container" id="wiki-container">
   <div class="row">
     <div class="col s12 m12 l12 xl12">
@@ -10,7 +22,6 @@ layout: default
         <a class="btn-small" href="{{ site.prose_edit }}/{{ page.path }}">Edit</a> |
         <a class="btn-small" href="{{ site.source_edit }}/{{ page.path }}">Source</a> |
         <a class="btn-small" href="{{ site.history_edit }}/{{ page.path }}">History</a>
-        <!-- Edit in Prose.io | Edit in GitHub | Source -->
       </div>
     </div>
   </div>

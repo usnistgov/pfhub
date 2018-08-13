@@ -73,7 +73,6 @@ main {
 }
 
 .icon {
-    /* padding-bottom: 13px; */
     margin-bottom: 13px;
     padding-bottom: -13px;
     padding-left: 4px;
@@ -116,13 +115,6 @@ main {
     cursor: pointer;
     text-transfrom: none;
 }
-/* .navbar { */
-/*     font-size: 12pt; */
-/* } */
-
-/* .navbar .chimad-logo { */
-/*     padding-top: 16px; */
-/* } */
 
 .dataTables_filter {
     text-align: left !important;
@@ -485,4 +477,28 @@ img.badge{
 #wiki-container ol {
     margin-top: 10px;
     margin-bottom: 5px;
+}
+
+#wiki-nav {
+    float: left;
+    margin-left: 20px;
+    margin-top: 15px;
+    position: absolute;
+    max-width: 150px;
+}
+
+#wiki-nav h5 {
+    margin-bottom: 0px;
+}
+
+#wiki-nav ul {
+    margin-top: 5px;
+}
+
+
+@media (max-width: 1200px)
+{
+    #wiki-nav {
+        display: none;
+    }
 }
