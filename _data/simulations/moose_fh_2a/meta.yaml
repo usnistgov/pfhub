@@ -1,0 +1,52 @@
+_id: f62c6ff0-9c0f-11e8-995f-5178b29ab3fb
+metadata:
+  author:
+    first: Floyd
+    last: Hilty
+    email: fhilty@ufl.edu
+    github_id: FHilty
+  timestamp: '9 August, 2018'
+  summary: Results for benchmark 2a
+  implementation:
+    name: MOOSE framework
+    repo:
+      url: 'https://github.com/FHilty/Benchmarks/blob/master/2a.i'
+      version: a001b86
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '0'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 2a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '7086'
+        sim_time: '100000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1643671'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/FHilty/ed1650b9e20c7245120d3a048591ab32/raw/da53a794aae48640820e6bfd31bcfcca0facc55a/MOOSE_FH_2a.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: Data for benchmark 2a
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
+date: 1533845300
