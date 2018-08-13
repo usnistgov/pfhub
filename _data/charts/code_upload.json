@@ -73,6 +73,10 @@
         },
         {
           "count": 2,
+          "name": "MOOSE"
+        },
+        {
+          "count": 2,
           "name": "custom"
         },
         {
@@ -81,7 +85,7 @@
         },
         {
           "count": 1,
-          "name": "MOOSE"
+          "name": "MOOSE framework"
         },
         {
           "count": 1,
