@@ -72,12 +72,12 @@
           "name": "prisms"
         },
         {
-          "count": 3,
-          "name": "MOOSE"
+          "count": 6,
+          "name": "MOOSE framework"
         },
         {
-          "count": 2,
-          "name": "MOOSE framework"
+          "count": 3,
+          "name": "MOOSE"
         },
         {
           "count": 2,
@@ -86,10 +86,6 @@
         {
           "count": 1,
           "name": "1stOrderSemiOpt.edp"
-        },
-        {
-          "count": 1,
-          "name": "MOOSE framework"
         },
         {
           "count": 1,

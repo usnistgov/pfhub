@@ -85,11 +85,15 @@
         },
         {
           "count": 3,
+          "name": "2b"
+        },
+        {
+          "count": 3,
           "name": "2c"
         },
         {
           "count": 3,
-          "name": "3a"
+          "name": "2d"
         },
         {
           "count": 3,
@@ -98,10 +102,6 @@
         {
           "count": 3,
           "name": "6b"
-        },
-        {
-          "count": 2,
-          "name": "2a",
         },
         {
           "count": 1,
