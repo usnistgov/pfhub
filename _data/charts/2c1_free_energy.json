@@ -175,6 +175,35 @@
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/eba1e44ec25a2d9a906b2c802596778892b2f676/hackathon_p2_tshape_STA_dfdt.csv"
     },
     {
+      "description": "Data for benchmark 2c",
+      "format": {
+        "parse": {
+          "time": "number",
+          "total_energy": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_fh_2c",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.total_energy",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://gist.githubusercontent.com/FHilty/0bcacc0c7753c560f2d145dbb491fbb0/raw/c4a619032e32157bdb1d71e46c5cbd7c08fd03ca/MOOSE_FH_2c.csv"
+    },
+    {
       "name": "selected",
       "on": [
         {
@@ -355,6 +384,64 @@
       },
       "interactive": true,
       "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_fh_2c')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_fh_2c')",
+              "value": "moose_fh_2c"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_fh_2c"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_fh_2c')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_fh_2c"
+      },
+      "interactive": true,
+      "type": "line"
     }
   ],
   "scales": [
@@ -379,7 +466,8 @@
     {
       "domain": [
         "moose_2c_ia",
-        "moose_2c_sta"
+        "moose_2c_sta",
+        "moose_fh_2c"
       ],
       "name": "color",
       "range": {
