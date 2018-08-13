@@ -39,7 +39,7 @@ needs and avenues of work.
    consisting of an Install-A-Thon, a discussion of benchmark problems
    and a tutorial on the Method of Manufactured Solutions; [notes]({{
    site.baseurl
-   }}/http://127.0.0.1:4000/pfhub/docs/phase_field_IV.pdf)
+   }}/docs/phase_field_IV.pdf)
 
  - **Phase Field Methods Workshop V**; Aug 1-3, 2017; upload-a-thon of
    benchmark simulation results, discussion of new benchmark problems,
