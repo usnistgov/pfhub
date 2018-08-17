@@ -50,3 +50,9 @@ prose:
         field:
           element: "hidden"
           value: "wiki"
+      - name: "title"
+        field:
+          value: "My Title"
+          element: "text"
+          label: "Page Title"
+          placeholder: "My Title"
