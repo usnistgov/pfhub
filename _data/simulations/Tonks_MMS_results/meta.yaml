@@ -1,67 +1,67 @@
 _id: a71ad0b0-158b-11e8-968d-8b90fd88d642
-metadata:
-  author:
-    first: Michael
-    last: Tonks
-    email: michael.tonks@ufl.edu
-    github_id: tonkmr
-  timestamp: '16 February, 2018'
-  summary: This is the MMS runs for BM 7a
-  implementation:
-    name: MOOSE
-    repo:
-      url: 'https://github.com/idaholab/moose'
-      version: ec5fc016f1
-    container_url: ''
-  hardware:
-    cpu_architecture: x86_64
-    acc_architecture: none
-    parallel_model: distributed
-    clock_rate: '3.1'
-    cores: '4'
-    nodes: '1'
 benchmark:
   id: 7a
   version: '0'
 data:
-  - name: run_time
-    values:
-      - wall_time: '0'
-        sim_time: '0'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '0'
-  - name: spatial
-    url: 'https://dl.dropboxusercontent.com/s/lzgrhfn5ha3d0r8/BM7_a_h_vs_L2_2ndorder.csv?raw=1'
-    format:
-      type: csv
-      parse:
-        h: number
-        L2error: number
-    description: element size h vs L2 error for MMS solution with MOOSE
-    type: line
-    transform:
-      - type: formula
-        expr: datum.h
-        as: x
-      - type: formula
-        expr: datum.L2error
-        as: 'y'
-  - name: temporal
-    url: 'https://gist.githubusercontent.com/wd15/538cd800b654c09dff5031c565642fb6/raw/9c764ce49d1a08fe2ab8e09d5e8b51d7304f0fbd/data.csv'
-    format:
-      type: csv
-      parse:
-        dt: number
-        L2error: number
-    description: Time step size vs L2 error for MMS solution with MOOSE
-    type: line
-    transform:
-      - type: formula
-        expr: datum.dt
-        as: x
-      - type: formula
-        expr: datum.L2error
-        as: 'y'
+- name: run_time
+  values:
+  - sim_time: '0'
+    wall_time: '0'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '0'
+- description: element size h vs L2 error for MMS solution with MOOSE
+  format:
+    parse:
+      L2error: number
+      h: number
+    type: csv
+  name: spatial
+  transform:
+  - as: x
+    expr: datum.h
+    type: formula
+  - as: y
+    expr: datum.L2error
+    type: formula
+  type: line
+  url: https://dl.dropboxusercontent.com/s/lzgrhfn5ha3d0r8/BM7_a_h_vs_L2_2ndorder.csv?raw=1
+- description: Time step size vs L2 error for MMS solution with MOOSE
+  format:
+    parse:
+      L2error: number
+      dt: number
+    type: csv
+  name: temporal
+  transform:
+  - as: x
+    expr: datum.dt
+    type: formula
+  - as: y
+    expr: datum.L2error
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/wd15/538cd800b654c09dff5031c565642fb6/raw/9c764ce49d1a08fe2ab8e09d5e8b51d7304f0fbd/data.csv
 date: 1519055018
+metadata:
+  author:
+    email: michael.tonks@ufl.edu
+    first: Michael
+    github_id: tonkmr
+    last: Tonks
+  hardware:
+    acc_architecture: none
+    clock_rate: '3.1'
+    cores: '4'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: distributed
+  implementation:
+    container_url: ''
+    name: moose
+    repo:
+      url: https://github.com/idaholab/moose
+      version: ec5fc016f1
+  summary: This is the MMS runs for BM 7a
+  timestamp: 16 February, 2018

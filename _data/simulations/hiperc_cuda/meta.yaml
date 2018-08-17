@@ -1,69 +1,63 @@
 _id: b7984210-1586-11e8-968d-8b90fd88d642
-metadata:
-  author:
-    first: Trevor
-    last: Keller
-    email: trevor.keller@nist.gov
-    github_id: tkphd
-  timestamp: '19 February, 2018'
-  summary: >-
-    HiPerC MMS solution using CUDA on Nvidia GTX1070. Runtime covers all
-    simulations, averaging 1 minute each.
-  implementation:
-    name: hiperc
-    repo:
-      url: 'https://github.com/usnistgov/hiperc'
-      version: 3ab441de836ccead77c6a31ddee08e7c3de06ce8
-    container_url: ''
-  hardware:
-    cpu_architecture: x86_64
-    acc_architecture: gpu
-    parallel_model: massive
-    clock_rate: '1.999'
-    cores: '1920'
-    nodes: '1'
 benchmark:
   id: 7a
   version: '0'
 data:
-  - name: run_time
-    values:
-      - wall_time: '750'
-        sim_time: '8.00000'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '122880'
-  - name: spatial
-    url: >-
-      https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-manufactured/GTX1070-7a-dt0001-9pt.csv
-    format:
-      type: csv
-      parse:
-        h: number
-        l: number
-    description: >-
-      Spatial convergence test using 9-point Laplacian stencil <i>O</i>(<i>h</i><sup>4</sup>) for explicit finite
-      differencing <i>O</i>(<i>k</i><sup>1</sup>). The time step is constant at 1e-4 for all simulations. The
-      order of accuracy, <i>h</i><sup>1.78</sup>, is shy of the expected <i>O</i>(<i>h</i><sup>2</sup>).
-    type: line
-    transform:
-      - type: formula
-        expr: datum.h
-        as: x
-      - type: formula
-        expr: datum.l
-        as: 'y'
-  - name: spatial_initial
-    url: >-
-      https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-manufactured/spatial.0.png
-    type: image
-    description: >-
-      Initial condition for spatial convergence test with
-      <i>N<sub>x</sub></i>=1000.
-  - name: spatial_final
-    url: >-
-      https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-manufactured/spatial.8.png
-    type: image
-    description: Final result for spatial convergence test with <i>N<sub>x</sub></i>=1000.
+- name: run_time
+  values:
+  - sim_time: '8.00000'
+    wall_time: '750'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '122880'
+- description: Spatial convergence test using 9-point Laplacian stencil <i>O</i>(<i>h</i><sup>4</sup>)
+    for explicit finite differencing <i>O</i>(<i>k</i><sup>1</sup>). The time step
+    is constant at 1e-4 for all simulations. The order of accuracy, <i>h</i><sup>1.78</sup>,
+    is shy of the expected <i>O</i>(<i>h</i><sup>2</sup>).
+  format:
+    parse:
+      h: number
+      l: number
+    type: csv
+  name: spatial
+  transform:
+  - as: x
+    expr: datum.h
+    type: formula
+  - as: y
+    expr: datum.l
+    type: formula
+  type: line
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-manufactured/GTX1070-7a-dt0001-9pt.csv
+- description: Initial condition for spatial convergence test with <i>N<sub>x</sub></i>=1000.
+  name: spatial_initial
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-manufactured/spatial.0.png
+- description: Final result for spatial convergence test with <i>N<sub>x</sub></i>=1000.
+  name: spatial_final
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-manufactured/spatial.8.png
 date: 1519052898
+metadata:
+  author:
+    email: trevor.keller@nist.gov
+    first: Trevor
+    github_id: tkphd
+    last: Keller
+  hardware:
+    acc_architecture: gpu
+    clock_rate: '1.999'
+    cores: '1920'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: massive
+  implementation:
+    container_url: ''
+    name: hiperc
+    repo:
+      url: https://github.com/usnistgov/hiperc
+      version: 3ab441de836ccead77c6a31ddee08e7c3de06ce8
+  summary: HiPerC MMS solution using CUDA on Nvidia GTX1070. Runtime covers all simulations,
+    averaging 1 minute each.
+  timestamp: 19 February, 2018
