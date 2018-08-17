@@ -12,6 +12,7 @@ import re
 
 from dateutil.parser import parse
 import jinja2
+
 # pylint: disable=redefined-builtin, no-name-in-module
 from toolz.curried import map, pipe, get, curry, filter, compose, juxt
 from toolz.curried import valmap, itemmap, groupby, memoize, keymap, update_in
@@ -67,7 +68,7 @@ def write_json(data, filepath):
     Returns:
       returns a tuple of (filepath, data)
     """
-    with open(filepath, 'w') as stream:
+    with open(filepath, "w") as stream:
         json.dump(data, stream, sort_keys=True, indent=2)
     return (filepath, data)
 
@@ -78,12 +79,7 @@ def get_path():
     Returns:
       the filepath
     """
-    return pipe(
-        __file__,
-        os.path.realpath,
-        os.path.split,
-        get(0)
-    )
+    return pipe(__file__, os.path.realpath, os.path.split, get(0))
 
 
 @curry
@@ -114,17 +110,19 @@ def filter_data(field, yaml_data):
     return pipe(
         yaml_data,
         dict,
-        valmap(lambda val: val['data']),
-        valmap(filter(lambda item: item['name'].lower() == field)),
+        valmap(lambda val: val["data"]),
+        valmap(filter(lambda item: item["name"].lower() == field)),
         valmap(list),
         valmap(get(0, default=None)),
         valfilter(lambda x: x is not None),
         itemmap(lambda item: (item[0], update_dict(item[1], name=item[0]))),
-        lambda dict_: sorted(list(dict_.values()),
-                             key=lambda item: item['name']),
-        map(update_in(keys=['transform'],
-                      func=lambda x: x + [dict(expr="datum.x > 0.01",
-                                               type="filter")]))
+        lambda dict_: sorted(list(dict_.values()), key=lambda item: item["name"]),
+        map(
+            update_in(
+                keys=["transform"],
+                func=lambda x: x + [dict(expr="datum.x > 0.01", type="filter")],
+            )
+        ),
     )
 
 
@@ -138,61 +136,63 @@ def filter_memory_data(yaml_data):
     Returns:
       memory versus time data
     """
+
     def time_ratio(data):
         """Calcuate the sim_time over wall_time ration
         """
+
         def not0(value):
             """Set to 1e-10 if 0
             """
             if value == 0:
                 return 1e-10
             return value
+
         return pipe(
             data[-1],
-            juxt(lambda x: x.get('sim_time', x.get('time')),
-                 lambda x: x.get('wall_time', x.get('time'))),
-            lambda x: float(x[0]) / not0(float(x[1]))
+            juxt(
+                lambda x: x.get("sim_time", x.get("time")),
+                lambda x: x.get("wall_time", x.get("time")),
+            ),
+            lambda x: float(x[0]) / not0(float(x[1])),
         )
 
     def memory_usage(data):
         """Calculate the memory usage in KB
         """
-        unit_map = dict(GB=1048576.,
-                        KB=1.,
-                        MB=1024.,
-                        B=1. / 1024.)
+        unit_map = dict(GB=1048576., KB=1., MB=1024., B=1. / 1024.)
         if isinstance(data, dict):
             data_ = data
         else:
             data_ = data[-1]
-        key = next(k for k in data_.keys() if 'value' in k)
-        return float(data_[key]) * unit_map[data_.get('unit', 'KB')]
+        key = next(k for k in data_.keys() if "value" in k)
+        return float(data_[key]) * unit_map[data_.get("unit", "KB")]
 
     def make_datum(data):
         """Build an item in the data list for one simulation
         """
         return dict(
-            name='efficiency',
-            values=[dict(time_ratio=time_ratio(data['run_time']),
-                         memory_usage=memory_usage(data['memory_usage']))],
+            name="efficiency",
+            values=[
+                dict(
+                    time_ratio=time_ratio(data["run_time"]),
+                    memory_usage=memory_usage(data["memory_usage"]),
+                )
+            ],
         )
 
     return pipe(
         yaml_data,
         dict,
-        valmap(lambda x: x['data']),
+        valmap(lambda x: x["data"]),
         valmap(
-            filter(
-                lambda item: item['name'].lower() in ('memory_usage',
-                                                      'run_time')
-            )
+            filter(lambda item: item["name"].lower() in ("memory_usage", "run_time"))
         ),
-        valmap(map(lambda x: (x['name'], x['values']))),
+        valmap(map(lambda x: (x["name"], x["values"]))),
         valmap(dict),
         valmap(make_datum),
         itemmap(lambda item: (item[0], update_dict(item[1], name=item[0]))),
-        lambda dict_: sorted(list(dict_.values()),
-                             key=lambda item: item['name'])
+        lambda dict_: sorted(list(dict_.values()), key=lambda item: item["name"]),
     )
 
 
@@ -203,14 +203,15 @@ def get_yaml_data():
       list of tuples of (name, data_dict)
     """
     return pipe(
-        os.path.join(get_path(), 'simulations/*/meta.yaml'),
+        os.path.join(get_path(), "simulations/*/meta.yaml"),
         glob.glob,
         sorted,
-        map(lambda path_: (os.path.split(os.path.split(path_)[0])[1],
-                           read_yaml(path_))),
-        filter(lambda item: item[0] not in ['example',
-                                            'example_minimal',
-                                            'test_lander'])
+        map(
+            lambda path_: (os.path.split(os.path.split(path_)[0])[1], read_yaml(path_))
+        ),
+        filter(
+            lambda item: item[0] not in ["example", "example_minimal", "test_lander"]
+        ),
     )
 
 
@@ -223,6 +224,7 @@ def vega2to3(data):
     Returns:
       update vega data list
     """
+
     def keymapping(key):
         """Map vega data  keys from version 2 to 3
 
@@ -235,18 +237,13 @@ def vega2to3(data):
         Returns:
           a new key
         """
-        return dict(test='expr',
-                    field='as').get(key, key)
-    update_transform = fcompose(
-        map(keymap(keymapping)),
-        list
-    )
+        return dict(test="expr", field="as").get(key, key)
+
+    update_transform = fcompose(map(keymap(keymapping)), list)
     return pipe(
         data,
-        map(update_in(keys=['transform'],
-                      func=update_transform,
-                      default=[])),
-        list
+        map(update_in(keys=["transform"], func=update_transform, default=[])),
+        list,
     )
 
 
@@ -264,11 +261,12 @@ def get_data(filter_func):
     return pipe(
         get_yaml_data(),
         groupby(
-            lambda item: "{0}.{1}".format(item[1]['benchmark']['id'],
-                                          str(item[1]['benchmark']['version']))
+            lambda item: "{0}.{1}".format(
+                item[1]["benchmark"]["id"], str(item[1]["benchmark"]["version"])
+            )
         ),
         valmap(filter_func),
-        valmap(vega2to3)
+        valmap(vega2to3),
     )
 
 
@@ -279,7 +277,7 @@ def get_chart_file(j2_file_name):
       the chart YAML file
 
     """
-    return os.path.join(get_path(), 'charts', j2_file_name)
+    return os.path.join(get_path(), "charts", j2_file_name)
 
 
 @curry
@@ -295,15 +293,13 @@ def write_chart_json(j2_file_name, item):
     """
     file_name = fcompose(
         lambda x: r"{0}_{1}".format(x, j2_file_name),
-        lambda x: re.sub(r"([0-9]+[abcd])\.(.+)\.yaml\.j2",
-                         r"\1\2.json",
-                         x)
+        lambda x: re.sub(r"([0-9]+[abcd])\.(.+)\.yaml\.j2", r"\1\2.json", x),
     )
     return pipe(
         item[0],
         file_name,
-        lambda file_: os.path.join(get_path(), '../_data/charts', file_),
-        write_json(item[1])
+        lambda file_: os.path.join(get_path(), "../_data/charts", file_),
+        write_json(item[1]),
     )
 
 
@@ -314,10 +310,7 @@ def get_marks():
     Returns:
       a dictionary defined in marks.yaml
     """
-    return pipe(
-        os.path.join(get_path(), 'marks.yaml'),
-        read_yaml
-    )
+    return pipe(os.path.join(get_path(), "marks.yaml"), read_yaml)
 
 
 def process_chart(id_, data, j2_file_name):
@@ -333,10 +326,10 @@ def process_chart(id_, data, j2_file_name):
     """
     return pipe(
         get_chart_file(j2_file_name),
-        render_yaml(data=data,
-                    id_=id_,
-                    marks=get_marks().get(id_, get_marks()['default'])),
-        yaml.load
+        render_yaml(
+            data=data, id_=id_, marks=get_marks().get(id_, get_marks()["default"])
+        ),
+        yaml.load,
     )
 
 
@@ -358,10 +351,10 @@ def render_yaml(tpl_path, **kwargs):
       the rendered template string
     """
     path, filename = os.path.split(tpl_path)
-    loader = jinja2.FileSystemLoader(path or './')
+    loader = jinja2.FileSystemLoader(path or "./")
     env = jinja2.Environment(loader=loader)
-    env.filters['to_yaml'] = yaml.dump
-    env.filters['to_datetime'] = to_datetime
+    env.filters["to_yaml"] = yaml.dump
+    env.filters["to_datetime"] = to_datetime
     return env.get_template(filename).render(**kwargs)
 
 
@@ -378,13 +371,8 @@ def main(filter_func, j2_file_name):
     return pipe(
         get_data(filter_func),
         valfilter(lambda x: len(x) > 0),
-        itemmap(
-            lambda item: (
-                item[0],
-                process_chart(item[0], item[1], j2_file_name)
-            )
-        ),
-        itemmap(write_chart_json(j2_file_name))
+        itemmap(lambda item: (item[0], process_chart(item[0], item[1], j2_file_name))),
+        itemmap(write_chart_json(j2_file_name)),
     )
 
 
@@ -395,7 +383,7 @@ def landing_page_j2():
       the chart YAML file
 
     """
-    return os.path.join(get_path(), 'charts', 'simulations.yaml.j2')
+    return os.path.join(get_path(), "charts", "simulations.yaml.j2")
 
 
 def landing_page_json():
@@ -404,35 +392,38 @@ def landing_page_json():
     Returns:
       (filepath, chart_json) pairs
     """
+
     def extract_id(name):
         """Extract benchmark ID from png path
         """
-        return name.replace("../images/", "").replace('_free_energy.png', '')
+        return name.replace("../images/", "").replace("_free_energy.png", "")
+
     return pipe(
-        ['1a.1_free_energy.png',
-         '1b.1_free_energy.png',
-         '1c.1_free_energy.png',
-         '1d.1_free_energy.png',
-         '2a.1_free_energy.png',
-         '2b.1_free_energy.png',
-         '2c.1_free_energy.png',
-         '2d.1_free_energy.png'],
-        map(lambda name: os.path.join("..", 'images', name)),
+        [
+            "1a.1_free_energy.png",
+            "1b.1_free_energy.png",
+            "1c.1_free_energy.png",
+            "1d.1_free_energy.png",
+            "2a.1_free_energy.png",
+            "2b.1_free_energy.png",
+            "2c.1_free_energy.png",
+            "2d.1_free_energy.png",
+        ],
+        map(lambda name: os.path.join("..", "images", name)),
         enumerate,
         map(
             lambda tup: (
-                lambda count, name: dict(path=name,
-                                         col=(count % 4),
-                                         row=count // 4,
-                                         link=extract_id(name))
-                )(*tup)
+                lambda count, name: dict(
+                    path=name, col=(count % 4), row=count // 4, link=extract_id(name)
+                )
+            )(*tup)
         ),
         list,
-        lambda data: j2_to_json(landing_page_j2(),
-                                os.path.join(get_path(),
-                                             '../_data/charts',
-                                             'simulations.json'),
-                                data=data)
+        lambda data: j2_to_json(
+            landing_page_j2(),
+            os.path.join(get_path(), "../_data/charts", "simulations.json"),
+            data=data,
+        ),
     )
 
 
@@ -447,13 +438,11 @@ def j2_to_json(path_in, path_out, **kwargs):
       the file path and JSON string
     """
     return pipe(
-        render_yaml(path_in, **kwargs),
-        yaml.load,
-        write_json(filepath=path_out)
+        render_yaml(path_in, **kwargs), yaml.load, write_json(filepath=path_out)
     )
 
 
 if __name__ == "__main__":
-    main(filter_data('free_energy'), 'free_energy.yaml.j2')
-    main(filter_memory_data, 'memory.yaml.j2')
+    main(filter_data("free_energy"), "free_energy.yaml.j2")
+    main(filter_memory_data, "memory.yaml.j2")
     landing_page_json()

@@ -29,10 +29,7 @@ def migrate(func):
       of the updated YAML data.
     """
     return pipe(
-        get_yaml_data(),
-        dict,
-        valmap(func),
-        do(itemmap(lambda x: write_yaml_data(*x)))
+        get_yaml_data(), dict, valmap(func), do(itemmap(lambda x: write_yaml_data(*x)))
     )
 
 
@@ -44,10 +41,10 @@ def get_yaml_data():
       dictionaries of YAML data
     """
     return pipe(
-        os.path.join(get_path(), 'simulations/*/meta.y*ml'),
+        os.path.join(get_path(), "simulations/*/meta.y*ml"),
         glob.glob,
         sorted,
-        map(lambda path_: (path_, read_yaml(path_)))
+        map(lambda path_: (path_, read_yaml(path_))),
     )
 
 
@@ -59,22 +56,23 @@ def write_yaml_data(filepath, data):
       data: a dictionary to write to the YAML file
 
     """
-    with open(filepath, 'w') as stream:
+    with open(filepath, "w") as stream:
         yaml.safe_dump(data, stream, default_flow_style=False, indent=2)
     return (filepath, data)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+
     def migrate_f(data):
-        if 'MOOSE' in data['metadata']['implementation']['name']:
-            data['metadata']['implementation']['name'] = 'moose'
-        if '1stOrderSemiOpt.edp' == data['metadata']['implementation']['name']:
-            data['metadata']['implementation']['name'] = 'custom'
-        if 'tester' in data['metadata']['implementation']['name']:
-            data['metadata']['implementation']['name'] = 'custom'
-        print(data['metadata']['implementation']['name'])
+        """Migration callback"""
+        if "MOOSE" in data["metadata"]["implementation"]["name"]:
+            data["metadata"]["implementation"]["name"] = "moose"
+        if data["metadata"]["implementation"]["name"] == "1stOrderSemiOpt.edp":
+            data["metadata"]["implementation"]["name"] = "custom"
+        if "tester" in data["metadata"]["implementation"]["name"]:
+            data["metadata"]["implementation"]["name"] = "custom"
+        print(data["metadata"]["implementation"]["name"])
 
         return data
-
 
     migrate(migrate_f)
