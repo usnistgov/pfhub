@@ -33,4 +33,6 @@ in
     node."assert"
     node.surge
     node.execjs
+    pkgs.git
+    pkgs.openssh
   ]
