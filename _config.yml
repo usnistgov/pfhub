@@ -36,9 +36,9 @@ admin_email: 'chimad-phase-field-admin@list.nist.gov'
 
 new_edit: 'http://prose.io/#wd15/pfhub/tree/prose.io'
 prose_edit: 'http://prose.io/#wd15/pfhub/edit/prose.io'
-github_edit: 'https://github.com/wd15/pfhub/edit/prose.io'
-source_edit: 'https://github.com/wd15/pfhub/blob/prose.io'
-history_edit: 'https://github.com/wd15/pfhub/commits/prose.io'
+github_edit: 'https://github.com/wd15/pfhub/edit/issue795-voorhees-phase-field-lectures'
+source_edit: 'https://github.com/wd15/pfhub/blob/issue795-voorhees-phase-field-lectures'
+history_edit: 'https://github.com/wd15/pfhub/commits/issue795-voorhees-phase-field-lectures'
 
 prose:
   rooturl: 'wiki'
