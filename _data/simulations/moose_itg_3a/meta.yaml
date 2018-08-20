@@ -1,0 +1,103 @@
+_id: 2789feb0-a489-11e8-9ae0-593cf187bda1
+metadata:
+  author:
+    first: Ian
+    last: Greenquist
+    email: ikg5018@psu.edu
+    github_id: itgreenquist
+  timestamp: '13 July, 2018'
+  summary: Results for Benchmark problem 3a
+  implementation:
+    name: MOOSE-framework
+    repo:
+      url: 'https://github.com/itgreenquist/moose/tree/benchmark'
+      version: fa4420c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '3.0'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '228'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '38024921'
+  - name: free_energy
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_3/time_vals.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_3/time_vals.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_3/time_vals.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_3/phase_field_1500.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1534776961
