@@ -56,7 +56,8 @@
       "name": "code_uploads",
       "values": [
         {
-          "count": 29,
+
+          "count": 30,
           "name": "moose"
         },
         {
@@ -65,15 +66,15 @@
         },
         {
           "count": 7,
-          "name": "MOOSE framework"
-        },
-        {
-          "count": 7,
           "name": "fipy"
         },
         {
           "count": 7,
           "name": "prisms"
+        },
+        {
+          "count": 6,
+          "name": "MOOSE framework"
         },
         {
           "count": 3,
