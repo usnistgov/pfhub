@@ -8,7 +8,7 @@ metadata:
   timestamp: '29 March, 2018'
   summary: Results for benchmark 2a
   implementation:
-    name: MOOSE framework
+    name: moose
     repo:
       url: 'https://github.com/itgreenquist/moose/tree/benchmark'
       version: fa4420c
@@ -34,7 +34,7 @@ data:
         value: '37927391'
   - name: free_energy
     url: >-
-      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_2/a_energy.csv
+      https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_2/a_energy.csv
     format:
       type: csv
       parse:
