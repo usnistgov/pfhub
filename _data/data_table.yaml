@@ -338,9 +338,9 @@ data:
 - author: {email: ikg5018@psu.edu, name: Ian Greenquist}
   code: {name: moose, url: 'https://github.com/itgreenquist/moose/tree/benchmark'}
   cores: 8
-  id_: 2a.1
-  name: moose_itg_2a
-  timestamp: 2018/03/29 00:00:00
+  id_: 2b.1
+  name: moose_itg_2b
+  timestamp: 2018/03/30 00:00:00
 - author: {email: pjs5523@psu.edu, name: PC. Simon}
   code: {name: moose, url: 'https://github.com/simopier/CHiMaD/blob/master/H1.i'}
   cores: 40
