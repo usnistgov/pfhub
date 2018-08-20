@@ -119,6 +119,16 @@
       ]
     },
     {
+      "name": "itg_moose_1a",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 37755265.0,
+          "time_ratio": 605.0563697857948
+        }
+      ]
+    },
+    {
       "name": "mmsp_1a_raspi",
       "transform": [],
       "values": [
@@ -337,6 +347,83 @@
       },
       "from": {
         "data": "fipy_1a_travis"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'itg_moose_1a')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'itg_moose_1a')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'itg_moose_1a')",
+              "value": "itg_moose_1a"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "itg_moose_1a"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'itg_moose_1a')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "itg_moose_1a"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "itg_moose_1a"
       },
       "interactive": true,
       "type": "symbol"
@@ -980,6 +1067,7 @@
     {
       "domain": [
         "fipy_1a_travis",
+        "itg_moose_1a",
         "mmsp_1a_raspi",
         "mmsp_1a_travis",
         "mmsp_1a_wrksttn",
