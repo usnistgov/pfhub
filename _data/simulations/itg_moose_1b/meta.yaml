@@ -8,7 +8,7 @@ metadata:
   timestamp: '19 March, 2018'
   summary: Benchmark Problem 1b
   implementation:
-    name: MOOSE framework
+    name: moose
     repo:
       url: 'https://github.com/itgreenquist/moose/tree/benchmark'
       version: fa4420c
@@ -32,4 +32,21 @@ data:
     values:
       - unit: KB
         value: '377502512'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_1/b_energy.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: Simulation data for benchmark 1b
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
 date: 1534773167
