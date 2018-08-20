@@ -329,6 +329,12 @@ data:
   id_: 2d.1
   name: moose_fh_2d
   timestamp: 2018/08/09 00:00:00
+- author: {email: ikg5018@psu.edu, name: Ian Greenquist}
+  code: {name: moose, url: 'https://github.com/itgreenquist/moose/tree/benchmark'}
+  cores: 8
+  id_: 1c.1
+  name: moose_ig_1c
+  timestamp: 2018/03/19 00:00:00
 - author: {email: pjs5523@psu.edu, name: PC. Simon}
   code: {name: moose, url: 'https://github.com/simopier/CHiMaD/blob/master/H1.i'}
   cores: 40
