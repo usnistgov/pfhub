@@ -56,24 +56,24 @@
       "name": "code_uploads",
       "values": [
         {
-          "count": 14,
+          "count": 15,
           "name": "1b"
         },
         {
-          "count": 9,
+          "count": 10,
           "name": "1a"
         },
         {
-          "count": 9,
+          "count": 10,
           "name": "1c"
         },
         {
           "count": 6,
-          "name": "7a"
+          "name": "1d"
         },
         {
-          "count": 5,
-          "name": "1d"
+          "count": 6,
+          "name": "7a"
         },
         {
           "count": 5,
@@ -89,11 +89,11 @@
         },
         {
           "count": 3,
-          "name": "2b"
+          "name": "2a"
         },
         {
           "count": 3,
-          "name": "2c"
+          "name": "2b"
         },
         {
           "count": 3,
