@@ -8,7 +8,7 @@ metadata:
   timestamp: '13 July, 2018'
   summary: Results for Benchmark problem 3a
   implementation:
-    name: MOOSE-framework
+    name: moose
     repo:
       url: 'https://github.com/itgreenquist/moose/tree/benchmark'
       version: fa4420c
@@ -32,9 +32,20 @@ data:
     values:
       - unit: KB
         value: '38024921'
+  - name: efficiency
+    values:
+      - time_ratio: 6.5789
+        memory: 38024921
+    transform:
+      - type: formula
+        expr: datum.time_ratio
+        as: x
+      - type: formula
+        expr: datum.memory
+        as: 'y'
   - name: free_energy
     url: >-
-      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_3/time_vals.csv
+      https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_3/time_vals.csv
     format:
       type: csv
       parse:
@@ -51,7 +62,7 @@ data:
         as: 'y'
   - name: solid_fraction
     url: >-
-      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_3/time_vals.csv
+      https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_3/time_vals.csv
     format:
       type: csv
       parse:
@@ -68,7 +79,7 @@ data:
         as: 'y'
   - name: tip_position
     url: >-
-      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_3/time_vals.csv
+      https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_3/time_vals.csv
     format:
       type: csv
       parse:
@@ -85,7 +96,7 @@ data:
         as: 'y'
   - name: phase_field_1500
     url: >-
-      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_3/phase_field_1500.csv
+      https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_3/phase_field_1500.csv
     format:
       type: csv
       parse:
