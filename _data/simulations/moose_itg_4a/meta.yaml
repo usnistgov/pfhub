@@ -1,0 +1,166 @@
+_id: f644cbb0-a49b-11e8-9ae0-593cf187bda1
+metadata:
+  author:
+    first: Ian
+    last: Greenquist
+    email: ikg5018@psu.edu
+    github_id: itgreenquist
+  timestamp: '17 August, 2018'
+  summary: Results for benchmark Problem 4a
+  implementation:
+    name: MOOSE Framework
+    repo:
+      url: 'https://github.com/itgreenquist/moose/tree/benchmark'
+      version: fa4420c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '0'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 4a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '377'
+        sim_time: '60000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '38001603'
+  - name: eta_SS
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_4/final_a.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+        eta: number
+    description: Steady state value for eta variable
+    type: contour
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+      - type: formula
+        expr: datum.eta
+        as: z
+  - name: u_x_SS
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_4/final_a.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+        u_x: number
+    description: Steady state value for x displacement
+    type: contour
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+      - type: formula
+        expr: datum.u_x
+        as: z
+  - name: u_y_SS
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_4/final_a.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+        u_y: number
+    description: Steady state value for y displacement
+    type: contour
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+      - type: formula
+        expr: datum.u_y
+        as: z
+  - name: free_energy
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_4/part_a_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Total energy of the system
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: free_energy_el
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_4/part_a_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy_el: number
+    description: Elastic free energy of the system
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy_el
+        as: 'y'
+  - name: free_energy_grad
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_4/part_a_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy_grad: number
+    description: Gradient free energy of the system
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy_grad
+        as: 'y'
+  - name: precipitate_volume
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_4/part_a_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        precip_volume: number
+    description: Precipitate volume
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.precip_volume
+        as: 'y'
+date: 1534785039
