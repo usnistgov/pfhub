@@ -1,0 +1,52 @@
+_id: 21d9af00-a485-11e8-9ae0-593cf187bda1
+metadata:
+  author:
+    first: Ian
+    last: Greenquist
+    email: ikg5018@psu.edu
+    github_id: itgreenquist
+  timestamp: '29 March, 2018'
+  summary: Results for benchmark 2a
+  implementation:
+    name: MOOSE framework
+    repo:
+      url: 'https://github.com/itgreenquist/moose/tree/benchmark'
+      version: fa4420c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '0'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 2a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '16416'
+        sim_time: '100000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '37927391'
+  - name: free_energy
+    url: >-
+      https://github.com/itgreenquist/moose/blob/benchmark/benchmark_uploads/prob_2/a_energy.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: Data for benchmark 2a
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
+date: 1534775234
