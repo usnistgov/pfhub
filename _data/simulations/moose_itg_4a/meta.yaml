@@ -1,0 +1,35 @@
+_id: 96fda340-a494-11e8-9ae0-593cf187bda1
+metadata:
+  author:
+    first: Ian
+    last: Greenquist
+    email: ikg5018@psu.edu
+    github_id: itgreenquist
+  timestamp: '17 August, 2018'
+  summary: Results from Benchmark Problem 4
+  implementation:
+    name: MOOSE Framework
+    repo:
+      url: 'https://github.com/itgreenquist/moose/tree/benchmark'
+      version: fa4420c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '0'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 4a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '377'
+        sim_time: '60000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '38001603'
+date: 1534781873
