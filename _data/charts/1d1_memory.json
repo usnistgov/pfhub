@@ -139,6 +139,16 @@
       ]
     },
     {
+      "name": "moose_itg_1d",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 38089085.0,
+          "time_ratio": 16.995361393102925
+        }
+      ]
+    },
+    {
       "name": "moose_psu_1d_IA_2",
       "transform": [],
       "values": [
@@ -460,6 +470,83 @@
         "hover": {
           "fillOpacity": [
             {
+              "test": "!indata('selected', 'value', 'moose_itg_1d')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_1d')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_1d')",
+              "value": "moose_itg_1d"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "moose_itg_1d"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_1d')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "moose_itg_1d"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_itg_1d"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
               "test": "!indata('selected', 'value', 'moose_psu_1d_IA_2')",
               "value": 0.4
             },
@@ -634,6 +721,7 @@
         "moose_1d_ia",
         "moose_1d_sta",
         "moose_fh_1d",
+        "moose_itg_1d",
         "moose_psu_1d_IA_2",
         "moose_psu_1d_STA"
       ],

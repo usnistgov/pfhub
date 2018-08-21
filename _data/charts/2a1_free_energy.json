@@ -204,6 +204,35 @@
       "url": "https://gist.githubusercontent.com/FHilty/ed1650b9e20c7245120d3a048591ab32/raw/da53a794aae48640820e6bfd31bcfcca0facc55a/MOOSE_FH_2a.csv"
     },
     {
+      "description": "Data for benchmark 2a",
+      "format": {
+        "parse": {
+          "time": "number",
+          "total_energy": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_itg_2a",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.total_energy",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_2/a_energy.csv"
+    },
+    {
       "name": "selected",
       "on": [
         {
@@ -442,6 +471,64 @@
       },
       "interactive": true,
       "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_2a')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_2a')",
+              "value": "moose_itg_2a"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_itg_2a"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_2a')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_itg_2a"
+      },
+      "interactive": true,
+      "type": "line"
     }
   ],
   "scales": [
@@ -467,7 +554,8 @@
       "domain": [
         "moose_2a_ia",
         "moose_2a_sta",
-        "moose_fh_2a"
+        "moose_fh_2a",
+        "moose_itg_2a"
       ],
       "name": "color",
       "range": {

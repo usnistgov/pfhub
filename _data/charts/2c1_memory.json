@@ -139,6 +139,16 @@
       ]
     },
     {
+      "name": "moose_itg_2c",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 37589450.0,
+          "time_ratio": 0.40310600945307223
+        }
+      ]
+    },
+    {
       "name": "selected",
       "on": [
         {
@@ -434,6 +444,83 @@
       },
       "interactive": true,
       "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_2c')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_2c')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_2c')",
+              "value": "moose_itg_2c"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "moose_itg_2c"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_itg_2c')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "moose_itg_2c"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_itg_2c"
+      },
+      "interactive": true,
+      "type": "symbol"
     }
   ],
   "scales": [
@@ -459,7 +546,8 @@
       "domain": [
         "moose_2c_ia",
         "moose_2c_sta",
-        "moose_fh_2c"
+        "moose_fh_2c",
+        "moose_itg_2c"
       ],
       "name": "color",
       "range": {
