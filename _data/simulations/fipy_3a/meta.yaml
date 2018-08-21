@@ -1,107 +1,106 @@
 _id: 93113e00-0c5e-11e8-b653-4f1ed6519c85
-metadata:
-  author:
-    first: Daniel
-    last: Wheeler
-    email: daniel.wheeler2@gmail.com
-    github_id: wd15
-  timestamp: '2 February, 2018'
-  summary: >-
-    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
-    dendrite doesn't look exactly like the version in the notebook.
-  implementation:
-    name: fipy
-    repo:
-      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
-      version: fc9134b08a9c
-    container_url: ''
-  hardware:
-    cpu_architecture: x86_64
-    acc_architecture: none
-    parallel_model: serial
-    clock_rate: '3.2'
-    cores: '1'
-    nodes: '1'
 benchmark:
   id: 3a
   version: '1'
 data:
-  - name: run_time
-    values:
-      - wall_time: '266576'
-        sim_time: '1500'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '2000000'
-  - name: efficiency
-    values:
-      - time_ratio: 0.005626
-        memory: 2000000.0
-    transform:
-      - type: formula
-        expr: datum.time_ratio
-        as: x
-      - type: formula
-        expr: datum.memory
-        as: 'y'
-  - name: free_energy
-    url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        free_energy: number
-    description: Free energy versus time
-    type: line
-    transform:
-      - type: formula
-        expr: datum.time
-        as: x
-      - type: formula
-        expr: datum.free_energy
-        as: 'y'
-  - name: solid_fraction
-    url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        solid_fraction: number
-    description: Solid fraction versus time
-    type: line
-    transform:
-      - type: formula
-        expr: datum.time
-        as: x
-      - type: formula
-        expr: datum.solid_fraction
-        as: 'y'
-  - name: tip_position
-    url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        tip_position: number
-    description: Tip position versus time
-    type: line
-    transform:
-      - type: formula
-        expr: datum.time
-        as: x
-      - type: formula
-        expr: datum.tip_position
-        as: 'y'
-  - name: phase_field_1500
-    url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/d0dcd61541604127a16c017891dcda1577c92997/contour.csv
-    format:
-      type: csv
-      parse:
-        x: number
-        y: number
-    description: Zero contour at t=1500s
-    type: line
+- name: run_time
+  values:
+  - sim_time: '1500'
+    wall_time: '266576'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '2000000'
+- name: efficiency
+  transform:
+  - as: x
+    expr: datum.time_ratio
+    type: formula
+  - as: y
+    expr: datum.memory
+    type: formula
+  values:
+  - memory: 2000000.0
+    time_ratio: 0.005626
+- description: Free energy versus time
+  format:
+    parse:
+      free_energy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+- description: Solid fraction versus time
+  format:
+    parse:
+      solid_fraction: number
+      time: number
+    type: csv
+  name: solid_fraction
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.solid_fraction
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+- description: Tip position versus time
+  format:
+    parse:
+      time: number
+      tip_position: number
+    type: csv
+  name: tip_position
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.tip_position
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+- description: Zero contour at t=1500s
+  format:
+    parse:
+      x: number
+      y: number
+    type: csv
+  name: phase_field_1500
+  type: line
+  url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/d0dcd61541604127a16c017891dcda1577c92997/contour.csv
 date: 1518046097
 layout: post
 message: ' '
+metadata:
+  author:
+    email: daniel.wheeler2@gmail.com
+    first: Daniel
+    github_id: wd15
+    last: Wheeler
+  hardware:
+    acc_architecture: none
+    clock_rate: '3.2'
+    cores: '1'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: serial
+  implementation:
+    container_url: ''
+    name: fipy
+    repo:
+      url: https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb
+      version: fc9134b08a9c
+  summary: FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  timestamp: 2 February, 2018

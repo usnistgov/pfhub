@@ -1,115 +1,111 @@
 _id: 5060d3a0-7b16-11e8-b5f4-6170e8cb26a5
-metadata:
-  author:
-    first: Dong-Uk
-    last: Kim
-    email: cmskdu@gmail.com
-    github_id: eastglow-zz
-  timestamp: '27 June, 2018'
-  summary: >-
-    MOOSE framework; mesh adaptivity, bdf2 time stepping with adaptive time steps (dtmax = 0.3), postprocesses on the every timestep
-  implementation:
-    name: MOOSE-framework
-    repo:
-      url: 'https://github.com/eastglow-zz/CHiMaD3_dendritic_growth'
-      version: 78a47b4
-    container_url: ''
-  hardware:
-    cpu_architecture: x86_64
-    acc_architecture: none
-    parallel_model: distributed
-    clock_rate: '3.0'
-    cores: '8'
-    nodes: '1'
 benchmark:
   id: 3a
   version: '1'
 data:
-  - name: run_time
-    values:
-      - wall_time: '108381'
-        sim_time: '1500'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '7022900'
-  - name: efficiency
-    values:
-      - time_ratio: 0.01384
-        memory: 7022900.0
-    transform:
-      - type: formula
-        expr: datum.time_ratio
-        as: x
-      - type: formula
-        expr: datum.memory
-        as: 'y'
-  - name: free_energy
-    url: >-
-      https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/5310ddf815512eb7824c3612ab63c998649c9b44/CHiMaD3_DK_w_postprocess_out.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        Total_FE: number
-    description: Free energy versus time
-    type: line
-    transform:
-      - type: formula
-        expr: datum.time
-        as: x
-      - type: formula
-        expr: datum.Total_FE
-        as: 'y'
-  - name: solid_fraction
-    url: >-
-      https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/5310ddf815512eb7824c3612ab63c998649c9b44/CHiMaD3_DK_w_postprocess_out.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        Total_solid_fraction: number
-    description: Solid fraction versus time
-    type: line
-    transform:
-      - type: formula
-        expr: datum.time
-        as: x
-      - type: formula
-        expr: datum.Total_solid_fraction
-        as: 'y'
-  - name: tip_position
-    url: >-
-      https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/5310ddf815512eb7824c3612ab63c998649c9b44/CHiMaD3_DK_w_postprocess_out.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        Interface_location_along_x_axis: number
-    description: Tip position versus time
-    type: line
-    transform:
-      - type: formula
-        expr: datum.time
-        as: x
-      - type: formula
-        expr: datum.Interface_location_along_x_axis
-        as: 'y'
-  - name: phase_field_1500
-    url: >-
-      https://gist.githubusercontent.com/eastglow-zz/96ca7c17913a9d0a9bfbd0405341f31a/raw/353b8af9f77f7ef36e64853e6a66c119e26c5361/phase_field_1500.csv
-    format:
-      type: csv
-      parse:
-        x: number
-        y: number
-    description: Zero contour at t=1500s
-    type: line
-    transform:
-      - type: formula
-        expr: datum.x
-        as: x
-      - type: formula
-        expr: datum.y
-        as: 'y'
+- name: run_time
+  values:
+  - sim_time: '1500'
+    wall_time: '108381'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '7022900'
+- name: efficiency
+  transform:
+  - as: x
+    expr: datum.time_ratio
+    type: formula
+  - as: y
+    expr: datum.memory
+    type: formula
+  values:
+  - memory: 7022900.0
+    time_ratio: 0.01384
+- description: Free energy versus time
+  format:
+    parse:
+      Total_FE: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.Total_FE
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/5310ddf815512eb7824c3612ab63c998649c9b44/CHiMaD3_DK_w_postprocess_out.csv
+- description: Solid fraction versus time
+  format:
+    parse:
+      Total_solid_fraction: number
+      time: number
+    type: csv
+  name: solid_fraction
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.Total_solid_fraction
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/5310ddf815512eb7824c3612ab63c998649c9b44/CHiMaD3_DK_w_postprocess_out.csv
+- description: Tip position versus time
+  format:
+    parse:
+      Interface_location_along_x_axis: number
+      time: number
+    type: csv
+  name: tip_position
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.Interface_location_along_x_axis
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/5310ddf815512eb7824c3612ab63c998649c9b44/CHiMaD3_DK_w_postprocess_out.csv
+- description: Zero contour at t=1500s
+  format:
+    parse:
+      x: number
+      y: number
+    type: csv
+  name: phase_field_1500
+  transform:
+  - as: x
+    expr: datum.x
+    type: formula
+  - as: y
+    expr: datum.y
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/eastglow-zz/96ca7c17913a9d0a9bfbd0405341f31a/raw/353b8af9f77f7ef36e64853e6a66c119e26c5361/phase_field_1500.csv
 date: 1530219641
+metadata:
+  author:
+    email: cmskdu@gmail.com
+    first: Dong-Uk
+    github_id: eastglow-zz
+    last: Kim
+  hardware:
+    acc_architecture: none
+    clock_rate: '3.0'
+    cores: '8'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: distributed
+  implementation:
+    container_url: ''
+    name: moose
+    repo:
+      url: https://github.com/eastglow-zz/CHiMaD3_dendritic_growth
+      version: 78a47b4
+  summary: MOOSE framework; mesh adaptivity, bdf2 time stepping with adaptive time
+    steps (dtmax = 0.3), postprocesses on the every timestep
+  timestamp: 27 June, 2018

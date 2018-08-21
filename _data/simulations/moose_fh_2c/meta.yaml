@@ -1,52 +1,51 @@
 _id: 77236be0-9c10-11e8-995f-5178b29ab3fb
-metadata:
-  author:
-    first: Floyd
-    last: Hilty
-    email: fhilty@ufl.edu
-    github_id: FHilty
-  timestamp: '9 August, 2018'
-  summary: Results for benchmark 2c
-  implementation:
-    name: MOOSE framework
-    repo:
-      url: 'https://github.com/FHilty/Benchmarks/blob/master/2c.i'
-      version: a001b86
-    container_url: ''
-  hardware:
-    cpu_architecture: x86_64
-    acc_architecture: none
-    parallel_model: serial
-    clock_rate: '0'
-    cores: '8'
-    nodes: '1'
 benchmark:
   id: 2c
   version: '1'
 data:
-  - name: run_time
-    values:
-      - wall_time: '38361'
-        sim_time: '100000'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '3881172'
-  - name: free_energy
-    url: >-
-      https://gist.githubusercontent.com/FHilty/0bcacc0c7753c560f2d145dbb491fbb0/raw/c4a619032e32157bdb1d71e46c5cbd7c08fd03ca/MOOSE_FH_2c.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        total_energy: number
-    description: Data for benchmark 2c
-    type: line
-    transform:
-      - type: formula
-        expr: datum.time
-        as: x
-      - type: formula
-        expr: datum.total_energy
-        as: 'y'
+- name: run_time
+  values:
+  - sim_time: '100000'
+    wall_time: '38361'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '3881172'
+- description: Data for benchmark 2c
+  format:
+    parse:
+      time: number
+      total_energy: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.total_energy
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/FHilty/0bcacc0c7753c560f2d145dbb491fbb0/raw/c4a619032e32157bdb1d71e46c5cbd7c08fd03ca/MOOSE_FH_2c.csv
 date: 1533845517
+metadata:
+  author:
+    email: fhilty@ufl.edu
+    first: Floyd
+    github_id: FHilty
+    last: Hilty
+  hardware:
+    acc_architecture: none
+    clock_rate: '0'
+    cores: '8'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: serial
+  implementation:
+    container_url: ''
+    name: moose
+    repo:
+      url: https://github.com/FHilty/Benchmarks/blob/master/2c.i
+      version: a001b86
+  summary: Results for benchmark 2c
+  timestamp: 9 August, 2018
