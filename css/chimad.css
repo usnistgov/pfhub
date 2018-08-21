@@ -482,13 +482,16 @@ img.badge{
 #wiki-nav {
     float: left;
     margin-left: 20px;
-    margin-top: 15px;
+    margin-top: 20px;
+    padding: 15px;
     position: absolute;
-    max-width: 150px;
+    max-width: 175px;
+    min-width: 175px;
+    background-color: #e6e6e6;
 }
 
 #wiki-nav h5 {
-    margin-bottom: 0px;
+    margin-bottom: 15px;
 }
 
 #wiki-nav ul {
@@ -499,8 +502,7 @@ img.badge{
     font-weight: 600;
 }
 
-
-@media (max-width: 1200px)
+@media (max-width: 1300px)
 {
     #wiki-nav {
         display: none;
