@@ -23,10 +23,7 @@ def to_doi_csv(csvfile):
       of the updated YAML data.
     """
     return pipe(
-        get_yaml_data(),
-        dict,
-        itemmap(mapping_func),
-        do(write_csv_data(csvfile))
+        get_yaml_data(), dict, itemmap(mapping_func), do(write_csv_data(csvfile))
     )
 
 
@@ -47,10 +44,11 @@ def mapping_func(data):
     Args:
       data: the data to transform
     """
+
     def meta(data):
         """Return the metadata section
         """
-        return data[1]['metadata']
+        return data[1]["metadata"]
 
     def keywords():
         """Common keywords for all simulations
@@ -65,24 +63,22 @@ def mapping_func(data):
     return (
         data[0],
         dict(
-            CreatorFN=meta(data)['author']['first'],
-            CreatorLN=meta(data)['author']['last'],
+            CreatorFN=meta(data)["author"]["first"],
+            CreatorLN=meta(data)["author"]["last"],
             Title=data[0],
-            PublicationYear=parse(meta(data)['timestamp']).strftime("%Y"),
+            PublicationYear=parse(meta(data)["timestamp"]).strftime("%Y"),
             Location=urlbase() + data[0],
             DOI="I WILL PROVIDE",
             ResourceType="Dataset/Benchmark",
-            Subject=",".join(
-                keywords() + [meta(data)["implementation"]["name"]]
-            ),
-            date=parse(meta(data)['timestamp']).strftime("%Y/%m/%d"),
+            Subject=",".join(keywords() + [meta(data)["implementation"]["name"]]),
+            date=parse(meta(data)["timestamp"]).strftime("%Y/%m/%d"),
             Language="en",
-            AlternativeIdentifier=data[1]['benchmark']['id'],
+            AlternativeIdentifier=data[1]["benchmark"]["id"],
             RelatedIdentifier="https://doi.org/10.18434/M32H3J",
             Format="application/x-yaml",
             Rights="I WILL PROVIDE",
-            Summary=meta(data)["summary"]
-        )
+            Summary=meta(data)["summary"],
+        ),
     )
 
 

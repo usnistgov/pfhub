@@ -1,86 +1,80 @@
 _id: dc350b20-1c08-11e8-a0fe-3ffbe97072a6
-metadata:
-  author:
-    first: Narut
-    last: Sereewattanawoot
-    email: narut.se@gmail.com
-    github_id: narutse
-  timestamp: '23 February, 2018'
-  summary: >-
-    Spatial and temporal convergence data for my serial version with first-order
-    in time, second-order in space Euler method. I treat non-linear terms
-    explicitly, but linear terms implicitly in order to measure time
-    convergence. (Spatial error will dominate with purely explicit Euler
-    everywhere it's stable.) Will parallelize for the later parts of this
-    problem.
-  implementation:
-    name: 'tester/FBEspace.cpp, tester/FBEtime.cpp'
-    repo:
-      url: 'https://github.com/narutse/phasefield'
-      version: 376a50252e28de3f9a415d7b1e8e6b0e762367ff
-    container_url: ''
-  hardware:
-    cpu_architecture: x86_64
-    acc_architecture: none
-    parallel_model: serial
-    clock_rate: '4.6'
-    cores: '1'
-    nodes: '1'
 benchmark:
   id: 7a
   version: '0'
 data:
-  - name: run_time
-    values:
-      - wall_time: '17986'
-        sim_time: '17985.32'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '1229176'
-  - name: spatial
-    url: >-
-      https://gist.githubusercontent.com/wd15/c7cbecda6798c9a1cbecedf5fabea7dd/raw/cc87e95b1c7f770fcaa02468f09659018d1258b6/gistfile1.txt
-    format:
-      type: csv
-      parse:
-        grid: number
-        L2: number
-    description: Using 2^-13 for time step size
-    type: line
-    transform:
-      - type: formula
-        expr: datum.grid
-        as: x
-      - type: formula
-        expr: datum.L2
-        as: 'y'
-  - name: temporal
-    url: >-
-      https://raw.githubusercontent.com/narutse/phasefield/master/data/FBEtimeL2.csv
-    format:
-      type: csv
-      parse:
-        step: number
-        L2: number
-    description: Using 2^-10 for dx and dy.
-    type: line
-    transform:
-      - type: formula
-        expr: datum.step
-        as: x
-      - type: formula
-        expr: datum.L2
-        as: 'y'
-  - name: spatialplot
-    url: >-
-      https://raw.githubusercontent.com/narutse/phasefield/master/plots/FBEspace.png
-    type: image
-    description: loglog plot of spatial convergence
-  - name: temporalplot
-    url: >-
-      https://raw.githubusercontent.com/narutse/phasefield/master/plots/FBEtime.png
-    type: image
-    description: loglog plot of time convergence
+- name: run_time
+  values:
+  - sim_time: '17985.32'
+    wall_time: '17986'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '1229176'
+- description: Using 2^-13 for time step size
+  format:
+    parse:
+      L2: number
+      grid: number
+    type: csv
+  name: spatial
+  transform:
+  - as: x
+    expr: datum.grid
+    type: formula
+  - as: y
+    expr: datum.L2
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/wd15/c7cbecda6798c9a1cbecedf5fabea7dd/raw/cc87e95b1c7f770fcaa02468f09659018d1258b6/gistfile1.txt
+- description: Using 2^-10 for dx and dy.
+  format:
+    parse:
+      L2: number
+      step: number
+    type: csv
+  name: temporal
+  transform:
+  - as: x
+    expr: datum.step
+    type: formula
+  - as: y
+    expr: datum.L2
+    type: formula
+  type: line
+  url: https://raw.githubusercontent.com/narutse/phasefield/master/data/FBEtimeL2.csv
+- description: loglog plot of spatial convergence
+  name: spatialplot
+  type: image
+  url: https://raw.githubusercontent.com/narutse/phasefield/master/plots/FBEspace.png
+- description: loglog plot of time convergence
+  name: temporalplot
+  type: image
+  url: https://raw.githubusercontent.com/narutse/phasefield/master/plots/FBEtime.png
 date: 1519768501
 layout: post
+metadata:
+  author:
+    email: narut.se@gmail.com
+    first: Narut
+    github_id: narutse
+    last: Sereewattanawoot
+  hardware:
+    acc_architecture: none
+    clock_rate: '4.6'
+    cores: '1'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: serial
+  implementation:
+    container_url: ''
+    name: custom
+    repo:
+      url: https://github.com/narutse/phasefield
+      version: 376a50252e28de3f9a415d7b1e8e6b0e762367ff
+  summary: Spatial and temporal convergence data for my serial version with first-order
+    in time, second-order in space Euler method. I treat non-linear terms explicitly,
+    but linear terms implicitly in order to measure time convergence. (Spatial error
+    will dominate with purely explicit Euler everywhere it's stable.) Will parallelize
+    for the later parts of this problem.
+  timestamp: 23 February, 2018

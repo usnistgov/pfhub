@@ -56,7 +56,7 @@
       "name": "code_uploads",
       "values": [
         {
-          "count": 28,
+          "count": 47,
           "name": "moose"
         },
         {
@@ -72,32 +72,12 @@
           "name": "prisms"
         },
         {
-          "count": 6,
-          "name": "MOOSE framework"
-        },
-        {
-          "count": 3,
-          "name": "MOOSE"
-        },
-        {
-          "count": 2,
+          "count": 4,
           "name": "custom"
         },
         {
           "count": 1,
-          "name": "1stOrderSemiOpt.edp"
-        },
-        {
-          "count": 1,
-          "name": "MOOSE-framework"
-        },
-        {
-          "count": 1,
           "name": "hiperc"
-        },
-        {
-          "count": 1,
-          "name": "tester/FBEspace.cpp, tester/FBEtime.cpp"
         }
       ]
     }
