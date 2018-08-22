@@ -51,8 +51,6 @@ Follow these instructions to edit these wiki pages.
    review the changes will be pushed to the main site and you will be
    notified. During this process, [Prose.io] will fork the PFHub
    repository into your [GitHub] user area.
-   
-## Testing
 
 [Prose.io]: http://prose.io
 [GitHub]: https://github.com
