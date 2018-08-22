@@ -34,8 +34,8 @@ plugins: [jekyll-coffeescript]
 
 admin_email: 'chimad-phase-field-admin@list.nist.gov'
 
-new_edit: 'http://prose.io/#wd15/pfhub/tree/master'
-prose_edit: 'http://prose.io/#wd15/pfhub/edit/master'
+new_edit: 'http://prose.io/#wd15/pfhub/tree/wiki'
+prose_edit: 'http://prose.io/#wd15/pfhub/edit/wiki'
 github_edit: 'https://github.com/usnistgov/pfhub/edit/master'
 source_edit: 'https://github.com/usnistgov/pfhub/blob/master'
 history_edit: 'https://github.com/usnistgov/pfhub/commits/master'
