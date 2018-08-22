@@ -34,11 +34,11 @@ plugins: [jekyll-coffeescript]
 
 admin_email: 'chimad-phase-field-admin@list.nist.gov'
 
-new_edit: 'http://prose.io/#wd15/pfhub/tree/prose.io'
-prose_edit: 'http://prose.io/#wd15/pfhub/edit/prose.io'
-github_edit: 'https://github.com/wd15/pfhub/edit/issue795-voorhees-phase-field-lectures'
-source_edit: 'https://github.com/wd15/pfhub/blob/issue795-voorhees-phase-field-lectures'
-history_edit: 'https://github.com/wd15/pfhub/commits/issue795-voorhees-phase-field-lectures'
+new_edit: 'http://prose.io/#wd15/pfhub/tree/master'
+prose_edit: 'http://prose.io/#wd15/pfhub/edit/master'
+github_edit: 'https://github.com/usnistgov/pfhub/edit/master'
+source_edit: 'https://github.com/usnistgov/pfhub/blob/master'
+history_edit: 'https://github.com/usnistgov/pfhub/commits/master'
 
 prose:
   rooturl: 'wiki'

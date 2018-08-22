@@ -1,78 +1,74 @@
 _id: d6833220-0c1c-11e8-b653-4f1ed6519c85
-metadata:
-  author:
-    first: Stephen
-    last: DeWitt
-    email: stvdwtt@umich.edu
-    github_id: stvdwtt
-  timestamp: '7 February, 2018'
-  summary: >-
-    Initial run of Benchmark 7 using PRISMS-PF. This simulation uses quadratic
-    elements (3rd order accurate in space) and forward Euler time stepping (1st
-    order in time).
-  implementation:
-    name: prisms
-    repo:
-      url: >-
-        https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark7
-      version: 7cdde5a5c48ef64b6a9d2454836ce3c784f222a5
-    container_url: ''
-  hardware:
-    cpu_architecture: x86_64
-    acc_architecture: none
-    parallel_model: distributed
-    clock_rate: '3.5'
-    cores: '6'
-    nodes: '1'
 benchmark:
   id: 7a
   version: '0'
 data:
-  - name: run_time
-    values:
-      - wall_time: '0'
-        sim_time: '0'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '0'
-  - name: spatial
-    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_spatial_quad.csv'
-    format:
-      type: csv
-      parse:
-        mesh_size: number
-        L2_error: number
-    description: >-
-      Spatial convergence test using quadratic elements. The time step is
-      constant at 2e-4 for all simulations. The order of accuracy is higher than
-      expected for unknown reasons.
-    type: line
-    transform:
-      - type: formula
-        expr: datum.mesh_size
-        as: x
-      - type: formula
-        expr: datum.L2_error
-        as: 'y'
-  - name: temporal
-    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_temporal_quad.csv'
-    format:
-      type: csv
-      parse:
-        time_step: number
-        L2_error: number
-    description: >-
-      Temporal convergence test using quadratic elements. The mesh size is
-      constant at 2.6e-3 for all simulations.
-    type: line
-    transform:
-      - type: formula
-        expr: datum.time_step
-        as: x
-      - type: formula
-        expr: datum.L2_error
-        as: 'y'
+- name: run_time
+  values:
+  - sim_time: '0'
+    wall_time: '0'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '0'
+- description: Spatial convergence test using quadratic elements. The time step is
+    constant at 2e-4 for all simulations. The order of accuracy is higher than expected
+    for unknown reasons.
+  format:
+    parse:
+      L2_error: number
+      mesh_size: number
+    type: csv
+  name: spatial
+  transform:
+  - as: x
+    expr: datum.mesh_size
+    type: formula
+  - as: y
+    expr: datum.L2_error
+    type: formula
+  type: line
+  url: https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_spatial_quad.csv
+- description: Temporal convergence test using quadratic elements. The mesh size is
+    constant at 2.6e-3 for all simulations.
+  format:
+    parse:
+      L2_error: number
+      time_step: number
+    type: csv
+  name: temporal
+  transform:
+  - as: x
+    expr: datum.time_step
+    type: formula
+  - as: y
+    expr: datum.L2_error
+    type: formula
+  type: line
+  url: https://f000.backblazeb2.com/file/pfhub-sjd/bm7a_temporal_quad.csv
 date: 1518017863
 layout: post
 message: ' '
+metadata:
+  author:
+    email: stvdwtt@umich.edu
+    first: Stephen
+    github_id: stvdwtt
+    last: DeWitt
+  hardware:
+    acc_architecture: none
+    clock_rate: '3.5'
+    cores: '6'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: distributed
+  implementation:
+    container_url: ''
+    name: prisms
+    repo:
+      url: https://github.com/prisms-center/phaseField/tree/master/applications/CHiMaD_benchmark7
+      version: 7cdde5a5c48ef64b6a9d2454836ce3c784f222a5
+  summary: Initial run of Benchmark 7 using PRISMS-PF. This simulation uses quadratic
+    elements (3rd order accurate in space) and forward Euler time stepping (1st order
+    in time).
+  timestamp: 7 February, 2018

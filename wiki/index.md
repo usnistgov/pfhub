@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: PFHub Wiki
+title: Main Page
 published: true
 ---
 

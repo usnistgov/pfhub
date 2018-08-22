@@ -1,71 +1,50 @@
-# CHiMaD Phase-Field Simulation submission YAML specification
-# All fields are requested, to give users a complete description
-# of your result. For a minimal example (only required fields),
-# consult  _data/simulations/example_minimal/meta.yaml
-
----
-
 benchmark:
-  id: 1a  # REQUIRED
-  version: 1  # REQUIRED
-metadata: # REQUIRED
-  # Describe the runtime environment
-  summary: MPI parallel workstation benchmark with MMSP  # REQUIRED
+  id: 1a
+  version: 1
+data:
+- name: timestep
+  values: 0.00195312
+- format:
+    parse:
+      free_energy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  type: line
+  url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
+- name: run_time
+  values:
+  - sim_time: 53333.3
+    wall_time: 170618.87
+- name: memory_usage
+  values:
+  - unit: KB
+    value: 27232
+metadata:
   author:
-    first: Trevor # REQUIRED
-    last: Keller  # REQUIRED
-    github_id: tkphd # REQUIRED
-    email: trevor.keller@nist.gov  # REQUIRED
-  timestamp: Thu, 22 Dec 2016 15:20:53 -0500  # REQUIRED
+    email: trevor.keller@nist.gov
+    first: Trevor
+    github_id: tkphd
+    last: Keller
   hardware:
-    # hardware details
-    acc_architecture: none # REQUIRED
-    cpu_architecture: x86_64  # REQUIRED
-    cores: 6  # REQUIRED
-    clock_rate:  3.50  # GHz REQUIRED
-    nodes: 1 # REQUIRED
-    parallel_model: distributed # REQUIRED
+    acc_architecture: none
+    clock_rate: 3.5
+    cores: 6
+    cpu_architecture: x86_64
+    nodes: 1
+    parallel_model: distributed
   implementation:
-    name: mmsp # REQUIRED
     container_url: http://docker.com/my_container
+    name: mmsp
     repo:
-      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic  # REQUIRED
-      version: "b949fbc4116f020db619fe1ccacbf8b13dfd5e32" #REQUIRED
-data:  # REQUIRED
-  # use Vega standard, see
-  # https://github.com/vega/vega/wiki/Data and
-  # https://vega.github.io/vega-lite/docs/data.html.
-  - name: timestep
-    values: 0.00195312
-  - name: free_energy
-    # CSV is the preferred format for free energy data, with two columns: time and free_energy.
-    url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
-    format:
-      type: csv
-      parse:
-        time: number
-        free_energy: number
-    transform:
-      - expr: datum.time
-        as: x
-        type: formula
-      - expr: datum.free_energy
-        as: y
-        type: formula
-    type: line
-  - name: run_time  # REQUIRED
-    values:
-      [
-        {
-          "sim_time": 53333.3,
-          "wall_time": 170618.87 # wall time, seconds
-        }
-      ]
-  - name: memory_usage  # REQUIRED
-    values:
-      [
-        {
-          "value": 27232,
-          "unit": KB
-        }
-      ]
+      url: https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic
+      version: b949fbc4116f020db619fe1ccacbf8b13dfd5e32
+  summary: MPI parallel workstation benchmark with MMSP
+  timestamp: Thu, 22 Dec 2016 15:20:53 -0500

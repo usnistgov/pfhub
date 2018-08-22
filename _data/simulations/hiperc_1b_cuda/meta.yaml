@@ -1,82 +1,82 @@
-metadata:
-  author:
-    first: Trevor
-    last: Keller
-    email: trevor.keller@nist.gov
-    github_id: tkphd
-  simulation_name: hiperc_cuda
-  summary: HiPerC spinodal decomposition result using CUDA on a Tesla P100
-  timestamp: '18 December, 2017'
-  implementation:
-    repo:
-      url: 'https://github.com/usnistgov/hiperc'
-      version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
-    name: custom
-    container_url: ''
-  hardware:
-    cpu_architecture: x86_64
-    acc_architecture: gpu
-    parallel_model: threaded
-    clock_rate: '1.48'
-    cores: '1792'
-    nodes: 1
 benchmark:
   id: 1b
   version: '1'
 data:
-  - name: run_time
-    values:
-      - wall_time: '7464'
-        sim_time: '200000'
-  - name: memory_usage
-    values:
-      - unit: KB
-        value: '308224'
-  - name: free_energy
-    type: line
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy-9pt.csv
-    format:
-      parse:
-        time: number
-        free_energy: number
-      type: csv
-    description: free energy data
-    transform:
-      - as: y
-        expr: datum.free_energy
-        type: formula
-      - as: x
-        expr: datum.sim_time
-        type: formula
-  - name: image_000
-    description: microstructure at t=0
-    type: image
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-000000.png
-  - name: image_005
-    description: microstructure at t=5,000
-    type: image
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-005000.png
-  - name: image_010
-    description: microstructure at t=10,000
-    type: image
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-010000.png
-  - name: image_020
-    description: microstructure at t=20,000
-    type: image
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-020000.png
-  - name: image_050
-    description: microstructure at t=50,000
-    type: image
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-050000.png
-  - name: image_100
-    description: microstructure at t=100,000
-    type: image
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-100000.png
-  - name: image_150
-    description: microstructure at t=150,000
-    type: image
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-150000.png
-  - name: image_200
-    description: microstructure at t=200,000
-    type: image
-    url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-200000.png
+- name: run_time
+  values:
+  - sim_time: '200000'
+    wall_time: '7464'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '308224'
+- description: free energy data
+  format:
+    parse:
+      free_energy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.sim_time
+    type: formula
+  type: line
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy-9pt.csv
+- description: microstructure at t=0
+  name: image_000
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-000000.png
+- description: microstructure at t=5,000
+  name: image_005
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-005000.png
+- description: microstructure at t=10,000
+  name: image_010
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-010000.png
+- description: microstructure at t=20,000
+  name: image_020
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-020000.png
+- description: microstructure at t=50,000
+  name: image_050
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-050000.png
+- description: microstructure at t=100,000
+  name: image_100
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-100000.png
+- description: microstructure at t=150,000
+  name: image_150
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-150000.png
+- description: microstructure at t=200,000
+  name: image_200
+  type: image
+  url: https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/spinodal-200000.png
+metadata:
+  author:
+    email: trevor.keller@nist.gov
+    first: Trevor
+    github_id: tkphd
+    last: Keller
+  hardware:
+    acc_architecture: gpu
+    clock_rate: '1.48'
+    cores: '1792'
+    cpu_architecture: x86_64
+    nodes: 1
+    parallel_model: threaded
+  implementation:
+    container_url: ''
+    name: custom
+    repo:
+      url: https://github.com/usnistgov/hiperc
+      version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
+  simulation_name: hiperc_cuda
+  summary: HiPerC spinodal decomposition result using CUDA on a Tesla P100
+  timestamp: 18 December, 2017
