@@ -56,3 +56,8 @@ prose:
           element: "text"
           label: "Page Title"
           placeholder: "My Title"
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "published"
+          value: "true"
