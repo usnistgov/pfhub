@@ -1,5 +1,5 @@
 <h5> Wiki Pages </h5>
-<ul id="slide-out" class="sidenav sidenav-fixed">
+<ul class="sidenav sidenav-fixed">
   {% for file in site.pages %}
     {% if file.path == "wiki/index.md" %}
       <li><a class="truncate" href="{{ site.baseurl }}{{ file.url }}">{{ file.title }}</a></li>
