@@ -1,18 +1,18 @@
-<div class="col s0 m0 l0 xl12" id="wiki-nav">
-  <h5> Wiki Pages </h5>
-  <ul id="slide-out" class="sidenav sidenav-fixed">
-    {% for file in site.pages %}
-      {% if file.path == "wiki/index.md" %}
-        <li><a class="truncate" href="{{ site.baseurl }}{{ file.url }}">{{ file.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-    {% for file in site.pages %}
-      {% assign f4 = file.path | slice: 0, 4 %}
-      {% if f4 == 'wiki' %}
-        {% if file.path != "wiki/index.md" %}
-          <li><a class="truncate" href="{{ site.baseurl }}{{ file.url }}">{{ file.title }}</a></li>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>
+<h5> Wiki Pages </h5>
+<ul id="slide-out" class="sidenav sidenav-fixed">
+  {% for file in site.pages %}
+    {% if file.path == "wiki/index.md" %}
+      <li><a class="truncate" href="{{ site.baseurl }}{{ file.url }}">{{ file.title }}</a></li>
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  {% for file in site.pages %}
+    {% if file.path == "wiki/index.md" %}
+      {% continue %}
+    {% endif %}
+    {% assign f4 = file.path | slice: 0, 4 %}
+    {% if f4 == 'wiki' %}
+      <li><a class="truncate" href="{{ site.baseurl }}{{ file.url }}">{{ file.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
