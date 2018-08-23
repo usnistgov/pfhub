@@ -10,8 +10,8 @@ layout: default
       <div id="wiki-button">
         <a class="btn-small" href="{{ site.new_edit }}">Create new page</a> |
         <a class="btn-small" href="{{ site.prose_edit }}/{{ page.path }}">Edit</a> |
-        <a class="btn-small" href="{{ site.source_edit }}/{{ page.path }}">Source</a> |
-        <a class="btn-small" href="{{ site.history_edit }}/{{ page.path }}">History</a>
+        <a data-proofer-ignore class="btn-small" href="{{ site.source_edit }}/{{ page.path }}">Source</a> |
+        <a data-proofer-ignore class="btn-small" href="{{ site.history_edit }}/{{ page.path }}">History</a>
       </div>
     </div>
   </div>
