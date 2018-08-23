@@ -2,7 +2,9 @@
 layout: default
 ---
 
-{% include wiki-nav.html %}
+<div class="col s0 m0 l0 xl12" id="wiki-nav">
+  {% include wiki-nav.html %}
+</div>
 
 <div class="container" id="wiki-container">
   <div class="row">
@@ -10,8 +12,8 @@ layout: default
       <div id="wiki-button">
         <a class="btn-small" href="{{ site.new_edit }}">Create new page</a> |
         <a class="btn-small" href="{{ site.prose_edit }}/{{ page.path }}">Edit</a> |
-        <a class="btn-small" href="{{ site.source_edit }}/{{ page.path }}">Source</a> |
-        <a class="btn-small" href="{{ site.history_edit }}/{{ page.path }}">History</a>
+        <a data-proofer-ignore class="btn-small" href="{{ site.source_edit }}/{{ page.path }}">Source</a> |
+        <a data-proofer-ignore class="btn-small" href="{{ site.history_edit }}/{{ page.path }}">History</a>
       </div>
     </div>
   </div>
@@ -27,8 +29,14 @@ layout: default
   </div>
 </div>
 
+<div class="container">
+  <div class="col s0 m0 l0 xl12" id="wiki-nav-bottom">
+    {% include wiki-nav.html %}
+  </div>
+</div>
+
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#toc').toc();
+    $('#toc').toc({minimumHeaders: 2});
 });
 </script>

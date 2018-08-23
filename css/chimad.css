@@ -490,11 +490,19 @@ img.badge{
     background-color: #e6e6e6;
 }
 
-#wiki-nav h5 {
+#wiki-nav-bottom {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+#wiki-nav h5,
+#wiki-nav-bottom h5 {
     margin-bottom: 15px;
 }
 
-#wiki-nav ul {
+#wiki-nav ul,
+#wiki-nav-bottom ul {
     margin-top: 5px;
 }
 
@@ -505,6 +513,13 @@ img.badge{
 @media (max-width: 1300px)
 {
     #wiki-nav {
+        display: none;
+    }
+}
+
+@media (min-width: 1300px)
+{
+    #wiki-nav-bottom {
         display: none;
     }
 }
