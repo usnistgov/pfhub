@@ -11,17 +11,6 @@ to add content. See below for details on how to get started editing
 this site using [Prose.io]. [Prose.io] provides a beautifully simple
 content authoring environment for CMS-free websites.
 
-## Current Wiki Pages
-
-List of the current wiki pages available on these pages.
-
-{% for file in site.pages %}
-  {% assign f4 = file.path | slice: 0, 4 %}
-  {% if f4 == 'wiki' %}
- * [{{ file.path }}]({{ site.baseurl }}{{ file.url }}): {{ file.title }}
-  {% endif %}
-{% endfor %}
-
 ## How to Edit
 
 Follow these instructions to edit these wiki pages.
@@ -51,6 +40,18 @@ Follow these instructions to edit these wiki pages.
    review the changes will be pushed to the main site and you will be
    notified. During this process, [Prose.io] will fork the PFHub
    repository into your [GitHub] user area.
+
+## Current Wiki Pages
+
+List of the current wiki pages available on these pages.
+
+{% for file in site.pages %}
+  {% assign f4 = file.path | slice: 0, 4 %}
+  {% if f4 == 'wiki' %}
+ * [{{ file.path }}]({{ site.baseurl }}{{ file.url }}): {{ file.title }}
+  {% endif %}
+{% endfor %}
+
 
 [Prose.io]: http://prose.io
 [GitHub]: https://github.com
