@@ -25,7 +25,7 @@ script:
   - #nix-shell --pure --command "touch _data/hexbin.yaml"
   - #nix-shell --pure --command "make hexbin"
   - nix-shell --pure --command "rm -rf ./_site"
-  - nix-shell --command "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site"
+  - nix-shell --command "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules --url_ignore '/https://github.com/usnistgov/pfhub/commits/master/wiki/*/' '/https://github.com/usnistgov/pfhub/blob/master/wiki/*/' ./_site"
   - nix-shell --pure --command "py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg"
   - nix-shell --pure --command "coffeelint _includes/coffee/"
   - nix-shell --pure --command "mocha _site/pfhub/js/test.js"
