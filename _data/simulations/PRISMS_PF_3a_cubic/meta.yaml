@@ -14,7 +14,7 @@ metadata:
     that this result is essentially converged with respect to spatial and
     temporal discretization.
   implementation:
-    name: PRISMS-PF
+    name: prisms
     repo:
       url: 'https://github.com/prisms-center/phaseField'
       version: a871289b997d843747aa4e8693a1c6bb44452634
@@ -38,6 +38,17 @@ data:
     values:
       - unit: KB
         value: '365400'
+  - name: efficiency
+    transform:
+      - as: x
+        expr: datum.time_ratio
+        type: formula
+      - as: y
+        expr: datum.memory
+        type: formula
+    values:
+      - memory: 365400
+        time_ratio: 4.23
   - name: free_energy
     url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results.csv'
     format:
@@ -86,7 +97,7 @@ data:
       - type: formula
         expr: datum.solid_fraction
         as: 'y'
-  - name: zero_level_set
+  - name: phase_field_1500
     url: 'https://f000.backblazeb2.com/file/pfhub-sjd/phase_field_1500.csv'
     format:
       type: csv
