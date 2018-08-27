@@ -42,9 +42,10 @@ after_success:
     #  nix-shell --command "surge --project _site --domain ${DOMAIN}";
     #fi
   - echo "hello"
-  - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-      echo ${GITHUB_TOKEN};
-      echo ${TRAVIS_REPO_SLUG};
-      echo ${TRAVIS_PULL_REQUEST};
-      #curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{\"body\": \"Hello world\"}" "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments";
-    fi
+  - echo "${TRAVIS_PULL_REQUEST}"
+  - echo "${TRAVIS_REPO_SLUG}"
+  - #if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
+    #  echo ${GITHUB_TOKEN};
+    #  echo ${TRAVIS_PULL_REQUEST};
+    #  #curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{\"body\": \"Hello world\"}" "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments";
+    #fi
