@@ -5,12 +5,12 @@ metadata:
     last: DeWitt
     email: stvdwtt@umich.edu
     github_id: stvdwtt
-  timestamp: '23 August, 2018'
+  timestamp: '27 August, 2018'
   summary: >-
     This simulation was conducted using PRISMS-PF with cubic elements and
     adaptive meshing. Forward Euler time stepping was used. The tip velocity is
-    within 0.04% of a simulation conducted with the element width reduced by a
-    factor of two and the time step reduced by a factor of 10. Thus, I believe
+    within 1% of a simulation conducted with the element width reduced by a
+    factor of 2.4 and the time step reduced by a factor of 15. Thus, I believe
     that this result is essentially converged with respect to spatial and
     temporal discretization.
   implementation:
@@ -32,7 +32,7 @@ benchmark:
 data:
   - name: run_time
     values:
-      - wall_time: '355'
+      - wall_time: '178'
         sim_time: '1500'
   - name: memory_usage
     values:
@@ -47,7 +47,7 @@ data:
         expr: datum.memory
         type: formula
     values:
-      - memory: 365400
+      - memory: 294800
         time_ratio: 4.23
   - name: free_energy
     url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results.csv'
