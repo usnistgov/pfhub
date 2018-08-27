@@ -30,17 +30,18 @@ script:
   - #nix-shell --pure --command "coffeelint _includes/coffee/"
   - #nix-shell --pure --command "mocha _site/pfhub/js/test.js"
 after_success:
-  - nix-shell --pure --command "rm -rf ./_site"
-  - nix-shell --pure --command "make simulations"
-  - nix-shell --pure --command "make notebooks"
-  - nix-shell --pure --command "make hexbin"
-  - nix-shell --pure --command "jekyll build --baseurl ''"
-  - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
-  - export SURGE_LOGIN="daniel.wheeler@nist.gov"
-  - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
-  - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-      nix-shell --command "surge --project _site --domain ${DOMAIN}";
-    fi
+  - #nix-shell --pure --command "rm -rf ./_site"
+  - #nix-shell --pure --command "make simulations"
+  - #nix-shell --pure --command "make notebooks"
+  - #nix-shell --pure --command "make hexbin"
+  - #nix-shell --pure --command "jekyll build --baseurl ''"
+  - #export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
+  - #export SURGE_LOGIN="daniel.wheeler@nist.gov"
+  - #export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
+  - #if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
+    #  nix-shell --command "surge --project _site --domain ${DOMAIN}";
+    #fi
+  - echo "hello"
   - #if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
     #  curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST \
     #    -d "{\"body\": \"Hello world\"}" \
