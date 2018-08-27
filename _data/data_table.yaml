@@ -35,6 +35,12 @@ data:
   id_: 7b.0
   name: PRISMSPF_Quad_7b
   timestamp: 2018/02/01 00:00:00
+- author: {email: stvdwtt@umich.edu, name: Stephen DeWitt}
+  code: {name: prisms, url: 'https://github.com/prisms-center/phaseField'}
+  cores: 6
+  id_: 3a.1
+  name: PRISMS_PF_3a_cubic
+  timestamp: 2018/08/27 00:00:00
 - author: {email: michael.tonks@ufl.edu, name: Michael Tonks}
   code: {name: moose, url: 'https://github.com/idaholab/moose'}
   cores: 4

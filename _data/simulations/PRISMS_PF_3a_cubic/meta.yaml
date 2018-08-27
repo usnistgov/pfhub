@@ -1,0 +1,116 @@
+_id: 9912ffa0-a70e-11e8-84c0-8991013dd0ff
+metadata:
+  author:
+    first: Stephen
+    last: DeWitt
+    email: stvdwtt@umich.edu
+    github_id: stvdwtt
+  timestamp: '27 August, 2018'
+  summary: >-
+    This simulation was conducted using PRISMS-PF with cubic elements and
+    adaptive meshing. Forward Euler time stepping was used. The tip velocity is
+    within 1% of a simulation conducted with the element width reduced by a
+    factor of 2.4 and the time step reduced by a factor of 15. Thus, I believe
+    that this result is essentially converged with respect to spatial and
+    temporal discretization.
+  implementation:
+    name: prisms
+    repo:
+      url: 'https://github.com/prisms-center/phaseField'
+      version: a871289b997d843747aa4e8693a1c6bb44452634
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '3.5'
+    cores: '6'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '178'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '294800'
+  - name: efficiency
+    transform:
+      - as: x
+        expr: datum.time_ratio
+        type: formula
+      - as: y
+        expr: datum.memory
+        type: formula
+    values:
+      - memory: 294800
+        time_ratio: 8.426966292134832
+  - name: free_energy
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy as a function of time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: tip_position
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position as a function of time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: solid_fraction
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid area fraction as a function of time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: phase_field_1500
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/phase_field_1500.csv'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero level set of the order parameter at t=1500.
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1535054177
