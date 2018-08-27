@@ -37,7 +37,7 @@ data:
   - name: memory_usage
     values:
       - unit: KB
-        value: '365400'
+        value: '294800'
   - name: efficiency
     transform:
       - as: x
@@ -48,7 +48,7 @@ data:
         type: formula
     values:
       - memory: 294800
-        time_ratio: 4.23
+        time_ratio: 8.426966292134832
   - name: free_energy
     url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results.csv'
     format:
