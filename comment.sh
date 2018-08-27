@@ -4,7 +4,7 @@ COMMENT="Testing commenting from Travis CI"
 
 echo "got here 0"
 echo "$TRAVIS_PULL_REQUEST"
-if [ "$TRAVIS_PULL_REQUEST" = "true" ]
+if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   echo "git here 1"
   echo "${TRAVIS_REPO_SLUG}"
