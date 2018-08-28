@@ -20,8 +20,8 @@ then
 
     BENCHMARK_ID="${ID}.${VERSION}"
 
-    DISPLAY1="${DOMAIN}/simulations/display/?sim=${SIM_NAME}";
-    DISPLAY2="${DOMAIN}/simulations/${BENCHMARK_ID}";
+    DISPLAY1="https://${DOMAIN}/simulations/display/?sim=${SIM_NAME}";
+    DISPLAY2="https://${DOMAIN}/simulations/${BENCHMARK_ID}";
     COMMENT="@${GITHUB_ID}, thanks for the upload!\n\nYou can view your upload display at\n\n - ${DISPLAY1}\n\nand\n\n - ${DISPLAY2}\n\nPlease review and confirm your approval to @wd15 by commenting in this pull request.";
 
     curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{\"body\": \"$COMMENT\"}" "${PULL_REQUEST_URL}/comments";
