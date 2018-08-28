@@ -17,7 +17,6 @@ title: Phase Field Workshop VII Agenda
    - 1:45 PM – 2:15 PM: PFHub updated (Daniel Wheeler)
    - 2:15 PM – 3:00 PM: Nick Provatas
    - 3:00 PM – 5:00 PM: Upload of BM problem, presentations by grad students, others, on solving the problem; discussion
-   - 5:00 PM: End
 
  - Wednesday, Sept. 26, 2018
    - 9:00 AM-9:45 AM: Teaching using BM problem (Mike Tonks’ designee)
