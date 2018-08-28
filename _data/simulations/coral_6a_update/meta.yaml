@@ -1,0 +1,51 @@
+_id: 4b5ba5d0-aada-11e8-b71a-21cf527883e3
+metadata:
+  author:
+    first: A. M.
+    last: Jokisaari
+    email: andrea.jokisaari@northwestern.edu
+    github_id: amjokisaari
+  timestamp: '31 July, 2017'
+  summary: Upload-a-thon August 2017 test upload
+  implementation:
+    name: moose
+    repo:
+      url: 'https://www.dropbox.com/s/qusutz8g24hx54q/free_energy.csv'
+      version: '00000'
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.7'
+    cores: '6'
+    nodes: '1'
+benchmark:
+  id: 6a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1800'
+        sim_time: '400'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '620000'
+  - name: free_energy
+    url: 'https://dl.dropbox.com/s/qusutz8g24hx54q/free_energy.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        TotalEnergy: number
+    description: Free Energy Plot
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.TotalEnergy
+        as: 'y'
+date: 1535471518
