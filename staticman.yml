@@ -15,8 +15,6 @@ simulations:
   name: "https://pages.nist.gov/pfhub/"
   path: "_data/simulations/{options.simulation_name}"
   requiredFields: ["benchmark", "metadata", "data"]
-  githubAuth:
-    required: "true"
   generatedFields:
     date:
       type: date
