@@ -3,7 +3,6 @@
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   STRING=`echo "${TRAVIS_PULL_REQUEST_BRANCH}" | cut -c1-9`
-  echo $STRING
   if [ ${STRING} = "staticman" ]
   then
     PULL_REQUEST_URL="https://api.github.com/repos/${TRAVIS_PULL_REQUEST_SLUG}/issues/${TRAVIS_PULL_REQUEST}";
