@@ -14,6 +14,7 @@ let
   node = import ./node.nix { inherit pkgs; };
   toml = import ./toml.nix { inherit pypkgs; };
   black = import ./black.nix { inherit pypkgs toml; };
+  yq = import ./yq.nix { inherit pypkgs toml; };
 in
   [
     jekyll_env
@@ -40,4 +41,7 @@ in
     black
     toml
     pypkgs.appdirs
+    pkgs.curl
+    pkgs.jq
+    yq
   ]
