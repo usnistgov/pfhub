@@ -41,7 +41,4 @@ after_success:
   - #if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
     #  nix-shell --command "surge --project _site --domain ${DOMAIN}";
     #fi
-  - echo "hello"
-  - echo "${TRAVIS_PULL_REQUEST}"
-  - echo "${TRAVIS_REPO_SLUG}"
   - ./comment.sh
