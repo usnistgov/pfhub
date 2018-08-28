@@ -13,11 +13,11 @@ then
     TEMP=`cat ${META_YAML} | yq .metadata.author.github_id`;
     GITHUB_ID=`sed -e 's/\"//g' <<< ${TEMP}`;
 
-    TEMP=`cat ${META_YAML} | yq .metadata.benchmark.id`;
+    TEMP=`cat ${META_YAML} | yq .benchmark.id`;
     echo $TEMP
     ID=`sed -e 's/\"//g' <<< ${TEMP}`;
     echo $ID
-    TEMP=`cat ${META_YAML} | yq .metadata.benchmark.version`;
+    TEMP=`cat ${META_YAML} | yq .benchmark.version`;
     echo $TEMP
     VERSION=`sed -e 's/\"//g' <<< ${TEMP}`;
 
@@ -28,7 +28,7 @@ then
     echo $EDIT_LINK
     DISPLAY1="https://${DOMAIN}/simulations/display/?sim=${SIM_NAME}";
     DISPLAY2="https://${DOMAIN}/simulations/${BENCHMARK_ID}";
-    COMMENT="@${GITHUB_ID}, thanks for the upload!\n\nYou can view your upload display at\n\n - ${DISPLAY1}\n\nand\n\n - ${DISPLAY2}\n\nPlease review and confirm your approval to @wd15 by commenting in this pull request.\n\nYou can make further changes to this pull request by [editing the meta.yaml](${EDIT_LINK}) associated with this pull request.";
+    COMMENT="@${GITHUB_ID}, thanks for your PFHub upload! Your upload appears to have passed the tests.\n\nYou can view your upload display at\n\n - ${DISPLAY1}\n\nand\n\n - ${DISPLAY2}\n\nPlease review and confirm your approval to @wd15 by commenting in this pull request.\n\nYou can make further changes to this pull request by [editing the meta.yaml](${EDIT_LINK}) associated with this pull request.";
 
     curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{\"body\": \"$COMMENT\"}" "${PULL_REQUEST_URL}/comments";
   fi
