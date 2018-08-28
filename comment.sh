@@ -2,7 +2,7 @@
 
 COMMENT="Testing commenting from Travis CI"
 
-PULL_REQUEST_URL="https://api.github.com/repos/usnistgov/pfhub/issues/${TRAVIS_PULL_REQUST}"
+PULL_REQUEST_URL="https://api.github.com/repos/usnistgov/pfhub/issues/${TRAVIS_PULL_REQUEST}"
 
 SIM_NAME=`curl -X GET "${PULL_REQUEST_URL}" | jq -r '.title' | sed -e 's/PFHub Upload: //'`
 echo $SIM_NAME
