@@ -51,7 +51,7 @@
       "orient": "bottom",
       "scale": "x",
       "tickCount": 5,
-      "title": "Sim Time (s) / Wall Time (s)"
+      "title": "Normalized Wall Time"
     },
     {
       "encode": {
@@ -379,8 +379,8 @@
         }
       ],
       "value": [
-        -2,
-        3
+        -4,
+        2
       ]
     },
     {
@@ -415,8 +415,8 @@
         }
       ],
       "value": [
-        2,
-        8
+        3,
+        9
       ]
     },
     {

@@ -51,7 +51,7 @@
       "orient": "bottom",
       "scale": "x",
       "tickCount": 5,
-      "title": "Sim Time (s) / Wall Time (s)"
+      "title": "Normalized Wall Time"
     },
     {
       "encode": {
@@ -114,7 +114,7 @@
       "values": [
         {
           "memory_usage": 470976.0,
-          "time_ratio": 0.035270935212050214
+          "time_ratio": 28.35195590896475
         }
       ]
     },
@@ -124,7 +124,7 @@
       "values": [
         {
           "memory_usage": 37755265.0,
-          "time_ratio": 605.0563697857948
+          "time_ratio": 0.0016527385710426042
         }
       ]
     },
@@ -134,7 +134,7 @@
       "values": [
         {
           "memory_usage": 8812.0,
-          "time_ratio": 0.014278195964861686
+          "time_ratio": 70.03685917051266
         }
       ]
     },
@@ -144,7 +144,7 @@
       "values": [
         {
           "memory_usage": 33984.0,
-          "time_ratio": 0.17109179928735813
+          "time_ratio": 5.844815497675869
         }
       ]
     },
@@ -154,7 +154,7 @@
       "values": [
         {
           "memory_usage": 28600.0,
-          "time_ratio": 0.33929897649127405
+          "time_ratio": 2.94725321703326
         }
       ]
     },
@@ -164,7 +164,7 @@
       "values": [
         {
           "memory_usage": 815104.0,
-          "time_ratio": 251.56015859621775
+          "time_ratio": 0.003975192278381062
         }
       ]
     },
@@ -174,7 +174,7 @@
       "values": [
         {
           "memory_usage": 1016432.0,
-          "time_ratio": 803.8585209003215
+          "time_ratio": 0.001244
         }
       ]
     },
@@ -184,7 +184,7 @@
       "values": [
         {
           "memory_usage": 104857600.0,
-          "time_ratio": 132.7795156407669
+          "time_ratio": 0.007531282179892009
         }
       ]
     },
@@ -194,7 +194,7 @@
       "values": [
         {
           "memory_usage": 104857600.0,
-          "time_ratio": 0.2788325304618872
+          "time_ratio": 3.5863821138211383
         }
       ]
     },
@@ -204,7 +204,7 @@
       "values": [
         {
           "memory_usage": 30240.0,
-          "time_ratio": 14.124293785310735
+          "time_ratio": 0.0708
         }
       ]
     },
@@ -1171,8 +1171,8 @@
         }
       ],
       "value": [
-        -2,
-        3
+        -4,
+        2
       ]
     },
     {
@@ -1207,8 +1207,8 @@
         }
       ],
       "value": [
-        2,
-        8
+        3,
+        9
       ]
     },
     {

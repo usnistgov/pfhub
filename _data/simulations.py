@@ -154,7 +154,7 @@ def filter_memory_data(yaml_data):
                 lambda x: x.get("sim_time", x.get("time")),
                 lambda x: x.get("wall_time", x.get("time")),
             ),
-            lambda x: float(x[0]) / not0(float(x[1])),
+            lambda x: float(x[1]) / not0(float(x[0])),
         )
 
     def memory_usage(data):

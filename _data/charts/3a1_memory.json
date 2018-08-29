@@ -51,7 +51,7 @@
       "orient": "bottom",
       "scale": "x",
       "tickCount": 5,
-      "title": "Sim Time (s) / Wall Time (s)"
+      "title": "Normalized Wall Time"
     },
     {
       "encode": {
@@ -114,7 +114,7 @@
       "values": [
         {
           "memory_usage": 7022900.0,
-          "time_ratio": 0.013840064217897971
+          "time_ratio": 72.254
         }
       ]
     },
@@ -124,7 +124,7 @@
       "values": [
         {
           "memory_usage": 100000.0,
-          "time_ratio": 0.004166666666666667
+          "time_ratio": 240.0
         }
       ]
     },
@@ -134,7 +134,7 @@
       "values": [
         {
           "memory_usage": 294800.0,
-          "time_ratio": 8.426966292134832
+          "time_ratio": 0.11866666666666667
         }
       ]
     },
@@ -144,7 +144,7 @@
       "values": [
         {
           "memory_usage": 2000000.0,
-          "time_ratio": 0.005626913150471161
+          "time_ratio": 177.71733333333333
         }
       ]
     },
@@ -154,7 +154,7 @@
       "values": [
         {
           "memory_usage": 38024921.0,
-          "time_ratio": 6.578947368421052
+          "time_ratio": 0.152
         }
       ]
     },
@@ -731,8 +731,8 @@
         }
       ],
       "value": [
-        -2,
-        3
+        -4,
+        2
       ]
     },
     {
@@ -767,8 +767,8 @@
         }
       ],
       "value": [
-        2,
-        8
+        3,
+        9
       ]
     },
     {
