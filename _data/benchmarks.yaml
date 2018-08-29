@@ -110,7 +110,7 @@
       type: line
       x_scale: log
       y_scale: log
-      x_title: 'Sim Time / Wall Time'
+      x_title: 'Normalized Wall Time'
       y_title: 'Memory Usage (KB)'
       title: Efficiency
       mode: markers

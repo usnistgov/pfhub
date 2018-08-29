@@ -38,7 +38,7 @@ data:
         memory: 38024921
     transform:
       - type: formula
-        expr: datum.time_ratio
+        expr: "1. / datum.time_ratio"
         as: x
       - type: formula
         expr: datum.memory
