@@ -110,10 +110,11 @@
       type: line
       x_scale: log
       y_scale: log
-      x_title: 'Normalized Wall Time'
+      x_title: 'Normalized Wall Time *'
       y_title: 'Memory Usage (KB)'
       title: Efficiency
       mode: markers
+      footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
 
 - title: Linear Elasticity
   description: Linear elasticity via evolution of a constrained precipitate

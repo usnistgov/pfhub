@@ -523,3 +523,14 @@ img.badge{
         display: none;
     }
 }
+
+span.plotly-footnote {
+    font-family: "Open Sans", verdana, arial, sans-serif;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 21px;
+    font-weight: 400;
+    fill: rgb(68, 68, 68);
+    white-space: pre;
+    opacity: 1;
+}
