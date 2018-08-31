@@ -14,7 +14,7 @@ data:
 - name: efficiency
   transform:
   - as: x
-    expr: datum.time_ratio
+    expr: "1. / datum.time_ratio"
     type: formula
   - as: y
     expr: datum.memory

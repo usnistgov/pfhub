@@ -51,7 +51,7 @@
       "orient": "bottom",
       "scale": "x",
       "tickCount": 5,
-      "title": "Sim Time (s) / Wall Time (s)"
+      "title": "Normalized Wall Time *"
     },
     {
       "encode": {
@@ -114,7 +114,7 @@
       "values": [
         {
           "memory_usage": 394880.0,
-          "time_ratio": 0.05574848615414792
+          "time_ratio": 17.93770681476336
         }
       ]
     },
@@ -124,7 +124,7 @@
       "values": [
         {
           "memory_usage": 308224.0,
-          "time_ratio": 26.79528403001072
+          "time_ratio": 0.03732
         }
       ]
     },
@@ -134,7 +134,7 @@
       "values": [
         {
           "memory_usage": 308224.0,
-          "time_ratio": 27.070925825663238
+          "time_ratio": 0.03694
         }
       ]
     },
@@ -144,7 +144,7 @@
       "values": [
         {
           "memory_usage": 4751.36,
-          "time_ratio": 9.181716264767642
+          "time_ratio": 0.10891210000000001
         }
       ]
     },
@@ -154,7 +154,7 @@
       "values": [
         {
           "memory_usage": 815104.0,
-          "time_ratio": 0.7011148708006549
+          "time_ratio": 1.4262998
         }
       ]
     },
@@ -164,7 +164,7 @@
       "values": [
         {
           "memory_usage": 377502512.0,
-          "time_ratio": 431.15043859649126
+          "time_ratio": 0.002319376047152508
         }
       ]
     },
@@ -174,7 +174,7 @@
       "values": [
         {
           "memory_usage": 8808.0,
-          "time_ratio": 0.014219277325032559
+          "time_ratio": 70.32706213835029
         }
       ]
     },
@@ -184,7 +184,7 @@
       "values": [
         {
           "memory_usage": 33844.0,
-          "time_ratio": 0.16872500021881648
+          "time_ratio": 5.926803963272293
         }
       ]
     },
@@ -194,7 +194,7 @@
       "values": [
         {
           "memory_usage": 28492.0,
-          "time_ratio": 0.31258734746045386
+          "time_ratio": 3.1991058119411324
         }
       ]
     },
@@ -204,7 +204,7 @@
       "values": [
         {
           "memory_usage": 815104.0,
-          "time_ratio": 85.26545100178764
+          "time_ratio": 0.01172807964129615
         }
       ]
     },
@@ -214,7 +214,7 @@
       "values": [
         {
           "memory_usage": 815104.0,
-          "time_ratio": 272.3973871242204
+          "time_ratio": 0.003671107166472098
         }
       ]
     },
@@ -224,7 +224,7 @@
       "values": [
         {
           "memory_usage": 915056.0,
-          "time_ratio": 829.1873963515754
+          "time_ratio": 0.001206
         }
       ]
     },
@@ -234,7 +234,7 @@
       "values": [
         {
           "memory_usage": 104857600.0,
-          "time_ratio": 81.75601566871852
+          "time_ratio": 0.012231515831838903
         }
       ]
     },
@@ -244,7 +244,7 @@
       "values": [
         {
           "memory_usage": 104857600.0,
-          "time_ratio": 1.1833265884257385
+          "time_ratio": 0.8450752393980848
         }
       ]
     },
@@ -254,7 +254,7 @@
       "values": [
         {
           "memory_usage": 29928.0,
-          "time_ratio": 11.337868480725623
+          "time_ratio": 0.0882
         }
       ]
     },
@@ -1611,8 +1611,8 @@
         }
       ],
       "value": [
-        -2,
-        3
+        -4,
+        2
       ]
     },
     {
@@ -1647,8 +1647,8 @@
         }
       ],
       "value": [
-        2,
-        8
+        3,
+        9
       ]
     },
     {
