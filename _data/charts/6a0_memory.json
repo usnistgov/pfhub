@@ -51,7 +51,7 @@
       "orient": "bottom",
       "scale": "x",
       "tickCount": 5,
-      "title": "Normalized Wall Time"
+      "title": "Normalized Wall Time *"
     },
     {
       "encode": {
