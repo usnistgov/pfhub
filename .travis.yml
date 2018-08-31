@@ -41,4 +41,4 @@ after_success:
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
       nix-shell --command "surge --project _site --domain ${DOMAIN}";
     fi
-  - nix-shell --command "./comment.sh"
+  - nix-shell --command "./_code/comment.sh"
