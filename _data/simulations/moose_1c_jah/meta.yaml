@@ -1,0 +1,54 @@
+_id: d6b9b8d0-b6bd-11e8-a524-7dde27d5fbc0
+metadata:
+  author:
+    first: Jacob
+    last: Hirschhorn
+    email: jacob.hirschhorn@ufl.edu
+    github_id: jah5759
+  timestamp: '22 August, 2018'
+  summary: moose_1c_jah
+  implementation:
+    name: moose
+    repo:
+      url: 'https://github.com/idaholab/moose'
+      version: 3df0be3b6c84aca41972a44919c17ec9b73405a5
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '3'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 1c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '267.603'
+        sim_time: '1000000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '940232.704'
+  - name: free_energy
+    url: >-
+      https://github.com/jah5759/benchmark_results/blob/benchmark_results/1_spinodal_decomp/1c_t_no_flux/1c_t_no_flux_out.csv
+    format:
+      type: csv
+      parse:
+        time:
+          number: number
+        total_free_energy:
+          number: number
+    description: total_free_energy_moose_1c_jah
+    type: line
+    transform:
+      - type: formula
+        expr: datum.timenumber
+        as: x
+      - type: formula
+        expr: datum.total_free_energynumber
+        as: 'y'
+date: 1536778710
