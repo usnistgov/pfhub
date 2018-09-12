@@ -32,9 +32,9 @@ data:
     values:
       - unit: KB
         value: '1212866.560'
-  - name: total_free_energy
+  - name: free_energy
     url: >-
-      https://github.com/jah5759/benchmark_results/blob/benchmark_results/1_spinodal_decomp/1a_square_periodic/1a_square_periodic_out.csv
+      https://raw.githubusercontent.com/jah5759/benchmark_results/benchmark_results/1_spinodal_decomp/1a_square_periodic/1a_square_periodic_out.csv
     format:
       type: csv
       parse:
