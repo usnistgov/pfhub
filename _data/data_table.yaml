@@ -221,6 +221,12 @@ data:
   id_: 1a.1
   name: moose_1a_ia
   timestamp: 2016/06/28 00:00:00
+- author: {email: jacob.hirschhorn@ufl.edu, name: Jacob Hirschhorn}
+  code: {name: moose, url: 'https://github.com/idaholab/moose'}
+  cores: 8
+  id_: 1a.1
+  name: moose_1a_jah
+  timestamp: 2018/08/22 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
