@@ -81,6 +81,8 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
     if is_staticman_branch
     then
+        echo "$( sim_name )"
+        echo "$( github_id $( sim_name ) )"
         post_comment
     fi
 fi
