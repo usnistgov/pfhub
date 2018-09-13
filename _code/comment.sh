@@ -77,10 +77,13 @@ function post_comment {
     curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{\"body\": \"$( comment $( sim_name ) )\"}" "$( pull_request_url )/comments"
 }
 
+echo "running comment.sh"
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
+    echo "this is a pull request"
     if is_staticman_branch
     then
+        echo "$( sim_name )"
         post_comment
     fi
 fi
