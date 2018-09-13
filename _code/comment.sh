@@ -17,6 +17,8 @@ function pull_request_url {
     echo "https://api.github.com/repos/${TRAVIS_PULL_REQUEST_SLUG}/issues/${TRAVIS_PULL_REQUEST}";
 }
 
+
+
 # Get the name of the simulation from the pull request title which is
 # always something like "PFHub Upload: fipy_1a_travis". This function
 # is only run once.
@@ -74,13 +76,23 @@ function comment {
 
 # Post the comment to GitHub given the simulation name
 function post_comment {
-    curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{\"body\": \"$( comment $( sim_name ) )\"}" "$( pull_request_url )/comments"
+    curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{\"body\": \"$( comment $1 )\"}" "$( pull_request_url )/comments"
 }
 
+echo "running comment.sh"
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
     if is_staticman_branch
     then
-        post_comment
+        HTTP_RESPONSE=$(curl -X GET "$( pull_request_url )" --silent --write-out "HTTPSTATUS:%{http_code}")
+        HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
+        HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+        if [ $HTTP_STATUS = "200" ]
+        then
+            SIM_NAME=`echo "${HTTP_BODY}" | jq -r '.title' | sed -e 's/PFHub Upload: //'`
+            post_comment "$SIM_NAME"
+        else
+            echo "HTTP_RESPONSE: ${HTTP_RESPONSE}"
+        fi
     fi
 fi
