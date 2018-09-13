@@ -1,0 +1,53 @@
+_id: 67a51140-b6bf-11e8-a524-7dde27d5fbc0
+metadata:
+  author:
+    first: Jacob
+    last: Hirschhorn
+    email: jacob.hirschhorn@ufl.edu
+    github_id: jah5759
+  timestamp: '10 September, 2018'
+  summary: moose_2d_jah
+  implementation:
+    name: moose
+    repo:
+      url: 'https://github.com/idaholab/moose'
+      version: 3df0be3b6c84aca41972a44919c17ec9b73405a5
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '3'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 2d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '122183.782'
+        sim_time: '1000000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '6780284.928'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/jah5759/benchmark_results/benchmark_results/2_ostwald_ripening/2d_sphere/2d_sphere_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_free_energy: number
+    description: total_free_energy_moose_2d_jah
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: >-
+          datum.total_free_energy
+        as: 'y'
+date: 1536779383
