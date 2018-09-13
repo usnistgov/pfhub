@@ -54,7 +54,7 @@ function github_id {
 # Get the link to edit the meta.yaml on GitHub given the simulation
 # name. This will fork the repository to the user's area.
 function edit_link {
-    echo "https://github.com/${TRAVIS_PULL_REQUEST_SLUG}/edit/${TRAVIS_PULL_REQUEST_BRANCH}/$( yaml_path $1 )?pr=%2Fusnistgov%2Fpfhub%2Fpull%2F${TRAVIS_PULL_REQUEST}"
+    echo "https://${DOMAIN}/simulations/upload_form/?sim=$1"
 }
 
 # The link to the individual landing page given the simulation name
@@ -69,7 +69,7 @@ function link2 {
 
 # Get the comment to post given the simulation name
 function comment {
-    echo "@$( github_id $1 ), thanks for your PFHub upload! Your upload appears to have passed the tests.\n\nYou can view your upload display at\n\n - $( link1 $1 )\n\nand\n\n - $( link2 $1 )\n\nPlease review and confirm your approval to @wd15 by commenting in this pull request.\n\nYou can make further changes to this pull request by [editing the meta.yaml]($( edit_link $1 )) associated with this pull request.";
+    echo "@$( github_id $1 ), thanks for your PFHub upload! Your upload appears to have passed the tests.\n\nYou can view your upload display at\n\n - $( link1 $1 )\n\nand\n\n - $( link2 $1 )\n\nPlease review and confirm your approval to @wd15 by commenting in this pull request.\n\nIf you think there is a mistake in your uploade data, then you can resubmit the upload [at this link]($( edit_link $1 )).";
 }
 
 # Post the comment to GitHub given the simulation name
