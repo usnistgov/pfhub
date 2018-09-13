@@ -34,7 +34,7 @@ data:
         value: '6780284.928'
   - name: free_energy
     url: >-
-      https://github.com/jah5759/benchmark_results/blob/benchmark_results/2_ostwald_ripening/2d_sphere/2d_sphere_out.csv
+      https://raw.githubusercontent.com/jah5759/benchmark_results/benchmark_results/2_ostwald_ripening/2d_sphere/2d_sphere_out.csv
     format:
       type: csv
       parse:
