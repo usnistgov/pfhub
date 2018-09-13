@@ -69,7 +69,7 @@ function link2 {
 
 # Get the comment to post given the simulation name
 function comment {
-    echo "@$( github_id $1 ), thanks for your PFHub upload! Your upload appears to have passed the tests.\n\nYou can view your upload display at\n\n - $( link1 $1 )\n\nand\n\n - $( link2 $1 )\n\nPlease review and confirm your approval to @wd15 by commenting in this pull request.\n\nIf you think there is a mistake in your uploade data, then you can resubmit the upload [at this link]($( edit_link $1 )).";
+    echo "@$( github_id $1 ), thanks for your PFHub upload! Your upload appears to have passed the tests.\n\nYou can view your upload display at\n\n - $( link1 $1 )\n\nand\n\n - $( link2 $1 )\n\nPlease review and confirm your approval to @wd15 by commenting in this pull request.\n\nIf you think there is a mistake in your upload data, then you can resubmit the upload [at this link]($( edit_link $1 )).";
 }
 
 # Post the comment to GitHub given the simulation name
