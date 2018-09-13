@@ -84,10 +84,15 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
     if is_staticman_branch
     then
-        FROM_CURL=`curl -X GET "$( pull_request_url )"`
-        SIM_NAME=`echo "${FROM_CURL}" | jq -r '.title' | sed -e 's/PFHub Upload: //'`
-        echo $FROM_CURL
-        echo $SIM_NAME
-        post_comment "$SIM_NAME"
+        HTTP_RESPONSE=$(curl -X GET "$( pull_request_url )" --silent --write-out "HTTPSTATUS:%{http_code}")
+        HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
+        HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+        if [ $HTTP_STATUES = "200" ]
+        then
+            SIM_NAME=`echo "${HTTP_BODY}" | jq -r '.title' | sed -e 's/PFHub Upload: //'`
+            post_comment "$SIM_NAME"
+        else
+            echo "HTTP_RESPONSE: ${HTTP_RESPONSE}"
+        fi
     fi
 fi
