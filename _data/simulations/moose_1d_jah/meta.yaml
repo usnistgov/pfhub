@@ -44,7 +44,7 @@ data:
     type: line
     transform:
       - type: formula
-        expr: datum.timenumbertime
+        expr: datum.time
         as: x
       - type: formula
         expr: datum.total_free_energy
