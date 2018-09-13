@@ -84,8 +84,8 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
     if is_staticman_branch
     then
-        FROM_CURL = `curl -X GET "$( pull_request_url )"`
-        SIM_NAME = `echo "${FROM_CURL}" | jq -r '.title' | sed -e 's/PFHub Upload: //'`
+        FROM_CURL=`curl -X GET "$( pull_request_url )"`
+        SIM_NAME=`echo "${FROM_CURL}" | jq -r '.title' | sed -e 's/PFHub Upload: //'`
         echo $FROM_CURL
         echo $SIM_NAME
         post_comment "$SIM_NAME"
