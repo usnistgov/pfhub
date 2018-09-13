@@ -17,6 +17,8 @@ function pull_request_url {
     echo "https://api.github.com/repos/${TRAVIS_PULL_REQUEST_SLUG}/issues/${TRAVIS_PULL_REQUEST}";
 }
 
+
+
 # Get the name of the simulation from the pull request title which is
 # always something like "PFHub Upload: fipy_1a_travis". This function
 # is only run once.
@@ -82,12 +84,10 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
     if is_staticman_branch
     then
-        SIM_NAME = "$( sim_name )"
-        if [ "$SIM_NAME" = "" ]
-        then
-            echo "Failed to set SIM_NAME"
-        else
-            post_comment "$SIM_NAME"
-        fi
+        FROM_CURL = `curl -X GET "$( pull_request_url )"`
+        SIM_NAME = `echo "${FROM_CURL}" | jq -r '.title' | sed -e 's/PFHub Upload: //'`
+        echo $FROM_CURL
+        echo $SIM_NAME
+        post_comment "$SIM_NAME"
     fi
 fi
