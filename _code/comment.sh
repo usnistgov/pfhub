@@ -78,6 +78,7 @@ function post_comment {
 }
 
 echo "running comment.sh"
+echo "$TRAVIS_COMMIT_MESSAGE"
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
     echo "this is a pull request"
