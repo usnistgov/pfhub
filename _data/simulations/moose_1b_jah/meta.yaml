@@ -34,7 +34,7 @@ data:
         value: '1202987.008'
   - name: free_energy
     url: >-
-      https://github.com/jah5759/benchmark_results/blob/benchmark_results/1_spinodal_decomp/1b_square_no_flux/1b_square_no_flux_out.csv
+      https://raw.githubusercontent.com/jah5759/benchmark_results/benchmark_results/1_spinodal_decomp/1b_square_no_flux/1b_square_no_flux_out.csv
     format:
       type: csv
       parse:
