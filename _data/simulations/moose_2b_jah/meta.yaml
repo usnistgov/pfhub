@@ -38,17 +38,15 @@ data:
     format:
       type: csv
       parse:
-        time:
-          time: number
-        total_free_energy:
-          total_free_energy: number
+        time: number
+        total_free_energy: number
     description: total_free_energy_moose_2b_jah
     type: line
     transform:
       - type: formula
-        expr: datum.timetime
+        expr: datum.time
         as: x
       - type: formula
-        expr: datum.total_free_energytotal_free_energy
+        expr: datum.total_free_energy
         as: 'y'
 date: 1536779184
