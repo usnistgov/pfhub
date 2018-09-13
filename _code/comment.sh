@@ -87,7 +87,7 @@ then
         HTTP_RESPONSE=$(curl -X GET "$( pull_request_url )" --silent --write-out "HTTPSTATUS:%{http_code}")
         HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
         HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
-        if [ $HTTP_STATUES = "200" ]
+        if [ $HTTP_STATUS = "200" ]
         then
             SIM_NAME=`echo "${HTTP_BODY}" | jq -r '.title' | sed -e 's/PFHub Upload: //'`
             post_comment "$SIM_NAME"
