@@ -34,7 +34,7 @@ data:
         value: '1515732.992'
   - name: free_energy
     url: >-
-      https://github.com/jah5759/benchmark_results/blob/benchmark_results/2_ostwald_ripening/2c_t_no_flux/2c_t_no_flux_out.csv
+      https://raw.githubusercontent.com/jah5759/benchmark_results/benchmark_results/2_ostwald_ripening/2c_t_no_flux/2c_t_no_flux_out.csv
     format:
       type: csv
       parse:
