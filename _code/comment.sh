@@ -74,17 +74,20 @@ function comment {
 
 # Post the comment to GitHub given the simulation name
 function post_comment {
-    curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{\"body\": \"$( comment $( sim_name ) )\"}" "$( pull_request_url )/comments"
+    curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST -d "{\"body\": \"$( comment $1 )\"}" "$( pull_request_url )/comments"
 }
 
 echo "running comment.sh"
-echo "$TRAVIS_COMMIT_MESSAGE"
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
-    echo "this is a pull request"
     if is_staticman_branch
     then
-        echo "$( sim_name )"
-        post_comment
+        SIM_NAME = "$( sim_name )"
+        if [ "$SIM_NAME" = "" ]
+        then
+            echo "Failed to set SIM_NAME"
+        else
+            post_comment "$SIM_NAME"
+        fi
     fi
 fi
