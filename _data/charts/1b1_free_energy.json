@@ -480,6 +480,35 @@
       "url": "https://gist.githubusercontent.com/wd15/41e21ea1090057c42a59380d90367763/raw/6cdc4a241f133355a2f0f0691fc96206ef3fa29a/hackathon_p1_square_PBC_IA.csv"
     },
     {
+      "description": "total_free_energy_moose_1b_jah",
+      "format": {
+        "parse": {
+          "time": "number",
+          "total_free_energy": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_1b_jah",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.total_free_energy",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://raw.githubusercontent.com/jah5759/benchmark_results/benchmark_results/1_spinodal_decomp/1b_square_no_flux/1b_square_no_flux_out.csv"
+    },
+    {
       "format": {
         "parse": {
           "TotalEnergy": "number",
@@ -1333,6 +1362,64 @@
         "hover": {
           "strokeOpacity": [
             {
+              "test": "!indata('selected', 'value', 'moose_1b_jah')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1b_jah')",
+              "value": "moose_1b_jah"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_1b_jah"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1b_jah')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_1b_jah"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
               "test": "!indata('selected', 'value', 'moose_1b_sta')",
               "value": 0.6
             },
@@ -1650,6 +1737,7 @@
         "mmsp_1b_travis",
         "mmsp_1b_wrksttn",
         "moose_1b_ia",
+        "moose_1b_jah",
         "moose_1b_sta",
         "moose_fh_1b",
         "moose_psu_1b_IA",

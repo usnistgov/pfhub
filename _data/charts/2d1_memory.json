@@ -119,6 +119,16 @@
       ]
     },
     {
+      "name": "moose_2d_jah",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 6780284.928,
+          "time_ratio": 0.122183782
+        }
+      ]
+    },
+    {
       "name": "moose_2d_sta",
       "transform": [],
       "values": [
@@ -287,6 +297,83 @@
       },
       "from": {
         "data": "moose_2d_ia"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_2d_jah')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_2d_jah')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_2d_jah')",
+              "value": "moose_2d_jah"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "moose_2d_jah"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_2d_jah')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "moose_2d_jah"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_2d_jah"
       },
       "interactive": true,
       "type": "symbol"
@@ -545,6 +632,7 @@
     {
       "domain": [
         "moose_2d_ia",
+        "moose_2d_jah",
         "moose_2d_sta",
         "moose_fh_2d",
         "moose_itg_2d"

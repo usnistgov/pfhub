@@ -56,7 +56,7 @@
       "name": "code_uploads",
       "values": [
         {
-          "count": 15,
+          "count": 16,
           "name": "1b"
         },
         {
@@ -64,11 +64,11 @@
           "name": "1a"
         },
         {
-          "count": 10,
+          "count": 11,
           "name": "1c"
         },
         {
-          "count": 6,
+          "count": 7,
           "name": "1d"
         },
         {
@@ -77,27 +77,27 @@
         },
         {
           "count": 5,
+          "name": "2a"
+        },
+        {
+          "count": 5,
+          "name": "2b"
+        },
+        {
+          "count": 5,
+          "name": "2c"
+        },
+        {
+          "count": 5,
+          "name": "2d"
+        },
+        {
+          "count": 5,
           "name": "3a"
         },
         {
           "count": 5,
           "name": "6a"
-        },
-        {
-          "count": 4,
-          "name": "2a"
-        },
-        {
-          "count": 4,
-          "name": "2b"
-        },
-        {
-          "count": 4,
-          "name": "2c"
-        },
-        {
-          "count": 4,
-          "name": "2d"
         },
         {
           "count": 3,

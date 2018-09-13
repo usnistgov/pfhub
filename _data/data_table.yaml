@@ -233,6 +233,12 @@ data:
   id_: 1b.1
   name: moose_1b_ia
   timestamp: 2016/06/28 00:00:00
+- author: {email: jacob.hirschhorn@ufl.edu, name: Jacob Hirschhorn}
+  code: {name: moose, url: 'https://github.com/idaholab/moose'}
+  cores: 8
+  id_: 1b.1
+  name: moose_1b_jah
+  timestamp: 2018/08/22 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
@@ -245,12 +251,24 @@ data:
   id_: 1c.1
   name: moose_1c_ia
   timestamp: 2016/06/28 00:00:00
+- author: {email: jacob.hirschhorn@ufl.edu, name: Jacob Hirschhorn}
+  code: {name: moose, url: 'https://github.com/idaholab/moose'}
+  cores: 8
+  id_: 1c.1
+  name: moose_1c_jah
+  timestamp: 2018/08/22 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
   id_: 1d.1
   name: moose_1d_ia
   timestamp: 2016/06/28 00:00:00
+- author: {email: jacob.hirschhorn@ufl.edu, name: Jacob Hirschhorn}
+  code: {name: moose, url: 'https://github.com/idaholab/moose'}
+  cores: 8
+  id_: 1d.1
+  name: moose_1d_jah
+  timestamp: 2018/08/23 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
@@ -263,6 +281,12 @@ data:
   id_: 2a.1
   name: moose_2a_ia
   timestamp: 2016/06/28 00:00:00
+- author: {email: jacob.hirschhorn@ufl.edu, name: Jacob Hirschhorn}
+  code: {name: moose, url: 'https://github.com/idaholab/moose'}
+  cores: 8
+  id_: 2a.1
+  name: moose_2a_jah
+  timestamp: 2018/08/24 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
@@ -275,6 +299,12 @@ data:
   id_: 2b.1
   name: moose_2b_ia
   timestamp: 2016/06/28 00:00:00
+- author: {email: jacob.hirschhorn@ufl.edu, name: Jacob Hirschhorn}
+  code: {name: moose, url: 'https://github.com/idaholab/moose'}
+  cores: 8
+  id_: 2b.1
+  name: moose_2b_jah
+  timestamp: 2018/09/04 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20
@@ -287,6 +317,12 @@ data:
   id_: 2c.1
   name: moose_2c_ia
   timestamp: 2016/06/28 00:00:00
+- author: {email: jacob.hirschhorn@ufl.edu, name: Jacob Hirschhorn}
+  code: {name: moose, url: 'https://github.com/idaholab/moose'}
+  cores: 8
+  id_: 2c.1
+  name: moose_2c_jah
+  timestamp: 2018/09/11 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 6
@@ -299,6 +335,12 @@ data:
   id_: 2d.1
   name: moose_2d_ia
   timestamp: 2016/06/28 00:00:00
+- author: {email: jacob.hirschhorn@ufl.edu, name: Jacob Hirschhorn}
+  code: {name: moose, url: 'https://github.com/idaholab/moose'}
+  cores: 8
+  id_: 2d.1
+  name: moose_2d_jah
+  timestamp: 2018/09/10 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 40
