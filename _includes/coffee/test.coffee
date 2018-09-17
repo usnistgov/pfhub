@@ -329,6 +329,30 @@ describe('test map_undef', ->
 )
 
 
+describe('test github_to_raw', ->
+  it('with github.com address', ->
+    slug = ->
+      'jah5759/benchmark_results'
+    path = ->
+      '1_spinodal_decomp/1a_square_periodic/1a_square_periodic_out.csv'
+    assert.deepEqual(
+      github_to_raw(
+        "https://github.com/#{slug()}/blob/benchmark_results/#{path()}"
+      )
+      "https://raw.githubusercontent.com/#{slug()}/benchmark_results/#{path()}"
+    )
+  )
+  it('without github.com address', ->
+    assert.deepEqual(
+      github_to_raw(
+        'https://bitly.com/'
+      )
+      'https://bitly.com/'
+    )
+  )
+)
+
+
 # describe('result_comparison functions', ->
 #   data = ->
 #     [

@@ -2,6 +2,7 @@
 ---
 
 {% include coffee/essential.coffee %}
+{% include coffee/main.coffee %}
 
 mapping = (data, sim_name) ->
   {
@@ -210,3 +211,6 @@ if SIM_NAME?
   $('#par_' + DATA.metadata.hardware.parallel_model).attr('selected', '')
   populate_data_section(DATA)
   populate_media_section(DATA)
+
+@update_url = (data) ->
+  data.value = github_to_raw(data.value)

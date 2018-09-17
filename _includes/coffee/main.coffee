@@ -81,3 +81,26 @@ link_html = (link, data) ->
   #{data}
   </a>
   """
+
+github_to_raw = (data) ->
+  ### Convert a GitHub URL to raw format
+
+  Args:
+    data: the GitHub URL
+
+  Returns:
+    the updated url
+  ###
+  pattern = ->
+    ///
+    https:\/\/github\.com\/([A-Za-z0-9_-]{3,15})\/([A-Za-z0-9_.-]+)\/blob\/(.+)$
+    ///
+
+  sequence(
+    (x) -> pattern().exec(x)
+    (x) ->
+      if x?
+        "https://raw.githubusercontent.com/#{x[1]}/#{x[2]}/#{x[3]}"
+      else
+        data
+  )(data)
