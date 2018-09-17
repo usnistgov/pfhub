@@ -1,0 +1,52 @@
+_id: f103dfd0-bab5-11e8-a5c9-b1c933868169
+metadata:
+  author:
+    first: test
+    last: test
+    email: test@nist.gov
+    github_id: tkphd
+  timestamp: '17 September, 2018'
+  summary: test
+  implementation:
+    name: test
+    repo:
+      url: 'https://github.com/tkphd/test'
+      version: a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5
+    container_url: ''
+  hardware:
+    cpu_architecture: k1om
+    acc_architecture: gpu
+    parallel_model: massive
+    clock_rate: '10'
+    cores: '409600'
+    nodes: '100000'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '0'
+        sim_time: '1'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '10485760'
+  - name: test
+    url: >-
+      https://raw.githubusercontent.com/jah5759/benchmark_results/benchmark_results/2_ostwald_ripening/2d_sphere/2d_sphere_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        "\ttotal_free_energy": number
+    description: jah5759
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: "datum.\ttotal_free_energy"
+        as: 'y'
+date: 1537215123
