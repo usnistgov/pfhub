@@ -43,9 +43,9 @@ needs and avenues of work.
 
  - **Phase Field Methods Workshop V**; Aug 1-3, 2017; upload-a-thon of
    benchmark simulation results, discussion of new benchmark problems,
-   and presentations of current-day issues in phase field modeling.
+   and presentations of current-day issues in phase field modeling. See [the agenda](https://drive.google.com/file/d/1C6BUSIBpUK4mTItjjJvzLGYeDgOd4U7C/view?usp=sharing).
 
- - **Phase Field Methods Workshop VI**; Feb 20-22, 2018.
+ - **Phase Field Methods Workshop VI**; Feb 20-22, 2018. See [the agenda](https://drive.google.com/file/d/1ui366pmXzpFIccS62wRi6Oa35AbKx_yC/view?usp=sharing).
 
  - **Phase Field Methods Workshop VII**; Sep 25-27, 2018; in the
    planning stages; email <e-gulsoy@northwestern.edu> if you'd like to
