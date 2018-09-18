@@ -86,15 +86,20 @@ github_to_raw = (data) ->
   ### Convert a GitHub URL to raw format
 
   Args:
-    data: the GitHub URL
+    data: URL of renderable data on github.com
 
   Returns:
-    the updated url
+    URL of raw/downloadable data on githubuserdata.com
   ###
   pattern = ->
     ///
-    https:\/\/github\.com\/([A-Za-z0-9_-]{3,15})\/([A-Za-z0-9_.-]+)\/blob\/(.+)$
-    ///
+    https?:\/\/              # https or http
+    (?:www\.)?github\.com\/  # www.github.com, www optional
+    ([a-z0-9_-]{3,39})\/     # capture user name / org
+    ([a-z0-9_.-]+)\/         # capture repository
+    blob\/
+    (.+)                     # capture path
+    $///i                    # case insensitive
 
   sequence(
     (x) -> pattern().exec(x)
