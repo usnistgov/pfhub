@@ -377,6 +377,14 @@ describe('test github_to_raw', ->
       "#{raw_base()}/#{slug_long()}/benchmark_results/#{path()}"
     )
   )
+  it('with http not https', ->
+    assert.deepEqual(
+      github_to_raw(
+        "http://github.com/#{slug()}/blob/benchmark_results/#{path()}"
+      )
+      "#{raw_base()}/#{slug()}/benchmark_results/#{path()}"
+    )
+  )
 )
 
 
