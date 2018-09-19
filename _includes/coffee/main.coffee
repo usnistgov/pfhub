@@ -81,3 +81,31 @@ link_html = (link, data) ->
   #{data}
   </a>
   """
+
+github_to_raw = (data) ->
+  ### Convert a GitHub URL to raw format
+
+  Args:
+    data: URL of renderable data on github.com
+
+  Returns:
+    URL of raw/downloadable data on githubuserdata.com
+  ###
+  pattern = ->
+    ///
+    https?:\/\/              # https or http
+    (?:www\.)?github\.com\/  # www.github.com, www optional
+    ([a-z0-9_-]{3,39})\/     # capture user name / org
+    ([a-z0-9_.-]+)\/         # capture repository
+    blob\/
+    (.+)                     # capture path
+    $///i                    # case insensitive
+
+  sequence(
+    (x) -> pattern().exec(x)
+    (x) ->
+      if x?
+        "https://raw.githubusercontent.com/#{x[1]}/#{x[2]}/#{x[3]}"
+      else
+        data
+  )(data)

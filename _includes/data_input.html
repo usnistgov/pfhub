@@ -22,7 +22,7 @@
            class="validate"
            length="64"
            pattern="^[\\w]{2,64}$">
-    <label for="data-name-{{ counter }}">
+    <label for="data-name-{{ counter }}" data-error="alphanumeric characters and _ (at least 2 characters long)">
       Short name of data
     </label>
   </div>
@@ -36,7 +36,8 @@
            id="data-url-{{ counter }}"
            name="fields[data][{{ counter }}][url]"
            type="url"
-           class="validate">
+           class="validate"
+           onchange="update_url(this)">
     <label for="data-url-{{ counter }}">
       Data File URL
     </label>

@@ -328,6 +328,65 @@ describe('test map_undef', ->
   )
 )
 
+describe('test github_to_raw', ->
+  slug = ->
+    'jah5759/benchmark_results'
+  path = ->
+    '1_spinodal_decomp/1a_square_periodic/1a_square_periodic_out.csv'
+  slug_long = ->
+    'longusernamelongusername/benchmark_results'
+  raw_base = ->
+    'https://raw.githubusercontent.com'
+  it('with github.com address', ->
+    assert.deepEqual(
+      github_to_raw(
+        "https://github.com/#{slug()}/blob/benchmark_results/#{path()}"
+      )
+      "#{raw_base()}/#{slug()}/benchmark_results/#{path()}"
+    )
+  )
+  it('without github.com address', ->
+    assert.deepEqual(
+      github_to_raw(
+        'https://bitly.com/'
+      )
+      'https://bitly.com/'
+    )
+  )
+  it('with GitHub.com address', ->
+    assert.deepEqual(
+      github_to_raw(
+        "https://GitHub.com/#{slug()}/blob/benchmark_results/#{path()}"
+      )
+      "#{raw_base()}/#{slug()}/benchmark_results/#{path()}"
+    )
+  )
+  it('with www.github.com address', ->
+    assert.deepEqual(
+      github_to_raw(
+        "https://www.github.com/#{slug()}/blob/benchmark_results/#{path()}"
+      )
+      "#{raw_base()}/#{slug()}/benchmark_results/#{path()}"
+    )
+  )
+  it('with long user name', ->
+    assert.deepEqual(
+      github_to_raw(
+        "https://www.github.com/#{slug_long()}/blob/benchmark_results/#{path()}"
+      )
+      "#{raw_base()}/#{slug_long()}/benchmark_results/#{path()}"
+    )
+  )
+  it('with http not https', ->
+    assert.deepEqual(
+      github_to_raw(
+        "http://github.com/#{slug()}/blob/benchmark_results/#{path()}"
+      )
+      "#{raw_base()}/#{slug()}/benchmark_results/#{path()}"
+    )
+  )
+)
+
 
 # describe('result_comparison functions', ->
 #   data = ->
