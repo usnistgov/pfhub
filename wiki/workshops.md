@@ -49,4 +49,5 @@ needs and avenues of work.
 
  - **Phase Field Methods Workshop VII**; Sep 25-27, 2018; in the
    planning stages; email <e-gulsoy@northwestern.edu> if you'd like to
-   attend. See [the agenda]({{ site.baseurl }}/wiki/2018-08-27-phase-field-workshop-vii-agenda).
+   attend. See [the agenda](https://drive.google.com/file/d/1uqQ7_LXLIwPV_OFNMIPaGvagwD2iB-Ec/view?usp=sharing).
+   
