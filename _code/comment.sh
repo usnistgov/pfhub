@@ -75,7 +75,7 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
     if is_staticman_branch
     then
-        HTTP_RESPONSE=$(curl -X GET "$( pull_request_url )" --silent --write-out "HTTPSTATUS:%{http_code}")
+        HTTP_RESPONSE=$(curl -H "Authorization: token ${GITHUB_TOKEN}" -X GET "$( pull_request_url )" --silent --write-out "HTTPSTATUS:%{http_code}")
         HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
         HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
         if [ $HTTP_STATUS = "200" ]
