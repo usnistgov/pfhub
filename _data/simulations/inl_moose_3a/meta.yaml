@@ -1,0 +1,103 @@
+_id: 1c620920-c5cb-11e8-a0f6-d181ad34b031
+metadata:
+  author:
+    first: Daniel
+    last: Schwen
+    email: daniel.schwen@inl.gov
+    github_id: dschwen
+  timestamp: '1 October, 2018'
+  summary: Results for Benchmark problem 3a
+  implementation:
+    name: moose
+    repo:
+      url: 'https://github.com/dschwen/moose/tree/benchmark'
+      version: 648f0321da00617148af2380d8b9270ffde035aa
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.7'
+    cores: '6'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '56.396'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '4944704'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/dschwen/moose/benchmark/modules/phase_field/examples/benchmarks/pfhub_3a.1_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://raw.githubusercontent.com/dschwen/moose/benchmark/modules/phase_field/examples/benchmarks/pfhub_3a.1_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://raw.githubusercontent.com/dschwen/moose/benchmark/modules/phase_field/examples/benchmarks/pfhub_3a.1_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_pos: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_pos
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://raw.githubusercontent.com/dschwen/moose/benchmark/modules/phase_field/examples/benchmarks/contour_1500.csv
+    format:
+      type: csv
+      parse:
+        contour_x: number
+        contour_y: number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.contour_x
+        as: x
+      - type: formula
+        expr: datum.contour_y
+        as: 'y'
+date: 1538433678
