@@ -5,13 +5,13 @@ metadata:
     last: Schwen
     email: daniel.schwen@inl.gov
     github_id: dschwen
-  timestamp: '1 October, 2018'
+  timestamp: '2 October, 2018'
   summary: Results for Benchmark problem 3a
   implementation:
     name: moose
     repo:
       url: 'https://github.com/dschwen/moose/tree/benchmark'
-      version: ba24c09350c5219affaa3089683efae6133d8dff
+      version: c641f401591bf67f76b2bb1a59168488aa5712d6
     container_url: ''
   hardware:
     cpu_architecture: x86_64
@@ -37,12 +37,12 @@ data:
       time_ratio: 0.045319
   - name: run_time
     values:
-      - wall_time: '67.979'
+      - wall_time: '67.492'
         sim_time: '1500'
   - name: memory_usage
     values:
       - unit: KB
-        value: '4263472'
+        value: '4264096'
   - name: free_energy
     url: >-
       https://raw.githubusercontent.com/dschwen/moose/benchmark/modules/phase_field/examples/benchmarks/pfhub_3a.1_out.csv
