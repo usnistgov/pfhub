@@ -90,7 +90,7 @@ data:
       type: csv
       parse:
         x: number
-        y: number
+        'y': number
     description: Zero contour at t=1500s
     type: line
     transform:
