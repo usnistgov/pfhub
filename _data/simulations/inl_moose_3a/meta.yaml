@@ -24,6 +24,17 @@ benchmark:
   id: 3a
   version: '1'
 data:
+  - name: efficiency
+    transform:
+    - as: x
+      expr: datum.time_ratio
+      type: formula
+    - as: y
+      expr: datum.memory
+      type: formula
+    values:
+    - memory: 4263472.0
+      time_ratio: 0.045319
   - name: run_time
     values:
       - wall_time: '67.979'
@@ -98,6 +109,6 @@ data:
         expr: datum.x
         as: x
       - type: formula
-        expr: datum.x
+        expr: datum.y
         as: 'y'
 date: 1538437168
