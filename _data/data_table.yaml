@@ -131,6 +131,12 @@ data:
   id_: 1c.1
   name: inl_moose_1c
   timestamp: 2017/06/01 00:00:00
+- author: {email: daniel.schwen@inl.gov, name: Daniel Schwen}
+  code: {name: moose, url: 'https://github.com/dschwen/moose/tree/benchmark'}
+  cores: 6
+  id_: 3a.1
+  name: inl_moose_3a
+  timestamp: 2018/10/01 00:00:00
 - author: {email: Larry.Aagesen@inl.gov, name: Larry Aagesen}
   code: {name: moose, url: 'https://github.com/dschwen/CHiMaD_Hackathon'}
   cores: 8

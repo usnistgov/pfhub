@@ -149,6 +149,16 @@
       ]
     },
     {
+      "name": "inl_moose_3a",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 4263472.0,
+          "time_ratio": 0.04531933333333333
+        }
+      ]
+    },
+    {
       "name": "moose_itg_3a",
       "transform": [],
       "values": [
@@ -537,6 +547,83 @@
         "hover": {
           "fillOpacity": [
             {
+              "test": "!indata('selected', 'value', 'inl_moose_3a')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_3a')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_3a')",
+              "value": "inl_moose_3a"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "inl_moose_3a"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'inl_moose_3a')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "inl_moose_3a"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "inl_moose_3a"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
               "test": "!indata('selected', 'value', 'moose_itg_3a')",
               "value": 0.4
             },
@@ -635,6 +722,7 @@
         "FirstOrder_Semi_Implicit",
         "PRISMS_PF_3a_cubic",
         "fipy_3a",
+        "inl_moose_3a",
         "moose_itg_3a"
       ],
       "name": "color",
