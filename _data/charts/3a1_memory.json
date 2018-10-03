@@ -153,8 +153,8 @@
       "transform": [],
       "values": [
         {
-          "memory_usage": 4263472.0,
-          "time_ratio": 0.04531933333333333
+          "memory_usage": 4264096.0,
+          "time_ratio": 0.04499466666666667
         }
       ]
     },

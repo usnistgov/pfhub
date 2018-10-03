@@ -34,7 +34,7 @@ data:
       type: formula
     values:
     - memory: 4263472.0
-      time_ratio: 0.045319
+      time_ratio: 0.0449946666
   - name: run_time
     values:
       - wall_time: '67.492'
