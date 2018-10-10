@@ -1,4 +1,4 @@
-_id: 8fd34670-a47f-11e8-9ae0-593cf187bda1
+_id: 122a8da0-ccac-11e8-ae72-2f6995b7b44d
 metadata:
   author:
     first: Ian
@@ -31,7 +31,7 @@ data:
   - name: memory_usage
     values:
       - unit: KB
-        value: '37755265'
+        value: '1304498'
   - name: free_energy
     url: >-
       https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_1/a_energy.csv
@@ -49,4 +49,4 @@ data:
       - type: formula
         expr: datum.total_energy
         as: 'y'
-date: 1534772841
+date: 1539190004
