@@ -141,8 +141,8 @@
       "description": "Free energy vs. time",
       "format": {
         "parse": {
-          "Free energy": "number",
-          "Time": "number"
+          "free_energy": "number",
+          "time": "number"
         },
         "type": "csv"
       },
@@ -150,12 +150,12 @@
       "transform": [
         {
           "as": "x",
-          "expr": "datum.Time",
+          "expr": "datum.time",
           "type": "formula"
         },
         {
           "as": "y",
-          "expr": "datum.Free energy",
+          "expr": "datum.free_energy",
           "type": "formula"
         },
         {
@@ -164,7 +164,7 @@
         }
       ],
       "type": "line",
-      "url": "https://mydrive.kfki.hu/f/ac4b16da78d0449d8911/?dl=1"
+      "url": "https://gist.githubusercontent.com/wd15/8088a3ef26d7f1f9e2ad50d6b34c0a36/raw/9a77c385a8194e1fa590b458ce5429b36dbfd206/free_energy.csv"
     },
     {
       "description": "Free energy versus time",

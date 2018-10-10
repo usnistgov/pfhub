@@ -19,7 +19,8 @@ script:
   - nix-shell --pure --command "pylint _data/*.py"
   - nix-shell --pure --command "flake8 _data/*.py"
   - nix-shell --pure --command "LC_ALL=en_US.UTF-8 black --check _data/*.py"
-  - nix-shell --pure --command "make simulations"
+  - nix-shell --pure --command "echo $LANG"
+  - nix-shell --pure --command "LC_ALL=en_US.UTF-8 make simulations"
   - nix-shell --pure --command 'find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;'
   - nix-shell --pure --command "make notebooks"
   - #nix-shell --pure --command "touch _data/hexbin.yaml"
