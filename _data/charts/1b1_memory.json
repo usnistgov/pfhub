@@ -169,6 +169,16 @@
       ]
     },
     {
+      "name": "itg_moose_1b_update",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 1241620.0,
+          "time_ratio": 0.002319376047152508
+        }
+      ]
+    },
+    {
       "name": "mmsp_1b_raspi",
       "transform": [],
       "values": [
@@ -792,6 +802,83 @@
       },
       "from": {
         "data": "itg_moose_1b"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'itg_moose_1b_update')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'itg_moose_1b_update')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'itg_moose_1b_update')",
+              "value": "itg_moose_1b_update"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "itg_moose_1b_update"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'itg_moose_1b_update')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "itg_moose_1b_update"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "itg_moose_1b_update"
       },
       "interactive": true,
       "type": "symbol"
@@ -1594,6 +1681,7 @@
         "inl_moose_1b",
         "inl_moose_1b_raspi",
         "itg_moose_1b",
+        "itg_moose_1b_update",
         "mmsp_1b_raspi",
         "mmsp_1b_travis",
         "mmsp_1b_wrksttn",
