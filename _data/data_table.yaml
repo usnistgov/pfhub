@@ -161,12 +161,6 @@ data:
   id_: 1b.1
   name: itg_moose_1b
   timestamp: 2018/03/19 00:00:00
-- author: {email: ikg5018@psu.edu, name: Ian Greenquist}
-  code: {name: moose, url: 'https://github.com/itgreenquist/moose/tree/benchmark'}
-  cores: 8
-  id_: 1b.1
-  name: itg_moose_1b_update
-  timestamp: 2018/03/19 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: mmsp, url: 'https://github.com/mesoscale/MMSP-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 18
@@ -418,12 +412,6 @@ data:
   cores: 8
   id_: 1d.1
   name: moose_itg_1d
-  timestamp: 2018/03/20 00:00:00
-- author: {email: ikg5018@psu.edu, name: Ian Greenquist}
-  code: {name: moose, url: 'https://github.com/itgreenquist/moose/tree/benchmark'}
-  cores: 8
-  id_: 1d.1
-  name: moose_itg_1d_update
   timestamp: 2018/03/20 00:00:00
 - author: {email: ikg5018@psu.edu, name: Ian Greenquist}
   code: {name: moose, url: 'https://github.com/itgreenquist/moose/tree/benchmark'}
