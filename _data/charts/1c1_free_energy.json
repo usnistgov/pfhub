@@ -447,6 +447,35 @@
       "url": "https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_1/c_energy.csv"
     },
     {
+      "description": "Simulation data for benchmark 1c",
+      "format": {
+        "parse": {
+          "time": "number",
+          "total_energy": "number"
+        },
+        "type": "csv"
+      },
+      "name": "moose_ig_1c_update",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.total_energy",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_1/c_energy.csv"
+    },
+    {
       "format": {
         "parse": {
           "f_density": "number",
@@ -1105,6 +1134,64 @@
         "hover": {
           "strokeOpacity": [
             {
+              "test": "!indata('selected', 'value', 'moose_ig_1c_update')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_ig_1c_update')",
+              "value": "moose_ig_1c_update"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "moose_ig_1c_update"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_ig_1c_update')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_ig_1c_update"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
               "test": "!indata('selected', 'value', 'moose_psu_1c_IA')",
               "value": 0.6
             },
@@ -1247,6 +1334,7 @@
         "moose_1c_jah",
         "moose_fh_1c",
         "moose_ig_1c",
+        "moose_ig_1c_update",
         "moose_psu_1c_IA",
         "moose_psu_1c_STA"
       ],
