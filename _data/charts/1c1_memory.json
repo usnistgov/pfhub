@@ -199,6 +199,16 @@
       ]
     },
     {
+      "name": "moose_ig_1c_update",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 479330.0,
+          "time_ratio": 0.0015585945355819232
+        }
+      ]
+    },
+    {
       "name": "moose_psu_1c_IA",
       "transform": [],
       "values": [
@@ -982,6 +992,83 @@
         "hover": {
           "fillOpacity": [
             {
+              "test": "!indata('selected', 'value', 'moose_ig_1c_update')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_ig_1c_update')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_ig_1c_update')",
+              "value": "moose_ig_1c_update"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "moose_ig_1c_update"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_ig_1c_update')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "moose_ig_1c_update"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_ig_1c_update"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
               "test": "!indata('selected', 'value', 'moose_psu_1c_IA')",
               "value": 0.4
             },
@@ -1162,6 +1249,7 @@
         "moose_1c_jah",
         "moose_fh_1c",
         "moose_ig_1c",
+        "moose_ig_1c_update",
         "moose_psu_1c_IA",
         "moose_psu_1c_STA"
       ],
