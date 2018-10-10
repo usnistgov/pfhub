@@ -1,0 +1,56 @@
+_id: 7efca4f0-ccba-11e8-ae72-2f6995b7b44d
+metadata:
+  author:
+    first: Ian
+    last: Greenquist
+    email: ikg5018@psu.edu
+    github_id: itgreenquist
+  timestamp: '29 March, 2018'
+  summary: Benchmark Problem 1a
+  implementation:
+    name: moose
+    repo:
+      url: 'https://github.com/itgreenquist/moose/tree/benchmark'
+      version: fa4420c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '0'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1774'
+        sim_time: '1073370'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '37755265'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/itgreenquist/moose/benchmark/benchmark_uploads/prob_1/a_energy.csv
+    format:
+      type: csv
+      parse:
+        time:
+          number:
+            number: number
+        total_energy:
+          number:
+            number: number
+    description: Free energy for Benchmark Problem 1a
+    type: line
+    transform:
+      - type: formula
+        expr: datum.timenumbernumber
+        as: x
+      - type: formula
+        expr: datum.total_energynumbernumber
+        as: 'y'
+date: 1539196200
