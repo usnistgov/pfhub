@@ -119,7 +119,7 @@
       ]
     },
     {
-      "name": "Finite_Difference_A",
+      "name": "Finite_Diff_A",
       "transform": [],
       "values": [
         {
@@ -326,7 +326,7 @@
         "hover": {
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'Finite_Difference_A')",
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
               "value": 0.4
             },
             {
@@ -338,7 +338,7 @@
           },
           "strokeOpacity": [
             {
-              "test": "!indata('selected', 'value', 'Finite_Difference_A')",
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
               "value": 0.4
             },
             {
@@ -350,8 +350,8 @@
           },
           "tooltip": [
             {
-              "test": "!indata('selected', 'value', 'Finite_Difference_A')",
-              "value": "Finite_Difference_A"
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
+              "value": "Finite_Diff_A"
             },
             {
               "value": ""
@@ -361,11 +361,11 @@
         "update": {
           "fill": {
             "scale": "color",
-            "value": "Finite_Difference_A"
+            "value": "Finite_Diff_A"
           },
           "fillOpacity": [
             {
-              "test": "!indata('selected', 'value', 'Finite_Difference_A')",
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
               "value": 1.0
             },
             {
@@ -377,7 +377,7 @@
           },
           "stroke": {
             "scale": "color",
-            "value": "Finite_Difference_A"
+            "value": "Finite_Diff_A"
           },
           "strokeWidth": {
             "value": 0
@@ -393,7 +393,7 @@
         }
       },
       "from": {
-        "data": "Finite_Difference_A"
+        "data": "Finite_Diff_A"
       },
       "interactive": true,
       "type": "symbol"
@@ -806,7 +806,7 @@
     {
       "domain": [
         "CHiMaD3_MOOSE",
-        "Finite_Difference_A",
+        "Finite_Diff_A",
         "FirstOrder_Semi_Implicit",
         "PRISMS_PF_3a_cubic",
         "fipy_3a",
