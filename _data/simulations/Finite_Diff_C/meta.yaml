@@ -1,0 +1,116 @@
+_id: 0911dec0-cdde-11e8-9467-8537e44b2659
+metadata:
+  author:
+    first: Tamás
+    last: Pusztai
+    email: pusztai.tamas@wigner.mta.hu
+    github_id: n.a.
+  timestamp: '6 October, 2018'
+  summary: >-
+    The three sets of results I submitted (methods A, B, C) are based on finite
+    difference simulations (dx=0.4, dt=0.002) that differ only in the way the
+    anisotropy part of the phi equation of motion calculated. In method C, using
+    the chain rule, I calculated all derivatives analytically up to the point
+    where only the derivatives of phi is left and all the other quantities can
+    be evaluated locally.
+  implementation:
+    name: matlab
+    repo:
+      url: 'https://mydrive.kfki.hu/f/8565830aa4f24610922a/?dl=1'
+      version: aaaaaaaa
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: '1.6'
+    cores: '3584'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: efficiency
+    transform:
+    - as: x
+      expr: datum.time_ratio
+      type: formula
+    - as: y
+      expr: datum.memory
+      type: formula
+    values:
+    - memory: 900000
+      time_ratio: 14.42133
+  - name: run_time
+    values:
+      - wall_time: '21632'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '900000'
+  - name: free_energy
+    url: 'https://gist.githubusercontent.com/wd15/dc6ecb3fd56d80dcacdae07d42ecf917/raw/9f76dcc90647952e993e0ce1b87c35cc435ec322/free_energy.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: 'https://gist.githubusercontent.com/wd15/dc6ecb3fd56d80dcacdae07d42ecf917/raw/9f76dcc90647952e993e0ce1b87c35cc435ec322/solid_fraction.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: "Solid fraction vs. time"
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: "datum.solid_fraction"
+        as: 'y'
+  - name: tip_position
+    url: 'https://gist.githubusercontent.com/wd15/dc6ecb3fd56d80dcacdae07d42ecf917/raw/9f76dcc90647952e993e0ce1b87c35cc435ec322/tip_position.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: "Tip position vs. time"
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: 'https://gist.githubusercontent.com/wd15/dc6ecb3fd56d80dcacdae07d42ecf917/raw/9f76dcc90647952e993e0ce1b87c35cc435ec322/phase_field_1500.csv'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: "Phi=0 contour"
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1539321415

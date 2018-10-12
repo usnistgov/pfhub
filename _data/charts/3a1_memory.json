@@ -129,6 +129,36 @@
       ]
     },
     {
+      "name": "Finite_Diff_A_update",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 1125000.0,
+          "time_ratio": 10.914
+        }
+      ]
+    },
+    {
+      "name": "Finite_Diff_B",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 1125000.0,
+          "time_ratio": 11.49
+        }
+      ]
+    },
+    {
+      "name": "Finite_Diff_C",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 900000.0,
+          "time_ratio": 14.421333333333333
+        }
+      ]
+    },
+    {
       "name": "FirstOrder_Semi_Implicit",
       "transform": [],
       "values": [
@@ -394,6 +424,237 @@
       },
       "from": {
         "data": "Finite_Diff_A"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A_update')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A_update')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A_update')",
+              "value": "Finite_Diff_A_update"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "Finite_Diff_A_update"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A_update')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "Finite_Diff_A_update"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "Finite_Diff_A_update"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_B')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_B')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_B')",
+              "value": "Finite_Diff_B"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "Finite_Diff_B"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_B')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "Finite_Diff_B"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "Finite_Diff_B"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_C')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_C')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_C')",
+              "value": "Finite_Diff_C"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "Finite_Diff_C"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_C')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "Finite_Diff_C"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "Finite_Diff_C"
       },
       "interactive": true,
       "type": "symbol"
@@ -807,6 +1068,9 @@
       "domain": [
         "CHiMaD3_MOOSE",
         "Finite_Diff_A",
+        "Finite_Diff_A_update",
+        "Finite_Diff_B",
+        "Finite_Diff_C",
         "FirstOrder_Semi_Implicit",
         "PRISMS_PF_3a_cubic",
         "fipy_3a",
