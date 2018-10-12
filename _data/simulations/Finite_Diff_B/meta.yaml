@@ -72,7 +72,7 @@ data:
       type: csv
       parse:
         time: number
-        solid_fraction / 9: number
+        solid_fraction: number
     description: Solid fraction vs. time
     type: line
     transform:
@@ -80,7 +80,7 @@ data:
         expr: datum.time
         as: x
       - type: formula
-        expr: datum.solid_fraction / 9
+        expr: datum.solid_fraction
         as: 'y'
   - name: tip_position
     url: 'https://gist.githubusercontent.com/wd15/de5d703df9ed963d76b0a9ab65a37a0a/raw/56f8e3fd7e94875fe19eb4fc4e1109d08cf0ec2d/tip_position.csv'
