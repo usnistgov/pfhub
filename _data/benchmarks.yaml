@@ -79,6 +79,8 @@
       minimum: 0.01
       type: line
       mode: lines
+      func: get_values
+
     - name: tip_position
       title: Tip Position
       x_title: Time
@@ -87,6 +89,8 @@
       y_scale: linear
       type: line
       mode: lines
+      func: get_values
+
     - name: solid_fraction
       title: Solid Fraction
       y_title: Solid Fraction
@@ -95,6 +99,8 @@
       y_scale: linear
       type: line
       mode: lines
+      func: get_values
+
     - name: phase_field_1500
       type: line
       x_scale: linear
@@ -106,6 +112,8 @@
       y_domain: [0, 500]
       y_scaleanchor: x
       mode: lines
+      func: get_values
+
     - name: efficiency
       type: line
       x_scale: log
@@ -115,6 +123,7 @@
       title: Efficiency
       mode: markers
       footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
+      func: get_values
 
 - title: Linear Elasticity
   description: Linear elasticity via evolution of a constrained precipitate
