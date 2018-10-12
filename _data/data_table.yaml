@@ -17,6 +17,12 @@ data:
   id_: 3a.1
   name: Finite_Diff_B
   timestamp: 2018/10/06 00:00:00
+- author: {email: pusztai.tamas@wigner.mta.hu, name: "Tam\xE1s Pusztai"}
+  code: {name: matlab, url: 'https://mydrive.kfki.hu/f/8565830aa4f24610922a/?dl=1'}
+  cores: 3584
+  id_: 3a.1
+  name: Finite_Diff_C
+  timestamp: 2018/10/06 00:00:00
 - author: {email: andrembc10@gmail.com, name: Andre  M. B. Costa}
   code: {name: custom, url: 'https://github.com/andrembcosta/1st-Order-SI-3a'}
   cores: 1
