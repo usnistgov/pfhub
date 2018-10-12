@@ -1,0 +1,106 @@
+_id: ff682f70-cddb-11e8-9467-8537e44b2659
+metadata:
+  author:
+    first: Tamás
+    last: Pusztai
+    email: pusztai.tamas@wigner.mta.hu
+    github_id: n.a.
+  timestamp: '6 October, 2018'
+  summary: >-
+    The three sets of results I submitted (methods A, B, C) are based on finite
+    difference simulations (dx=0.4, dt=0.02) that differ only in the way the
+    anisotropy part of the phi equation of motion calculated. In method A and B,
+    I used the standard discretisation of the divergence part, for which the
+    values of a(theta) and a'(theta) are required at the midpoints between cell
+    points. In method B, these were calculated based on the theta values
+    calculated at the midpoint, e.g.  a(x+dx/2) = a(theta(x+dx/2)).
+  implementation:
+    name: matlab
+    repo:
+      url: 'https://mydrive.kfki.hu/f/de47ed05b4e74e46ad80/?dl=1'
+      version: aaaaaaaa
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: '1.6'
+    cores: '3584'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '17235'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1125000'
+  - name: free_energy
+    url: 'https://mydrive.kfki.hu/f/f944820cb112413894a3/?dl=1'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: 'https://mydrive.kfki.hu/f/bcffe08d685d412280b2/?dl=1'
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction / 9: number
+    description: Solid fraction vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction / 9
+        as: 'y'
+  - name: tip_position
+    url: 'https://mydrive.kfki.hu/f/dd3aad73964d4def8fe9/?dl=1'
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: 'https://mydrive.kfki.hu/f/3a8ad5a54f1941e7a97a/?dl=1'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Phi=0 contour
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1539320540
