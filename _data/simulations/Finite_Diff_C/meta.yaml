@@ -1,0 +1,113 @@
+_id: 0911dec0-cdde-11e8-9467-8537e44b2659
+metadata:
+  author:
+    first: Tamás
+    last: Pusztai
+    email: pusztai.tamas@wigner.mta.hu
+    github_id: n.a.
+  timestamp: '6 October, 2018'
+  summary: >-
+    The three sets of results I submitted (methods A, B, C) are based on finite
+    difference simulations (dx=0.4, dt=0.002) that differ only in the way the
+    anisotropy part of the phi equation of motion calculated. In method C, using
+    the chain rule, I calculated all derivatives analytically up to the point
+    where only the derivatives of phi is left and all the other quantities can
+    be evaluated locally.
+  implementation:
+    name: matlab
+    repo:
+      url: 'https://mydrive.kfki.hu/f/8565830aa4f24610922a/?dl=1'
+      version: aaaaaaaa
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: '1.6'
+    cores: '3584'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '21632'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '900000'
+  - name: free_energy
+    url: 'https://mydrive.kfki.hu/f/5dcd9a71e30940f988a0/?dl=1'
+    format:
+      type: csv
+      parse:
+        time:
+          number: number
+        free_energy:
+          number: number
+    description: Free energy vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.timenumber
+        as: x
+      - type: formula
+        expr: datum.free_energynumber
+        as: 'y'
+  - name: solid_fraction
+    url: 'https://mydrive.kfki.hu/f/ed7831f7d56143b4a285/?dl=1'
+    format:
+      type: csv
+      parse:
+        time:
+          number: number
+        solid_fraction / 9:
+          number: number
+    description: Solid fraction vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.timenumber
+        as: x
+      - type: formula
+        expr: datum.solid_fraction / 9number
+        as: 'y'
+  - name: tip_position
+    url: 'https://mydrive.kfki.hu/f/bd171a9c1199495f9d3f/?dl=1'
+    format:
+      type: csv
+      parse:
+        time:
+          number: number
+        tip_position:
+          number: number
+    description: Tip position vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.timenumber
+        as: x
+      - type: formula
+        expr: datum.tip_positionnumber
+        as: 'y'
+  - name: phase_field_1500
+    url: 'https://mydrive.kfki.hu/f/911dd1a09d7349c3947f/?dl=1'
+    format:
+      type: csv
+      parse:
+        x:
+          number: number
+        'y':
+          number: number
+    description: Phi=0 contour
+    type: line
+    transform:
+      - type: formula
+        expr: datum.xnumber
+        as: x
+      - type: formula
+        expr: datum.ynumber
+        as: 'y'
+date: 1539321415
