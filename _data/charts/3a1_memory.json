@@ -119,6 +119,16 @@
       ]
     },
     {
+      "name": "Finite_Diff_A",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 1125000.0,
+          "time_ratio": 10.914
+        }
+      ]
+    },
+    {
       "name": "FirstOrder_Semi_Implicit",
       "transform": [],
       "values": [
@@ -307,6 +317,83 @@
       },
       "from": {
         "data": "CHiMaD3_MOOSE"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
+              "value": "Finite_Diff_A"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "Finite_Diff_A"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "Finite_Diff_A"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "Finite_Diff_A"
       },
       "interactive": true,
       "type": "symbol"
@@ -719,6 +806,7 @@
     {
       "domain": [
         "CHiMaD3_MOOSE",
+        "Finite_Diff_A",
         "FirstOrder_Semi_Implicit",
         "PRISMS_PF_3a_cubic",
         "fipy_3a",

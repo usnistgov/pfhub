@@ -138,6 +138,35 @@
       "url": "https://gist.githubusercontent.com/eastglow-zz/62ca8baba6e66bfb07ceb96bf65206aa/raw/5310ddf815512eb7824c3612ab63c998649c9b44/CHiMaD3_DK_w_postprocess_out.csv"
     },
     {
+      "description": "Free energy vs. time",
+      "format": {
+        "parse": {
+          "free_energy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "Finite_Diff_A",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://gist.githubusercontent.com/wd15/8088a3ef26d7f1f9e2ad50d6b34c0a36/raw/9a77c385a8194e1fa590b458ce5429b36dbfd206/free_energy.csv"
+    },
+    {
       "description": "Free energy versus time",
       "format": {
         "parse": {
@@ -402,6 +431,64 @@
       },
       "from": {
         "data": "CHiMaD3_MOOSE"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
+              "value": "Finite_Diff_A"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "Finite_Diff_A"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'Finite_Diff_A')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "Finite_Diff_A"
       },
       "interactive": true,
       "type": "line"
@@ -719,6 +806,7 @@
     {
       "domain": [
         "CHiMaD3_MOOSE",
+        "Finite_Diff_A",
         "FirstOrder_Semi_Implicit",
         "PRISMS_PF_3a_cubic",
         "fipy_3a",
