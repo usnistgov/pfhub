@@ -26,10 +26,10 @@
 
 
 
-<div id="25d6f8ca-b65f-4e30-8a2f-32491c12911d"></div>
+<div id="a7a881bc-01c0-443c-a6eb-fc03815ba4ba"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#25d6f8ca-b65f-4e30-8a2f-32491c12911d');
+var element = $('#a7a881bc-01c0-443c-a6eb-fc03815ba4ba');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -243,27 +243,34 @@ $( document ).ready(code_toggle);
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Governing-equation-and-manufactured-solution">Governing equation and manufactured solution<a class="anchor-link" href="#Governing-equation-and-manufactured-solution">&#182;</a></h1><p>For this benchmark problem, we use a simple Allen-Cahn equation as the governing equation</p>
-$$\begin{equation}
+<p>$$\begin{equation}
 \frac{\partial \eta}{\partial t} = - \left[ 4 \eta \left(\eta - 1 \right) \left(\eta-\frac{1}{2} \right) - \kappa \nabla^2 \eta \right] + S(x,y,t) 
-\end{equation}$$<p>where $S(x,y,t)$ is the MMS source term and $\kappa$ is a constant parameter (the gradient energy coefficient).</p>
+\end{equation}$$</p>
+<p>where $S(x,y,t)$ is the MMS source term and $\kappa$ is a constant parameter (the gradient energy coefficient).</p>
 <p>The manufactured solution, $\eta_{sol}$ is a hyperbolic tangent function, shifted to vary between 0 and 1, with the $x$ position of the middle of the interface ($\eta_{sol}=0.5$) given by the function $\alpha(x,t)$:</p>
-$$\begin{equation}
+<p>$$\begin{equation}
 \eta_{sol}(x,y,t) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right) \right] 
-\end{equation}$$$$\begin{equation}
+\end{equation}$$</p>
+<p>$$\begin{equation}
 \alpha(x,t) = \frac{1}{4} + A_1 t \sin\left(B_1 x \right) + A_2 \sin \left(B_2  x + C_2 t \right)
-\end{equation}$$<p>where $A_1$, $B_1$, $A_2$, $B_2$, and $C_2$ are constant parameters.</p>
+\end{equation}$$</p>
+<p>where $A_1$, $B_1$, $A_2$, $B_2$, and $C_2$ are constant parameters.</p>
 <p>This manufactured solution is an equilbrium solution of the governing equation, when $S(x,y,t)=0$ and $\alpha(x,t)$ is constant. The closeness of this manufactured solution to a solution of the nominal governing equation increases the likihood that the behavior of simulation codes when solving this benchmark problem is representive of the solution of the regular Allen-Cahn equation (i.e. without the source term). The form of $\alpha(x,t)$ was chosen to yield complex behavior while still retaining a (somewhat) simple functional form. The two spatial sinusoidal terms introduce two controllable length scales to the interfacial shape. Summing them gives a  "beat" pattern with a period longer than the period of either individual term, permitting a domain size that is larger than the wavelength of the sinusoids without a repeating pattern. The temporal sinusoidal term introduces a controllable time scale to the interfacial shape in addition to the phase transformation time scale, while the linear temporal dependence of the other term ensures that the sinusoidal term can go through multiple periods without $\eta_{sol}$ repeating itself.</p>
 <p>Inserting the manufactured solution into the governing equation and solving for $S(x,y,t)$ yields:</p>
-$$\begin{equation}
+<p>$$\begin{equation}
 S(x,y,t) = \frac{\text{sech}^2 \left[ \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right]}{4 \sqrt{\kappa}} \left[-2\sqrt{\kappa} \tanh \left[\frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right] \left(\frac{\partial \alpha(x,t)}{\partial x} \right)^2+\sqrt{2} \left[ \frac{\partial \alpha(x,t)}{\partial t}-\kappa \frac{\partial^2 \alpha(x,t)}{\partial x^2} \right] \right]
-\end{equation}$$<p>where $\alpha(x,t)$ is given above and where:</p>
-$$\begin{equation}
+\end{equation}$$</p>
+<p>where $\alpha(x,t)$ is given above and where:</p>
+<p>$$\begin{equation}
 \frac{\partial \alpha(x,t)}{\partial x} = A_1 B_1 t \cos\left(B_1 x\right) + A_2 B_2 \cos \left(B_2  x + C_2 t \right)
-\end{equation}$$$$\begin{equation}
+\end{equation}$$</p>
+<p>$$\begin{equation}
 \frac{\partial^2 \alpha(x,t)}{\partial x^2} = -A_1 B_1^2 t \sin\left(B_1 x\right) - A_2 B_2^2 \sin \left(B_2  x + C_2 t \right)
-\end{equation}$$$$\begin{equation}
+\end{equation}$$</p>
+<p>$$\begin{equation}
 \frac{\partial \alpha(x,t)}{\partial t} = A_1 \sin\left(B_1 x\right) + A_2 C_2 \cos \left(B_2  x + C_2 t \right)
-\end{equation}$$<h4 id="N.B.:-Don't-transcribe-these-equations.-Please-download-the-appropriate-files-from-the-Appendix."><em>N.B.</em>: Don't transcribe these equations. Please download the appropriate files from the <a href="#Appendix">Appendix</a>.<a class="anchor-link" href="#N.B.:-Don't-transcribe-these-equations.-Please-download-the-appropriate-files-from-the-Appendix.">&#182;</a></h4>
+\end{equation}$$</p>
+<h4 id="N.B.:-Don't-transcribe-these-equations.-Please-download-the-appropriate-files-from-the-Appendix."><em>N.B.</em>: Don't transcribe these equations. Please download the appropriate files from the <a href="#Appendix">Appendix</a>.<a class="anchor-link" href="#N.B.:-Don't-transcribe-these-equations.-Please-download-the-appropriate-files-from-the-Appendix.">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -272,11 +279,12 @@ $$\begin{equation}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition<a class="anchor-link" href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">&#182;</a></h1><p>The domain geometry is a rectangle that spans [0, 1] in $x$ and [0, 0.5] in $y$. This elongated domain was chosen to allow multiple peaks and valleys in $\eta_{sol}$ without stretching the interface too much in the $y$ direction (which causes the thickness of the interface to change) or having large regions where $\eta_{sol}$  never deviates from 0 or 1. Periodic boundary conditions are applied along the $x = 0$ and the $x = 1$ boundaries to accomodate the periodicity of $\alpha(x,t)$. Dirichlet boundary conditions of $\eta$ = 1 and $\eta$ = 0 are applied along the $y = 0$ and the $y = 0.5$ boundaries, respectively. These boundary conditions are chosen to be consistent with $\eta_{sol}(x,y,t)$. The initial condition is the manufactured solution at $t = 0$:</p>
-$$
+<p>$$
 \begin{equation}
 \eta_{sol}(x,y,0) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\left(\frac{1}{4}+A_2 \sin(B_2 x) \right)}{\sqrt{2 \kappa}} \right) \right] 
 \end{equation}
-$$<p>The stopping condition for all calculations is when t = 8 time units, which was chosen to let $\alpha(x,t)$ evolve substantially, while still being slower than the characteristic time for the phase evolution (determined by the CFL condition for a uniform mesh with a reasonable level of resolution of $\eta_{sol}$).</p>
+$$</p>
+<p>The stopping condition for all calculations is when t = 8 time units, which was chosen to let $\alpha(x,t)$ evolve substantially, while still being slower than the characteristic time for the phase evolution (determined by the CFL condition for a uniform mesh with a reasonable level of resolution of $\eta_{sol}$).</p>
 
 </div>
 </div>
@@ -338,9 +346,10 @@ $$<p>The stopping condition for all calculations is when t = 8 time units, which
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Part-(a)">Part (a)<a class="anchor-link" href="#Part-(a)">&#182;</a></h2><p>The objective of this test is to verify the accuracy of your simulation code in both time and space. Here, we make use of convergence tests, where either the mesh size (or grid point spacing) or the time step size is systematically changed to determine the response of the error to these quantities. Once a convergence test is completed the order of accuracy can be calculated from the result. The order of accuracy can be compared to the theoretical order of accuracy for the numerical method employed in the simulation. If the two match (to a reasonable degree), then one can be confident that the simulation code is working as expected. The remainder of this subsection will give instructions for convergence tests for this MMS problem.</p>
 <p>Implement the MMS problem specified above using the simulation code of your choice. Perform a spatial convergence test by running the simulation for a variety of mesh sizes. For each simulation, determine the discrete $L_2$ norm of the error at $t=8$:</p>
-$$\begin{equation}
+<p>$$\begin{equation}
     L_2 = \sqrt{\sum\limits_{x,y}\left(\eta^{t=8}_{x,y} - \eta_{sol}(x,y,8)\right)^2 \Delta x \Delta y}
-\end{equation}$$<p>For all of these simulations, verify that the time step is small enough that any temporal error is much smaller that the total error. This can be accomplished by decreasing the time step until it has minimal effect on the error. Ensure that at least three simulation results have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. This maximum and minimum errors in the range roughly represent a poorly resolved simulation and a very well-resolved simulation.</p>
+\end{equation}$$</p>
+<p>For all of these simulations, verify that the time step is small enough that any temporal error is much smaller that the total error. This can be accomplished by decreasing the time step until it has minimal effect on the error. Ensure that at least three simulation results have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. This maximum and minimum errors in the range roughly represent a poorly resolved simulation and a very well-resolved simulation.</p>
 <p>Save the effective element size, $h$, and the $L_2$ error for each simulation.
 <a href="https://github.com/usnistgov/pfhub/issues/491">Archive this data</a> in a
 CSV or JSON file, using one column (or key) each for $h$ and $L_2$. 
@@ -350,9 +359,10 @@ with continuous distributions of element sizes, approximate the effective
 element size as the average of the square root of the area of the smallest
 5% of the elements. Then <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">submit your results on the PFHub website</a> as a 2D data set with the effective mesh size as the x-axis column and the $L_2$ error as the y-axis column.</p>
 <p>Next, confirm that the observed order of accuracy is approximately equal to the expected value. Calculate the order of accuracy, $p$, with a least squares fit of the following function:</p>
-$$\begin{equation}
+<p>$$\begin{equation}
     \log(E)=p \log(R) + b
-\end{equation}$$<p>where $E$ is the $L_2$ error, $R$ is the effective element size, and b is an intercept. Deviations of ±0.2 or more from the theoretical value are to be expected (depending on the range of errors considered and other factors).</p>
+\end{equation}$$</p>
+<p>where $E$ is the $L_2$ error, $R$ is the effective element size, and b is an intercept. Deviations of ±0.2 or more from the theoretical value are to be expected (depending on the range of errors considered and other factors).</p>
 <p>Finally, perform a similar convergence test, but for the time step, systematically changing the time step and recording the $L_2$ error. Use a time step that does not vary over the course of any single simulation. Verify that the spatial discretization error is small enough that it does not substantially contribute to the total error. Once again, ensure that at least three simulations have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. <a href="https://github.com/usnistgov/pfhub/issues/491">Archive the effective mesh size and $L_2$ error</a> for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as a 2D data set with the time step size as the x-axis column and the $L_2$ error as the y-axis column. Confirm that the observed order of accuracy is approximately equal to the expected value.</p>
 
 </div>
