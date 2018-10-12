@@ -1,6 +1,5 @@
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -19,8 +18,7 @@
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -28,8 +26,7 @@
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -37,8 +34,7 @@
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -47,20 +43,23 @@
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The free energy is given by,</p>
-$$ f_0\left[ c \left( \vec{r} \right) \right] =
-   - \frac{A}{2} \left(c - c_m\right)^2
-   + \frac{B}{4} \left(c - c_m\right)^4
-   + \frac{c_{\alpha}}{4} \left(c - c_{\alpha} \right)^4
-   + \frac{c_{\beta}}{4} \left(c - c_{\beta} \right)^4 $$<p>In FiPy we write the evolution equation as</p>
-$$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
+<p>$$ f_0\left[ c \left( \vec{r} \right) \right] =</p>
+<ul>
+<li>\frac{A}{2} \left(c - c_m\right)^2</li>
+<li>\frac{B}{4} \left(c - c_m\right)^4</li>
+<li>\frac{c<em>{\alpha}}{4} \left(c - c</em>{\alpha} \right)^4</li>
+<li>\frac{c<em>{\beta}}{4} \left(c - c</em>{\beta} \right)^4 $$</li>
+</ul>
+<p>In FiPy we write the evolution equation as</p>
+<p>$$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
        D \left( c \right) \left( \frac{ \partial^2 f_0 }{ \partial c^2} \nabla c - \kappa \nabla \nabla^2 c \right)
-   \right] $$<p>Let's start by calculating $ \frac{ \partial^2 f_0 }{ \partial c^2} $ using sympy. It's easy for this case, but useful in the general case for taking care of difficult book keeping in phase field problems.</p>
+   \right] $$</p>
+<p>Let's start by calculating $ \frac{ \partial^2 f_0 }{ \partial c^2} $ using sympy. It's easy for this case, but useful in the general case for taking care of difficult book keeping in phase field problems.</p>
 
 </div>
 </div>
@@ -125,7 +124,9 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>-A*(-c_m + c_var)**2/2 + B*(-c_m + c_var)**4/4 + c_alpha*(-c_alpha + c_var)**4/4 + c_beta*(-c_beta + c_var)**4/4
@@ -154,7 +155,9 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[5]:</div>
+
 
 
 
@@ -168,8 +171,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -191,8 +193,7 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -225,14 +226,14 @@ $$ \frac{\partial c}{\partial t} = \nabla \cdot  \left[
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now we need to define the initial conditions given by,</p>
 <p>Set $c\left(\vec{r}, t\right)$ such that</p>
-$$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \vec{r} \right) $$
+<p>$$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \vec{r} \right) $$</p>
+
 </div>
 </div>
 </div>
@@ -255,7 +256,9 @@ $$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \ve
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>/home/wd15/anaconda/lib/python2.7/site-packages/matplotlib/collections.py:590: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
@@ -265,7 +268,9 @@ $$ c\left(\vec{r}, 0\right) = \bar{c}_0 + \epsilon \cos \left( \vec{q} \cdot \ve
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -605,8 +610,7 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -614,8 +618,7 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -668,7 +671,9 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[11]:</div>
+
 
 
 
@@ -682,8 +687,7 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -709,7 +713,9 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[12]:</div>
+
 
 
 
@@ -723,8 +729,7 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -732,8 +737,7 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -798,7 +802,9 @@ NN+NpkGo4OsAAAAASUVORK5CYII=
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -1484,7 +1490,9 @@ qvBqAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>elapsed_time: 26.0630126019
@@ -1493,7 +1501,9 @@ qvBqAAAAAElFTkSuQmCC
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -1507,8 +1517,7 @@ qvBqAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1516,8 +1525,7 @@ qvBqAAAAAElFTkSuQmCC
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1608,7 +1616,9 @@ while steps &lt; total_steps:
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Writing fipy_hackathon_1b.py
@@ -1620,8 +1630,7 @@ while steps &lt; total_steps:
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1629,8 +1638,7 @@ while steps &lt; total_steps:
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1662,7 +1670,9 @@ $ ffmpeg -f image2 -r 6 -i 'image%05d.png' output.mp4</code></pre>
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[18]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -1679,19 +1689,6 @@ $ ffmpeg -f image2 -r 6 -i 'image%05d.png' output.mp4</code></pre>
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
 </div>
 </div>
 
