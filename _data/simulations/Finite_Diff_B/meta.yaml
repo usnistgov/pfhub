@@ -31,6 +31,17 @@ benchmark:
   id: 3a
   version: '1'
 data:
+  - name: efficiency
+    values:
+    - memory: 1125000
+      time_ratio: 11.49
+    transform:
+    - as: x
+      expr: datum.time_ratio
+      type: formula
+    - as: y
+      expr: datum.memory
+      type: formula
   - name: run_time
     values:
       - wall_time: '17235'
@@ -40,7 +51,7 @@ data:
       - unit: KB
         value: '1125000'
   - name: free_energy
-    url: 'https://mydrive.kfki.hu/f/f944820cb112413894a3/?dl=1'
+    url: 'https://gist.githubusercontent.com/wd15/de5d703df9ed963d76b0a9ab65a37a0a/raw/56f8e3fd7e94875fe19eb4fc4e1109d08cf0ec2d/free_energy.csv'
     format:
       type: csv
       parse:
@@ -56,7 +67,7 @@ data:
         expr: datum.free_energy
         as: 'y'
   - name: solid_fraction
-    url: 'https://mydrive.kfki.hu/f/bcffe08d685d412280b2/?dl=1'
+    url: 'https://gist.githubusercontent.com/wd15/de5d703df9ed963d76b0a9ab65a37a0a/raw/56f8e3fd7e94875fe19eb4fc4e1109d08cf0ec2d/solid_fraction.csv'
     format:
       type: csv
       parse:
@@ -72,7 +83,7 @@ data:
         expr: datum.solid_fraction / 9
         as: 'y'
   - name: tip_position
-    url: 'https://mydrive.kfki.hu/f/dd3aad73964d4def8fe9/?dl=1'
+    url: 'https://gist.githubusercontent.com/wd15/de5d703df9ed963d76b0a9ab65a37a0a/raw/56f8e3fd7e94875fe19eb4fc4e1109d08cf0ec2d/tip_position.csv'
     format:
       type: csv
       parse:
@@ -88,7 +99,7 @@ data:
         expr: datum.tip_position
         as: 'y'
   - name: phase_field_1500
-    url: 'https://mydrive.kfki.hu/f/3a8ad5a54f1941e7a97a/?dl=1'
+    url: 'https://gist.githubusercontent.com/wd15/de5d703df9ed963d76b0a9ab65a37a0a/raw/56f8e3fd7e94875fe19eb4fc4e1109d08cf0ec2d/phase_field_1500'
     format:
       type: csv
       parse:
