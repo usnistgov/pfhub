@@ -32,7 +32,9 @@
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[2]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -82,7 +84,9 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[1]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -99,8 +103,7 @@ $( document ).ready(code_toggle);
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -127,7 +130,9 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[4]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -140,8 +145,7 @@ $( document ).ready(code_toggle);
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -151,8 +155,7 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -162,8 +165,7 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -172,41 +174,47 @@ $( document ).ready(code_toggle);
 U=\frac{T-T_m}{L/c_p},
 \end{equation}
 where $T$ is the local temperature, $T_m$ is the melting temperature, $L$ is the latent heat of fusion, and $c_p$ is the specific heat at constant pressure, such that $U=0$ is the nondimensionalized melting temperature (note that, for this particular problem, we do not need to supply values for $T_m$, $L$, and $c_p$). The free energy of the system, $\mathcal{F}$, is expressed as [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>]</p>
-$$
+<p>$$
 \mathcal{F}=\int_{V}\left[\frac{1}{2} \left[W(\textbf{n})\right]^2|\nabla \phi|^2+f_{chem}(\phi,U)\right]\,dV
-$$<p>where $\left[W(\textbf{n})\right]^2$ is the gradient energy coefficient, $\textbf{n}\equiv \frac{\nabla\phi}{|\nabla\phi|}$ is the normal direction to the interface, and $f_{chem}$ is the chemical free energy density.  In this formulation, $f_{chem}$ is a double-well potential with a simple polynomial formulation [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
-$$
+$$</p>
+<p>where $\left[W(\textbf{n})\right]^2$ is the gradient energy coefficient, $\textbf{n}\equiv \frac{\nabla\phi}{|\nabla\phi|}$ is the normal direction to the interface, and $f_{chem}$ is the chemical free energy density.  In this formulation, $f_{chem}$ is a double-well potential with a simple polynomial formulation [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
+<p>$$
 f_{chem}=-\frac{1}{2}\phi^2+\frac{1}{4}\phi^4
 +\lambda U\phi\left[1-\frac{2}{3}\phi^2+\frac{1}{5}\phi^4\right],
-$$<p>where $\lambda$ is a dimensionless coupling constant.  The interface thickness and directional anisotropy are controlled by $W(\textbf{n})$, which takes the form $W(\textbf{n})=W_0a(\textbf{n})$ in two dimensions. We use a simple form for $a(\textbf{n})$ to reflect in-plane symmetry [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
-\begin{equation}
+$$</p>
+<p>where $\lambda$ is a dimensionless coupling constant.  The interface thickness and directional anisotropy are controlled by $W(\textbf{n})$, which takes the form $W(\textbf{n})=W_0a(\textbf{n})$ in two dimensions. We use a simple form for $a(\textbf{n})$ to reflect in-plane symmetry [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
+<p>\begin{equation}
 a(\textbf{n})=1+\epsilon_m\cos \left[m(\theta-\theta_0) \right],
-\end{equation}<p>where $m$ is a non-negative integer and $\theta$ is the in-plane azimuthal angle, $\tan\theta=n_y/n_x$; $\theta_0$ is an offset azimuthal angle that specifies the misorientation of the crystalline lattice relative to the laboratory frame of reference (in this case, the $x$-axis in the simulation coordinate system). We take</p>
-\begin{equation}
+\end{equation}</p>
+<p>where $m$ is a non-negative integer and $\theta$ is the in-plane azimuthal angle, $\tan\theta=n_y/n_x$; $\theta_0$ is an offset azimuthal angle that specifies the misorientation of the crystalline lattice relative to the laboratory frame of reference (in this case, the $x$-axis in the simulation coordinate system). We take</p>
+<p>\begin{equation}
 \lambda=\frac{D\tau_0}{0.6267W_0^2}
-\end{equation}<p>because this choice gives quantitative agreement in the so-called ``thin interface limit'' with sharp interface models of dendritic growth in the limit of vanishing interface kinetics [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>].</p>
+\end{equation}</p>
+<p>because this choice gives quantitative agreement in the so-called ``thin interface limit'' with sharp interface models of dendritic growth in the limit of vanishing interface kinetics [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>].</p>
 <p>The time scale for the evolution of $\phi$ and $U$ are similar, so both must be described with time-dependent equations.  The evolution of $\phi$, a non-conserved quantity, is governed by the Allen-Cahn equation [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
-\begin{equation}
+<p>\begin{equation}
 \tau(\textbf{n})\frac{\partial\phi}{\partial t} = -\frac{\delta \mathcal{F}}{\delta \phi},
-\end{equation}<p>where the kinetic coefficient $\tau(\textbf{n})=\tau_0\left[a(\textbf{n})\right]^2$. The functional derivative is given as [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>]</p>
-\begin{eqnarray}
-\tau(\textbf{n})\frac{\partial\phi}{\partial t} & = & \left[\phi-\lambda U\left(1-\phi^2\right)\right]\left(1-\phi^2\right)+\nabla\cdot\left( \left[W(\textbf{n})\right]^2\nabla\phi\right)\nonumber\\
-&&+\frac{\partial}{\partial x}\left[|\nabla\phi|^2W(\textbf{n})\frac{\partial W(\textbf{n})}{\partial \left(\frac{\partial\phi}{\partial x}\right)}\right]
+\end{equation}</p>
+<p>where the kinetic coefficient $\tau(\textbf{n})=\tau_0\left[a(\textbf{n})\right]^2$. The functional derivative is given as [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>]</p>
+<p>\begin{eqnarray}
+\tau(\textbf{n})\frac{\partial\phi}{\partial t} &amp; = &amp; \left[\phi-\lambda U\left(1-\phi^2\right)\right]\left(1-\phi^2\right)+\nabla\cdot\left( \left[W(\textbf{n})\right]^2\nabla\phi\right)\nonumber\\
+&amp;&amp;+\frac{\partial}{\partial x}\left[|\nabla\phi|^2W(\textbf{n})\frac{\partial W(\textbf{n})}{\partial \left(\frac{\partial\phi}{\partial x}\right)}\right]
 +\frac{\partial}{\partial y}\left[|\nabla\phi|^2W(\textbf{n})\frac{\partial W(\textbf{n})}{\partial \left(\frac{\partial\phi}{\partial y}\right)}\right] 
-\end{eqnarray}<p>for two dimensions.  We remind the reader that although  $a(\textbf{n})$, $W(\textbf{n})$ and $\tau(\textbf{n})$ have a vectorial argument, they are scalar quantities. Furthermore, the time evolution of $U$ is governed by thermal diffusion and the release of latent heat at the interface during solidification [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
-\begin{equation}
+\end{eqnarray}</p>
+<p>for two dimensions.  We remind the reader that although  $a(\textbf{n})$, $W(\textbf{n})$ and $\tau(\textbf{n})$ have a vectorial argument, they are scalar quantities. Furthermore, the time evolution of $U$ is governed by thermal diffusion and the release of latent heat at the interface during solidification [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>],</p>
+<p>\begin{equation}
 \frac{\partial U}{\partial t} = D\nabla^2U+\frac{1}{2}\frac{\partial \phi}{\partial t}
-\end{equation}<p>where $D$ is a thermal diffusion constant.</p>
+\end{equation}</p>
+<p>where $D$ is a thermal diffusion constant.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Parameterization-and-simulation-conditions">Parameterization and simulation conditions<a class="anchor-link" href="#Parameterization-and-simulation-conditions">&#182;</a></h2><p>This section presents the specific details for the solidification and dendritic growth benchmark problem, including the model parameterization, initial conditions, boundary conditions, and computational domain size. The model is parameterized with dimensionless units, see the table below. While the diffuse interface width depends on orientation, it varies between four and five units, where the width is defined as the distance over which $-0.9 < \phi < 0.9$. The benchmark problem is formulated for two dimensions.  To further reduce computational cost, we simulate one-quarter of a growing dendrite, as is commonly done in earlier works (e.g., Ref. [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>, <a href="https://doi.org/10.1016/0956-7151(94)00285-P">2</a>]). One-quarter of a solid seed with a radius of eight units (with the position of the interface defined as $\phi=0$) and a diffuse interface width of one unit is placed in the lower-left corner of the computational domain, surrounded by liquid.  Initially, the entire system is uniformly undercooled with $U \left(t=0\right)=\Delta$.  This undercooling is chosen to challenge numerical solvers somewhat because it increases the thermal diffusion length and requires a larger computational domain size relative to more negative undercoolings.  We select a square computational domain of $(960 \textrm{ units})^2$, which is two times longer than the long dimension used in Ref. [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>] for the same model parameterization. No-flux boundary conditions are chosen for $\phi$ and $U$ on all domain boundaries.</p>
+<h2 id="Parameterization-and-simulation-conditions">Parameterization and simulation conditions<a class="anchor-link" href="#Parameterization-and-simulation-conditions">&#182;</a></h2><p>This section presents the specific details for the solidification and dendritic growth benchmark problem, including the model parameterization, initial conditions, boundary conditions, and computational domain size. The model is parameterized with dimensionless units, see the table below. While the diffuse interface width depends on orientation, it varies between four and five units, where the width is defined as the distance over which $-0.9 &lt; \phi &lt; 0.9$. The benchmark problem is formulated for two dimensions.  To further reduce computational cost, we simulate one-quarter of a growing dendrite, as is commonly done in earlier works (e.g., Ref. [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>, <a href="https://doi.org/10.1016/0956-7151(94)00285-P">2</a>]). One-quarter of a solid seed with a radius of eight units (with the position of the interface defined as $\phi=0$) and a diffuse interface width of one unit is placed in the lower-left corner of the computational domain, surrounded by liquid.  Initially, the entire system is uniformly undercooled with $U \left(t=0\right)=\Delta$.  This undercooling is chosen to challenge numerical solvers somewhat because it increases the thermal diffusion length and requires a larger computational domain size relative to more negative undercoolings.  We select a square computational domain of $(960 \textrm{ units})^2$, which is two times longer than the long dimension used in Ref. [<a href="https://doi.org/10.1103/PhysRevE.57.4323">1</a>] for the same model parameterization. No-flux boundary conditions are chosen for $\phi$ and $U$ on all domain boundaries.</p>
 <table>
 <thead><tr>
 <th style="text-align:left">Quantity</th>
@@ -256,8 +264,7 @@ a(\textbf{n})=1+\epsilon_m\cos \left[m(\theta-\theta_0) \right],
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -266,8 +273,7 @@ a(\textbf{n})=1+\epsilon_m\cos \left[m(\theta-\theta_0) \right],
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -280,25 +286,13 @@ a(\textbf{n})=1+\epsilon_m\cos \left[m(\theta-\theta_0) \right],
 <li><p>The estimated tip position versus time (the position of the $\phi=0.5$ contour line cutting either the $x=0$ or $y=0$ lines)</p>
 </li>
 </ul>
-<p>Three uploads are required for each data combination of time versus quantity. These should be named as <code>free_energy</code>, <code>solid_fraction</code> and <code>tip_position</code> and stored in either CSV or JSON format. The results can be stored in three separate files or one single file as long as each column name for time and quantity is identified on the upload form. In addition the phase field zero level set contour at time $t=1500$ is required. The data should be named as <code>phase_field_1500</code> and include two columns for the x and y coordinates of the zero contour.</p>
+<p>Three uploads are required for each data combination of time versus quantity. These should be named as <code>free_energy</code>, <code>solid_fraction</code> and <code>tip_position</code> and stored in either CSV or JSON format. The results can be stored in three separate files or one single file as long as each column name for time and quantity is identified on the upload form. In addition the phase field zero level set contour at time $t=1500$ is required. The data should be named as <code>phase_field_1500</code> and include two columns for the x and y coordinates along the zero contour. The contour data should be in a sequence that enables an ordered traversal of the contour line.</p>
 <p>Further data to upload can include a Youtube video, images of the dendrite at different times or the entire phase field variable at different times. These are not required, but will help others view your work.</p>
-<p>Please use the <a href="{{ site.baseurl/simulations/upload_form/ }}">upload form</a> to upload your results.</p>
+<p>Please use the <a href="{{ site.baseurl }}/simulations/upload_form/">upload form</a> to upload your results.</p>
+<h2 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h2><p>Results from this benchmark problem are displayed on the <a href="{{ site.baseurl }}/simulations/3a.1">simulation result page</a> for different codes.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
  
 

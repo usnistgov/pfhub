@@ -79,7 +79,7 @@ data:
         expr: datum.time
         as: x
       - type: formula
-        expr: "datum.solid_fraction / 9"
+        expr: "datum.solid_fraction"
         as: 'y'
   - name: tip_position
     url: 'https://gist.githubusercontent.com/wd15/dc6ecb3fd56d80dcacdae07d42ecf917/raw/9f76dcc90647952e993e0ce1b87c35cc435ec322/tip_position.csv'
