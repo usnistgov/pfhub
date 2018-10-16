@@ -47,6 +47,13 @@
               <td id="software">
               </td>
             </tr>
+            <tr>
+              <td>
+                Pull-request
+              </td>
+              <td id="pull-request">
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -111,6 +118,7 @@
   var ALL_DATA={{ site.data.simulations | jsonify }};
   var CODES_DATA={{ site.data.codes | jsonify }};
   var AXES_NAMES={{ site.data.axes_names | jsonify }};
+  var REPO={{ site.links.repo | jsonify }};
 </script>
 
 <script src="{{ site.baseurl }}/js/simulation.js"></script>
