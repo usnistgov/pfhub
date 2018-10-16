@@ -509,7 +509,7 @@ ploterize = (data) ->
   return data
 
 
-build = (data, sim_name, codes_data, chart_data, axes_names, repo) ->
+build = (data, sim_name, codes_data, chart_data, axes_names, repo_slug) ->
   ### Build the simulation landing page
 
   Args:
@@ -517,6 +517,7 @@ build = (data, sim_name, codes_data, chart_data, axes_names, repo) ->
     sim_name: the name of the simulation
     codes_data: data about the possible codes
     chart_data: Vega data for 1D charts
+    repo_slug: the repo slug from _config.yml
   ###
 
   header(sim_name)
@@ -528,7 +529,7 @@ build = (data, sim_name, codes_data, chart_data, axes_names, repo) ->
   benchmark(data)
   date(data)
   software(data, codes_data)
-  pull_request_link(data, sim_name, repo)
+  pull_request_link(data, sim_name, repo_slug)
   results_table(data)
 
   result_data = groupBy(((x) -> x.type), data.data)
