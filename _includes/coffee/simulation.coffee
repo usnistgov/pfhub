@@ -224,28 +224,28 @@ pull_request_link = (data, sim_name, repo_slug) ->
     sim_name: the name of the simulation
     repo_slug: the repo slug from _config.yml
   ###
-  construct_link = sequence(
-    filter((y) -> y.title is "PFHub Upload: #{sim_name}")
-    get(0)
-    (x) ->
-      if x?
-        """
-        <a href='#{x.pull_request.html_url}'
-           target=_blank>
-          ##{x.number}
-        </a>
-        """
-      else
-        'Null'
+
+  make_link = (item) ->
+    """
+    <a href='#{item.pull_request.html_url}'
+       target=_blank>
+       ##{item.number}
+    </a>
+    """
+
+  construct_links = sequence(
+    map(make_link)
+    (x) -> if x.length is 0 then 'Null' else x.join(', ')
   )
 
   get_html = (request, status) ->
     if status is 'success'
-      construct_link(request.items)
+      construct_links(request.items)
     else
       'Null'
 
   call_back = (request, status) ->
+    console.log(request)
     $('#pull-request').html(get_html(request, status))
 
   sequence(
