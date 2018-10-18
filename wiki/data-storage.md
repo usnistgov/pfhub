@@ -41,7 +41,7 @@ identifier are preferred.
 8. Under each thumbnail, next to the file name, there's a ⬇ download link. The URL is
    `https://ndownloader.figshare.com/files/<handle>/` where `<handle>` is a numerical index. The
    file can be accessed directly using this URL, *e.g.*,
-   [https://ndownloader.figshare.com/files/10030006].
+   [https://ndownloader.figshare.com/files/10030006](https://ndownloader.figshare.com/files/10030006).
 9. Retrieve handles for each file.
 10. Use the [Upload Form][upload].
 11. Wait for your pull request to be approved, then find your landing page.
@@ -69,7 +69,7 @@ identifier are preferred.
     - Save the config.
     - Your data will not be plotted unless you do this!
 6. Each file has a unique URL of the form `https://s3.<region>.amazonaws.com/<bucket>/<filename>`,
-   *e.g.*, [https://s3.us-east-2.amazonaws.com/hiperc-results/free-energy-9pt.csv].
+   *e.g.*, [https://s3.us-east-2.amazonaws.com/hiperc-results/free-energy-9pt.csv](https://s3.us-east-2.amazonaws.com/hiperc-results/free-energy-9pt.csv).
 7. Use the [Upload Form][upload].
 8. Wait for your pull request to be approved, then find your landing page.
 9. The data chart should show up!
@@ -103,7 +103,7 @@ identifier are preferred.
    $ b2 upload_file <bucket> <local-name> <b2-name>
    ```
 9. Access file on the Web: `https://f001.backblazeb2.com/file/<bucket>/<file>`,
-   *e.g.*, [https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy.csv].
+   *e.g.*, [https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy.csv](https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy.csv).
 10. Use the [Upload Form][upload].
 11. Wait for your pull request to be approved, then find your landing page.
 12. The data chart should show up!
