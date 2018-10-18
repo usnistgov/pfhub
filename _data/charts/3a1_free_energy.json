@@ -283,6 +283,35 @@
       "url": "https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results.csv"
     },
     {
+      "description": "Free energy as a function of time",
+      "format": {
+        "parse": {
+          "free_energy": "number",
+          "time": "number"
+        },
+        "type": "csv"
+      },
+      "name": "PRISMS_PF_3a_faster",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.free_energy",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results_faster.csv"
+    },
+    {
       "description": "Free energy versus time",
       "format": {
         "parse": {
@@ -788,6 +817,64 @@
         "hover": {
           "strokeOpacity": [
             {
+              "test": "!indata('selected', 'value', 'PRISMS_PF_3a_faster')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'PRISMS_PF_3a_faster')",
+              "value": "PRISMS_PF_3a_faster"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "PRISMS_PF_3a_faster"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'PRISMS_PF_3a_faster')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "PRISMS_PF_3a_faster"
+      },
+      "interactive": true,
+      "type": "line"
+    },
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
               "test": "!indata('selected', 'value', 'fipy_3a')",
               "value": 0.6
             },
@@ -985,6 +1072,7 @@
         "Finite_Diff_C",
         "FirstOrder_Semi_Implicit",
         "PRISMS_PF_3a_cubic",
+        "PRISMS_PF_3a_faster",
         "fipy_3a",
         "inl_moose_3a",
         "moose_itg_3a"
