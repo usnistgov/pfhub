@@ -46,7 +46,6 @@ get_plotly_data = curry(
 )
 
 
-
 vega_to_plotly = (chart_item, sim_name) ->
   ### Convert a Vega data item to a Plotly data item
 
@@ -57,19 +56,39 @@ vega_to_plotly = (chart_item, sim_name) ->
   Returns:
     a func that converts Vega to Plotly
   ###
+
+  get_values = (name, datum) ->
+    sequence(
+      filter((x) -> x.name is name)
+      get(0)
+      (x) ->
+        if x? then pluck_arr(datum, x.values) else null
+    )
+
+  efficiency = (name, datum) ->
+    if datum is 'x'
+      [get_values('run_time', 'wall_time')[0] /
+       get_values('run_time', 'sim_time')[0]]
+    else if datum is 'y'
+      get_values('memory_usage', 'value')
+
+  functions = {
+    get_values:get_values
+    efficiency:efficiency
+  }
+
   plotly_dict = (x) ->
     {
-      x:pluck_arr('x', x.values)
-      y:pluck_arr('y', x.values)
+      x:functions[chart_item.func](chart_item.name, 'x')(x)
+      y:functions[chart_item.func](chart_item.name, 'y')(x)
       type:'scatter'
       mode:chart_item.mode
       name:sim_name.substr(0, 15)
     }
+
   sequence(
-    filter((x) -> x.name is chart_item.name)
     map(read_vega_data)
-    map(plotly_dict)
-    get(0)
+    plotly_dict
   )
 
 
