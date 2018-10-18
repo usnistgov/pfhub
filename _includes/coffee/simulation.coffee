@@ -209,6 +209,53 @@ software = (data, codes_data) ->
     .text((d) -> d)
 
 
+pull_request_link = (data, sim_name, repo_slug) ->
+  ### Add the pull-request link
+
+  Adds a link in the simulation landing page to the pull-request used
+  to submit the simulation result using the #pull-request tag. The
+  search uses the "PFHub Upload: sim_name" in the pull-request
+  title. The GitHub api is called to get a list of pull-requests that
+  have sim_name in the title followed by a local more exact
+  search. "Null" is written if there are no matching pull-requests.
+
+  Args:
+    data: the simulation data
+    sim_name: the name of the simulation
+    repo_slug: the repo slug from _config.yml
+  ###
+
+  make_link = (item) ->
+    """
+    <a href='#{item.pull_request.html_url}'
+       target=_blank>
+       ##{item.number}
+    </a>
+    """
+
+  construct_links = sequence(
+    map(make_link)
+    (x) -> if x.length is 0 then 'Null' else x.join(', ')
+  )
+
+  get_html = (request, status) ->
+    if status is 'success'
+      construct_links(request.items)
+    else
+      'Null'
+
+  call_back = (request, status) ->
+    console.log(request)
+    $('#pull-request').html(get_html(request, status))
+
+  sequence(
+    (x) -> x.split('/')
+    (x) -> "q=#{sim_name}+type:pr+is:closed+in:title+org:#{x[0]}+repo:#{x[1]}"
+    (x) -> 'https://api.github.com/search/issues?' + x
+    (x) -> $.get(x, '', call_back)
+  )(repo_slug)
+
+
 get_data = (data, name) ->
   ### Get the named data from the simulation data
 
@@ -462,7 +509,7 @@ ploterize = (data) ->
   return data
 
 
-build = (data, sim_name, codes_data, chart_data, axes_names) ->
+build = (data, sim_name, codes_data, chart_data, axes_names, repo_slug) ->
   ### Build the simulation landing page
 
   Args:
@@ -470,16 +517,19 @@ build = (data, sim_name, codes_data, chart_data, axes_names) ->
     sim_name: the name of the simulation
     codes_data: data about the possible codes
     chart_data: Vega data for 1D charts
+    repo_slug: the repo slug from _config.yml
   ###
+
   header(sim_name)
   author_icon(data)
-  author(data, sim_name)
+  author(data)
   summary(data)
   github(data)
   code(data)
   benchmark(data)
   date(data)
   software(data, codes_data)
+  pull_request_link(data, sim_name, repo_slug)
   results_table(data)
 
   result_data = groupBy(((x) -> x.type), data.data)
