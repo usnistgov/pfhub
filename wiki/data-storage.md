@@ -23,10 +23,9 @@ identifier are preferred.
 - [Amazon S3](#amazon-s3)
 - [Backblaze B2](#backblaze-b2)
 
-<!--a name="figshare"></a-->
 ### [Figshare](https://figshare.com/)
 
-[Compatible with PFhub as of 2017-12-21](https://github.com/usnistgov/pfhub/issues/491#issuecomment-353459760)
+[*Compatible with PFhub as of 2017-12-21.*](https://github.com/usnistgov/pfhub/issues/491#issuecomment-353459760)
 
 1. Create an account on [Figshare][fig].
 2. Under "Projects," create a new project to help group benchmark datasets.
@@ -42,22 +41,21 @@ identifier are preferred.
 8. Under each thumbnail, next to the file name, there's a ⬇ download link. The URL is
    `https://ndownloader.figshare.com/files/<handle>/` where `<handle>` is a numerical index. The
    file can be accessed directly using this URL, *e.g.*,
-   https://ndownloader.figshare.com/files/10030006
+   [https://ndownloader.figshare.com/files/10030006].
 9. Retrieve handles for each file.
 10. Use the [Upload Form][upload].
 11. Wait for your pull request to be approved, then find your landing page.
 12. The data chart should show up!
 
-<!--a name="amazon-s3"></a-->
 ### [Amazon S3](https://aws.amazon.com/s3)
 
-[Compatible with PFhub as of 2017-12-21](https://github.com/usnistgov/pfhub/issues/491#issuecomment-353486891)
+[*Compatible with PFhub as of 2017-12-21.*](https://github.com/usnistgov/pfhub/issues/491#issuecomment-353486891)
 
 1. Create an account on [Amazon S3][aws].
 2. Create a bucket.
-    - Select the region nearest to you.
-    - Enable versioning. Accept other property defaults.
-    - Grant public read-access to the bucket.
+   - Select the region nearest to you.
+   - Enable versioning. Accept other property defaults.
+   - Grant public read-access to the bucket.
 3. Upload data into the bucket.
     - Click on the bucket name.
     - Drag-and-drop files into the upload box.
@@ -71,15 +69,14 @@ identifier are preferred.
     - Save the config.
     - Your data will not be plotted unless you do this!
 6. Each file has a unique URL of the form `https://s3.<region>.amazonaws.com/<bucket>/<filename>`,
-   *e.g.*, https://s3.us-east-2.amazonaws.com/hiperc-results/free-energy-9pt.csv
+   *e.g.*, [https://s3.us-east-2.amazonaws.com/hiperc-results/free-energy-9pt.csv].
 7. Use the [Upload Form][upload].
 8. Wait for your pull request to be approved, then find your landing page.
 9. The data chart should show up!
 
-<!--a name="backblaze-b2"></a-->
 ### [Backblaze B2](https://www.backblaze.com/b2/cloud-storage.html)
 
-[Compatible with PFhub as of 2017-12-21](https://github.com/usnistgov/pfhub/issues/491#issuecomment-352581961)
+[*Compatible with PFhub as of 2017-12-21.*](https://github.com/usnistgov/pfhub/issues/491#issuecomment-352581961)
 
 1. Create account on [Backblaze B2][blz]
 2. Create a bucket marked "Public." You get 100 buckets per account, so don't get too granular with it.
@@ -91,17 +88,22 @@ identifier are preferred.
     - For buckets storing public data (CC0 or CC-BY compatible licenses), there is no downside to
       opening up access to the whole web.
 6. [Install](https://www.backblaze.com/b2/docs/quick_command_line.html) the `b2` command-line tool:
-  `$ pip3 install b2`
+   ```
+   $ pip3 install b2
+   ```
 7. Configure your bucket:
-  `$ b2 authorize_account <AccountID>`
-  `Backblaze application key:`
-  `$ b2 list_buckets`
-  `75cf92cc224d664bd62050912 allPublic hiperc-results`
+   ```
+   $ b2 authorize_account <AccountID>
+   Backblaze application key:
+   $ b2 list_buckets
+   75cf92cc224d664bd62050912 allPublic hiperc-results
+   ```
 8. Upload a file, using `/` in filenames to set folders.
-  `$ b2 upload_file <bucket> <local-name> <b2-name>`
-9. Access file on the Web:
-  `https://f001.backblazeb2.com/file/<bucket>/<file>`
-  *e.g.*, https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy.csv
+   ```
+   $ b2 upload_file <bucket> <local-name> <b2-name>
+   ```
+9. Access file on the Web: `https://f001.backblazeb2.com/file/<bucket>/<file>`,
+   *e.g.*, [https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy.csv].
 10. Use the [Upload Form][upload].
 11. Wait for your pull request to be approved, then find your landing page.
 12. The data chart should show up!
