@@ -1,0 +1,35 @@
+_id: a81600f0-d3f6-11e8-97c6-5568ec36596f
+metadata:
+  author:
+    first: Rashad Berryhill
+    last: Overstreet
+    email: emmaoverstreet@gmx.de
+    github_id: Nelly Sherer
+  timestamp: FQ
+  summary: 'PFHub: Phase Field Community Hub'
+  implementation:
+    name: Emma
+    repo:
+      url: 'https://wiki.Rendalirremembered.com/index.php?title=User:XiomaraCorey3'
+      version: YY
+    container_url: 'https://wiki.Rendalirremembered.com/index.php?title=User:XiomaraCorey3'
+  hardware:
+    cpu_architecture: armeb
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: IV
+    cores: '1'
+    nodes: PK
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: PG
+        sim_time: KI
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: SE
+date: 1539991697
