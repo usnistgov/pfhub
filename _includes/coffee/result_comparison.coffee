@@ -67,8 +67,9 @@ vega_to_plotly = (chart_item, sim_name) ->
 
   efficiency = (name, datum) ->
     if datum is 'x'
-      [get_values('run_time', 'wall_time')[0] /
-       get_values('run_time', 'sim_time')[0]]
+      (x) ->
+        [get_values('run_time', 'wall_time')(x)[0] /
+         get_values('run_time', 'sim_time')(x)[0]]
     else if datum is 'y'
       get_values('memory_usage', 'value')
 
