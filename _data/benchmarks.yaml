@@ -123,7 +123,7 @@
       title: Efficiency
       mode: markers
       footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
-      func: get_values
+      func: efficiency
 
 - title: Linear Elasticity
   description: Linear elasticity via evolution of a constrained precipitate
