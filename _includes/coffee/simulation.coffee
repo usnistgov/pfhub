@@ -211,8 +211,6 @@ pull_request_link = (data, sim_name, repo_slug) ->
     repo_slug: the repo slug from _config.yml
   ###
 
-#"<p style='overflow: auto; white-space: nowrap; max-width: 200px; margin-top: 0px; margin-bottom: 0px;'> <a href='#{x.link}' target='_blank'>#{x.text}</a> </p>"
-
   make_link = (item) ->
     """
     <a href='#{item.pull_request.html_url}'
@@ -233,7 +231,7 @@ pull_request_link = (data, sim_name, repo_slug) ->
       'Null'
 
   call_back = (request, status) ->
-    $('#pull-request').html("<p>" + get_html(request, status) +  "</p>")
+    $('#pull-request').html('<p>' + get_html(request, status) +  '</p>')
 
   sequence(
     (x) -> x.split('/')
@@ -270,8 +268,12 @@ get_github_repo_link = (repo) ->
 
   make_link = sequence(
     (x) -> {url:x[0], user:x[1], repo:x[2], path:x[3]}
-    (x) -> extend(x, {path:if x.path? then ":" + x.path else ""})
-    (x) -> if x.url? then "#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}" else "Null"
+    (x) -> extend(x, {path:if x.path? then ':' + x.path else ''})
+    (x) ->
+      if x.url?
+        "#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}"
+      else
+        'Null'
   )
 
   sequence(
@@ -280,27 +282,16 @@ get_github_repo_link = (repo) ->
       if x?
         {link:repo.url, text:make_link(x)}
       else
-        {link:"#", text:"Null"}
+        {link:'#', text:'Null'}
   )(repo.url)
 
-# console.log(get_slug({url:"https://github.com/wd15/pfhub", version:"b0b"}))
-# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master/_code", version:"b0bb19104d25f53b5f9"}))
-# console.log(get_slug({url:"https://github.com/wd15/pfhub/blob/master/_code/comment.sh", version:"b0bb19104d25f53b5f9"}))
-# console.log(get_slug({url:"https://coffeescript-cookbook.github.io/chapters/regular_expressions/", version:"b0bb19104d25f53b5f9"}))
-# console.log(get_slug({url:"https://github.com/chapters/regular_expressions/", version:"b0bb19104d25f53b5f9"}))
-# console.log('testing')
-# console.log(get_slug({url:"https://github.com/wd15/pfhub/", version:"b0bb19104d25f53b5f9"}))
-# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree", version:"b0bb19104d25f53b5f9"}))
-# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/", version:"b0bb19104d25f53b5f9"}))
-# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master", version:"b0bb19104d25f53b5f9"}))
-# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master/", version:"b0bb19104d25f53b5f9"}))
-# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master/_code", version:"b0bb19104d25f53b5f9"}))
-# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master/_code/", version:"b0bb19104d25f53b5f9"}))
 
+repo_link = (link, text) ->
+  "<p> <a href='#{link}' target='_blank'>#{text}</a> </p>"
 
 set_repo = sequence(
   (x) -> get_github_repo_link(x.metadata.implementation.repo)
-  (x) -> $("#repository").html("<p> <a href='#{x.link}' target='_blank'>#{x.text}</a> </p>")
+  (x) -> $('#repository').html(repo_link(x.link, x.text))
 )
 
 get_data = (data, name) ->
