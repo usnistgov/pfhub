@@ -13,7 +13,6 @@ Required tags:
   #author
   #header
   #github_id
-  #code
   #table
   #results_table
   #logo_image
@@ -127,19 +126,6 @@ user_repo = (url) ->
     .join('/')
 
 
-code = (data) ->
-  ### Add the link to the code repository
-
-  Args:
-    data: the simulation data
-  ###
-  select_tag('#code')([data.metadata.implementation.repo.url])
-    .append('a')
-    .attr('href', (d) -> d)
-    .attr('target', (d) -> '_blank')
-    .text((d) -> user_repo(d))
-
-
 benchmark = (data) ->
   ### Add the benchmark ID
 
@@ -225,6 +211,8 @@ pull_request_link = (data, sim_name, repo_slug) ->
     repo_slug: the repo slug from _config.yml
   ###
 
+#"<p style='overflow: auto; white-space: nowrap; max-width: 200px; margin-top: 0px; margin-bottom: 0px;'> <a href='#{x.link}' target='_blank'>#{x.text}</a> </p>"
+
   make_link = (item) ->
     """
     <a href='#{item.pull_request.html_url}'
@@ -245,8 +233,7 @@ pull_request_link = (data, sim_name, repo_slug) ->
       'Null'
 
   call_back = (request, status) ->
-    console.log(request)
-    $('#pull-request').html(get_html(request, status))
+    $('#pull-request').html("<p>" + get_html(request, status) +  "</p>")
 
   sequence(
     (x) -> x.split('/')
@@ -255,6 +242,66 @@ pull_request_link = (data, sim_name, repo_slug) ->
     (x) -> $.get(x, '', call_back)
   )(repo_slug)
 
+
+get_github_repo_link = (repo) ->
+  ### Give a repo object return a short text version of the form
+
+  "#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}"
+
+  Args:
+    repo: object with url & version keys
+
+  Returns:
+    object with link and text keys, "Null" if not a valid GitHub link
+  ###
+  regex = ->
+    ///
+    https?:\/\/               # https or http
+    (?:(?:www\.)?github\.com)\/ # www.github.com, www optional
+    ([a-z0-9_-]{3,39})\/      # capture user name / org
+    ([a-z0-9_.-]+)            # user name
+    (?:\/)?                   # divider
+    (?:tree|blob)?            # whether file or directory
+    (?:\/)?                   # divider
+    (?:[^\s\/]+)?             # branch name
+    (?:\/)?                   # divider
+    (.+)?                     # path
+    $///i                     # case insensitive
+
+  make_link = sequence(
+    (x) -> {url:x[0], user:x[1], repo:x[2], path:x[3]}
+    (x) -> extend(x, {path:if x.path? then ":" + x.path else ""})
+    (x) -> if x.url? then "#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}" else "Null"
+  )
+
+  sequence(
+    (x) -> regex().exec(x)
+    (x) ->
+      if x?
+        {link:repo.url, text:make_link(x)}
+      else
+        {link:"#", text:"Null"}
+  )(repo.url)
+
+# console.log(get_slug({url:"https://github.com/wd15/pfhub", version:"b0b"}))
+# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master/_code", version:"b0bb19104d25f53b5f9"}))
+# console.log(get_slug({url:"https://github.com/wd15/pfhub/blob/master/_code/comment.sh", version:"b0bb19104d25f53b5f9"}))
+# console.log(get_slug({url:"https://coffeescript-cookbook.github.io/chapters/regular_expressions/", version:"b0bb19104d25f53b5f9"}))
+# console.log(get_slug({url:"https://github.com/chapters/regular_expressions/", version:"b0bb19104d25f53b5f9"}))
+# console.log('testing')
+# console.log(get_slug({url:"https://github.com/wd15/pfhub/", version:"b0bb19104d25f53b5f9"}))
+# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree", version:"b0bb19104d25f53b5f9"}))
+# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/", version:"b0bb19104d25f53b5f9"}))
+# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master", version:"b0bb19104d25f53b5f9"}))
+# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master/", version:"b0bb19104d25f53b5f9"}))
+# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master/_code", version:"b0bb19104d25f53b5f9"}))
+# console.log(get_slug({url:"https://github.com/wd15/pfhub/tree/master/_code/", version:"b0bb19104d25f53b5f9"}))
+
+
+set_repo = sequence(
+  (x) -> get_github_repo_link(x.metadata.implementation.repo)
+  (x) -> $("#repository").html("<p> <a href='#{x.link}' target='_blank'>#{x.text}</a> </p>")
+)
 
 get_data = (data, name) ->
   ### Get the named data from the simulation data
@@ -525,12 +572,12 @@ build = (data, sim_name, codes_data, chart_data, axes_names, repo_slug) ->
   author(data)
   summary(data)
   github(data)
-  code(data)
   benchmark(data)
   date(data)
   software(data, codes_data)
   pull_request_link(data, sim_name, repo_slug)
   results_table(data)
+  set_repo(data)
 
   result_data = groupBy(((x) -> x.type), data.data)
   vega_data = vegarize(chart_data, axes_names)(result_data.line)

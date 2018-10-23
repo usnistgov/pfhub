@@ -534,3 +534,11 @@ span.plotly-footnote {
     white-space: pre;
     opacity: 1;
 }
+
+#repository p, #pull-request p {
+    overflow: auto;
+    white-space: nowrap;
+    max-width: 200px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
