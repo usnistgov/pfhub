@@ -392,8 +392,8 @@ describe('test get_github_repo_link', ->
     assert.deepEqual(
       get_github_repo_link(
         {url:'https://github.com/wd15/pfhub', version:'version'}
-      ),
-      {link:'https://github.com/wd15/pfhub', text:'wd15/pfhub@version'}
+      ).text,
+      'wd15/pfhub@version'
     )
   )
   it('with path', ->
@@ -403,11 +403,8 @@ describe('test get_github_repo_link', ->
           url:'https://github.com/wd15/pfhub/tree/master/_code'
           version:'version'
         }
-      ),
-      {
-        link:'https://github.com/wd15/pfhub/tree/master/_code'
-        text:'wd15/pfhub:_code@version'
-      }
+      ).text,
+      'wd15/pfhub:_code@version'
     )
   )
 
