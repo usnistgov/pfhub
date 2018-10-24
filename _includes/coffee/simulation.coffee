@@ -297,13 +297,29 @@ get_github_repo_link = (repo) ->
     (.+)?                     # path
     $///i                     # case insensitive
 
-  make_text = (x) ->
-    "git:#{x.user}/#{x.repo}:/#{x.path}@#{repo.version.substring(0, 8)}"
+  make_text = sequence(
+    (x) -> extend(x, {path:if x.path then ':/' + x.path else x.path})
+    (x) -> "git:#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}"
+  )
 
   make_url = (x) ->
     "https://www.github.com/#{x.user}/#{x.repo}/tree/#{repo.version}/#{x.path}"
 
   get_url_text(repo, make_url, make_text, regex)
+
+get_generic_link = (repo) ->
+  regex = ->
+    ///
+    https?:\/\/               # https or http
+    (?:[^\s\/]+)?             # website base url
+    (?:\/)                    # divider
+    ([^\s]{1,})              # path
+    ///
+
+  if regex().exec(repo.url)
+    {link:repo.url, text:"#{repo.url}@#{repo.version}"}
+  else
+    null
 
 
 repo_html = (x) ->
@@ -314,7 +330,7 @@ repo_html = (x) ->
 
 
 get_link = sequence(
-  (x) -> map(((f) -> f(x)), [get_github_repo_link, get_github_gist_link])
+  (x) -> map(((f) -> f(x)), [get_github_repo_link, get_github_gist_link, get_generic_link])
   filter((x) -> x?)
   get(0)
 )
