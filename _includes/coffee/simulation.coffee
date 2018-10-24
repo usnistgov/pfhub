@@ -247,7 +247,13 @@ get_url_text = (repo, make_url, make_text, regex) ->
     (x) ->
       if x?
         sequence(
-          (x) -> {url:x[0], user:x[1], repo:x[2], path:(if x[3]? then x[3] else '')}
+          (x) ->
+            {
+              url:x[0]
+              user:x[1]
+              repo:x[2]
+              path:if x[3]? then x[3] else ''
+            }
           (x) -> {link:make_url(x), text:make_text(x)}
         )(x)
       else
@@ -273,8 +279,6 @@ get_github_gist_link = (repo) ->
 
 get_github_repo_link = (repo) ->
   ### Give a repo object return a short text version of the form
-
-  "#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}"
 
   Args:
     repo: object with url & version keys
@@ -307,6 +311,33 @@ get_github_repo_link = (repo) ->
 
   get_url_text(repo, make_url, make_text, regex)
 
+
+get_bitbucket_link = (repo) ->
+  regex = ->
+    ///
+    https?:\/\/               # https or http
+    (?:(?:www\.)?bitbucket\.org)\/ # www.bitbucket.com, www optional
+    ([a-z0-9_-]{3,39})\/      # capture user name / org
+    ([a-z0-9_.-]+)            # repo
+    (?:\/)?                   # divider
+    (?:src|commits)?          # whether file or directory
+    (?:\/)?                   # divider
+    (?:[^\s\/]+)?             # branch name
+    (?:\/)?                   # divider
+    (.+)?                     # path
+    $///i                     # case insensitive
+
+  make_text = sequence(
+    (x) -> extend(x, {path:if x.path then ':/' + x.path else x.path})
+    (x) -> "git:#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}"
+  )
+
+  make_url = (x) ->
+    "https://bitbucket.org/#{x.user}/#{x.repo}/src/#{repo.version}/#{x.path}"
+
+  get_url_text(repo, make_url, make_text, regex)
+
+
 get_generic_link = (repo) ->
   regex = ->
     ///
@@ -317,7 +348,7 @@ get_generic_link = (repo) ->
     ///
 
   if regex().exec(repo.url)
-    {link:repo.url, text:"#{repo.url}@#{repo.version}"}
+    {link:repo.url, text:"file:#{repo.url}@#{repo.version}"}
   else
     null
 
@@ -326,11 +357,20 @@ repo_html = (x) ->
   if x?
     "<p><a href='#{x.link}' target='_blank'>#{x.text}</a></p>"
   else
-    "<p>Null</p>"
+    '<p>Null</p>'
 
 
 get_link = sequence(
-  (x) -> map(((f) -> f(x)), [get_github_repo_link, get_github_gist_link, get_generic_link])
+  (x) ->
+    map(
+      (f) -> f(x)
+      [
+        get_github_repo_link
+        get_github_gist_link
+        get_bitbucket_link
+        get_generic_link
+      ]
+    )
   filter((x) -> x?)
   get(0)
 )
