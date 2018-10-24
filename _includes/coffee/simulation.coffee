@@ -241,6 +241,36 @@ pull_request_link = (data, sim_name, repo_slug) ->
   )(repo_slug)
 
 
+get_url_text = (repo, make_url, make_text, regex) ->
+  sequence(
+    (x) -> regex().exec(x)
+    (x) ->
+      if x?
+        sequence(
+          (x) -> {url:x[0], user:x[1], repo:x[2], path:(if x[3]? then x[3] else '')}
+          (x) -> {link:make_url(x), text:make_text(x)}
+        )(x)
+      else
+        null
+  )(repo.url)
+
+
+get_github_gist_link = (repo) ->
+  regex = ->
+    ///
+    https?:\/\/               # https or http
+    (?:gist.github\.com)\/ # www.github.com, www optional
+    ([a-z0-9_-]{3,39})\/      # capture user name / org
+    ([0-9a-f]{32})            # the gist ID
+    (.+)?                     # the path
+    $///i                     # case insensitive
+
+  make_text = (x) ->
+    "gist:#{x.user}/#{x.repo}@#{repo.version}"
+
+  get_url_text(repo, ((x) -> repo.url), make_text, regex)
+
+
 get_github_repo_link = (repo) ->
   ### Give a repo object return a short text version of the form
 
@@ -252,12 +282,13 @@ get_github_repo_link = (repo) ->
   Returns:
     object with link and text keys, "Null" if not a valid GitHub link
   ###
+
   regex = ->
     ///
     https?:\/\/               # https or http
     (?:(?:www\.)?github\.com)\/ # www.github.com, www optional
     ([a-z0-9_-]{3,39})\/      # capture user name / org
-    ([a-z0-9_.-]+)            # user name
+    ([a-z0-9_.-]+)            # repo
     (?:\/)?                   # divider
     (?:tree|blob)?            # whether file or directory
     (?:\/)?                   # divider
@@ -266,33 +297,34 @@ get_github_repo_link = (repo) ->
     (.+)?                     # path
     $///i                     # case insensitive
 
-  make_link = sequence(
-    (x) -> {url:x[0], user:x[1], repo:x[2], path:x[3]}
-    (x) -> extend(x, {path:if x.path? then ':' + x.path else ''})
-    (x) ->
-      if x.url?
-        "#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}"
-      else
-        'Null'
-  )
+  make_text = (x) ->
+    "git:#{x.user}/#{x.repo}:/#{x.path}@#{repo.version.substring(0, 8)}"
 
-  sequence(
-    (x) -> regex().exec(x)
-    (x) ->
-      if x?
-        {link:repo.url, text:make_link(x)}
-      else
-        {link:'#', text:'Null'}
-  )(repo.url)
+  make_url = (x) ->
+    "https://www.github.com/#{x.user}/#{x.repo}/tree/#{repo.version}/#{x.path}"
+
+  get_url_text(repo, make_url, make_text, regex)
 
 
-repo_link = (link, text) ->
-  "<p> <a href='#{link}' target='_blank'>#{text}</a> </p>"
+repo_html = (x) ->
+  if x?
+    "<p><a href='#{x.link}' target='_blank'>#{x.text}</a></p>"
+  else
+    "<p>Null</p>"
+
+
+get_link = sequence(
+  (x) -> map(((f) -> f(x)), [get_github_repo_link, get_github_gist_link])
+  filter((x) -> x?)
+  get(0)
+)
+
 
 set_repo = sequence(
-  (x) -> get_github_repo_link(x.metadata.implementation.repo)
-  (x) -> $('#repository').html(repo_link(x.link, x.text))
+  (x) -> get_link(x.metadata.implementation.repo)
+  (x) -> $('#repository').html(repo_html(x))
 )
+
 
 get_data = (data, name) ->
   ### Get the named data from the simulation data
