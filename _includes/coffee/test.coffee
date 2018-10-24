@@ -447,3 +447,15 @@ describe('test get_generic_link', ->
     )
   )
 )
+
+
+describe('test get_link', ->
+  it('broken link', ->
+    assert.deepEqual(
+      get_link(
+        {url:'https://www.google.com', version:'e8fc74f'}
+      ),
+      null
+    )
+  )
+)
