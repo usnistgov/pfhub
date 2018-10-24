@@ -242,6 +242,17 @@ pull_request_link = (data, sim_name, repo_slug) ->
 
 
 get_url_text = (repo, make_url, make_text, regex) ->
+  ### Helper function workflow to make link to repo
+
+  Args:
+    repo: object with url & version keys
+    make_url: function to construct a URL
+    make_text: function to construct the link text
+    regex: function which returs a regex for a repo
+
+  Returns:
+    object with link and text keys, null if not a valid link
+  ###
   sequence(
     (x) -> regex().exec(x)
     (x) ->
@@ -262,6 +273,14 @@ get_url_text = (repo, make_url, make_text, regex) ->
 
 
 get_github_gist_link = (repo) ->
+  ### Build link to Github gist repo
+
+  Args:
+    repo: object with url & version keys
+
+  Returns:
+    object with link and text keys, null if not a valid link
+  ###
   regex = ->
     ///
     https?:\/\/               # https or http
@@ -272,21 +291,20 @@ get_github_gist_link = (repo) ->
     $///i                     # case insensitive
 
   make_text = (x) ->
-    "gist:#{x.user}/#{x.repo}@#{repo.version}"
+    "gist:#{x.user}/#{x.repo.substring(0, 8)}@#{repo.version.substring(0, 8)}"
 
   get_url_text(repo, ((x) -> repo.url), make_text, regex)
 
 
 get_github_repo_link = (repo) ->
-  ### Give a repo object return a short text version of the form
+  ### Build link to Github repo
 
   Args:
     repo: object with url & version keys
 
   Returns:
-    object with link and text keys, "Null" if not a valid GitHub link
+    object with link and text keys, null if not a valid link
   ###
-
   regex = ->
     ///
     https?:\/\/               # https or http
@@ -313,6 +331,14 @@ get_github_repo_link = (repo) ->
 
 
 get_bitbucket_link = (repo) ->
+  ### Build link to Bitbucket repo
+
+  Args:
+    repo: object with url & version keys
+
+  Returns:
+    object with link and text keys, null if not a valid link
+  ###
   regex = ->
     ///
     https?:\/\/               # https or http
@@ -339,6 +365,14 @@ get_bitbucket_link = (repo) ->
 
 
 get_generic_link = (repo) ->
+  ### Build link to generic repo
+
+  Args:
+    repo: object with url & version keys
+
+  Returns:
+    object with link and text keys, null if not a valid link
+  ###
   regex = ->
     ///
     https?:\/\/               # https or http
@@ -354,6 +388,14 @@ get_generic_link = (repo) ->
 
 
 repo_html = (x) ->
+  ### Build the html for a repository
+
+  Args:
+    x: object with link and text keys
+
+  Returns:
+    the HTML string
+  ###
   if x?
     "<p><a href='#{x.link}' target='_blank'>#{x.text}</a></p>"
   else
