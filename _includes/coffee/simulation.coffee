@@ -13,7 +13,6 @@ Required tags:
   #author
   #header
   #github_id
-  #code
   #table
   #results_table
   #logo_image
@@ -127,19 +126,6 @@ user_repo = (url) ->
     .join('/')
 
 
-code = (data) ->
-  ### Add the link to the code repository
-
-  Args:
-    data: the simulation data
-  ###
-  select_tag('#code')([data.metadata.implementation.repo.url])
-    .append('a')
-    .attr('href', (d) -> d)
-    .attr('target', (d) -> '_blank')
-    .text((d) -> user_repo(d))
-
-
 benchmark = (data) ->
   ### Add the benchmark ID
 
@@ -245,8 +231,7 @@ pull_request_link = (data, sim_name, repo_slug) ->
       'Null'
 
   call_back = (request, status) ->
-    console.log(request)
-    $('#pull-request').html(get_html(request, status))
+    $('#pull-request').html('<p>' + get_html(request, status) +  '</p>')
 
   sequence(
     (x) -> x.split('/')
@@ -254,6 +239,189 @@ pull_request_link = (data, sim_name, repo_slug) ->
     (x) -> 'https://api.github.com/search/issues?' + x
     (x) -> $.get(x, '', call_back)
   )(repo_slug)
+
+
+get_url_text = (repo, make_url, make_text, regex) ->
+  ### Helper function workflow to make link to repo
+
+  Args:
+    repo: object with url & version keys
+    make_url: function to construct a URL
+    make_text: function to construct the link text
+    regex: function which returs a regex for a repo
+
+  Returns:
+    object with link and text keys, null if not a valid link
+  ###
+  sequence(
+    (x) -> regex().exec(x)
+    (x) ->
+      if x?
+        sequence(
+          (x) ->
+            {
+              url:x[0]
+              user:x[1]
+              repo:x[2]
+              path:if x[3]? then x[3] else ''
+            }
+          (x) -> {link:make_url(x), text:make_text(x)}
+        )(x)
+      else
+        null
+  )(repo.url)
+
+
+get_github_gist_link = (repo) ->
+  ### Build link to Github gist repo
+
+  Args:
+    repo: object with url & version keys
+
+  Returns:
+    object with link and text keys, null if not a valid link
+  ###
+  regex = ->
+    ///
+    https?:\/\/               # https or http
+    (?:gist.github\.com)\/ # www.github.com, www optional
+    ([a-z0-9_-]{3,39})\/      # capture user name / org
+    ([0-9a-f]{32})            # the gist ID
+    (.+)?                     # the path
+    $///i                     # case insensitive
+
+  make_text = (x) ->
+    "gist:#{x.user}/#{x.repo.substring(0, 8)}@#{repo.version.substring(0, 8)}"
+
+  get_url_text(repo, ((x) -> repo.url), make_text, regex)
+
+
+get_github_repo_link = (repo) ->
+  ### Build link to Github repo
+
+  Args:
+    repo: object with url & version keys
+
+  Returns:
+    object with link and text keys, null if not a valid link
+  ###
+  regex = ->
+    ///
+    https?:\/\/               # https or http
+    (?:(?:www\.)?github\.com)\/ # www.github.com, www optional
+    ([a-z0-9_-]{3,39})\/      # capture user name / org
+    ([a-z0-9_.-]+)            # repo
+    (?:\/)?                   # divider
+    (?:tree|blob)?            # whether file or directory
+    (?:\/)?                   # divider
+    (?:[^\s\/]+)?             # branch name
+    (?:\/)?                   # divider
+    (.+)?                     # path
+    $///i                     # case insensitive
+
+  make_text = sequence(
+    (x) -> extend(x, {path:if x.path then ':/' + x.path else x.path})
+    (x) -> "git:#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}"
+  )
+
+  make_url = (x) ->
+    "https://www.github.com/#{x.user}/#{x.repo}/tree/#{repo.version}/#{x.path}"
+
+  get_url_text(repo, make_url, make_text, regex)
+
+
+get_bitbucket_link = (repo) ->
+  ### Build link to Bitbucket repo
+
+  Args:
+    repo: object with url & version keys
+
+  Returns:
+    object with link and text keys, null if not a valid link
+  ###
+  regex = ->
+    ///
+    https?:\/\/               # https or http
+    (?:(?:www\.)?bitbucket\.org)\/ # www.bitbucket.com, www optional
+    ([a-z0-9_-]{3,39})\/      # capture user name / org
+    ([a-z0-9_.-]+)            # repo
+    (?:\/)?                   # divider
+    (?:src|commits)?          # whether file or directory
+    (?:\/)?                   # divider
+    (?:[^\s\/]+)?             # branch name
+    (?:\/)?                   # divider
+    (.+)?                     # path
+    $///i                     # case insensitive
+
+  make_text = sequence(
+    (x) -> extend(x, {path:if x.path then ':/' + x.path else x.path})
+    (x) -> "git:#{x.user}/#{x.repo}#{x.path}@#{repo.version.substring(0, 8)}"
+  )
+
+  make_url = (x) ->
+    "https://bitbucket.org/#{x.user}/#{x.repo}/src/#{repo.version}/#{x.path}"
+
+  get_url_text(repo, make_url, make_text, regex)
+
+
+get_generic_link = (repo) ->
+  ### Build link to generic repo
+
+  Args:
+    repo: object with url & version keys
+
+  Returns:
+    object with link and text keys, null if not a valid link
+  ###
+  regex = ->
+    ///
+    https?:\/\/               # https or http
+    (?:[^\s\/]+)?             # website base url
+    (?:\/)                    # divider
+    ([^\s]{1,})              # path
+    ///
+
+  if regex().exec(repo.url)
+    {link:repo.url, text:"file:#{repo.url}@#{repo.version}"}
+  else
+    null
+
+
+repo_html = (x) ->
+  ### Build the html for a repository
+
+  Args:
+    x: object with link and text keys
+
+  Returns:
+    the HTML string
+  ###
+  if x?
+    "<p><a href='#{x.link}' target='_blank'>#{x.text}</a></p>"
+  else
+    '<p>Null</p>'
+
+
+get_link = sequence(
+  (x) ->
+    map(
+      (f) -> f(x)
+      [
+        get_github_repo_link
+        get_github_gist_link
+        get_bitbucket_link
+        get_generic_link
+      ]
+    )
+  filter((x) -> x?)
+  get(0)
+)
+
+
+set_repo = sequence(
+  (x) -> get_link(x.metadata.implementation.repo)
+  (x) -> $('#repository').html(repo_html(x))
+)
 
 
 get_data = (data, name) ->
@@ -525,12 +693,12 @@ build = (data, sim_name, codes_data, chart_data, axes_names, repo_slug) ->
   author(data)
   summary(data)
   github(data)
-  code(data)
   benchmark(data)
   date(data)
   software(data, codes_data)
   pull_request_link(data, sim_name, repo_slug)
   results_table(data)
+  set_repo(data)
 
   result_data = groupBy(((x) -> x.type), data.data)
   vega_data = vegarize(chart_data, axes_names)(result_data.line)
