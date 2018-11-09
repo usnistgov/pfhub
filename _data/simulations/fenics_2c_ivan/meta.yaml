@@ -1,0 +1,52 @@
+_id: cc6343e0-e40f-11e8-8d83-dfd41e9d7292
+metadata:
+  author:
+    first: Ivan
+    last: Yashchuk
+    email: ivan.yashchuk@aalto.fi
+    github_id: IvanYashchuk
+  timestamp: '9 November, 2018'
+  summary: PF Hub benchmark 2c with FEniCS on the cluster.
+  implementation:
+    name: fenics
+    repo:
+      url: 'https://bitbucket.org/fenics-project/dolfin/'
+      version: bec9fa53e5900a0dce28653cf193db5fac58255e
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.6'
+    cores: '24'
+    nodes: '1'
+benchmark:
+  id: 2c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '181'
+        sim_time: '103621.62'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '3357264'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/IvanYashchuk/894ca97d2b2999d805f049ba04b7e0f8/raw/112b4d7d2ac972617ebcbc3b6e930b2eac79fc5f/2c_tshape_noflux_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_free_energy: number
+    description: total_free_energy_fenics_2c_ivan
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_free_energy
+        as: 'y'
+date: 1541761714
