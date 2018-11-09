@@ -109,6 +109,35 @@
   ],
   "data": [
     {
+      "description": "total_free_energy_fenics_1a_ivan",
+      "format": {
+        "parse": {
+          "time": "number",
+          "total_free_energy": "number"
+        },
+        "type": "csv"
+      },
+      "name": "fenics_1a_ivan",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.total_free_energy",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://gist.githubusercontent.com/IvanYashchuk/1d7e096590a3c23f08b129e5004bcc28/raw/ecb5bdf60c84bf993d2cfa3715ae59d4b744b466/1a_square_periodic_out.csv"
+    },
+    {
       "name": "fipy_1a_travis",
       "transform": [
         {
@@ -620,6 +649,64 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_1a_ivan')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_1a_ivan')",
+              "value": "fenics_1a_ivan"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "fenics_1a_ivan"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_1a_ivan')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "fenics_1a_ivan"
+      },
+      "interactive": true,
+      "type": "line"
+    },
     {
       "encode": {
         "hover": {
@@ -1280,6 +1367,7 @@
     },
     {
       "domain": [
+        "fenics_1a_ivan",
         "fipy_1a_travis",
         "itg_moose_1a",
         "mmsp_1a_raspi",

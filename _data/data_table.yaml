@@ -77,6 +77,36 @@ data:
   id_: 6a.0
   name: coral_6a
   timestamp: 2017/07/31 00:00:00
+- author: {email: ivan.yashchuk@vtt.fi, name: Ivan Yashchuk}
+  code: {name: fenics, url: 'https://bitbucket.org/fenics-project/dolfin/'}
+  cores: 24
+  id_: 1a.1
+  name: fenics_1a_ivan
+  timestamp: 2018/11/09 00:00:00
+- author: {email: ivan.yashchuk@vtt.fi, name: Ivan Yashchuk}
+  code: {name: fenics, url: 'https://bitbucket.org/fenics-project/dolfin/'}
+  cores: 24
+  id_: 1b.1
+  name: fenics_1b_ivan
+  timestamp: 2018/11/09 00:00:00
+- author: {email: ivan.yashchuk@vtt.fi, name: Ivan Yashchuk}
+  code: {name: fenics, url: 'https://bitbucket.org/fenics-project/dolfin/'}
+  cores: 24
+  id_: 1c.1
+  name: fenics_1c_ivan
+  timestamp: 2018/11/09 00:00:00
+- author: {email: ivan.yashchuk@vtt.fi, name: Ivan Yashchuk}
+  code: {name: fenics, url: 'https://bitbucket.org/fenics-project/dolfin/'}
+  cores: 24
+  id_: 1d.1
+  name: fenics_1d_ivan
+  timestamp: 2018/11/09 00:00:00
+- author: {email: ivan.yashchuk@aalto.fi, name: Ivan Yashchuk}
+  code: {name: fenics, url: 'https://bitbucket.org/fenics-project/dolfin/'}
+  cores: 24
+  id_: 2c.1
+  name: fenics_2c_ivan
+  timestamp: 2018/11/09 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: fipy, url: 'https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 1

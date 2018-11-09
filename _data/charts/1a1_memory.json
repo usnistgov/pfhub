@@ -109,6 +109,16 @@
   ],
   "data": [
     {
+      "name": "fenics_1a_ivan",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 3443352.0,
+          "time_ratio": 0.00033447217661303306
+        }
+      ]
+    },
+    {
       "name": "fipy_1a_travis",
       "transform": [],
       "values": [
@@ -284,6 +294,83 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_1a_ivan')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_1a_ivan')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_1a_ivan')",
+              "value": "fenics_1a_ivan"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "fenics_1a_ivan"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_1a_ivan')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "fenics_1a_ivan"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "fenics_1a_ivan"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
     {
       "encode": {
         "hover": {
@@ -1153,6 +1240,7 @@
     },
     {
       "domain": [
+        "fenics_1a_ivan",
         "fipy_1a_travis",
         "itg_moose_1a",
         "mmsp_1a_raspi",

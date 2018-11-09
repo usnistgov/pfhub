@@ -72,6 +72,10 @@
           "name": "fipy"
         },
         {
+          "count": 5,
+          "name": "fenics"
+        },
+        {
           "count": 4,
           "name": "custom"
         },
