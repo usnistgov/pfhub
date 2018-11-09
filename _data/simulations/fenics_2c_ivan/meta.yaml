@@ -18,8 +18,8 @@ metadata:
     acc_architecture: none
     parallel_model: distributed
     clock_rate: '2.6'
-    cores: '1'
-    nodes: '24'
+    cores: '24'
+    nodes: '1'
 benchmark:
   id: 2c
   version: '1'
