@@ -68,12 +68,12 @@
           "name": "prisms"
         },
         {
-          "count": 7,
-          "name": "fipy"
+          "count": 8,
+          "name": "fenics"
         },
         {
-          "count": 5,
-          "name": "fenics"
+          "count": 7,
+          "name": "fipy"
         },
         {
           "count": 4,

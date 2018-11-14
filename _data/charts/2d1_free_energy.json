@@ -109,6 +109,35 @@
   ],
   "data": [
     {
+      "description": "total_free_energy_fenics_2d_ivan",
+      "format": {
+        "parse": {
+          "time": "number",
+          "total_free_energy": "number"
+        },
+        "type": "csv"
+      },
+      "name": "fenics_2d_ivan",
+      "transform": [
+        {
+          "as": "x",
+          "expr": "datum.time",
+          "type": "formula"
+        },
+        {
+          "as": "y",
+          "expr": "datum.total_free_energy",
+          "type": "formula"
+        },
+        {
+          "expr": "datum.x > 0.01",
+          "type": "filter"
+        }
+      ],
+      "type": "line",
+      "url": "https://gist.githubusercontent.com/IvanYashchuk/4fea07f6c04e7f2a67b9aabdae338cf4/raw/8de24b464483d94dab897ae5d963d310e827f171/2d_sphere_noflux.csv"
+    },
+    {
       "format": {
         "parse": {
           "TotalEnergy": "number",
@@ -327,6 +356,64 @@
     }
   ],
   "marks": [
+    {
+      "encode": {
+        "hover": {
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_2d_ivan')",
+              "value": 0.6
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 4
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_2d_ivan')",
+              "value": "fenics_2d_ivan"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "stroke": {
+            "scale": "color",
+            "value": "fenics_2d_ivan"
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'fenics_2d_ivan')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "value": 3
+          },
+          "x": {
+            "field": "x",
+            "scale": "x"
+          },
+          "y": {
+            "field": "y",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "fenics_2d_ivan"
+      },
+      "interactive": true,
+      "type": "line"
+    },
     {
       "encode": {
         "hover": {
@@ -639,6 +726,7 @@
     },
     {
       "domain": [
+        "fenics_2d_ivan",
         "moose_2d_ia",
         "moose_2d_jah",
         "moose_2d_sta",

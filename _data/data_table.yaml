@@ -101,12 +101,30 @@ data:
   id_: 1d.1
   name: fenics_1d_ivan
   timestamp: 2018/11/09 00:00:00
+- author: {email: ivan.yashchuk@vtt.fi, name: Ivan Yashchuk}
+  code: {name: fenics, url: 'https://bitbucket.org/fenics-project/dolfin/'}
+  cores: 24
+  id_: 2a.1
+  name: fenics_2a_ivan
+  timestamp: 2018/11/09 00:00:00
+- author: {email: ivan.yashchuk@aalto.fi, name: Ivan Yashchuk}
+  code: {name: fenics, url: 'https://bitbucket.org/fenics-project/dolfin/'}
+  cores: 24
+  id_: 2b.1
+  name: fenics_2b_ivan
+  timestamp: 2018/11/10 00:00:00
 - author: {email: ivan.yashchuk@aalto.fi, name: Ivan Yashchuk}
   code: {name: fenics, url: 'https://bitbucket.org/fenics-project/dolfin/'}
   cores: 24
   id_: 2c.1
   name: fenics_2c_ivan
   timestamp: 2018/11/09 00:00:00
+- author: {email: ivan.yashchuk@vtt.fi, name: Ivan Yashchuk}
+  code: {name: fenics, url: 'https://bitbucket.org/fenics-project/dolfin/'}
+  cores: 24
+  id_: 2d.1
+  name: fenics_2d_ivan
+  timestamp: 2018/11/12 00:00:00
 - author: {email: trevor.keller@nist.gov, name: Trevor Keller}
   code: {name: fipy, url: 'https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/periodic/'}
   cores: 1
