@@ -32,7 +32,7 @@ data:
     values:
       - unit: KB
         value: '334655488'
-  - name: total_free_energy
+  - name: free_energy
     url: >-
       https://raw.githubusercontent.com/xueyang94/chimad1_spinodal_decomposition_c/master/bench_1c.csv
     format:

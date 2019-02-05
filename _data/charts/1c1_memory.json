@@ -189,6 +189,16 @@
       ]
     },
     {
+      "name": "moose_1c_xueyang94",
+      "transform": [],
+      "values": [
+        {
+          "memory_usage": 334655488.0,
+          "time_ratio": 0.007133333333333333
+        }
+      ]
+    },
+    {
       "name": "moose_fh_1c",
       "transform": [],
       "values": [
@@ -915,6 +925,83 @@
         "hover": {
           "fillOpacity": [
             {
+              "test": "!indata('selected', 'value', 'moose_1c_xueyang94')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 150
+          },
+          "strokeOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1c_xueyang94')",
+              "value": 0.4
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "strokeWidth": {
+            "size": 0
+          },
+          "tooltip": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1c_xueyang94')",
+              "value": "moose_1c_xueyang94"
+            },
+            {
+              "value": ""
+            }
+          ]
+        },
+        "update": {
+          "fill": {
+            "scale": "color",
+            "value": "moose_1c_xueyang94"
+          },
+          "fillOpacity": [
+            {
+              "test": "!indata('selected', 'value', 'moose_1c_xueyang94')",
+              "value": 1.0
+            },
+            {
+              "value": 0.0
+            }
+          ],
+          "size": {
+            "value": 100
+          },
+          "stroke": {
+            "scale": "color",
+            "value": "moose_1c_xueyang94"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "x": {
+            "field": "time_ratio",
+            "scale": "x"
+          },
+          "y": {
+            "field": "memory_usage",
+            "scale": "y"
+          }
+        }
+      },
+      "from": {
+        "data": "moose_1c_xueyang94"
+      },
+      "interactive": true,
+      "type": "symbol"
+    },
+    {
+      "encode": {
+        "hover": {
+          "fillOpacity": [
+            {
               "test": "!indata('selected', 'value', 'moose_fh_1c')",
               "value": 0.4
             },
@@ -1248,6 +1335,7 @@
         "mmsp_1c_wrksttn",
         "moose_1c_ia",
         "moose_1c_jah",
+        "moose_1c_xueyang94",
         "moose_fh_1c",
         "moose_ig_1c",
         "moose_psu_1c_IA",
