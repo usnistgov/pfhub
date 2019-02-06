@@ -335,6 +335,12 @@ data:
   id_: 1c.1
   name: moose_1c_jah
   timestamp: 2018/08/22 00:00:00
+- author: {email: wuxueyang@ufl.edu, name: Xueyang Wu}
+  code: {name: MOOSE, url: 'https://github.com/xueyang94/chimad1_spinodal_decomposition_c'}
+  cores: 8
+  id_: 1c.1
+  name: moose_1c_xueyang94
+  timestamp: 2019/02/05 00:00:00
 - author: {email: andrea.jokisaari@northwestern.edu, name: A. M. Jokisaari}
   code: {name: moose, url: 'https://bitbucket.org/ajokisaari/coral'}
   cores: 20

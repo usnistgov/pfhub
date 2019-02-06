@@ -1,0 +1,52 @@
+_id: 3311d010-2962-11e9-b2fd-d7c0a264de86
+metadata:
+  author:
+    first: Xueyang
+    last: Wu
+    email: wuxueyang@ufl.edu
+    github_id: xueyang94
+  timestamp: '5 February, 2019'
+  summary: MOOSE framework
+  implementation:
+    name: MOOSE
+    repo:
+      url: 'https://github.com/xueyang94/chimad1_spinodal_decomposition_c'
+      version: a746bed6459f19b9fbb027bd65cc9b378f4af78e
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 1c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '10.7'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '334655488'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/xueyang94/chimad1_spinodal_decomposition_c/master/bench_1c.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: 'total free energy versus simulation time '
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
+date: 1549383735
