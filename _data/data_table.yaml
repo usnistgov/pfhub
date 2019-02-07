@@ -587,3 +587,9 @@ data:
   id_: 6b.0
   name: prismspf_6b
   timestamp: 2017/07/28 00:00:00
+- author: {email: daniel.wheeler2@gmail.com, name: Daniel Wheeler}
+  code: {name: sfepy, url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'}
+  cores: 1
+  id_: 4a.1
+  name: sfepy_4a_wd15
+  timestamp: 2018/02/02 00:00:00

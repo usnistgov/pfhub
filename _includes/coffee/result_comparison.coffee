@@ -73,15 +73,32 @@ vega_to_plotly = (chart_item, sim_name) ->
     else if datum is 'y'
       get_values('memory_usage', 'value')
 
+  normed = (name, datum) ->
+    if datum is 'time'
+      get_values(name, datum)
+    else
+      sequence(
+        (x) ->
+          [get_values(name, datum)(x),
+           get_values(name, 'precipitate_area')(x)]
+        (x) -> zip(x[0], x[1])
+        map((x) -> x[0] / x[1] * 400 ** 2)
+      )
+
   functions = {
     get_values:get_values
     efficiency:efficiency
+    normed:normed
   }
 
   plotly_dict = (x) ->
     {
-      x:functions[chart_item.func](chart_item.name, 'x')(x)
-      y:functions[chart_item.func](chart_item.name, 'y')(x)
+      x:functions[chart_item.func](
+        chart_item.data_name or chart_item.name
+        chart_item.x_name or 'x')(x)
+      y:functions[chart_item.func](
+        chart_item.data_name or chart_item.name
+        chart_item.y_name or 'y')(x)
       type:'scatter'
       mode:chart_item.mode
       name:sim_name.substr(0, 15)
