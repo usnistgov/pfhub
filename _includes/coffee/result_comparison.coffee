@@ -91,15 +91,17 @@ vega_to_plotly = (chart_item, sim_name) ->
     normed:normed
   }
 
+  func_select = ->
+    functions[chart_item.func] or get_values
+
+  name_select = ->
+    chart_item.data_name or chart_item.name
+
   plotly_dict = (x) ->
     {
-      x:functions[chart_item.func](
-        chart_item.data_name or chart_item.name
-        chart_item.x_name or 'x')(x)
-      y:functions[chart_item.func](
-        chart_item.data_name or chart_item.name
-        chart_item.y_name or 'y')(x)
-      type:'scatter'
+      x:func_select()(name_select(), chart_item.x_name or 'x')(x)
+      y:func_select()(name_select(), chart_item.y_name or 'y')(x)
+      type:chart_item.type
       mode:chart_item.mode
       name:sim_name.substr(0, 15)
     }
