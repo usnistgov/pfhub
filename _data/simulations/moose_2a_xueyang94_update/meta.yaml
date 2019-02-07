@@ -1,0 +1,54 @@
+_id: cae2a110-2b0d-11e9-b173-9fa633cd2374
+metadata:
+  author:
+    first: Xueyang
+    last: Wu
+    email: wuxueyang@ufl.edu
+    github_id: xueyang94
+  timestamp: '7 February, 2019'
+  summary: MOOSE framework
+  implementation:
+    name: MOOSE
+    repo:
+      url: 'https://github.com/xueyang94/chimad2_Oswald_Ripening_a'
+      version: 7f98ba641c0eddc1fa4bc724d594f415c20f6c9b
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3'
+    cores: '64'
+    nodes: '2'
+benchmark:
+  id: 2a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '43200'
+        sim_time: '370'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '18000000'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/xueyang94/chimad2_Oswald_Ripening_a/master/periodic_square_out.csv
+    format:
+      type: csv
+      parse:
+        time:
+          time: number
+        total_energy:
+          free_energy: number
+    description: 'total free energy versus simulation time '
+    type: line
+    transform:
+      - type: formula
+        expr: datum.timetime
+        as: x
+      - type: formula
+        expr: datum.total_energyfree_energy
+        as: 'y'
+date: 1549567385
