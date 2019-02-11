@@ -8,7 +8,7 @@ metadata:
   timestamp: '7 February, 2019'
   summary: MOOSE framework
   implementation:
-    name: MOOSE
+    name: moose
     repo:
       url: 'https://github.com/xueyang94/chimad2_Oswald_Ripening_a'
       version: 7f98ba641c0eddc1fa4bc724d594f415c20f6c9b
@@ -38,17 +38,15 @@ data:
     format:
       type: csv
       parse:
-        time:
-          time: number
-        total_energy:
-          free_energy: number
+        time: number
+        total_energy: number
     description: 'total free energy versus simulation time '
     type: line
     transform:
       - type: formula
-        expr: datum.timetime
+        expr: datum.time
         as: x
       - type: formula
-        expr: datum.total_energyfree_energy
+        expr: datum.total_energy
         as: 'y'
 date: 1549567385

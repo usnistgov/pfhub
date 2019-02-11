@@ -8,7 +8,7 @@ metadata:
   timestamp: '5 February, 2019'
   summary: MOOSE framework
   implementation:
-    name: MOOSE
+    name: moose
     repo:
       url: 'https://github.com/xueyang94/chimad1_spinodal_decomposition_c'
       version: a746bed6459f19b9fbb027bd65cc9b378f4af78e
