@@ -153,7 +153,7 @@
       data_name: all_data
       title: Total Free Energy
       x_title: Fictive Time
-      y_title: 'Total Free Energy (aJ)'
+      y_title: '&#8497; &nbsp;(aJ)'
       x_scale: log
       y_scale: linear
       minimum: 0.01
@@ -167,7 +167,7 @@
       y_name: elastic_free_energy
       title: Elastic Free Energy
       x_title: Fictive Time
-      y_title: 'Elastic Free Energy (aJ)'
+      y_title: "&#8747; <i>f</i><sub>el</sub> <i>dV</i> &nbsp;(aJ)"
       x_scale: log
       y_scale: linear
       minimum: 0.01
@@ -181,7 +181,7 @@
       y_name: a_10
       title: Precipitate Length [10]
       x_title: Fictive Time
-      y_title: "a_10 (nm)"
+      y_title: "<i>a</i><sub>10</sub> &nbsp;(nm)"
       x_scale: log
       y_scale: linear
       minimum: 0.01
@@ -195,7 +195,7 @@
       y_name: a_01
       title: Precipitate Length [01]
       x_title: Fictive Time
-      y_title: 'a_01 (nm)'
+      y_title: '<i>a</i><sub>01</sub> &nbsp;(nm)'
       x_scale: log
       y_scale: linear
       minimum: 0.01
@@ -209,7 +209,7 @@
       y_name: a_d
       title: Precipitate Length (diagonal)
       x_title: Fictive Time
-      y_title: 'a_d (nm)'
+      y_title: '<i>a</i><sub>d</sub> &nbsp;(nm)'
       x_scale: log
       y_scale: linear
       minimum: 0.01
@@ -223,7 +223,7 @@
       x_name: time
       y_name: elastic_free_energy
       x_title: Fictive Time
-      y_title: 'Normalized Elastic Energy (aJ/nm^2)'
+      y_title: '<i>g</i><sub>el</sub><sup>avg</sub> &nbsp;(aJ/nm<sup>2</sup>)'
       x_scale: log
       y_scale: linear
       minimum: 0.01
@@ -235,8 +235,8 @@
       type: scatter
       x_scale: linear
       y_scale: linear
-      x_title: 'x'
-      y_title: 'y'
+      x_title: '<i>x</i> &nbsp;(nm)'
+      y_title: '<i>y</i> &nbsp;(nm)'
       title: 'Preciptiate Boundary at Equilibrium'
       x_domain: [-30, 30]
       y_domain: [-30, 30]
@@ -248,7 +248,7 @@
       type: scatter
       x_scale: log
       y_scale: log
-      x_title: 'Normalized Wall Time *'
+      x_title: '<i>t</i><sub>Wall</sub> / <i>t</i><sub>Sim</sub> *'
       y_title: 'Memory Usage (KB)'
       title: Efficiency
       mode: markers
