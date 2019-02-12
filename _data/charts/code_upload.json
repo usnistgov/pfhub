@@ -56,7 +56,7 @@
       "name": "code_uploads",
       "values": [
         {
-          "count": 56,
+          "count": 58,
           "name": "moose"
         },
         {
@@ -82,10 +82,6 @@
         {
           "count": 3,
           "name": "matlab"
-        },
-        {
-          "count": 1,
-          "name": "MOOSE"
         },
         {
           "count": 1,

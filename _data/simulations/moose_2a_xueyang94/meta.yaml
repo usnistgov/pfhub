@@ -10,7 +10,7 @@ metadata:
   implementation:
     name: moose
     repo:
-      url: 'https://github.com/xueyang94/chimad2_Oswald_Ripening_a.git'
+      url: 'https://github.com/xueyang94/chimad2_Oswald_Ripening_a'
       version: 3e22587688ef18ceaa459f16e1e9222a145909d5
     container_url: ''
   hardware:
@@ -38,19 +38,15 @@ data:
     format:
       type: csv
       parse:
-        time:
-          number:
-            number: number
-        total_energy:
-          number:
-            number: number
+        time: number
+        total_energy: number
     description: 'total free energy versus simulation time '
     type: line
     transform:
       - type: formula
-        expr: datum.timenumbernumber
+        expr: datum.time
         as: x
       - type: formula
-        expr: datum.total_energynumbernumber
+        expr: datum.total_energy
         as: 'y'
 date: 1549930356
