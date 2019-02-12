@@ -378,7 +378,7 @@ data:
   name: moose_2a_sta
   timestamp: 2016/06/28 00:00:00
 - author: {email: wuxueyang@ufl.edu, name: Xueyang Wu}
-  code: {name: moose, url: 'https://github.com/xueyang94/chimad2_Oswald_Ripening_a.git'}
+  code: {name: moose, url: 'https://github.com/xueyang94/chimad2_Oswald_Ripening_a'}
   cores: 64
   id_: 2a.1
   name: moose_2a_xueyang94
