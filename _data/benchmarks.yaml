@@ -157,7 +157,7 @@
       x_scale: log
       y_scale: linear
       minimum: 0.01
-      type: line
+      type: scatter
       mode: lines
       func: get_values
 
@@ -171,7 +171,7 @@
       x_scale: log
       y_scale: linear
       minimum: 0.01
-      type: line
+      type: scatter
       mode: lines
       func: get_values
 
@@ -254,6 +254,14 @@
       mode: markers
       footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
       func: efficiency
+
+    - name: table
+      type: table
+      title: Equilibrium Results
+      column_titles: ['Free Energy', 'a_01', 'a_10', 'a_d', 'Elastic Free_Energy']
+      data_name: all_data
+      columns: ['total_free_energy', 'a_01', 'a_10', 'a_d', 'elastic_free_energy']
+
 
 
 - title: Stokes Flow

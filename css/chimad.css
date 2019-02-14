@@ -542,3 +542,8 @@ span.plotly-footnote {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+.plotly-col #header .cell-text {
+    font-size: 14px !important;
+    font-weight: bold;
+}
