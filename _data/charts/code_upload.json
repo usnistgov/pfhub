@@ -72,6 +72,10 @@
           "name": "fenics"
         },
         {
+          "count": 8,
+          "name": "sfepy"
+        },
+        {
           "count": 7,
           "name": "fipy"
         },
@@ -86,10 +90,6 @@
         {
           "count": 1,
           "name": "hiperc"
-        },
-        {
-          "count": 1,
-          "name": "sfepy"
         }
       ]
     }

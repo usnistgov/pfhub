@@ -59,7 +59,7 @@ mapping:
     mapping:
       "id":
         type: str
-        enum: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d", "3a", "6a", "6b", "7a", "7b", "7c", "4a"]
+        enum: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d", "3a", "6a", "6b", "7a", "7b", "7c", "4a", "4b", "4c", "4d", "4e", "4f", "4g", "4h"]
         required: True
       "version":
         type: number

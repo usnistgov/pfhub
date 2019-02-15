@@ -1,0 +1,65 @@
+_id: 93113e00-0c5e-11e8-b653-4f1ed6519c85
+benchmark:
+  id: 4f
+  version: '1'
+data:
+- name: run_time
+  values:
+  - sim_time: '1500'
+    wall_time: '266576'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '2000000'
+- description: All data
+  format:
+    parse:
+      free_energy: number
+      time: number
+    type: csv
+  name: all_data
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.total_free_energy
+    type: formula
+  type: line
+  url: https://raw.githubusercontent.com/wd15/sfepy-bm4/5eeaf79bb05180f80a7b5fa25ca245312499db7b/time.csv
+- description: Contour data
+  format:
+    parse:
+      x: number
+      y: number
+    type: csv
+  name: contour
+  type: line
+  url: https://raw.githubusercontent.com/wd15/sfepy-bm4/029fcfde177c95285ee28a3e3b4249ce9ccd4e56/contour.csv
+date: 1518046097
+layout: post
+message: ' '
+metadata:
+  author:
+    email: daniel.wheeler2@gmail.com
+    first: Daniel
+    github_id: wd15
+    last: Wheeler
+  hardware:
+    acc_architecture: none
+    clock_rate: '3.2'
+    cores: '1'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: serial
+  implementation:
+    container_url: ''
+    name: sfepy
+    repo:
+      url: https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb
+      version: fc9134b08a9c
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The
+    shape of the dendrite doesn't look exactly like the version in the
+    notebook.
+  timestamp: 2 February, 2018
