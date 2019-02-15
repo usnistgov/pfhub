@@ -459,3 +459,23 @@ describe('test get_link', ->
     )
   )
 )
+
+
+describe('test get_last', ->
+  it('last element', ->
+    assert.deepEqual(
+      get_last([1, 2, 3])
+      3
+    )
+  )
+)
+
+
+describe('test transpose', ->
+  it('4 x 4', ->
+    assert.deepEqual(
+      transpose([[1, 2], [3, 4]])
+      [[1, 3], [2, 4]]
+    )
+  )
+)

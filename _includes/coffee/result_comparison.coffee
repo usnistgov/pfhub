@@ -24,6 +24,15 @@ get_plotly_data = curry(
 
 
 get_scatter_data = (data, chart_item) ->
+  ### Construct Plotly YAML for a scatter chart
+
+  Args:
+    data: the simulation data
+    chart_item: an element of the chart data
+
+  Returns:
+    the Plotly YAML for a scatter chart
+  ###
   {
     data:get_comparison_data(vega_to_plotly, chart_item, data)
     div:'chart_' + chart_item.name
@@ -55,6 +64,16 @@ get_scatter_data = (data, chart_item) ->
 
 
 get_table_data = (data, chart_item) ->
+  ### Construct the Plotly YAML for a table
+
+  Args:
+    data: the simulation data
+    chart_item: an element of the chart data
+
+  Returns:
+    the Plotly YAML for a table
+
+  ###
   {
     data:[get_table_data_(chart_item, data)]
     div:'chart_' + chart_item.name
@@ -68,7 +87,16 @@ get_table_data = (data, chart_item) ->
 
 
 get_table_data_ = (chart_item, data) ->
+  ### Construct the Plotly YAML for the data key in the Plotly YAML
+  for a table
 
+  Args:
+    chart_item: an element of the chart data
+    data: the simulation data
+
+  Returns:
+
+  ###
   get_color = (x, i) ->
     if i %% 2 is 1
       'white'
@@ -90,7 +118,7 @@ get_table_data_ = (chart_item, data) ->
           line: {color: "black", width: 0},
           font: {family: 'Lato', size: 12, color: 'black'}
           fill: {color:[map(get_color, x[0])]}
-          format: [".4g"]
+          format: chart_item.column_format
         }
         type:"table"
       }
@@ -98,18 +126,31 @@ get_table_data_ = (chart_item, data) ->
 
 
 get_table_values = (chart_item) ->
+  ### Return a function to extract the data for a Plotly table
 
-  get_col_value = (vegadata) ->
-    sequence(
-      (x) -> get_values(chart_item.data_name, x)
-      (f) -> f(vegadata)
-      get_last
-    )
+  Args:
+    chart_item: an element of the chart data
+
+  Returns:
+    a function that takes the simulation data and returns formatted
+    data for a Plotly table
+  ###
+  get_col_value = curry(
+    (vegadata, sim_name, col) ->
+      if col is "sim_name"
+        sim_name
+      else
+        sequence(
+          (x) -> get_values(chart_item.data_name, x)
+          (f) -> f(vegadata)
+          get_last
+        )(col)
+  )
 
   get_row_values = (chart_item_, sim_name) ->
     sequence(
       map(read_vega_data)
-      (x) -> map(get_col_value(x), chart_item.columns)
+      (x) -> map(get_col_value(x, sim_name), chart_item.columns)
     )
 
   sequence(
@@ -119,6 +160,18 @@ get_table_values = (chart_item) ->
 
 
 get_values = (name, datum) ->
+  ### Extracts values from Vega formatted data in a simulation data
+  field
+
+  Args:
+    name: the name to match with the name field in the list of data
+      items (e.g 'free_energy')
+    datum: the subfied of data to extract (e.g. 'x')
+
+  Returns:
+    the extracted array of values
+
+  ###
   sequence(
     filter((x) -> x.name is name)
     get(0)

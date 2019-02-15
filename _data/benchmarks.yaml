@@ -258,9 +258,16 @@
     - name: table
       type: table
       title: Equilibrium Results
-      column_titles: ['Free Energy', 'a_01', 'a_10', 'a_d', 'Elastic Free_Energy']
+      column_titles:
+        - 'Name'
+        - '<i>a</i><sub>10</sub>'
+        - '<i>a</i><sub>01</sub>'
+        - '<i>a</i><sub>d</sub>'
+        - '&#8747; <i>f</i><sub>el</sub> <i>dV</i>'
+        - '&#8497;'
       data_name: all_data
-      columns: ['total_free_energy', 'a_01', 'a_10', 'a_d', 'elastic_free_energy']
+      columns: ['sim_name', 'a_10', 'a_01', 'a_d', 'elastic_free_energy', 'total_free_energy']
+      column_format: ["", ".4g", ".4g", ".4g", ".4g", ".4g"]
 
 
 

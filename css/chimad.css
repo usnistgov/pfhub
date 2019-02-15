@@ -547,3 +547,7 @@ span.plotly-footnote {
     font-size: 14px !important;
     font-weight: bold;
 }
+
+#chart_table {
+    margin-top: 40px !important;
+}
