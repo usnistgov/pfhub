@@ -19,7 +19,7 @@ get_plotly_data = curry(
     else if chart_item.type is 'table'
       get_table_data(data, chart_item)
     else
-      throw new Error "chart_item has wrong type"
+      throw new Error('chart_item has wrong type')
 )
 
 
@@ -78,9 +78,9 @@ get_table_data = (data, chart_item) ->
     data:[get_table_data_(chart_item, data)]
     div:'chart_' + chart_item.name
     layout:{
-      "title":chart_item.title
+      title:chart_item.title
       font:{
-        family: 'Lato'
+        family:'Lato'
       }
     }
   }
@@ -107,20 +107,20 @@ get_table_data_ = (chart_item, data) ->
     get_table_values(chart_item)
     (x) ->
       {
-        header: {
+        header:{
           values:chart_item.column_titles
-          align:"center"
-          line: {width: 0, color: 'black'}
+          align:'center'
+          line:{width:0, color:'black'}
         }
         cells:{
-          values: x
-          align:"center"
-          line: {color: "black", width: 0},
-          font: {family: 'Lato', size: 12, color: 'black'}
-          fill: {color:[map(get_color, x[0])]}
-          format: chart_item.column_format
+          values:x
+          align:'center'
+          line:{color:'black', width:0},
+          font:{family:'Lato', size:12, color:'black'}
+          fill:{color:[map(get_color, x[0])]}
+          format:chart_item.column_format
         }
-        type:"table"
+        type:'table'
       }
   )(data)
 
@@ -137,7 +137,7 @@ get_table_values = (chart_item) ->
   ###
   get_col_value = curry(
     (vegadata, sim_name, col) ->
-      if col is "sim_name"
+      if col is 'sim_name'
         sim_name
       else
         sequence(
