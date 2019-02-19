@@ -30,6 +30,7 @@ in
     pypi2nix.packages."vega"
     pypi2nix.packages."progressbar2"
     pypkgs.pytest
+    pypkgs.ipywidgets
     pkgs.nodejs
     node.mocha
     node.coffeelint
@@ -44,4 +45,5 @@ in
     pkgs.curl
     pkgs.jq
     yq
+    pypkgs.pip
   ]
