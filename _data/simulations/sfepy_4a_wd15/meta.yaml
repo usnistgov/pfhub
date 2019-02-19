@@ -26,7 +26,7 @@ data:
     expr: datum.total_free_energy
     type: formula
   type: line
-  url: https://raw.githubusercontent.com/wd15/sfepy-bm4/5eeaf79bb05180f80a7b5fa25ca245312499db7b/time.csv
+  url: https://raw.githubusercontent.com/wd15/sfepy-bm4/5284b38ceb6f1bcadac90f546c651c06f8ce7261/time.csv
 - description: Contour data
   format:
     parse:
@@ -35,7 +35,7 @@ data:
     type: csv
   name: contour
   type: line
-  url: https://raw.githubusercontent.com/wd15/sfepy-bm4/029fcfde177c95285ee28a3e3b4249ce9ccd4e56/contour.csv
+  url: https://raw.githubusercontent.com/wd15/sfepy-bm4/5284b38ceb6f1bcadac90f546c651c06f8ce7261/contour.csv
 date: 1518046097
 layout: post
 message: ' '
@@ -56,10 +56,9 @@ metadata:
     container_url: ''
     name: sfepy
     repo:
-      url: https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb
-      version: fc9134b08a9c
+      url: https://github.com/wd15/sfepy-bm4/
+      version: 5284b38ceb6f1bcadac90f546c651c06f8ce7261
   summary: >-
-    FiPy implementation of benchmark 3a on a 960x960 grid. The
-    shape of the dendrite doesn't look exactly like the version in the
-    notebook.
+    Sfepy and FiPy implementation of benchmark 4a on a 400x400 grid.
+    The results seem very different from the paper.
   timestamp: 2 February, 2018
