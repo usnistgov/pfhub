@@ -103,6 +103,12 @@ get_table_data_ = (chart_item, data) ->
     else
       '#d1d1d1'
 
+  get_align = (x, i) ->
+    if i is 0
+      'left'
+    else
+      'center'
+
   sequence(
     get_table_values(chart_item)
     (x) ->
@@ -114,7 +120,7 @@ get_table_data_ = (chart_item, data) ->
         }
         cells:{
           values:x
-          align:'center'
+          align:map(get_align, chart_item.column_titles)
           line:{color:'black', width:0},
           font:{family:'Lato', size:12, color:'black'}
           fill:{color:[map(get_color, x[0])]}
