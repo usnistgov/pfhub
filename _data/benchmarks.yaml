@@ -237,7 +237,7 @@
       y_scale: linear
       x_title: '<i>x</i> &nbsp;(nm)'
       y_title: '<i>y</i> &nbsp;(nm)'
-      title: 'Preciptiate Boundary at Equilibrium'
+      title: 'Precipitate Boundary at Equilibrium'
       x_domain: [-30, 30]
       y_domain: [-30, 30]
       y_scaleanchor: x

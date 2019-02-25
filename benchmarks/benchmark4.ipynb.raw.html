@@ -478,8 +478,19 @@ where $C_{ijkl}^{\text{matrix}}$ and $C_{ijkl}^{\text{precip}}$ are the stiffnes
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h2><p>All benchmark solutions should be run to equilibrium. The following data should be collected for each upload.</p>
 <ul>
-<li><p>Global quantities as the simulation evolves including the total free energy, $\;\;\mathcal{F};\;\;$ the interfacial free energy, $\;\;\mathcal{F}_{\text{grad}}=\int_V \frac{\kappa}{2} |\nabla \eta|^2 \; dV;\;\;$ the elastic free energy, $\;\;\mathcal{F}_{\text{el}} = \int_V f_{\text{el}} \; dV;\;\;$ the area of the precipitate $\;\;\int_V \eta dV;\;\;$ and
-the precipitate lengths $a_{10}$, $a_{01}$ and $a_d$ measured from the center of the drop to the $\eta=0.5$ contour in the x, y and diagonal directions, respectively. The angle used for the diagonal direction is given by $\theta_d$ such that  $\tan\theta_d=a_{01}/a_{10}$.</p>
+<li><p>Global quantities as the simulation evolves including</p>
+<ul>
+<li><p>the total free energy, $\;\;\mathcal{F}\;\;$</p>
+</li>
+<li><p>the interfacial free energy, $\;\;\mathcal{F}_{\text{grad}}=\int_V \frac{\kappa}{2} |\nabla \eta|^2 \; dV\;\;$</p>
+</li>
+<li><p>the elastic free energy, $\;\;\mathcal{F}_{\text{el}} = \int_V f_{\text{el}} \; dV\;\;$</p>
+</li>
+<li><p>the area of the precipitate $\;\;\int_V \eta dV\;\;$ and</p>
+</li>
+<li><p>the precipitate lengths $a_{10}$, $a_{01}$ and $a_d$ measured from the center of the drop to the $\eta=0.5$ contour in the $x$ ([10]), $y$ ([01]) and diagonal directions, respectively. The angle used for the diagonal direction is given by $\theta_d$ such that  $\tan\theta_d=a_{01}/a_{10}$.</p>
+</li>
+</ul>
 </li>
 <li><p>The $\eta=0.5$ level set contour position at equilibrium or the latest time step.</p>
 </li>
@@ -491,8 +502,7 @@ the precipitate lengths $a_{10}$, $a_{01}$ and $a_d$ measured from the center of
 19.86315763877582,19.863157638775874,20.098536436029132,6.054959230125162,2.9620862374085544,1264.0,1.1,17.207555522195793
 19.906346454363486,19.906346454363465,20.134576060150618,6.021500927987024,2.736582255973086,1264.0,2.1,17.204113636263912
 ...</code></pre>
-<p>The data should be collected as frequently as possible during the simulation.
-The data should be named <code>all_data</code> in the "Short name of data" box located in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The 2D radio button should be checked, the entry in the "Name of the x-axis column" box should be <code>time</code> and the entry in the "Name of y-axis column" should be <code>total_free_energy</code>. Only one "Data Files" section upload is required for the evolving data.</p>
+<p>The data should be collected frequently during the simulation, but greater than 20 data points at a minimum (more than 1000 data points is unnecessary and won't improve resolution). The data should be named <code>all_data</code> in the "Short name of data" box located in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The 2D radio button should be checked, the entry in the "Name of the x-axis column" box should be <code>time</code> and the entry in the "Name of y-axis column" should be <code>total_free_energy</code>. Only one "Data Files" section upload is required for the evolving data.</p>
 <h3 id="Equilibrium-Data-Format">Equilibrium Data Format<a class="anchor-link" href="#Equilibrium-Data-Format">&#182;</a></h3><p>The equilibrium data should be stored in either a CSV file with columns labeled as <code>x</code> and <code>y</code>. The CSV file should be formatted as a table and have the following form (note that the column ordering is inconsequential),</p>
 
 <pre><code>x,y
