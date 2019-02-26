@@ -2,7 +2,6 @@
 Functions to generate the comparison pages
 ###
 
-
 get_plotly_data = curry(
   (data, chart_item) ->
     ### Given a set of simulations, extract a Plotly plot for each set
@@ -15,35 +14,176 @@ get_plotly_data = curry(
     Returns:
       the Plotly data for the given chart item
     ###
-    {
-      data:get_comparison_data(chart_item, data)
-      div:'chart_' + chart_item.name
-      layout:
-        {
-          title:chart_item.title
-          showlegend:true
-          autosize:true
-          xaxis:
-            {
-              title:chart_item.x_title
-              type:chart_item.x_scale
-              domain:chart_item.x_domain
-              scaleanchor:chart_item.x_scaleanchor
-              exponentformat:'E'
-              dtick:chart_item.x_dtick
-            }
-          yaxis:
-            {
-              scaleanchor:chart_item.y_scaleanchor
-              title:chart_item.y_title
-              type:chart_item.y_scale
-              domain:chart_item.y_domain
-              exponentformat:'E'
-              dtick:chart_item.y_dtick
-            }
-        }
-    }
+    if chart_item.type is 'scatter'
+      get_scatter_data(data, chart_item)
+    else if chart_item.type is 'table'
+      get_table_data(data, chart_item)
+    else
+      throw new Error('chart_item has wrong type')
 )
+
+
+get_scatter_data = (data, chart_item) ->
+  ### Construct Plotly YAML for a scatter chart
+
+  Args:
+    data: the simulation data
+    chart_item: an element of the chart data
+
+  Returns:
+    the Plotly YAML for a scatter chart
+  ###
+  {
+    data:get_comparison_data(vega_to_plotly, chart_item, data)
+    div:'chart_' + chart_item.name
+    layout:
+      {
+        title:chart_item.title
+        showlegend:true
+        autosize:true
+        xaxis:
+          {
+            title:chart_item.x_title
+            type:chart_item.x_scale
+            domain:chart_item.x_domain
+            scaleanchor:chart_item.x_scaleanchor
+            exponentformat:'E'
+            dtick:chart_item.x_dtick
+          }
+        yaxis:
+          {
+            scaleanchor:chart_item.y_scaleanchor
+            title:chart_item.y_title
+            type:chart_item.y_scale
+            domain:chart_item.y_domain
+            exponentformat:'E'
+            dtick:chart_item.y_dtick
+          }
+      }
+  }
+
+
+get_table_data = (data, chart_item) ->
+  ### Construct the Plotly YAML for a table
+
+  Args:
+    data: the simulation data
+    chart_item: an element of the chart data
+
+  Returns:
+    the Plotly YAML for a table
+
+  ###
+  {
+    data:[get_table_data_(chart_item, data)]
+    div:'chart_' + chart_item.name
+    layout:{
+      title:chart_item.title
+      font:{
+        family:'Lato'
+      }
+    }
+  }
+
+
+get_table_data_ = (chart_item, data) ->
+  ### Construct the Plotly YAML for the data key in the Plotly YAML
+  for a table
+
+  Args:
+    chart_item: an element of the chart data
+    data: the simulation data
+
+  Returns:
+
+  ###
+  get_color = (x, i) ->
+    if i %% 2 is 1
+      'white'
+    else
+      '#d1d1d1'
+
+  get_align = (x, i) ->
+    if i is 0
+      'left'
+    else
+      'center'
+
+  sequence(
+    get_table_values(chart_item)
+    (x) ->
+      {
+        header:{
+          values:chart_item.column_titles
+          align:'center'
+          line:{width:0, color:'black'}
+        }
+        cells:{
+          values:x
+          align:map(get_align, chart_item.column_titles)
+          line:{color:'black', width:0},
+          font:{family:'Lato', size:12, color:'black'}
+          fill:{color:[map(get_color, x[0])]}
+          format:chart_item.column_format
+        }
+        type:'table'
+      }
+  )(data)
+
+
+get_table_values = (chart_item) ->
+  ### Return a function to extract the data for a Plotly table
+
+  Args:
+    chart_item: an element of the chart data
+
+  Returns:
+    a function that takes the simulation data and returns formatted
+    data for a Plotly table
+  ###
+  get_col_value = curry(
+    (vegadata, sim_name, col) ->
+      if col is 'sim_name'
+        sim_name
+      else
+        sequence(
+          (x) -> get_values(chart_item.data_name, x)
+          (f) -> f(vegadata)
+          get_last
+        )(col)
+  )
+
+  get_row_values = (chart_item_, sim_name) ->
+    sequence(
+      map(read_vega_data)
+      (x) -> map(get_col_value(x, sim_name), chart_item.columns)
+    )
+
+  sequence(
+    get_comparison_data(get_row_values, chart_item)
+    transpose
+  )
+
+
+get_values = (name, datum) ->
+  ### Extracts values from Vega formatted data in a simulation data
+  field
+
+  Args:
+    name: the name to match with the name field in the list of data
+      items (e.g 'free_energy')
+    datum: the subfied of data to extract (e.g. 'x')
+
+  Returns:
+    the extracted array of values
+
+  ###
+  sequence(
+    filter((x) -> x.name is name)
+    get(0)
+    (x) ->
+      if x? then pluck_arr(datum, x.values) else null
+  )
 
 
 vega_to_plotly = (chart_item, sim_name) ->
@@ -57,13 +197,6 @@ vega_to_plotly = (chart_item, sim_name) ->
     a func that converts Vega to Plotly
   ###
 
-  get_values = (name, datum) ->
-    sequence(
-      filter((x) -> x.name is name)
-      get(0)
-      (x) ->
-        if x? then pluck_arr(datum, x.values) else null
-    )
 
   efficiency = (name, datum) ->
     if datum is 'x'
@@ -73,16 +206,35 @@ vega_to_plotly = (chart_item, sim_name) ->
     else if datum is 'y'
       get_values('memory_usage', 'value')
 
+  normed = (name, datum) ->
+    if datum is 'time'
+      get_values(name, datum)
+    else
+      sequence(
+        (x) ->
+          [get_values(name, datum)(x),
+           get_values(name, 'precipitate_area')(x)]
+        (x) -> zip(x[0], x[1])
+        map((x) -> x[0] / x[1] * 400 ** 2)
+      )
+
   functions = {
     get_values:get_values
     efficiency:efficiency
+    normed:normed
   }
+
+  func_select = ->
+    functions[chart_item.func] or get_values
+
+  name_select = ->
+    chart_item.data_name or chart_item.name
 
   plotly_dict = (x) ->
     {
-      x:functions[chart_item.func](chart_item.name, 'x')(x)
-      y:functions[chart_item.func](chart_item.name, 'y')(x)
-      type:'scatter'
+      x:func_select()(name_select(), chart_item.x_name or 'x')(x)
+      y:func_select()(name_select(), chart_item.y_name or 'y')(x)
+      type:chart_item.type
       mode:chart_item.mode
       name:sim_name.substr(0, 15)
     }
@@ -94,7 +246,7 @@ vega_to_plotly = (chart_item, sim_name) ->
 
 
 get_comparison_data = curry(
-  (chart_item, data) ->
+  (func, chart_item, data) ->
     ### Convert Vega data to Plotly data
 
     Args:
@@ -105,7 +257,7 @@ get_comparison_data = curry(
       an array of all the named data extracted from each simulation
     ###
     map_undef(
-      (x) -> vega_to_plotly(chart_item, x.name)(x.meta.data)
+      (x) -> func(chart_item, x.name)(x.meta.data)
       data
     )
 )

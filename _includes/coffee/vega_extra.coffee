@@ -71,7 +71,11 @@ add_vega_src = (x) ->
 # read vega data with a url
 read_vega_url = sequence(
   (x) -> [x.format, dl.load({url:x.url})]
-  (x) -> dl.read(x[1], x[0])
+  (x) ->
+    try
+      dl.read(x[1], x[0])
+    catch SyntaxError
+      null
 )
 
 

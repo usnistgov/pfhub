@@ -77,7 +77,7 @@
       x_scale: linear
       y_scale: linear
       minimum: 0.01
-      type: line
+      type: scatter
       mode: lines
       func: get_values
 
@@ -87,7 +87,7 @@
       y_title: Tip Position
       x_scale: linear
       y_scale: linear
-      type: line
+      type: scatter
       mode: lines
       func: get_values
 
@@ -97,12 +97,12 @@
       x_title: Time
       x_scale: linear
       y_scale: linear
-      type: line
+      type: scatter
       mode: lines
       func: get_values
 
     - name: phase_field_1500
-      type: line
+      type: scatter
       x_scale: linear
       y_scale: linear
       x_title: 'x'
@@ -115,7 +115,7 @@
       func: get_values
 
     - name: efficiency
-      type: line
+      type: scatter
       x_scale: log
       y_scale: log
       x_title: 'Normalized Wall Time *'
@@ -148,6 +148,128 @@
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
         url: "hackathons/hackathon2/problem2.ipynb"
+  data:
+    - name: total_free_energy
+      data_name: all_data
+      title: Total Free Energy
+      x_title: Fictive Time
+      y_title: '&#8497; &nbsp;(aJ)'
+      x_scale: log
+      y_scale: linear
+      minimum: 0.01
+      type: scatter
+      mode: lines
+      func: get_values
+
+    - name: elastic_free_energy
+      data_name: all_data
+      x_name: time
+      y_name: elastic_free_energy
+      title: Elastic Free Energy
+      x_title: Fictive Time
+      y_title: "&#8747; <i>f</i><sub>el</sub> <i>dV</i> &nbsp;(aJ)"
+      x_scale: log
+      y_scale: linear
+      minimum: 0.01
+      type: scatter
+      mode: lines
+      func: get_values
+
+    - name: a_10
+      data_name: all_data
+      x_name: time
+      y_name: a_10
+      title: Precipitate Length [10]
+      x_title: Fictive Time
+      y_title: "<i>a</i><sub>10</sub> &nbsp;(nm)"
+      x_scale: log
+      y_scale: linear
+      minimum: 0.01
+      type: scatter
+      mode: lines
+      func: get_values
+
+    - name: a_01
+      data_name: all_data
+      x_name: time
+      y_name: a_01
+      title: Precipitate Length [01]
+      x_title: Fictive Time
+      y_title: '<i>a</i><sub>01</sub> &nbsp;(nm)'
+      x_scale: log
+      y_scale: linear
+      minimum: 0.01
+      type: scatter
+      mode: lines
+      func: get_values
+
+    - name: a_d
+      data_name: all_data
+      x_name: time
+      y_name: a_d
+      title: Precipitate Length (diagonal)
+      x_title: Fictive Time
+      y_title: '<i>a</i><sub>d</sub> &nbsp;(nm)'
+      x_scale: log
+      y_scale: linear
+      minimum: 0.01
+      type: scatter
+      mode: lines
+      func: get_values
+
+    - name: normalized_elastic_energy
+      title: Normalized Elastic Energy
+      data_name: all_data
+      x_name: time
+      y_name: elastic_free_energy
+      x_title: Fictive Time
+      y_title: '<i>g</i><sub>el</sub><sup>avg</sub> &nbsp;(aJ/nm<sup>2</sup>)'
+      x_scale: log
+      y_scale: linear
+      minimum: 0.01
+      type: scatter
+      mode: lines
+      func: normed
+
+    - name: contour
+      type: scatter
+      x_scale: linear
+      y_scale: linear
+      x_title: '<i>x</i> &nbsp;(nm)'
+      y_title: '<i>y</i> &nbsp;(nm)'
+      title: 'Precipitate Boundary at Equilibrium'
+      x_domain: [-30, 30]
+      y_domain: [-30, 30]
+      y_scaleanchor: x
+      mode: lines
+      func: get_values
+
+    - name: efficiency
+      type: scatter
+      x_scale: log
+      y_scale: log
+      x_title: '<i>t</i><sub>Wall</sub> / <i>t</i><sub>Sim</sub> *'
+      y_title: 'Memory Usage (KB)'
+      title: Efficiency
+      mode: markers
+      footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
+      func: efficiency
+
+    - name: table
+      type: table
+      title: Equilibrium Results
+      column_titles:
+        - 'Name'
+        - '<i>a</i><sub>10</sub>'
+        - '<i>a</i><sub>01</sub>'
+        - '<i>a</i><sub>d</sub>'
+        - '&#8747; <i>f</i><sub>el</sub> <i>dV</i>'
+        - '&#8497;'
+      data_name: all_data
+      columns: ['sim_name', 'a_10', 'a_01', 'a_d', 'elastic_free_energy', 'total_free_energy']
+      column_format: ["", ".4g", ".4g", ".4g", ".4g", ".4g"]
+
+
 
 - title: Stokes Flow
   description: Incompressible Stokes flow in 2D
@@ -200,7 +322,7 @@
       y_title: "<i>e</i><sub>L2</sub>"
       x_scale: log
       y_scale: log
-      type: line
+      type: scatter
       mode: lines
       x_dtick: 1
       y_dtick: 1
@@ -210,27 +332,7 @@
       y_title: "<i>e</i><sub>L2</sub>"
       x_scale: log
       y_scale: log
-      type: line
+      type: scatter
       mode: lines
       x_dtick: 1
       y_dtick: 1
-    - name: cost
-      title: Normalized Wall Time Versus Error
-      x_title: "<i>e</i><sub>L2</sub>"
-      y_title: "<i>F</i><sub>cost</sub> (core-s)"
-      x_scale: log
-      y_scale: log
-      type: line
-      mode: lines
-      x_dtick: 1
-      y_dtick: 1
-    - name: time
-      title: Wall Time Versus Error
-      x_title: "<i>e</i><sub>L2</sub>"
-      y_title: "<i>t</i><sub>wall</sub> (s)"
-      x_scale: log
-      y_scale: log
-      type: line
-      mode: lines
-      y_dtick: 1
-      x_dtick: 1

@@ -412,6 +412,11 @@ get = curry(
 )
 
 
+get_last = (x) ->
+  [..., last] = x
+  last
+
+
 get_or = curry(
   (key, def, dict) ->
     get(key, dict) or def
@@ -433,3 +438,7 @@ map_undef = curry(
       filter((x) -> x?)
     )(object)
 )
+
+
+transpose = (matrix) ->
+  (t[i] for t in matrix) for i in [0...matrix[0].length]
