@@ -226,7 +226,7 @@ table.striped tbody tr:nth-child(2n+1) {
     position: relative;
     display: inline;
     left: 55px;
-    top: 18px;
+    top: 30px;
     z-index: 1;
 }
 
