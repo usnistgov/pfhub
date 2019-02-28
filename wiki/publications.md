@@ -12,6 +12,9 @@ title: Publications
 numerical implementations of phase field
 models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 
+Non pay walled version, see [arXiv
+link](https://arxiv.org/abs/1610.00622).
+
 <iframe width="900"
         height="700"
         src="https://www.sciencedirect.com/science/article/pii/S0927025616304712?via%3Dihub"
