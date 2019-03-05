@@ -144,8 +144,16 @@ PFHub infrastructure provides a template for other small scientific
 communities to host custom content and integrate data from members of
 their community.
 
+![Figure 1](./pfhub_website.svg)
+
+Figure 1 shows the PFHub upload workflow. The user first uploads
+simulation data to an archival service such as BackBlaze or Figshare
+and then submits metadata about the simulation in a webform using
+Staticman. The website uses a combination of Jekyll templates and
+Coffeescript to automate displaying the data on the frontend.
+
 # Acknowledgments
 
-Acknowlege MGI funding???
+Acknowledge MGI funding???
 
 # References
