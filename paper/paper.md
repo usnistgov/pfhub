@@ -97,11 +97,12 @@ decomposition, grain growth). However, phase field research groups
 often develop codes in isolation and do not publish the code bases or
 do not support or distribute the code bases to the wider
 community. PFHub is a community effort spearheaded by the Center for
-Hierarchical Materials Design and the National Institute of Standards
-and Technology to support the development of phase field codes. The
-goal of PFHub is to improve cross-collaboration between phase field
-code developers and practitioners by providing a site to compare results
-from different codes on a standardized set of benchmark problems.
+Hierarchical Materials Design at Northwestern University and the
+National Institute of Standards and Technology to support the
+development of phase field codes. The goal of PFHub is to improve
+cross-collaboration between phase field code developers and
+practitioners by providing a site to compare results from different
+codes on a standardized set of benchmark problems.
 
 # Website
 
@@ -117,14 +118,15 @@ communities with limited funding and manpower [@csmfree].
 The workflow for uploading benchmark results relies on third party tools
 using the following steps.
 
- - The users are first required to archive simulation results at a
+ - The users are first required to archive simulation outputs at a
    recommended archival resource (e.g. Figshare).
 
  - The simulation result metadata is entered into a form on the
-   website. The form provides entry boxes for links to the simulation
-   result data.
+   website and includes entries for simple details such as memory
+   usage, run time and links to the simulation outputs stored in an
+   archival resource.
 
- - The [Staticman app](https://staticman.net/) is used to send the
+ - On submission the [Staticman app](https://staticman.net/) is used to send the
    entered metadata to a GitHub pull request in a meta.yaml file that
    is added in a unique directory in the PFHub GitHub repository.
 
