@@ -126,23 +126,23 @@ using the following steps.
    usage, run time and links to the simulation outputs stored in an
    archival resource.
 
- - On submission the [Staticman app](https://staticman.net/) is used to send the
-   entered metadata to a GitHub pull request in a meta.yaml file that
-   is added in a unique directory in the PFHub GitHub repository.
+ - On submission, the [Staticman app](https://staticman.net/) submits
+   the entered metadata as a GitHub pull request to the PFHub GitHub
+   repository. The metadata is stored in a YAML file with a unique
+   path in the repository.
 
- - Travis CI performs linting on the data and fires up a new version
-   of the website using [Surge](https://surge.sh/) so that the PFHub
-   admins and users can check the new submission and make changes if
-   necessary.
+ - Travis CI performs linting on the sumbission and then launches a
+   new version of the website using [Surge](https://surge.sh/). The
+   PFHub admins can then examine the new submission and
+   further changes can be made if necessary.
 
 A combination of Jekyll templates and Coffeescript is used to access
-and download the data links in the meta.yaml files and then display
-the data in custom figures on the website. The combination of using
-the GitHub repository along with third party archival repositories to
-store metadata / data records avoids having to maintain a live
-database and associated backend app, which is difficult to manage for
-a small scientific project with limited funding and manpower. The
-PFHub infrastructure provides a template for other small scientific
+and download the data links in the submitted YAML files and then
+display the data in custom figures on the website. The combination of
+using the GitHub repository along with third party archival
+repositories to store metadata / data records avoids having to
+maintain a live database and associated backend app. The PFHub
+infrastructure provides a template for other small scientific
 communities to host custom content and integrate data from members of
 their community.
 
