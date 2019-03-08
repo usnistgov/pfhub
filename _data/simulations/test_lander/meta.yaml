@@ -1,5 +1,5 @@
 benchmark:
-  id: 5a
+  id: fake
   version: 1
 data:
 - name: memory_usage
