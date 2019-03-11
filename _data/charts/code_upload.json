@@ -51,49 +51,6 @@
       "values": []
     }
   ],
-  "data": [
-    {
-      "name": "code_uploads",
-      "values": [
-        {
-          "count": 58,
-          "name": "moose"
-        },
-        {
-          "count": 10,
-          "name": "mmsp"
-        },
-        {
-          "count": 9,
-          "name": "prisms"
-        },
-        {
-          "count": 8,
-          "name": "fenics"
-        },
-        {
-          "count": 8,
-          "name": "sfepy"
-        },
-        {
-          "count": 7,
-          "name": "fipy"
-        },
-        {
-          "count": 4,
-          "name": "custom"
-        },
-        {
-          "count": 3,
-          "name": "matlab"
-        },
-        {
-          "count": 1,
-          "name": "hiperc"
-        }
-      ]
-    }
-  ],
   "height": 115,
   "marks": [
     {

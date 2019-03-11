@@ -50,45 +50,45 @@ def groupby_count(func):
     return pipe(get_yaml_data(), map(get(1)), groupby(func), valmap(count))
 
 
-def code_upload_yaml_path():
-    """Path to the upload chart j2.
-    """
-    return os.path.join(get_path(), "charts", "code_upload.yaml.j2")
+# def code_upload_yaml_path():
+#     """Path to the upload chart j2.
+#     """
+#     return os.path.join(get_path(), "charts", "code_upload.yaml.j2")
 
 
-def make_upload_chart(gfunc, yaml_path, json_path, title):
-    """Create an upload chart
+# def make_upload_chart(gfunc, yaml_path, json_path, title):
+#     """Create an upload chart
 
-    Args:
-      gfunc: the group by function
-      yaml_path: the template path
-      json_path: the path to write to
-      title: the title of the chart
+#     Args:
+#       gfunc: the group by function
+#       yaml_path: the template path
+#       json_path: the path to write to
+#       title: the title of the chart
 
-    Returns:
-      the chart JSON
-    """
-    return pipe(
-        gfunc,
-        groupby_count,
-        lambda data: list(data.items()),
-        lambda data: sorted(data, key=lambda item: (-item[1], item[0])),
-        lambda data: j2_to_json(yaml_path, json_path, data=data, title=title),
-    )
+#     Returns:
+#       the chart JSON
+#     """
+#     return pipe(
+#         gfunc,
+#         groupby_count,
+#         lambda data: list(data.items()),
+#         lambda data: sorted(data, key=lambda item: (-item[1], item[0])),
+#         lambda data: j2_to_json(yaml_path, json_path, data=data, title=title),
+#     )
 
 
 if __name__ == "__main__":
     make_table_yaml()
-    make_upload_chart(
-        lambda item: item["metadata"]["implementation"]["name"],
-        code_upload_yaml_path(),
-        os.path.join(get_path(), "../_data/charts/code_upload.json"),
-        "Uploads per Code",
-    )
+    # make_upload_chart(
+    #     lambda item: item["metadata"]["implementation"]["name"],
+    #     code_upload_yaml_path(),
+    #     os.path.join(get_path(), "../_data/charts/code_upload.json"),
+    #     "Uploads per Code",
+    # )
 
-    make_upload_chart(
-        lambda item: item["benchmark"]["id"],
-        code_upload_yaml_path(),
-        os.path.join(get_path(), "../_data/charts/benchmark_upload.json"),
-        "Uploads per Benchmark",
-    )
+    # make_upload_chart(
+    #     lambda item: item["benchmark"]["id"],
+    #     code_upload_yaml_path(),
+    #     os.path.join(get_path(), "../_data/charts/benchmark_upload.json"),
+    #     "Uploads per Benchmark",
+    # )

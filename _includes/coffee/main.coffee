@@ -109,3 +109,31 @@ github_to_raw = (data) ->
       else
         data
   )(data)
+
+
+count_uploads_per = (f) ->
+  sequence(
+    Object.entries
+    groupBy((x) -> f(x[1]))
+    Object.entries
+    map(
+      (x) ->
+        {
+          count:x[1].length
+          name:x[0]
+        }
+    )
+    filter((x) -> x.name isnt 'fake')
+    sortBy((x) -> x.count)
+    (x) -> x.reverse()
+  )
+
+
+count_uploads_per_id = count_uploads_per(
+  (x) -> x.meta.benchmark.id
+)
+
+
+count_uploads_per_code = count_uploads_per(
+  (x) -> x.meta.metadata.implementation.name
+)
