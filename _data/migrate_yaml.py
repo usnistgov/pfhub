@@ -9,10 +9,31 @@ import os
 import glob
 
 # pylint: disable=redefined-builtin
-from toolz.curried import pipe, valmap, itemmap, do, map
+from toolz.curried import pipe, valmap, itemmap, do, get, map
 import yaml
 
-from simulations import get_path, read_yaml
+
+def get_path():
+    """Return the local file path for this file.
+
+    Returns:
+      the filepath
+    """
+    return pipe(__file__, os.path.realpath, os.path.split, get(0))
+
+
+def read_yaml(filepath):
+    """Read a YAML file
+
+    Args:
+      filepath: the path to the YAML file
+
+    Returns:
+      returns a dictionary
+    """
+    with open(filepath) as stream:
+        data = yaml.safe_load(stream)
+    return data
 
 
 def migrate(func):

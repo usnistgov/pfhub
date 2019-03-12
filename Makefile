@@ -27,13 +27,7 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 
 yamllint: $(YAML_FILES_OUT)
 
-data_table: _data/data_table.py
-	python _data/data_table.py
-
-doi_data: _data/to_doi_csv.py
-	python _data/to_doi_csv.py
-
-simulations: yamllint data_table
+simulations: yamllint
 
 hexbin: $(HEXBIN_OUT)
 
