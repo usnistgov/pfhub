@@ -109,3 +109,65 @@ github_to_raw = (data) ->
       else
         data
   )(data)
+
+
+count_uploads_per = (f) ->
+  sequence(
+    Object.entries
+    filter((x) -> x[1].meta.benchmark.id isnt 'fake')
+    groupBy((x) -> f(x[1]))
+    Object.entries
+    map(
+      (x) ->
+        {
+          count:x[1].length
+          name:x[0]
+        }
+    )
+    sortBy((x) -> x.count)
+    (x) -> x.reverse()
+  )
+
+
+count_uploads_per_id = count_uploads_per(
+  (x) -> x.meta.benchmark.id
+)
+
+
+count_uploads_per_code = count_uploads_per(
+  (x) -> x.meta.metadata.implementation.name
+)
+
+
+total_uploads = (data) ->
+  count_uploads_per((x) -> null)(data)[0].count
+
+
+make_table_data = sequence(
+  Object.entries
+  map((x) -> [x[0], x[1].meta])
+  filter((x) -> x[1].benchmark.id isnt 'fake')
+  map(
+    (x) ->
+      {
+        name:x[0]
+        author:
+          {
+            email:x[1].metadata.author.email
+            name:x[1].metadata.author.first + ' ' + x[1].metadata.author.last
+          }
+        code:
+          {
+            name:x[1].metadata.implementation.name
+            url:x[1].metadata.implementation.repo.url
+          }
+        cores:x[1].metadata.hardware.cores
+        id_:x[1].benchmark.id + '.' + x[1].benchmark.version
+        timestamp:to_iso(x[1].metadata.timestamp)
+      }
+  )
+)
+
+
+to_iso = (x) ->
+  (new Date(x)).toISOString().substring(0, 19)

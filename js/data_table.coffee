@@ -1,6 +1,9 @@
 ---
 ---
 
+{% include coffee/essential.coffee %}
+{% include coffee/main.coffee %}
+
 fname = (data, type, row) ->
   '<a href="{{ site.baseurl }}/simulations/display/?sim=' + data + '" target="_blank">' + data + '</a>'
 
@@ -20,7 +23,7 @@ fbenchmark = (data, type, row) ->
   '<a href="{{ site.baseurl }}/simulations/' + data + '">' + data + '</a>'
 
 create_table = (data_in) ->
-  data_raw = data_in['data']
+  data_raw = data_in
 
   data_filter = (datum for datum in data_raw when datum['id_'] is BENCHMARK_ID)
 
@@ -68,4 +71,9 @@ create_table = (data_in) ->
 
   $(document).ready func
 
-create_table({{ site.data.data_table | jsonify }})
+
+create_table(
+  make_table_data(
+    {{ site.data.simulations | jsonify }}
+  )
+)
