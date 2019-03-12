@@ -376,57 +376,6 @@ def main(filter_func, j2_file_name):
     )
 
 
-def landing_page_j2():
-    """Get the name of the chart file
-
-    Returns:
-      the chart YAML file
-
-    """
-    return os.path.join(get_path(), "charts", "simulations.yaml.j2")
-
-
-def landing_page_json():
-    """Generate the landing page JSON vega spec.
-
-    Returns:
-      (filepath, chart_json) pairs
-    """
-
-    def extract_id(name):
-        """Extract benchmark ID from png path
-        """
-        return name.replace("../images/", "").replace("_free_energy.png", "")
-
-    return pipe(
-        [
-            "1a.1_free_energy.png",
-            "1b.1_free_energy.png",
-            "1c.1_free_energy.png",
-            "1d.1_free_energy.png",
-            "2a.1_free_energy.png",
-            "2b.1_free_energy.png",
-            "2c.1_free_energy.png",
-            "2d.1_free_energy.png",
-        ],
-        map(lambda name: os.path.join("..", "images", name)),
-        enumerate,
-        map(
-            lambda tup: (
-                lambda count, name: dict(
-                    path=name, col=(count % 4), row=count // 4, link=extract_id(name)
-                )
-            )(*tup)
-        ),
-        list,
-        lambda data: j2_to_json(
-            landing_page_j2(),
-            os.path.join(get_path(), "../_data/charts", "simulations.json"),
-            data=data,
-        ),
-    )
-
-
 def j2_to_json(path_in, path_out, **kwargs):
     """Render a yaml.j2 chart to JSON.
 
@@ -440,9 +389,3 @@ def j2_to_json(path_in, path_out, **kwargs):
     return pipe(
         render_yaml(path_in, **kwargs), yaml.load, write_json(filepath=path_out)
     )
-
-
-if __name__ == "__main__":
-    main(filter_data("free_energy"), "free_energy.yaml.j2")
-    main(filter_memory_data, "memory.yaml.j2")
-    landing_page_json()

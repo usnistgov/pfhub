@@ -27,22 +27,16 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 
 yamllint: $(YAML_FILES_OUT)
 
-build_charts: _data/simulations.py $(YAML_FILES_OUT)
-	python _data/simulations.py
-
 data_table: _data/data_table.py
 	python _data/data_table.py
 
 doi_data: _data/to_doi_csv.py
 	python _data/to_doi_csv.py
 
-simulations: yamllint build_charts data_table
+simulations: yamllint data_table
 
 hexbin: $(HEXBIN_OUT)
 
 notebooks: $(NOTEBOOKS_HTML) $(NOTEBOOKS_MD)
 
 print-%  : ; @echo $* = $($*)
-
-install:
-	echo "fake install"
