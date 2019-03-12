@@ -45,3 +45,6 @@ make_chart(
   "#upload_code_barchart"
   count_uploads_per_code(DATA)
 )
+
+
+$('#total_uploads').html('Total Uploads: ' + total_uploads(DATA))
