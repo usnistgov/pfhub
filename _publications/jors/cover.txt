@@ -1,0 +1,39 @@
+Daniel Wheeler
+National Institute of Standards and Technology
+100 Bureau Drive
+Gaithersburg, MD 20899
+USA
+email: daniel.wheeler@nist.gov
+
+2019-04-17
+
+Dear Dr. Neil Chue Hong,
+
+I am submitting a paper entitled "PFHub: The Phase Field Community
+Hub" for your consideration for publication in the software metapaper
+category. The manuscript describes a custom online portal (see
+https://pages.nist.gov/pfhub) that we have developed for sharing and
+comparing simulation results from the phase field community. We feel
+that our code-base and content management system (CMS) free approach
+is novel in its construction and differs from other similar approaches
+that tend to depend heavily on CMS's that require long term support.
+Our approach is valuable to other small scientific communities that
+might not have the resources to support a custom CMS deployment.
+
+The manuscript fits well with the stated goals of the journal as it
+describes an approach to deploying a platform that could be readily
+adopted by other groups and is well documented and tested as well as
+having a fully open source code base. The paper differs from other
+papers in the journal as it does not describe an installable tool for
+solving a scientific problem, but a platform that needs to be launched
+and customized for a particular use case. However, we feel that this
+is still within the bounds of research software with high reuse
+potential.
+
+The manuscript is an original work, written exclusively by the stated
+authors and is not under consideration at any other journal. The
+authors have all stated that there are no conflicts of interest.
+
+Sincerely,
+
+Daniel Wheeler
