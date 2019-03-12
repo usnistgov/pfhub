@@ -152,11 +152,15 @@ make_table_data = sequence(
       {
         name:x[0]
         author:
-          email:x[1].metadata.author.email
-          name:x[1].metadata.author.first + ' ' + x[1].metadata.author.last
+          {
+            email:x[1].metadata.author.email
+            name:x[1].metadata.author.first + ' ' + x[1].metadata.author.last
+          }
         code:
-          name:x[1].metadata.implementation.name
-          url:x[1].metadata.implementation.repo.url
+          {
+            name:x[1].metadata.implementation.name
+            url:x[1].metadata.implementation.repo.url
+          }
         cores:x[1].metadata.hardware.cores
         id_:x[1].benchmark.id + '.' + x[1].benchmark.version
         timestamp:to_iso(x[1].metadata.timestamp)
