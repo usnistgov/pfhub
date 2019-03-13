@@ -9,15 +9,20 @@
 \rhead{\footnotesize 3}
 \rhead{\textcolor{gray}{UP JORS software Latex paper template version 0.1}}
 
+\usepackage{biblatex}
+\usepackage{hyperref}
+\bibliography{paper}
+
+
 \begin{document}
 
-{\bf Software paper for submission to the Journal of Open Research Software} \\
+%% {\bf Software paper for submission to the Journal of Open Research Software} \\
 
-To complete this template, please replace the blue text with your own. The paper has three main sections: (1) Overview; (2) Availability; (3) Reuse potential. \\
+%% To complete this template, please replace the blue text with your own. The paper has three main sections: (1) Overview; (2) Availability; (3) Reuse potential. \\
 
-Please submit the completed paper to: editor.jors@ubiquitypress.com
+%% Please submit the completed paper to: editor.jors@ubiquitypress.com
 
-\rule{\textwidth}{1pt}
+%% \rule{\textwidth}{1pt}
 
 \section*{(1) Overview}
 
@@ -25,20 +30,64 @@ Please submit the completed paper to: editor.jors@ubiquitypress.com
 
 \section*{Title}
 
-\textcolor{blue}{The title of the software paper should focus on the software, e.g. “Text mining software from the X project”. If the software is closely linked to a specific research paper, then “Software from Paper Title” is appropriate. The title should be factual, relating to the functionality of the software and the area it relates to rather than making claims about the software, e.g. “Easy-to-use”.}
+PFHub: The Phase-Field Community Hub
 
 \section*{Paper Authors}
 
-\textcolor{blue}{1. Last name, first name; (Lead/corresponding author first) \\
-2. Last name, first name; etc.}
+1. Wheeler, Daniel; (corresponding author) 1\\
+2. Keller, Trevor; 1\\
+3. DeWitt, Stephen J.; 6\\
+4. Jokisaari, Andrea M.; 5\\
+5. Schwen, Daniel; 5\\
+6. Guyer, Jonathan E.; 1\\
+7. Aagesen, Larry; 5\\
+8. Heinonen, Olle G.; 2\\
+9. Voorhees, Peter W.; 4\\
+10. Warren, James A.; 3
 
 \section*{Paper Author Roles and Affiliations}
-\textcolor{blue}{1. First author role and affiliation \\
-2. Second author role and affiliation etc.}
+
+1. Materials Science and Engineering Division, \\
+Material Measurement Laboratory, \\
+National Institute of Standards and Technology,\\
+Gaithersburg, MD 20899 USA
+
+2. Argonne National Laboratory, \\
+Lemont, IL 60439 USA
+
+3. Laboratory Office, \\
+Material Measurement Laboratory, \\
+National Institute of Standards and Technology, \\
+Gaithersburg, MD 20899 USA
+
+4. Department of Materials Science and Engineering, \\
+Northwestern University, \\
+Evanston, IL 60208 USA
+
+5. Fuel Modeling and Simulation Department, \\
+Idaho National Laboratory, \\
+Idaho Falls, ID 83415 USA
+
+6. Materials Science and Engineering Department, \\
+University of Michigan, \\
+Ann Arbor, MI 48109 USA
+
+7. Materials Science and Engineering Department, \\
+University of Michigan, \\
+Ann Arbor, MI 48109 USA
 
 \section*{Abstract}
 
-\textcolor{blue}{A short (ca. 100 word) summary of the software being described: what problem the software addresses, how it was implemented and architected, where it is stored, and its reuse potential.}
+Scientific research communities often require an online portal to
+summarize a shared challenge, collect attempts at a solution, and
+present a quantitative comparison of past attempts in a compelling
+way. An examplar of such a portal is $\mu$MAG~\cite{mumag}. The
+reusable PFHub framework leverages existing online services to build a
+static portal website that is considerably easier to deploy and
+maintain without sacrificing content or scope. The first deployment of
+the PFHub framework supports phase-field practitioners and code
+developers participating in an effort to improve quality assurance for
+phase-field codes.
 
 \section*{Keywords}
 
@@ -82,7 +131,7 @@ Keywords should make it easy to identify who and what the software will be usefu
 
 \section*{Software location:}
 
-{\bf Archive} \textcolor{blue}{(e.g. institutional repository, general repository) (required – please see instructions on journal website for depositing archive copy of software in a suitable repository)} 
+{\bf Archive} \textcolor{blue}{(e.g. institutional repository, general repository) (required – please see instructions on journal website for depositing archive copy of software in a suitable repository)}
 
 \begin{description}[noitemsep,topsep=0pt]
 	\item[Name:] \textcolor{blue}{The name of the archive.}
@@ -135,11 +184,13 @@ Keywords should make it easy to identify who and what the software will be usefu
 If there are no competing interests, please add the statement:
 “The authors declare that they have no competing interests.” }
 
-\section*{References}
+%% \section*{References}
 
-\textcolor{blue}{Please enter references in the Harvard style and include a DOI where available, citing them in the text with a number in square brackets, e.g. \\ }
+\printbibliography
 
-\textcolor{blue}{[1] Piwowar, H A 2011 Who Shares? Who Doesn't? Factors Associated with Openly Archiving Raw Research Data. PLoS ONE 6(7): e18657. DOI: \\ http://dx.doi.org/10.1371/journal.pone.0018657.}
+%% \textcolor{blue}{Please enter references in the Harvard style and include a DOI where available, citing them in the text with a number in square brackets, e.g. \\ }
+
+%% \textcolor{blue}{[1] Piwowar, H A 2011 Who Shares? Who Doesn't? Factors Associated with Openly Archiving Raw Research Data. PLoS ONE 6(7): e18657. DOI: \\ http://dx.doi.org/10.1371/journal.pone.0018657.}
 
 \vspace{2cm}
 

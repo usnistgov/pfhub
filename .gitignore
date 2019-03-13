@@ -2,8 +2,4 @@ _site
 _misc
 .cache
 .local
-_publications/jors/*.log
-_publications/jors/*.out
-_publications/jors/*.pdf
-_publications/jors/*.aux
-_publications/jors/.*
+_publications/jors/build
