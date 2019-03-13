@@ -1,10 +1,11 @@
 PROJECT=paper
+BUILD=./build
 
 .PHONY: all clean
 
 all:
-	mkdir -p build
-	latexmk -pdf -jobname=./build/${PROJECT} ${PROJECT}
+	mkdir -p ${BUILD}
+	latexmk -pdf -jobname=${BUILD}/${PROJECT} ${PROJECT}
 
 clean:
-	rm -rf build
+	rm -rf ${BUILD}
