@@ -1,16 +1,10 @@
 PROJECT=paper
 
-build/${PROJECT}.pdf: build/${PROJECT}.bbl
-	pdflatex --output-directory=build ${PROJECT}
+.PHONY: all clean
 
-build/${PROJECT}.bbl: build/${PROJECT}.bcf
-	biber build/${PROJECT}
-
-build/${PROJECT}.bcf: ${PROJECT}.tex build
-	pdflatex --output-directory=build ${PROJECT}
-
-build:
+all:
 	mkdir -p build
+	latexmk -pdf -jobname=./build/${PROJECT} ${PROJECT}
 
 clean:
 	rm -rf build
