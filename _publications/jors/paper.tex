@@ -36,6 +36,8 @@
 
 PFHub: The Phase-Field Community Hub
 
+\url{https://pages.nist.gov/pfhub}
+
 \section*{Paper Authors}
 
 1. Wheeler, Daniel; (corresponding author) A\\
@@ -187,6 +189,8 @@ and consists of the following steps.
     build time.
   \item Run automated tests on Jupyter Notebooks using
     NBval~\cite{nbval} and Py.test~\cite{pytest}.
+  \item Run validation tests on HTML files using
+    HTMLProofer~\cite{htmlproofer}.
   \item Lint and test front-end Coffeescript using appropriate tools.
   \item Display a temporary version of the website using
     Surge~\cite{surge} for visual review.
@@ -200,6 +204,7 @@ The PFHub framework can be deployed on any platform supporting Nix,
 which includes all contemporary Linux and Mac OS X platforms. However,
 since the framework is built with Jekyll and automated front-end
 processing it can be deployed on GitHub's Pages infrastructure.
+
 
 \section*{Programming language}
 
@@ -262,7 +267,6 @@ See the contributors list on GitHub~\cite{contributors}.
 	\item[Date published:] 13/03/19
 \end{description}
 
-
 {\bf Code repository}
 
 \begin{description}[noitemsep,topsep=0pt]
@@ -278,25 +282,38 @@ English
 
 \section*{(3) Reuse potential}
 
-\textcolor{blue}{Please describe in as much detail as possible the
-  ways in which the software could be reused by other researchers both
-  within and outside of your field. This should include the use cases
-  for the software, and also details of how the software might be
-  modified or extended (including how contributors should contact you)
-  if appropriate. Also you must include details of what support
-  mechanisms are in place for this software (even if there is no
-  support).}
+The website infrastructure can be forked and deployed with minimum
+effort including the upload mechanism using Staticman. However,
+customizing the website for a particular scientific community would
+require considerable effort. The following steps are the more
+challenging aspects of deploying the framework for a new community.
+
+\begin{itemize}
+  \item Edit or upload new Jupyter Notebooks with benchmark or data
+    requirement descriptions.
+  \item Edit the \texttt{benchmarks.yaml} file to reflect the new
+    upload requirements and describe the figures that need to be
+    generated on the upload comparison pages.
+  \item Edit the \texttt{\_config.yml} file to update links and text
+    related to the configuration for all aspects of the website.
+  \item Update Markdown files to reflect the new content and mission
+    of the scientific community.
+  \item Remove data and files that are not required by the new
+    community.
+\end{itemize}
+
+Currently, a deployment for a new community has not been attempted
+and, thus, the above steps need to be refined and documented.
 
 \section*{Acknowledgments}
 
-\textcolor{blue}{Please add any relevant acknowledgments to anyone
-  else who supported the project in which the software was created,
-  but did not work directly on the software itself.}
+We gratefully acknowledge input and guidance from all participants in
+the series of Phase-Field workshops held between 2015 and 2018 at the
+Center for Hierarchical Material Design~\cite{workshops}.
 
 \section*{Funding statement}
 
-\textcolor{blue}{If the software resulted from funded research please
-  give the funder and grant number.}
+Ask Jim for this text.
 
 \section*{Competing interests}
 
