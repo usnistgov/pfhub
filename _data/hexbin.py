@@ -3,6 +3,7 @@
 
 import itertools
 from random import shuffle
+import sys
 
 import json
 import io
@@ -10,7 +11,6 @@ import urllib
 
 import yaml
 from PIL import Image
-import progressbar
 import requests
 
 
@@ -67,23 +67,14 @@ def thumbnail_image(image_url, size):
 def hexbin_image(data, x_size, y_size, ni_count, nj_count):
     """Build the combined thumbnails
     """
-    widgets = [
-        progressbar.Percentage(),
-        " ",
-        progressbar.Bar(marker=progressbar.RotatingMarker()),
-        " ",
-        progressbar.ETA(),
-    ]
-
-    pbar = progressbar.ProgressBar(widgets=widgets, maxval=len(data)).start()
+    image_count = len(data)
 
     for counter, datum in enumerate(data):
         image_url = datum["image"]
         image = thumbnail_image(image_url, (x_size, y_size))
         datum["thumbnail"] = image
-        pbar.update(counter + 1)
-
-    pbar.finish()
+        sys.stdout.write(f"\rProgress: {counter} / {image_count}")
+        sys.stdout.flush()
 
     blank_image = Image.new(
         "RGB", (x_size * nj_count, y_size * ni_count), (255, 255, 255, 0)
