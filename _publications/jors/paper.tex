@@ -30,7 +30,7 @@
 
 \vspace{0.5cm}
 
-\section{Title}
+\section*{Title}
 \par\bigskip
 PFHub: The Phase-Field Community Hub\\[\baselineskip]
 \url{https://pages.nist.gov/pfhub}
@@ -84,12 +84,19 @@ Gaithersburg, MD 20899 USA
 Scientific research communities often require an online portal to
 summarize a shared challenge, collect attempts at a solution, and
 present a quantitative comparison of past attempts in a compelling
-way. An exemplar of such a portal is $\mu$MAG~\cite{mumag}. The
-reusable PFHub framework leverages existing online services to build a
-static portal website that is considerably easier to deploy and
-maintain without sacrificing content or scope. The first deployment of
-the PFHub framework supports phase-field practitioners and code
-developers participating in an effort to improve quality assurance for
+way. An exemplar of such a portal is
+$\mu$MAG~\cite{mumag}~\footnote{Certain commercial equipment,
+  instruments, or materials (or suppliers, or software, ...) are
+  identified in this paper to foster understanding. Such
+  identification does not imply recommendation or endorsement by the
+  National Institute of Standards and Technology, nor does it imply
+  that the materials or equipment identified are necessarily the best
+  available for the purpose.\label{disclaimer}}. The reusable PFHub
+framework leverages existing online services to build a static portal
+website that is considerably easier to deploy and maintain without
+sacrificing content or scope. The first deployment of the PFHub
+framework supports phase-field practitioners and code developers
+participating in an effort to improve quality assurance for
 phase-field codes.
 
 \section*{Keywords}
@@ -102,20 +109,21 @@ The phase-field method (PFM) describes material interfaces at the
 mesoscopic scale between atomic scale models and macroscale models.
 The PFM is well established and there are an assortment of code
 frameworks (\emph{e.g.}, Moose~\cite{moose},
-PRISMS-PF~\cite{prisms-pf}, FiPy~\cite{fipy}, MMSP~\cite{mmsp})
-available for solving the wide variety of phenomena associated with
-phase-field (\emph{e.g.}, dendritic growth, spinodal decomposition,
-grain growth). However, phase-field research groups often develop
-codes in isolation and do not publish the code bases or do not support
-or distribute the code bases to the wider community. PFHub is a
+PRISMS-PF~\cite{prisms-pf}, FiPy~\cite{fipy},
+MMSP~\cite{mmsp}~\textsuperscript{\ref{disclaimer}}) available for
+solving the wide variety of phenomena associated with phase-field
+(\emph{e.g.}, dendritic growth, spinodal decomposition, grain
+growth). However, phase-field research groups often develop codes in
+isolation and do not publish the code bases or do not support or
+distribute the code bases for the wider community. PFHub is a
 community effort spearheaded by the Center for Hierarchical Materials
 Design at Northwestern University and the National Institute of
-Standards and Technology to support the development of phase-field
-codes. The goal of PFHub is to improve cross-collaboration between
-phase-field code developers and practitioners by providing a
-standardized set of benchmark problems~\cite{bm1, bm2} along with a
-web framework for uploading and comparing benchmark results from
-different codes.
+Standards and Technology to support the development of phase field
+codes. In particular, the PFHub effort focuses on improving
+cross-collaboration between phase-field code developers and
+practitioners by providing a standardized set of benchmark
+problems~\cite{bm1, bm2} along with a web framework for uploading and
+comparing benchmark results from different codes.
 
 \section*{Implementation and architecture}
 
@@ -132,7 +140,7 @@ tools using the following steps, illustrated in
 Figure~\ref{fig:pfhub_website}.
 
 \begin{itemize}
-  \item The users are first required to archive simulation outputs at
+  \item The users are first required to upload simulation outputs to
     an archival resource (\emph{e.g.}, Figshare) configured with
     permissive cross-origin resource sharing (CORS).
   \item The metadata summarizing each simulation is entered into a
@@ -143,7 +151,7 @@ Figure~\ref{fig:pfhub_website}.
     repository.  The metadata is stored in a YAML file with a unique
     path in the repository.
   \item Travis CI~\cite{travis} performs linting on the submission and
-    then launches a new version of the website using
+    then launches a temporary version of the proposed website using
     Surge~\cite{surge}. The PFHub admins can then examine the new
     submission and further changes can be made if necessary.
   \item Once review has been completed to the satisfaction of both the
@@ -158,12 +166,13 @@ display the data in interactive figures on the website. The
 combination of a central repository on GitHub for website source code
 and metadata with distributed data records on third-party archives
 avoids the complexity and administrative overhead of maintaining a
-live database and associated backend app. The PFHub infrastructure
-provides a template for other small scientific communities to host
-custom content and integrate data from members of their community.
+live database and associated back-end application. The PFHub
+infrastructure provides a template for other small scientific
+communities to host custom content and integrate data from members of
+their community.
 
 \begin{figure}
-  \includegraphics[width=4in]{pfhub_website.png}
+  \includegraphics[width=\textwidth]{pfhub_website.png}
   \caption{Schematic overview of the PFHub framework for building
     scientific research portals, simply.}
   \centering
@@ -205,8 +214,8 @@ processing it can be deployed on GitHub's Pages infrastructure.
 
 \section*{Programming language}
 
-PFHub is currently built and tested using the programming language and
-versions outlined in Table~\ref{tab:versions}.
+PFHub is currently built and tested using the programming languages
+and versions outlined in Table~\ref{tab:versions}.
 
 \begin{table}[h!]
   \centering
@@ -280,15 +289,17 @@ English
 
 \section*{(3) Reuse potential}
 
-The website infrastructure can be forked and deployed with minimum
-effort including the upload mechanism using Staticman. However,
-customizing the website for a particular scientific community would
-require considerable effort. The following steps are the more
-challenging aspects of deploying the framework for a new community.
+The website infrastructure can be cloned as a Git repository or
+downloaded as a ZIP archive and deployed with minimum effort. The
+mechanism for uploading data using Staticman can be easily configured
+for a new repository location. However, customizing the content of the
+website for a particular scientific community would require
+considerable effort. The following steps are the more challenging
+aspects of deploying the framework for a new community.
 
 \begin{itemize}
-  \item Edit or upload new Jupyter Notebooks with benchmark or data
-    requirement descriptions.
+  \item Upload new benchmark defintions in a format that Jekyll can
+    parse, \emph{e.g.}, Jupyter Notebook, Markdown or HTML.
   \item Edit the \texttt{benchmarks.yaml} file to reflect the new
     upload requirements and describe the figures that need to be
     generated on the upload comparison pages.
@@ -318,26 +329,6 @@ allocated to the National Institute of Standards and Technology.
 
 The authors declare that they have no competing interests.
 
-%% \section*{References}
-
 \printbibliography
-
-%% \textcolor{blue}{Please enter references in the Harvard style and include a DOI where available, citing them in the text with a number in square brackets, e.g. \\ }
-
-%% \textcolor{blue}{[1] Piwowar, H A 2011 Who Shares? Who Doesn't? Factors Associated with Openly Archiving Raw Research Data. PLoS ONE 6(7): e18657. DOI: \\ http://dx.doi.org/10.1371/journal.pone.0018657.}
-
-\vspace{2cm}
-
-\rule{\textwidth}{1pt}
-
-{ \bf Copyright Notice} \\
-Authors who publish with this journal agree to the following terms: \\
-
-Authors retain copyright and grant the journal right of first publication with the work simultaneously licensed under a  \href{http://creativecommons.org/licenses/by/3.0/}{Creative Commons Attribution License} that allows others to share the work with an acknowledgement of the work's authorship and initial publication in this journal. \\
-
-Authors are able to enter into separate, additional contractual arrangements for the non-exclusive distribution of the journal's published version of the work (e.g., post it to an institutional repository or publish it in a book), with an acknowledgement of its initial publication in this journal. \\
-
-By submitting this paper you agree to the terms of this Copyright Notice, which will apply to this submission if and when it is published by this journal.
-
 
 \end{document}
