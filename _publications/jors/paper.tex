@@ -15,8 +15,6 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
-
-
 \begin{document}
 
 \newcommand\githublink[1]{\href{https://github.com/#1/}{\texttt{\textbf{@#1}}}}
@@ -32,11 +30,9 @@
 
 \vspace{0.5cm}
 
-\section*{Title}
-
-PFHub: The Phase-Field Community Hub
-\\
-\\
+\section{Title}
+\par\bigskip
+PFHub: The Phase-Field Community Hub\\[\baselineskip]
 \url{https://pages.nist.gov/pfhub}
 
 \section*{Paper Authors}
@@ -240,8 +236,9 @@ There are no additional system requirements.
 
 The entire environment can be built using the Nix Package Manager so
 the only required dependency is a functional Nix installation. The
-full set of dependencies are extensive and fully outlined in the Nix
-recipe stored in the repository~\cite{nix-recipe}.
+PFHub framework has over 2000 separate package dependencies using
+data from the Nix package manager. The full dependency graph for PFHub
+can be seen online~\cite{dependencies}.
 
 \section*{List of contributors}
 
@@ -314,8 +311,8 @@ Center for Hierarchical Material Design~\cite{workshops}.
 
 \section*{Funding statement}
 
-The authors acknowledge the Material Genome Initiative funding
-allocated to National Institute of Standards and Technology.
+D.W. wishes to acknowledge the Materials Genome Initiative funding
+allocated to the National Institute of Standards and Technology.
 
 \section*{Competing interests}
 
