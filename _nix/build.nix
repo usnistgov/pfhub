@@ -27,8 +27,6 @@ in
     pypkgs.flake8
     pypkgs.pylint
     pypi2nix.packages."pykwalify"
-    pypi2nix.packages."vega"
-    pypi2nix.packages."progressbar2"
     pypkgs.pytest
     pypkgs.ipywidgets
     pkgs.nodejs
