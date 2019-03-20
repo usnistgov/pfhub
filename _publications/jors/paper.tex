@@ -6,7 +6,6 @@
 \pagestyle{fancy}
 \definecolor{mygray}{gray}{0.6}
 \renewcommand\headrule{}
-\rhead{\footnotesize 3}
 
 \usepackage{biblatex}
 \usepackage{hyperref}
@@ -14,6 +13,9 @@
 
 \usepackage{graphicx}
 \usepackage{hyperref}
+
+\setlength{\parskip}{\baselineskip}%
+\setlength{\parindent}{0pt}%
 
 \begin{document}
 
@@ -45,9 +47,9 @@ PFHub: The Phase-Field Community Hub\\[\baselineskip]
 6. Guyer, Jonathan E.; A\\
 7. Aagesen, Larry; D\\
 8. Heinonen, Olle G.; B\\
-9. Tonks, Michael R.; H\\
+9. Tonks, Michael R.; G\\
 10. Voorhees, Peter W.; C\\
-11. Warren, James A.; G
+11. Warren, James A.; F
 
 \section*{Paper Author Roles and Affiliations}
 
@@ -71,23 +73,19 @@ E. Materials Science and Engineering Department, \\
 University of Michigan, \\
 Ann Arbor, MI 48109 USA
 
-F. Materials Science and Engineering Department, \\
-University of Michigan, \\
-Ann Arbor, MI 48109 USA
-
-G. Material Measurement Laboratory Office, \\
+F. Material Measurement Laboratory Office, \\
 Material Measurement Laboratory, \\
 National Institute of Standards and Technology,\\
 Gaithersburg, MD 20899 USA
 
-H. Department of Materials Science and Engineering, \\
+G. Department of Materials Science and Engineering, \\
 University of Florida, \\
 Gainesville, FL 32611
 
 \section*{Abstract}
 
-Scientific research communities often require an online portal to
-summarize a shared challenge, collect attempts at a solution, and
+An online portal provides a valuable space for scientific communities
+to summarize a shared challenge, collect attempts at a solution, and
 present a quantitative comparison of past attempts in a compelling
 way. An exemplar of such a portal is
 $\mu$MAG~\cite{mumag}~\footnote{Certain commercial equipment,
@@ -113,22 +111,21 @@ phase-field; materials-science; jekyll-website; reproducible-science
 The phase-field method (PFM) describes material interfaces at the
 mesoscopic scale between atomic scale models and macroscale models.
 The PFM is well established and there are an assortment of code
-frameworks (\emph{e.g.}, Moose~\cite{moose},
+frameworks (\emph{e.g.}, MOOSE~\cite{moose},
 PRISMS-PF~\cite{prisms-pf}, FiPy~\cite{fipy},
 MMSP~\cite{mmsp}~\textsuperscript{\ref{disclaimer}}) available for
-solving the wide variety of phenomena associated with phase-field
+solving the wide variety of phenomena associated with the PFM
 (\emph{e.g.}, dendritic growth, spinodal decomposition, grain
 growth). However, phase-field research groups often develop codes in
-isolation and do not publish the code bases or do not support or
-distribute the code bases for the wider community. PFHub is a
-community effort spearheaded by the Center for Hierarchical Materials
-Design at Northwestern University and the National Institute of
-Standards and Technology to support the development of phase field
-codes. In particular, the PFHub effort focuses on improving
-cross-collaboration between phase-field code developers and
-practitioners by providing a standardized set of benchmark
-problems~\cite{bm1, bm2} along with a web framework for uploading and
-comparing benchmark results from different codes.
+isolation and do not support or distribute the code bases to the wider
+community. PFHub is a community effort spearheaded by the Center for
+Hierarchical Materials Design at Northwestern University and the
+National Institute of Standards and Technology to support the
+development of phase-field codes. In particular, the PFHub effort
+focuses on improving cross-collaboration between phase-field code
+developers and practitioners by providing a standardized set of
+benchmark problems~\cite{bm1, bm2} along with a web framework for
+uploading and comparing benchmark results from different codes.
 
 \section*{Implementation and architecture}
 
@@ -138,7 +135,7 @@ Jekyll static website generator~\cite{jekyll} along with automated
 frontend processing to eliminate the need for content management
 systems~\cite{cmsfree}, which are generally costly to maintain
 especially for small scientific communities with limited funding and
-manpower.
+staffing.
 
 The workflow for uploading benchmark results relies on third party
 tools using the following steps, illustrated in
@@ -167,12 +164,22 @@ Figure~\ref{fig:pfhub_website}.
 
 A combination of Jekyll templates and Coffeescript are used to access
 and download the data links in the submitted YAML files and then
-display the data in interactive figures on the website. The
-combination of a central repository on GitHub for website source code
-and metadata with distributed data records on third-party archives
-avoids the complexity and administrative overhead of maintaining a
-live database and associated back-end application. The PFHub
-infrastructure provides a template for other small scientific
+display the data in interactive plots on the website.  Previous
+iterations of PFHub used the Vega JSON Library~\cite{vega} to generate
+the interactive plots, but now the Plotly JavaScript Graphing
+Library~\cite{plotly} is used exclusively as it provides a more
+programmable interface and requires less upfront configuration.
+
+The benchmark specifications consist of equations, narrative, plots
+and code samples; and are composed in Jupyter Notbooks. The Jupyter
+Notebooks are included as static objects in the website after
+translation into HTML using the nbconvert tool~\cite{jupyter}.
+
+The combination of a central repository on GitHub for website source
+code and metadata with distributed data records on third-party
+archives avoids the complexity and administrative overhead of
+maintaining a live database and associated back-end application. The
+PFHub infrastructure provides a template for other small scientific
 communities to host custom content and integrate data from members of
 their community.
 
@@ -212,10 +219,11 @@ and consists of the following steps.
 \section*{Operating system}
 
 The PFHub framework can be deployed on any platform supporting Nix,
-which includes all contemporary Linux and Mac OS X platforms. However,
-since the framework is built with Jekyll and automated front-end
-processing it can be deployed on GitHub's Pages infrastructure.
-
+which includes all contemporary Linux and Mac OS X platforms. Since
+the framework is built with Jekyll and automated front-end processing,
+it can be deployed on GitHub's Pages infrastructure, which enables
+streamlined deployment without the need for any back-end
+infrastructure.
 
 \section*{Programming language}
 
@@ -303,7 +311,7 @@ considerable effort. The following steps are the more challenging
 aspects of deploying the framework for a new community.
 
 \begin{itemize}
-  \item Upload new benchmark defintions in a format that Jekyll can
+  \item Upload new benchmark definitions in a format that Jekyll can
     parse, \emph{e.g.}, Jupyter Notebook, Markdown or HTML.
   \item Edit the \texttt{benchmarks.yaml} file to reflect the new
     upload requirements and describe the figures that need to be
@@ -328,7 +336,12 @@ Center for Hierarchical Material Design~\cite{workshops}.
 \section*{Funding statement}
 
 D.W. wishes to acknowledge the Materials Genome Initiative funding
-allocated to the National Institute of Standards and Technology.
+allocated to the National Institute of Standards and Technology. S.J.D
+wishes to acknowledge funding from the U.S. Department of Energy,
+Office of Basic Energy Sciences, Division of Materials Sciences and
+Engineering under Award \#DE-SC0008637 as part of the Center for
+PRedictive Integrated Structural Materials Science (PRISMS Center) at
+University of Michigan.
 
 \section*{Competing interests}
 
