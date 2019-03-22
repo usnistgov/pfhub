@@ -88,19 +88,23 @@ An online portal provides a valuable space for scientific communities
 to summarize a shared challenge, collect attempts at a solution, and
 present a quantitative comparison of past attempts in a compelling
 way. An exemplar of such a portal is
-$\mu$MAG~\cite{mumag}~\footnote{Certain commercial equipment,
-  instruments, or materials (or suppliers, or software, ...) are
-  identified in this paper to foster understanding. Such
-  identification does not imply recommendation or endorsement by the
-  National Institute of Standards and Technology, nor does it imply
-  that the materials or equipment identified are necessarily the best
-  available for the purpose.\label{disclaimer}}. The reusable PFHub
+$\mu$MAG~\cite{mumag}. The reusable PFHub
 framework leverages existing online services to build a static portal
 website that is considerably easier to deploy and maintain without
 sacrificing content or scope. The first deployment of the PFHub
 framework supports phase-field practitioners and code developers
 participating in an effort to improve quality assurance for
 phase-field codes.
+
+%% ~\footnote{Certain commercial equipment,
+%%   instruments, or materials (or suppliers, or software, ...) are
+%%   identified in this paper to foster understanding. Such
+%%   identification does not imply recommendation or endorsement by the
+%%   National Institute of Standards and Technology, nor does it imply
+%%   that the materials or equipment identified are necessarily the best
+%%   available for the purpose.\label{disclaimer}}
+
+%% ~\textsuperscript{\ref{disclaimer}}
 
 \section*{Keywords}
 
@@ -113,19 +117,19 @@ mesoscopic scale between atomic scale models and macroscale models.
 The PFM is well established and there are an assortment of code
 frameworks (\emph{e.g.}, MOOSE~\cite{moose},
 PRISMS-PF~\cite{prisms-pf}, FiPy~\cite{fipy},
-MMSP~\cite{mmsp}~\textsuperscript{\ref{disclaimer}}) available for
-solving the wide variety of phenomena associated with the PFM
-(\emph{e.g.}, dendritic growth, spinodal decomposition, grain
-growth). However, phase-field research groups often develop codes in
-isolation and do not support or distribute the code bases to the wider
-community. PFHub is a community effort spearheaded by the Center for
-Hierarchical Materials Design at Northwestern University and the
-National Institute of Standards and Technology to support the
-development of phase-field codes. In particular, the PFHub effort
-focuses on improving cross-collaboration between phase-field code
-developers and practitioners by providing a standardized set of
-benchmark problems~\cite{bm1, bm2} along with a web framework for
-uploading and comparing benchmark results from different codes.
+MMSP~\cite{mmsp}) available for
+solving the wide variety of mesoscale phenomena (\emph{e.g.},
+dendritic growth, spinodal decomposition, grain growth). However,
+phase-field research groups often develop codes in isolation and do
+not support or distribute the code bases to the wider community. PFHub
+is a community effort spearheaded by the Center for Hierarchical
+Materials Design at Northwestern University and the National Institute
+of Standards and Technology to support the development of phase-field
+codes. In particular, the PFHub effort focuses on improving
+cross-collaboration between phase-field code developers and
+practitioners by providing a standardized set of benchmark
+problems~\cite{bm1, bm2} along with a web framework for uploading and
+comparing benchmark results from different codes.
 
 \section*{Implementation and architecture}
 
@@ -143,8 +147,15 @@ Figure~\ref{fig:pfhub_website}.
 
 \begin{itemize}
   \item The users are first required to upload simulation outputs to
-    an archival resource (\emph{e.g.}, Figshare) configured with
-    permissive cross-origin resource sharing (CORS).
+    an archival resource (\emph{e.g.}, Figshare~\footnote{Certain
+      commercial equipment, instruments, or materials (or suppliers,
+      or software, ...) are identified in this paper to foster
+      understanding. Such identification does not imply recommendation
+      or endorsement by the National Institute of Standards and
+      Technology, nor does it imply that the materials or equipment
+      identified are necessarily the best available for the
+      purpose.\label{disclaimer}}) configured with permissive
+    cross-origin resource sharing (CORS).
   \item The metadata summarizing each simulation is entered into a
     form on the website, including relevant details such as memory
     usage, run time and links to the data archived in the first step.
@@ -164,14 +175,13 @@ Figure~\ref{fig:pfhub_website}.
 
 A combination of Jekyll templates and Coffeescript are used to access
 and download the data links in the submitted YAML files and then
-display the data in interactive plots on the website.  Previous
-iterations of PFHub used the Vega JSON Library~\cite{vega} to generate
-the interactive plots, but now the Plotly JavaScript Graphing
-Library~\cite{plotly} is used exclusively as it provides a more
-programmable interface and requires less upfront configuration.
+display the data in interactive plots on the website. The interactive
+plots are displayed using the Plotly JavaScript Graphing
+Library~\cite{plotly} as it provides a programmable interface and
+requires minimal configuration.
 
 The benchmark specifications consist of equations, narrative, plots
-and code samples; and are composed in Jupyter Notbooks. The Jupyter
+and code samples, and are composed in Jupyter Notebooks. The Jupyter
 Notebooks are included as static objects in the website after
 translation into HTML using the nbconvert tool~\cite{jupyter}.
 
