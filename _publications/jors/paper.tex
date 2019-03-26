@@ -89,19 +89,36 @@ efficiently sharing content and data. An online portal provides a
 valuable space for scientific communities to discuss challenges and
 collate scientific results. Examples of such portals include the
 Micromagenetic Modeling Group ($\mu$MAG~\cite{mumag}), the Iteratomic
-Potentials Repository (IPR~\cite{}) and on a larger scale the NIH
-Genetic Sequence Database (GenBank~\cite{}). In this work, we present
-a description of a generic web portal that leverages existing online
-services to provide a framework that may be adopted by other
-scientific communities. The first deployment of the PFHub framework
-supports phase-field practitioners and code developers participating
-in an effort to improve quality assurance for phase-field codes.
+Potentials Repository (IPR~\cite{ipr1, ipr2}) and on a larger scale
+the NIH Genetic Sequence Database (GenBank~\cite{genbank}). In this
+work, we present a description of a generic web portal that leverages
+existing online services to provide a framework that may be adopted by
+other scientific communities. The first deployment of the PFHub
+framework supports phase-field practitioners and code developers
+participating in an effort to improve quality assurance for
+phase-field codes.
 
 \section*{Keywords}
 
 phase-field; materials-science; jekyll-website; reproducible-science
 
-\section*{Introduction}
+\section*{Introduction (new)}
+
+Small scientific communities do not often have the resources to build
+and host dedicated web infrastructure to support their varied content
+and data requirements. In particular, hosting and supporting a complex
+content management system (CMS) including web servers, web frameworks
+and databases requires a great deal of configuration and long term
+support and funding. Furthermore, a turnkey CMS solution may not meet
+requirements for a particular scientific group that may require arcane
+data formats, unusual data display and custom client-side automation.
+The PFHub effort, instead of focusing on the CMS tool, focuses on
+customizing and delivering the "client-side" requirements whilst
+delegating back-end functionality to external services and then
+integrate with those services' APIs. The PFHub current effort supports
+a community of phase field code developers.
+
+\section*{Introduction (old)}
 
 The phase-field method (PFM) describes material interfaces at the
 mesoscopic scale between atomic scale models and macroscale models.
