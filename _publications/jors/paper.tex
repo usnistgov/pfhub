@@ -101,7 +101,7 @@ phase-field codes.
 
 phase-field; materials-science; jekyll-website; reproducible-science
 
-\section*{Introduction (new)}
+\section*{Introduction}
 
 Generally, small scientific communities do not have the resources to
 build and host dedicated web infrastructure to support their varied
@@ -112,7 +112,7 @@ long term support and funding. Furthermore, a turnkey CMS solution may
 not meet requirements for a particular scientific group that may
 require arcane data formats, custom data displays and client-side
 automation. The PFHub effort, instead of focusing on the CMS tool,
-focuses on customizing and delivering the "client-side" requirements
+focuses on customizing and delivering the client-side requirements
 whilst delegating back-end functionality to external services that
 provide dependable APIs~\cite{cmsfree}.
 
@@ -128,8 +128,11 @@ MOOSE~\cite{moose}, PRISMS-PF~\cite{prisms-pf}, FiPy~\cite{fipy},
 MMSP~\cite{mmsp}).
 
 This paper presents the first deployment of the PFHub framework
-including its ``client-side'' focused design, how it employs external
-services and meta-data about the code base.
+including its client-side focused design, how it employs external
+services and meta-data about the code base. The paper describes the
+relative ease with which other scientific groups might adapt the
+framework for their own purposes and deploy using the fully
+reproducible Nix environment~\cite{nix}.
 
 \section*{Implementation and architecture}
 
