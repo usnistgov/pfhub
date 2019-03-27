@@ -109,12 +109,12 @@ content and data requirements. In particular, hosting and supporting a
 complex content management system (CMS) including web servers, web
 frameworks and databases requires a great deal of configuration and
 long term support and funding. Furthermore, a turnkey CMS solution may
-not meet requirements for a particular scientific group that may
-require arcane data formats, custom data displays and client-side
-automation. The PFHub effort, instead of focusing on the CMS tool,
-focuses on customizing and delivering the client-side requirements
-whilst delegating back-end functionality to external services that
-provide dependable APIs~\cite{cmsfree}.
+not meet requirements for most scientific communities that often use
+arcane data formats and require custom data displays along with
+client-side automation. The PFHub effort, instead of focusing on the
+CMS tool, focuses on customizing and delivering the client-side
+requirements whilst delegating back-end functionality to external
+services that provide dependable APIs~\cite{cmsfree}.
 
 PFHub is a community effort spearheaded by the Center for Hierarchical
 Materials Design at Northwestern University and the National Institute
@@ -136,12 +136,18 @@ reproducible Nix environment~\cite{nix}.
 
 \section*{Implementation and architecture}
 
-The PFHub website provides a facility for uploading, displaying and
-comparing results from the benchmark problems. The website uses the
-Jekyll static website generator~\cite{jekyll} along with automated
-front-end processing to eliminate the need for a CMS~\cite{cmsfree},
-which are generally costly to maintain especially for small scientific
-communities with limited funding and staffing.
+The PFHub framework provides a template for other small scientific
+communities to host custom content and integrate data from members of
+their community. The current deployment provides a facility for
+uploading, displaying and comparing results from benchmark problems
+supporting phase-field code developers and practitioners. However, the
+framework and overall philosophy are broadly transferable to other
+communities with some custom configuration and content generation. The
+framework uses the Jekyll~\cite{jekyll} static website
+generator~\cite{jekyll} along with automated front-end processing to
+eliminate the need for a CMS~\cite{cmsfree}, which is generally costly
+to maintain especially for small scientific communities with limited
+funding and staffing.
 
 The workflow for uploading benchmark results relies on third party
 tools using the following steps, illustrated in
@@ -149,15 +155,15 @@ Figure~\ref{fig:pfhub_website}.
 
 \begin{itemize}
   \item The users are first required to upload simulation outputs to
-    an archival resource (\emph{e.g.}, Figshare~\footnote{Certain
-      commercial equipment, instruments, or materials (or suppliers,
-      or software, ...) are identified in this paper to foster
-      understanding. Such identification does not imply recommendation
-      or endorsement by the National Institute of Standards and
-      Technology, nor does it imply that the materials or equipment
-      identified are necessarily the best available for the
-      purpose.\label{disclaimer}}) configured with permissive
-    cross-origin resource sharing (CORS).
+    an archival resource (\emph{e.g.},
+    Figshare~\cite{figshare}~\footnote{Certain commercial equipment,
+      instruments, or materials (or suppliers, or software, ...) are
+      identified in this paper to foster understanding. Such
+      identification does not imply recommendation or endorsement by
+      the National Institute of Standards and Technology, nor does it
+      imply that the materials or equipment identified are necessarily
+      the best available for the purpose.\label{disclaimer}})
+    configured with permissive cross-origin resource sharing (CORS).
   \item The metadata summarizing each simulation is entered into a
     form on the website, including relevant details such as memory
     usage, run time and links to the data archived in the first step.
@@ -182,18 +188,20 @@ plots are displayed using the Plotly JavaScript Graphing
 Library~\cite{plotly} as it provides a programmable interface and
 requires minimal configuration.
 
-The benchmark specifications consist of equations, narrative, plots
-and code samples, and are composed in Jupyter Notebooks. The Jupyter
-Notebooks are included as static objects in the website after
-translation into HTML using the nbconvert tool~\cite{jupyter}.
+The current deployment of PFHub has benchmark specifications
+consisting of equations, narrative, plots and code samples, and are
+composed in Jupyter Notebooks. The Jupyter Notebooks are included as
+static objects in the website after translation into HTML using the
+nbconvert tool~\cite{jupyter}. There are currently 7 benchmark
+problems each with a number of variations. At the time of writing
+there are 108 separate benchmark result uploads~\cite{pfhub}, which
+have all been approved via pull-request for compatibility with the
+website.
 
 The combination of a central repository on GitHub for website source
 code and metadata with distributed data records on third-party
 archives avoids the complexity and administrative overhead of
-maintaining a live database and associated back-end application. The
-PFHub infrastructure provides a template for other small scientific
-communities to host custom content and integrate data from members of
-their community.
+maintaining a live database and associated back-end application.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{pfhub_website.png}
@@ -206,10 +214,13 @@ their community.
 \section*{Quality control}
 
 The framework has a fully automated test recipe deployed on Travis CI
-with an environment built using the Nix Package
-Manager~\cite{nix}. The environment is pinned to a specific version of
-the Nixpkgs repository ensuring fully reproducible build and test
-phases as well as ensuring that the development and automated testing
+with an environment built using the Nix Package Manager~\cite{nix}. A
+fully automated test environment using continuous integration allows
+all developers and users to have common feedback on code updates and
+determine the compatibility of result uploads with the deployed
+website. The environment is pinned to a specific version of the
+Nixpkgs repository ensuring fully reproducible build and test phases
+as well as ensuring that the development and automated testing
 environments are identical. The full test recipe is outlined in a
 \texttt{.travis.yml} file stored in the repository~\cite{travisyml}
 and consists of the following steps.
@@ -235,7 +246,9 @@ which includes all contemporary Linux and Mac OS X platforms. Since
 the framework is built with Jekyll and automated front-end processing,
 it can be deployed on GitHub's Pages infrastructure, which enables
 streamlined deployment without the need for any back-end
-infrastructure.
+infrastructure and, thus, largely platform independent. For
+development purposes, a Nix installation is required or use of the
+supplied Docker container if using Windows.
 
 \section*{Programming language}
 
@@ -326,8 +339,9 @@ considerable effort. The following steps are the more challenging
 aspects of deploying the framework for a new community.
 
 \begin{itemize}
-  \item Upload new benchmark definitions in a format that Jekyll can
-    parse, \emph{e.g.}, Jupyter Notebook, Markdown or HTML.
+  \item Upload new data upload specficiations (e.g. the phase-field
+    benchmarks in the PFHub website~\cite{pfhub}) in a format that
+    Jekyll can parse, \emph{e.g.}, Jupyter Notebook, Markdown or HTML.
   \item Edit the \texttt{benchmarks.yaml} file to reflect the new
     upload requirements and describe the figures that need to be
     generated on the upload comparison pages.
