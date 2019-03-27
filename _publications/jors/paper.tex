@@ -35,7 +35,6 @@
 \section*{Title}
 \par\bigskip
 PFHub: The Phase-Field Community Hub\\[\baselineskip]
-\url{https://pages.nist.gov/pfhub}
 
 \section*{Paper Authors}
 
@@ -93,7 +92,7 @@ Potentials Repository (IPR~\cite{ipr1, ipr2}) and on a larger scale
 the NIH Genetic Sequence Database (GenBank~\cite{genbank}). In this
 work, we present a description of a generic web portal that leverages
 existing online services to provide a framework that may be adopted by
-other scientific communities. The first deployment of the PFHub
+other small scientific communities. The first deployment of the PFHub
 framework supports phase-field practitioners and code developers
 participating in an effort to improve quality assurance for
 phase-field codes.
@@ -104,50 +103,42 @@ phase-field; materials-science; jekyll-website; reproducible-science
 
 \section*{Introduction (new)}
 
-Small scientific communities do not often have the resources to build
-and host dedicated web infrastructure to support their varied content
-and data requirements. In particular, hosting and supporting a complex
-content management system (CMS) including web servers, web frameworks
-and databases requires a great deal of configuration and long term
-support and funding. Furthermore, a turnkey CMS solution may not meet
-requirements for a particular scientific group that may require arcane
-data formats, unusual data display and custom client-side automation.
-The PFHub effort, instead of focusing on the CMS tool, focuses on
-customizing and delivering the "client-side" requirements whilst
-delegating back-end functionality to external services and then
-integrate with those services' APIs. The PFHub current effort supports
-a community of phase field code developers.
+Generally, small scientific communities do not have the resources to
+build and host dedicated web infrastructure to support their varied
+content and data requirements. In particular, hosting and supporting a
+complex content management system (CMS) including web servers, web
+frameworks and databases requires a great deal of configuration and
+long term support and funding. Furthermore, a turnkey CMS solution may
+not meet requirements for a particular scientific group that may
+require arcane data formats, custom data displays and client-side
+automation. The PFHub effort, instead of focusing on the CMS tool,
+focuses on customizing and delivering the "client-side" requirements
+whilst delegating back-end functionality to external services that
+provide dependable APIs~\cite{cmsfree}.
 
-\section*{Introduction (old)}
-
-The phase-field method (PFM) describes material interfaces at the
-mesoscopic scale between atomic scale models and macroscale models.
-The PFM is well established and there are an assortment of code
-frameworks (\emph{e.g.}, MOOSE~\cite{moose},
-PRISMS-PF~\cite{prisms-pf}, FiPy~\cite{fipy},
-MMSP~\cite{mmsp}) available for
-solving the wide variety of mesoscale phenomena (\emph{e.g.},
-dendritic growth, spinodal decomposition, grain growth). However,
-phase-field research groups often develop codes in isolation and do
-not support or distribute the code bases to the wider community. PFHub
-is a community effort spearheaded by the Center for Hierarchical
+PFHub is a community effort spearheaded by the Center for Hierarchical
 Materials Design at Northwestern University and the National Institute
-of Standards and Technology to support the development of phase-field
-codes. In particular, the PFHub effort focuses on improving
-cross-collaboration between phase-field code developers and
+of Standards and Technology in support of phase-field code
+development. The current PFHub deployment~\cite{pfhub} focuses on
+improving cross-collaboration between phase-field code developers and
 practitioners by providing a standardized set of benchmark
-problems~\cite{bm1, bm2} along with a web framework for uploading and
-comparing benchmark results from different codes.
+problems~\cite{bm1, bm2} and a workflow for uploading and comparing
+benchmark results from different phase-field codes (\emph{e.g.},
+MOOSE~\cite{moose}, PRISMS-PF~\cite{prisms-pf}, FiPy~\cite{fipy},
+MMSP~\cite{mmsp}).
+
+This paper presents the first deployment of the PFHub framework
+including its ``client-side'' focused design, how it employs external
+services and meta-data about the code base.
 
 \section*{Implementation and architecture}
 
 The PFHub website provides a facility for uploading, displaying and
 comparing results from the benchmark problems. The website uses the
 Jekyll static website generator~\cite{jekyll} along with automated
-frontend processing to eliminate the need for content management
-systems~\cite{cmsfree}, which are generally costly to maintain
-especially for small scientific communities with limited funding and
-staffing.
+front-end processing to eliminate the need for a CMS~\cite{cmsfree},
+which are generally costly to maintain especially for small scientific
+communities with limited funding and staffing.
 
 The workflow for uploading benchmark results relies on third party
 tools using the following steps, illustrated in
