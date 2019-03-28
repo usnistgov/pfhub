@@ -1,0 +1,35 @@
+_id: 54b3ccc0-516f-11e9-86a0-0b26cc9e6e60
+metadata:
+  author:
+    first: CEO
+    last: No3ud
+    email: faical.congo@no3ud.com
+    github_id: ceo-no3ud
+  timestamp: '7 March, 2019'
+  summary: Hello there
+  implementation:
+    name: code-1
+    repo:
+      url: 'https://repo.org/code1'
+      version: ahq1y173kk734h3h2h1934703j2n3jheyeuri
+    container_url: 'https://hub.docker.com/scientist-1/code-1'
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: '3'
+    cores: '1'
+    nodes: '5'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '352'
+        sim_time: '123'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '12374'
+date: 1553787422
