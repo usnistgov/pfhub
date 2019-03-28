@@ -1,0 +1,35 @@
+_id: 01ee3980-516f-11e9-86a0-0b26cc9e6e60
+metadata:
+  author:
+    first: CEO
+    last: No3ud
+    email: faical.congo@no3ud.com
+    github_id: ceo-no3ud
+  timestamp: ''
+  summary: ''
+  implementation:
+    name: ''
+    repo:
+      url: ''
+      version: ''
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: ''
+    cores: '1'
+    nodes: ''
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: ''
+        sim_time: ''
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: ''
+date: 1553787283
