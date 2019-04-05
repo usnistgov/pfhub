@@ -126,8 +126,8 @@ improving cross-collaboration between phase-field code developers and
 practitioners by providing a standardized set of benchmark
 problems~\cite{bm1, bm2} and a workflow for uploading and comparing
 benchmark results from different phase-field codes (\emph{e.g.},
-MOOSE~\cite{moose}, PRISMS-PF~\cite{prisms-pf}, FiPy~\cite{fipy},
-MMSP~\cite{mmsp}).
+FiPy~\cite{fipy}, MMSP~\cite{mmsp}, MOOSE~\cite{moose},
+PRISMS-PF~\cite{prisms-pf}).
 
 This paper presents the first deployment of the PFHub framework
 including its client-side focused design, how it employs external
@@ -145,33 +145,38 @@ uploading, displaying and comparing results from benchmark problems
 supporting phase-field code developers and practitioners. However, the
 framework and overall philosophy are broadly transferable to other
 communities with some custom configuration and content generation. The
-framework uses the Jekyll~\cite{jekyll} static website
-generator~\cite{jekyll} along with automated front-end processing to
-eliminate the need for a CMS~\cite{cmsfree}, which is generally costly
-to maintain especially for small scientific communities with limited
-funding and staffing.
+framework uses the Jekyll static website generator~\cite{jekyll} along
+with automated front-end processing to eliminate the need for a
+CMS~\cite{cmsfree}, which is generally costly to maintain especially
+for small scientific communities with limited funding and staffing.
+The framework relies on the API, WebSocket and webhook infrastructure
+that underpins the modern web and allows external services to have
+full-duplex communication between servers and browsers. In particular,
+PFHub relies on GitHub's well maintained API and webhook functionality
+for external services (such as Travis CI~\cite{travis} and
+Staticman~\cite{staticman}).
 
 The workflow for uploading benchmark results relies on third party
 tools using the following steps, illustrated in
 Figure~\ref{fig:pfhub_website}.
-\begin{itemize}
+\begin{enumerate}
   \item The users are first required to upload simulation outputs to
-    an archival resource (\emph{e.g.},
-    Figshare~\cite{figshare}~\footnote{Certain commercial equipment,
-      instruments, or materials (or suppliers, or software, ...) are
-      identified in this paper to foster understanding. Such
-      identification does not imply recommendation or endorsement by
-      the National Institute of Standards and Technology, nor does it
-      imply that the materials or equipment identified are necessarily
-      the best available for the purpose.\label{disclaimer}})
-    configured with permissive cross-origin resource sharing (CORS).
+    an archival resource (\emph{e.g.}, Figshare\footnote{Certain
+      commercial equipment, instruments, or materials (or suppliers,
+      or software, ...) are identified in this paper to foster
+      understanding. Such identification does not imply recommendation
+      or endorsement by the National Institute of Standards and
+      Technology, nor does it imply that the materials or equipment
+      identified are necessarily the best available for the
+      purpose.\label{disclaimer}}~\cite{figshare}) configured with
+    permissive cross-origin resource sharing (CORS).
   \item The metadata summarizing each simulation is entered into a
     form on the website, including relevant details such as memory
     usage, run time and links to the data archived in the first step.
   \item Upon submission, the Staticman app~\cite{staticman} submits
-    the entered metadata as a GitHub pull request to the PFHub GitHub
-    repository.  The metadata is stored in a YAML file with a unique
-    path in the repository.
+    the entered metadata as a pull request aagainst the PFHub
+    repository hosted by GitHub. The metadata is stored in a YAML file
+    with a unique path in the repository.
   \item Travis CI~\cite{travis} performs linting on the submission and
     then launches a temporary version of the proposed website using
     Surge~\cite{surge}. The PFHub admins can then examine the new
@@ -180,7 +185,7 @@ Figure~\ref{fig:pfhub_website}.
     uploading scientist and the website maintainers, the pull request
     is merged and served to the World Wide Web using a hosting service
     compatible with GitHub Pages.
-\end{itemize}
+\end{enumerate}
 A combination of Jekyll templates and CoffeeScript are used to access
 and download the data links in the submitted YAML files and then
 display the data in interactive plots on the website. The interactive
@@ -194,9 +199,9 @@ composed in Jupyter Notebooks. The Jupyter Notebooks are included as
 static objects in the website after translation into HTML using the
 nbconvert tool~\cite{jupyter}. There are currently 7 benchmark
 problems each with a number of variations. At the time of writing
-there are 108 separate benchmark result uploads~\cite{pfhub}, which
-have all been approved via pull-request for compatibility with the
-website.
+there are 108 separate benchmark result uploads~\cite{pfhub} submitted
+as pull requests and approved following code review to ensure
+compatibility with the website.
 
 The combination of a central repository on GitHub for website source
 code and metadata with distributed data records on third-party
@@ -218,16 +223,17 @@ with an environment built using the Nix Package Manager~\cite{nix}. A
 fully automated test environment using continuous integration allows
 all developers and users to have common feedback on code updates and
 determine the compatibility of result uploads with the deployed
-website. The environment is pinned to a specific version of the
-Nixpkgs repository ensuring fully reproducible build and test phases
-as well as ensuring that the development and automated testing
-environments are identical. The full test recipe is outlined in a
-\texttt{.travis.yml} file stored in the repository~\cite{travisyml}
-and consists of the following steps.
+website. The environment is pinned to a specific version of the Nix
+Packages Collection (Nixpkgs~\cite{nixpkgs}), ensuring fully
+reproducible build and test phases as well as ensuring that the
+development and automated testing environments are identical. The full
+test recipe is outlined in a YAML file, \texttt{.travis.yml}, file
+stored in the repository~\cite{travisyml} and consists of the
+following steps.
 
-\begin{itemize}
-  \item Build the Nix environment from a cached storage reducing the
-    build time.
+\begin{enumerate}
+  \item Build the Nix environment from a persistent cache on Travis
+    CI, reducing the build time.
   \item Run automated tests on Jupyter Notebooks using
     NBval~\cite{nbval} and Py.test~\cite{pytest}.
   \item Run validation tests on HTML files using
@@ -235,7 +241,7 @@ and consists of the following steps.
   \item Lint and test front-end CoffeeScript using appropriate tools.
   \item Display a temporary version of the website using
     Surge~\cite{surge} for visual review.
-\end{itemize}
+\end{enumerate}
 
 \section*{(2) Availability}
 \vspace{0.5cm}
@@ -246,9 +252,9 @@ which includes all contemporary Linux and Mac OS X platforms. Since
 the framework is built with Jekyll and automated front-end processing,
 it can be deployed on GitHub's Pages infrastructure, which enables
 streamlined deployment without the need for any back-end
-infrastructure and, thus, largely platform independent. For
-development purposes, a Nix installation is required or use of the
-supplied Docker container if using Windows.
+infrastructure and, thus, is largely platform independent. For
+development purposes, a local installation of either Nix (on Linux or
+Mac) or Docker (on Linux, Mac or Windows) is required.
 
 \section*{Programming language}
 
@@ -337,7 +343,11 @@ or downloaded as a ZIP archive and deployed with minimum effort. The
 mechanism for uploading data using Staticman can be easily configured
 for a new repository location. However, customizing the content of the
 website for a particular scientific community would require
-considerable effort. The following steps are the more challenging
+considerable effort. The current effort is closely integrated with
+GitHub, but future deployments could be modified to use other
+repository services such as GitLab or BitBucket.
+
+The following steps are the more challenging
 aspects of deploying the framework for a new community.
 
 \begin{itemize}
@@ -373,10 +383,10 @@ wishes to acknowledge funding from the U.S. Department of Energy,
 Office of Basic Energy Sciences, Division of Materials Sciences and
 Engineering under Award \#DE-SC0008637 as part of the Center for
 PRedictive Integrated Structural Materials Science (PRISMS Center) at
-University of Michigan. PWV is grateful for the financial assistance
-under the award 70NANB14H012 from the National Institute of Standards
-and Technology as part of the Center for Hierarchical Materials Design
-(CHiMaD).
+University of Michigan. P.W.V. is grateful for the financial
+assistance under the award 70NANB14H012 from the National Institute of
+Standards and Technology as part of the Center for Hierarchical
+Materials Design (CHiMaD).
 
 \section*{Competing interests}
 
