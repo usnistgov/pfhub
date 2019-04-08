@@ -516,7 +516,7 @@ img.badge{
     #wiki-nav {
         display: none;
     }
-    #sponser-logos {
+    #sponsor-logos {
         display: none;
     }
 }
@@ -526,7 +526,7 @@ img.badge{
     #wiki-nav-bottom {
         display: none;
     }
-    #sponser-logos-bottom {
+    #sponsor-logos-bottom {
         display: none;
     }
 }
@@ -582,14 +582,14 @@ span.plotly-footnote {
     margin-top: 10px;
 }
 
-#sponser-logos-container {
+#sponsor-logos-container {
     position: relative;
     width: 0;
     height: 0;
     float: right;
 }
 
-#sponser-logos {
+#sponsor-logos {
     position: absolute;
     left: 50px;
     top: 80px;
@@ -597,7 +597,7 @@ span.plotly-footnote {
     text-align: center;
 }
 
-#sponser-logos-bottom {
+#sponsor-logos-bottom {
     margin-left: 20px;
     margin-top: 20px;
     padding: 15px;
