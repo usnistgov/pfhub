@@ -215,13 +215,6 @@ if SIM_NAME?
 @update_url = (data) ->
   data.value = github_to_raw(data.value)
 
-make_benchmark_version_ = (benchmark_data) ->
-  sequence(
-    (x) -> x.slice(0, -1) - 1
-    (x) -> benchmark_data[x].revisions[0].version
-  )
-
-
 calc_benchmark_version = (benchmark_data, benchmark_id) ->
   sequence(
     (x) -> x.slice(0, -1) - 1
