@@ -214,3 +214,27 @@ if SIM_NAME?
 
 @update_url = (data) ->
   data.value = github_to_raw(data.value)
+
+make_benchmark_version_ = (benchmark_data) ->
+  sequence(
+    (x) -> x.slice(0, -1) - 1
+    (x) -> benchmark_data[x].revisions[0].version
+  )
+
+
+calc_benchmark_version = (benchmark_data, benchmark_id) ->
+  sequence(
+    (x) -> x.slice(0, -1) - 1
+    (x) -> benchmark_data[x].revisions[0].version
+  )(benchmark_id)
+
+set_benchmark_version = () ->
+  $('#version_input').val(
+    calc_benchmark_version(
+      {{ site.data.benchmarks | jsonify }}
+      $('#benchmark_id').children("option:selected").val()
+    )
+  )
+
+set_benchmark_version()
+$('#benchmark_id').change(set_benchmark_version)
