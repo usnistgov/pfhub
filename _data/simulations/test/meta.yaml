@@ -1,0 +1,35 @@
+_id: 127ae7c0-5b1b-11e9-9ffc-138c3ba5b300
+metadata:
+  author:
+    first: Íñigo
+    last: Montoya
+    email: inigo.montoya@aol.com
+    github_id: im
+  timestamp: '9 April, 2019'
+  summary: test
+  implementation:
+    name: test
+    repo:
+      url: 'https://github.com/test'
+      version: abcdef12
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: massive
+    clock_rate: '1.5'
+    cores: '4096'
+    nodes: '1'
+benchmark:
+  id: 2d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1'
+        sim_time: '1'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1'
+date: 1554850744
