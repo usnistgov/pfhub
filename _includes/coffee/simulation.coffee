@@ -703,24 +703,24 @@ build = (data, sim_name, codes_data, chart_data, axes_names, repo_slug) ->
   result_data = groupBy(((x) -> x.type), data.data)
   vega_data = vegarize(chart_data, axes_names)(result_data.line)
 
-  if result_data.image?
-    add_card(add_image, '#logo_image', with_div = id)(result_data.image[0..0])
-    result_data.image = result_data.image[1..]
-  else if vega_data.length > 0
+  if vega_data.length > 0
     add_card(add_vega, '#logo_image', with_div = id)(vega_data[0..0])
     vega_data = vega_data[1..]
-
-  with_div = (x) -> x.append('div').attr('class', 'col s12 m12 l6 xl4')
-
-  if result_data.image?
-    add_card(add_image, '#images', with_div = with_div)(result_data.image)
-  add_card(add_vega, '#images', with_div = with_div)(vega_data)
+  else if result_data.image?
+    add_card(add_image, '#logo_image', with_div = id)(result_data.image[0..0])
+    result_data.image = result_data.image[1..]
 
   if result_data.youtube?
     add_card(add_youtube, '#youtube', with_div = id)(result_data.youtube[0..0])
 
+  with_div = (x) -> x.append('div').attr('class', 'col s12 m12 l6 xl4')
+
+  add_card(add_vega, '#images', with_div = with_div)(vega_data)
+
   if result_data.contour?
-    with_div = (x) -> x.append('div').attr('class', 'col s12 m12 l6 xl4')
     contour_data = map(read_vega_data, result_data.contour)
     plotly_data = map(ploterize, contour_data)
     add_card(add_plotly, '#images', with_div = with_div)(plotly_data)
+
+  if result_data.image?
+    add_card(add_image, '#images', with_div = with_div)(result_data.image)
