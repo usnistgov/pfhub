@@ -1,0 +1,73 @@
+_id: 515945c0-5ba4-11e9-9ffc-138c3ba5b300
+metadata:
+  author:
+    first: Jonathan
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: guyer
+  timestamp: '7 March, 2018'
+  summary: FiPy MMS solution using explicit representation of double-well
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://github.com/guyer/CHiMaDPhaseFieldVI'
+      version: adc0b2e992386335d01cb4f6ce9924bf3fceb115
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '1.4'
+    cores: '16'
+    nodes: '1'
+benchmark:
+  id: 7a
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '0'
+        sim_time: '0'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '0'
+  - name: spatial
+    url: >-
+      https://materialsdata.nist.gov/bitstream/handle/11256/960/meshsize_explicitDW.csv?sequence=1&isAllowed=y
+    format:
+      type: csv
+      parse:
+        dx: number
+        error: number
+    description: >-
+      error vs meshsize with explicit double-well representation, fixed
+      timestep=1e-4
+    type: line
+    transform:
+      - type: formula
+        expr: datum.dx
+        as: x
+      - type: formula
+        expr: datum.error
+        as: 'y'
+  - name: temporal
+    url: >-
+      https://materialsdata.nist.gov/bitstream/handle/11256/960/timestep_explicitDW.csv?sequence=2&isAllowed=y
+    format:
+      type: csv
+      parse:
+        dt_exact: number
+        error: number
+    description: >-
+      error vs time step with explicit double-well representation, fixed grid
+      spacing=0.00125
+    type: line
+    transform:
+      - type: formula
+        expr: datum.dt_exact
+        as: x
+      - type: formula
+        expr: datum.error
+        as: 'y'
+date: 1554909691
