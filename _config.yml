@@ -19,7 +19,7 @@ links:
   github: https://github.com/usnistgov/pfhub
   chat_room: usnistgov/chimad-phase-field
   chat: https://gitter.im/usnistgov/chimad-phase-field
-  staticman_api: https://api.staticman.net/v2/entry/usnistgov/pfhub/master/simulations
+  staticman_api: https://dev.staticman.net/v3/entry/github/usnistgov/pfhub/master/simulations
   simmeta: https://github.com/usnistgov/pfhub/blob/master/_data/simulations
   maillist: chimad-phase-field@list.nist.gov
   maillist_subscribe: chimad-phase-field+subscribe@list.nist.gov
