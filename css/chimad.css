@@ -163,25 +163,23 @@ table.striped tbody tr:nth-child(2n+1) {
 }
 
 .card.small .card-image {
-    max-height: 70%;
-}
-
-#logo_image .card.small .card-image {
     max-height: 80%;
-    max-width: 80%;
+    min-height: 80%;
+    overflow: auto;
 }
 
 .card.small .card-content.scroll {
     overflow: auto;
-    max-height: 30%;
+    min-height: 20%;
+    max-height: 20%;
+}
+
+.video-container {
+    overflow: visible;
 }
 
 .materialboxed.responsive-img.initialized {
     background-color: white;
-}
-
-.card.small .card-content {
-    max-height: 95%;
 }
 
 .circle {
