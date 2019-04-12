@@ -172,6 +172,7 @@ table.striped tbody tr:nth-child(2n+1) {
     overflow: auto;
     min-height: 20%;
     max-height: 20%;
+    padding: 10px;
 }
 
 .video-container {
