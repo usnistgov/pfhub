@@ -58,13 +58,13 @@ One way to implement diffuse interfaces is using phase fields. These
 are smooth and continuous fields that describe local
 microstructure. For example, a two-phase system can be described by a
 single phase field that takes the value 0 in one phase and 1 in the
-other and that smoothly interpolates between this values at a phase
+other and that smoothly interpolates between these values at a phase
 boundary (the actual values of the phase field are essentially
 irrelevant as long as they are different in different phases). If
 there are many variants in a system, for example crystalline
 orientations in crystalline grains, there can be a number of phase
 fields, each one representing a particular variant.  The phase field
-(and other, associated, order parameter-based approaches) method has
+method (and other, associated, order parameter-based approaches) has
 been used to study dendritic growth, spinodal decomposition, grain
 growth, and ferroelectric domain formation, to name a few phenomena.
 
@@ -104,14 +104,22 @@ key features. The problems are nontrivial and exhibit differing
 degrees of computational complexity but are not prohibitively
 computationally demanding. The outputs are defined to be easily
 comparable between different codes. The problems are also constructed
-test a simple, targeted aspect of either the numerical implementation
+to test a simple, targeted aspect of either the numerical implementation
 or the physics.
 
 The first set of Benchmark Problems involve diffusion of a solute and
 grain growth. Technically, they use the Cahn-Hilliard equation for a
 conserved order parameter, and coupled Cahn-Hilliard and Allen-Cahn
-equations for conserved and non-conserved order parameters. A second
-set has been tested on a workshop and Hackathon, and will be posted in
-the near future.
+equations for conserved and non-conserved order parameters. The second
+set of Benchmark Problems involve coupling phase transformation with
+additional physics, namely, Fourier's heat equation and Hooke's Law.
+The third set of Benchmark Problems focus more on numerical methods,
+requiring solutions to Stokes' flow equations and the Poisson equation
+for electrostatic charge. The fourth set of Benchmark Problems directly
+tests the implemented discretizations of space and time using the Method
+of Manufactured Solutions applied to the Allen-Cahn equation.
 
-[List of benchmarks problems]({{ site.baseurl }}/#benchmarks){:target="_blank"}
+
+For details of any or all of these Benchmark Problems, please refer to
+the [list of benchmarks problems](
+{{ site.baseurl }}/#benchmarks){:target="_blank"}.
