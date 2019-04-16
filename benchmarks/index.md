@@ -132,12 +132,12 @@ the [list of benchmarks problems][bm]{:target="_blank"}.
 
 <!--References-->
 
-[bm]: {{ site.baseurl }}/#benchmarks
-[bm1]: {{ site.baseurl }}/benchmarks/benchmark1.ipynb/
-[bm2]: {{ site.baseurl }}/benchmarks/benchmark2.ipynb/
-[bm3]: {{ site.baseurl }}/benchmarks/benchmark3.ipynb/
-[bm4]: {{ site.baseurl }}/benchmarks/benchmark4.ipynb/
-[bm5]: {{ site.baseurl }}/benchmarks/benchmark5.ipynb/
-[bm6]: {{ site.baseurl }}/benchmarks/benchmark6.ipynb/
-[bm7]: {{ site.baseurl }}/benchmarks/benchmark7.ipynb/
+[bm]: {{ site.url }}/#benchmarks
+[bm1]: {{ site.url }}/benchmarks/benchmark1.ipynb/
+[bm2]: {{ site.url }}/benchmarks/benchmark2.ipynb/
+[bm3]: {{ site.url }}/benchmarks/benchmark3.ipynb/
+[bm4]: {{ site.url }}/benchmarks/benchmark4.ipynb/
+[bm5]: {{ site.url }}/benchmarks/benchmark5.ipynb/
+[bm6]: {{ site.url }}/benchmarks/benchmark6.ipynb/
+[bm7]: {{ site.url }}/benchmarks/benchmark7.ipynb/
 [mumag]: http://www.ctcms.nist.gov/~rdm/mumag.org.html
