@@ -123,12 +123,13 @@ dendritic growth in solidification from an undercooled liquid, also
 focuses on how a solver can address the very different length scales
 that arise in the problem. The third set of Benchmark Problems,
 [BM5]({{ site.baseurl
-}}/benchmarks/benchmark5.ipynb/){:target="_blank"} and [BM6]({{
-site.baseurl }}/benchmarks/benchmark6.ipynb/){:target="_blank"},
-broaden the scope beyond traditional phase field problems to include
-Stokes' flow equations, and a problem involving diffusion coupled to
-the Poisson equation for electrostatic charge. The fourth set of
-Benchmark Problems, [BM7]({{ site.baseurl
+}}/benchmarks/benchmark5-hackathon.ipynb/){:target="_blank"} and
+[BM6]({{ site.baseurl
+}}/benchmarks/benchmark6-hackathon.ipynb/){:target="_blank"}, broaden
+the scope beyond traditional phase field problems to include Stokes'
+flow equations, and a problem involving diffusion coupled to the
+Poisson equation for electrostatic charge. The fourth set of Benchmark
+Problems, [BM7]({{ site.baseurl
 }}/benchmarks/benchmark7.ipynb/){:target="_blank"}, directly tests the
 implemented discretizations of space and time using the Method of
 Manufactured Solutions applied to the Allen-Cahn equation.
