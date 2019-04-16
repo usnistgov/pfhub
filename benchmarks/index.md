@@ -30,7 +30,7 @@ macroscopic constitutive equations. The relevant length and time
 scales range from micrometers and milli- or microseconds and up.
 
 The mesoscale, our area of concern, comprises length scales larger
-than several unit cells but small enough to resolve microstrutural
+than several unit cells but small enough to resolve microstructural
 entities such as crystalline grains or ferromagnetic/ferroelectric
 domains that are usually averaged over in macroscale modeling. The
 length scales typically span nanometers to micrometers (or larger),
