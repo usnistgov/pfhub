@@ -107,31 +107,36 @@ comparable between different codes. The problems are also constructed
 to test a simple, targeted aspect of either the numerical implementation
 or the physics.
 
-The first set of Benchmark Problems, [BM1]({{ site.baseurl
+The first set of benchmark problems, [BM1]({{ site.baseurl
 }}/benchmarks/benchmark1.ipynb/){:target="_blank"} and [BM2]({{
 site.baseurl }}/benchmarks/benchmark2.ipynb/){:target="_blank"},
 involve diffusion of a solute and grain growth. Technically, they use
 the Cahn-Hilliard equation for a conserved order parameter, and
 coupled Cahn-Hilliard and Allen-Cahn equations for conserved and
-non-conserved order parameters. The second set of Benchmark Problems,
-[BM3]({{ site.baseurl
+non-conserved order parameters. Successfully solving the models
+demonstrates that the fundamentals of a modeling framework are sound.
+
+The second set of benchmark problems, [BM3]({{ site.baseurl
 }}/benchmarks/benchmark3.ipynb/){:target="_blank"} and [BM4]({{
 site.baseurl }}/benchmarks/benchmark4.ipynb/){:target="_blank"},
 involve coupling phase transformations with additional physics,
 namely, Fourier's heat equation and Hooke's Law. BM3, which is
 dendritic growth in solidification from an undercooled liquid, also
 focuses on how a solver can address the very different length scales
-that arise in the problem. The third set of Benchmark Problems,
-[BM5]({{ site.baseurl
+that arise in the problem. 
+
+The third set of benchmark problems, [BM5]({{ site.baseurl
 }}/benchmarks/benchmark5.ipynb/){:target="_blank"} and [BM6]({{
 site.baseurl }}/benchmarks/benchmark6.ipynb/){:target="_blank"},
 broaden the scope beyond traditional phase field problems to include
 Stokes' flow equations, and a problem involving diffusion coupled to
-the Poisson equation for electrostatic charge. The fourth set of
-Benchmark Problems, [BM7]({{ site.baseurl
+the Poisson equation for electrostatic charge.
+
+The fourth set of benchmark problems, [BM7]({{ site.baseurl
 }}/benchmarks/benchmark7.ipynb/){:target="_blank"}, directly tests the
 implemented discretizations of space and time using the Method of
 Manufactured Solutions applied to the Allen-Cahn equation.
 
-For details of any or all of these Benchmark Problems, please refer to
-the [list of benchmarks problems]({{ site.baseurl }}/#benchmarks){:target="_blank"}.
+For details of any or all of these benchmark problems, please refer to
+the [list of benchmarks 
+problems]({{ site.baseurl }}/#benchmarks){:target="_blank"}.
