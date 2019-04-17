@@ -83,8 +83,8 @@ modeled as well as numerical methods implemented in micromagnetic
 codes, but were still designed to be not too computationally
 demanding. The National Institute of Standards and Technology has
 played a coordinating role in the development and management of these
-problems, and also hosts a
-[website for the Micromagnetic Standard Problems][mumag]{:target="_blank"},
+problems, and also hosts a [website for the Micromagnetic Standard
+Problems](http://www.ctcms.nist.gov/~rdm/mumag.org){:target="_blank"},
 as well as solutions submitted by the community. The Micromagnetic
 Standard Problems were extremely useful to the community in the
 development of codes such as OOMMF, Mumax, and Magpar. It should be
