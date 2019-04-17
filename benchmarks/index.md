@@ -126,12 +126,12 @@ focuses on how a solver can address the very different length scales
 that arise in the problem. 
 
 The third set of benchmark problems, [BM5]({{ site.baseurl
-}}/benchmarks/benchmark5.ipynb/){:target="_blank"} and [BM6]({{
-site.baseurl }}/benchmarks/benchmark6.ipynb/){:target="_blank"},
-extend to additional physics less commonly seen in phase field
-problems. Specifically, BM5 involves modeling Stokes' flow equations
-and BM6 couples diffusion to the Poisson equation for electrostatic
-charge.
+}}/benchmarks/benchmark5-hackathon.ipynb/){:target="_blank"} and
+[BM6]({{ site.baseurl
+}}/benchmarks/benchmark6-hackathon.ipynb/){:target="_blank"}, extend to
+additional physics less commonly seen in phase field problems.
+Specifically, BM5 involves modeling Stokes' flow equations and BM6
+couples diffusion to the Poisson equation for electrostatic charge.
 
 The fourth set of benchmark problems, [BM7]({{ site.baseurl
 }}/benchmarks/benchmark7.ipynb/){:target="_blank"}, directly tests the
