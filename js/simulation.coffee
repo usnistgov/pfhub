@@ -15,6 +15,7 @@ if SIM_NAME of ALL_DATA
     CHART_DATA
     AXES_NAMES
     REPO
+    BENCHMARK_DATA
   )
 else
   window.location = "{{ site.baseurl }}/simulations/notfound/?sim=" + SIM_NAME
