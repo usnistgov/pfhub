@@ -30,7 +30,7 @@ macroscopic constitutive equations. The relevant length and time
 scales range from micrometers and milli- or microseconds and up.
 
 The mesoscale, our area of concern, comprises length scales larger
-than several unit cells but small enough to resolve microstrutural
+than several unit cells but small enough to resolve microstructural
 entities such as crystalline grains or ferromagnetic/ferroelectric
 domains that are usually averaged over in macroscale modeling. The
 length scales typically span nanometers to micrometers (or larger),
@@ -58,13 +58,13 @@ One way to implement diffuse interfaces is using phase fields. These
 are smooth and continuous fields that describe local
 microstructure. For example, a two-phase system can be described by a
 single phase field that takes the value 0 in one phase and 1 in the
-other and that smoothly interpolates between this values at a phase
+other and that smoothly interpolates between these values at a phase
 boundary (the actual values of the phase field are essentially
 irrelevant as long as they are different in different phases). If
 there are many variants in a system, for example crystalline
 orientations in crystalline grains, there can be a number of phase
 fields, each one representing a particular variant.  The phase field
-(and other, associated, order parameter-based approaches) method has
+method (and other, associated, order parameter-based approaches) has
 been used to study dendritic growth, spinodal decomposition, grain
 growth, and ferroelectric domain formation, to name a few phenomena.
 
@@ -83,8 +83,8 @@ modeled as well as numerical methods implemented in micromagnetic
 codes, but were still designed to be not too computationally
 demanding. The National Institute of Standards and Technology has
 played a coordinating role in the development and management of these
-problems, and also hosts a
-[website for the Micromagnetic Standard Problems](http://www.ctcms.nist.gov/~rdm/mumag.org.html){:target="_blank"},
+problems, and also hosts a [website for the Micromagnetic Standard
+Problems](http://www.ctcms.nist.gov/~rdm/mumag.org){:target="_blank"},
 as well as solutions submitted by the community. The Micromagnetic
 Standard Problems were extremely useful to the community in the
 development of codes such as OOMMF, Mumax, and Magpar. It should be
@@ -104,14 +104,40 @@ key features. The problems are nontrivial and exhibit differing
 degrees of computational complexity but are not prohibitively
 computationally demanding. The outputs are defined to be easily
 comparable between different codes. The problems are also constructed
-test a simple, targeted aspect of either the numerical implementation
+to test a simple, targeted aspect of either the numerical implementation
 or the physics.
 
-The first set of Benchmark Problems involve diffusion of a solute and
-grain growth. Technically, they use the Cahn-Hilliard equation for a
-conserved order parameter, and coupled Cahn-Hilliard and Allen-Cahn
-equations for conserved and non-conserved order parameters. A second
-set has been tested on a workshop and Hackathon, and will be posted in
-the near future.
+The first set of benchmark problems, [BM1]({{ site.baseurl
+}}/benchmarks/benchmark1.ipynb/){:target="_blank"} and [BM2]({{
+site.baseurl }}/benchmarks/benchmark2.ipynb/){:target="_blank"},
+involve diffusion of a solute and grain growth. Technically, they use
+the Cahn-Hilliard equation for a conserved order parameter, and
+coupled Cahn-Hilliard and Allen-Cahn equations for conserved and
+non-conserved order parameters. Successfully solving the models
+demonstrates that the fundamentals of a modeling framework are sound.
 
-[List of benchmarks problems]({{ site.baseurl }}/#benchmarks){:target="_blank"}
+The second set of benchmark problems, [BM3]({{ site.baseurl
+}}/benchmarks/benchmark3.ipynb/){:target="_blank"} and [BM4]({{
+site.baseurl }}/benchmarks/benchmark4.ipynb/){:target="_blank"},
+involve coupling phase transformations with additional physics,
+namely, Fourier's heat equation and Hooke's Law. BM3, which is
+dendritic growth in solidification from an undercooled liquid, also
+focuses on how a solver can address the very different length scales
+that arise in the problem. 
+
+The third set of benchmark problems, [BM5]({{ site.baseurl
+}}/benchmarks/benchmark5-hackathon.ipynb/){:target="_blank"} and
+[BM6]({{ site.baseurl
+}}/benchmarks/benchmark6-hackathon.ipynb/){:target="_blank"}, extend to
+additional physics less commonly seen in phase field problems.
+Specifically, BM5 involves modeling Stokes' flow equations and BM6
+couples diffusion to the Poisson equation for electrostatic charge.
+
+The fourth set of benchmark problems, [BM7]({{ site.baseurl
+}}/benchmarks/benchmark7.ipynb/){:target="_blank"}, directly tests the
+implemented discretizations of space and time using the Method of
+Manufactured Solutions applied to the Allen-Cahn equation.
+
+For details of any or all of these benchmark problems, please refer to
+the [list of benchmarks 
+problems]({{ site.baseurl }}/#benchmarks){:target="_blank"}.
