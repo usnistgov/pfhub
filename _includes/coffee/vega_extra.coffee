@@ -68,13 +68,24 @@ add_vega_src = (x) ->
   map(vega_promise, x.data())
 
 
+dl_load = (url) ->
+  try
+    dl.load({url:url})
+  catch NetworkError
+    console.log('NetworkError')
+    console.log('URL:', url)
+    []
+
+
 # read vega data with a url
 read_vega_url = sequence(
-  (x) -> [x.format, dl.load({url:x.url})]
+  (x) -> [x.format, dl_load(x.url)]
   (x) ->
     try
       dl.read(x[1], x[0])
     catch SyntaxError
+      console.log('unable to read vega data')
+      console.log('data:', x)
       null
 )
 
