@@ -9,7 +9,7 @@
     </a>
   </div>
 
-  <div class="input-field col s12 m3 l3 xl3">
+  <div class="input-field col s12 m4 l4 xl4">
     <a class="tooltipped prefix"
        data-position="bottom"
        data-tooltip="Name for this data using alphanumeric characters and _, but at least 2 characters long (required)">
@@ -17,6 +17,8 @@
     </a>
     <input required
            id="data-name-{{ counter }}"
+           aria-required="true"
+           data-ok="false"
            name="fields[data][{{ counter }}][name]"
            type="text"
            class="validate"
@@ -26,30 +28,41 @@
       Short name of data
     </label>
   </div>
-  <div class="input-field col s12 m5 l5 xl5">
+  <div class="file-field input-field col s12 m4 l4 xl4 hide" id="data-file-block-{{ counter }}">
+    <div class="btn">
+      <span>File</span>
+      <input type="file" id="data-file-{{ counter }}">
+    </div>
+    <div class="file-path-wrapper">
+      <input
+             id="data-input-{{ counter }}"
+             name="fields[data][{{ counter }}][url]"
+             class="file-path"/>
+    </div>
+  </div>
+  <div class="input-field col s12 m4 l4 xl4" id="data-url-block-{{ counter }}">
     <a class="tooltipped prefix"
        data-position="bottom"
        data-tooltip="URL for the raw data file either in JSON or CSV format (required)">
       <i class="material-icons">help</i>
     </a>
-    <input required
+    <input
            id="data-url-{{ counter }}"
            name="fields[data][{{ counter }}][url]"
-           type="url"
-           class="validate"
-           onchange="update_url(this)">
+           type="url">
+           <!-- onchange="update_url(this)"> -->
     <label for="data-url-{{ counter }}">
       Data File URL
     </label>
   </div>
   <div class="col s12 m3 l3 xl3">
     <p>
-      <input required checked="checked" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="csv" id="csv-{{ counter }}" />
-      <label for="csv-{{ counter }}">CSV</label>
-    </p>
-    <p>
-      <input class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="json" id="json-{{ counter }}" />
-      <label for="json-{{ counter }}">JSON</label>
+      <p>
+        <input onclick="return backend.switch_url2file('data', {{ counter }}, false);" checked="checked" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="url" id="choose-url-{{ counter }}" />
+        <label for="choose-url-{{ counter }}">Url</label>
+      </p>
+      <input onclick="return backend.switch_url2file('data', {{ counter }}, true);" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="file" id="choose-file-{{ counter }}" />
+      <label for="choose-file-{{ counter }}">File</label>
     </p>
   </div>
   <div class="input-field col s12 m5 l5 xl5">

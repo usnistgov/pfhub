@@ -8,7 +8,7 @@
       <i class="material-icons">remove</i>
     </a>
   </div>
-  <div class="input-field col s12 m3 l3 xl3">
+  <div class="input-field col s12 m4 l4 xl4">
     <a class="tooltipped prefix"
        data-position="bottom"
        data-tooltip="Name for this media data using alphanumeric characters and _, but at least 2 characters long (required)">
@@ -16,6 +16,8 @@
     </a>
     <input required
            id="media-name-{{ counter }}"
+           aria-required="true"
+           data-ok="false"
            name="fields[data][{{ counter }}][name]"
            type="text"
            class="validate"
@@ -25,29 +27,40 @@
       Short name of media data
     </label>
   </div>
-  <div class="input-field col s12 m5 l5 xl5">
+  <div class="file-field input-field col s12 m4 l4 xl4 hide" id="media-file-block-{{ counter }}">
+    <div class="btn">
+      <span>File</span>
+      <input type="file" id="media-file-{{ counter }}">
+    </div>
+    <div class="file-path-wrapper">
+      <input required
+             id="media-file-{{ counter }}"
+             name="fields[data][{{ counter }}][url]"
+             class="file-path"/>
+    </div>
+  </div>
+  <div class="input-field col s12 m4 l4 xl4" id="media-url-block-{{ counter }}">
     <a class="tooltipped prefix"
        data-position="bottom"
        data-tooltip="URL for image or youtube link (required)">
       <i class="material-icons">help</i>
     </a>
-    <input required
+    <input
            id="media-url-{{ counter }}"
            name="fields[data][{{ counter }}][url]"
-           type="url"
-           class="validate">
+           type="url">
     <label for="media-url-{{ counter }}">
       Media file URL
     </label>
   </div>
   <div class="col s12 m3 l3 xl3">
     <p>
-      <input required checked="checked" class="dim-line with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="youtube" id="youtube-{{ counter }}" />
-      <label for="youtube-{{ counter }}">Youtube</label>
+      <input onclick="return backend.switch_url2file('media', {{ counter }}, false);" checked="checked" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="url" id="choose-url-{{ counter }}" />
+      <label for="choose-url-{{ counter }}">Url</label>
     </p>
     <p>
-      <input class="dim-contour with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="image" id="image-{{ counter }}" />
-      <label for="image-{{ counter }}">Image</label>
+      <input onclick="return backend.switch_url2file('media', {{ counter }}, true);" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="file" id="choose-file-{{ counter }}" />
+      <label for="choose-file-{{ counter }}">File</label>
     </p>
   </div>
   <div class="input-field col s12 m5 l5 xl5">

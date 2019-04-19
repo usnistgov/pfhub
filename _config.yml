@@ -10,6 +10,17 @@ exclude:
   - vendor
   - template.ipynb.md
 
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*"
+
+# Adding this for now for the Cors.
+webserver_headers:
+  - Access-Control-Allow-Origin
+    - "*"
+  - - Access-Control-Allow-Methods
+    - GET, OPTIONS, HEAD
+
 links:
   live_url: https://pages.nist.gov/pfhub
   raw_name: pfhub

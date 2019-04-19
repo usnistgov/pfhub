@@ -10,4 +10,7 @@
       }
   }
 </style>
-<span id="forkongithub"><a href="{{ site.baseurl }}/simulations/upload_form">Upload Benchmark Results</a></span>
+<!-- <span id="forkongithub"><a href="{{ site.baseurl }}/simulations/upload_form">Upload Benchmark Results</a></span> -->
+
+<script type="text/javascript" src="{{ site.baseurl }}/js/corr.js"></script>
+<span id="forkongithub"><a onclick="return backend.auth(backend.to_upload);">Upload Benchmark Results</a></span>

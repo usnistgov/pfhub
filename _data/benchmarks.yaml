@@ -2,6 +2,7 @@
   description: Diffusion of a solute in a matrix
   image: http://www.comsol.com/model/image/2054/big.png
   num: 1
+  corr: "5c9c946b3b4d2301005a0064"
   revisions:
     - version: 1
       variations: [a, b, c, d]
@@ -26,6 +27,7 @@
   description: Coupling of conserved and non-conserved dynamics
   image: images/ostwald.jpg
   num: 2
+  corr: "5c9ceb355d5b3b000da44858"
   revisions:
     - version: 1
       variations: [a, b, c, d]
@@ -50,6 +52,7 @@
   description: Solidification and dendritic growth in a single-component
   image: https://www.ctcms.nist.gov/fipy/_static/examples/phase/anisotropy/dendrite.png
   num: 3
+  corr: "5c9ceb7d5d5b3b00df620ec9"
   revisions:
     - version: 1
       variations: [a]
@@ -129,6 +132,7 @@
   description: Linear elasticity via evolution of a constrained precipitate
   image: images/elastic1.png
   num: 4
+  corr: "5c9cebbf5d5b3b00def80063"
   revisions:
     - version: 1
       variations: [a, b, c, d, e, f, g, h]
@@ -275,6 +279,7 @@
   description: Incompressible Stokes flow in 2D
   image: images/stokes-cropped.png
   num: 5
+  corr: "5c9cebde5d5b3b00df620ed2"
   revisions:
     - version: 0
       variations: [a, b]
@@ -290,6 +295,7 @@
   description: Coupled electrostatics and Cahn-Hilliard dynamics
   image: images/electrochem-cropped.png
   num: 6
+  corr: "5c9cec035d5b3b00df620ed7"
   revisions:
     - version: 0
       variations: [a, b]
@@ -305,6 +311,7 @@
   description: Use the Method of Manufactured Solutions to verify codes
   image: images/elastic1.png
   num: 7
+  corr: "5c9cec455d5b3b00def80068"
   revisions:
     - version: 0
       variations: [a, b, c]

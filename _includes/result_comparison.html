@@ -59,6 +59,8 @@
 <script> var CHART_DATA = {{ chart_data | jsonify }}; </script>
 <script> var BENCHMARK_ID = "{{ include.benchmark_id }}"; </script>
 <script> var SIMULATION_DATA = {{ site.data.simulations | jsonify }}; </script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/corr.js"></script>
 <script src="{{ site.baseurl }}/js/result_comparison.js"></script>
 <script src="{{ site.baseurl }}/js/data_table.js"></script>
 
