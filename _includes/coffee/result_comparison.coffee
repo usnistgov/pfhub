@@ -197,7 +197,6 @@ vega_to_plotly = (chart_item, sim_name) ->
     a func that converts Vega to Plotly
   ###
 
-
   efficiency = (name, datum) ->
     if datum is 'x'
       (x) ->
@@ -227,6 +226,12 @@ vega_to_plotly = (chart_item, sim_name) ->
   func_select = ->
     functions[chart_item.func] or get_values
 
+  name_select_filter = (x) ->
+    if chart_item.func is 'efficiency'
+      x.name in ['run_time', 'memory_usage']
+    else
+      x.name is name_select()
+
   name_select = ->
     chart_item.data_name or chart_item.name
 
@@ -240,6 +245,7 @@ vega_to_plotly = (chart_item, sim_name) ->
     }
 
   sequence(
+    filter(name_select_filter)
     map(read_vega_data)
     plotly_dict
   )

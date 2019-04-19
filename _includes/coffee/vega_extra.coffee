@@ -72,8 +72,6 @@ dl_load = (url) ->
   try
     dl.load({url:url})
   catch NetworkError
-    console.log('NetworkError')
-    console.log('URL:', url)
     []
 
 
@@ -84,8 +82,6 @@ read_vega_url = sequence(
     try
       dl.read(x[1], x[0])
     catch SyntaxError
-      console.log('unable to read vega data')
-      console.log('data:', x)
       null
 )
 
