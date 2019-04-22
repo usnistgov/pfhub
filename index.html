@@ -58,5 +58,6 @@ comment: >-
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}/js/corr.js"></script>
 
-<script> backend.hackatons();</script>
-<script> backend.benchmark("5c9c946b3b4d2301005a0064");</script>
+<script>
+  backend.auth(backend.hackatons);
+</script>

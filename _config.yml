@@ -10,16 +10,16 @@ exclude:
   - vendor
   - template.ipynb.md
 
-webrick:
-  headers:
-    Access-Control-Allow-Origin: "*"
+# webrick:
+#   headers:
+#     Access-Control-Allow-Origin: "*"
 
 # Adding this for now for the Cors.
 webserver_headers:
-  - Access-Control-Allow-Origin
-    - "*"
-  - - Access-Control-Allow-Methods
-    - GET, OPTIONS, HEAD
+  Access-Control-Allow-Origin: "*"
+  Access-Control-Allow-Methods: "POST, GET, OPTIONS"
+  Access-Control-Max-Age: "21600"
+  Access-Control-Allow-Headers: "Authorization,Content-Type,Access-Control-Allow-Credentials"
 
 links:
   live_url: https://pages.nist.gov/pfhub

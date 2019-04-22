@@ -2,8 +2,8 @@ var client = new XMLHttpRequest();
 // CoRR Backend class
 var backend = {
     // Main backend properties.
-    cloud_url: 'https://0.0.0.0/cloud/v0.2',
-    api_url: 'https://0.0.0.0/corr/api/v0.2/private',
+    cloud_url: 'https://corr-root.org/cloud/v0.2',
+    api_url: 'https://corr-root.org/corr/api/v0.2/private',
     app_key:"",
     user_key: "",
     query_result: {},
@@ -46,75 +46,69 @@ var backend = {
       }
       return xhr;
     },
+
     // authentication function that takes care of the github sso pipeline.
     auth: function(fill) {
         console.log(this.cloud_url+"/public/oauth/PFHub/github/request");
 
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", this.cloud_url+"/public/oauth/PFHub/github/request", true);
+
+        xmlhttp.open("GET", this.cloud_url+"/public/oauth/PFHub/github/request");
+
         xmlhttp.onload = function() {
-          console.log(xmlhttp.responseURL);
-          var response = JSON.parse(xmlhttp.responseText);
-          backend.github = response["github"];
-          var url = response["base-url"].split("/");
-          backend.app_key = url[url.length-1];
-          backend.user_key = url[url.length-2];
-          Cookies.set('github', backend.github);
-          Cookies.set('app-key', backend.app_key);
-          Cookies.set('user-key', backend.user_key);
+          console.log("auth<---onLoad");
+          if(xmlhttp.responseText.includes("<")){
+            var git_login = window.open(xmlhttp.responseURL, '_blank');
+            function checkWindow() {
+                if (git_login && git_login.closed) {
+                    window.clearInterval(intervalID);
+                    window.location.reload();
+                }else if(git_login.location.host == "corr-root.org"){
+                  git_login.close();
+                }
+            }
+            var intervalID = window.setInterval(checkWindow, 500);
+          }else{
+            var responseText = xmlhttp.responseText;
+            if(responseText.includes("{")){
+              var response = JSON.parse(responseText);
+              backend.github = response["github"];
 
-          console.log(Cookies.get('github'));
-          console.log(Cookies.get('app-key'));
-          console.log(Cookies.get('user-key'));
+              var url = response["base-url"].split("/");
+              backend.app_key = url[url.length-1];
+              backend.user_key = url[url.length-2];
+              Cookies.set('github', backend.github);
+              Cookies.set('app-key', backend.app_key);
+              Cookies.set('user-key', backend.user_key);
 
-          // console.log(response);
-          if(fill != undefined){
-            fill();
+              console.log(Cookies.get('github'));
+              console.log(Cookies.get('app-key'));
+              console.log(Cookies.get('user-key'));
+              console.log("onLoad--->");
+
+              if(fill != undefined){
+                fill();
+              }
+            }else{
+              console.log("Error in resonse: ", responseText);
+            }
           }
+          console.log(xmlhttp.responseURL);
+          console.log(xmlhttp.responseText);
         };
 
         xmlhttp.onerror = function(e) {
+          console.log("<---onError");
           console.log(xmlhttp);
           console.log('An error occured.');
           console.log(xmlhttp.statusText);
           console.log(e);
           console.log(backend.cloud_url+"/public/oauth/PFHub/github/request");
-          /* If there is an error we retry authentication */
-          /* When the authentication page is closed */
-          var child = window.open(backend.cloud_url+"/public/oauth/PFHub/github/request", '_blank');
-
-          // Following is commented for debugging purposes.
-          // var timer = setInterval(checkChild, 1000);
-          //
-          // function checkChild() {
-          //     // if (child.closed) {
-          //     //     location.reload();
-          //     //     clearInterval(timer);
-          //     // }
-          //     }
-          // }
+          console.log("onError--->");
 
         };
 
-        var github = Cookies.get('github');
-        if(github != undefined){
-          backend.github = github;
-
-          var app_key = Cookies.get('app-key');
-          var user_key = Cookies.get('user-key');
-          backend.app_key = app_key;
-          backend.user_key = user_key;
-
-          console.log(backend.github);
-          console.log(backend.app_key);
-          console.log(backend.user_key);
-
-          if(fill != undefined){
-            fill();
-          }
-        }else{
-          xmlhttp.send();
-        }
+        xmlhttp.send();
     },
 
     // Fetch the CoRR Pfhub projects. Which are hackatons.
