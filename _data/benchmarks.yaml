@@ -22,6 +22,29 @@
       commit:
         sha: "3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37"
         url: "hackathon1/problems.ipynb"
+  data:
+    - name: total_free_energy
+      data_name: free_energy
+      title: Free Energy v Time
+      x_title: '<i>t</i>'
+      y_title: '&#8497;'
+      x_scale: log
+      y_scale: log
+      minimum: 1.0
+      type: scatter
+      mode: lines
+      func: get_values
+    - name: efficiency
+      type: scatter
+      x_scale: log
+      y_scale: log
+      x_title: '<i>t</i><sub>Wall</sub> / <i>t</i><sub>Sim</sub> *'
+      y_title: 'Memory Usage (KB)'
+      title: Efficiency
+      mode: markers
+      footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
+      func: efficiency
+
 
 - title: Ostwald Ripening
   description: Coupling of conserved and non-conserved dynamics
@@ -47,6 +70,30 @@
       commit:
         url: "hackathon1/problems.ipynb"
         sha: "3d5d8aab40e1f83fe52bfaa3047a741e8ef4ef37"
+  data:
+    - name: total_free_energy
+      data_name: free_energy
+      title: Free Energy v Time
+      x_title: '<i>t</i>'
+      y_title: '&#8497;'
+      x_scale: log
+      y_scale: log
+      minimum: 1.0
+      type: scatter
+      mode: lines
+      func: get_values
+    - name: efficiency
+      type: scatter
+      x_scale: log
+      y_scale: log
+      x_title: '<i>t</i><sub>Wall</sub> / <i>t</i><sub>Sim</sub> *'
+      y_title: 'Memory Usage (KB)'
+      title: Efficiency
+      mode: markers
+      footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
+      func: efficiency
+
+
 
 - title: Dendritic Growth
   description: Solidification and dendritic growth in a single-component
@@ -306,6 +353,28 @@
       commit:
         sha: "c31dc4e96b7a35b6266c68e9911521e732943c5d"
         url: "benchmarks/benchmark6-hackathon.ipynb"
+  data:
+    - name: total_free_energy
+      data_name: free_energy
+      title: Free Energy v Time
+      x_title: '<i>t</i>'
+      y_title: '&#8497;'
+      x_scale: log
+      y_scale: log
+      minimum: 1.0
+      type: scatter
+      mode: lines
+      func: get_values
+    - name: efficiency
+      type: scatter
+      x_scale: log
+      y_scale: log
+      x_title: '<i>t</i><sub>Wall</sub> / <i>t</i><sub>Sim</sub> *'
+      y_title: 'Memory Usage (KB)'
+      title: Efficiency
+      mode: markers
+      footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
+      func: efficiency
 
 - title: MMS Allen-Cahn
   description: Use the Method of Manufactured Solutions to verify codes

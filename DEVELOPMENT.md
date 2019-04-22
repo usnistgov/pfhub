@@ -178,7 +178,6 @@ Create an environment with the required packages
 
     $ source activate test-environment
     $ conda install -n test-environment pillow numpy
-    $ conda install progressbar2
 
 Update the data in the [`hexbin.yaml`]({{ site.links.github
 }}/blob/nist-pages/_data/hexbin.yaml) file. The following format is

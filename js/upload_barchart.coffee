@@ -1,19 +1,50 @@
 ---
 ---
 
-code_upload_json = {{ site.data.charts.code_upload | jsonify }}
-benchmark_upload_json = {{ site.data.charts.benchmark_upload | jsonify }}
+{% include coffee/essential.coffee %}
+{% include coffee/main.coffee %}
 
-run = (chart_json, div_id) ->
 
-  build_chart = (chart_json)->
-    view = new vega.View(vega.parse(chart_json))
-      .initialize(div_id)
-      .renderer('svg')
-      .hover()
-      .run()
+vega_chart = (chart_json, div_id) ->
+  view = new vega.View(vega.parse(chart_json))
+    .initialize(div_id)
+    .renderer('svg')
+    .hover()
+    .run()
 
-  build_chart(chart_json)
 
-run(code_upload_json, "#upload_code_barchart")
-run(benchmark_upload_json, "#upload_benchmark_barchart")
+make_chart = (chart_json, div_id, values) ->
+  vega_chart(
+    extend(
+      chart_json
+      {
+        data:[
+          {
+            name:'code_uploads',
+            values:values
+          }
+        ]
+      }
+    )
+    div_id
+  )
+
+
+DATA = {{ site.data.simulations | jsonify }}
+
+
+make_chart(
+  {{ site.data.charts.benchmark_upload | jsonify }}
+  "#upload_benchmark_barchart"
+  count_uploads_per_id(DATA)
+)
+
+
+make_chart(
+  {{ site.data.charts.code_upload | jsonify }}
+  "#upload_code_barchart"
+  count_uploads_per_code(DATA)
+)
+
+
+$('#total_uploads').html('Total Uploads: ' + total_uploads(DATA))

@@ -163,22 +163,24 @@ table.striped tbody tr:nth-child(2n+1) {
 }
 
 .card.small .card-image {
-    max-height: 70%;
+    max-height: 80%;
+    min-height: 80%;
+    overflow: auto;
 }
 
 .card.small .card-content.scroll {
     overflow: auto;
-    max-height: 30%;
+    min-height: 20%;
+    max-height: 20%;
+    padding: 10px;
 }
 
-
+.video-container {
+    overflow: visible;
+}
 
 .materialboxed.responsive-img.initialized {
     background-color: white;
-}
-
-.card.small .card-content {
-    max-height: 95%;
 }
 
 .circle {
@@ -217,8 +219,9 @@ table.striped tbody tr:nth-child(2n+1) {
 }
 
 .github-circle {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
+    padding-bottom: 2px;
 }
 
 #twitter-right {
@@ -515,11 +518,17 @@ img.badge{
     #wiki-nav {
         display: none;
     }
+    #sponsor-logos {
+        display: none;
+    }
 }
 
 @media (min-width: 1300px)
 {
     #wiki-nav-bottom {
+        display: none;
+    }
+    #sponsor-logos-bottom {
         display: none;
     }
 }
@@ -550,4 +559,48 @@ span.plotly-footnote {
 
 #chart_table {
     margin-top: 40px !important;
+}
+
+.footer-nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.page-footer {
+    padding-top: 0px;
+}
+
+.page-footer .footer-copyright {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.nist {
+    max-width:160px;
+    max-height:60px;
+    width:auto;
+    height:auto;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+#sponsor-logos-container {
+    position: relative;
+    width: 0;
+    height: 0;
+    float: right;
+}
+
+#sponsor-logos {
+    position: absolute;
+    left: 50px;
+    top: 80px;
+    z-index: 1;
+    text-align: center;
+}
+
+#sponsor-logos-bottom {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 15px;
 }

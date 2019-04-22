@@ -1,5 +1,5 @@
 benchmark:
-  id: 1a
+  id: fake
   version: 1
 data:
 - name: timestep
