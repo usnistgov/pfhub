@@ -237,8 +237,8 @@ vega_to_plotly = (chart_item, sim_name) ->
 
   plotly_dict = (x) ->
     {
-      x:func_select()(name_select(), chart_item.x_name or 'x')(x)
-      y:func_select()(name_select(), chart_item.y_name or 'y')(x)
+      x:[]
+      y:[]
       type:chart_item.type
       mode:chart_item.mode
       name:sim_name.substr(0, 15)
@@ -249,12 +249,11 @@ vega_to_plotly = (chart_item, sim_name) ->
 
   sequence(
     filter(name_select_filter)
-    map(read_vega_data)
     plotly_dict
   )
 
 
-vega_to_plotly_dl_load = curry(
+vega_to_plotly_no_load = curry(
   (data, loaded_values) ->
 
     plotly_dict = (x) ->
@@ -267,7 +266,7 @@ vega_to_plotly_dl_load = curry(
       }
 
     sequence(
-      map(f_read_vega_data(loaded_values))
+      map(read_vega_data_no_load(loaded_values))
       plotly_dict
     )(data.data)
 )
@@ -331,7 +330,7 @@ build = (chart_data, benchmark_id, data) ->
         console.log(err)
         console.log('failed to load data')
       else
-        x.data[index] = vega_to_plotly_dl_load(x.data[index], loaded_values)
+        x.data[index] = vega_to_plotly_no_load(x.data[index], loaded_values)
         Plotly.update(x.div, x.data, x.layout)
   )
 
@@ -340,19 +339,19 @@ build = (chart_data, benchmark_id, data) ->
     (x) ->
       if x.data.length > 0
         Plotly.newPlot(x.div, x.data, x.layout)
-        map(
-          (index) ->
-            if x.data[index].data.length > 0
-              url = x.data[index].data[0].url
-            else
-              url = null
-            if url?
-              dl.load({url:url}, callback(x, index))
-            else
-              callback(x, index, null, null)
+        if x.data[0].data?
+          map(
+            (index) ->
+              if x.data[index].data.length > 0
+                url = x.data[index].data[0].url
+              else
+                url = null
+              if url?
+                dl.load({url:url}, callback(x, index))
+              else
+                callback(x, index, null, null)
 
-          [0..(x.data.length - 1)]
-        )
-
+            [0..(x.data.length - 1)]
+          )
   )
   -> map(newplot, chart_data)
