@@ -72,22 +72,12 @@ dl_load = (url) ->
   try
     dl.load({url:url})
   catch NetworkError
-    console.log('NetworkError')
-    console.log('URL:', url)
     []
 
 
 # read vega data with a url
-read_vega_url = sequence(
-  (x) -> [x.format, dl_load(x.url)]
-  (x) ->
-    try
-      dl.read(x[1], x[0])
-    catch SyntaxError
-      console.log('unable to read vega data')
-      console.log('data:', x)
-      null
-)
+read_vega_url = (data) ->
+  read_vega_url_no_load(dl_load(data.url), data)
 
 
 vega_transform = (spec) ->
@@ -110,21 +100,43 @@ vega_transform = (spec) ->
 
 
 # read vega data item and apply transforms
-read_vega_data_ = sequence(
-  (x) ->
-    {
-      transforms:map(vega_transform, if x.transform? then x.transform else [])
-      values:if x.url? then read_vega_url(x) else x.values
-    }
+read_vega_data_generic = (read_vega_func) ->
+  sequence(
+    (x) ->
+      {
+        transforms:map(vega_transform, if x.transform? then x.transform else [])
+        values:if x.url? then read_vega_func(x) else x.values
+      }
+    # coffeelint: disable=no_stand_alone_at
+    # coffeelint: disable=missing_fat_arrows
+    (x) -> sequence.apply(@, x.transforms.concat(id))(x.values)
+    # coffeelint: enable=no_stand_alone_at
+    # coffeelint: enable=missing_fat_arrows
+  )
 
-  # coffeelint: disable=no_stand_alone_at
-  # coffeelint: disable=missing_fat_arrows
-  (x) -> sequence.apply(@, x.transforms.concat(id))(x.values)
-  # coffeelint: enable=no_stand_alone_at
-  # coffeelint: enable=missing_fat_arrows
+read_vega_data = (x) ->
+  x.values = read_vega_data_generic(read_vega_url)(x)
+  x
+
+
+# read vega data with a url
+read_vega_url_no_load = curry(
+  (loaded_values, data) ->
+    sequence(
+      (x) -> [x.format, loaded_values]
+      (x) ->
+        try
+          dl.read(x[1], x[0])
+        catch SyntaxError
+          null
+    )(data)
 )
 
 
-read_vega_data = (x) ->
-  x.values = read_vega_data_(x)
-  x
+read_vega_data_no_load = curry(
+  (loaded_values, data) ->
+    data.values = read_vega_data_generic(
+      read_vega_url_no_load(loaded_values)
+    )(data)
+    data
+)

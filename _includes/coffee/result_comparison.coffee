@@ -197,7 +197,6 @@ vega_to_plotly = (chart_item, sim_name) ->
     a func that converts Vega to Plotly
   ###
 
-
   efficiency = (name, datum) ->
     if datum is 'x'
       (x) ->
@@ -227,22 +226,50 @@ vega_to_plotly = (chart_item, sim_name) ->
   func_select = ->
     functions[chart_item.func] or get_values
 
+  name_select_filter = (x) ->
+    if chart_item.func is 'efficiency'
+      x.name in ['run_time', 'memory_usage']
+    else
+      x.name is name_select()
+
   name_select = ->
     chart_item.data_name or chart_item.name
 
   plotly_dict = (x) ->
     {
-      x:func_select()(name_select(), chart_item.x_name or 'x')(x)
-      y:func_select()(name_select(), chart_item.y_name or 'y')(x)
+      x:[]
+      y:[]
       type:chart_item.type
       mode:chart_item.mode
       name:sim_name.substr(0, 15)
+      data:x
+      x_func:func_select()(name_select(), chart_item.x_name or 'x')
+      y_func:func_select()(name_select(), chart_item.y_name or 'y')
     }
 
   sequence(
-    map(read_vega_data)
+    filter(name_select_filter)
     plotly_dict
   )
+
+
+vega_to_plotly_no_load = curry(
+  (data, loaded_values) ->
+
+    plotly_dict = (x) ->
+      {
+        x:data.x_func(x)
+        y:data.y_func(x)
+        type:data.type
+        mode:data.mode
+        name:data.name
+      }
+
+    sequence(
+      map(read_vega_data_no_load(loaded_values))
+      plotly_dict
+    )(data.data)
+)
 
 
 get_comparison_data = curry(
@@ -296,10 +323,35 @@ build = (chart_data, benchmark_id, data) ->
   get_plotly_data_id = get_plotly_data(
     filter_by_id(benchmark_id)(data)
   )
+
+  callback = curry(
+    (x, index, err, loaded_values) ->
+      if err
+        console.log(err)
+        console.log('failed to load data')
+      else
+        x.data[index] = vega_to_plotly_no_load(x.data[index], loaded_values)
+        Plotly.update(x.div, x.data, x.layout)
+  )
+
   newplot = sequence(
     get_plotly_data_id
     (x) ->
       if x.data.length > 0
         Plotly.newPlot(x.div, x.data, x.layout)
+        if x.data[0].data?
+          map(
+            (index) ->
+              if x.data[index].data.length > 0
+                url = x.data[index].data[0].url
+              else
+                url = null
+              if url?
+                dl.load({url:url}, callback(x, index))
+              else
+                callback(x, index, null, null)
+
+            [0..(x.data.length - 1)]
+          )
   )
   -> map(newplot, chart_data)
