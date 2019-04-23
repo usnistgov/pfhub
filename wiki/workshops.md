@@ -55,5 +55,5 @@ needs and avenues of work.
  - **Phase Field Methods Workshop VIII**; Apr 23-25, 2019; in the
    planning stages; email <e-gulsoy@northwestern.edu> if you'd like to
    attend. See [the agenda]({{ site.baseurl
-   }}/docs/CHiMaDPhaseField8-Agenda.pdf) and [workshop notes]({{
+   }}/docs/CHiMaDPF8-Agenda-Final.pdf) and [workshop notes]({{
    site.baseurl }}/docs/CHiMaDWorkhop-PhaseField8-note-V2.pdf).
