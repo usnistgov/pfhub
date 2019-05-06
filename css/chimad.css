@@ -604,3 +604,20 @@ span.plotly-footnote {
     margin-top: 20px;
     padding: 15px;
 }
+
+a.hoveranchor {
+    opacity:0;
+    position: absolute !important;
+    left: -25px;
+    padding-right: 10px;
+}
+
+.anchor:hover div a.hoveranchor {
+    opacity:1;
+}
+
+.anchor div {
+    position: relative;
+    width: 0;
+    height: 0;
+}
