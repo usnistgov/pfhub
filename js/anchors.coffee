@@ -7,11 +7,13 @@
 
 $("h4, h5, h6").each(
   () ->
-    $(this).attr("class", "anchor")
-    $(this).prepend(
+    heading = $(this).text()
+    $(this).text("")
+    $(this).append(
       make_anchor_html(
         "{{ site.baseurl}}"
-        $($(this).children()[0]).attr("name")
+        heading
       )
     )
+    $(this).attr("class", "anchor")
 )
