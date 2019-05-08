@@ -52,8 +52,12 @@ needs and avenues of work.
    and [the presentations]({{
    site.baseurl}}/wiki/2018-10-09-workshop-vii-presentations/).
 
- - **Phase Field Methods Workshop VIII**; Apr 23-25, 2019; in the
+ - **Phase Field Methods Workshop VIII**; Apr 23-25, 2019; see [the agenda]({{ site.baseurl
+   }}/docs/CHiMaDPF8-Agenda-Final.pdf), [workshop notes]({{
+   site.baseurl }}/docs/CHiMaDWorkhop-PhaseField8-note-V2.pdf) and
+   [presentations]({{ site.baseurl
+   }}/wiki/2019-05-08-workshop-viii-presentations).
+
+ - **Phase Field Methods Workshop IX**; Nov 5-7, 2019; in the
    planning stages; email <e-gulsoy@northwestern.edu> if you'd like to
-   attend. See [the agenda]({{ site.baseurl
-   }}/docs/CHiMaDPF8-Agenda-Final.pdf) and [workshop notes]({{
-   site.baseurl }}/docs/CHiMaDWorkhop-PhaseField8-note-V2.pdf).
+   attend.
