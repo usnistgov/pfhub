@@ -115,9 +115,19 @@
   avatar: ../images/OforiOpoku-cropped.png
   email: nana.oforiopoku@cnl.ca
   github_id: noforiopoku
-  home: 
+  home:
   orcid: 0000-0003-3494-4635
   scholar: cZmN9HMAAAAJ
   text: >-
     Computational Materials Scientist at <a href="http://www.cnl.ca/">Canadian Nuclear Laboratories</a>.
     Phase-field, phase-field crystal, and mesoscale model developer.
+- name: David Montiel
+  avatar: ../images/montiel-cropped.png
+  email: dmontiel@umich.edu
+  github_id: david-montiel-t
+  home: http://www.mse.engin.umich.edu/people/dmontiel
+  scholar: C5oyIigAAAAJ
+  orcid: 0000-0003-3775-2735
+  text: >-
+    Research Investigator at the University of Michigan. Application
+    developer within the PRISMS-PF framework.
