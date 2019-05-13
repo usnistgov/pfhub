@@ -25,6 +25,7 @@ script:
   - #nix-shell --pure --command "touch _data/hexbin.yaml"
   - #nix-shell --pure --command "make hexbin"
   - nix-shell --pure --command "rm -rf ./_site"
+  # html-proofer might require LC_ALL=en_US.UTF-8 to work on some Nix installations
   - nix-shell --command "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site";
   - nix-shell --pure --command "py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg"
   - nix-shell --pure --command "coffeelint _includes/coffee/"
