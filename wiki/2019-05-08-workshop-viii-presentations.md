@@ -52,7 +52,7 @@ Pusztai</a></strong> </div>
 
 ## The Phase Field Method: Mesoscale Simulation Aiding Materials Discovery
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/x5vhRkygf6bx5i" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/PFHubPFHub/the-phase-field-method-mesoscale-simulation-aiding-materials-discovery" title="The Phase Field Method: Mesoscale Simulation Aiding Materials Discovery" target="_blank">The Phase Field Method: Mesoscale Simulation Aiding Materials Discovery</a> </strong> from <strong><a href="{{ site.baseurl }}/community/#micahel-tonks" target="_blank">Michael Tonks</a></strong> </div>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/x5vhRkygf6bx5i" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/PFHubPFHub/the-phase-field-method-mesoscale-simulation-aiding-materials-discovery" title="The Phase Field Method: Mesoscale Simulation Aiding Materials Discovery" target="_blank">The Phase Field Method: Mesoscale Simulation Aiding Materials Discovery</a> </strong> from <strong><a href="{{ site.baseurl }}/community/#michael-tonks" target="_blank">Michael Tonks</a></strong> </div>
 
 <br><br>
 
