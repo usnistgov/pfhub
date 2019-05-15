@@ -131,3 +131,14 @@
   text: >-
     Research Investigator at the University of Michigan. Application
     developer within the PRISMS-PF framework.
+- name: Michael Tonks
+  avatar: ../images/tonks-crop.jpg
+  email: michael.tonks@ufl.edu
+  github_id: tonkmr
+  home: https://mse.ufl.edu/people/name/michael-tonks/
+  scholar: 2boea-gAAAAJ
+  orcid: 0000-0002-1343-3193
+  text: >-
+    Associate Professor of Materials Science and Engineering at the
+    University of Florida; Original creator of MARMOT; MOOSE & MARMOT
+    phase-field developer.
