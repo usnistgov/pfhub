@@ -60,3 +60,10 @@ Pusztai</a></strong> </div>
 
 <iframe src="{{ site.baseurl }}/docs/UQUP-CHIMAD.pdf" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen></iframe>
 <div style="margin-bottom:5px"> <strong>Efficient Propogation / Quantification of Uncertainty from CALPHAD to Multi-Physics Phase Field Microstructure Simulations</strong> from <strong><a href="https://scholar.google.com/citations?user=aPUBaigAAAAJ&hl=en&oi=sra" target="_blank">Raymundo Arroyave</a></strong> </div>
+
+<br><br>
+
+## Variational phase-field models of fracture
+
+<iframe src="{{ site.baseurl }}/docs/PhaseFieldVIII-Bourdin.pdf" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen></iframe>
+<div style="margin-bottom:5px"> <strong>Variational phase-field models of fracture</strong> from <strong><a href="https://scholar.google.com/citations?user=qzocR3gAAAAJ" target="_blank">Blaise Bourdin</a></strong> </div>
