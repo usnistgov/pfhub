@@ -171,3 +171,20 @@ make_table_data = sequence(
 
 to_iso = (x) ->
   (new Date(x)).toISOString().substring(0, 19)
+
+
+make_anchor_html = (baseurl, heading) ->
+  sequence(
+    (x) -> heading.trim().replace(/\s+/g, '-').toLowerCase()
+    (x) -> """
+        <div>
+          <a href="#{baseurl}/ABOUT/##{x}"
+             class="hoveranchor">
+             <i class="material-icons tiny">link</i>
+          </a>
+        </div>
+        <a name=#{x}>
+          #{heading}
+        </a>
+      """
+  )
