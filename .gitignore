@@ -2,3 +2,4 @@ _site
 _misc
 .cache
 .local
+.gcloudignore

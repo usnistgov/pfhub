@@ -1,0 +1,66 @@
+_id: 42f97720-a21c-11e9-9cca-0935b5963be4
+metadata:
+  author:
+    first: Shubhajit
+    last: Mondal
+    email: sm44@iitbbs.ac.in
+    github_id: smondal44
+  timestamp: '17 June, 2019'
+  summary: >-
+    Spinodal decomposition problem for T-shape domain has been solved using
+    open-source finite element software FeniCS.
+  implementation:
+    name: Fenics
+    repo:
+      url: >-
+        https://github.com/smondal44/spinodal-decomposition/blob/master/spinodal_c_conservative.py
+      version: b96a5defefc814178d294a1e5ec595cde5c2eb7f
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: '2.4'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '14400'
+        sim_time: '14400'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '16384'
+  - name: free_energy
+    url: 'https://drive.google.com/open?id=19oJVHZ6zaw47TN43E5qk-uGRsqrz0iE7'
+    format:
+      type: csv
+      parse:
+        Time: number
+        Total_Energy: number
+    description: Evolution of the total energy of the T-shape domain
+    type: line
+    transform:
+      - type: formula
+        expr: datum.Time
+        as: x
+      - type: formula
+        expr: datum.Total_Energy
+        as: 'y'
+  - name: profile1
+    url: 'https://drive.google.com/open?id=1he7ilLH2VTD740OGPJXOq8CSn7utEDf_'
+    type: image
+    description: Initial profile of T-shape domain
+  - name: profile2
+    url: 'https://drive.google.com/open?id=19ifpb4-fux4RLnpVva-z1px5ja6xnrcN'
+    type: image
+    description: Profile at t = 200s
+  - name: profile3
+    url: 'https://drive.google.com/open?id=1rZ2O-Lw4ZsvPfDsQInUIUd4x5rT9sxca'
+    type: image
+    description: profile at t= 2000s
+date: 1562657788
