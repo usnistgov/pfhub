@@ -16,6 +16,7 @@ if SIM_NAME of ALL_DATA
     AXES_NAMES
     REPO
     BENCHMARK_DATA
+    "{{ site.links.app }}"
   )
 else
   window.location = "{{ site.baseurl }}/simulations/notfound/?sim=" + SIM_NAME

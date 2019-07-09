@@ -13,6 +13,7 @@ before_install:
 before_cache:
   - mkdir -p $STORE
   - nix copy --to file://$STORE -f shell.nix buildInputs
+  - nix copy --to file://$STORE -f _app/shell.nix buildInputs
 install:
   - nix-shell --pure --command "echo 'run nix-shell and exit'"
 script:
@@ -30,6 +31,10 @@ script:
   - nix-shell --pure --command "py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg"
   - nix-shell --pure --command "coffeelint _includes/coffee/"
   - nix-shell --pure --command "mocha _site/pfhub/js/test.js"
+  - nix-shell _app/shell.nix --pure --command "cd _app; py.test test.py"
+  - nix-shell _app/shell.nix --pure --command "cd _app; black --check *.py"
+  - nix-shell _app/shell.nix --pure --command "cd _app; pylint *.py"
+  - nix-shell _app/shell.nix --pure --command "cd _app; flake8 *.py"
 after_success:
   - nix-shell --pure --command "rm -rf ./_site"
   - nix-shell --pure --command "make simulations"

@@ -3,6 +3,10 @@ Extra functions to build and parse Vega charts
 ###
 
 
+to_app_url = (app_url, url) ->
+  app_url + '/get/?url=' + encodeURIComponent(url)
+
+
 update_vega_data = (axes_names, data) ->
   ### Update chart data depending on name of the data
 
@@ -25,7 +29,6 @@ update_vega_data = (axes_names, data) ->
       )
   x.data[0].name = 'the_data'
   x
-
 
 
 combine_vega_data = curry(
@@ -51,7 +54,7 @@ vegarize = (chart_data, axes_names) ->
   )
 
 
-add_vega_src = (x) ->
+add_vega_src = (x, appurl) ->
   ### Extract Vega chart as SVG url and set src attribute
 
   Args:
@@ -60,17 +63,26 @@ add_vega_src = (x) ->
   urlfunc = (d) ->
     (url) -> x.filter((d_) -> d is d_).attr('src', url)
 
+  update_url = (x) ->
+    if x.url?
+      x.url = to_app_url(appurl, x.url)
+
+  update_urls = (x) -> map(do_(update_url), x.data)
+
   vega_promise = (d) ->
     new vega.View(vega.parse(d))
       .toImageURL('svg')
       .then(urlfunc(d))
 
-  map(vega_promise, x.data())
+  sequence(
+    map(do_(update_urls))
+    map(vega_promise)
+  )(x.data())
 
 
 dl_load = (url) ->
   try
-    dl.load({url:url})
+    dl.load({url:to_app_url(url)})
   catch NetworkError
     []
 

@@ -308,13 +308,14 @@ filter_by_id = (benchmark_id) ->
   )
 
 
-build = (chart_data, benchmark_id, data) ->
+build = (chart_data, benchmark_id, data, appurl) ->
   ### Build the Plotly plots for the comparison pages
 
   Args:
     chart_data: a list of chart data to determine charts to build
     benchmark_id: benchmark_id to filter the simulations
     data: all the simulation data
+    appurl: the URL of the app
 
   Returns:
     a func that builds the graphs and attaches them to tagged HTML
@@ -347,7 +348,7 @@ build = (chart_data, benchmark_id, data) ->
               else
                 url = null
               if url?
-                dl.load({url:url}, callback(x, index))
+                dl.load({url:to_app_url(appurl, url)}, callback(x, index))
               else
                 callback(x, index, null, null)
 
