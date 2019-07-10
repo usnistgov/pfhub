@@ -5,7 +5,7 @@ metadata:
     last: Mondal
     email: sm44@iitbbs.ac.in
     github_id: smondal44
-  timestamp: '30 June, 2019'
+  timestamp: '9 July, 2019'
   summary: >-
     Here, we solve linear elasticity problem for the elliptical homogeneous
     precipitate (variant 4e ) in effectively infinite matrix
@@ -43,8 +43,9 @@ data:
         x: number
         'y': number
     description: >-
-      Coordinate of the equilibrium contour plot of the order parameter has been
-      included in this data file.
+      Coordinate of the equilibrium contour plot of the order
+      parameter (considering order parameter = 0.5) has been included
+      in this data file.
     type: line
     transform:
       - type: formula
