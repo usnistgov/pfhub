@@ -44,7 +44,7 @@ PFHub: The Phase-Field Community Hub\\[\baselineskip]
 4. Jokisaari, Andrea M.; C\\
 5. Schwen, Daniel; C\\
 6. Guyer, Jonathan E.; A\\
-7. Aagesen, Larry; C\\
+7. Aagesen, Larry K.; C\\
 8. Heinonen, Olle G.; D\\
 9. Tonks, Michael R.; E\\
 10. Voorhees, Peter W.; F\\
@@ -117,6 +117,19 @@ CMS tool, focuses on customizing and delivering the client-side
 requirements whilst delegating back-end functionality to external
 services that provide dependable APIs~\cite{cmsfree}.
 
+The phase field method (PFM) describes material interfaces at the
+mesoscopic scale between atomic scale models and macroscale
+models~\cite{MOELANS2008268}. The PFM is well established and there
+are an assortment of code frameworks (\emph{e.g.}, FiPy~\cite{fipy},
+MMSP~\cite{mmsp}, MOOSE~\cite{moose}, PRISMS-PF~\cite{prisms-pf})
+available for solving the wide variety of phenomena associated with
+phase field (e.g. dendritic growth, spinodal decomposition, grain
+growth)~\cite{tonks}. However, it is difficult for novice as well as
+seasoned phase field practitioners to asses the capability of codes
+for different phenomena without extensive prototyping and
+groundwork. PFHub aims to provide a low barrier for comparing code
+output data using a standard set of metrics.
+
 PFHub is a community effort spearheaded by the Center for Hierarchical
 Materials Design at Northwestern University and the National Institute
 of Standards and Technology in support of phase-field code
@@ -124,13 +137,23 @@ development. The current PFHub deployment~\cite{pfhub} focuses on
 improving cross-collaboration between phase-field code developers and
 practitioners by providing a standardized set of benchmark
 problems~\cite{bm1, bm2} and a workflow for uploading and comparing
-benchmark results from different phase-field codes (\emph{e.g.},
-FiPy~\cite{fipy}, MMSP~\cite{mmsp}, MOOSE~\cite{moose},
-PRISMS-PF~\cite{prisms-pf}).
+benchmark results from different phase-field codes.
+
+Community based scientific efforts often require web services to share
+and display data in unique ways between groups and institutions. These
+services are difficult to implement due to the groundwork required to
+investigate and prototype the many data-sharing and CMS tools
+available. The PFHub framework provides a template for other
+scientific projects beyond the phase field community. The method
+outlined in this paper of using static infrastructure coupled with
+small independent third party web services provides a flexible
+approach eliminating the initial prototyping and on-going maintenance
+required for new infrastructure, while allowing developers to focus on
+their unique front-end data views.
 
 This paper presents the first deployment of the PFHub framework
 including its client-side focused design, how it employs external
-services and meta-data about the code base. The paper describes the
+services and metadata about the code base. The paper describes the
 relative ease with which other scientific groups might adapt the
 framework for their own purposes and deploy using the fully
 reproducible Nix environment~\cite{nix}.
@@ -139,13 +162,14 @@ reproducible Nix environment~\cite{nix}.
 
 The PFHub framework provides a template for other small scientific
 communities to host custom content and integrate data from members of
-their community. The current deployment provides a facility for
-uploading, displaying and comparing results from benchmark problems
-supporting phase-field code developers and practitioners. However, the
-framework and overall philosophy are broadly transferable to other
-communities with some custom configuration and content generation. The
-framework uses the Jekyll static website generator~\cite{jekyll} along
-with automated front-end processing to eliminate the need for a
+their community. The current deployment (see
+Figure~\ref{fig:pfhub_frontpage}) provides a facility for uploading,
+displaying and comparing results from benchmark problems supporting
+phase-field code developers and practitioners. However, the framework
+and overall philosophy are broadly transferable to other communities
+with some custom configuration and content generation. The framework
+uses the Jekyll static website generator~\cite{jekyll} along with
+automated front-end processing to eliminate the need for a
 CMS~\cite{cmsfree}, which is generally costly to maintain especially
 for small scientific communities with limited funding and staffing.
 The framework relies on the API, WebSocket and webhook infrastructure
@@ -170,12 +194,14 @@ Figure~\ref{fig:pfhub_website}.
       purpose.\label{disclaimer}}~\cite{figshare}) configured with
     permissive cross-origin resource sharing (CORS).
   \item The metadata summarizing each simulation is entered into a
-    form on the website, including relevant details such as memory
-    usage, run time and links to the data archived in the first step.
+    form on the website (see Figure~\ref{fig:pfhub_upload}), including
+    relevant details such as memory usage, run time and links to the
+    data archived in the first step.
   \item Upon submission, the Staticman app~\cite{staticman} submits
     the entered metadata as a pull request against the PFHub
     repository hosted by GitHub. The metadata is stored in a YAML file
-    with a unique path in the repository.
+    with a unique path in the repository, see~\cite{upload_data} for
+    an example.
   \item Travis CI~\cite{travis} performs linting on the submission and
     then launches a temporary version of the proposed website using
     Surge~\cite{surge}. The PFHub admins can then examine the new
@@ -187,10 +213,15 @@ Figure~\ref{fig:pfhub_website}.
 \end{enumerate}
 A combination of Jekyll templates and CoffeeScript are used to access
 and download the data links in the submitted YAML files and then
-display the data in interactive plots on the website. The interactive
-plots are displayed using the Plotly JavaScript Graphing
+display the data in interactive plots on the website. CoffeeScript is
+a higher level language than JavaScript and, thus, more readable
+whilst also allowing programming in a more functional manner which
+makes data manipulation pipelines both more succinct and easier to
+understand. The interactive plots (see Figure~\ref{fig:pfhub_results})
+are displayed using the Plotly JavaScript Graphing
 Library~\cite{plotly} as it provides a programmable interface and
-requires minimal configuration.
+requires minimal configuration, see~\cite{display_data} for typical
+data displayed on the interactive plots.
 
 The current deployment of PFHub has benchmark specifications
 consisting of equations, narrative, plots and code samples, and are
@@ -198,7 +229,7 @@ composed in Jupyter Notebooks. The Jupyter Notebooks are included as
 static objects in the website after translation into HTML using the
 nbconvert tool~\cite{jupyter}. There are currently 7 benchmark
 problems each with a number of variations. At the time of writing
-there are 108 separate benchmark result uploads~\cite{pfhub} submitted
+there are 109 separate benchmark result uploads~\cite{pfhub} submitted
 as pull requests and approved following code review to ensure
 compatibility with the website.
 
@@ -208,12 +239,39 @@ archives avoids the complexity and administrative overhead of
 maintaining a live database and associated back-end application.
 
 \begin{figure}
+  \includegraphics[width=\textwidth]{pfhub_frontpage.png}
+  \caption{Front page of the current version of the deployed PFHub
+    website showing links to the wiki and upload pages. The hexbin
+    splash provides links to phase field papers and websites. This can
+    easily be modified with alternative links and images by editing a
+    YAML file.}  \centering
+  \label{fig:pfhub_frontpage}
+\end{figure}
+
+\begin{figure}
   \includegraphics[width=\textwidth]{pfhub_website.png}
   \caption{Schematic overview of the PFHub framework for building
     scientific research portals, simply.}
   \centering
   \label{fig:pfhub_website}
 \end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{pfhub_upload.png}
+  \caption{The form used to enter simulation result metadata and then
+    upload to the repository via a GitHub pull request allowing the
+    data to be checked before pushing to the website.}  \centering
+  \label{fig:pfhub_upload}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{pfhub_results.png}
+  \caption{Results comparison page for benchmark 3 (Dendritic
+    Growth). The data for each upload is plotted asynchronously and the
+    page is not affected if a data link dies.}  \centering
+  \label{fig:pfhub_results}
+\end{figure}
+
 
 \section*{Quality control}
 
@@ -237,7 +295,8 @@ following steps.
     NBval~\cite{nbval} and Py.test~\cite{pytest}.
   \item Run validation tests on HTML files using
     HTMLProofer~\cite{htmlproofer}.
-  \item Lint and test front-end CoffeeScript using appropriate tools.
+  \item Lint and test front-end CoffeeScript using
+    Coffeelint~\cite{coffeelint} and Mocha~\cite{mocha}, respectively.
   \item Display a temporary version of the website using
     Surge~\cite{surge} for visual review.
 \end{enumerate}
@@ -247,9 +306,9 @@ following steps.
 \section*{Operating system}
 
 The PFHub framework can be deployed on any platform supporting Nix,
-which includes all contemporary Linux and Mac OS X platforms. Since
-the framework is built with Jekyll and automated front-end processing,
-it can be deployed on GitHub's Pages infrastructure, which enables
+which includes all contemporary Linux and macOS platforms. Since the
+framework is built with Jekyll and automated front-end processing, it
+can be deployed on GitHub's Pages infrastructure, which enables
 streamlined deployment without the need for any back-end
 infrastructure and, thus, is largely platform independent. For
 development purposes, a local installation of either Nix (on Linux or
@@ -365,8 +424,10 @@ aspects of deploying the framework for a new community.
     community.
 \end{itemize}
 
-Currently, a deployment for a new community has not been attempted
-and, thus, the above steps need to be refined and documented.
+Further details on deployment and development of PFHub can be found in
+the development guide~\cite{development_guide}.  Currently, a
+deployment for a new community has not been attempted and, thus, the
+above steps need to be refined and documented.
 
 \section*{Acknowledgments}
 
