@@ -42,7 +42,7 @@ app = FastAPI()  # pylint: disable=invalid-name
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:4000", "https://pages.nist.gov/pfhub"],
+    allow_origins=["http://127.0.0.1:4000", "https://pages.nist.gov"],
     allow_origin_regex=r"http://random-cat-.*\.surge\.sh",
     allow_credentials=True,
     allow_methods=["*"],
