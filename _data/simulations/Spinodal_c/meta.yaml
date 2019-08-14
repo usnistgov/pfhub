@@ -34,7 +34,7 @@ data:
   - name: memory_usage
     values:
       - unit: KB
-        value: '16384'
+        value: '8388608'
   - name: free_energy
     url: 'https://drive.google.com/open?id=19oJVHZ6zaw47TN43E5qk-uGRsqrz0iE7'
     format:
