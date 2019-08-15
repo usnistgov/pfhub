@@ -35,21 +35,21 @@ data:
     values:
       - unit: KB
         value: '8388608'
-  - name: Total_energy
+  - name: free_energy
     url: 'https://drive.google.com/open?id=1F2iFqydxrlVGuPLQIGm1TWYJoiLiiuGC'
     format:
       type: csv
       parse:
-        Tome: number
-        Free energy: number
+        Time: number
+        "Total Free energy": number
     description: Evolution of the total energy for square-shape domain
     type: line
     transform:
       - type: formula
-        expr: datum.Tome
+        expr: datum.time
         as: x
       - type: formula
-        expr: datum.Free energy
+        expr: "datum['Total Free energy']"
         as: 'y'
   - name: plot
     url: 'https://drive.google.com/open?id=16uyjNvZ6vctz3B1OSR3pLBl95SyO-mFg'

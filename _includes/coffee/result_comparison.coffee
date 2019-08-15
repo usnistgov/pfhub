@@ -46,6 +46,7 @@ get_scatter_data = (data, chart_item) ->
             title:chart_item.x_title
             type:chart_item.x_scale
             domain:chart_item.x_domain
+            range:chart_item.x_range
             scaleanchor:chart_item.x_scaleanchor
             exponentformat:'E'
             dtick:chart_item.x_dtick
