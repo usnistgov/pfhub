@@ -33,6 +33,7 @@
       type: scatter
       mode: lines
       func: get_values
+      x_range: [0, 7]
     - name: efficiency
       type: scatter
       x_scale: log

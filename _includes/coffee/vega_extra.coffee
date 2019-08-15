@@ -92,6 +92,29 @@ read_vega_url = (data) ->
   read_vega_url_no_load(dl_load(data.url), data)
 
 
+transform_expr = (expr) ->
+  ### Remove whitespace from spec expression of the form
+  "datum.['my value']"" and return as "datum.my_value"
+  ####
+  sequence(
+    (x) -> x.match(/datum\[['|"](.*)['|"]\]/)
+    (x) ->
+      if x
+        'datum.' + x[1].replace(/\s/g, '_')
+      else
+        expr
+  )(expr)
+
+
+key_space = (x) ->
+  ### Remove white space from keys in an object
+  ###
+  x_ = {}
+  for k, v of x
+    x_[k.replace(/\s/g, '_')] = v
+  x_
+
+
 vega_transform = (spec) ->
   ### Turn a vega transform spec into a function
 
@@ -104,7 +127,10 @@ vega_transform = (spec) ->
   if spec.type is 'formula'
     (values) ->
       f = (datum) ->
-        datum[spec.as] = evalexpr.Parser.evaluate(spec.expr, {datum:datum})
+        datum[spec.as] = evalexpr.Parser.evaluate(
+          transform_expr(spec.expr)
+          {datum:key_space(datum)}
+        )
         datum
       map(f, values)
   else
