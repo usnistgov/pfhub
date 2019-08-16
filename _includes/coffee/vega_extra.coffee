@@ -80,17 +80,18 @@ add_vega_src = (x, appurl) ->
   )(x.data())
 
 
-dl_load = (url) ->
+dl_load = (app_url, url) ->
   try
-    dl.load({url:to_app_url(url)})
+    dl.load({url:to_app_url(app_url, url)})
   catch NetworkError
     []
 
 
 # read vega data with a url
-read_vega_url = (data) ->
-  read_vega_url_no_load(dl_load(data.url), data)
-
+read_vega_url = curry(
+  (app_url, data) ->
+    read_vega_url_no_load(dl_load(app_url, data.url), data)
+)
 
 transform_expr = (expr) ->
   ### Remove whitespace from spec expression of the form
@@ -106,15 +107,6 @@ transform_expr = (expr) ->
   )(expr)
 
 
-key_space = (x) ->
-  ### Remove white space from keys in an object
-  ###
-  x_ = {}
-  for k, v of x
-    x_[k.replace(/\s/g, '_')] = v
-  x_
-
-
 vega_transform = (spec) ->
   ### Turn a vega transform spec into a function
 
@@ -124,12 +116,13 @@ vega_transform = (spec) ->
   Returns:
     a function that takes vega values
   ###
+  underscore = (x) -> x.replace(/\s/g, '_')
   if spec.type is 'formula'
     (values) ->
       f = (datum) ->
         datum[spec.as] = evalexpr.Parser.evaluate(
           transform_expr(spec.expr)
-          {datum:key_space(datum)}
+          {datum:modify_keys(underscore, datum)}
         )
         datum
       map(f, values)
@@ -152,10 +145,11 @@ read_vega_data_generic = (read_vega_func) ->
     # coffeelint: enable=missing_fat_arrows
   )
 
-read_vega_data = (x) ->
-  x.values = read_vega_data_generic(read_vega_url)(x)
-  x
-
+read_vega_data = curry(
+  (appurl, x) ->
+    x.values = read_vega_data_generic(read_vega_url(appurl))(x)
+    x
+)
 
 # read vega data with a url
 read_vega_url_no_load = curry(

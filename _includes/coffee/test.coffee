@@ -479,3 +479,92 @@ describe('test transpose', ->
     )
   )
 )
+
+
+describe('test pluck_arr_list', ->
+  it('simple', ->
+    assert.deepEqual(
+      pluck_arr_list(['x', 'b'], [{a:1, b:2}, {a:2, b:3}]),
+      [2, 3]
+    )
+  )
+  it('failure', ->
+    assert.deepEqual(
+      pluck_arr_list(['x', 'b'], [{a:1, b:2}, {a:2, x:1}]),
+      [2, undefined]
+    )
+  )
+)
+
+
+describe('test modify_keys', ->
+  it('simple', ->
+    assert.deepEqual(
+      modify_keys(
+        (x) -> x.replace(/\s/g, '_')
+        {'white space':1}
+      )
+      {'white_space':1}
+    )
+  )
+)
+
+
+describe('test make_array', ->
+  it('change', ->
+    assert.deepEqual(
+      make_array('hi')
+      ['hi']
+    )
+  )
+  it('no change', ->
+    assert.deepEqual(
+      make_array(['hi'])
+      ['hi']
+    )
+  )
+)
+
+
+describe('test unzip', ->
+  it('simple', ->
+    assert.deepEqual(
+      unzip([['a', 1], ['b', 2], ['c', 3]])
+      [['a', 'b', 'c'], [1, 2, 3]]
+    )
+  )
+)
+
+
+describe('test juxt', ->
+  it('simple', ->
+    assert.deepEqual(
+      juxt([
+        (x) -> x * 2
+        (x) -> x / 2
+        ], 2.0)
+      [4.0, 1.0]
+    )
+  )
+)
+
+
+describe('test reorder', ->
+  it('simple', ->
+    assert.deepEqual(
+      reorder(
+        'data'
+        'x'
+        'y'
+        [
+          {
+            name:'data'
+            values:
+              [{x:0.0, y:1.0}, {x:1.0, y:0.0}, {x:-1.0, y:0.0}]
+          }
+        ]
+      )
+      [[1, 0, -1], [0, 1, 0]]
+    )
+  )
+)

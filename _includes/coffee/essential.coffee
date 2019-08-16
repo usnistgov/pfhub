@@ -404,6 +404,28 @@ pluck_arr = curry(
 )
 
 
+pluck_arr_list = curry(
+  (keys, arr) ->
+    ### Pluck a value from a list of dictionaries using a list of keys
+
+    For example
+
+      pluck_arr_list(
+        [{a:1, b:2}, {a:2, b:3}]
+        ['x', 'b']
+
+    should return
+
+      [2, 3]
+    ###
+    sequence(
+      map((x) -> pluck_arr(x, arr))
+      filter((x) -> x[0]?)
+      first
+    )(keys)
+)
+
+
 get = curry(
   (key, dict) ->
     ### Get an element of an object
@@ -442,3 +464,28 @@ map_undef = curry(
 
 transpose = (matrix) ->
   (t[i] for t in matrix) for i in [0...matrix[0].length]
+
+
+modify_keys = curry(
+  (f, x) ->
+    ### Modify keys in dict
+    ###
+    x_ = {}
+    for k, v of x
+      x_[f(k)] = v
+    x_
+)
+
+make_array = (x) ->
+  if typeof(x) is 'object'
+    x
+  else
+    [x]
+
+unzip = (x) ->
+  zip(x...)
+
+juxt = curry(
+  (fs, x) ->
+    (f(x) for f in fs)
+)
