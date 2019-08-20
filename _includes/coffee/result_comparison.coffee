@@ -3,7 +3,7 @@ Functions to generate the comparison pages
 ###
 
 get_plotly_data = curry(
-  (data, chart_item) ->
+  (appurl, data, chart_item) ->
     ### Given a set of simulations, extract a Plotly plot for each set
     of chart data
 
@@ -17,7 +17,7 @@ get_plotly_data = curry(
     if chart_item.type is 'scatter'
       get_scatter_data(data, chart_item)
     else if chart_item.type is 'table'
-      get_table_data(data, chart_item)
+      get_table_data(appurl, data, chart_item)
     else
       throw new Error('chart_item has wrong type')
 )
@@ -64,7 +64,7 @@ get_scatter_data = (data, chart_item) ->
   }
 
 
-get_table_data = (data, chart_item) ->
+get_table_data = (appurl, data, chart_item) ->
   ### Construct the Plotly YAML for a table
 
   Args:
@@ -76,7 +76,7 @@ get_table_data = (data, chart_item) ->
 
   ###
   {
-    data:[get_table_data_(chart_item, data)]
+    data:[get_table_data_(appurl, chart_item, data)]
     div:'chart_' + chart_item.name
     layout:{
       title:chart_item.title
@@ -87,7 +87,7 @@ get_table_data = (data, chart_item) ->
   }
 
 
-get_table_data_ = (chart_item, data) ->
+get_table_data_ = (appurl, chart_item, data) ->
   ### Construct the Plotly YAML for the data key in the Plotly YAML
   for a table
 
@@ -111,7 +111,7 @@ get_table_data_ = (chart_item, data) ->
       'center'
 
   sequence(
-    get_table_values(chart_item)
+    get_table_values(appurl, chart_item)
     (x) ->
       {
         header:{
@@ -132,7 +132,7 @@ get_table_data_ = (chart_item, data) ->
   )(data)
 
 
-get_table_values = (chart_item) ->
+get_table_values = (appurl, chart_item) ->
   ### Return a function to extract the data for a Plotly table
 
   Args:
@@ -156,7 +156,7 @@ get_table_values = (chart_item) ->
 
   get_row_values = (chart_item_, sim_name) ->
     sequence(
-      map(read_vega_data)
+      map(read_vega_data(appurl))
       (x) -> map(get_col_value(x, sim_name), chart_item.columns)
     )
 
@@ -166,25 +166,74 @@ get_table_values = (chart_item) ->
   )
 
 
-get_values = (name, datum) ->
-  ### Extracts values from Vega formatted data in a simulation data
-  field
 
-  Args:
-    name: the name to match with the name field in the list of data
-      items (e.g 'free_energy')
-    datum: the subfied of data to extract (e.g. 'x')
+get_values = curry(
+  (name, datum) ->
+    ### Extracts values from Vega formatted data in a simulation data
+    field
 
-  Returns:
-    the extracted array of values
+    Args:
+      name: the name to match with the name field in the list of data
+        items (e.g 'free_energy')
+      datum: the subfied of data to extract (e.g. 'x')
 
+    Returns:
+      the extracted array of values
+
+    ###
+    mod = map(modify_keys((x) -> x.replace(/\s/g, '_').toLowerCase()))
+    sequence(
+      filter((x) -> x.name is name)
+      get(0)
+      (x) ->
+        if x?
+          sequence(
+            make_array
+            (y) -> pluck_arr_list(y, mod(x.values))
+            (y) -> if y? then y else []
+          )(datum)
+        else
+          []
+    )
+)
+
+
+func_xy = (func) ->
+  ### Change a function that takes one datum (either x or y) to a
+  function that takes both x and y datums.
   ###
-  sequence(
-    filter((x) -> x.name is name)
-    get(0)
-    (x) ->
-      if x? then pluck_arr(datum, x.values) else null
-  )
+  (name, datum_x, datum_y) ->
+    juxt(map(func(name), [datum_x, datum_y]))
+
+
+reorder = curry(
+  (name, datum_x, datum_y, values) ->
+    ### Reorder a set of of data points based on the polar angle.
+
+    Args:
+      name: the name to match with the name field in the list of data
+        items (e.g 'free_energy')
+      datum_x: the subfied of x data to extract (e.g. 'x')
+      datum_y: the subfied of y data to extract (e.g. 'y')
+      values: all the data values
+
+    Returns:
+      the calculated values as [x_values, y_values]
+
+    ###
+    calc_theta = sequence(
+      (x) -> {x:x[0], y:x[1], r:Math.sqrt(x[0] ** 2 + x[1] ** 2)}
+      (x) -> {y:x.y, theta:Math.acos(x.x / x.r)}
+      (x) -> x.theta + (x.y < 0.0) * (Math.PI - x.theta) * 2.0
+    )
+
+    sequence(
+      func_xy(get_values)(name, datum_x, datum_y)
+      (x) -> zip(x[0], x[1])
+      sortBy(calc_theta)
+      unzip
+    )(values)
+)
 
 
 vega_to_plotly = (chart_item, sim_name) ->
@@ -198,34 +247,39 @@ vega_to_plotly = (chart_item, sim_name) ->
     a func that converts Vega to Plotly
   ###
 
-  efficiency = (name, datum) ->
-    if datum is 'x'
-      (x) ->
-        [get_values('run_time', 'wall_time')(x)[0] /
-         get_values('run_time', 'sim_time')(x)[0]]
-    else if datum is 'y'
-      get_values('memory_usage', 'value')
-
-  normed = (name, datum) ->
-    if datum is 'time'
-      get_values(name, datum)
-    else
-      sequence(
+  efficiency = curry(
+    (name, datum) ->
+      if datum is 'x'
         (x) ->
-          [get_values(name, datum)(x),
-           get_values(name, 'precipitate_area')(x)]
-        (x) -> zip(x[0], x[1])
-        map((x) -> x[0] / x[1] * 400 ** 2)
-      )
+          [get_values('run_time', 'wall_time')(x)[0] /
+           get_values('run_time', 'sim_time')(x)[0]]
+      else if datum is 'y'
+        get_values('memory_usage', 'value')
+  )
+
+  normed = curry(
+    (name, datum) ->
+      if datum is 'time'
+        get_values(name, datum)
+      else
+        sequence(
+          (x) ->
+            [get_values(name, datum)(x),
+             get_values(name, 'precipitate_area')(x)]
+          (x) -> zip(x[0], x[1])
+          map((x) -> x[0] / x[1] * 400 ** 2)
+        )
+  )
 
   functions = {
-    get_values:get_values
-    efficiency:efficiency
-    normed:normed
+    get_values:func_xy(get_values)
+    efficiency:func_xy(efficiency)
+    normed:func_xy(normed)
+    reorder:reorder
   }
 
   func_select = ->
-    functions[chart_item.func] or get_values
+    functions[chart_item.func] or func_xy(get_values)
 
   name_select_filter = (x) ->
     if chart_item.func is 'efficiency'
@@ -244,8 +298,11 @@ vega_to_plotly = (chart_item, sim_name) ->
       mode:chart_item.mode
       name:sim_name.substr(0, 15)
       data:x
-      x_func:func_select()(name_select(), chart_item.x_name or 'x')
-      y_func:func_select()(name_select(), chart_item.y_name or 'y')
+      xy_func:func_select()(
+        name_select()
+        chart_item.x_name or 'x'
+        chart_item.y_name or 'y'
+      )
     }
 
   sequence(
@@ -256,19 +313,17 @@ vega_to_plotly = (chart_item, sim_name) ->
 
 vega_to_plotly_no_load = curry(
   (data, loaded_values) ->
-
-    plotly_dict = (x) ->
-      {
-        x:data.x_func(x)
-        y:data.y_func(x)
-        type:data.type
-        mode:data.mode
-        name:data.name
-      }
-
     sequence(
       map(read_vega_data_no_load(loaded_values))
-      plotly_dict
+      data.xy_func
+      (x) ->
+        {
+          x:x[0]
+          y:x[1]
+          type:data.type
+          mode:data.mode
+          name:data.name
+        }
     )(data.data)
 )
 
@@ -323,6 +378,7 @@ build = (chart_data, benchmark_id, data, appurl) ->
     elements
   ###
   get_plotly_data_id = get_plotly_data(
+    appurl
     filter_by_id(benchmark_id)(data)
   )
 

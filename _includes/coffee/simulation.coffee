@@ -764,7 +764,7 @@ appurl
   add_card(add_vega(appurl), '#images', with_div = with_div)(vega_data)
 
   if result_data.contour?
-    contour_data = map(read_vega_data, result_data.contour)
+    contour_data = map(read_vega_data(appurl), result_data.contour)
     plotly_data = map(ploterize, contour_data)
     add_card(add_plotly(appurl), '#images', with_div = with_div)(plotly_data)
 
