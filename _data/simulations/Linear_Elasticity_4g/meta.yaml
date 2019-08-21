@@ -1,0 +1,84 @@
+_id: 64fca7a0-a30e-11e9-bb98-afd93fcf5e8e
+metadata:
+  author:
+    first: Shubhajit
+    last: Mondal
+    email: sm44@iitbbs.ac.in
+    github_id: smondal44
+  timestamp: '3 July, 2019'
+  summary: >-
+    In this problem, we solve the linear elasticity problem for elliptical
+    heterogeneous precipitate in effectively infinite domain.
+  implementation:
+    name: Fenics
+    repo:
+      url: >-
+        https://github.com/smondal44/Linear-Elasticity/blob/master/r_Ellip_htr_s.py
+      version: 1f626cbf027538362bb80b086f102b0f7d2ed4a0
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: '2.4'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 4g
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '36000'
+        sim_time: '36000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '8388608'
+  - name: contour
+    url: 'https://drive.google.com/open?id=1dq1Xcn09G2N0qXNToSEU8C5JQ-2U1X9i'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: >-
+      The data file contains the coordinate of the contour plot at equilibrium
+      considering the the order parameter value=0.5
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+  - name: all_data
+    url: 'https://drive.google.com/open?id=1MT00aGXdD38Ii_A7ASaEQm4y2Uv3AbRd'
+    format:
+      type: csv
+      parse:
+        Time: number
+        "Total Energy": number
+    description: >-
+      Here, the time, elastic, bulk, gradient, total free energy of the system
+      are included in the data file in csv format.
+    type: line
+    transform:
+      - type: formula
+        expr: datum.Time
+        as: x
+      - type: formula
+        expr: "datum['Total Energy']"
+        as: 'y'
+  - name: Energy_plot1
+    url: 'https://drive.google.com/open?id=1M6nbZcgPTNfj9cl8gY3O2Y0IvrC44ZBL'
+    type: image
+    description: Evolution of the elastic energy has been plotted as function of log(time)
+  - name: Energy_plot2
+    url: 'https://drive.google.com/open?id=1Hioaerm1ATTFMpdIk1E0gp-iIZU6AaC-'
+    type: image
+    description: >-
+      Evolution of the total free energy has been plotted as function of
+      log(time)
+date: 1562761783
