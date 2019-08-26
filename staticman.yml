@@ -6,7 +6,7 @@ simulations:
   allowedFields: ["benchmark", "metadata", "data"]
   allowedOrigins: ["localhost", "pages.nist.gov"]
   branch: "master"
-  commitMessage: "PFHub Upload: {options.simulation_name}"
+  commitMessage: "upload: {options.simulation_name}"
   pullRequestBody: "This a new PFHub upload.\n\nWait for the tests to pass and a comment with a link to view the upload display will appear below.\n\n"
   filename: "meta"
   extension: "yaml"
