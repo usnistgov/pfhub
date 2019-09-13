@@ -13,8 +13,8 @@ metadata:
     name: Fenics
     repo:
       url: >-
-        https://github.com/smondal44/spinodal-decomposition/blob/master/spinodal_c_conservative.py
-      version: b96a5defefc814178d294a1e5ec595cde5c2eb7f
+        https://github.com/smondal44/spinodal-decomposition/blob/master/Spinodal_c.py
+      version: 98f79df45bc8b45019f35af76c06f856e2180301
     container_url: ''
   hardware:
     cpu_architecture: x86_64
