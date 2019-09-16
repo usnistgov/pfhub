@@ -15,7 +15,7 @@ metadata:
     points. In method B, these were calculated based on the theta values
     calculated at the midpoint, e.g.  a(x+dx/2) = a(theta(x+dx/2)).
   implementation:
-    name: matlab
+    name: custom
     repo:
       url: 'https://mydrive.kfki.hu/f/de47ed05b4e74e46ad80/?dl=1'
       version: aaaaaaaa

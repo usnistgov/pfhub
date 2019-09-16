@@ -14,7 +14,7 @@ metadata:
     where only the derivatives of phi is left and all the other quantities can
     be evaluated locally.
   implementation:
-    name: matlab
+    name: custom
     repo:
       url: 'https://mydrive.kfki.hu/f/8565830aa4f24610922a/?dl=1'
       version: aaaaaaaa
