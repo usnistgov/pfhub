@@ -1,0 +1,457 @@
+%% Journal of Open Research Software Latex template -- Created By Stephen Bonner and John Brennan, Durham University, UK.
+
+\documentclass{jors}
+
+%% Set the header information
+\pagestyle{fancy}
+\definecolor{mygray}{gray}{0.6}
+\renewcommand\headrule{}
+
+\usepackage[sorting=none]{biblatex}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{textcomp}
+
+\bibliography{paper}
+
+\setlength{\parskip}{\baselineskip}%
+\setlength{\parindent}{0pt}%
+
+\begin{document}
+
+\newcommand\githublink[1]{\href{https://github.com/#1/}{\texttt{\textbf{@#1}}}}
+%% {\bf Software paper for submission to the Journal of Open Research Software} \\
+
+%% To complete this template, please replace the blue text with your own. The paper has three main sections: (1) Overview; (2) Availability; (3) Reuse potential. \\
+
+%% Please submit the completed paper to: editor.jors@ubiquitypress.com
+
+%% \rule{\textwidth}{1pt}
+
+\section*{(1) Overview}
+
+\vspace{0.5cm}
+
+\section*{Title}
+\par\bigskip
+PFHub: The Phase-Field Community Hub\\[\baselineskip]
+
+\section*{Paper Authors}
+
+1. Wheeler, Daniel; (corresponding author) A\\
+2. Keller, Trevor; A\\
+3. DeWitt, Stephen J.; B\\
+4. Jokisaari, Andrea M.; C\\
+5. Schwen, Daniel; C\\
+6. Guyer, Jonathan E.; A\\
+7. Aagesen, Larry K.; C\\
+8. Heinonen, Olle G.; D\\
+9. Tonks, Michael R.; E\\
+10. Voorhees, Peter W.; F\\
+11. Warren, James A.; G
+
+\section*{Paper Author Roles and Affiliations}
+
+A. Materials Science and Engineering Division, \\
+Material Measurement Laboratory, \\
+National Institute of Standards and Technology,\\
+Gaithersburg, MD 20899 USA
+
+B. Materials Science and Engineering Department, \\
+University of Michigan, \\
+Ann Arbor, MI 48109 USA
+
+C. Fuel Modeling and Simulation Department, \\
+Idaho National Laboratory, \\
+Idaho Falls, ID 83415 USA
+
+D. Argonne National Laboratory, \\
+Lemont, IL 60439 USA
+
+E. Department of Materials Science and Engineering, \\
+University of Florida, \\
+Gainesville, FL 32611
+
+F. Department of Materials Science and Engineering, \\
+Northwestern University, \\
+Evanston, IL 60208 USA
+
+G. Material Measurement Laboratory Office, \\
+Material Measurement Laboratory, \\
+National Institute of Standards and Technology,\\
+Gaithersburg, MD 20899 USA
+
+
+\section*{Abstract}
+
+Scientific communities struggle with the challenge of effectively and
+efficiently sharing content and data. An online portal provides a
+valuable space for scientific communities to discuss challenges and
+collate scientific results. Examples of such portals include the
+Micromagnetic Modeling Group (\textmu MAG~\cite{mumag}), the
+Interatomic Potentials Repository (IPR~\cite{ipr1, ipr2}) and on a
+larger scale the NIH Genetic Sequence Database
+(GenBank~\cite{genbank}). In this work, we present a description of a
+generic web portal that leverages existing online services to provide
+a framework that may be adopted by other small scientific
+communities. The first deployment of the PFHub framework supports
+phase-field practitioners and code developers participating in an
+effort to improve quality assurance for phase-field codes.
+
+\section*{Keywords}
+
+phase-field; materials-science; jekyll-website; reproducible-science
+
+\section*{Introduction}
+
+Generally, small scientific communities do not have the resources to
+build and host dedicated web infrastructure to support their varied
+content and data requirements. In particular, hosting and supporting a
+complex content management system (CMS) including web servers, web
+frameworks and databases requires a great deal of configuration and
+long term support and funding. Furthermore, a turnkey CMS solution may
+not meet requirements for most scientific communities that often use
+arcane data formats and require custom data displays along with
+client-side automation. The PFHub effort, instead of focusing on the
+CMS tool, focuses on customizing and delivering the client-side
+requirements whilst delegating back-end functionality to external
+services that provide dependable APIs~\cite{cmsfree}.
+
+The phase field method (PFM) describes material interfaces at the
+mesoscopic scale between atomic scale models and macroscale
+models~\cite{MOELANS2008268}. The PFM is well established and there
+are an assortment of code frameworks (\emph{e.g.}, FiPy~\cite{fipy},
+MMSP~\cite{mmsp}, MOOSE~\cite{moose}, PRISMS-PF~\cite{prisms-pf})
+available for solving the wide variety of phenomena associated with
+phase field (e.g. dendritic growth, spinodal decomposition, grain
+growth)~\cite{tonks}. However, it is difficult for novice as well as
+seasoned phase field practitioners to asses the capability of codes
+for different phenomena without extensive prototyping and
+groundwork. PFHub aims to provide a low barrier for comparing code
+output data using a standard set of metrics.
+
+PFHub is a community effort spearheaded by the Center for Hierarchical
+Materials Design at Northwestern University and the National Institute
+of Standards and Technology in support of phase-field code
+development. The current PFHub deployment~\cite{pfhub} focuses on
+improving cross-collaboration between phase-field code developers and
+practitioners by providing a standardized set of benchmark
+problems~\cite{bm1, bm2} and a workflow for uploading and comparing
+benchmark results from different phase-field codes.
+
+Community based scientific efforts often require web services to share
+and display data in unique ways between groups and institutions. These
+services are difficult to implement due to the groundwork required to
+investigate and prototype the many data-sharing and CMS tools
+available. The PFHub framework provides a template for other
+scientific projects beyond the phase field community. The method
+outlined in this paper of using static infrastructure coupled with
+small independent third party web services provides a flexible
+approach eliminating the initial prototyping and on-going maintenance
+required for new infrastructure, while allowing developers to focus on
+their unique front-end data views.
+
+This paper presents the first deployment of the PFHub framework
+including its client-side focused design, how it employs external
+services and metadata about the code base. The paper describes the
+relative ease with which other scientific groups might adapt the
+framework for their own purposes and deploy using the fully
+reproducible Nix environment~\cite{nix}.
+
+\section*{Implementation and architecture}
+
+The PFHub framework provides a template for other small scientific
+communities to host custom content and integrate data from members of
+their community. The current deployment (see
+Figure~\ref{fig:pfhub_frontpage}) provides a facility for uploading,
+displaying and comparing results from benchmark problems supporting
+phase-field code developers and practitioners. However, the framework
+and overall philosophy are broadly transferable to other communities
+with some custom configuration and content generation. The framework
+uses the Jekyll static website generator~\cite{jekyll} along with
+automated front-end processing to eliminate the need for a
+CMS~\cite{cmsfree}, which is generally costly to maintain especially
+for small scientific communities with limited funding and staffing.
+The framework relies on the API, WebSocket and webhook infrastructure
+that underpins the modern web and allows external services to have
+full-duplex communication between servers and browsers. In particular,
+PFHub relies on GitHub's well maintained API and webhook functionality
+for external services (such as Travis CI~\cite{travis} and
+Staticman~\cite{staticman}).
+
+The workflow for uploading benchmark results relies on third party
+tools using the following steps, illustrated in
+Figure~\ref{fig:pfhub_website}.
+\begin{enumerate}
+  \item The users are first required to upload simulation outputs to
+    an archival resource (\emph{e.g.}, Figshare\footnote{Certain
+      commercial equipment, instruments, or materials (or suppliers,
+      or software, ...) are identified in this paper to foster
+      understanding. Such identification does not imply recommendation
+      or endorsement by the National Institute of Standards and
+      Technology, nor does it imply that the materials or equipment
+      identified are necessarily the best available for the
+      purpose.\label{disclaimer}}~\cite{figshare}) configured with
+    permissive cross-origin resource sharing (CORS).
+  \item The metadata summarizing each simulation is entered into a
+    form on the website (see Figure~\ref{fig:pfhub_upload}), including
+    relevant details such as memory usage, run time and links to the
+    data archived in the first step.
+  \item Upon submission, the Staticman app~\cite{staticman} submits
+    the entered metadata as a pull request against the PFHub
+    repository hosted by GitHub. The metadata is stored in a YAML file
+    with a unique path in the repository, see~\cite{upload_data} for
+    an example.
+  \item Travis CI~\cite{travis} performs linting on the submission and
+    then launches a temporary version of the proposed website using
+    Surge~\cite{surge}. The PFHub admins can then examine the new
+    submission and further changes can be made if necessary.
+  \item Once review has been completed to the satisfaction of both the
+    uploading scientist and the website maintainers, the pull request
+    is merged and served to the World Wide Web using a hosting service
+    compatible with GitHub Pages.
+\end{enumerate}
+A combination of Jekyll templates and CoffeeScript are used to access
+and download the data links in the submitted YAML files and then
+display the data in interactive plots on the website. CoffeeScript is
+a higher level language than JavaScript and, thus, more readable
+whilst also allowing programming in a more functional manner which
+makes data manipulation pipelines both more succinct and easier to
+understand. The interactive plots (see Figure~\ref{fig:pfhub_results})
+are displayed using the Plotly JavaScript Graphing
+Library~\cite{plotly} as it provides a programmable interface and
+requires minimal configuration, see~\cite{display_data} for typical
+data displayed on the interactive plots.
+
+The current deployment of PFHub has benchmark specifications
+consisting of equations, narrative, plots and code samples, and are
+composed in Jupyter Notebooks. The Jupyter Notebooks are included as
+static objects in the website after translation into HTML using the
+nbconvert tool~\cite{jupyter}. There are currently 7 benchmark
+problems each with a number of variations. At the time of writing
+there are 109 separate benchmark result uploads~\cite{pfhub} submitted
+as pull requests and approved following code review to ensure
+compatibility with the website.
+
+The combination of a central repository on GitHub for website source
+code and metadata with distributed data records on third-party
+archives avoids the complexity and administrative overhead of
+maintaining a live database and associated back-end application.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{pfhub_frontpage.png}
+  \caption{Front page of the current version of the deployed PFHub
+    website showing links to the wiki and upload pages. The hexbin
+    splash provides links to phase field papers and websites. This can
+    easily be modified with alternative links and images by editing a
+    YAML file.}  \centering
+  \label{fig:pfhub_frontpage}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{pfhub_website.png}
+  \caption{Schematic overview of the PFHub framework for building
+    scientific research portals, simply.}
+  \centering
+  \label{fig:pfhub_website}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{pfhub_upload.png}
+  \caption{The form used to enter simulation result metadata and then
+    upload to the repository via a GitHub pull request allowing the
+    data to be checked before pushing to the website.}  \centering
+  \label{fig:pfhub_upload}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{pfhub_results.png}
+  \caption{Results comparison page for benchmark 3 (Dendritic
+    Growth). The data for each upload is plotted asynchronously and the
+    page is not affected if a data link dies.}  \centering
+  \label{fig:pfhub_results}
+\end{figure}
+
+
+\section*{Quality control}
+
+The framework has a fully automated test recipe deployed on Travis CI
+with an environment built using the Nix Package Manager~\cite{nix}. A
+fully automated test environment using continuous integration allows
+all developers and users to have common feedback on code updates and
+determine the compatibility of result uploads with the deployed
+website. The environment is pinned to a specific version of the Nix
+Packages Collection (Nixpkgs~\cite{nixpkgs}), ensuring fully
+reproducible build and test phases as well as ensuring that the
+development and automated testing environments are identical. The full
+test recipe is outlined in a YAML file, \texttt{.travis.yml}, file
+stored in the repository~\cite{travisyml} and consists of the
+following steps.
+
+\begin{enumerate}
+  \item Build the Nix environment from a persistent cache on Travis
+    CI, reducing the build time.
+  \item Run automated tests on Jupyter Notebooks using
+    NBval~\cite{nbval} and Py.test~\cite{pytest}.
+  \item Run validation tests on HTML files using
+    HTMLProofer~\cite{htmlproofer}.
+  \item Lint and test front-end CoffeeScript using
+    Coffeelint~\cite{coffeelint} and Mocha~\cite{mocha}, respectively.
+  \item Display a temporary version of the website using
+    Surge~\cite{surge} for visual review.
+\end{enumerate}
+
+\section*{(2) Availability}
+\vspace{0.5cm}
+\section*{Operating system}
+
+The PFHub framework can be deployed on any platform supporting Nix,
+which includes all contemporary Linux and macOS platforms. Since the
+framework is built with Jekyll and automated front-end processing, it
+can be deployed on GitHub's Pages infrastructure, which enables
+streamlined deployment without the need for any back-end
+infrastructure and, thus, is largely platform independent. For
+development purposes, a local installation of either Nix (on Linux or
+Mac) or Docker (on Linux, Mac or Windows) is required.
+
+\section*{Programming language}
+
+PFHub is currently built and tested using the programming languages
+and versions outlined in Table~\ref{tab:versions}.
+
+\begin{table}[h!]
+  \centering
+  \caption{PFHub programming languages and corresponding supported
+    versions.}
+  \begin{tabular}{|l|l|}
+    \hline
+    Language         & Version \\
+    \hline
+    HTML             & 5       \\
+    Jupyter Notebook & 5.4.0   \\
+    JavaScript       & 5       \\
+    Nix              & 2.1.3   \\
+    CoffeeScript     & 1.12.7  \\
+    CSS              & 4       \\
+    \hline
+  \end{tabular}
+  \label{tab:versions}
+\end{table}
+
+
+\section*{Additional system requirements}
+
+There are no additional system requirements.
+
+\section*{Dependencies}
+
+The entire environment can be built using the Nix Package Manager so
+the only required dependency is a functional Nix installation. The
+PFHub framework has over 2000 separate package dependencies using
+data from the Nix package manager. The full dependency graph for PFHub
+can be seen online~\cite{dependencies}.
+
+\section*{List of contributors}
+
+This list is for contributors to the code base, but not those that
+have only uploaded output results to the website.
+
+1. Wheeler, Daniel; A, \githublink{wd15} \\
+2. Keller, Trevor; A, \githublink{tkphd} \\
+3. DeWitt, Stephen J.; B, \githublink{stvdwtt} \\
+4. Jokisaari, Andrea M.; C, \githublink{amjokisaari} \\
+5. Schwen, Daniel; C, \githublink{dschwen} \\
+6. Guyer, Jonathan E.; A, \githublink{guyer} \\
+
+Also, see the contributors list on GitHub~\cite{contributors}.
+
+\section*{Software location:}
+
+{\bf Archive}
+
+\begin{description}[noitemsep,topsep=0pt]
+	\item[Name:] Zenodo
+	\item[Persistent identifier:]
+          \href{https://dx.doi.org/10.5281/zenodo.2592705}{10.5281/zenodo.2592705}
+	\item[Licence:] NIST Software License~\cite{nistlicense}
+	\item[Publisher:]  Daniel Wheeler
+	\item[Version published:] v0.1
+	\item[Date published:] 13/03/19
+\end{description}
+
+{\bf Code repository}
+
+\begin{description}[noitemsep,topsep=0pt]
+	\item[Name:] GitHub
+	\item[Persistent identifier:] \url{https://github.com/usnistgov/pfhub/tree/v0.1}
+	\item[Licence:] NIST Software License~\cite{nistlicense}
+	\item[Date published:] 13/03/19
+\end{description}
+
+\section*{Languages}
+
+English
+
+\section*{(3) Reuse potential}
+
+The PFHub framework can be readily adopted by other communities that
+want to follow a CMS-free philosophy and use well supported external
+services. The website infrastructure can be cloned as a Git repository
+or downloaded as a ZIP archive and deployed with minimum effort. The
+mechanism for uploading data using Staticman can be easily configured
+for a new repository location. However, customizing the content of the
+website for a particular scientific community would require
+considerable effort. The current effort is closely integrated with
+GitHub, but future deployments could be modified to use other
+repository services such as GitLab or BitBucket.
+
+The following steps are the more challenging
+aspects of deploying the framework for a new community.
+
+\begin{itemize}
+  \item Upload new data upload specifications (\emph{e.g.} the
+    phase-field benchmarks in the PFHub website~\cite{pfhub}) in a
+    format that Jekyll can parse, \emph{e.g.}, Jupyter Notebook,
+    Markdown or HTML.
+  \item Edit the \texttt{benchmarks.yaml} file to reflect the new
+    upload requirements and describe the figures that need to be
+    generated on the upload comparison pages.
+  \item Edit the \texttt{\_config.yml} file to update links and text
+    related to the configuration for all aspects of the website.
+  \item Update Markdown files to reflect the new content and mission
+    of the scientific community.
+  \item Remove data and files that are not required by the new
+    community.
+\end{itemize}
+
+Further details on deployment and development of PFHub can be found in
+the development guide~\cite{development_guide}.  Currently, a
+deployment for a new community has not been attempted and, thus, the
+above steps need to be refined and documented.
+
+\section*{Acknowledgments}
+
+We gratefully acknowledge input and guidance from all participants in
+the series of Phase-Field workshops held between 2015 and 2018 at the
+Center for Hierarchical Material Design~\cite{workshops}.
+
+\section*{Funding statement}
+
+D.W. wishes to acknowledge the Materials Genome Initiative funding
+allocated to the National Institute of Standards and Technology. S.J.D
+wishes to acknowledge funding from the U.S. Department of Energy,
+Office of Basic Energy Sciences, Division of Materials Sciences and
+Engineering under Award \#DE-SC0008637 as part of the Center for
+PRedictive Integrated Structural Materials Science (PRISMS Center) at
+University of Michigan. P.W.V. is grateful for the financial
+assistance under the award 70NANB14H012 from the National Institute of
+Standards and Technology as part of the Center for Hierarchical
+Materials Design (CHiMaD).
+
+\section*{Competing interests}
+
+The authors declare that they have no competing interests.
+
+\printbibliography
+
+\end{document}

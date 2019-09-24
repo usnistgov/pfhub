@@ -1,0 +1,46 @@
+I've made these changes [1] based on the reviewers' comments. Point by
+point,
+
+> 1, Improve the introduction to include better information on a)
+> phase-field codes, b) the phase-field code community, c) the need
+> for a phase-field hub framework, and d) the need for a template for
+> other communities.
+
+Added paragraph of text about phase field [2] which should cover a),
+b) and c). Added a paragraph of text on why a template for other
+communities is required [3].
+
+> 2, Provide more detail on CoffeeScript and on what "appropriate
+> tools" for linting and testing the CoffeeScript front-end are.
+
+Provided links to appropriate tools [4] and sentence about
+Coffeescript [5].
+
+> 3, Improve documentation on deployment to include but not limited to
+> screenshots showing the current deployment, and the dependency graph
+> of the project.
+
+Added screenshots [6] and link to the development guide [7]. Updated
+link to the dependency graph and made it easier to view [8].
+
+> 4, Make sure that the link to the license is working.
+
+This [9] works fine for me.
+
+> 5, Provide simple input and output data. This does not have to be
+> include in the git repository as it is not useful to have large data
+> files there but could be put on Zenodo.
+
+Added links to typical upload data [10] and typical display data [11].
+
+[1]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce
+[2]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce#diff-f799a398f3d534fc990396f5c48c34ffR120
+[3]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce#diff-f799a398f3d534fc990396f5c48c34ffR142
+[4]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce#diff-f799a398f3d534fc990396f5c48c34ffR142
+[5]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce#diff-f799a398f3d534fc990396f5c48c34ffR142
+[6]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce#diff-f799a398f3d534fc990396f5c48c34ffR142
+[7]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce#diff-f799a398f3d534fc990396f5c48c34ffR142
+[8]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce#diff-f799a398f3d534fc990396f5c48c34ffR142
+[9]: https://www.nist.gov/director/copyright-fair-use-and-licensing-statements-srd-data-and-software
+[10]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce#diff-f799a398f3d534fc990396f5c48c34ffR142
+[11]: https://github.com/usnistgov/pfhub/pull/938/commits/5df177df6bf36e82c21366c868d5938b44e41cce#diff-f799a398f3d534fc990396f5c48c34ffR142
