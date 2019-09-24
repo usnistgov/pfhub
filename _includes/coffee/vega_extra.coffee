@@ -3,6 +3,10 @@ Extra functions to build and parse Vega charts
 ###
 
 
+to_app_url = (app_url, url) ->
+  app_url + '/get/?url=' + encodeURIComponent(url)
+
+
 update_vega_data = (axes_names, data) ->
   ### Update chart data depending on name of the data
 
@@ -25,7 +29,6 @@ update_vega_data = (axes_names, data) ->
       )
   x.data[0].name = 'the_data'
   x
-
 
 
 combine_vega_data = curry(
@@ -51,7 +54,7 @@ vegarize = (chart_data, axes_names) ->
   )
 
 
-add_vega_src = (x) ->
+add_vega_src = (x, appurl) ->
   ### Extract Vega chart as SVG url and set src attribute
 
   Args:
@@ -60,24 +63,48 @@ add_vega_src = (x) ->
   urlfunc = (d) ->
     (url) -> x.filter((d_) -> d is d_).attr('src', url)
 
+  update_url = (x) ->
+    if x.url?
+      x.url = to_app_url(appurl, x.url)
+
+  update_urls = (x) -> map(do_(update_url), x.data)
+
   vega_promise = (d) ->
     new vega.View(vega.parse(d))
       .toImageURL('svg')
       .then(urlfunc(d))
 
-  map(vega_promise, x.data())
+  sequence(
+    map(do_(update_urls))
+    map(vega_promise)
+  )(x.data())
 
 
-dl_load = (url) ->
+dl_load = (app_url, url) ->
   try
-    dl.load({url:url})
+    dl.load({url:to_app_url(app_url, url)})
   catch NetworkError
     []
 
 
 # read vega data with a url
-read_vega_url = (data) ->
-  read_vega_url_no_load(dl_load(data.url), data)
+read_vega_url = curry(
+  (app_url, data) ->
+    read_vega_url_no_load(dl_load(app_url, data.url), data)
+)
+
+transform_expr = (expr) ->
+  ### Remove whitespace from spec expression of the form
+  "datum.['my value']"" and return as "datum.my_value"
+  ####
+  sequence(
+    (x) -> x.match(/datum\[['|"](.*)['|"]\]/)
+    (x) ->
+      if x
+        'datum.' + x[1].replace(/\s/g, '_')
+      else
+        expr
+  )(expr)
 
 
 vega_transform = (spec) ->
@@ -89,10 +116,14 @@ vega_transform = (spec) ->
   Returns:
     a function that takes vega values
   ###
+  underscore = (x) -> x.replace(/\s/g, '_')
   if spec.type is 'formula'
     (values) ->
       f = (datum) ->
-        datum[spec.as] = evalexpr.Parser.evaluate(spec.expr, {datum:datum})
+        datum[spec.as] = evalexpr.Parser.evaluate(
+          transform_expr(spec.expr)
+          {datum:modify_keys(underscore, datum)}
+        )
         datum
       map(f, values)
   else
@@ -114,10 +145,11 @@ read_vega_data_generic = (read_vega_func) ->
     # coffeelint: enable=missing_fat_arrows
   )
 
-read_vega_data = (x) ->
-  x.values = read_vega_data_generic(read_vega_url)(x)
-  x
-
+read_vega_data = curry(
+  (appurl, x) ->
+    x.values = read_vega_data_generic(read_vega_url(appurl))(x)
+    x
+)
 
 # read vega data with a url
 read_vega_url_no_load = curry(

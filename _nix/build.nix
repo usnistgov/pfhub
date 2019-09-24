@@ -35,6 +35,8 @@ in
     node."assert"
     node.surge
     node.execjs
+    node."@commitlint/cli"
+    node."@commitlint/config-conventional"
     pkgs.git
     pkgs.openssh
     black

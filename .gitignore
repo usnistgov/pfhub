@@ -3,3 +3,4 @@ _misc
 .cache
 .local
 _publications/jors/build
+.gcloudignore

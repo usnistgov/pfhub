@@ -80,7 +80,7 @@ then
         HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
         if [ $HTTP_STATUS = "200" ]
         then
-            SIM_NAME=`echo "${HTTP_BODY}" | jq -r '.title' | sed -e 's/PFHub Upload: //'`
+            SIM_NAME=`echo "${HTTP_BODY}" | jq -r '.title' | sed -e 's/upload: //'`
             post_comment "$SIM_NAME"
         else
             echo "HTTP_RESPONSE: ${HTTP_RESPONSE}"

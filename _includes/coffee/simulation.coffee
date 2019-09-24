@@ -538,16 +538,18 @@ add_card_image_ = (x) ->
     .attr('data-caption', (d) -> d.description)
 
 
-add_image = (x) ->
-  ### Add a responsive image
+add_image = curry(
+  (appurl, x) ->
+    ### Add a responsive image
 
-  Args:
-    x: the current selection
+    Args:
+      x: the current selection
 
-  Returns:
-    the img selection
-  ###
-  add_card_image_(x).attr('src', (d) -> d.url)
+    Returns:
+      the img selection
+    ###
+    add_card_image_(x).attr('src', (d) -> to_app_url(appurl, d.url))
+)
 
 
 add_youtube = (x) ->
@@ -616,7 +618,7 @@ add_card = (addf, tag, with_div = id) ->
   )
 
 
-add_plotly_src = (x) ->
+add_plotly_src = (x, appurl) ->
   ### Attach plotly chart as an svg to an img element
 
   Args:
@@ -652,19 +654,21 @@ add_plotly_src = (x) ->
   )
 
 add_chart = curry(
-  (add_src, x) ->
+  (appurl, add_src, x) ->
     ### Build a div for a card with a Vega chart
 
     Args:
       x: the selection
       add_src: function to add the src for the img tag
     ###
-    add_src(add_card_image_(x))
+    add_src(add_card_image_(x), appurl)
 )
 
 
-add_vega = add_chart(add_vega_src)
-add_plotly = add_chart(add_plotly_src)
+add_vega = (appurl) ->
+  add_chart(appurl, add_vega_src)
+add_plotly = (appurl) ->
+  add_chart(appurl, add_plotly_src)
 
 
 ploterize = (data) ->
@@ -708,6 +712,7 @@ chart_data
 axes_names
 repo_slug
 benchmark_data
+appurl
 ) ->
   ### Build the simulation landing page
 
@@ -741,10 +746,14 @@ benchmark_data
 
 
   if vega_data.length > 0
-    add_card(add_vega, '#logo_image', with_div = id)(vega_data[0..0])
+    add_card(add_vega(appurl), '#logo_image', with_div = id)(vega_data[0..0])
     vega_data = vega_data[1..]
   else if result_data.image?
-    add_card(add_image, '#logo_image', with_div = id)(result_data.image[0..0])
+    add_card(
+      add_image(appurl)
+      '#logo_image'
+      with_div = id
+    )(result_data.image[0..0])
     result_data.image = result_data.image[1..]
 
   if result_data.youtube?
@@ -752,12 +761,16 @@ benchmark_data
 
   with_div = (x) -> x.append('div').attr('class', 'col s12 m12 l6 xl4')
 
-  add_card(add_vega, '#images', with_div = with_div)(vega_data)
+  add_card(add_vega(appurl), '#images', with_div = with_div)(vega_data)
 
   if result_data.contour?
-    contour_data = map(read_vega_data, result_data.contour)
+    contour_data = map(read_vega_data(appurl), result_data.contour)
     plotly_data = map(ploterize, contour_data)
-    add_card(add_plotly, '#images', with_div = with_div)(plotly_data)
+    add_card(add_plotly(appurl), '#images', with_div = with_div)(plotly_data)
 
   if result_data.image?
-    add_card(add_image, '#images', with_div = with_div)(result_data.image)
+    add_card(
+      add_image(appurl)
+      '#images'
+      with_div = with_div
+    )(result_data.image)

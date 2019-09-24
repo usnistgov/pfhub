@@ -5,5 +5,7 @@
     "assert",
     "surge",
     "coffee",
-    "execjs"
+    "execjs",
+    "@commitlint/config-conventional",
+    "@commitlint/cli"
 ]

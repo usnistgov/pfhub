@@ -33,6 +33,7 @@
       type: scatter
       mode: lines
       func: get_values
+      x_range: [0, 7]
     - name: efficiency
       type: scatter
       x_scale: log
@@ -211,7 +212,7 @@
     - name: elastic_free_energy
       data_name: all_data
       x_name: time
-      y_name: elastic_free_energy
+      y_name: [elastic_free_energy, elastic_energy]
       title: Elastic Free Energy
       x_title: Fictive Time
       y_title: "&#8747; <i>f</i><sub>el</sub> <i>dV</i> &nbsp;(aJ)"
@@ -289,7 +290,7 @@
       y_domain: [-30, 30]
       y_scaleanchor: x
       mode: lines
-      func: get_values
+      func: reorder
 
     - name: efficiency
       type: scatter
@@ -313,7 +314,7 @@
         - '&#8747; <i>f</i><sub>el</sub> <i>dV</i>'
         - '&#8497;'
       data_name: all_data
-      columns: ['sim_name', 'a_10', 'a_01', 'a_d', 'elastic_free_energy', 'total_free_energy']
+      columns: ['sim_name', 'a_10', 'a_01', 'a_d', ['elastic_free_energy', 'elastic_energy'], ['total_free_energy', 'total_energy']]
       column_format: ["", ".4g", ".4g", ".4g", ".4g", ".4g"]
 
 

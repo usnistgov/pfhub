@@ -1,0 +1,70 @@
+_id: 12611000-a25d-11e9-8c01-87c5af04ed72
+metadata:
+  author:
+    first: Shubhajit
+    last: M
+    email: sm44@iitbbs.ac.in
+    github_id: smondal44
+  timestamp: '9 June, 2019'
+  summary: >-
+    Spinodal decomposition problem for square shape domain with no-flux boundary
+    condition has been solved using open-source finite element software FeniCS.
+  implementation:
+    name: Fenics
+    repo:
+      url: >-
+        https://github.com/smondal44/spinodal-decomposition/blob/master/spinodal_b.py
+      version: f3d3b15133383d3fa53d903bed9fa7060751dfad
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: '2.4'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '10800'
+        sim_time: '10800'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '8388608'
+  - name: free_energy
+    url: 'https://drive.google.com/open?id=1F2iFqydxrlVGuPLQIGm1TWYJoiLiiuGC'
+    format:
+      type: csv
+      parse:
+        Time: number
+        "Total Free energy": number
+    description: Evolution of the total energy for square-shape domain
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: "datum['Total Free energy']"
+        as: 'y'
+  - name: plot
+    url: 'https://drive.google.com/open?id=16uyjNvZ6vctz3B1OSR3pLBl95SyO-mFg'
+    type: image
+    description: total free energy vs log(time) is plotted
+  - name: profile1
+    url: 'https://drive.google.com/open?id=1Ai-M7SXJRXwNXxZpL8mAIonke8iSzlxb'
+    type: image
+    description: profile at t= 0s
+  - name: profile2
+    url: 'https://drive.google.com/open?id=1XZ18NTM7EcdQa1h3rgFMY8J44gZ2irg9'
+    type: image
+    description: profile at t=200s
+  - name: profile3
+    url: 'https://drive.google.com/open?id=1JlxTy1RENCq8hZNynJsD9pLItBzJDitn'
+    type: image
+    description: profile at equilibrium
+date: 1562685623
