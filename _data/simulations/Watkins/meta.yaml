@@ -1,0 +1,35 @@
+_id: 322ea830-e500-11e9-88a9-d948de335594
+metadata:
+  author:
+    first: Otis Stambaugh
+    last: Watkins
+    email: elizabethwatkins@gmail.com
+    github_id: Dexter Butts
+  timestamp: KG
+  summary: 'PFHub: Phase Field Community Hub'
+  implementation:
+    name: Elizabeth
+    repo:
+      url: 'http://'
+      version: LW
+    container_url: 'http://'
+  hardware:
+    cpu_architecture: m32r
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: CI
+    cores: '1'
+    nodes: RL
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: AF
+        sim_time: OL
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: KX
+date: 1570012461
