@@ -41,9 +41,37 @@ No preprint version available.
         allowfullscreen>
 </iframe>
 
+<br>
+<br>
+
+## Publication about PFHub
+
+[Daniel Wheeler][dw], [Trevor Keller][tk], [Steve DeWitt][sd], [Andrea
+Jokisaari][aj], [Daniel Schwen][ds], [Jon Guyer][jg], [Larry
+Aagesen][la], [Olle Heinonen][oh], [Michael Tonks][mt], [Peter
+Voorhees][pv] and [James Warren][jw] published a peer-reviewed journal
+article in *Journal of open research software* entitled ["PFHub: The
+Phase-Field Community
+Hub"](https://doi.org/10.5334/jors.276){:target="_blank"}.
+
+<iframe width="900"
+        height="700"
+        src="https://drive.google.com/file/d/1iJvZzaxAQjNYpDkl20Uyb33HbDKfys8x/preview"
+        frameborder="0"
+        allowfullscreen>
+</iframe>
+
+
+
 
 [aj]: {{ site.baseurl }}/community/#andrea-jokisaari
 [jg]: {{ site.baseurl }}/community/#jon-guyer
 [oh]: {{ site.baseurl }}/community/#olle-heinonen
 [pv]: {{ site.baseurl }}/community/#peter-voorhees
 [jw]: {{ site.baseurl }}/community/#james-warren
+[dw]: {{ site.baseurl }}/community/#daniel-wheeler
+[tk]: {{ site.baseurl }}/community/#trevor-keller
+[sd]: {{ site.baseurl }}/community/#stephen-dewitt
+[ds]: {{ site.baseurl }}/community/#daniel-schwen
+[la]: {{ site.baseurl }}/community/#larry-aagesen
+[mt]: {{ site.baseurl }}/community/#michael-tonks
