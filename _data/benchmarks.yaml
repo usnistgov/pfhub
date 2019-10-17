@@ -173,7 +173,7 @@
       footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
       func: efficiency
 
-- title: Linear Elasticity
+- title: Elastic Precipitate
   description: Linear elasticity via evolution of a constrained precipitate
   image: images/elastic1.png
   num: 4
