@@ -5,7 +5,7 @@
 {% include coffee/main.coffee %}
 
 fname = (data, type, row) ->
-  '<a href="{{ site.baseurl }}/simulations/display/?sim=' + data + '" target="_blank">' + data + '</a>'
+  '<a href="{{ site.baseurl }}/simulations/display/?sim=' + data + '">' + data + '</a>'
 
 fauthor = (data, type, row) ->
   if data.email
