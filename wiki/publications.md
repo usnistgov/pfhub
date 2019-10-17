@@ -16,7 +16,7 @@ models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 
 <iframe width="900"
         height="700"
-        src="https://www.sciencedirect.com/science/article/pii/S0927025616304712?via%3Dihub"
+        src="https://arxiv.org/pdf/1610.00622.pdf"
         frameborder="0"
         allowfullscreen>
 </iframe>
@@ -31,6 +31,8 @@ Warren][jw] and [Olle Heinonen][oh] published a peer-reviewed journal
 article in *Computational Materials Science* entitled ["Phase field
 benchmark problems for dendritic growth and linear
 elasticity"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
+
+No preprint version available.
 
 <iframe width="900"
         height="700"
