@@ -135,7 +135,7 @@ count_uploads_per_id = count_uploads_per(
 
 
 count_uploads_per_code = count_uploads_per(
-  (x) -> x.meta.metadata.implementation.name
+  (x) -> x.meta.metadata.implementation.name.toLowerCase()
 )
 
 

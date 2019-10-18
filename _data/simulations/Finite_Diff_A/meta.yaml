@@ -16,7 +16,7 @@ metadata:
     at the neighbouring cell points, e.g.  a(x+dx/2) =
     (a(theta(x))+a(theta(x+dx)))/2.
   implementation:
-    name: matlab
+    name: custom
     repo:
       url: 'https://mydrive.kfki.hu/f/8565830aa4f24610922a/?dl=1'
       version: aaaaaaaa
