@@ -1,0 +1,73 @@
+_id: 93113e00-0c5e-11e8-b653-4f1ed6519c85
+benchmark:
+  id: 8a
+  version: '0'
+data:
+- name: run_time
+  values:
+  - sim_time: '1'
+    wall_time: '1'
+- name: memory_usage
+  values:
+  - unit: KB
+    value: '1'
+- description: Free energy versus time
+  format:
+    parse:
+      energy: number
+      time: number
+    type: tsv
+  name: free_energy
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.energy
+    type: formula
+  type: line
+  url: https://drive.google.com/file/d/1j1aEXuES2bcw7MoYodkGVCIOeue12Om6/view?usp=sharing
+- description: Solid fraction versus time
+  format:
+    parse:
+      fraction: number
+      time: number
+    type: tsv
+  name: solid_fraction
+  transform:
+  - as: x
+    expr: datum.time
+    type: formula
+  - as: y
+    expr: datum.fraction
+    type: formula
+  type: line
+  url: https://drive.google.com/file/d/1j1aEXuES2bcw7MoYodkGVCIOeue12Om6/view?usp=sharing
+- description: A puppy picture
+  name: image
+  type: image
+  url: https://user-images.githubusercontent.com/1986844/66938477-396aff80-f00f-11e9-8c21-b59356a3b0e0.png
+date: 1518046097
+layout: post
+message: ' '
+metadata:
+  author:
+    email: jon.guyer@nist.gov
+    first: Jon
+    github_id: wd15
+    last: Guyer
+  hardware:
+    acc_architecture: none
+    clock_rate: '3.2'
+    cores: '1'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: serial
+  implementation:
+    container_url: ''
+    name: fipy
+    repo:
+      url: https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb
+      version: fc9134b08a9c
+  summary: FiPy implementation of benchmark 8a
+  timestamp: 2 February, 2018
