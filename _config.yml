@@ -32,7 +32,7 @@ links:
 
 
 title: "PFHub"
-subtitle: "Phase Field Community Hub"
+subtitle: "The Phase Field Community Hub"
 
 plugins: [jekyll-coffeescript]
 

@@ -16,7 +16,7 @@ models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 
 <iframe width="900"
         height="700"
-        src="https://www.sciencedirect.com/science/article/pii/S0927025616304712?via%3Dihub"
+        src="https://arxiv.org/pdf/1610.00622.pdf"
         frameborder="0"
         allowfullscreen>
 </iframe>
@@ -32,6 +32,8 @@ article in *Computational Materials Science* entitled ["Phase field
 benchmark problems for dendritic growth and linear
 elasticity"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 
+No preprint version available.
+
 <iframe width="900"
         height="700"
         src="https://www.sciencedirect.com/science/article/pii/S092702561830168X?via%3Dihub"
@@ -39,9 +41,37 @@ elasticity"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"
         allowfullscreen>
 </iframe>
 
+<br>
+<br>
+
+## Publication about PFHub
+
+[Daniel Wheeler][dw], [Trevor Keller][tk], [Steve DeWitt][sd], [Andrea
+Jokisaari][aj], [Daniel Schwen][ds], [Jon Guyer][jg], [Larry
+Aagesen][la], [Olle Heinonen][oh], [Michael Tonks][mt], [Peter
+Voorhees][pv] and [James Warren][jw] published a peer-reviewed journal
+article in *Journal of open research software* entitled ["PFHub: The
+Phase-Field Community
+Hub"](https://doi.org/10.5334/jors.276){:target="_blank"}.
+
+<iframe width="900"
+        height="700"
+        src="https://drive.google.com/file/d/1iJvZzaxAQjNYpDkl20Uyb33HbDKfys8x/preview"
+        frameborder="0"
+        allowfullscreen>
+</iframe>
+
+
+
 
 [aj]: {{ site.baseurl }}/community/#andrea-jokisaari
 [jg]: {{ site.baseurl }}/community/#jon-guyer
 [oh]: {{ site.baseurl }}/community/#olle-heinonen
 [pv]: {{ site.baseurl }}/community/#peter-voorhees
 [jw]: {{ site.baseurl }}/community/#james-warren
+[dw]: {{ site.baseurl }}/community/#daniel-wheeler
+[tk]: {{ site.baseurl }}/community/#trevor-keller
+[sd]: {{ site.baseurl }}/community/#stephen-dewitt
+[ds]: {{ site.baseurl }}/community/#daniel-schwen
+[la]: {{ site.baseurl }}/community/#larry-aagesen
+[mt]: {{ site.baseurl }}/community/#michael-tonks
