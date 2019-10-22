@@ -1,0 +1,74 @@
+_id: 6bc89bd0-f4e8-11e9-85ea-3dcda9ef3255
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: jon.guyer@nist.gov
+    github_id: wd15
+  timestamp: '2 February, 2018'
+  summary: FiPy implementation of benchmark 8a
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 8a
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1'
+        sim_time: '1'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1'
+  - name: free_energy
+    url: >-
+      https://drive.google.com/file/d/1SsEpmIerNXz14I0S80wLvPNbmt7NQLxc/view?usp=sharing
+    format:
+      type: csv
+      parse:
+        time: number
+        energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://drive.google.com/file/d/1SsEpmIerNXz14I0S80wLvPNbmt7NQLxc/view?usp=sharing
+    format:
+      type: csv
+      parse:
+        time: number
+        fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: image
+    url: >-
+      https://user-images.githubusercontent.com/1986844/66938477-396aff80-f00f-11e9-8c21-b59356a3b0e0.png
+    type: image
+    description: A puppy picture
+date: 1571761469
