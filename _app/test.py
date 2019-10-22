@@ -24,6 +24,15 @@ def test_csv():
         lambda x: x.text.partition("\n")[0] == "Time,Total_Energy",
     )
 
+def test_tsv():
+    """Test the response for TSV file
+    """
+    assert pipe(
+        "https://drive.google.com/file/d/1pl1H54v1BqLfepLagdBEe1Z9PNFYMGZZ/view?usp=sharing",
+        get,
+        lambda x: x.text.partition("\n")[0] == "free_energy	solid_fraction	time	tip_position"
+    )
+
 
 def test_image():
     """Test the response with an image file

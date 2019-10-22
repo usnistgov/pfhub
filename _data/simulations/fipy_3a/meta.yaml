@@ -11,23 +11,12 @@ data:
   values:
   - unit: KB
     value: '2000000'
-- name: efficiency
-  transform:
-  - as: x
-    expr: "1. / datum.time_ratio"
-    type: formula
-  - as: y
-    expr: datum.memory
-    type: formula
-  values:
-  - memory: 2000000.0
-    time_ratio: 0.005626
 - description: Free energy versus time
   format:
     parse:
       free_energy: number
       time: number
-    type: csv
+    type: tsv
   name: free_energy
   transform:
   - as: x
@@ -37,7 +26,7 @@ data:
     expr: datum.free_energy
     type: formula
   type: line
-  url: https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+  url: https://drive.google.com/file/d/1pl1H54v1BqLfepLagdBEe1Z9PNFYMGZZ/view?usp=sharing
 - description: Solid fraction versus time
   format:
     parse:
