@@ -1,0 +1,71 @@
+_id: 056f3c20-f5c1-11e9-a559-b75f5803b222
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: guyer
+  timestamp: '19 October, 2019'
+  summary: FiPy implementation of benchmark 8b
+  implementation:
+    name: FiPy
+    repo:
+      url: 'https://github.com/guyer/phasefieldbenchmark-8'
+      version: 47494c05faac4f6c010e24f84ad4a071582be0ba
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.60'
+    cores: '64'
+    nodes: '1'
+benchmark:
+  id: 8b
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '17922'
+        sim_time: '120.0'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '0'
+  - name: free_energy
+    url: 'https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/master/benchmark_8/8b/stats.txt'
+    format:
+      type: csv
+      parse:
+        time: number
+        energy: number
+    description: free energy vs time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction
+    url: 'https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/master/benchmark_8/8b/stats.txt'
+    format:
+      type: csv
+      parse:
+        time: number
+        fraction: number
+    description: phase fraction vs time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: image
+    url: 'https://github.com/guyer/phasefieldbenchmark-8/raw/master/benchmark_8/8b/t%3D80.0.png'
+    type: image
+    description: t=80.0
+date: 1571854498
