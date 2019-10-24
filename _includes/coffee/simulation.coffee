@@ -576,8 +576,16 @@ add_description = sequence(
       .attr('class', 'card-content scroll')
   (x) ->
     x.append('p')
-      .text((d) ->
-        if d.description? then d.description else d.data[0].description)
+      .text(
+        (d) ->
+          if d.description?
+            d.description
+          else
+            if d.data?
+              d.data[0].description
+            else
+              ''
+      )
 )
 
 
@@ -665,20 +673,20 @@ add_chart = curry(
 )
 
 
-add_vega = (appurl) ->
-  add_chart(appurl, add_vega_src)
 add_plotly = (appurl) ->
   add_chart(appurl, add_plotly_src)
 
 
-ploterize = (data) ->
-  data.plotly = [{
-    x:(xx.x for xx in data.values)
-    y:(xx.y for xx in data.values)
-    z:(xx.z for xx in data.values)
-    type:'contour'
-  }]
-  return data
+ploterize = curry(
+  (data) ->
+    data.plotly = [{
+      x:(xx.x for xx in data.values)
+      y:(xx.y for xx in data.values)
+      z:(xx.z for xx in data.values)
+      type:if data.type is 'line' then 'scatter' else 'contour'
+    }]
+    data
+)
 
 
 get_data_name = (sim_data, benchmark_data) ->
@@ -737,17 +745,28 @@ appurl
   results_table(data)
   set_repo(data)
 
-  result_data = groupBy(((x) -> x.type), data.data)
+  result_data = groupBy(
+    (x) ->
+      if x.type is 'contour' or x.type is 'line'
+        'plotly'
+      else
+        x.type
+    data.data
+  )
 
-  vega_data = sequence(
+  plotly_data = sequence(
     sortBy((x) -> x.name isnt get_data_name(data, benchmark_data))
-    vegarize(chart_data, axes_names)
-  )(result_data.line)
+    map(read_vega_data(appurl))
+    map(ploterize)
+  )(result_data.plotly)
 
-
-  if vega_data.length > 0
-    add_card(add_vega(appurl), '#logo_image', with_div = id)(vega_data[0..0])
-    vega_data = vega_data[1..]
+  if plotly_data.length > 0
+    add_card(
+      add_plotly(appurl)
+      '#logo_image'
+      with_div = id
+    )(plotly_data[0..0])
+    plotly_data = plotly_data[1..]
   else if result_data.image?
     add_card(
       add_image(appurl)
@@ -761,12 +780,7 @@ appurl
 
   with_div = (x) -> x.append('div').attr('class', 'col s12 m12 l6 xl4')
 
-  add_card(add_vega(appurl), '#images', with_div = with_div)(vega_data)
-
-  if result_data.contour?
-    contour_data = map(read_vega_data(appurl), result_data.contour)
-    plotly_data = map(ploterize, contour_data)
-    add_card(add_plotly(appurl), '#images', with_div = with_div)(plotly_data)
+  add_card(add_plotly(appurl), '#images', with_div = with_div)(plotly_data)
 
   if result_data.image?
     add_card(
