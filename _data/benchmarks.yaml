@@ -406,3 +406,49 @@
       mode: lines
       x_dtick: 1
       y_dtick: 1
+
+- title: Nucleation
+  description: Nucleation benchmark
+  image: https://user-images.githubusercontent.com/1986844/66938477-396aff80-f00f-11e9-8c21-b59356a3b0e0.png
+  num: 8
+  revisions:
+    - version: 0
+      variations: [a, b, c, d]
+      event:
+        name: Hackathon 5
+        url: "benchmarks/benchmark8.ipynb"
+      url: "benchmarks/benchmark8.ipynb"
+      commit:
+        sha: "e19007361211"
+        url: "benchmarks/benchmark8.ipynb"
+  data:
+    - name: free_energy
+      title: Free Energy
+      x_title: Time
+      y_title: Free Energy
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+
+    - name: solid_fraction
+      title: Solid Fraction
+      y_title: Solid Fraction
+      x_title: Time
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+
+    - name: efficiency
+      type: scatter
+      x_scale: log
+      y_scale: log
+      x_title: 'Normalized Wall Time *'
+      y_title: 'Memory Usage (KB)'
+      title: Efficiency
+      mode: markers
+      footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
+      func: efficiency
