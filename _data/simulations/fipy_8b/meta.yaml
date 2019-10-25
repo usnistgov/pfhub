@@ -33,7 +33,7 @@ data:
       - unit: KB
         value: '0'
   - name: free_energy
-    url: 'https://drive.google.com/open?id=15YK6D237FQt0Cs7la54G9V5051FghWd8'
+    url: 'https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/master/benchmark_8/8b/stats.txt'
     format:
       type: csv
       parse:
@@ -49,7 +49,7 @@ data:
         expr: datum.energy
         as: 'y'
   - name: solid_fraction
-    url: 'https://drive.google.com/open?id=15YK6D237FQt0Cs7la54G9V5051FghWd8'
+    url: 'https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/master/benchmark_8/8b/stats.txt'
     format:
       type: csv
       parse:
@@ -65,7 +65,7 @@ data:
         expr: datum.fraction
         as: 'y'
   - name: image
-    url: 'https://drive.google.com/open?id=1YQ3F0YG4Xmw4vXnKcTDu0-Ayl6lKxffy'
+    url: 'https://github.com/guyer/phasefieldbenchmark-8/raw/master/benchmark_8/8b/t%3D80.0.png'
     type: image
     description: t=80.0
 date: 1571854498
