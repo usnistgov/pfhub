@@ -1,0 +1,73 @@
+_id: 6a2f92f0-f822-11e9-8ba0-a518f8264f6d
+metadata:
+  author:
+    first: Shubhajit
+    last: Mondal
+    email: sm44@iitbbs.ac.in
+    github_id: smondal44
+  timestamp: '10 July, 2019'
+  summary: >-
+    Spinodal decomposition problem for square-shape domain with periodic
+    boundary condition has been solved using open-source finite element software
+    FeniCS.
+  implementation:
+    name: Fenics
+    repo:
+      url: >-
+        https://github.com/smondal44/spinodal-decomposition/blob/master/spinodal_a.py
+      version: a3a202fc7e120f0fb8b7f5d20c577972fe6433f4
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '2.4'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '14400'
+        sim_time: '14400'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '8388608'
+  - name: Total_energy
+    url: >-
+      https://raw.githubusercontent.com/smondal44/spinodal-decomposition/master/Time_Total_Energy_Spinodal_a.csv
+    format:
+      type: csv
+      parse:
+        Time: number
+        Total_Energy: number
+    description: Evolution of the total energy.
+    type: line
+    transform:
+      - type: formula
+        expr: datum.Time
+        as: x
+      - type: formula
+        expr: datum.Total_Energy
+        as: 'y'
+  - name: profile1
+    url: >-
+      https://github.com/smondal44/spinodal-decomposition/blob/master/Spinodal_a_ini.png
+    type: image
+    description: Initial profile of the domain
+  - name:
+      - Equilibrium_profile
+      - Total_energy
+    url:
+      - >-
+        https://github.com/smondal44/spinodal-decomposition/blob/master/Spinodal_a_final.png
+      - >-
+        https://github.com/smondal44/spinodal-decomposition/blob/master/Energy_vs_time_spinodal_a.png
+    type: image
+    description:
+      - Equilibrium distribution of the domain
+      - Total energy vs. log(time) is plotted
+date: 1572116230
