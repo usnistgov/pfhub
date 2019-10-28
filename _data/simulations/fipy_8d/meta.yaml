@@ -1,0 +1,152 @@
+_id: dbc1f6b0-f9cb-11e9-947f-113c6e56eeed
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: guyer
+  timestamp: '22 October, 2019'
+  summary: 'FiPy implementation of benchmark 8d, (periodic left-right, no-flux top)'
+  implementation:
+    name: FiPy
+    repo:
+      url: 'https://github.com/guyer/phasefieldbenchmark-8'
+      version: fa61140253b73b7f3723396e2e21924e706e42be
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.60'
+    cores: '4'
+    nodes: '1'
+benchmark:
+  id: 8d
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '943.737592'
+        sim_time: '5000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '0'
+  - name: solid_fraction_1
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8d/8d_0.98f/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, $\Delta f_0 = 0.98 \Delta_f_0*$'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_1
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8d/8d_0.98f/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, $\Delta f_0 = 0.98 \Delta_f_0*$'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction_2
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8d/8d_1.00f/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, $\Delta f_0 = 1.00 \Delta_f_0*$'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_2
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8d/8d_1.00f/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, $\Delta f_0 = 1.00 \Delta_f_0*$'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction_3
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8d/8d_1.02f/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, $\Delta f_0 = 1.02 \Delta_f_0*$'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_3
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8d/8d_1.02f/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, $\Delta f_0 = 1.02 \Delta_f_0*$'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: image_1
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/e43437cca0f081dfcf11afee75d0fa0e9ae5a7ab/benchmark_8/8d/8d_0.98f/t%3D5000.0.png
+    type: image
+    description: 't=5000 snapshot, $\Delta f_0 = 0.98 \Delta_f_0*$'
+  - name: image_2
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/e43437cca0f081dfcf11afee75d0fa0e9ae5a7ab/benchmark_8/8d/8d_1.00f/t%3D5000.0.png
+    type: image
+    description: 't=5000 snapshot, $\Delta f_0 = 1.00 \Delta_f_0*$'
+  - name: image_3
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/e43437cca0f081dfcf11afee75d0fa0e9ae5a7ab/benchmark_8/8d/8d_1.02f/t%3D5000.0.png
+    type: image
+    description: 't=5000 snapshot, $\Delta f_0 = 1.02 \Delta_f_0*$'
+date: 1572298957
