@@ -35,7 +35,7 @@ data:
   - name: free_energy
     url: 'https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/master/benchmark_8/8b/stats.txt'
     format:
-      type: csv
+      type: tsv
       parse:
         time: number
         energy: number
@@ -51,7 +51,7 @@ data:
   - name: solid_fraction
     url: 'https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/master/benchmark_8/8b/stats.txt'
     format:
-      type: csv
+      type: tsv
       parse:
         time: number
         fraction: number
