@@ -1,0 +1,74 @@
+_id: bd073dc0-f9c6-11e9-b219-fb34b4e94ef2
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: guyer
+  timestamp: '19 October, 2019'
+  summary: FiPy implementation of benchmark 8c (no-flux boundary conditions)
+  implementation:
+    name: FiPy
+    repo:
+      url: 'https://github.com/guyer/phasefieldbenchmark-8'
+      version: e12ed2f4ed59b08bcfa1dd14ffe46f7af29f4a77
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.60'
+    cores: '32'
+    nodes: '1'
+benchmark:
+  id: 8c
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1599.519187'
+        sim_time: '600'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '0'
+  - name: solid_fraction
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8c/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: solid fraction vs time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8c/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: free energy vs time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: image
+    url: >-
+      https://github.com/guyer/phasefieldbenchmark-8/raw/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8c/t%3D80.0.png
+    type: image
+    description: snapshot at t=80 (spec calls for t=100)
+date: 1572296758
