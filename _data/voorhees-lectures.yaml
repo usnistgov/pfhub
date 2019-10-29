@@ -1,0 +1,40 @@
+---
+- hash: "3Nt5hS8S2qY"
+  caption: >
+    Regular solution model for phase separating and ordering systems;
+    Failure of classical diffusion equation for systems that undergo
+    spinodal decomposition.
+- hash: "W02PH1fZJgw"
+  caption: >
+    Mathematical preliminaries: Taylor expansion of free energy, Gauss'
+    theorem, group theory, and variational calculus.
+- hash: "CQwhvEn5VNI"
+  caption: >
+    Modification of classical diffusion equation for systems that undergo
+    spinodal decomposition;
+    Cahn-Hilliard equation and the linear stability analysis.
+- hash: "xj4p8q_5j-k"
+  caption: >
+    Analytical solution of Cahn-Hilliard equation in 1-D;
+    Interface width and interfacial energy and their scaling with
+    simulation parameters.
+- hash: "b3ktTywqIwM"
+  caption: >
+    Order-disorder transformation and Allen-Cahn equation;
+    Analytical solution of Allen-Cahn in 1-D;
+    Characterization of the tanh solution for the Allen-Cahn equation.
+- hash: "K_2XYkT-qV4"
+  caption: >
+    Coherent misfitting precipitates; Eshelby problem; Khachaturyan's
+    generalization.
+- hash: "H7E5cWksKi4"
+  caption: >
+    Introduction to asymptotic analysis; Derivation of motion by mean
+    curvature from phase-field models of grain growth.
+- hash: "frLcPnWdDlE"
+  caption: >
+    Finite difference and spectral implementation of Allen-Cahn equation
+    (order-disorder transformation, grain growth).
+- hash: "Oqg_9tU_DRY"
+  caption: >
+    Incorporating elastic stress effects into phase-field models.
