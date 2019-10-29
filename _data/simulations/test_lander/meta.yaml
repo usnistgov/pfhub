@@ -61,19 +61,19 @@ data:
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   name: logo_image
   type: image
-  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+  url: https://www.rover.com/blog/wp-content/uploads/2018/11/chihuahua-810789_1920-960x540.jpg
 - description: A puppy picture
   name: image0
   type: image
-  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+  url: https://www.rover.com/blog/wp-content/uploads/2018/11/chihuahua-810789_1920-960x540.jpg
 - description: A puppy picture
   name: image1
   type: image
-  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+  url: https://www.rover.com/blog/wp-content/uploads/2018/11/chihuahua-810789_1920-960x540.jpg
 - description: A puppy picture
   name: image2
   type: image
-  url: http://www.cradlekennels.co.za/jack-russells/_images/puppies/jack_russell_puppy_12.jpg
+  url: https://www.rover.com/blog/wp-content/uploads/2018/11/chihuahua-810789_1920-960x540.jpg
 - description: My youtube video
   name: youtube
   type: youtube
