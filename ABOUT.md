@@ -86,117 +86,70 @@ we can reach a consensus
 <h5> Who is {{ site.title }} Intended For? </h5>
 
 The Phase Field Community Hub is relevant to the diverse spectrum of
-phase-field community members, from absolute newcomers to established
-experts in the theory, practice, and implementation of mesoscale
-models. The following "user stories" roughly sketch out how we intend
-this website to be of use to a few representative visitors.
+phase-field community members, from newcomers to established experts in the
+theory, practice, and implementation of mesoscale models. The following
+"user stories" roughly sketch out how we intend this website to be of use
+to a few representative visitors.
 
-<h6> Novice Users (<i>e.g.</i>, graduate students) </h6>
+<h6> Novice Users </h6>
 
-A novice may have been directed to choose a code and start modeling by
-an advisor or teacher, with no knowledge of phase field methods or our
-jargon. This user will not know exactly what they're looking for, and
-would rely on us to present information in a clear manner with an
-emphasis that we provide. The focus will be ease of adoption, rather
-than absolute speed. They may reasonably want to have the following
-questions addressed.
+A novice (<i>e.g.</i>, graduate student) may have been directed to choose a
+code and start modeling by an advisor or teacher, with no knowledge of
+phase field methods or our jargon. This user will not know exactly what
+they're looking for. While basic education is beyond the scope of {{
+site.title }}, we can help address the following questions.
 
-- <b>What is Phase Field?</b> To help this new user come up to speed, the
-  website should provide the following:
-    - Background material defining what phase field methods are.
-    - Books, online courses, resources to learn more (include links to
-      Software Carpentry lessons for very basic computational skills).
-    - Glossary defining our domain vocabulary: HPC, parallelism,
-      coarse graining, field variables, scalar and vector fields,
-      multiscale, multiphysics, quantitative vs. qualitative, UQ,
-      error, accuracy, precision, explicit, implicit, FEM, FVM, FDM,
-      discretization, truncation error, roundoff.
-    - Examples of what the methods can do, and can't.
-    - Suggested hardware setups to get started, and to get real work
-      done: laptop, GPGPU, cluster, supercomputer.
-    - Codes, languages, complexity.
-    - What running a phase field simulation "looks like": graphical
-      *vs.* command line interfaces, visualization tools,
-      post-processing workflows.
+- <b>What is "phase-field"?</b> To help this new user come up to speed, the
+  website provides a set of [video lectures]({{ site.baseurl
+  }}/wiki/voorhees-lectures/) by Prof. [Peter Voorhees]({{ site.baseurl
+  }}/community/#peter-voorhees) introducing the fundamental theory of
+  phase-field methods.
 - <b>How do I do it?</b> To help this new user launching simulations, the
-  website should provide the following:
-    - List of available codes, with links to documentation and tutorials.
-    - Whether the codes are open source, licensing terms, and have
-      supportive community involvement
-    - Overview of which code can do what (strengths and limitations).
-    - At-a-glance summary of which code is fastest and most accurate,
-      allowing for subjective evaluation of "bang for the buck":
-      error, speed, hardware utilization, memory/disk footprint,
-      scalability.
-    - Sense of whether the code is actively used, maintained, and trending
-      toward better results (faster, more accurate, less memory).
+  website provides a list of [suggested codes]({{ site.baseurl }}/codes/),
+  briefly summarizing programming language, parallelization models,
+  numerical methods, license, up-front and ongoing costs, and major
+  dependencies.
 
-<h6> Advanced Users (<i>e.g.</i>, early-career researchers) </h6>
+<h6> Advanced Users </h6>
 
-A researcher with experience in phase-field modeling might change
-positions or focus, and take a moment to survey the software
-landscape. This user will have some idea what they're looking for, or
-specifically guarding against. Focus may be suitability to a specific
-task, or flexibility to address a wide variety of tasks. The
+An advanced user (<i>e.g.</i>, early-career researcher) with experience in
+phase-field modeling might change positions or focus, and take a moment to
+survey the software landscape. This user will have some idea what they're
+looking for, or specifically guarding against. Focus may be suitability to
+a specific task, or flexibility to address a wide variety of tasks. The
 researcher might be wondering...
 
-- <b>Is Something Better Out There?</b> To help the experienced user
-  drill down on options, the website should provide the following:
-    - List of available codes, filterable by language, parallelization
-      models, numerical methods, license, up-front and ongoing costs,
-      mesh generation.
-    - Summary of codes by common application area, with lists of
-      dependent publications if available.
-    - Summary of codes by common application area, with lists of
-      dependent publications if available.
-    - Dashboard showing how many results have been submitted by each
-      code for each benchmark problem, to evaluate capability and
-      popularity/activity.
-    - Details of each code's major dependencies and installation
-      options (source, binary, container).
-    - Easy ways to contact users and developers to discuss specific
-      results.
-- <b>Does My Usage Comply With Best Practices?</b> To help the
-  experienced user compare their code and performance against other
-  users and experts, the website should provide the following:
-    - A simple process for uploading simulation results with immediate
-      feedback: new work should appear in the graphs and tables on the
-      live website, or indicate something went wrong and suggest a
-      point of contact.
-    - Access to the source code for prior uploads (devs and other
-      users).
-    - Resources describing tools for archiving and persistently sharing data,
-      preferably using tools that can be reused in other contexts.
-    - Shiny stickers for the "best" result in each class, and the cleanest
-      coding style and documentation.
+- <b>Are my results in line?</b> To help the experienced
+  user compare their performance against other users of the same code, the
+  website provides the following:
+    - A simple process for submitting simulation results with rapid
+      feedback: new work appears in the graphs and tables on a
+      test website, allowing iteration if the results are out of line.
+    - Access to the source code for prior submissions.
+- <b>Is something better out there?</b> To help the experienced user drill
+  down on options, the website provides the following:
+    - A list of [suggested codes]({{ site.baseurl }}/codes/).
+    - A dashboard showing how many results have been submitted using each
+      code for each benchmark problem.
+    - Visual summaries of relative performance of these codes on each
+      benchmark problem.
 
-<h6> Expert Users (<i>e.g.</i>, software developers) </h6>
+<h6> Expert Users </h6>
 
-A software developer experienced with phase-field models and numerical
-methods will be interested in upgrading their code, making it easier
-to use, more powerful, or able to run on evolving hardware and
-software platforms. The developer might be wondering...
+An expert user (<i>e.g.</i>, software developer) experienced with
+phase-field models and numerical methods will be interested in upgrading
+their code, making it easier to use, more powerful, or able to run on
+evolving hardware and software platforms. The developer might be
+wondering...
 
 - <b>Is my code competitive?</b> To help the developer compare apples to
-  apples, the website should provide the following:
-    - List of available simulation results, with visualizations and
-      ability to filter by code, platform, and author (fellow dev or
-      user).
-    - Resources to help evaluate whether the code is correct, using
-      the method of manufactured solutions and by quantitative
-      comparison between uploaded datasets.
+  apples, the website provides the following:
+    - List of available simulation results, with visualizations and ability
+      to filter by code, platform, and author (fellow dev or user).
+    - A Benchmark Problem using the method of manufactured solutions to
+      help verify the discretization and numerical methods.
     - A responsive process for uploading simulation results when new
-      benchmarks come out, and for new features that might earn a
-      trophy (or secure its place)
-- <b>Is My Community Actively Engaged?</b> To help the developer shepherd
-  the flock, the website should provide the following:
-    - Persistent links to benchmark implementations and datasets,
-      for use in marketing materials and documentation.
-    - Quantitative comparisons of "official" simulation results to
-      "contributed" results from users, with contact info available
-      for follow-up (good or bad).
-    - Resources to spread the word about this Working Group, drum up
-      contributions.
+      benchmarks come out.
 
 <h6> Advisors (<i>e.g.</i>, faculty) </h6>
 
