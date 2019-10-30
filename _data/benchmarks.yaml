@@ -455,7 +455,8 @@
       func: get_values
       variations: [a]
 
-    - name: solid_fraction_1
+    - name: solid_fraction_a1
+      data_name: solid_fraction_1
       title: 'Solid Fraction, <i>r</i><sub>0</sub>=0.99<i>r</i><sup>*</sup>'
       y_title: Solid Fraction
       x_title: Time
@@ -464,7 +465,19 @@
       type: scatter
       mode: lines
       func: get_values
-      variations: [a, d]
+      variations: [a]
+
+    - name: solid_fraction_d1
+      data_name: solid_fraction_1
+      title: 'Solid Fraction, <i>&#916;f</i><sub>0</sub>=0.98<i>&#916;f</i><sub>0</sub><sup>*</sup>'
+      y_title: Solid Fraction
+      x_title: Time
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+      variations: [d]
 
     - name: free_energy_2
       title: 'Free Energy, <i>r</i><sub>0</sub>=<i>r</i><sup>*</sup>'
@@ -477,7 +490,8 @@
       func: get_values
       variations: [a]
 
-    - name: solid_fraction_2
+    - name: solid_fraction_a2
+      data_name: solid_fraction_2
       title: 'Solid Fraction, <i>r</i><sub>0</sub>=<i>r</i><sup>*</sup>'
       y_title: Solid Fraction
       x_title: Time
@@ -486,7 +500,19 @@
       type: scatter
       mode: lines
       func: get_values
-      variations: [a, d]
+      variations: [a]
+
+    - name: solid_fraction_d2
+      data_name: solid_fraction_2
+      title: 'Solid Fraction, <i>&#916;f</i><sub>0</sub>=<i>&#916;f</i><sub>0</sub><sup>*</sup>'
+      y_title: Solid Fraction
+      x_title: Time
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+      variations: [d]
 
     - name: free_energy_3
       title: 'Free Energy, <i>r</i><sub>0</sub>=1.01<i>r</i><sup>*</sup>'
@@ -499,7 +525,8 @@
       func: get_values
       variations: [a]
 
-    - name: solid_fraction_3
+    - name: solid_fraction_a3
+      data_name: solid_fraction_3
       title: 'Solid Fraction, <i>r</i><sub>0</sub>=1.01<i>r</i><sup>*</sup>'
       y_title: Solid Fraction
       x_title: Time
@@ -508,7 +535,19 @@
       type: scatter
       mode: lines
       func: get_values
-      variations: [a, d]
+      variations: [a]
+
+    - name: solid_fraction_d3
+      data_name: solid_fraction_3
+      title: 'Solid Fraction, <i>&#916;f</i><sub>0</sub>=1.02<i>&#916;f</i><sub>0</sub><sup>*</sup>'
+      y_title: Solid Fraction
+      x_title: Time
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+      variations: [d]
 
     - name: efficiency
       type: scatter
