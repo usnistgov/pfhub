@@ -14,22 +14,18 @@ published: true
 {% assign counter = 0 %}
 
 <div class="container">
-  <div class="row small-buffer">
   {% for vid in site.data.voorhees-lectures %}
-    {% assign counter = counter | plus: 1 %}
-
-    <div class="card large light-green lighten-4">
+  {% assign counter = counter | plus: 1 %}
+  <div class="card large light-green lighten-4">
     <h2 class="card-title"> Lecture {{ counter }} </h2>
+    <div class="flow-text">
+      {{ vid.caption }}
+    </div>
     <iframe
      width="620"
      height="315"
      src="https://www.youtube.com/embed/{{ vid.hash }}">
     </iframe>
-    <div class="flow-text">
-      <b><i>Topic:</i></b> {{ vid.caption }}
-    </div>
   </div>
-
-{% endfor %}
-  </div>
+  {% endfor %}
 </div>
