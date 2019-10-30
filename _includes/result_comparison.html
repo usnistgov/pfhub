@@ -15,15 +15,28 @@
   </div>
 </div>
 
+
 {% assign temp = include.benchmark_id | split: '.' | first %}
 {% assign size = temp | size | minus: 1 %}
+{% assign benchmark_variation = temp | split: '' | last %}
 {% assign benchmark_num = temp | slice: 0, size %}
 {% assign benchmark_version = include.benchmark_id | split: '.' | last %}
+{% comment %}Make an empty array{% endcomment %}
+{% assign chart_data = '' | split: '' %}
 {% for item in site.data.benchmarks %}
   {% comment %}item.num needs to be a string so using capture here{% endcomment %}
   {% capture item_num %}{{ item.num }}{% endcapture %}
   {% if item_num == benchmark_num %}
-    {% assign chart_data = item.data %}
+    {% for item_data in item.data %}
+      {% assign item_data_array = item.data | slice: forloop.index0, 1 %}
+      {% if item_data.variations %}
+        {% if item_data.variations contains benchmark_variation %}
+          {% assign chart_data = chart_data | concat: item_data_array %}
+        {% endif %}
+      {% else %}
+        {% assign chart_data = chart_data | concat: item_data_array %}
+      {% endif %}
+    {% endfor %}
   {% endif %}
 {% endfor %}
 

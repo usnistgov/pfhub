@@ -431,6 +431,7 @@
       type: scatter
       mode: lines
       func: get_values
+      variations: [b, c]
 
     - name: solid_fraction
       title: Solid Fraction
@@ -441,6 +442,73 @@
       type: scatter
       mode: lines
       func: get_values
+      variations: [b, c]
+
+    - name: free_energy_1
+      title: 'Free Energy, <i>r</i><sub>0</sub>=0.99<i>r</i><sup>*</sup>'
+      x_title: Time
+      y_title: Free Energy
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+      variations: [a]
+
+    - name: solid_fraction_1
+      title: 'Solid Fraction, <i>r</i><sub>0</sub>=0.99<i>r</i><sup>*</sup>'
+      y_title: Solid Fraction
+      x_title: Time
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+      variations: [a, d]
+
+    - name: free_energy_2
+      title: 'Free Energy, <i>r</i><sub>0</sub>=<i>r</i><sup>*</sup>'
+      x_title: Time
+      y_title: Free Energy
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+      variations: [a]
+
+    - name: solid_fraction_2
+      title: 'Solid Fraction, <i>r</i><sub>0</sub>=<i>r</i><sup>*</sup>'
+      y_title: Solid Fraction
+      x_title: Time
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+      variations: [a, d]
+
+    - name: free_energy_3
+      title: 'Free Energy, <i>r</i><sub>0</sub>=1.01<i>r</i><sup>*</sup>'
+      x_title: Time
+      y_title: Free Energy
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+      variations: [a]
+
+    - name: solid_fraction_3
+      title: 'Solid Fraction, <i>r</i><sub>0</sub>=1.01<i>r</i><sup>*</sup>'
+      y_title: Solid Fraction
+      x_title: Time
+      x_scale: linear
+      y_scale: linear
+      type: scatter
+      mode: lines
+      func: get_values
+      variations: [a, d]
 
     - name: efficiency
       type: scatter
@@ -452,3 +520,4 @@
       mode: markers
       footnote: "<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>"
       func: efficiency
+      variations: [b, c]

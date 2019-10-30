@@ -1,73 +1,137 @@
-_id: 93113e00-0c5e-11e8-b653-4f1ed6519c85
+_id: 833e9120-f9c5-11e9-b219-fb34b4e94ef2
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: guyer
+  timestamp: '16 October, 2019'
+  summary: FiPy implementation of benchmark 8a
+  implementation:
+    name: FiPy
+    repo:
+      url: 'https://github.com/guyer/phasefieldbenchmark-8'
+      version: abffcd9ffc0452dd9c9310cc8ba2b8e713108ae2
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.60'
+    cores: '16'
+    nodes: '1'
 benchmark:
   id: 8a
   version: '0'
 data:
-- name: run_time
-  values:
-  - sim_time: '1'
-    wall_time: '1'
-- name: memory_usage
-  values:
-  - unit: KB
-    value: '1'
-- description: Free energy versus time
-  format:
-    parse:
-      energy: number
-      time: number
-    type: tsv
-  name: free_energy
-  transform:
-  - as: x
-    expr: datum.time
-    type: formula
-  - as: y
-    expr: datum.energy
-    type: formula
-  type: line
-  url: https://drive.google.com/file/d/1j1aEXuES2bcw7MoYodkGVCIOeue12Om6/view?usp=sharing
-- description: Solid fraction versus time
-  format:
-    parse:
-      fraction: number
-      time: number
-    type: tsv
-  name: solid_fraction
-  transform:
-  - as: x
-    expr: datum.time
-    type: formula
-  - as: y
-    expr: datum.fraction
-    type: formula
-  type: line
-  url: https://drive.google.com/file/d/1j1aEXuES2bcw7MoYodkGVCIOeue12Om6/view?usp=sharing
-- description: A puppy picture
-  name: image
-  type: image
-  url: https://user-images.githubusercontent.com/1986844/66938477-396aff80-f00f-11e9-8c21-b59356a3b0e0.png
-date: 1518046097
-layout: post
-message: ' '
-metadata:
-  author:
-    email: jon.guyer@nist.gov
-    first: Jon
-    github_id: wd15
-    last: Guyer
-  hardware:
-    acc_architecture: none
-    clock_rate: '3.2'
-    cores: '1'
-    cpu_architecture: x86_64
-    nodes: '1'
-    parallel_model: serial
-  implementation:
-    container_url: ''
-    name: fipy
-    repo:
-      url: https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb
-      version: fc9134b08a9c
-  summary: FiPy implementation of benchmark 8a
-  timestamp: 2 February, 2018
+  - name: run_time
+    values:
+      - wall_time: '1273.119492'
+        sim_time: '100'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '0'
+  - name: solid_fraction_1
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_0.99r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 0.99r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_1
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_0.99r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 0.99r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction_2
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.00r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 1.00r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_2
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.00r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 1.00r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction_3
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.01r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 1.01r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_3
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.01r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 1.01r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+date: 1572296231
