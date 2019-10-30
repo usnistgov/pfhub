@@ -83,6 +83,97 @@ would like to propose a change or improvement then please raise it via
 }}/issues/new). The community will discuss the change and act on it if
 we can reach a consensus
 
+<h5> Who is {{ site.title }} Intended For? </h5>
+
+The Phase Field Community Hub is relevant to the diverse spectrum of
+phase-field community members, from newcomers to established experts in the
+theory, practice, and implementation of mesoscale models. The following
+"user stories" roughly sketch out how we intend this website to be of use
+to a few representative visitors.
+
+<h6> Novice Users </h6>
+
+A novice (<i>e.g.</i>, graduate student) may have been directed to choose a
+code and start modeling by an advisor or teacher, with no knowledge of
+phase field methods or our jargon. This user will not know exactly what
+they're looking for. While basic education is beyond the scope of {{
+site.title }}, we can help address the following questions.
+
+- <b>What is "phase-field"?</b> To help this new user come up to speed, the
+  website provides a set of [video lectures]({{ site.baseurl
+  }}/wiki/voorhees-lectures/) by Prof. [Peter Voorhees]({{ site.baseurl
+  }}/community/#peter-voorhees) introducing the fundamental theory of
+  phase-field methods.
+- <b>How do I do it?</b> To help this new user launching simulations, the
+  website provides a list of [suggested codes]({{ site.baseurl }}/codes/),
+  briefly summarizing programming language, parallelization models,
+  numerical methods, license, up-front and ongoing costs, and major
+  dependencies.
+
+<h6> Advanced Users </h6>
+
+An advanced user (<i>e.g.</i>, early-career researcher) with experience in
+phase-field modeling might change positions or focus, and take a moment to
+survey the software landscape. This user will have some idea what they're
+looking for, or specifically guarding against. Focus may be suitability to
+a specific task, or flexibility to address a wide variety of tasks. The
+researcher might be wondering...
+
+- <b>Are my results in line?</b> To help the experienced
+  user compare their performance against other users of the same code, the
+  website provides the following:
+    - A simple process for submitting simulation results with rapid
+      feedback: new work appears in the graphs and tables on a
+      test website, allowing iteration if the results are out of line.
+    - Access to the source code for prior submissions.
+- <b>Is something better out there?</b> To help the experienced user drill
+  down on options, the website provides the following:
+    - A list of [suggested codes]({{ site.baseurl }}/codes/).
+    - A dashboard showing how many results have been submitted using each
+      code for each benchmark problem.
+    - Visual summaries of relative performance of these codes on each
+      benchmark problem.
+
+<h6> Expert Users </h6>
+
+An expert user (<i>e.g.</i>, software developer) experienced with
+phase-field models and numerical methods will be interested in upgrading
+their code, making it easier to use, more powerful, or able to run on
+evolving hardware and software platforms. The developer might be
+wondering...
+
+- <b>Is my code competitive?</b> To help the developer compare apples to
+  apples, the website provides the following:
+    - List of available simulation results, with visualizations and ability
+      to filter by code, platform, and author (fellow dev or user).
+    - A Benchmark Problem using the method of manufactured solutions to
+      help verify the discretization and numerical methods.
+    - A responsive process for uploading simulation results when new
+      benchmarks come out.
+
+<h6> Advisors (<i>e.g.</i>, faculty) </h6>
+
+A faculty adviser who is continually having new researchers join their
+research group that are unfamiliar with the phase field method will be
+interested in having a collection of example problems with known,
+recorded solutions that their students can implement while learning.
+
+- <b>Are New Researchers Solving Problems Correctly?</b> To best instruct
+  new researchers, the website should provide:
+    - Problems with all parameters, initial conditions, and boundary
+      conditions defined.
+    - Well established solutions using a range of different solution
+      methods that new researchers can use for comparison.
+    - Metrics from other codes showing computation times that new
+      researchers can use to evaluate the efficiency of their
+      solution.
+- <b>Are They Learning A Range of Phase Field Problems?</b> To provide
+  new researchers with a breadth of knowledge, rather than in just one
+  area, the website should provide
+    - Problems covering a range of different materials phenomena.
+    - Problems with increasing complexity.
+    - Problems with unique aspects such as coupled mechanics or
+      anisotropic surface energy.
 
 [aj]: {{ site.baseurl }}/community/#andrea-jokisaari
 [jg]: {{ site.baseurl }}/community/#jon-guyer
