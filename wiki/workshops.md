@@ -58,6 +58,7 @@ needs and avenues of work.
    [presentations]({{ site.baseurl
    }}/wiki/2019-05-08-workshop-viii-presentations).
 
- - **Phase Field Methods Workshop IX**; Nov 5-7, 2019; in the
-   planning stages; email <e-gulsoy@northwestern.edu> if you'd like to
-   attend.
+ - **Phase Field Methods Workshop IX**; Nov 5-7, 2019; see [the
+   agenda](https://drive.google.com/file/d/0B4101gT3tHveRjBnRXA5WU5YVFRCR0VKd21QODIxeWJBSHRF/view?usp=sharing),
+   [workshop
+   notes](https://drive.google.com/file/d/0B4101gT3tHveSXVWTE55WlNzVzl0b19hSkV2cWZyOXZXYzhz/view?usp=sharing).
