@@ -1,0 +1,6 @@
+{
+    "travis_pull_request":"${TRAVIS_PULL_REQUEST}",
+    "surge_domain":"https://${DOMAIN}",
+    "travis_pull_request_branch": "${TRAVIS_PULL_REQUEST_BRANCH}",
+    "travis_repo_slug": "${TRAVIS_REPO_SLUG}"
+}
