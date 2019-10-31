@@ -19,9 +19,6 @@ install:
   - FIRST=`echo ${TRAVIS_COMMIT_RANGE} | sed 's/[.]/\n/g' | head -n 1`
   - LAST=`echo ${TRAVIS_COMMIT_RANGE} | sed 's/[.]/\n/g' | tail -n 1`
 script:
-  - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-      nix-shell --pure --command "commitlint --from=${FIRST} --to=${LAST}";
-    fi
   - nix-shell --pure --command "pylint _data/*.py"
   - nix-shell --pure --command "flake8 _data/*.py"
   - nix-shell --pure --command "LC_ALL=en_US.UTF-8 black --check _data/*.py"
