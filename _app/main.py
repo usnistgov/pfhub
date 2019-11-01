@@ -11,6 +11,18 @@ Test the GET with
   $ url="https://drive.google.com/open?id=1he7ilLH2VTD740OGPJXOq8CSn7utEDf_"
   $ curl -L -o out.png "http://localhost:8000/get/?url=$url"
 
+Test comments
+
+  $ curl -L -o out.csv "https://ace-thought-249120.appspot.com/comment?staticman=0&issue_number=1089"
+
+Setting env vars in YAML
+
+  https://stackoverflow.com/questions/22669528/securely-storing-environment-variables-in-gae-with-app-yaml
+
+Create 'env_variables.yaml' with
+
+evn_variables:
+  GITHUB_TOKEN: xxxxxx
 """
 
 import re
@@ -21,6 +33,8 @@ import requests
 from toolz.curried import curry, get, compose
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import StreamingResponse
+import json
+import os
 
 
 def sequence(*args):
@@ -43,6 +57,7 @@ app = FastAPI()  # pylint: disable=invalid-name
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://127.0.0.1:4000", "https://pages.nist.gov"],
+    # allow_origins=["*"],
     allow_origin_regex=r"https://random-cat-.*\.surge\.sh",
     allow_credentials=True,
     allow_methods=["*"],
@@ -79,6 +94,22 @@ async def get_binary_file(url: UrlStr):
         lambda x: (BytesIO(x.content), x.headers["content-type"]),
         lambda x: StreamingResponse(x[0], media_type=x[1]),
     )(url)
+
+
+@app.get("/comment/")
+async def github_comment(staticman: bool, issue_number: int):
+    """Base endpoint to get binary file
+    """
+    github_token = os.environ.get('GITHUB_TOKEN')
+
+    url = f"https://api.github.com/repos/usnistgov/pfhub/issues/{issue_number}/comments"
+    response = requests.post(
+        url,
+        data=json.dumps({'body': 'test comment 2'}),
+        headers={'Authorization': f'token {github_token}'}
+    )
+    return {'status_code': response.status_code, 'json': response.json()}
+
 
 
 if __name__ == "__main__":

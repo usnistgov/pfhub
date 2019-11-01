@@ -5,3 +5,6 @@ handlers:
     script: auto
 
 entrypoint: uvicorn --port $PORT main:app --reload
+
+includes:
+  - env_variables.yaml
