@@ -96,16 +96,53 @@ async def get_binary_file(url: UrlStr):
     )(url)
 
 
-@app.get("/comment/")
-async def github_comment(staticman: bool, issue_number: int):
-    """Base endpoint to get binary file
+class Comment(BaseModel):
+    pr_number: int
+    github_id: str
+    sim_name: str
+    is_staticman: bool
+    surge_domain: str
+    benchmark_id: int
+
+def comment_staticman(github_id, pfhub_link_sim, pfhub_link_comp, pfhub_link_edit):
+    return f"""
+@{github_id}, thanks for your PFHub upload! Your upload appears to have passed the tests.
+
+You can view your upload display at
+
+ - {link1}
+
+and
+
+ - {link2}
+
+Please review and confirm your approval to @wd15 by commenting in this pull request.
+
+If you think there is a mistake in your upload data, then you can resubmit the upload [at this link]({pfhub_link}).
+    """
+
+def comment_general(github_id, domain)
+
+
+
+
+@app.post("/comment/")
+async def github_comment(comment: Comment):
+    """Endpoint to post comment to GitHub PR
     """
     github_token = os.environ.get('GITHUB_TOKEN')
+    domain=f"https://random-cat-${comment.pr_number}.surge.sh"
+    data = dict(
+        pr_url=f"https://api.github.com/repos/usnistgov/pfhub/issues/{comment.pr_number}/comments",
+        pfhub_link_sim=domain + "/simulations/display/?sim={comment.sim_name}"
+        pfhub_link_comp=domain + "/simulations/{comment.benchmark_id}"
+        pfhub_link_upload=domain + "/simulations/upload_form/?sim={comment.sim_name}"
+        pfhub_link=domain
+    )
 
-    url = f"https://api.github.com/repos/usnistgov/pfhub/issues/{issue_number}/comments"
     response = requests.post(
         url,
-        data=json.dumps({'body': 'test comment 2'}),
+        data=json.dumps({'body': comment(data)}),
         headers={'Authorization': f'token {github_token}'}
     )
     return {'status_code': response.status_code, 'json': response.json()}
