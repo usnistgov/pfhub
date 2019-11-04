@@ -12,8 +12,6 @@ title: Publications
 numerical implementations of phase field
 models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 
-[No pay wall preprint version at arXiv](https://arxiv.org/abs/1610.00622)
-
 <iframe width="900"
         height="700"
         src="https://arxiv.org/pdf/1610.00622.pdf"
@@ -30,13 +28,11 @@ models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 Warren][jw] and [Olle Heinonen][oh] published a peer-reviewed journal
 article in *Computational Materials Science* entitled ["Phase field
 benchmark problems for dendritic growth and linear
-elasticity"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
-
-No preprint version available.
+elasticity"](https://doi.org/10.1016/j.commatsci.2018.03.015){:target="_blank"}.
 
 <iframe width="900"
         height="700"
-        src="https://www.sciencedirect.com/science/article/pii/S092702561830168X?via%3Dihub"
+        src="https://arxiv.org/pdf/1910.14111.pdf"
         frameborder="0"
         allowfullscreen>
 </iframe>
