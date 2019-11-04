@@ -59,6 +59,6 @@ needs and avenues of work.
    }}/wiki/2019-05-08-workshop-viii-presentations).
 
  - **Phase Field Methods Workshop IX**; Nov 5-7, 2019; see [the
-   agenda](https://drive.google.com/file/d/0B4101gT3tHveRjBnRXA5WU5YVFRCR0VKd21QODIxeWJBSHRF/view?usp=sharing),
+   agenda](https://drive.google.com/file/d/1VeMtjTHf4urPJsRM-dar6-mckPnpTO2D/view?usp=sharing),
    [workshop
    notes](https://drive.google.com/file/d/0B4101gT3tHveSXVWTE55WlNzVzl0b19hSkV2cWZyOXZXYzhz/view?usp=sharing).
