@@ -8,7 +8,7 @@ metadata:
   timestamp: '5 November, 2019'
   summary: "Finite volume discretization. Time integration: Backward Euler, Jacobian-Free Newton Krylov solver,  with multigrid preconditioning. Adaptive time-stepping (up to dt=3.2).\r\nUniform mesh 1440 x 1440."
   implementation:
-    name: AMPE
+    name: ampe
     repo:
       url: 'https://github.com/LLNL/AMPE'
       version: 350d0b1ada9b83ce0479d41056e8ea5f29109b21
@@ -32,26 +32,26 @@ data:
     values:
       - unit: KB
         value: '2980000'
-  - name: Free_Energy
+  - name: free_energy
     url: >-
-      https://github.com/LLNL/AMPE/tree/release/benchmarks/PFHub3/free_energy.csv
+      https://raw.githubusercontent.com/wd15/AMPE/release/benchmarks/PFHub3/free_energy.csv
     format:
       type: csv
       parse:
-        Time: number
-        Free energy: number
+        time: number
+        free_energy: number
     description: Free energy vs. time
     type: line
     transform:
       - type: formula
-        expr: datum.Time
+        expr: datum.time
         as: x
       - type: formula
-        expr: datum.Free energy
+        expr: datum.free_energy
         as: 'y'
   - name: phase_field_1500
     url: >-
-      https://github.com/LLNL/AMPE/tree/release/benchmarks/PFHub3/phase_field_1500.csv
+      https://raw.githubusercontent.com/wd15/AMPE/release/benchmarks/PFHub3/phase_field_1500.csv
     format:
       type: csv
       parse:
@@ -66,14 +66,14 @@ data:
       - type: formula
         expr: datum.y
         as: 'y'
-  - name: Solid_fraction
+  - name: solid_fraction
     url: >-
-      https://github.com/LLNL/AMPE/tree/release/benchmarks/PFHub3/solid_fraction.csv
+      https://raw.githubusercontent.com/wd15/AMPE/release/benchmarks/PFHub3/solid_fraction.csv
     format:
       type: csv
       parse:
         time: number
-        solid fraction: number
+        volume_fraction: number
     description: Solid fraction vs. time
     type: line
     transform:
@@ -81,16 +81,16 @@ data:
         expr: datum.time
         as: x
       - type: formula
-        expr: datum.solid fraction
+        expr: datum.volume_fraction
         as: 'y'
-  - name: Tip_position
+  - name: tip_position
     url: >-
-      https://github.com/LLNL/AMPE/tree/release/benchmarks/PFHub3/tip_position.csv
+      https://raw.githubusercontent.com/wd15/AMPE/release/benchmarks/PFHub3/tip_position.csv
     format:
       type: csv
       parse:
         time: number
-        tip position: number
+        tip_position: number
     description: Tip position vs. time
     type: line
     transform:
@@ -98,6 +98,6 @@ data:
         expr: datum.time
         as: x
       - type: formula
-        expr: datum.tip position
+        expr: datum.tip_position
         as: 'y'
 date: 1572987276
