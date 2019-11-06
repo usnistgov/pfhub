@@ -32,7 +32,7 @@ data:
     values:
       - unit: KB
         value: '1600'
-  - name: MMSP_bm7a_x
+  - name: spatial
     url: >-
       https://github.com/tkphd/MMSP-manufactured-solutions-benchmark/raw/master/results-a/bm7a-x.csv
     format:
@@ -49,7 +49,7 @@ data:
       - type: formula
         expr: datum.L2_error
         as: 'y'
-  - name: MMSP_bm7a_t
+  - name: temporal
     url: >-
       https://raw.githubusercontent.com/tkphd/MMSP-manufactured-solutions-benchmark/master/results-a/bm7a-t.csv
     format:
