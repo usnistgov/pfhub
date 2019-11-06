@@ -129,7 +129,7 @@ mapping:
           "name":
             type: str
             required: True
-            pattern: (?i)fenics|moose|prisms|sfepy|mmsp|fipy|custom|hiperc
+            pattern: (?i)fenics|moose|prisms|sfepy|mmsp|fipy|custom|hiperc|ampe
           "container_url":
             type: str
             required: True
