@@ -38,8 +38,8 @@ data:
     format:
       type: csv
       parse:
-        dx: number
-        L2: number
+        mesh_size: number
+        L2_error: number
     description: "Spatial convergence test using explicit forward Euler. The time step is constant at 2e-4 for all simulations. The order of accuracy is 2.11, which is within the error range for the expected O(2).\r\n"
     type: line
     transform:
@@ -55,8 +55,8 @@ data:
     format:
       type: csv
       parse:
-        dt: number
-        L2: number
+        time_step: number
+        L2_error: number
     description: >-
       Temporal convergence test using quadratic elements. The mesh size L=256
       for all simulations. The order of accuracy is 1.5, which is higher than, but in-line with, the expected O(1).
