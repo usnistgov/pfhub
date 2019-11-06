@@ -44,10 +44,10 @@ data:
     type: line
     transform:
       - type: formula
-        expr: datum.dx
+        expr: datum.mesh_size
         as: x
       - type: formula
-        expr: datum.L2
+        expr: datum.L2_error
         as: 'y'
   - name: MMSP_bm7a_t
     url: >-
@@ -63,9 +63,9 @@ data:
     type: line
     transform:
       - type: formula
-        expr: datum.dt
+        expr: datum.time_step
         as: x
       - type: formula
-        expr: datum.L2
+        expr: datum.L2_error
         as: 'y'
 date: 1573060429
