@@ -11,7 +11,7 @@ metadata:
     name: mmsp
     repo:
       url: 'https://github.com/tkphd/MMSP-manufactured-solutions-benchmark'
-      version: 6bea333
+      version: d8142a7
     container_url: ''
   hardware:
     cpu_architecture: x86_64
@@ -51,7 +51,7 @@ data:
         as: 'y'
   - name: MMSP_bm7a_t
     url: >-
-      https://github.com/tkphd/MMSP-manufactured-solutions-benchmark/raw/master/results-a/bm7a-t.csv
+      https://raw.githubusercontent.com/tkphd/MMSP-manufactured-solutions-benchmark/master/results-a/bm7a-t.csv
     format:
       type: csv
       parse:
@@ -59,9 +59,7 @@ data:
         L2: number
     description: >-
       Temporal convergence test using quadratic elements. The mesh size L=256
-      for all simulations. The order of accuracy is 5000, presumably since these
-      simulations capture the slope toward numerical instability rather than the
-      discretization error.
+      for all simulations. The order of accuracy is 1.5, which is higher than, but in-line with, the expected O(1).
     type: line
     transform:
       - type: formula
