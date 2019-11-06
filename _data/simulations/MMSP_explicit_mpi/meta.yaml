@@ -1,0 +1,73 @@
+_id: cc529c90-00b8-11ea-afd4-91a2261349d1
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: '6 November, 2019'
+  summary: Explicit implementation using SymPy to generate the source term.
+  implementation:
+    name: mmsp
+    repo:
+      url: 'https://github.com/tkphd/MMSP-manufactured-solutions-benchmark'
+      version: 6bea333
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '3.5'
+    cores: '4'
+    nodes: '1'
+benchmark:
+  id: 7a
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '4000'
+        sim_time: '8'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1600'
+  - name: MMSP_bm7a_x
+    url: >-
+      https://github.com/tkphd/MMSP-manufactured-solutions-benchmark/raw/master/results-a/bm7a-x.csv
+    format:
+      type: csv
+      parse:
+        dx: number
+        L2: number
+    description: "Spatial convergence test using explicit forward Euler. The time step is constant at 2e-4 for all simulations. The order of accuracy is 2.11, which is within the error range for the expected O(2).\r\n"
+    type: line
+    transform:
+      - type: formula
+        expr: datum.dx
+        as: x
+      - type: formula
+        expr: datum.L2
+        as: 'y'
+  - name: MMSP_bm7a_t
+    url: >-
+      https://github.com/tkphd/MMSP-manufactured-solutions-benchmark/raw/master/results-a/bm7a-t.csv
+    format:
+      type: csv
+      parse:
+        dt: number
+        L2: number
+    description: >-
+      Temporal convergence test using quadratic elements. The mesh size L=256
+      for all simulations. The order of accuracy is 5000, presumably since these
+      simulations capture the slope toward numerical instability rather than the
+      discretization error.
+    type: line
+    transform:
+      - type: formula
+        expr: datum.dt
+        as: x
+      - type: formula
+        expr: datum.L2
+        as: 'y'
+date: 1573060429
