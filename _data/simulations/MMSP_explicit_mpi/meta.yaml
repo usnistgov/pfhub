@@ -1,0 +1,71 @@
+_id: cc529c90-00b8-11ea-afd4-91a2261349d1
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: '6 November, 2019'
+  summary: Explicit implementation using SymPy to generate the source term.
+  implementation:
+    name: mmsp
+    repo:
+      url: 'https://github.com/tkphd/MMSP-manufactured-solutions-benchmark'
+      version: d8142a7
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '3.5'
+    cores: '4'
+    nodes: '1'
+benchmark:
+  id: 7a
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '4000'
+        sim_time: '8'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1600'
+  - name: spatial
+    url: >-
+      https://github.com/tkphd/MMSP-manufactured-solutions-benchmark/raw/master/results-a/bm7a-x.csv
+    format:
+      type: csv
+      parse:
+        mesh_size: number
+        L2_error: number
+    description: "Spatial convergence test using explicit forward Euler. The time step is constant at 2e-4 for all simulations. The order of accuracy is 2.11, which is within the error range for the expected O(2).\r\n"
+    type: line
+    transform:
+      - type: formula
+        expr: datum.mesh_size
+        as: x
+      - type: formula
+        expr: datum.L2_error
+        as: 'y'
+  - name: temporal
+    url: >-
+      https://raw.githubusercontent.com/tkphd/MMSP-manufactured-solutions-benchmark/master/results-a/bm7a-t.csv
+    format:
+      type: csv
+      parse:
+        time_step: number
+        L2_error: number
+    description: >-
+      Temporal convergence test using quadratic elements. The mesh size L=256
+      for all simulations. The order of accuracy is 1.5, which is higher than, but in-line with, the expected O(1).
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time_step
+        as: x
+      - type: formula
+        expr: datum.L2_error
+        as: 'y'
+date: 1573060429
