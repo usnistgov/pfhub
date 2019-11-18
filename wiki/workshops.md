@@ -63,3 +63,7 @@ needs and avenues of work.
    [workshop
    notes](https://drive.google.com/file/d/0B4101gT3tHveSXVWTE55WlNzVzl0b19hSkV2cWZyOXZXYzhz/view?usp=sharing) and [presentations]({{ site.baseurl
    }}/wiki/2019-11-18-workshop-ix-presentations).
+
+ - **Phase Field Methods Workshop X**; Apr 21-23, 2020; in the
+   planning stages, please email E. Begum Gulsoy at
+   <e-gulsoy@northwestern.edu> for further details.
