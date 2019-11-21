@@ -1,19 +1,30 @@
-"""
-Run this with
+"""Run this with
 
     $ uvicorn main:app --reload
 
 Test the GET with
 
-  $ url="https://drive.google.com/open?id=19oJVHZ6zaw47TN43E5qk-uGRsqrz0iE7"
-  $ curl -L -o out.csv http://localhost:8000/get/?url=$url
+    $ url="https://drive.google.com/open?id=19oJVHZ6zaw47TN43E5qk-uGRsqrz0iE7"
+    $ curl -L -o out.csv http://localhost:8000/get/?url=$url
 
-  $ url="https://drive.google.com/open?id=1he7ilLH2VTD740OGPJXOq8CSn7utEDf_"
-  $ curl -L -o out.png "http://localhost:8000/get/?url=$url"
+    $ url="https://drive.google.com/open?id=1he7ilLH2VTD740OGPJXOq8CSn7utEDf_"
+    $ curl -L -o out.png "http://localhost:8000/get/?url=$url"
 
-Test comments
+Test comments with (remember to change allow_origins to ["*"] to test
+on app engine from local machine)
 
-  $ curl -L -o out.csv "https://ace-thought-249120.appspot.com/comment?staticman=0&issue_number=1089"
+    $ APP_URL="https://ace-thought-249120.appspot.com/comment/" # or http://localhost:8000/comment/
+    $ curl ${APP_URL} -H "Content-Type: application/json" -X POST -d "$(cat <<EOF
+    {
+      "pr_number":"1089",
+      "github_id":"wd15",
+      "sim_name":"test",
+      "benchmark_id": "3a",
+      "is_staticman": true,
+      "surge_domain": "https://random-cat-1089.surge.sh"
+    }
+EOF
+)"
 
 Setting env vars in YAML
 
@@ -23,6 +34,7 @@ Create 'env_variables.yaml' with
 
 evn_variables:
   GITHUB_TOKEN: xxxxxx
+
 """
 
 import re
@@ -35,6 +47,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import StreamingResponse
 import json
 import os
+from pydantic import BaseModel, UrlStr
 
 
 def sequence(*args):
@@ -56,9 +69,9 @@ app = FastAPI()  # pylint: disable=invalid-name
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:4000", "https://pages.nist.gov"],
-    # allow_origins=["*"],
-    allow_origin_regex=r"https://random-cat-.*\.surge\.sh",
+    # allow_origins=["http://127.0.0.1:4000", "https://pages.nist.gov"],
+    allow_origins=["*"],
+    # allow_origin_regex=r"https://random-cat-.*\.surge\.sh",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -100,53 +113,53 @@ class Comment(BaseModel):
     pr_number: int
     github_id: str
     sim_name: str
+    benchmark_id: str
     is_staticman: bool
-    surge_domain: str
-    benchmark_id: int
+    surge_domain: UrlStr
 
-def comment_staticman(github_id, pfhub_link_sim, pfhub_link_comp, pfhub_link_edit):
+
+def comment_staticman(comment):
     return f"""
-@{github_id}, thanks for your PFHub upload! Your upload appears to have passed the tests.
+@{comment.github_id}, thanks for your PFHub upload!
 
 You can view your upload display at
 
- - {link1}
+ - {comment.surge_domain}/simulations/display/?sim={comment.sim_name}
 
 and
 
- - {link2}
+ - {comment.surge_domain}/simulations/{comment.benchmark_id}
 
-Please review and confirm your approval to @wd15 by commenting in this pull request.
+Please check that the tests pass below and then review and confirm your approval to @wd15 by commenting in this pull request.
 
-If you think there is a mistake in your upload data, then you can resubmit the upload [at this link]({pfhub_link}).
-    """
-
-def comment_general(github_id, domain)
+If you think there is a mistake in your upload data, then you can resubmit the upload [at this link]({comment.surge_domain}/simulations/upload_form/?sim={comment.sim_name}).
+"""
 
 
+def comment_general(comment):
+    return f"""
+The new [PFHub live website]({comment.surge_domain}) is ready for review.
+"""
 
 
 @app.post("/comment/")
-async def github_comment(comment: Comment):
+async def comment_pr(comment: Comment):
     """Endpoint to post comment to GitHub PR
     """
-    github_token = os.environ.get('GITHUB_TOKEN')
-    domain=f"https://random-cat-${comment.pr_number}.surge.sh"
-    data = dict(
-        pr_url=f"https://api.github.com/repos/usnistgov/pfhub/issues/{comment.pr_number}/comments",
-        pfhub_link_sim=domain + "/simulations/display/?sim={comment.sim_name}"
-        pfhub_link_comp=domain + "/simulations/{comment.benchmark_id}"
-        pfhub_link_upload=domain + "/simulations/upload_form/?sim={comment.sim_name}"
-        pfhub_link=domain
-    )
 
-    response = requests.post(
-        url,
-        data=json.dumps({'body': comment(data)}),
-        headers={'Authorization': f'token {github_token}'}
-    )
-    return {'status_code': response.status_code, 'json': response.json()}
+    @curry
+    def post(github_token, comment_string):
+        return requests.post(
+            f"https://api.github.com/repos/usnistgov/pfhub/issues/{comment.pr_number}/comments",
+            data=json.dumps({"body": comment_string}),
+            headers={"Authorization": f"token {github_token}"},
+        )
 
+    return sequence(
+        (comment_staticman if comment.is_staticman else comment_general),
+        post(os.environ.get("GITHUB_TOKEN")),
+        lambda x: dict(status_code=x.status_code, json=x.json()),
+    )(comment)
 
 
 if __name__ == "__main__":
