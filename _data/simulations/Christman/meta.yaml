@@ -1,0 +1,35 @@
+_id: 52f5c340-1044-11ea-b087-0b03c858f4c6
+metadata:
+  author:
+    first: Damaris Cazaly
+    last: Christman
+    email: amelia_christman@gmail.com
+    github_id: Reggie Castanon
+  timestamp: PN
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Amelia
+    repo:
+      url: 'http://invasion.tap4fun.com/forum/member.php?u=1111140-MadgeCota2'
+      version: NS
+    container_url: 'http://invasion.tap4fun.com/forum/member.php?u=1111140-MadgeCota2'
+  hardware:
+    cpu_architecture: ppc
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: EP
+    cores: '1'
+    nodes: QR
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: FV
+        sim_time: BF
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: FP
+date: 1574769622
