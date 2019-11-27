@@ -3,6 +3,7 @@ language: nix
 env:
   global:
     - STORE=$HOME/nix-store
+    - APP_URL=https://ace-thought-249120.appspot.com
 cache:
   directories:
     - $STORE

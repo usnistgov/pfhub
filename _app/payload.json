@@ -1,0 +1,6 @@
+{
+    "branch":"${TRAVIS_PULL_REQUEST_BRANCH}",
+    "slug":"${TRAVIS_PULL_REQUEST_SLUG}",
+    "pr_number":"${TRAVIS_PULL_REQUEST}",
+    "surge_domain": "${SURGE_DOMAIN}"
+}
