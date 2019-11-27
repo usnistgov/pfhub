@@ -141,8 +141,6 @@ def comment_general(comment):
 The new [PFHub live website]({comment.surge_domain}) is ready for review.
 """
 
-def make_comment(comment):
-
 
 @app.post("/comment/")
 async def comment_pr(comment: Comment):
@@ -152,13 +150,13 @@ async def comment_pr(comment: Comment):
     @curry
     def post(github_token, comment_string):
         return requests.post(
-            f"https://api.github.com/repos/{comment.slug}/issues/{comment.pr_number}/comments",
+            f"https://api.github.com/repos/usnistgov/pfhub/issues/{comment.pr_number}/comments",
             data=json.dumps({"body": comment_string}),
             headers={"Authorization": f"token {github_token}"},
         )
 
     return sequence(
-        make_comment,
+        (comment_staticman if comment.is_staticman else comment_general),
         post(os.environ.get("GITHUB_TOKEN")),
         lambda x: dict(status_code=x.status_code, json=x.json()),
     )(comment)

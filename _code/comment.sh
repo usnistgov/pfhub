@@ -73,17 +73,30 @@ function post_comment {
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
-    if is_staticman_branch
-    then
-        HTTP_RESPONSE=$(curl -H "Authorization: token ${GITHUB_TOKEN}" -X GET "$( pull_request_url )" --silent --write-out "HTTPSTATUS:%{http_code}")
-        HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
-        HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
-        if [ $HTTP_STATUS = "200" ]
-        then
-            SIM_NAME=`echo "${HTTP_BODY}" | jq -r '.title' | sed -e 's/upload: //'`
-            post_comment "$SIM_NAME"
-        else
-            echo "HTTP_RESPONSE: ${HTTP_RESPONSE}"
-        fi
-    fi
+    APP_URL="https://ace-thought-249120.appspot.com/comment/"
+    curl ${APP_URL} -H "Content-Type: application/json" -X POST -d "$(cat <<EOF
+{
+      "pr_number":"${TRAVIS_PULL_REQUEST}",
+      "github_id":"$( github_id $1 )",
+      "sim_name":"test",
+      "benchmark_id": "3a",
+      "is_staticman": true,
+      "surge_domain": "https://random-cat-1089.surge.sh"
+    }
+EOF
+)"
 fi
+#     if is_staticman_branch
+#     then
+#         HTTP_RESPONSE=$(curl -H "Authorization: token ${GITHUB_TOKEN}" -X GET "$( pull_request_url )" --silent --write-out "HTTPSTATUS:%{http_code}")
+#         HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
+#         HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+#         if [ $HTTP_STATUS = "200" ]
+#         then
+#             SIM_NAME=`echo "${HTTP_BODY}" | jq -r '.title' | sed -e 's/upload: //'`
+#             post_comment "$SIM_NAME"
+#         else
+#             echo "HTTP_RESPONSE: ${HTTP_RESPONSE}"
+#         fi
+#     fi
+# fi
