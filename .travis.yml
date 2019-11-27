@@ -24,10 +24,12 @@ before_script:
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
   - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
+       ## use envsubst to subsitute env_vars into payload.json
        nix-shell --command "
          rm -rf ./_site &&
          jekyll build --baseurl '' &&
          surge --project _site --domain ${DOMAIN} &&
+         curl ${APP_URL}/comment -H \"Content-Type: application/json\" -X POST -d @payload.json
          ./_code/comment.sh
        ";
     fi;
