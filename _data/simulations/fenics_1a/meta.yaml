@@ -43,6 +43,7 @@ data:
       parse:
         time: number
         free_energy: number
+        dt: number
     description: >-
       Free energy evolution in time for periodic spinodal decomposition with
       linear elements.
