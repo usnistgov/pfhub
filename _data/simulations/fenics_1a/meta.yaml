@@ -37,7 +37,7 @@ data:
       - unit: KB
         value: '598752'
   - name: free_energy
-    url: 'https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/free_energy_A.csv'
+    url: 'https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/free_energy_A_reduced.csv'
     format:
       type: csv
       parse:
