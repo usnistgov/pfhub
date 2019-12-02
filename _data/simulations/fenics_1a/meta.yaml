@@ -1,0 +1,169 @@
+_id: afa41860-152d-11ea-a0a6-f7cf4372df69
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: '13 November, 2019'
+  summary: >-
+    Spinodal decomposition with periodic BCs using FEniCS, based on the
+    Cahn-Hilliard example code. The 200×200 mesh was discretized into 193 cells
+    per dimension, with dt=0.53 (CFL=1.8) using (bi)linear elements on a
+    workstation PC (Intel Xeon E5-1650 v3).
+  implementation:
+    name: FEniCS
+    repo:
+      url: 'https://github.com/tkphd/FEniCS-spinodal-decomposition-benchmark'
+      version: 369b663e19cf1ab72c57f3d8ad2dce465eca8ccf
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: threaded
+    clock_rate: '3.5'
+    cores: '6'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '978595'
+        sim_time: '1000000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '598752'
+  - name: free_energy
+    url: 'https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/free_energy_A.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: >-
+      Free energy evolution in time for periodic spinodal decomposition with
+      linear elements.
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: spinodal_0000000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0000000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 0 s (rendered in ParaView with Cool-Warm color
+      map)
+  - name: spinodal_0000010
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0000010.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 10 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0000020
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0000020.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 20 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0000050
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0000050.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 50 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0000100
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0000100.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 100 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0000200
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0000200.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 200 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0000500
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0000500.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 500 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0001000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0001000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 1,000 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0002000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0002000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 2,000 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0005000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0005000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 5,000 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0010000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0010000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 10,000 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0020000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0020000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 20,000 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0050000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0050000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 50,000 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0100000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0100000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 100,000 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_0500000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.0500000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 500,000 s (rendered in ParaView with Cool-Warm
+      color map)
+  - name: spinodal_1000000
+    url: >-
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.100000.png
+    type: image
+    description: >-
+      Spinodal decomposition: t = 1,000,000 s (rendered in ParaView with
+      Cool-Warm color map)
+date: 1575309655
