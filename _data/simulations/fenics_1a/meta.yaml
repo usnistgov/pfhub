@@ -161,7 +161,7 @@ data:
       color map)
   - name: spinodal_1000000
     url: >-
-      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.100000.png
+      https://fenics-results.s3.us-east-2.amazonaws.com/bm1a/spinodal_A.1000000.png
     type: image
     description: >-
       Spinodal decomposition: t = 1,000,000 s (rendered in ParaView with
