@@ -29,8 +29,7 @@ before_script:
          rm -rf ./_site &&
          jekyll build --baseurl '' &&
          surge --project _site --domain ${DOMAIN} &&
-         curl ${APP_URL}/comment -H \"Content-Type: application/json\" -X POST -d @payload.json
-         ./_code/comment.sh
+         curl ${APP_URL}/comment/ -H \"Content-Type: application/json\" -X POST -d \"$( envsubst < _app/payload.json )\"
        ";
     fi;
   - nix-shell _app/shell.nix --pure --command "echo 'run nix-shell and exit'"

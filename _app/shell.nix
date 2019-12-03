@@ -33,5 +33,7 @@ in
       export USER_SITE=`python -c "import site; print(site.USER_SITE)"`
       export PYTHONPATH=$PYTHONPATH:$USER_SITE
       export PATH=$PATH:$PYTHONUSERBASE/bin
+
+      pip install --user archieml
     '';
   }
