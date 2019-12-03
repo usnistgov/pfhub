@@ -6,12 +6,12 @@ metadata:
     email: ivan.yashchuk@vtt.fi
     github_id: IvanYashchuk
   timestamp: '9 November, 2018'
-  summary: PF Hub benchmark 1a with FEniCS on the cluster.
+  summary: PF Hub benchmark 1a with FEniCS on the cluster, using PETSc SNES solver 
   implementation:
     name: fenics
     repo:
-      url: 'https://bitbucket.org/fenics-project/dolfin/'
-      version: bec9fa53e5900a0dce28653cf193db5fac58255e
+      url: 'https://gist.github.com/IvanYashchuk/f01772a439b1008710c3aea045ac37a9'
+      version: f01772a439b1008710c3aea045ac37a9
     container_url: ''
   hardware:
     cpu_architecture: x86_64
