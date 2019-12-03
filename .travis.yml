@@ -28,7 +28,7 @@ before_script:
          rm -rf ./_site &&
          jekyll build --baseurl '' &&
          surge --project _site --domain ${DOMAIN} &&
-         curl ${APP_URL}/comment/ -H 'Content-Type: application/json' -X POST -d 'some data'
+         curl ${APP_URL}/comment/
        ";
     fi;
   # - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
