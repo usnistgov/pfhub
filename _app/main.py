@@ -18,7 +18,7 @@ on app engine from local machine)
 "staticman_2fe75e40-153a-11ea-b835-9d4c1360ea39" # or "blah' for no staticman
     $ export TRAVIS_PULL_REQUEST="1114"
     $ export TRAVIS_REPO_SLUG="usnistgov/pfhub"
-    $ export DOMAIN="https://random-cat-1114.surge.sh"
+    $ export DOMAIN="random-cat-1114.surge.sh"
     $ curl ${APP_URL}/comment/ \
       -H "Content-Type: application/json" \
       -X POST -d "$( envsubst < _app/payload.json )"
