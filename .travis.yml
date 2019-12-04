@@ -28,19 +28,10 @@ before_script:
        nix-shell --command "
          rm -rf ./_site &&
          jekyll build --baseurl '' &&
-         surge --project _site --domain ${DOMAIN}
-       " &&
-       curl ${APP_URL}/comment/ -H "Content-Type:\ application/json" -X POST -d "$( envsubst < _app/payload.json )";
+         surge --project _site --domain ${DOMAIN} &&
+         ./_app/curl.sh
+       ";
     fi;
-  -
-  # - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-  #      nix-shell --command "
-  #        rm -rf ./_site &&
-  #        jekyll build --baseurl '' &&
-  #        surge --project _site --domain ${DOMAIN} &&
-  #        curl ${APP_URL}/comment/ -H \"Content-Type: application/json\" -X POST -d \"$( envsubst < _app/payload.json )\"
-  #      ";
-  #   fi;
   - nix-shell _app/shell.nix --pure --command "echo 'run nix-shell and exit'"
 script:
   - nix-shell --pure --command "
