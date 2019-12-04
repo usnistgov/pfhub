@@ -23,7 +23,6 @@ before_script:
   - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
   - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
-  - export DATA="$( envsubst < _app/payload.json )"
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
        nix-shell --command "
          rm -rf ./_site &&
@@ -32,7 +31,6 @@ before_script:
          ./_app/curl.sh
        ";
     fi;
-  - ./_app/curl.sh
   - nix-shell _app/shell.nix --pure --command "echo 'run nix-shell and exit'"
 script:
   - nix-shell --pure --command "
