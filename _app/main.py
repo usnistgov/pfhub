@@ -17,6 +17,7 @@ on app engine from local machine)
     $ export TRAVIS_PULL_REQUEST_BRANCH=\
 "staticman_2fe75e40-153a-11ea-b835-9d4c1360ea39" # or "blah' for no staticman
     $ export TRAVIS_PULL_REQUEST="1114"
+    $ export TRAVIS_REPO_SLUG="usnistgov/pfhub"
     $ export DOMAIN="https://random-cat-1114.surge.sh"
     $ curl ${APP_URL}/comment/ \
       -H "Content-Type: application/json" \
@@ -113,6 +114,7 @@ class CiData(BaseModel):
     travis_pull_request: int
     surge_domain: UrlStr
     travis_pull_request_branch: str
+    travis_repo_slug: str
 
 
 @curry
@@ -149,7 +151,7 @@ def pr_url(ci_data):
     """Build the PR URL to get and write data to the PR comments
     """
     return f"""
-https://api.github.com/repos/usnistgov/pfhub/issues/{ci_data.travis_pull_request}
+https://api.github.com/repos/{ci_data.travis_repo_slug}/issues/{ci_data.travis_pull_request}
 """
 
 

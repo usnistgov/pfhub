@@ -32,8 +32,6 @@ before_script:
          ./_app/curl.sh
        ";
     fi;
-  - echo $TRAVIS_PULL_REQUEST_SLUG
-  - echo $TRAVIS_REPO_SLUG
   - ./_app/curl.sh
   - nix-shell _app/shell.nix --pure --command "echo 'run nix-shell and exit'"
 script:
