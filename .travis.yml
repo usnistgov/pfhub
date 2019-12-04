@@ -23,7 +23,7 @@ before_script:
   - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
   - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
-  - echo "$( envsubst < _app/payload.json )"
+  - export DATA="$( envsubst < _app/payload.json )"
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
        nix-shell --command "
          rm -rf ./_site &&
