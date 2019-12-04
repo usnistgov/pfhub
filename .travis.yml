@@ -32,6 +32,7 @@ before_script:
          ./_app/curl.sh
        ";
     fi;
+  - ./_app/curl.sh
   - nix-shell _app/shell.nix --pure --command "echo 'run nix-shell and exit'"
 script:
   - nix-shell --pure --command "

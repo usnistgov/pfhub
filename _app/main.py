@@ -210,6 +210,7 @@ def comment_pr_(ci_data, github_token):
 async def comment_pr(ci_data: CiData):
     """Endpoint to post comment to GitHub PR
     """
+    print(ci_data)
     return comment_pr_(ci_data, os.environ.get("GITHUB_TOKEN"))
 
 
