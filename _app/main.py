@@ -14,7 +14,6 @@ Test comments with (remember to change allow_origins to ["*"] to test
 on app engine from local machine)
 
     $ export APP_URL="https://ace-thought-249120.appspot.com" # or "http://localhost:8000"
-    $ export TRAVIS_PULL_REQUEST_SLUG="usnistgov/pfhub"
     $ export TRAVIS_PULL_REQUEST_BRANCH=\
 "staticman_2fe75e40-153a-11ea-b835-9d4c1360ea39" # or "blah' for no staticman
     $ export TRAVIS_PULL_REQUEST="1114"
@@ -114,7 +113,6 @@ class CiData(BaseModel):
     travis_pull_request: int
     surge_domain: UrlStr
     travis_pull_request_branch: str
-    travis_pull_request_slug: str
 
 
 @curry
@@ -151,7 +149,7 @@ def pr_url(ci_data):
     """Build the PR URL to get and write data to the PR comments
     """
     return f"""
-https://api.github.com/repos/{ci_data.travis_pull_request_slug}/issues/{ci_data.travis_pull_request}
+https://api.github.com/repos/usnistgov/pfhub/issues/{ci_data.travis_pull_request}
 """
 
 
