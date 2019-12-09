@@ -3,6 +3,7 @@ language: nix
 env:
   global:
     - STORE=$HOME/nix-store
+    - APP_URL=https://ace-thought-249120.appspot.com
 cache:
   directories:
     - $STORE
@@ -16,37 +17,37 @@ before_cache:
   - nix copy --to file://$STORE -f _app/shell.nix buildInputs
 install:
   - nix-shell --pure --command "echo 'run nix-shell and exit'"
-  - FIRST=`echo ${TRAVIS_COMMIT_RANGE} | sed 's/[.]/\n/g' | head -n 1`
-  - LAST=`echo ${TRAVIS_COMMIT_RANGE} | sed 's/[.]/\n/g' | tail -n 1`
-script:
-  - nix-shell --pure --command "pylint _data/*.py"
-  - nix-shell --pure --command "flake8 _data/*.py"
-  - nix-shell --pure --command "LC_ALL=en_US.UTF-8 black --check _data/*.py"
-  - nix-shell --pure --command "LC_ALL=en_US.UTF-8 make simulations"
-  - nix-shell --pure --command 'find . -name "*.ipynb" -type f -not -path "*/.ipynb_checkpoints/*" -exec touch {} \;'
-  - nix-shell --pure --command "make notebooks"
-  - #nix-shell --pure --command "touch _data/hexbin.yaml"
-  - #nix-shell --pure --command "make hexbin"
-  - nix-shell --pure --command "rm -rf ./_site"
-  # html-proofer might require LC_ALL=en_US.UTF-8 to work on some Nix installations
-  - nix-shell --command "jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site";
-  - nix-shell --pure --command "py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg"
-  - nix-shell --pure --command "coffeelint _includes/coffee/"
-  - nix-shell --pure --command "mocha _site/pfhub/js/test.js"
-  - nix-shell _app/shell.nix --pure --command "cd _app; py.test test.py"
-  - nix-shell _app/shell.nix --pure --command "cd _app; black --check *.py"
-  - nix-shell _app/shell.nix --pure --command "cd _app; pylint *.py"
-  - nix-shell _app/shell.nix --pure --command "cd _app; flake8 *.py"
-after_success:
-  - nix-shell --pure --command "rm -rf ./_site"
-  - nix-shell --pure --command "make simulations"
-  - nix-shell --pure --command "make notebooks"
-  - nix-shell --pure --command "make hexbin"
-  - nix-shell --pure --command "jekyll build --baseurl ''"
+before_script:
   - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
   - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-      nix-shell --command "surge --project _site --domain ${DOMAIN}";
-    fi
-  - nix-shell --command "./_code/comment.sh"
+       nix-shell --command "
+         rm -rf ./_site &&
+         jekyll build --baseurl '' &&
+         surge --project _site --domain ${DOMAIN} &&
+         ./_app/curl.sh
+       ";
+    fi;
+  - nix-shell _app/shell.nix --pure --command "echo 'run nix-shell and exit'"
+script:
+  - nix-shell --pure --command "
+      pylint _data/*.py &&
+      flake8 _data/*.py &&
+      LC_ALL=en_US.UTF-8 black --check _data/*.py &&
+      LC_ALL=en_US.UTF-8 make simulations &&
+      find . -name '*.ipynb' -type f -not -path '*/.ipynb_checkpoints/*' -exec touch {} \; &&
+      make notebooks &&
+      rm -rf ./_site &&
+      jekyll build -d ./_site/pfhub && htmlproofer --check-html --only-4xx --allow-hash-href --empty-alt-ignore --checks-to-ignore ImageCheck --file-ignore ./_site/pfhub/node_modules ./_site &&
+      py.test --ignore=hackathons/hackathon1 --ignore=benchmarks --ignore=_data --nbval --sanitize-with sanitize.cfg &&
+      coffeelint _includes/coffee/ &&
+      mocha _site/pfhub/js/test.js
+    ";
+  - nix-shell _app/shell.nix --pure --command "
+      cd _app &&
+      py.test test.py &&
+      black --check *.py &&
+      pylint *.py &&
+      flake8 *.py
+    ";

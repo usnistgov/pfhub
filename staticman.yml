@@ -7,7 +7,7 @@ simulations:
   allowedOrigins: ["localhost", "pages.nist.gov"]
   branch: "master"
   commitMessage: "upload: {options.simulation_name}"
-  pullRequestBody: "This a new PFHub upload.\n\nWait for the tests to pass and a comment with a link to view the upload display will appear below.\n\n"
+  pullRequestBody: "This a new PFHub upload.\n\nWait for the tests to pass and a comment with a link to view the upload display will appear below.\n\nupload: {options.simulations_name}\n: benchmark: {fields.benchmark.id}.{fields.benchmark.version}"
   filename: "meta"
   extension: "yaml"
   format: "yaml"
