@@ -126,19 +126,19 @@ def comment_staticman_(ci_data, data):
     """Comment string for Staticman PR
     """
     return f"""
-@{data["github_id"]}, thanks for your PFHub upload!
+@{data.get("github_id", "")}, thanks for your PFHub upload!
 
 You can view your upload display at
 
- - {ci_data.surge_domain}/simulations/display/?sim={data["upload"]}
+ - {ci_data.surge_domain}/simulations/display/?sim={data.get("upload", "")}
 
 and
 
- - {ci_data.surge_domain}/simulations/{data["benchmark_id"]}
+ - {ci_data.surge_domain}/simulations/{data.get("benchmark_id", "")}
 
 Please check that the tests pass below and then review and confirm your approval to @pfhub by commenting in this pull request.
 
-If you think there is a mistake in your upload data, then you can resubmit the upload [at this link]({ci_data.surge_domain}/simulations/upload_form/?sim={data["upload"]}).
+If you think there is a mistake in your upload data, then you can resubmit the upload [at this link]({ci_data.surge_domain}/simulations/upload_form/?sim={data.get("upload", "")}).
 """
 
 
