@@ -1,0 +1,102 @@
+_id: 54492bb0-1de1-11ea-8510-3d56732f5f79
+metadata:
+  author:
+    first: Stephen
+    last: DeWitt
+    email: dewittsj@ornl.gov
+    github_id: stvdwtt
+  timestamp: ''
+  summary: "This simulation was conducted using PRISMS-PF with quadratic elements and adaptive meshing. Forward Euler time stepping was used.  To decrease the run time, all trig functions were done with single precision. This run is similar to 'PRISMS_PF_faster', but is run on a single core. The spacing between remeshing operations over the course of the simulation varies. Remeshing occurs every 750 time steps for the first 20,000 time steps, then it is every 1125 time steps until 40,000 time steps, then it is every 1875 time steps for the remainder of the simulation.\r\n\r\ndt = 1.785e-2\r\nmin dx = 960/384\r\n\r\nThis simulation was conducted on a MacBook Pro from 2019. The CPU is a 2.4 GHz Intel Core i9-9980HK."
+  implementation:
+    name: prisms
+    repo:
+      url: 'https://github.com/stvdwtt/phaseField/tree/bm3_speed_test'
+      version: 6306389e2d1901fcf8475b4a96f6e0a577bae374
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '2.4'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '74.0'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '171000'
+  - name: free_energy
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results_sp.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy as a function of time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: tip_position
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results_sp.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position as a function of time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: solid_fraction
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm3_results_sp.csv'
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid area fraction as a function of time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: phase_field_1500_sp
+    url: >-
+      Name:phase_field_1500_sp.csvBucket Name:pfhub-sjdBucket
+      Type:PublicFriendly
+      URL:https://f000.backblazeb2.com/file/pfhub-sjd/phase_field_1500_sp.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero level set of the order parameter at t=1500.
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1576266420
