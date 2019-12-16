@@ -31,7 +31,7 @@ before_script:
     fi;
   - nix-shell _app/shell.nix --pure --command "echo 'run nix-shell and exit'"
 script:
-  - nix-shell --pure --command "
+  - nix-shell --command "
       pylint _data/*.py &&
       flake8 _data/*.py &&
       LC_ALL=en_US.UTF-8 black --check _data/*.py &&
