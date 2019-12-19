@@ -14,7 +14,7 @@ before_install:
 before_cache:
   - mkdir -p $STORE
   - nix copy --to file://$STORE -f shell.nix buildInputs
-  - nix copy --to file://$STORE -f _app/shell.nix buildInputs
+  - nix copy --to file://$STORE -f _apps/data/shell.nix buildInputs
 install:
   - nix-shell --pure --command "echo 'run nix-shell and exit'"
 before_script:
@@ -26,10 +26,10 @@ before_script:
          rm -rf ./_site &&
          jekyll build --baseurl '' &&
          surge --project _site --domain ${DOMAIN} &&
-         ./_app/curl.sh
+         ./_apps/data/curl.sh
        ";
     fi;
-  - nix-shell _app/shell.nix --pure --command "echo 'run nix-shell and exit'"
+  - nix-shell _apps/data/shell.nix --pure --command "echo 'run nix-shell and exit'"
 script:
   - nix-shell --command "
       pylint _data/*.py &&
@@ -44,9 +44,16 @@ script:
       coffeelint _includes/coffee/ &&
       mocha _site/pfhub/js/test.js
     ";
-  - nix-shell _app/shell.nix --pure --command "
-      cd _app &&
+  - nix-shell _apps/data/shell.nix --pure --command "
+      cd _apps/data &&
       py.test test.py &&
+      black --check *.py &&
+      pylint *.py &&
+      flake8 *.py
+    ";
+  - nix-shell _apps/box/shell.nix --pure --command "
+      cd _apps/box &&
+      py.test &&
       black --check *.py &&
       pylint *.py &&
       flake8 *.py
