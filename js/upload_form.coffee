@@ -117,6 +117,10 @@ $('#my_form').submit(
     )
 )
 
+##############################
+## 2D versus 3D data selection
+# ############################
+
 get_tags = (thiss) ->
   f = (x) ->
     ['#input-field-z-' + x,
@@ -127,6 +131,7 @@ get_tags = (thiss) ->
 
 $('#data-files').on('click', '.dim-line',
   () ->
+    console.log('wow')
     [div_tag, input_tag, field_class] = get_tags(this)
     $(div_tag).attr('hidden', '')
     $(input_tag).removeAttr('required')
@@ -158,7 +163,7 @@ get_field_name = (datum, field) ->
 populate_media = (datum) ->
   counter = add_media_file_section()
   $('#media-name-' + counter).val(datum.name)
-  $('#media-url-' + counter).val(datum.url)
+  $('#media-link-input-' + counter).val(datum.url)
   $('#media-desc-' + counter).val(datum.description)
   if datum.type == 'image'
     $('#image-' + counter).attr('checked', '')
@@ -167,7 +172,7 @@ populate_media = (datum) ->
 populate_data = (datum) ->
   counter = add_data_file_section()
   $('#data-name-' + counter).val(datum.name)
-  $('#data-url-' + counter).val(datum.url)
+  $('#data-link-input-' + counter).val(datum.url)
   $('#data-desc-' + counter).val(datum.description)
   if datum.format? and datum.format.type == 'json'
     $('#json-' + counter).attr('checked', '')
