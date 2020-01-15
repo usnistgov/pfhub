@@ -1,121 +1,181 @@
 {% raw %}
 <div class="row bottom-bar-thin"
      id="data-block-{{ counter }}">
-  <div class="input-field col s12 m1 l1 xl1">
-    <a id="data-remove-{{ counter }}"
-       href="#!"
-       class="data-remove btn-floating btn-medium red">
-      <i class="material-icons">remove</i>
-    </a>
-  </div>
 
-  <div class="input-field col s12 m3 l3 xl3">
-    <a class="tooltipped prefix"
-       data-position="bottom"
-       data-tooltip="Name for this data using alphanumeric characters and _, but at least 2 characters long (required)">
-      <i class="material-icons">help</i>
-    </a>
-    <input required
-           id="data-name-{{ counter }}"
-           name="fields[data][{{ counter }}][name]"
-           type="text"
-           class="validate"
-           length="64"
-           pattern="^[\\w]{2,64}$">
-    <label for="data-name-{{ counter }}" data-error="alphanumeric characters and _ (at least 2 characters long)">
-      Short name of data
-    </label>
-  </div>
-  <div class="input-field col s12 m5 l5 xl5">
-    <a class="tooltipped prefix"
-       data-position="bottom"
-       data-tooltip="URL for the raw data file either in JSON or CSV format (required)">
-      <i class="material-icons">help</i>
-    </a>
-    <input required
-           id="data-url-{{ counter }}"
-           name="fields[data][{{ counter }}][url]"
-           type="url"
-           class="validate"
-           onchange="update_url(this)">
-    <label for="data-url-{{ counter }}">
-      Data File URL
-    </label>
-  </div>
-  <div class="col s12 m3 l3 xl3">
-    <p>
-      <input required checked="checked" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="csv" id="csv-{{ counter }}" />
-      <label for="csv-{{ counter }}">CSV</label>
-    </p>
-    <p>
-      <input class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="json" id="json-{{ counter }}" />
-      <label for="json-{{ counter }}">JSON</label>
-    </p>
-  </div>
-  <div class="input-field col s12 m5 l5 xl5">
-    <a class="tooltipped prefix"
-       data-position="bottom"
-       data-tooltip="Summary or caption for data contribution (required)">
-      <i class="material-icons">mode_edit</i>
-    </a>
-    <textarea required
-              id="data-desc-{{ counter }}"
-              name="fields[data][{{ counter }}][description]"
-              class="materialize-textarea validate active"
-              type="text"
-              length="500"></textarea>
-    <label class="active" for="data-desc-{{ counter }}">
-      Data Description
-    </label>
-  </div>
-  <div class="col s12 m1 l1 xl1">
-    <p>
-      <input required checked="checked" class="dim-line with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="line" id="dim-line-{{ counter }}" />
-      <label for="dim-line-{{ counter }}">2D</label>
-    </p>
-    <p>
-      <input class="dim-contour with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="contour" id="dim-contour-{{ counter }}" />
-      <label for="dim-contour-{{ counter }}">3D</label>
-    </p>
-  </div>
-  {{#each fields}}
-    <div {{this.[1]}}
-         class="input-field col s12 m2 l2 xl2"
-         id="input-field-{{this.[0]}}-{{ ../counter }}">
+  <div class="row">
+
+    <div class="input-field col s12 m1 l1 xl1">
+      <a id="data-remove-{{ counter }}"
+         href="#!"
+         class="data-remove btn-floating btn-medium red">
+        <i class="material-icons">remove</i>
+      </a>
+    </div>
+
+    <div class="input-field col s12 m6 l5 xl4">
       <a class="tooltipped prefix"
-         data-position="bottom" data-tooltip="Heading name used for
-         the column containing {{ this.[0] }}-axis values,
-         e.g. &quot;Time&quot; or &quot;Free-Energy&quot; (required for line or
-         contour plot data)">
+         data-position="bottom"
+         data-tooltip="Name for this data using alphanumeric characters and _, but at least 2 characters long (required)">
         <i class="material-icons">help</i>
       </a>
-      <input {{this.[2]}}
-             {{this.[3]}}
-             id="data-{{this.[0]}}-parse-{{ ../counter }}"
-             name="fields[data][{{ ../counter }}][format][parse]"
+      <input required
+             id="data-name-{{ counter }}"
+             name="fields[data][{{ counter }}][name]"
              type="text"
-             class="validate field-input-{{this.[0]}}-{{../counter}}"
-             length="64">
-      <label for="data-{{this.[0]}}-parse-{{ ../counter }}">
-        Name of {{this.[0]}}-axis column
+             class="validate"
+             length="64"
+             pattern="^[\\w]{2,64}$">
+      <label for="data-name-{{ counter }}" data-error="alphanumeric characters and _ (at least 2 characters long)">
+        Short name of data
       </label>
-      <input {{this.[3]}}
-             class="field-input-{{this.[0]}}-{{../counter}}"
-             name="fields[data][{{ ../counter }}][transform][{{@index}}][type]"
-             type="hidden"
-             value="formula">
-      <input {{this.[3]}}
-             class="field-input-{{this.[0]}}-{{../counter}}"
-             name="fields[data][{{ ../counter }}][transform][{{@index}}][expr]"
-             type="hidden"
-             id="expr-{{this.[0]}}-{{ ../counter }}"
-             value="datum.">
-      <input {{this.[3]}}
-             class="field-input-{{this.[0]}}-{{../counter}}"
-             name="fields[data][{{ ../counter }}][transform][{{@index}}][as]"
-             type="hidden"
-             value="{{this.[0]}}">
     </div>
-  {{/each}}
+
+  </div>
+  <div class="row">
+
+    <div class="col s12 m2 l2 xl2">
+      <p>
+        <input
+          required
+          checked="checked"
+          class="data-link with-gap"
+          name="data-upload-{{ counter }}"
+          type="radio"
+          value="link"
+          id="data-link-{{ counter }}"
+          oninput="swap([['#data-upload-div-{{ counter }}', '#data-link-div-{{ counter }}', 'hidden'], ['#data-link-input-{{ counter }}', '#data-upload-input-{{ counter }}', 'required']])" />
+        <label for="data-link-{{ counter }}">Link</label>
+      </p>
+      <p>
+        <input
+          class="data-upload with-gap"
+          name="data-upload-{{ counter }}"
+          type="radio"
+          value="upload"
+          id="data-upload-{{ counter }}"
+          oninput="swap([['#data-link-div-{{ counter }}', '#data-upload-div-{{ counter }}', 'hidden'], ['#data-upload-input-{{ counter }}', '#data-link-input-{{ counter }}', 'required']])" />
+        <label for="data-upload-{{ counter }}">Upload</label>
+
+      </p>
+    </div>
+
+    <div class="input-field col s12 m5 l5 xl5" id="data-link-div-{{ counter }}">
+      <a class="tooltipped prefix"
+         data-position="bottom"
+         data-tooltip="URL for the raw data file either in JSON or CSV format (required)">
+        <i class="material-icons">help</i>
+      </a>
+      <input required
+             id="data-link-input-{{ counter }}"
+             name="fields[data][{{ counter }}][url]"
+             type="url"
+             class="validate"
+             onchange="update_url(this)">
+      <label for="data-link-input-{{ counter }}">
+        Data File URL
+      </label>
+    </div>
+
+
+    <div hidden class="file-field input-field col s12 m5 l5 xl5" id="data-upload-div-{{ counter }}">
+      <div class="btn">
+        <span>File</span>
+        <input
+          name="data-upload-input-file"
+          id='data-upload-input-file-{{ counter }}'
+          onchange="send_to_box('#data-link-input-{{ counter }}', this)"
+          type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input disabled
+               id="data-upload-input-{{ counter }}"
+               name="data-upload-input-{{ counter }}"
+               type="text"
+               class="file-path">
+      </div>
+    </div>
+
+
+
+    <div class="col s12 m2 l2 xl2">
+      <p>
+        <input required checked="checked" class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="csv" id="csv-{{ counter }}" />
+        <label for="csv-{{ counter }}">CSV</label>
+      </p>
+      <p>
+        <input class="with-gap" name="fields[data][{{ counter }}][format][type]" type="radio" value="json" id="json-{{ counter }}" />
+        <label for="json-{{ counter }}">JSON</label>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="input-field col s12 m5 l5 xl5">
+      <a class="tooltipped prefix"
+         data-position="bottom"
+         data-tooltip="Summary or caption for data contribution (required)">
+        <i class="material-icons">mode_edit</i>
+      </a>
+      <textarea required
+                id="data-desc-{{ counter }}"
+                name="fields[data][{{ counter }}][description]"
+                class="materialize-textarea validate active"
+                type="text"
+                length="500"></textarea>
+      <label class="active" for="data-desc-{{ counter }}">
+        Data Description
+      </label>
+    </div>
+    <div class="col s12 m1 l1 xl1">
+      <p>
+        <input required checked="checked" class="dim-line with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="line" id="dim-line-{{ counter }}" />
+        <label for="dim-line-{{ counter }}">2D</label>
+      </p>
+      <p>
+        <input class="dim-contour with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="contour" id="dim-contour-{{ counter }}" />
+        <label for="dim-contour-{{ counter }}">3D</label>
+      </p>
+    </div>
+    {{#each fields}}
+      <div {{this.[1]}}
+           class="input-field col s12 m2 l2 xl2"
+           id="input-field-{{this.[0]}}-{{ ../counter }}">
+        <a class="tooltipped prefix"
+           data-position="bottom" data-tooltip="Heading name used for
+           the column containing {{ this.[0] }}-axis values,
+           e.g. &quot;Time&quot; or &quot;Free-Energy&quot; (required for line or
+           contour plot data)">
+          <i class="material-icons">help</i>
+        </a>
+        <input {{this.[2]}}
+               {{this.[3]}}
+               id="data-{{this.[0]}}-parse-{{ ../counter }}"
+               name="fields[data][{{ ../counter }}][format][parse]"
+               type="text"
+               class="validate field-input-{{this.[0]}}-{{../counter}}"
+               length="64">
+        <label for="data-{{this.[0]}}-parse-{{ ../counter }}">
+          Name of {{this.[0]}}-axis column
+        </label>
+        <input {{this.[3]}}
+               class="field-input-{{this.[0]}}-{{../counter}}"
+               name="fields[data][{{ ../counter }}][transform][{{@index}}][type]"
+               type="hidden"
+               value="formula">
+        <input {{this.[3]}}
+               class="field-input-{{this.[0]}}-{{../counter}}"
+               name="fields[data][{{ ../counter }}][transform][{{@index}}][expr]"
+               type="hidden"
+               id="expr-{{this.[0]}}-{{ ../counter }}"
+               value="datum.">
+        <input {{this.[3]}}
+               class="field-input-{{this.[0]}}-{{../counter}}"
+               name="fields[data][{{ ../counter }}][transform][{{@index}}][as]"
+               type="hidden"
+               value="{{this.[0]}}">
+      </div>
+    {{/each}}
+  </div>
 </div>
 {% endraw %}
