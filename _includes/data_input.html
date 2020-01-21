@@ -35,11 +35,11 @@
 
     <div class="col s12 m2 l2 xl2">
       <p>
-        <input required checked="checked" class="data-link with-gap" name="data-upload" type="radio" value="link" id="data-link-{{ counter }}" />
+        <input required checked="checked" class="data-link with-gap" name="data-upload-{{ counter }}" type="radio" value="link" id="data-link-{{ counter }}" />
         <label for="data-link-{{ counter }}">Link</label>
       </p>
       <p>
-        <input class="data-upload with-gap" name="data-upload" type="radio" value="upload" id="data-upload-{{ counter }}" />
+        <input class="data-upload with-gap" name="data-upload-{{ counter }}" type="radio" value="upload" id="data-upload-{{ counter }}" />
         <label for="data-upload-{{ counter }}">Upload</label>
 
       </p>
@@ -57,7 +57,7 @@
              type="url"
              class="validate"
              onchange="update_url(this)">
-      <label for="data-link-{{ counter }}">
+      <label for="data-link-input-{{ counter }}">
         Data File URL
       </label>
     </div>
@@ -66,12 +66,14 @@
     <div hidden class="file-field input-field col s12 m5 l5 xl5" id="data-upload-div-{{ counter }}">
       <div class="btn">
         <span>File</span>
-        <input type="file">
+        <input
+          id='data-upload-input-file-{{ counter }}'
+          type="file">
       </div>
       <div class="file-path-wrapper">
         <input disabled
                id="data-upload-input-{{ counter }}"
-               name="data-upload"
+               name="data-upload-input-{{ counter }}"
                type="text"
                class="file-path">
       </div>
