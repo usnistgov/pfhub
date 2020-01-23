@@ -15,9 +15,11 @@ Todo:
  - test on heroku
 """
 
+
 import os
 import json
 from uuid import UUID
+import requests
 from toolz.curried import get, compose, get_in, juxt, identity
 from starlette.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, UploadFile
@@ -85,6 +87,19 @@ def get_json(filename: str) -> str:
         return json.load(file_stream)
 
 
+def tiny(url):  # pragma: no cover
+    """Get tiny URL
+
+    Args:
+      url: a long url
+
+    Returns:
+      a shortened url
+
+    """
+    return requests.get("http://tinyurl.com/api-create.php?url=" + url).text
+
+
 def upload_to_box(upload_file: UploadFile, folder_name: str) -> dict:
     """Upload a file to box
 
@@ -104,7 +119,7 @@ def upload_to_box(upload_file: UploadFile, folder_name: str) -> dict:
         lambda x: x.folder(folder_id="0"),
         lambda x: x.create_subfolder(folder_name),
         lambda x: x.upload_stream(upload_file.file, upload_file.filename),
-        lambda x: dict(file_id=x.id, download_link=x.get_download_url()),
+        lambda x: dict(file_id=x.id, download_link=tiny(x.get_download_url())),
     )
 
 
@@ -118,8 +133,8 @@ app.add_middleware(
     #     "https://pages.nist.gov",
     #     "https//travis-ci.org",
     # ],
-    # allow_origins=["*"],
-    allow_origin_regex=r"https://random-cat-.*\.surge\.sh",
+    allow_origins=["*"],
+    # allow_origin_regex=r"https://random-cat-.*\.surge\.sh",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
