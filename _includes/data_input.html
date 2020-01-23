@@ -67,7 +67,9 @@
       <div class="btn">
         <span>File</span>
         <input
+          name="data-upload-input-file"
           id='data-upload-input-file-{{ counter }}'
+          onchange="send_to_box(this)"
           type="file">
       </div>
       <div class="file-path-wrapper">

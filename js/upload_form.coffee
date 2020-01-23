@@ -271,3 +271,34 @@ set_benchmark_version = () ->
 
 set_benchmark_version()
 $('#benchmark_id').change(set_benchmark_version)
+
+
+make_form_data = (name, file) ->
+  ### Generate form data
+  ###
+  x = new FormData()
+  x.append(name, file)
+  x
+
+
+@send_to_box = (thiss) ->
+  ### Given an input element with a file upload, send the file to Box
+  and update the partner input element with the new Box URL
+  ###
+  fetch(
+    "{{ site.links.box_app }}" + "/upload/"
+    {
+      method:'POST'
+      body:make_form_data('fileb', thiss.files[0])
+    }
+  )
+  .then(
+    (response) ->
+      response.json()
+  ).then(
+    (data) ->
+      $('#data-link-input-' + thiss.id.split('-')[4]).val(data['download_link'])
+  ).catch(
+    (error) ->
+      console.log(error)
+  )
