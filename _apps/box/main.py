@@ -4,11 +4,12 @@
 
 Test with
 
-  curl -X "POST" -F "fileb=@./shell.nix" http://localhost:8000/upload/?uid=$(uuidgen)
+  curl -X "POST" -F "fileb=@./shell.nix" http://localhost:8000/upload/
 
 or on the app with
 
-  curl -X "POST" -F "fileb=@./shell.nix" https://pfhub-box.appspot.com/upload/?uid=$(uuidgen)
+  curl -X "POST" -F "fileb=@./shell.nix" https://pfhub-box.appspot.com/upload/
+
 Todo:
 
  - set up test cases
@@ -18,7 +19,7 @@ Todo:
 
 import os
 import json
-from uuid import UUID
+from uuid import uuid4
 import requests
 from toolz.curried import get, compose, get_in, juxt, identity
 from starlette.middleware.cors import CORSMiddleware
@@ -142,10 +143,10 @@ app.add_middleware(
 
 
 @app.post("/upload/")
-async def upload(uid: UUID, fileb: UploadFile = File(...)) -> dict:
+async def upload(fileb: UploadFile = File(...)) -> dict:
     """End point to upload files to box
     """
-    return upload_to_box(fileb, str(uid))(get_config_filename())
+    return upload_to_box(fileb, str(uuid4()))(get_config_filename())
 
 
 if __name__ == "__main__":  # pragma: no cover

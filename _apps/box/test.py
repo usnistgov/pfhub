@@ -2,7 +2,6 @@
 """
 
 import os
-from uuid import uuid4
 import json
 from unittest.mock import patch, Mock
 
@@ -135,7 +134,7 @@ def test_upload_endpoint(*_):
             "test.txt",
             write_json(data=dict(a=1)),
             lambda x: dict(fileb=open(x, "rb")),
-            lambda x: client.post(f"/upload/?uid={uuid4()}", files=x),
+            lambda x: client.post(f"/upload/", files=x),
             # debug,
             lambda x: x.json(),
             equals(MockStream().get_data()),
