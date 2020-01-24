@@ -150,22 +150,6 @@ $('#data-files').on('click', '.dim-contour',
 )
 
 
-########################################
-## Upload versus link data radio buttons
-########################################
-
-
-switch_ = (tag1, tag2, attr) ->
-  $(tag1).attr(attr, '')
-  $(tag2).removeAttr(attr)
-
-
-@swap = map((x) -> switch_(x[0], x[1], x[2]))
-
-
-#########################################
-
-
 get_field_name = (datum, field) ->
   if datum.transform?
     filtered = datum.transform.filter((x) -> x.as == field)
@@ -252,37 +236,3 @@ set_benchmark_version = () ->
 
 set_benchmark_version()
 $('#benchmark_id').change(set_benchmark_version)
-
-
-make_form_data = (name, file) ->
-  ### Generate form data
-  ###
-  x = new FormData()
-  x.append(name, file)
-  x
-
-
-@send_to_box = (tag, thiss) ->
-  ### Send file from input element to box and then add link to Staticman input value
-
-  Args:
-    tag: the tag with the input element with the named value to upload to Staticma
-    thiss: the file input element
-  ###
-  fetch(
-    "{{ site.links.box_app }}" + "/upload/"
-    {
-      method:'POST'
-      body:make_form_data('fileb', thiss.files[0])
-    }
-  )
-  .then(
-    (response) ->
-      response.json()
-  ).then(
-    (data) ->
-      $(tag).val(data['download_link'])
-  ).catch(
-    (error) ->
-      console.log(error)
-  )
