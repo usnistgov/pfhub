@@ -154,33 +154,14 @@ $('#data-files').on('click', '.dim-contour',
 ## Upload versus link data radio buttons
 ########################################
 
-get_tags_upload = (counter) ->
-  (type) ->
-    ['#data-' + type + '-div-' + counter,
-     '#data-' + type + '-input-' + counter]
 
 switch_ = (tag1, tag2, attr) ->
   $(tag1).attr(attr, '')
   $(tag2).removeAttr(attr)
 
-swap = (counter, x, y) ->
-  get_tags_count = get_tags_upload(counter)
-  [div_x_tag, input_x_tag] = get_tags_count(x)
-  [div_y_tag, input_y_tag] = get_tags_count(y)
-  switch_(div_y_tag, div_x_tag, 'hidden')
-  switch_(input_x_tag, input_y_tag, 'required')
 
+@swap = map((x) -> switch_(x[0], x[1], x[2]))
 
-$('#data-files').on('click', '.data-link',
-  () ->
-    swap(this.id.split('-')[2], 'link', 'upload')
-)
-
-
-$('#data-files').on('click', '.data-upload',
-  () ->
-    swap(this.id.split('-')[2], 'upload', 'link')
-)
 
 #########################################
 
@@ -281,9 +262,12 @@ make_form_data = (name, file) ->
   x
 
 
-@send_to_box = (thiss) ->
-  ### Given an input element with a file upload, send the file to Box
-  and update the partner input element with the new Box URL
+@send_to_box = (tag, thiss) ->
+  ### Send file from input element to box and then add link to Staticman input value
+
+  Args:
+    tag: the tag with the input element with the named value to upload to Staticma
+    thiss: the file input element
   ###
   fetch(
     "{{ site.links.box_app }}" + "/upload/"
@@ -297,7 +281,7 @@ make_form_data = (name, file) ->
       response.json()
   ).then(
     (data) ->
-      $('#data-link-input-' + thiss.id.split('-')[4]).val(data['download_link'])
+      $(tag).val(data['download_link'])
   ).catch(
     (error) ->
       console.log(error)

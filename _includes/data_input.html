@@ -35,11 +35,25 @@
 
     <div class="col s12 m2 l2 xl2">
       <p>
-        <input required checked="checked" class="data-link with-gap" name="data-upload-{{ counter }}" type="radio" value="link" id="data-link-{{ counter }}" />
+        <input
+          required
+          checked="checked"
+          class="data-link with-gap"
+          name="data-upload-{{ counter }}"
+          type="radio"
+          value="link"
+          id="data-link-{{ counter }}"
+          oninput="swap([['#data-upload-div-{{ counter }}', '#data-link-div-{{ counter }}', 'hidden'], ['#data-link-input-{{ counter }}', '#data-upload-input-{{ counter }}', 'required']])" />
         <label for="data-link-{{ counter }}">Link</label>
       </p>
       <p>
-        <input class="data-upload with-gap" name="data-upload-{{ counter }}" type="radio" value="upload" id="data-upload-{{ counter }}" />
+        <input
+          class="data-upload with-gap"
+          name="data-upload-{{ counter }}"
+          type="radio"
+          value="upload"
+          id="data-upload-{{ counter }}"
+          oninput="swap([['#data-link-div-{{ counter }}', '#data-upload-div-{{ counter }}', 'hidden'], ['#data-upload-input-{{ counter }}', '#data-link-input-{{ counter }}', 'required']])" />
         <label for="data-upload-{{ counter }}">Upload</label>
 
       </p>
@@ -69,7 +83,7 @@
         <input
           name="data-upload-input-file"
           id='data-upload-input-file-{{ counter }}'
-          onchange="send_to_box(this)"
+          onchange="send_to_box('#data-link-input-{{ counter }}', this)"
           type="file">
       </div>
       <div class="file-path-wrapper">

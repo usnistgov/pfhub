@@ -1,70 +1,117 @@
 {% raw %}
 <div class="row bottom-bar-thin"
      id="media-block-{{ counter }}">
-  <div class="input-field col s12 m1 l1 xl1">
-    <a id="media-remove-{{ counter }}"
-       href="#!"
-       class="media-remove btn-floating btn-medium red">
-      <i class="material-icons">remove</i>
-    </a>
+
+  <div class="row">
+
+    <div class="input-field col s12 m1 l1 xl1">
+      <a id="media-remove-{{ counter }}"
+         href="#!"
+         class="media-remove btn-floating btn-medium red">
+        <i class="material-icons">remove</i>
+      </a>
+    </div>
+    <div class="input-field col s12 m6 l5 xl4">
+      <a class="tooltipped prefix"
+         data-position="bottom"
+         data-tooltip="Name for this media data using alphanumeric characters and _, but at least 2 characters long (required)">
+        <i class="material-icons">help</i>
+      </a>
+      <input required
+             id="media-name-{{ counter }}"
+             name="fields[data][{{ counter }}][name]"
+             type="text"
+             class="validate"
+             length="64"
+             pattern="^[\\w]{2,64}$">
+      <label for="data-name-{{ counter }}" data-error="alphanumeric characters and _ (at least 2 characters long)">
+        Short name of media data
+      </label>
+    </div>
+
   </div>
-  <div class="input-field col s12 m3 l3 xl3">
-    <a class="tooltipped prefix"
-       data-position="bottom"
-       data-tooltip="Name for this media data using alphanumeric characters and _, but at least 2 characters long (required)">
-      <i class="material-icons">help</i>
-    </a>
-    <input required
-           id="media-name-{{ counter }}"
-           name="fields[data][{{ counter }}][name]"
-           type="text"
-           class="validate"
-           length="64"
-           pattern="^[\\w]{2,64}$">
-    <label for="data-name-{{ counter }}">
-      Short name of media data
-    </label>
+
+  <div class="row">
+
+    <div class="col s12 m2 l2 xl2">
+      <p>
+        <input required checked="checked" class="media-link with-gap" name="media-upload-{{ counter }}" type="radio" value="link" id="media-link-{{ counter }}"
+               oninput="swap([['#media-upload-div-{{ counter }}', '#media-link-div-{{ counter }}', 'hidden'], ['#media-link-input-{{ counter }}', '#media-upload-input-{{ counter }}', 'required']])" />
+        <label for="media-link-{{ counter }}">Link</label>
+      </p>
+      <p>
+        <input class="media-upload with-gap" name="media-upload-{{ counter }}" type="radio" value="upload" id="media-upload-{{ counter }}"
+               oninput="swap([['#media-link-div-{{ counter }}', '#media-upload-div-{{ counter }}', 'hidden'], ['#media-upload-input-{{ counter }}', '#media-link-input-{{ counter }}', 'required']])" />
+        <label for="media-upload-{{ counter }}">Upload</label>
+
+      </p>
+    </div>
+
+    <div class="input-field col s12 m5 l5 xl5" id="media-link-div-{{ counter }}">
+      <a class="tooltipped prefix"
+         data-position="bottom"
+         data-tooltip="URL for image or youtube link (required)">
+        <i class="material-icons">help</i>
+      </a>
+      <input required
+             id="media-link-input-{{ counter }}"
+             name="fields[data][{{ counter }}][url]"
+             type="url"
+             class="validate"
+             onchange="update_url(this)">
+      <label for="media-link-input-{{ counter }}">
+        Media File URL
+      </label>
+    </div>
+
+    <div hidden class="file-field input-field col s12 m5 l5 xl5" id="media-upload-div-{{ counter }}">
+      <div class="btn">
+        <span>File</span>
+        <input
+          name="media-upload-input-file"
+          id='media-upload-input-file-{{ counter }}'
+          onchange="send_to_box('#media-link-input-{{ counter }}', this)"
+          type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input disabled
+               id="media-upload-input-{{ counter }}"
+               name="media-upload-input-{{ counter }}"
+               type="text"
+               class="file-path">
+      </div>
+    </div>
+
+    <div class="col s12 m3 l3 xl3">
+      <p>
+        <input required checked="checked" class="dim-line with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="youtube" id="youtube-{{ counter }}" />
+        <label for="youtube-{{ counter }}">Youtube</label>
+      </p>
+      <p>
+        <input class="dim-contour with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="image" id="image-{{ counter }}" />
+        <label for="image-{{ counter }}">Image</label>
+      </p>
+    </div>
+
   </div>
-  <div class="input-field col s12 m5 l5 xl5">
-    <a class="tooltipped prefix"
-       data-position="bottom"
-       data-tooltip="URL for image or youtube link (required)">
-      <i class="material-icons">help</i>
-    </a>
-    <input required
-           id="media-url-{{ counter }}"
-           name="fields[data][{{ counter }}][url]"
-           type="url"
-           class="validate">
-    <label for="media-url-{{ counter }}">
-      Media file URL
-    </label>
-  </div>
-  <div class="col s12 m3 l3 xl3">
-    <p>
-      <input required checked="checked" class="dim-line with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="youtube" id="youtube-{{ counter }}" />
-      <label for="youtube-{{ counter }}">Youtube</label>
-    </p>
-    <p>
-      <input class="dim-contour with-gap" name="fields[data][{{ counter }}][type]" type="radio" value="image" id="image-{{ counter }}" />
-      <label for="image-{{ counter }}">Image</label>
-    </p>
-  </div>
-  <div class="input-field col s12 m5 l5 xl5">
-    <a class="tooltipped prefix"
-       data-position="bottom"
-       data-tooltip="Summary or caption for media contribution, highlighting relevant details (required)">
-      <i class="material-icons">mode_edit</i>
-    </a>
-    <textarea required
-              id="media-desc-{{ counter }}"
-              name="fields[data][{{ counter }}][description]"
-              class="materialize-textarea validate active"
-              type="text"
-              length="500"></textarea>
-    <label class="active" for="data-desc-{{ counter }}">
-      Media File Description
-    </label>
+
+  <div class="row">
+    <div class="input-field col s12 m5 l5 xl5">
+      <a class="tooltipped prefix"
+         data-position="bottom"
+         data-tooltip="Summary or caption for media contribution, highlighting relevant details (required)">
+        <i class="material-icons">mode_edit</i>
+      </a>
+      <textarea required
+                id="media-desc-{{ counter }}"
+                name="fields[data][{{ counter }}][description]"
+                class="materialize-textarea validate active"
+                type="text"
+                length="500"></textarea>
+      <label class="active" for="data-desc-{{ counter }}">
+        Media File Description
+      </label>
+    </div>
   </div>
 </div>
 {% endraw %}
