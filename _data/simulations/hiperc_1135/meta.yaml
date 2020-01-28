@@ -1,0 +1,51 @@
+_id: 3b1de950-4195-11ea-b3fc-e3c0e8e58b70
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: ''
+  summary: HiPerC spinodal decomposition result using CUDA on a Tesla P100
+  implementation:
+    name: HiPerC
+    repo:
+      url: 'https://github.com/usnistgov/hiperc'
+      version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: threaded
+    clock_rate: '1.48'
+    cores: '1792'
+    nodes: '1'
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '7464'
+        sim_time: '200000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '308224'
+  - name: hiperc_1135
+    url: 'http://tinyurl.com/wd4f4ll'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_eergy: number
+    description: HiPerC free energy test 1135
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_eergy
+        as: 'y'
+date: 1580191978
