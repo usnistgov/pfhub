@@ -1,0 +1,52 @@
+_id: 73f012e0-4194-11ea-b3fc-e3c0e8e58b70
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: '15 January, 2020'
+  summary: 'Test of #1135'
+  implementation:
+    name: MMSP
+    repo:
+      url: 'https://github.com'
+      version: 403856dc90821b1f1b5e4524f1dda3e76c6b935e
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '10'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '2'
+        sim_time: '2'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1000'
+  - name: mmsp_1135
+    url: >-
+      https://f001.backblazeb2.com/file/hiperc-results/gpu-cuda-spinodal/free-energy.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: data
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+date: 1580191644
