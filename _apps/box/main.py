@@ -20,7 +20,6 @@ Todo:
 import os
 import json
 from uuid import uuid4
-import requests
 from toolz.curried import get, compose, get_in, juxt, identity
 from starlette.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, UploadFile

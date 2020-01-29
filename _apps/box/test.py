@@ -6,7 +6,7 @@ import json
 from unittest.mock import patch, Mock
 
 from starlette.testclient import TestClient
-from toolz.curried import pipe, curry, identity
+from toolz.curried import pipe, curry
 from fastapi import UploadFile
 from click.testing import CliRunner
 from boxsdk import JWTAuth
@@ -110,7 +110,6 @@ def get_test_config():
 @patch("main.JWTAuth", autospec=True)
 @patch("main.Client", new=MockClient)
 @patch("main.get_config_filename", new=get_test_config)
-@patch("main.tiny", new=identity)
 def test_upload_to_box(*_):
     """Test the upload_to_box function
     """
@@ -125,7 +124,6 @@ def test_upload_to_box(*_):
 @patch("main.JWTAuth", autospec=True)
 @patch("main.Client", new=MockClient)
 @patch("main.get_config_filename", new=get_test_config)
-@patch("main.tiny", new=identity)
 def test_upload_endpoint(*_):
     """Test the upload endpoint
     """
@@ -135,7 +133,6 @@ def test_upload_endpoint(*_):
             write_json(data=dict(a=1)),
             lambda x: dict(fileb=open(x, "rb")),
             lambda x: client.post(f"/upload/", files=x),
-            # debug,
             lambda x: x.json(),
             equals(MockStream().get_data()),
         )
