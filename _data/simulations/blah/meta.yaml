@@ -1,0 +1,51 @@
+_id: 9093c010-42b4-11ea-8f2b-7bd61d79e54a
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: guyer
+  timestamp: ''
+  summary: dsfasdf
+  implementation:
+    name: asdf
+    repo:
+      url: 'https://asdf.asdf.asdf'
+      version: '239842783489'
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '1'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1'
+        sim_time: '1'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1'
+  - name: data
+    url: 'http://tinyurl.com/rt4anf2'
+    format:
+      type: csv
+      parse:
+        time: number
+        energy: number
+    description: data
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+date: 1580315387
