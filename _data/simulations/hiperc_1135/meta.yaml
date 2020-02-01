@@ -1,0 +1,52 @@
+_id: 90823810-451e-11ea-836d-c76dc35d3047
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: '18 December, 2017'
+  summary: HiPerC spinodal decomposition result using CUDA on a Tesla P100
+  implementation:
+    name: 'hyper '
+    repo:
+      url: 'https://github.com/usnistgov/hiperc'
+      version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: threaded
+    clock_rate: '1.48'
+    cores: '1792'
+    nodes: '1'
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '7464'
+        sim_time: '200000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '308224'
+  - name: free_energy
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!GJeQ6Dv8M2gONAdJlbR2RvG4yeTJm6PffP0WXy8Y7pkWRYFq--CjKTTbUYOo5H-UcdLbL7CZCXs5mFBSyUtEI1yNGjbVah25wt976Fl-A2yc1CdKQnJotvoItFWUPVDlv9EwxOOQNs1zcyLI2CdzXKQxzYCuHm7UKZ3zVl82dKBOJ66XXC39zh5ovWdTcceqSfUHhAs6H82EBNpVIMRGH_x0Gj9OXcfDDXyYIm2plLCra6bmkS61s4a8DX1h-ghS6va_PIsI0C8zMZH1JWste-hpd5sdm_tiQruQy3ClfK5Lqtjt4YYy7fWH4TA3f9wBeQ_VVJEIW9BtoJXZJFlS5uSrnG6X2bec3_j0j4UDzANomdidxLJ-8VSAi_bf_RZquiCHfINn-e925sPvl0ljtt9fsjopWIZBCqBc2YeJWmrw1kxeuxAKkVnhtvbEE0Qi91FVLJo9CeBZcau9dkTpjSTpLQdulFguEJkImnMpI2kCv5YFT1ThFThR9nsjAqN8KQfj2VnLMEzAA7wz3Rf51z_0AVvB987pbFu67xJ5kaQuyLn5Vkj_2SCxTxGGitPIlvU_37HwRMSzAiPdMi0LvJiLVb7JXkFpnLEZ_1ae-Mf4xQ9tCjzg_r741uGuJ8Cpa9bdEvafEqv2x0ES1E-Uf9Yy2WNO62hai2jjTu7fofeTO_7l-GFpp-EExUvAl5LJsFs9Uq1WYZZiEQU91Ehw5QWfZi_yVuqCJBYAH3XUtM_c136-9-c7g5aUJc7w6kJxLF598N0sdJUURxegXNDZ_lx88IATeuFNiB2F0GKoGhVuKBWJdgFBF-ab85N6j_UZLU3x-toC99g-T7ZCE3Ovh09Ce0YmHvxhYpuFbLLR9AsEVXHhVqcYfYjORxYWnSLFkngMRn3WzEtHld5yL7Shbr5-I877xUOfBtR0HxXVZg6bHg85y2I4YH4vPSTK8F5fRMqCQcAMtyjr19GB5ly48L2yZi4nwAIam1pMGwcZ6NSr2fWFeuJPhIF83BNi5sr4atdkJ_gNEtM_rvti0_jfi29HdM5S-SPARXfcrA06xN6A7SEordXF1alrVRsZx949Iafaro0lKZ_oNuiYir5GdG0LY0tXchuLsATKYzceqpHkoXfu5Unh34IGD6HJdL7B27MX3do1KtD-xEc43qe4McT3LpSkHCMdxq95zvEjQDI9cCPoBC4N5yd9CPvnGz9tzNo7g6UgTKIUkuOuF_tAQShIwE8cG1FAUqfPBPMKiauRmqdEIlImBeDCZ8nfjB5aD3A9IAKUtB4aUbSg6hs4Y623DQ7qPw../download
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: free energy data
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+date: 1580580816
