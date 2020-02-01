@@ -1,0 +1,52 @@
+_id: 159dd670-452a-11ea-9831-7fe7e73071d9
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: '18 December, 2017'
+  summary: Testing PR 1135
+  implementation:
+    name: hiperc
+    repo:
+      url: 'https://github.com/usnistgov/hiperc'
+      version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: threaded
+    clock_rate: '1.48'
+    cores: '1792'
+    nodes: '1'
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '7464'
+        sim_time: '200000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '308224'
+  - name: hiperc_1135
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!DHRkBqvid3wIlBEbYfKN8yqOhIwMqf-FV9PrCAotzDa7rnUaFVDJS25qdvD4Ft9TqbbHZABHZo09xMWgvQp9tU46mpZURqYMr9ltkb1ujz3B9zX_5UXciO2GDfwGqcSSq5Fn7kgOCrp5EH6HvyyRVy0RMVaExFWEhsEQ8xWIW7mCTj5b4y0oiN-_oFaJJ43KTcDXVczlSsauRMz8V31l00Qwu1h8gqPMojX4wOgiU5ykrsVRxd5NNc-fAd1nWiuX6YQmhIOX4QFetSdWu4OfN5oW8yXnBcXwyg8Z5ZHifRMQ0omUYsaL2Sqc-Yj9SxRj-GEA3m3DrybHX6ICoc-tnEsVDO9brlAnsY1sRfst-4Ct7IIATcKG6zYyrct07VjmEylaLUpFrSTq8q_-mPC7YoifpOo2y0p6mX-5o2wI8yvbCK0G757gMJCue05utaa-JP93nKi9bsGG7D3bPiDsglMazG-DUzwza9kNlSJ_FrZBpA6wSdbmRxujHUAW8SRMbzRMuz8p5Vp94A-gbQ8rkpNXQsBCxpxCrmqer2YkZKxxwKA8nu3TlwaT3QD52_chcg9qPt_p-nYME7A0oDkc8-uzWt4g6NlMQhm0H8CbLdmKOOvR2RleRYJlMSnRcFRU62mhzyN3De4OXW1JJ5jKSNiqPrN_x6qZlOQoN10ijmShYv5mz-hF4eZLudiaodz0Qju2VBFCsv6KVTntDcKfCT0xi5SkJ_EHndaWY-_dFdgjQFcRa8h0kFVYh9bQ75_bnNJaVM8t7gdDVnNgR6BdUyO0jEd8PsC7q4q7t-QmEHpK4exwE2XkNu9Qo7zZp4YZeyh1QvUzIguKFd52H8f5Vt3b5ojSaYSvTIdbuRqrSeIBRGZZOdLZ2sloXXOqZaEKW3lPd0EUTvMMgFS0xhin-j-AeyqNrDPd9cEjH0-mZC0FEtAHc8vwziu3BH8diyzNCLy_P1NXw6mqZOQb0Tr7Tfv9kvyiDi12isEI9jeH35c3fIKebLnJM7285mAlNX2oYZcaMt6k0jQAvqOkD9wW1-T0ZvkYDTTYS9QwpEi86TEIEfxn-bjuiO43HYsIiYIJOZUkQtp7-VcnmVP1Ok9TEmfJBsy93qMrPmMSJqtkvW2-G8oH7HlLLJXKggJgwY3WzWdmbPSv43WH_aE3m38Ep6YqzRiw_7uXMEsNmPxll8-Jp1H_BHG7qphBb0ohCg8ldHAuC8jhpiwQ2PrBeefmVqhAho5bu3bSBGbOIuuakcfDnSjAC5_KSJU5CHE4mbn7MUv8duIskCBLYaQ-OjvZGsEiRLXzfA../download
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: HiPerC test for PR 1135 (Box uploads)
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+date: 1580585764
