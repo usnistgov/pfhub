@@ -1,0 +1,52 @@
+_id: fa51af00-47a3-11ea-a58c-61aad0df1928
+metadata:
+  author:
+    first: Remi
+    last: Dingreville
+    email: rdingre@sandia.gov
+    github_id: rdingre
+  timestamp: '3 February, 2020'
+  summary: Memphis verification and validation against benchmark
+  implementation:
+    name: memphis
+    repo:
+      url: 'https://github.com/memphis-snl/memphis'
+      version: e168825
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.6'
+    cores: '16'
+    nodes: '1'
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '13343'
+        sim_time: '100000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '444480'
+  - name: memphis_1b
+    url: >-
+      https://raw.githubusercontent.com/memphis-snl/memphis/master/benchmark/BM_001/1b_free-energy_explicit-euler.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: memphis_1b
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
+date: 1580858019
