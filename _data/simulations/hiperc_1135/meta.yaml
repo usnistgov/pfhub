@@ -1,0 +1,52 @@
+_id: 4152b4f0-4770-11ea-b1b3-5b496b2a43e9
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: '18 December, 2017'
+  summary: 'Testing PR #1135, take 3.'
+  implementation:
+    name: hiperc
+    repo:
+      url: 'https://github.com/usnistgov/hiperc'
+      version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: threaded
+    clock_rate: '1.48'
+    cores: '1792'
+    nodes: '1'
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '7464'
+        sim_time: '200000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '308224'
+  - name: free_energy
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!m0n-3VcYWHvQtNh8eTDSDV0-yZ_9vvMpOFG5R1xWPKdMK0Ye9TL9UWCoon9Vr8ic9aFdPjrqB2acT1s8VISAIJZYIB9ANNK39N4goZh5kRtx75qRRniKuV2jiPYFXrYNCJzRfomoncz1MVpXOIS2vIMLe0hFCiISGdHJnO-2BM9AsKA_c4JIqBYVQm9ksJHDmbXuWoEtMk0NYymL5qeY0LCai9b5WS7YhxnH3jWgPZYIV4C9AeggBtsp4cbYLnHkoRJXRNiA6oYBH2GdiwHUuvITY4sVgk6nkCq05a8XKDYRAmr70KQpvhcy7-lUbEAYjp9bqlbzoloqQq0hWgViY7cAlDvvUM_kU8_MyxCZJfdN_5Z0XKlPC8C4-GCTtQx_Q8pEvsWZJoEqKlZ71YWco47jCq2YmsA5Ks4lvr4LYlji9LOzQJ4bZW3BffQYjBnVScAscKzUiALevKxo4IXOLONqbnHPXpQS-1JRKqvx3kSuZqhWZcATqic7p0BlxNLJwNPv9Ia1BXOtoKqzs-Bto_aKCHYQi9R2Rwgd0mVrUoay8aDkJPNLZ7wD0U0uAA36r2HggmjDBRsJEjZ8MtpHmhyUPZLhVuabRxnnWjQ-HCPC4LBC3uWeJ_J_uIsgUPn4QzMe-U7UvCvq2l5iOHRYxEUSz_99ugsEg0DA028966JQRfCp6SJqJrKrmsh2zNoybKarDruT6dRmrm8__Hh_esDH8cWis_rjBrfxLgQ1SLpl_tXLjZubyDZOZRmhYrV_Gh3hooFxCPF50wE3E0h9OcVFImZMUQFH_Q6DtkleJvCLfhRzwbCfw8oz8BCpMduKU5EHu4OudUKY4DGZqeJwekWQbSqFaxW5B6G9EZYjul6W-gDCnPuccNDN7yvZZjkiWHI29UTJgnUshBToIqh9bBwp6CUeS6zlCA8LlNL2OlrwKkgYW1F5S0eAHtLZcHzfhOM53aovxk6-Sqpj45NRs5JDk4PU2uOEn5IaxJdYAZBAdPlgHtNxYvUdElcnLBQdeJDH4zkZmCAfmK9kWTNNHmAoxKiTGentcc1-RzCaa928flbZe9iRL6abZ87IQd4iAIvtAkbwVA-osYCP5xBogdr2ItvQ7kTxZhOi6pk-_1qc76od3Qejc2yB0eWn3-GvXIH31bzRefIzOheLsFIdFB89z5UX8yp0YZ2EI28oRLUEI-h1LDkGC4pWzf_DeSzpGOQDVKmpOcX2K3FHJPvCLWRbiflFEJd-9unGtWtZHD_Oj0uVzFW9XBbOYjmDkSXS__E_eRRcm-6RP3p-cdbDA4MVBQHRTvM./download
+    format:
+      type: csv
+      parse:
+        sim_time: number
+        free_energy: number
+    description: free energy data
+    type: line
+    transform:
+      - type: formula
+        expr: datum.sim_time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+date: 1580835804
