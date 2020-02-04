@@ -1,0 +1,52 @@
+_id: 4dfc6430-477a-11ea-a0ca-bbb5d1af83e9
+metadata:
+  author:
+    first: Trevor
+    last: Keller
+    email: trevor.keller@nist.gov
+    github_id: tkphd
+  timestamp: '18 December, 2017'
+  summary: Testing Box uploads
+  implementation:
+    name: hiperc
+    repo:
+      url: 'https://github.com/usnistgov/hiperc'
+      version: b25b14acda7c5aef565cdbcfc88f2df3412dcc46
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: gpu
+    parallel_model: threaded
+    clock_rate: '1.48'
+    cores: '1792'
+    nodes: '1'
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '7464'
+        sim_time: '200000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '308224'
+  - name: free_energy
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!_hjUKrRKcCfUqRpPYKBCemTXMZgNlckL_2GQakBSCGcoCw1Rk60y8XekGxe2sxioy2zWKSwJwNv1CCJvp7kH0OMzW5Wt-XMP5lRgrSL7Z_D6Qi1FVmBu_476zV_43WK1_v5otwuUpV7_7Z62Xm0ud1PzxR1yWv2uIdU7h7823vk-dTbI1mkeNsXwEodXvsH-8ghJ7C-S0F_inaUEVhpayUlgnDere1HcLU3ysez9Ys9Vd1O5c5743IxfM96Hi8dDc-GNv0tA3dOqEMu4H8b0NO6Cx1KMmTDQnsnf5IFn8qKE17-8xkA0Z2cmJyvtf1YD-mQ8hcCWYoCwIqh0v26JccDHT4zCW__IkMRgng671_ihMR8HL12CXcqg1I5nOPdK-ZdLdZjr7g4OFuiSv9SAxZRj_KNNurs6xkCnx48ufvowrlazTuWc3lmtuE5djG-7EOlZNR67tVxUcLL4ZQsnqXAHrNxkQmDsFQxs5FwlIPXfcCvCnbQUYyZZEiKepVsJLcXKANXjaoGs07EUkIzJhQKSvEuS1RUJdxUg3wsUbhStHLgEnE8fJrMk91sB38GLy6ZErBi9LmnEtVS7MziID8DmB3S_KRB8v2OHPkE7HZS0RvdfrMu1sNg_BhAhOzgFpFu4435cCtATRug39nII05paEjJjN8DhikZCo7-DWrPfauBjuR-SrpBcponoKMnKQ_sQzJugBZqXGfh6KEkKNhUG58UQG9rdbH4Em14ahxvNt7QT0tByPnNoXzIFoAGpjGrYf1U_-2TSDyw30phho1QYOKMWboVOLc8otJaTA2z6QltD86mcEzIaYxTQ5xtgpn0Atb6u484p7S6doLqLe_q_7JKGFSOCFtY05PeLn-a0G4mlKQ9qd7vdVxYf6wYO9SuQF5kW8PE0Shdd3SCcU546OVdwgsGdwWaJApApM_zSy3izl6t0C00k0fL3AwvGFrQ1GWc-zfPP9GUWmpsEWeoxuuzQWoc5u4dmuQzXlmb-zHIJ9Dnl8XE67vhNktEoQUHVofJaEuj_HB0ftWy8SpgQu8hBc-268inoMx7nB5U6KqkEucDdpidZoNCHDRpMfLN54_cAQKL6qgqRP4FzlSXpOgZmdSIyGlvhbsX2tCnzfwG0k7DjHLhRZkNn6yz7KcEeSsBAllLTdqlXEAXJdnwCctQJs5fRp00mGYOkgfwa5dCw97SqmF-jzS9nOrk91zAHBntZC098OMEJTya56mDMPl2aHX6Cz1XTryAnbImIG9wTBL5ZTnKqdYjBrGZydnVFCHDQhioZGqgx2vocYRhE9L3xSg../download
+    format:
+      type: csv
+      parse:
+        sim_time: number
+        free_energy: number
+    description: Test
+    type: line
+    transform:
+      - type: formula
+        expr: datum.sim_time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+date: 1580840121
