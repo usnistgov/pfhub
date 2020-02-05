@@ -32,7 +32,7 @@ data:
     values:
       - unit: KB
         value: '444210'
-  - name: memphis_1a
+  - name: free_energy
     url: >-
       https://raw.githubusercontent.com/memphis-snl/memphis/master/benchmark/BM_001/1a_free-energy_explicit-euler.csv
     format:
