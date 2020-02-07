@@ -1,0 +1,52 @@
+_id: 15fb95a0-4942-11ea-a7b1-1d746210c628
+metadata:
+  author:
+    first: Remi
+    last: Dingreville
+    email: rdingre@sandia.gov
+    github_id: rdingre
+  timestamp: '3 February, 2020'
+  summary: Memphis verification and validation against benchmark
+  implementation:
+    name: memphis
+    repo:
+      url: 'https://github.com/memphis-snl/memphis'
+      version: e168825
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.6'
+    cores: '16'
+    nodes: '1'
+benchmark:
+  id: 7a
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '25'
+        sim_time: '1000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '1140'
+  - name: spatial
+    url: >-
+      https://raw.githubusercontent.com/memphis-snl/memphis/master/benchmark/BM_007/7a_spatial.csv
+    format:
+      type: csv
+      parse:
+        grid: number
+        L2: number
+    description: memphis_7a
+    type: line
+    transform:
+      - type: formula
+        expr: datum.grid
+        as: x
+      - type: formula
+        expr: datum.L2
+        as: 'y'
+date: 1581035877
