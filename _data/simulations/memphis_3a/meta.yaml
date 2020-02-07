@@ -1,0 +1,103 @@
+_id: 1d52b120-493e-11ea-a7b1-1d746210c628
+metadata:
+  author:
+    first: Remi
+    last: Dingreville
+    email: rdingre@sandia.gov
+    github_id: rdingre
+  timestamp: '3 February, 2020'
+  summary: Memphis verification and validation against benchmark
+  implementation:
+    name: memphis
+    repo:
+      url: 'https://github.com/memphis-snl/memphis'
+      version: e168825
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.6'
+    cores: '16'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '8215'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '865610'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/memphis-snl/memphis/master/benchmark/BM_003/3a_free-energy_explicit-euler.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: memphis_3a_free_energy
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://raw.githubusercontent.com/memphis-snl/memphis/master/benchmark/BM_003/3a_solid-fraction_explicit-euler.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: memphis_3a_solid_fraction
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://raw.githubusercontent.com/memphis-snl/memphis/master/benchmark/BM_003/3a_tip-position_explicit-euler.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: memphis_3a_tip_position
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://raw.githubusercontent.com/memphis-snl/memphis/master/benchmark/BM_003/3a_contour_explicit-euler.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: memphis_3a_pf_1500
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1581034171
