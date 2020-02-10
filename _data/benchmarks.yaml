@@ -396,6 +396,7 @@
       mode: lines
       x_dtick: 1
       y_dtick: 1
+      variations: [a]
     - name: spatial
       title: Spatial Accuracy
       x_title: "∆<i>x</i>"
@@ -406,6 +407,25 @@
       mode: lines
       x_dtick: 1
       y_dtick: 1
+      variations: [a]
+    - name: cost
+      title: Normalized Wall Time Versus Error
+      x_title: "<i>e</i><sub>L2</sub>"
+      y_title: "<i>F</i><sub>cost</sub> (core-s)"
+      x_scale: log
+      y_scale: log
+      type: scatter
+      mode: lines
+      variations: [b, c]
+    - name: time
+      title: Wall Time Versus Error
+      x_title: "<i>e</i><sub>L2</sub>"
+      y_title: "<i>t</i><sub>wall</sub> (s)"
+      x_scale: log
+      y_scale: log
+      type: scatter
+      mode: lines
+      variations: [b, c]
 
 - title: Nucleation
   description: Nucleation benchmark
