@@ -411,16 +411,17 @@
     - name: cost
       title: Normalized Wall Time Versus Error
       x_title: "<i>e</i><sub>L2</sub>"
-      y_title: "<i>F</i><sub>cost</sub> (core-s)"
+      y_title: "<i>F</i><sub>cost</sub> &nbsp;(core-s) *"
       x_scale: log
       y_scale: log
       type: scatter
       mode: lines
       variations: [b, c]
+      footnote: "<span class='plotly-footnote' >* <i>F</i><sub>cost</sub>  = (wall time) &#215; (number of cores) &#215; (nominal core speed) / 2GHz </span>"
     - name: time
       title: Wall Time Versus Error
       x_title: "<i>e</i><sub>L2</sub>"
-      y_title: "<i>t</i><sub>wall</sub> (s)"
+      y_title: "<i>t</i><sub>wall</sub> &nbsp;(s)"
       x_scale: log
       y_scale: log
       type: scatter
