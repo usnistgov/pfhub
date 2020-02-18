@@ -229,11 +229,15 @@ reorder = curry(
       (x) -> x.theta + (x.y < 0.0) * (Math.PI - x.theta) * 2.0
     )
 
-    sequence(
-      func_xy(get_values)(name, datum_x, datum_y)
+    sort_by_theta = sequence(
       (x) -> zip(x[0], x[1])
       sortBy(calc_theta)
       unzip
+    )
+
+    sequence(
+      func_xy(get_values)(name, datum_x, datum_y)
+      if values.length > 0 then sort_by_theta else id
     )(values)
 )
 
