@@ -26,10 +26,10 @@
 
 
 
-<div id="d84cddb1-be0e-4139-90e1-8f7b1ff2ccd1"></div>
+<div id="a3462bcb-4d50-483f-8b62-1e9b5ff67786"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#d84cddb1-be0e-4139-90e1-8f7b1ff2ccd1');
+var element = $('#a3462bcb-4d50-483f-8b62-1e9b5ff67786');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -158,7 +158,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
@@ -176,7 +176,7 @@ $( document ).ready(code_toggle);
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[1]:</div>
 
 
 
@@ -194,26 +194,14 @@ $( document ).ready(code_toggle);
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><a href="#Overview">Overview</a></li>
-<li><a href="#Governing-equation-and-manufactured-solution">Governing equation and manufactured solution</a></li>
-<li><a href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition</a></li>
-<li><a href="#Parameter-values">Parameter values</a></li>
-<li><a href="#Benchmark-simulation-instructions">Benchmark simulation instructions</a><ul>
-<li><a href="#Part-%28a%29">Part (a)</a></li>
-<li><a href="#Part-%28b%29">Part (b)</a></li>
-<li><a href="#Part-%28c%29">Part (c)</a></li>
-</ul>
-</li>
-<li><a href="#Results">Results</a></li>
-<li><a href="#Feedback">Feedback</a></li>
-<li><a href="#Appendix">Appendix</a><ul>
-<li><a href="#Computer-algebra-systems">Computer algebra systems</a></li>
-<li><a href="#Source-term">Source term</a></li>
-<li><a href="#Code">Code</a></li>
-</ul>
-</li>
-</ul>
+<h4>Table of Contents<span class="tocSkip"></span></h4><div class="toc"><ul class="toc-item"><li><span><a href="#Benchmark-Problem-7:-MMS-Allen-Cahn" data-toc-modified-id="Benchmark-Problem-7:-MMS-Allen-Cahn-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Benchmark Problem 7: MMS Allen-Cahn</a></span></li><li><span><a href="#Overview" data-toc-modified-id="Overview-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Overview</a></span></li><li><span><a href="#Governing-equation-and-manufactured-solution" data-toc-modified-id="Governing-equation-and-manufactured-solution-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Governing equation and manufactured solution</a></span></li><li><span><a href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition" data-toc-modified-id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Domain geometry, boundary conditions, initial conditions, and stopping condition</a></span></li><li><span><a href="#Parameter-values" data-toc-modified-id="Parameter-values-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Parameter values</a></span></li><li><span><a href="#Benchmark-simulation-instructions" data-toc-modified-id="Benchmark-simulation-instructions-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Benchmark simulation instructions</a></span><ul class="toc-item"><li><span><a href="#Part-(a)" data-toc-modified-id="Part-(a)-6.1"><span class="toc-item-num">6.1&nbsp;&nbsp;</span>Part (a)</a></span></li><li><span><a href="#Part-(b)" data-toc-modified-id="Part-(b)-6.2"><span class="toc-item-num">6.2&nbsp;&nbsp;</span>Part (b)</a></span></li><li><span><a href="#Part-(c)" data-toc-modified-id="Part-(c)-6.3"><span class="toc-item-num">6.3&nbsp;&nbsp;</span>Part (c)</a></span></li></ul></li><li><span><a href="#Submission-Guidelines" data-toc-modified-id="Submission-Guidelines-7"><span class="toc-item-num">7&nbsp;&nbsp;</span>Submission Guidelines</a></span><ul class="toc-item"><li><span><a href="#Part-(a)-Guidelines" data-toc-modified-id="Part-(a)-Guidelines-7.1"><span class="toc-item-num">7.1&nbsp;&nbsp;</span>Part (a) Guidelines</a></span></li><li><span><a href="#Parts-(b)-and-(c)-Guidelines" data-toc-modified-id="Parts-(b)-and-(c)-Guidelines-7.2"><span class="toc-item-num">7.2&nbsp;&nbsp;</span>Parts (b) and (c) Guidelines</a></span></li></ul></li><li><span><a href="#Results" data-toc-modified-id="Results-8"><span class="toc-item-num">8&nbsp;&nbsp;</span>Results</a></span></li><li><span><a href="#Feedback" data-toc-modified-id="Feedback-9"><span class="toc-item-num">9&nbsp;&nbsp;</span>Feedback</a></span></li><li><span><a href="#Appendix" data-toc-modified-id="Appendix-10"><span class="toc-item-num">10&nbsp;&nbsp;</span>Appendix</a></span><ul class="toc-item"><li><span><a href="#Computer-algebra-systems" data-toc-modified-id="Computer-algebra-systems-10.1"><span class="toc-item-num">10.1&nbsp;&nbsp;</span>Computer algebra systems</a></span></li><li><span><a href="#Source-term" data-toc-modified-id="Source-term-10.2"><span class="toc-item-num">10.2&nbsp;&nbsp;</span>Source term</a></span></li><li><span><a href="#Code" data-toc-modified-id="Code-10.3"><span class="toc-item-num">10.3&nbsp;&nbsp;</span>Code</a></span><ul class="toc-item"><li><span><a href="#Python" data-toc-modified-id="Python-10.3.1"><span class="toc-item-num">10.3.1&nbsp;&nbsp;</span>Python</a></span></li><li><span><a href="#C" data-toc-modified-id="C-10.3.2"><span class="toc-item-num">10.3.2&nbsp;&nbsp;</span>C</a></span></li><li><span><a href="#Fortran" data-toc-modified-id="Fortran-10.3.3"><span class="toc-item-num">10.3.3&nbsp;&nbsp;</span>Fortran</a></span></li><li><span><a href="#Julia" data-toc-modified-id="Julia-10.3.4"><span class="toc-item-num">10.3.4&nbsp;&nbsp;</span>Julia</a></span></li><li><span><a href="#Mathematica" data-toc-modified-id="Mathematica-10.3.5"><span class="toc-item-num">10.3.5&nbsp;&nbsp;</span>Mathematica</a></span></li><li><span><a href="#Matlab" data-toc-modified-id="Matlab-10.3.6"><span class="toc-item-num">10.3.6&nbsp;&nbsp;</span>Matlab</a></span></li></ul></li></ul></li></ul></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>See the journal publication entitled <a href="http://dx.doi.org/10.1016/j.commatsci.2016.09.022">"Benchmark problems for numerical implementations of phase field models"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
 
 </div>
@@ -270,7 +258,8 @@ S(x,y,t) = \frac{\text{sech}^2 \left[ \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \rig
 <p>$$\begin{equation}
 \frac{\partial \alpha(x,t)}{\partial t} = A_1 \sin\left(B_1 x\right) + A_2 C_2 \cos \left(B_2  x + C_2 t \right)
 \end{equation}$$</p>
-<h4 id="N.B.:-Don't-transcribe-these-equations.-Please-download-the-appropriate-files-from-the-Appendix."><em>N.B.</em>: Don't transcribe these equations. Please download the appropriate files from the <a href="#Appendix">Appendix</a>.<a class="anchor-link" href="#N.B.:-Don't-transcribe-these-equations.-Please-download-the-appropriate-files-from-the-Appendix.">&#182;</a></h4>
+<p><strong> <em>N.B.</em>: Don't transcribe these equations. Please download the appropriate files from the <a href="#Appendix">Appendix</a> </strong>.</p>
+
 </div>
 </div>
 </div>
@@ -385,6 +374,33 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Part-(c)">Part (c)<a class="anchor-link" href="#Part-(c)">&#182;</a></h2><p>This final part is designed to stress time integrators even further by increasing the rate of change of $\alpha(x,t)$. Increase $C_2$ to $0.5$. Keep $\kappa= 1.5625\times10^{-6}$ from (b).</p>
 <p>Repeat the process from (b), uploading the wall time, number of computing cores, processor speed, normalized computing cost, maximum memory usage, and $L_2$ error at $t=8$ to the PFHub website.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h1><h2 id="Part-(a)-Guidelines">Part (a) Guidelines<a class="anchor-link" href="#Part-(a)-Guidelines">&#182;</a></h2><p>Two data items are required in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>spatial</code> and <code>temporal</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the x-axis (either $\Delta t$ or $\Delta x$) and the y-axis ($e_{L2}$) should be labeled correctly for each CSV file. The CSV file for the spatial data should have the form</p>
+
+<pre><code>mesh_size,L2_error
+0.002604167,2.55E-06
+0.00390625,6.26E-06
+...</code></pre>
+<p>and the CSV file for the temporal data should have the form</p>
+
+<pre><code>time_step,L2_error
+5.00E-04,5.80162E-06
+4.00E-04,4.69709E-06
+...</code></pre>
+<h2 id="Parts-(b)-and-(c)-Guidelines">Parts (b) and (c) Guidelines<a class="anchor-link" href="#Parts-(b)-and-(c)-Guidelines">&#182;</a></h2><p>Two data items are required in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>cost</code> and <code>time</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the x-axis ($e_{L2}$) and the y-axis (either $F_{\text{cost}}$ or $t_{\text{wall}}$) should be labeled correctly for each CSV file. The CSV file for the cost data should have the form</p>
+
+<pre><code>cores,wall_time,memory,error,cost
+1,1.35,25800,0.024275131,1.755
+1,4.57,39400,0.010521502,5.941
+...</code></pre>
+<p>Only one CSV file is required with the same link in both data sections.</p>
 
 </div>
 </div>
