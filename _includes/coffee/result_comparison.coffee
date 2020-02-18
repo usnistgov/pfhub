@@ -223,10 +223,10 @@ reorder = curry(
 
     ###
     calc_theta = sequence(
-      (x) -> {x:x[0] - center[0], y:x[1] - center[1]},
-      (x) -> {x:x.x, y:x.y, r:Math.sqrt(x.x ** 2 + x.y ** 2)}
-      (x) -> {y:x.y, theta:Math.acos(x.x / x.r)}
-      (x) -> x.theta + (x.y < 0.0) * (Math.PI - x.theta) * 2.0
+      (data) -> {x:data[0] - center[0], y:data[1] - center[1]},
+      (data) -> {x:data.x, y:data.y, r:Math.sqrt(data.x ** 2 + data.y ** 2)}
+      (data) -> {y:data.y, theta:Math.acos(data.x / data.r)}
+      (data) -> data.theta + (data.y < 0.0) * (Math.PI - data.theta) * 2.0
     )
 
     sort_by_theta = sequence(
