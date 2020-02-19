@@ -1,0 +1,105 @@
+_id: 3fc17f80-5356-11ea-9410-7b4d7d8cc494
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: ''
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '266576'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2000000'
+  - name: free_energy
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!fMehw6ZyngYqkRi0U1vSMlrfI4EbDHaVBLdFHUJSPWCFuDJgMa-LJsFCFUaRGPcGhaLvluDQbjV4qmWvg2d53ccryqEDitVIuV_sRGu9wZdbOgaCLt1xnvZ1gj0k303yrZwPX_ODuTSnios8n_-GuCuRJGAgrdXYDhhW90jxuaZ43M-1ly5PdISHaHAcy4DNathl75U19PtVosl9NYQhf3PcCbbGHbNUvNceqGMcuE6Z5ZkZFnA_xW11inoNd_US7suvZlDwwL_80VJBFf_3nMqaZmyHYdcCUnXBvlHKJThLZPiy9oWGZmBCPxMSz9MzFNeELwbfATe6mPwjIKLIOXWVLF3eAnmsbXeRiKFVx2YOLuktEhNlSETlPBQaoowtxUUkhLcOGhMfpP4i7TWuV92DHCn0ZexOSPlp4a1nptbH6yGs7CqKfvpieQawaiIoQMn_kdYYLSYgIdUm_HOVCijhWBlKHMSrA-ZzB5Laxtf-2RNHnENE86Lw8DiXrYEkGHY0BkpCMpiixC-LS7Q4kUhTpyWCSfV4y89rWhMt0XeCJ4tVTZ0PCkFjUMPZpXJz_J_Sn-3xGMZ_3Fz--b8WEOLV5A64LQKWdFVdLegmPgX1st5Jf-xbxP9-d-3t6LOLcnj6EfNMl5EuSqZS3xCwF7DWvNBad8MnrK54hfKsvLxy9PYNrpbeWvSd5MYW-qqkl9j7YT-WaKghrxt02wa044tATViElGHnVAIjC0yy4ijrrwR96pJucSkhBnsTQEEFni-F_2GTjaJjc_AMlhyPNlA_qYs526_Q3eC8qWOpTLiK_8ADzCdtCM7JzF71DqTYH-LWx_R8vFDZMxFrhK0-CwmcdMy6SJyBNjMkBw_NVk1JUxYfMuuE3l9-kKfCN6VGE9_Wjtylp1TQvXzQFmvCanKwaYxYV2sA-gs0GzsuRePpYxY6KhmWdsJDWMXmtWUE2GTqlElsycKPxwxO36LDahDRZQCKfveFAywhtjU_jmwrN3eVDyM9oS-skKUgXwMhEsTZVXbS2k1YJQs-XrxT3aR9Hvael4U5nyZaDdc7udxvAE_MqbxEPKNhP02UtfXUlA1mFXYUKVrUrBDckTgCNuzrUSyKDdNnEmUcAtxdLRp-LBMKDF5yEdxvaDaflwnWB96tMdn_3MyYXn7lBQiwLkVRbcf4tGv3iSnAlaziJWGe0LLknGO5hqVpLc1XGuhbNDo0gi8qMZ3j7QvHI7fjX8A5RkJR9ilMOd0eKpOHu-S-QdEl545XR9_8fEmRGNMIUJ1019R7tHjSqyZZCw../download
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/d0dcd61541604127a16c017891dcda1577c92997/contour.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1582144049
