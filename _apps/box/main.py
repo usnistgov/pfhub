@@ -90,6 +90,10 @@ def get_json(filename: str) -> str:
 def upload_to_box(upload_file: UploadFile, folder_name: str) -> dict:
     """Upload a file to box
 
+    Uploads are to a subfolder of the pfhub app called
+    "pfhub_uploads", which is shared with "daniel.wheeler@nist.gov",
+    see share.py for a script to do that.
+
     Args:
       upload_file: an UploadFile object
       folder_name: the folder to dump the file to
@@ -103,10 +107,12 @@ def upload_to_box(upload_file: UploadFile, folder_name: str) -> dict:
         juxt(get("boxAppSettings"), identity, get_in(["boxAppSettings", "appAuth"])),
         lambda x: get_auth(*x),
         Client,
-        lambda x: x.folder(folder_id="0"),
+        lambda x: x.folder(folder_id="104320745165"),
         lambda x: x.create_subfolder(folder_name),
         lambda x: x.upload_stream(upload_file.file, upload_file.filename),
-        lambda x: dict(file_id=x.id, download_link=x.get_download_url()),
+        lambda x: dict(
+            file_id=x.id, download_link=x.get_download_url(), folder_name=folder_name
+        ),
     )
 
 

@@ -51,7 +51,9 @@ class MockStream(Mock):
     def get_data(self):
         """Confirm the test data
         """
-        return dict(file_id=self.id, download_link=self.get_download_url())
+        return dict(
+            file_id=self.id, download_link=self.get_download_url(), folder_name="test"
+        )
 
 
 class MockFolder(Mock):
@@ -133,8 +135,8 @@ def test_upload_endpoint(*_):
             write_json(data=dict(a=1)),
             lambda x: dict(fileb=open(x, "rb")),
             lambda x: client.post(f"/upload/", files=x),
-            lambda x: x.json(),
-            equals(MockStream().get_data()),
+            lambda x: x.json()["download_link"],
+            equals(MockStream().get_data()["download_link"]),
         )
 
 
