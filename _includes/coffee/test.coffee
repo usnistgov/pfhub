@@ -553,6 +553,7 @@ describe('test reorder', ->
   it('simple', ->
     assert.deepEqual(
       reorder(
+        [0, 0]
         'data'
         'x'
         'y'

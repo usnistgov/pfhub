@@ -160,7 +160,7 @@
       y_domain: [0, 500]
       y_scaleanchor: x
       mode: lines
-      func: get_values
+      func: reorder_offset
 
     - name: efficiency
       type: scatter

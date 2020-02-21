@@ -207,14 +207,15 @@ func_xy = (func) ->
 
 
 reorder = curry(
-  (name, datum_x, datum_y, values) ->
+  (center, name, datum_x, datum_y, values) ->
     ### Reorder a set of of data points based on the polar angle.
 
     Args:
+      center: offset the center value for defining the angle
       name: the name to match with the name field in the list of data
         items (e.g 'free_energy')
-      datum_x: the subfied of x data to extract (e.g. 'x')
-      datum_y: the subfied of y data to extract (e.g. 'y')
+      datum_x: the subfield of x data to extract (e.g. 'x')
+      datum_y: the subfield of y data to extract (e.g. 'y')
       values: all the data values
 
     Returns:
@@ -222,16 +223,21 @@ reorder = curry(
 
     ###
     calc_theta = sequence(
-      (x) -> {x:x[0], y:x[1], r:Math.sqrt(x[0] ** 2 + x[1] ** 2)}
-      (x) -> {y:x.y, theta:Math.acos(x.x / x.r)}
-      (x) -> x.theta + (x.y < 0.0) * (Math.PI - x.theta) * 2.0
+      (data) -> {x:data[0] - center[0], y:data[1] - center[1]},
+      (data) -> {x:data.x, y:data.y, r:Math.sqrt(data.x ** 2 + data.y ** 2)}
+      (data) -> {y:data.y, theta:Math.acos(data.x / data.r)}
+      (data) -> data.theta + (data.y < 0.0) * (Math.PI - data.theta) * 2.0
+    )
+
+    sort_by_theta = sequence(
+      (x) -> zip(x[0], x[1])
+      sortBy(calc_theta)
+      unzip
     )
 
     sequence(
       func_xy(get_values)(name, datum_x, datum_y)
-      (x) -> zip(x[0], x[1])
-      sortBy(calc_theta)
-      unzip
+      if values.length > 0 then sort_by_theta else id
     )(values)
 )
 
@@ -275,7 +281,8 @@ vega_to_plotly = (chart_item, sim_name) ->
     get_values:func_xy(get_values)
     efficiency:func_xy(efficiency)
     normed:func_xy(normed)
-    reorder:reorder
+    reorder:reorder([0, 0])
+    reorder_offset:reorder([-10000, -10000])
   }
 
   func_select = ->
