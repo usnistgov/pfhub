@@ -1,0 +1,105 @@
+_id: dd804500-5cd2-11ea-88dd-195b37adf773
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: '2 February, 2018'
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '266576'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2000000'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!xoxU8m2HLd4bhrPOsiiixAPh0USj5EufvbET6KqumQalC8QNc_EkdILufdFGyVlZgXEcTk73Qr3i2R0vNsqzW4eKywUGrm-UMhFad4fQIU4lXCVRfJSpJb_Ez6BQeQ-ACec0T2WL3E9yW8BKcp7jpuNj41jjbrQO8bu1Uie5nMXcDvbf4JoRmG8kjBduNDt6uMTQ2u7ta4SzzIBhmDv06Wll-RTIRPAPjv9iXrlkNqRhjavA5PGhnHIW2vvfG0lZxrFDd4mROGs0VIFu9eh6ua-yVc6jNg3qEghe_SfmdVX24oiwhHrpJu6p2zMfj0m5_S5DOkbdMXtzJCwQk0C9y-J8Q8CdfRBrbkSP8GGZeMnuPll9tZkjnlod0Qiuk4jqR-tHFOQRyH3ng4qcqyY0WNtNFdgQ9FhOybkiFKhERxNlvmy_52M-ARSdw9Luk-4_hwBIZaQqxBTPsu4SEtgbH1Mg7hFTfeUEPDTpx37_gXYhT2K5KetqheFUimoPpd5syD5XcAQRy0X5rZs5DgqEyJps7B6QtLR0VyyluLFBDhB-ZDHtC-9GsukVztV3Jo76YKD2Qf6UHPpXcAkPbKo8YpUqB7XcqjKbW2CNCec0RuFIM427GmX9M065LjGPBHMmfrv6FLBc-Usd2weyRl6bXtUl9ZC0FCMX6SeGvmpQI_HIMERN8bYV1h4GoIWcr9v_q4DyhzpOVQZPY3GPIHw46sEZEQs2wcldtzruhAVXU2d3k3oKCH1HTAyNJl3GjSj8Lckkgz3fszp5kBpGMWodV7FOY5pe3WIeNkmHxW9SoV1jHayOadwkOSUNfmkYp19P9tVCI9qQPpOZxG-Q4c1RDhltjIrh8hVsI5WjPNbC015C3OVAtoMPHdmghIik6prMWBtLhzLZDrOFXssfl7vk65ZyNegjPP4NvMEE9KNTvMFsDyDD302gSI2AOhs6y0RFiQJH_0fvL_PV8Oxu-koNEUq07fb3wefjh7JDlLG4xtgeYSttnNuG1w9orC0wX6ildKQcjDl5Yb4Wqdh6CqBqwLhaFA2WFJJElSA-oDTIkEVacJ_1FXSrIKQ96HAQ6M3i9wHLxbQxzLX5XWvZD_owMyqxu0fc2hMEd3XAqtqwCy0-dhM1RqXrq0TWuRddm5k_yllNUGyZr7a82OT7__EYwGLMDlPG3j8gFAFfunmKvX0q7NOoi9zlcf9u8U-XVJJMJcMGeFVFV4lKd4scN2PFON80C3TLoI8alAR-D6aVlFL6ATYG7C-NBmyhfOgril5iVZvkX8r709Ld8-o_1acHqHVz17MhvxRM-MrvFT2Uv6yl-UwEeT-V9PZnXE5xRTsv1RX9xg../download
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1583187131
