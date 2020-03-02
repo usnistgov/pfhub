@@ -55,9 +55,9 @@
           id="data-upload-{{ counter }}"
           oninput="swap([['#data-link-div-{{ counter }}', '#data-upload-div-{{ counter }}', 'hidden'], ['#data-upload-input-{{ counter }}', '#data-link-input-{{ counter }}', 'required']])" />
         <label for="data-upload-{{ counter }}">Upload</label>
-
       </p>
     </div>
+
 
     <div class="input-field col s12 m5 l5 xl5" id="data-link-div-{{ counter }}">
       <a class="tooltipped prefix"
@@ -74,6 +74,10 @@
       <label for="data-link-input-{{ counter }}">
         Data File URL
       </label>
+      <input id="box-uid-data-{{ counter }}"
+             name="fields[data][{{ counter}}][boxuid]"
+             type="hidden"
+             value="null">
     </div>
 
 
@@ -83,7 +87,7 @@
         <input
           name="data-upload-input-file"
           id='data-upload-input-file-{{ counter }}'
-          onchange="send_to_box('#data-link-input-{{ counter }}', this)"
+          onchange="send_to_box('#data-link-input-{{ counter }}', this, '#box-uid-data-{{ counter }}')"
           type="file">
       </div>
       <div class="file-path-wrapper">

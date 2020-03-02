@@ -198,7 +198,7 @@ make_form_data = (name, file) ->
   x
 
 
-@send_to_box = (tag, thiss) ->
+@send_to_box = (tag, thiss, boxtag) ->
   ### Send file from input element to box and then add link to
   Staticman input value
 
@@ -206,7 +206,10 @@ make_form_data = (name, file) ->
     tag: the tag with the input element with the named value to upload
       to Staticman
     thiss: the file input element
+    boxtag: the tag to the box UID input element
   ###
+  $('#upload-form-submit').prop('disabled', true)
+
   fetch(
     '{{ site.links.box_app }}' + '/upload/'
     {
@@ -220,9 +223,12 @@ make_form_data = (name, file) ->
   ).then(
     (data) ->
       $(tag).val(data['download_link'])
+      $(boxtag).val(data['folder_name'])
+      $('#upload-form-submit').prop('disabled', false)
   ).catch(
     (error) ->
       console.log(error)
+      $('#upload-form-submit').prop('disabled', false)
   )
 
 
