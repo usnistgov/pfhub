@@ -1,0 +1,105 @@
+_id: 545f7870-5ccf-11ea-88dd-195b37adf773
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: '2 February, 2018'
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '266576'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2000000'
+  - name: free_energy
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!OIudu2_URjR0YB5RvtjP7ljRncYLlXmEdbJUQWAfYrPFcISvzZavtEM9qSOiaBTQBEk4lMajS8vpbgn96oI4pYK1h9WwntZx3IDaLDtCjLj6_rNj_xl_mXBkOmFnfJOlaC2_YvQt_xzY8XevUAx1d6uqgPzsgjVNhvqhzXb970g3wUBZjxg7EFHpWqC_jrQxzg6kdbMlj0n2gbT34dSxpAwkKdf19_LlLKbnSbLhkjCIcFixAFlN0jIhYj8hJcaAwHv7K_KoUtRZpVS-uBzDrCqyAnzdz23krUmZa9BIDqGGlhcnrCT2ZE2qvU9tg62S5wypa45jtSYXkJ9lWUmWRHCSRSg5Dpwfq0yy1EJmfD-9at0MJC9OJ0EXuJTj-24DNEoxZilR6IJd7zUDjHjETI-zQc1xPxhvHOcMcSA_K7yQoo-YGoHuWJyPray7eBMjkJn72O5tBaVshm_Kkv7ejz79QnzFWbcUzHZtecXCts7zksyvR69O0a9clf3G-gbQ4sh_ocQYkW4G_xhgwqj9MlIjy-5ST78ebN4UuHnzjLiCYxHbxl2IY4HVbHXOLQYxYBt_xJQmAU_Sb3ZrJzfaHN3OvU4UzoF69lS0oztz0Uw6yNgfOzMNBOZdyXZ70KyuUwnisWs4ukiNOVMY6bvrx2snQyVnra-qrTK6v5saxecXtUrhB5jb2h7voFNbdOCbPHMi6lt3e-grDzvxhvt4nAOS_xTDBVwhnOjOKVRx7Ilbb-H6I8nH5Xp6xS2PwxlSp40LiTGbqCedGQJY5wiKCiT52Sa25bz5PnOjokib-4DBT3IOpFqtd3su-maqWGtIdgSKofz5KK7-E4p3yPmSNzWVJRIL3GvC9x_k-8dKHLpIZi1ePF8Q6o8eRDmBLcMzvJ9KvADBju4ca61ZWN8k1FmcdmNeH32pPAVyH-mCKpqbiYFutfcl9r9a4ho54PpCKS09T10WYmnlpsE4sTggI0xnyL3plEiYfYYTSp0Lni5Xdo_0bMtAtDSMwPRTwkXSnsTbc0uEBEnzstzEhT4K462N7aIsUU2eUyMgdIRll2Co2JzX50O9Hygvo0gK2OnpdgWNAtT9Sddkau0nmclyMlWYD99crlIkCmxvVxZ8oAmp39gc-loucdoIXGJwM1-c6Yv-V8FobF5ev6pFdfYzR2GyOTDhs2w5jgTrIF8yfm8VuqEMsbEz8Nqfmv6h41AY2mJEYrfqJnKzkYjBs0TqnNkQWxM--rR-ThFYC0_OSEMo_93yh-0SY8pmhEUNT_gcdFCeOhYobSeRvF1Fu5XpqcN-9wLMlX9l2DbL6SzkZ22CILd9oXvPvIadWH6p1mlrJZwe/download
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/d0dcd61541604127a16c017891dcda1577c92997/contour.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1583185613
