@@ -1,0 +1,105 @@
+_id: b6c3f530-5cd0-11ea-88dd-195b37adf773
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: '2 February, 2018'
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '266576'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2000000'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!aqhO99rPAZG5vvsHDoA8MYrSIxOJsax8dFriGICxOkSAqAgEaO23YV6h8mlFQeTKMbUXvT9kiPecyIOfBrNVf4sTHu1kUKkyur7qCD8lO0dx-jXuhIOQpl1sxzZm2enzL6EBEoeUb_YeEUj1LXbHRUWoZg6_Rm0nVQ-F-LBkL-k2Q01ryiOIgx_suZ6N13kVwa4yt54_BU-2aCX7xvWEiOYk2pxPvZxisUtHsSA75k9DrQxD8JDlFBpJu6lexeW7mWuuhozZZCLcd3XJ7QetrM3HaqgjEgfnKUf1Ik7OlGyT8f77xk-e3keHlUnWok7jKh6knzSfFoOX5tIsKbTaT9n44Hq2pHfHzB8ONi9X9IpOjq3x6-RigvQT8PGTTtF3R8mYNaKRh5BYOZ2CdNVmiYpDcEUtjtHyAqGDALMm7MonHyXgV-9xD7mGqh1a29_0Yi-5sLruJ1PWR24JhoT0IMx-QwDPiuL5R2TdW9xbi2hvDGwu3ZaozaaQhG3itkyjujRb4O7I8F1eVERvYe6YW_IGTLUq-cqIR6b_-YrApOTl3XHwpMOTBN94nhj55srkebffdtPrxlqt2eY7p2qgH5HO1rI1-xkpGK1XoDW329kwfc1rhZT2lxeRmrduRjaPaOeHAzyeqnokqI1lV8eQitdKR6VcOkZUIl5JmZ7BprnuM5FvthoOhXOs2W79dN94DBH-Tg-Xex4-Q63K_ma8HBxxXtQjgXFnN5PR6F57nf8ws-04wsXepzcAjMVvS1iocmfhpyb6U9WLvavjROt3bgqUG2oBVjPR_JyXpe9Kz1AvptaonF8M6PLCGVs9ugRDv5Q5Ibkq40AQN6kCHwNkisiYbIhsCdFQAGKAqaRSjYyDVVT2NPowHpeWNg0wC1zHNImhjLKiuMAb8nVXD5oUCM21IATfZjjdVY2ueleLDLLZlIlte00PpKTMvB4h-G1tLgpiV0wLjAPaDxLmo8otWcrAgObA7K-AmeQWpxraPo6qdt853-X7LaTJWSpS8sICs4Z3IdGQBkvCBp4uqKkYL7FfQ5hOeMRNdST7wcHJACdjTjAnB3csP8M8wdftjtTlReZwrvuuP7egE0wBPbZI-D8cgcs0ainQJM4s-f8Kmx1E0RBi1RiYOBtK7OFPcPXgF0xvT9rpXJRoHRuV_A2_v0iW1ZiAXFakBwGwkHerADRTShGKaR198tD25JSzJwoMLPL90lZcHzUUcm-2RiqFwMwqjJcYkzSkxm-80Lp-nN1w7wv90ByJU973XnFjha-XPYLzLY9-SpdtUUlMD96pi0o7RR99NUlVW7Y./download
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1583186207
