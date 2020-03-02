@@ -1,0 +1,105 @@
+_id: ee0e50d0-5cd0-11ea-88dd-195b37adf773
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: '2 February, 2018'
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '266576'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2000000'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!o0YKwsxhzlrXtXoGEZzJO9SiSUYbetN84Hb2G0FZbxMFdtRHfqewhhEtsr0EvWWgSfoqhWk0Rlj62lv1Un5ph2gjxbgBEl52M5OJfIVlexFeeQENsMnZJwI3GpWOPMLxATk0KFHq5xlWGKuS3AWDHRGbC-x84AAD9qJ7F8r3SAF3vo26lNkPEGm3iaJmQsFJRDZ5oSNcGOM24iK5P7jsgPOQWNkqmrtNeEWa0UUg70EcN5TcsYckMQHlbRmEEGWnflTZeSgPJXOkb2YUbcaGIpqrt-PU55NOjfNuHhipMwks6epBESDUl9ZvXa5UnE3-pPHUtOIZ-v2kLkHrKDEmGm8nZ-im5zT7asMi_eEJbt9Y4O87iViwuH_NZj9Ohfv7w9wEO7A_VV81JL0NoGxl9PJyMAPXRxj2LoZyRZr_OfGkxbqdO2pdcom3uZ8DTscFzqVs24IQ91mNQ6amL8LsH8RuhN0locOkXGLKtcqBpyonlzsLXqi1WebdBnsEK7ZmofVOqt8mHtp51iVmuJbbfjHrMjQGr5fLtPA3VWQrP-Y5I4H8AvmrgOwqnbGiaACEuhAxzBe7-eTafhWbR2q4HY9Pf_o-IduGBaTLwd6p9247xr-wF5HPVcZZS4Pav79IHNxy3mMW3E6q9hncZU9tE42ZPXVRTk-q3i89M7BpV4m2iFneFRYJCDrPbMqFjQAm6SU7e9VWSZexHEZ9p_ZBl_tMk7zEj0BebtDtTkueidd16CgaTe4EucmQK-a0gKuX5taQw-pOVNTrevcOkT3p1XCzqrI0-4FA06DxQWeo_mYq5rL6_WVQ2DIF04RHnICgvN47N7v-JCzombgnudAy7QB9QNgAZmPhV76yH2F7_tAdG0FiBc0Cg_ROuBmpGJI5H7T6CUDyrUksuoEYJs-rRb338Sgob-oQzQaGx7DMrch3HbS_JMRDWeSexwqTyjG6bkEiwsEW9GfaUfe19QuFe9vYtYyVvwFdDwV6CvOx1oGU0E6TSTC2zV6x_WwjSFnsTXetplltltmyKh3Dfg3dKmjPzuhUOG6K8bWIYDSz7Il0UMZu8y6E6cZQWAUanps2XNE-lo4mstgf5t_P4iBCqjav9hD8-9QWHeo2qps8oB5xwWNWWm9wYSzwktFt7sMi4MS2debwf7BlJvRy87mlXHojvi55o63R6Q9zfaUxoGGPRrGxzFIYvcnNwehIBIcNU4DngOcgOetQxUOKUysFTkLmkubnovdmZCnoUNX5V3UFFNUFhTl-uHwPWpSoQ82U-xVPaJksO_T5Uhy3_H3RojetW-07lLKe8-8O2Qzm9k_skoqoNzY79A3LiR1gUaC918rZ/download
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1583186300
