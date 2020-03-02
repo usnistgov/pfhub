@@ -19,6 +19,7 @@ data:
     type: formula
   type: line
   url: https://gist.githubusercontent.com/tkphd/8659310fb61efba6c97df42e12382924/raw/98fcbed6c526092ec561dc11904c3754ccbfd880/mmsp_1a_wrksttn.csv
+  boxuid: "00000000-0000-4000-a000-000000000000"
 - name: run_time
   values:
   - sim_time: 53333.3
