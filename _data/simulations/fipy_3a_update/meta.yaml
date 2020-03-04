@@ -1,0 +1,109 @@
+_id: e19c11e0-5e5e-11ea-847d-73f10a1258c0
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: '2 February, 2018'
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '266576'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2000000'
+  - name: free_energy
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!7sX2EoC_B3Etz1L0caLQfR8lehET7JuE056D4RnV2T9E1O380Ar8fvqb4qOUFlnLPbAqSE4PPGMLGVtp41Z7bCkAy6QNoWaQ5l64VNQg5qLmbybDqpmmqg0diDKSkz6mdcGkVzGLt-Tgpv-9Tc0pLOBXb6mtg99N-P6PVEWMJUa5ysdnd9K8HoxmqomvK2HpcvYWksbIfjde1dto_dzx_vZLns4jB391HG2GVZsCwl5RpH2Eb55TGTIOvKtFMYGFNt8y0BQ4Ei62RkV_OPRLyAPl4eU9dfD95Aa1z9dv94naYga30VLQZd0zc-FGm0h6jwQd9xqd7mUdfJiNwT2aBa9kUYw7cRDbdGjbBjHxFPpdgzeg87HcdbK007TSoSoCwqkBbmYl5sT8CtPmk4RfLUd2fBRCHDRht701aWSOXSeVqqZbhmfof--O-i5W91t6G3R56Hcrzl_Y_XXlu1OPRqrI4ZeKQoB3nZP53sfZsiGGpH1n_sr_AB7Txfq1nFCdwJRZ1tmWSWuhFeYeXhWVtn8zeyyNw0Q7_xYWslWK68OJl2qAE-CoLgHVXGhpumWlwIL4bI9SMs_vGYSK8hqIOR-83VLNE8xP7Ob7k0XRYuPovS3TyMgmvZkBJUFuQOcNo-jUYYsszLp9txEC7AY2iMhMarPJx7GZfhP_AH-SHNsuu180TlmzqfQj052lJtHyN85elHNRiLLidVhmp72zMGrwuMU0Z0r0ISfTUS3BJQAmSg6GyhWbgfsNUq18waCQCxBaIEvwSBe19oYPTtBEdJEF0xACltaVARTBf-yGSw4Z2sfs99PoKt3AtijC6VCS-PKKz7uKlSyBykPb1zqDp79ANYHsVRpLs5XjVtXVejgW5tQDhB6WfuzjdV5I3LM2Q1Q6Pi4qzRMsXG22xW1YEyW6Vux9SgrTYA5WzDNqyeRR-pIoNy3vDeLAi8U-csTtunFgFMOamRIUYhWJemdvfP6_oPR76vVNiBL8v0ToK-p_uhFecZVTmjUU0-GDMjpK38_cRWtfgnWhySXludDR1686L7MdBcSmIVYQ514pOXauiiLqzvqP3DR5h8PArR6krRkn0uQFgf5h6fX3-iftT8YKlKyOX1dc40sUMeSzAr7AMHw8km9D8DB3tl50EN708pcj4eQYMpdOPFB3KLERqL-R_orc0uR4AaQ995qOaAEWw_czbSz6B7Dq6pifRWWeaYwxGScrRAbIRsIUuDnQDvLgug_3fN_vs6rpiVsgmnfN6OYicTf9vyv1sr0PgS0XjbU6KG4_vhI7EA../download
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/d0dcd61541604127a16c017891dcda1577c92997/contour.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1583357219
