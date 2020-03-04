@@ -1,0 +1,115 @@
+_id: f516eb20-5e61-11ea-847d-73f10a1258c0
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: '2 February, 2018'
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '266576'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2000000'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/d0dcd61541604127a16c017891dcda1577c92997/contour.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+  - name: test
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!nkeHJsAk4j4YYPDq35YDeioj_RKxzWOFDexuKoqPUnqFP8NaUW-UDVO38ySOrhB5ZpnLfTX9jaD4pUzlqZIgkKmK6XUWV4cqxaOuYvywdz5txTFZTzasxrM_BRpA6zg_oq783XC525nx4d_HaE0uaYJ23di47X8vFpwTW3V7N3l-54Y_7vIR-tikCheLHKqgMAutcKUaNecZeI1Z_ePds3eihHkOaFuMWcA2xOz9A7bzlVSqE2iZ8qYrovftWoBkmkcfCg4o9j9_YxTsZAP5RpC03PRnXzPsvs3PnY6nX_7nfF5k8mFgnJaT5bI8fTKFbaq6arux_40ZQnYZkV-XIRGJdQcvJ7gaWkWDyNChl6_tKvNCIVOwoNNk4ahM4q6f3zupQLm-JvFpbUaqAPKFl0inNHEZwuCE4CYzwHwyFBm9KRQ11O1M_9tqConUz99vOju1eiGBvlN0uVjsPx0vhvIUloX1QtDWUocpBqY0XRXCJ3Kalzp-34QX37kgw2QSGSQ6_geHR4kiMWawVvrN3UXfOZyAhwBqy4fPVwjqO4ZNUA6hdiJ5VX5M2z_SG9isJMwdeusHKhqjxsZQ7ZMY6bP_qiXM1TeYEfdH7g9sZ6BZiS2MsaE_ss-yyEBe58kfhpzxkXB8Hj4e-Toqyy2j8oZjnuNhb5wzvEMYjLYVxT2pxQF5cHZy11T8b-XtZgotWZNOK8OB6PI0unuPwqVyxgoVo8tYojJIW50PDTrOexEQExhZlReBEOEVG7_tisietvlfneJLgkwAh8sEvVx4DEBRwDASbXyovuMzBdU_9elQPpE8c7nHcdTc_-07zCTLcm3uJIir2gdvXwrmCHq_lVtM87-tWBDNDInlN1k2Mt_SmnqLVXtmSFO8nF4m-3prn8tMSd9HMlX7P5G8BSCILJO0XPKgXUbCDlGCzzdnJS8Uu_dPANXwHwS5FCZekQ5Pkm6P1EkU1DDAnkmugqEOi2ysU8FSo-jQfF5IbqESaiqkvDFOIrOrGT8UKuK25X8doAlDu-C8HdYV4Zbi0Llyf_gGC2EoKmOvL5Ttd_lptbhPwZ5okhEf_khx98syBl23XCoguht7Pu4XoJNiBBEq80UA4UJH5r_oIAMSvik71DYYNvdrYDPgpnL-Ej9X2-RjNh7WgCWpMAb4DPqaCPty3G7qBaTh3L7P2Q12vcH-xFomdSq32sfLQOz6j06JB2Hljc3wqTXfS4lpAF3IZgLGVPuKT-dh5lZzzlEI29Zh9Lyb7RNzFsNLMg-YUOSO4YmUURRgRyJP2qqv1424xFBrGhSZs2_GPGo./download
+    boxuid: 09e630ab-953a-497d-bba0-bdc7e6986d39
+    type: image
+    description: testing stuff
+date: 1583358540
