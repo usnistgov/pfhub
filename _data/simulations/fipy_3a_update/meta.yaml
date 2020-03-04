@@ -1,0 +1,109 @@
+_id: 6dcf07d0-5e5f-11ea-847d-73f10a1258c0
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: '2 February, 2018'
+  summary: >-
+    FiPy implementation of benchmark 3a on a 960x960 grid. The shape of the
+    dendrite doesn't look exactly like the version in the notebook.
+  implementation:
+    name: fipy
+    repo:
+      url: 'https://gist.github.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb'
+      version: fc9134b08a9c
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.2'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '266576'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2000000'
+  - name: free_energy
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!tOWILDUeQPUvZf5E7lqAnNbGNs45OpQc3vXkXQSvYx4ealzUyarosb9FdGqF7-r6e4syLCTReprT7dIezh9EwokFF7jWKDINIwVgfJmDR2esL0_AMZHYid9ygSnOFcAabjWirk7fwL01ok7cXhMGiC2djoP_RId4bjwkostzSn8h2kphRzLvwVfq7rTeCHVZumbccVqZI41gXPnFsMfzb4AitElK3Q-A5gDGGK7FOoDoaJjLRtno88eUHTI9gTxsKOClAxVdSYVJu5CEIg3qnyo3dtoOTcd5lewQNopuV9nSOCOT8OH0wEdQ-jJUlAu0rVemnofcwYIMn67XfIUrFoRuN_qsKvedgzTSd1NpQdmW2IJv6Rorc-qXs-7pS9UwcNB1T6J-3pC5vV6kGTI9BKyRuRzlP2DTjY9yq9ReLoFr8lRRjmkGw4pi4DCylICGvkxr_uhqIj4gpYs3gKqUHtxmgMsYgqWBGzr1q4gCWehZDU1yeijXZKQnX1T4p4SN3U06-N38U8M2euGMb4BgnnLiKs8XKdICm7OcqoxWI6pjUTydRdp-BJ-bAD-mwFNTaKxXCDMUZqaxSFJ6zvxr3VLyMlE__EVTSKaQ39KBF3GU9BXkZFJ7rvdqnytHQ9fiPBMrQ7X4CIsZJZ_EeK-muH5bwM_g2UbjdGJduXd6M9qQv-nozDQDUwYAdk_1kGOvZALJhkFjU8zMHnEZHuC8tFAzULvFU6zaJJVu3krT9lc1qv4iU2otdjwJpx3q-bmZsrQVxztnzzy6CJeupuNjYFbWObRHEbxThC2nVyYE60wicWgs5ngMDOVH7p-CkaC2YE4NdxYNlSTEhlQVUuZqJyv52QeFQ5qO6A4lZ9a4Xct5zdI6cbtPOgIX55ILtZDAxpt5-xZlbkrhxzj-QgbQuCQCaBJiQI919yLB2sXIECEOoqmHwtN72MF9T2GE_bFkDVaAS-g3X0FFE5WNDdqHJbCLuhY6NvvDM7pOMJmgDYJbkx-vGjzcHVaU0isVZbrkR2lsO6rqJnuZOkofL7u4wswIikr0M8UHHBoqrLpZgz64qMyp3c9H-eQvaFj93Wy4tJrWkNS6N948gHGFpA2oDzyMpAPZEGPkKABpli9s3Hocy6bSVyyYr9hl1DfuADMDn-O4gwHoZjcIjPv29D4pfGgEJAW4hMWN57zuUVKll5bRw8REIWNfNCOH-e4zuBl1hJl43CcmkhKgqnHSMqxdJ3nZtd-bhk4ygOwlLkaxYWK-zJOeEnzBHzTLc6S9TJg6G7_2xbj504m3AxA./download
+    boxuid: 01be98c4-e943-49e2-bfd5-96d3264a7479
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        solid_fraction: number
+    description: Solid fraction versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.solid_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/2b802a25593501b30cb0d8648a3b588dc54b36f7/time.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position versus time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://gist.githubusercontent.com/wd15/7e06a3141a6fbf317b1daf39ef1b0fbb/raw/d0dcd61541604127a16c017891dcda1577c92997/contour.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Zero contour at t=1500s
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+date: 1583357454
