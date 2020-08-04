@@ -1,0 +1,35 @@
+_id: e69289d0-d637-11ea-8067-d3af2d6ee16d
+metadata:
+  author:
+    first: Sherry Blank
+    last: Rae Lashbrook
+    email: dwainbaxley@web.de
+    github_id: Precious Scanlan
+  timestamp: '14'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Dwain
+    repo:
+      url: 'http://fullcrackserial.net/user/tempo58liquor/'
+      version: XV
+    container_url: 'http://fullcrackserial.net/user/tempo58liquor/'
+  hardware:
+    cpu_architecture: hppa
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: YP
+    cores: '1'
+    nodes: AD
+benchmark:
+  id: 8d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: SY
+        sim_time: IS
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: CH
+date: 1596534617
