@@ -1,0 +1,35 @@
+_id: 207e22e0-f987-11ea-af57-e5bc7e6d9f78
+metadata:
+  author:
+    first: Leilani Mansell
+    last: Joseph Daddario
+    email: milesgrano@gmail.com
+    github_id: Claude Mccollum
+  timestamp: '18'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Miles
+    repo:
+      url: 'https://prflare.com'
+      version: LT
+    container_url: 'https://prflare.com'
+  hardware:
+    cpu_architecture: armeb
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: JO
+    cores: '1'
+    nodes: JP
+benchmark:
+  id: 8c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: OE
+        sim_time: EP
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: NZ
+date: 1600416935
