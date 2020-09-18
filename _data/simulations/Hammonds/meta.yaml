@@ -1,0 +1,35 @@
+_id: 74d6f5c0-f986-11ea-af57-e5bc7e6d9f78
+metadata:
+  author:
+    first: Laura Hoover
+    last: Palma Rinaldi
+    email: curthammonds@yahoo.com
+    github_id: Denise Macnaghten
+  timestamp: '13'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Curt
+    repo:
+      url: 'https://prflare.com'
+      version: MI
+    container_url: 'https://prflare.com'
+  hardware:
+    cpu_architecture: m68k
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: MH
+    cores: '1'
+    nodes: II
+benchmark:
+  id: 5b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: WK
+        sim_time: GO
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: EY
+date: 1600416647
