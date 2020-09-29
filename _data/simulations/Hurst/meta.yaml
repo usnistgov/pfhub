@@ -1,0 +1,35 @@
+_id: 4397f610-0225-11eb-9dd5-97f24b98a9de
+metadata:
+  author:
+    first: Sebastian Kieran
+    last: Freddie Izzo
+    email: sterlinghurst@yahoo.com
+    github_id: Irma Connelly
+  timestamp: '17'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Sterling
+    repo:
+      url: 'https://prflare.com'
+      version: EE
+    container_url: 'https://prflare.com'
+  hardware:
+    cpu_architecture: sh3eb
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: GX
+    cores: '1'
+    nodes: SL
+benchmark:
+  id: 4d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: OF
+        sim_time: DA
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: YO
+date: 1601364463
