@@ -1,0 +1,35 @@
+_id: 8ed2a2f0-1ecd-11eb-9c3f-af41cf1f05e9
+metadata:
+  author:
+    first: Joann Vines
+    last: Andy Hirst
+    email: jeanettroyal@gmail.com
+    github_id: Tara Sessums
+  timestamp: '24'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Jeanett
+    repo:
+      url: 'https://intimeua.com/'
+      version: LJ
+    container_url: 'https://intimeua.com/'
+  hardware:
+    cpu_architecture: mips
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: QW
+    cores: '1'
+    nodes: YY
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: VW
+        sim_time: PK
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: DN
+date: 1604515378
