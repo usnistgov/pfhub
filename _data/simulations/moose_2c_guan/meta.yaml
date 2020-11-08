@@ -1,0 +1,55 @@
+_id: 1fc4ff30-220f-11eb-9672-37d5862aea56
+metadata:
+  author:
+    first: Xiaoyu
+    last: Guan
+    email: guanxiaoyuyu@gmail.com
+    github_id: xiaoyuguan
+  timestamp: '8 November, 2020'
+  summary: >-
+    Input file and simulation result of Ostwald ripening simulation in tee mesh
+    (PFHub Benchmark problem 2c). The simulation is run by MOOSE framework.
+  implementation:
+    name: moose
+    repo:
+      url: 'https://github.com/xiaoyuguan/moose'
+      version: 20dd1541e38444f68bc9ce7296d50b78001133d1
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.9'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 2c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '21600'
+        sim_time: '447054.19741501'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '4575266.7'
+  - name: moose_2c_guan_csv
+    url: >-
+      https://raw.githubusercontent.com/xiaoyuguan/ostwald_teemesh/main/peacock_run_exe_tmp_ostwald_teemesh_Guan_out.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: total energy in the tee mesh during time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
+date: 1604873391
