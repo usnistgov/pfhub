@@ -1,0 +1,55 @@
+_id: a76ea700-2210-11eb-9672-37d5862aea56
+metadata:
+  author:
+    first: Xiaoyu
+    last: Guan
+    email: guanxiaoyuyu@gmail.com
+    github_id: xiaoyuguan
+  timestamp: '15 October, 2020'
+  summary: >-
+    Input file and simulation result of Spinodal decomposition simulation (PFHub
+    Benchmark problem 1a). The simulation is run by MOOSE framework.
+  implementation:
+    name: moose
+    repo:
+      url: 'https://github.com/xiaoyuguan/moose'
+      version: 20dd1541e38444f68bc9ce7296d50b78001133d1
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3.9'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '5190'
+        sim_time: '1e+06'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '648601.6'
+  - name: moose_1d_guan_csv
+    url: >-
+      https://raw.githubusercontent.com/xiaoyuguan/Spinodal/main/peacock_run_exe_tmp_ch_spheremesh_Guan_out.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: total energy during time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
+date: 1604874048
