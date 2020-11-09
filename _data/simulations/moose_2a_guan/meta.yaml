@@ -11,9 +11,9 @@ metadata:
     mesh w periodic boundaries condition (PFHub Benchmark problem 2a). The
     simulation run by MOOSE framework.
   implementation:
-    name: ostwald_sqrpbc.i
+    name: moose
     repo:
-      url: 'git:xiaoyuguan/ostwald_sqrpbc'
+      url: https://github.com/xiaoyuguan/ostwald_sqrpbc
       version: 96c90d6eab504a28cef326e32b3c0c2a52a47120
     container_url: ''
   hardware:
@@ -30,15 +30,14 @@ data:
   - name: run_time
     values:
       - wall_time: '31860'
-        sim_time: '1.000000e+06'
+        sim_time: 1000000
   - name: memory_usage
     values:
       - unit: KB
         value: '3664185.48'
-  - name: moose_2a_guan_csv
+  - name: free_energy
     url: >-
       https://raw.githubusercontent.com/xiaoyuguan/ostwald_sqrpbc/main/peacock_run_exe_tmp_ostwald_sqrpbc_Guan_out.csv
-    boxuid: 'null'
     format:
       type: csv
       parse:
