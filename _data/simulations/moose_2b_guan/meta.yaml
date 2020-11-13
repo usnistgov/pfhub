@@ -1,0 +1,55 @@
+_id: 4fb87b50-21f0-11eb-bfc9-bf7aa9f90ae9
+metadata:
+  author:
+    first: Xiaoyu
+    last: Guan
+    email: guanxiaoyuyu@gmail.com
+    github_id: xiaoyuguan
+  timestamp: '31 October, 2020'
+  summary: >-
+    Input file and simulation result of Ostwald ripening simulation in square
+    mesh w non-periodic boundaries condition (PFHub Benchmark problem 2a). The
+    simulation is run by MOOSE framework.
+  implementation:
+    name: moose
+    repo:
+      url: https://github.com/xiaoyuguan/ostwald_sqrpbc
+      version: 7c65c5628b5b5a13b5f8510246f64d2eec0c5342
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '3'
+    cores: '8'
+    nodes: '1'
+benchmark:
+  id: 2b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '37260'
+        sim_time: 1000000
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '3977291.65'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/xiaoyuguan/ostwald_sqrnpbc/main/peacock_run_exe_tmp_ostwald_sqr_npbc_Guan_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_energy: number
+    description: total energy in the square mesh during time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_energy
+        as: 'y'
+date: 1604860157
