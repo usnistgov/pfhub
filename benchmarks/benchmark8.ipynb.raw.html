@@ -26,10 +26,10 @@
 
 
 
-<div id="71b92ce1-b10f-4d17-943f-11fc615034b1"></div>
+<div id="6c03cdd9-5e5c-4573-ab6f-7b808ab5d7d7"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#71b92ce1-b10f-4d17-943f-11fc615034b1');
+var element = $('#6c03cdd9-5e5c-4573-ab6f-7b808ab5d7d7');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -400,7 +400,7 @@ for the phase field $\phi$, and the three different initial conditions: in the f
     \label{eqn:phitr_2}
 \end{equation}
 where $r_0=\{r^*, 0.99r^*, 1.01r^*\}$. <a href="#fig1">Figure 1</a> shows the computational domain with an initial seed of radius $r=r^*$. The time evolution of the system is then followed for times up to $t = 200$ units, and the solid fraction $Y$ and the total free energy $F$ are plotted as functions of time. Finally, the problem also includes a convergence test with respect to mesh (spatial resolution). The closer the initial radius $r$ is to the critical radius $r^*$, the more sensitive the numerical integration will be to round-off errors. Therefore, a convergence test is included for $r_0=1.01r^*$ using successive runs each halving the average spatial mesh size $\Delta x$ between consecutive runs. At least 3 runs are required to estimate the rate of convergence based on the $L^2$ error with the finest mesh being used as a gold standard. The simulations should be run to $t=200$ and the final phase field (at $t=200$) for each successive run should be submitted.</p>
-<p>To submit results to the PFHub website, see the <a href="#Part-1.6.1-Part-%28a%29">submission guidelines</a> below.</p>
+<p>To submit results to the PFHub website, see the <a href="#Part-%28a%29">submission guidelines</a> below.</p>
 <figure>
     <img id="fig1" src="../images/t0_single_seed.PNG" alt="Single seed at t=0" style="width:500px;"/>
     <figcaption>
@@ -415,7 +415,7 @@ where $r_0=\{r^*, 0.99r^*, 1.01r^*\}$. <a href="#fig1">Figure 1</a> shows the co
 \end{equation}
 from the different seeds $i$. Overlaps between different seeds are managed by setting $\phi=1$ in all regions where the sums of $\phi_i &gt;1$. After placing initial seeds and adjusting the initial phase field $\phi$ so that $\phi\leq1$ everywhere, the simulation is run up to total time $t=200$, at which time the whole domain is transformed to a solid ($\phi=1$).  This is repeated four times, each time with different random seeds, and the total free energy, time evolution of the solid fraction $X$, discrete particle count $N$  (the number of disjoint regions with $\phi=1$) are plotted for the five simulations, and Avrami plots are generated from the five simulations; from the Avrami plot the exponent $n$ is estimated and compared to the JMAK theory.</p>
 <p>Both Part (b) and Part (c) involve a random number generator. Because different executions will in general generate different random numbers, specific individual solutions will in general not be reproduced. However, statistics such as the average slope of Avrami plots can be meaningfully compared.</p>
-<p>To submit results to the PFHub website, see the <a href="#Part-1.6.1-Part-%28a%29">submission guidelines</a> below.</p>
+<p>To submit results to the PFHub website, see the <a href="#Part-%28b%29">submission guidelines</a> below.</p>
 <h2 id="Part-(c):-multiple-seeds-at-random-times">Part (c): multiple seeds at random times<a class="anchor-link" href="#Part-(c):-multiple-seeds-at-random-times">&#182;</a></h2><p>For the third part of the homogeneous benchmark problem, the computational domain is first expanded to $1000 \times1000$. Instead of inserting nuclei at fixed time $t = 0$ as in part two of the problem, in this case 100 random nucleation times $t_i$ are generated, $i=1,\ldots,100$, drawn from a uniform distribution in the interval $t_i \in [0, 600)$ with centers $\mathbf{r}_i$ drawn from a uniform distribution on the $1000\times1000$ domain.
 We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to a critical radius or $r^*=2$, but keep the initial radii of the inserted nuclei the same as those in the second part of the problem
 \begin{equation}
@@ -424,7 +424,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
     \right)\right].
 \end{equation}</p>
 <p>Again, $\phi$ is set to unity in regions of overlaps of nuclei. The simulations are run up to times $t=600$, and repeated for four more random initial conditions.  The total free energy plot the total free energy, the time evolution of the solid fraction $X$ and the discrete particle count $N$, are plotted as functions of time, and an  Avrami plot is generated for the five runs.</p>
-<p>To submit results to the PFHub website, see the <a href="#Part-1.6.3-Part-%28c%29">submission guidelines</a> below.</p>
+<p>To submit results to the PFHub website, see the <a href="#Part-%28c%29">submission guidelines</a> below.</p>
 
 </div>
 </div>
@@ -459,7 +459,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Part (a) requires running 5 simulations with a single seed with different values of $r_0$ and $\Delta x$ using the model formulation <a href="#Part-1.3.1-Part-1.6.1-Part-%28a%29:-single-seed">defined above</a>. The 5 simulations are</p>
+<p>Part (a) requires running 5 simulations with a single seed with different values of $r_0$ and $\Delta x$ using the model formulation <a href="#Part-%28a%29:-single-seed">defined above</a>. The 5 simulations are</p>
 <ol>
 <li>$r_0 = 0.99 r^*$, ${\Delta x} = {\Delta x}_0$</li>
 <li>$r_0 = r^*$, ${\Delta x} = {\Delta x}_0$</li>
@@ -525,7 +525,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Part (b) requires running 5 simulations with multiple seed randomly positioned at $t=0$, see the <a href="#Part-1.4-Part-1.6.2-Part-%28b%29:-multiple-initial-seeds">defintion above</a>. The simulations are run to $t=200$. The following data should be collected.</p>
+<p>Part (b) requires running 5 simulations with multiple seed randomly positioned at $t=0$, see the <a href="#Part-%28b%29:-multiple-initial-seeds">defintion above</a>. The simulations are run to $t=200$. The following data should be collected.</p>
 <ul>
 <li><p>The solid fraction in the domain (the integral $\int_V \phi dV / \int_V dV$) during the transient (not necessarily at every time step but for ~100 data points).</p>
 </li>
@@ -557,7 +557,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Part (c) requires running 5 simulations with seeds randomly appearing between $t=0$ and $t=600$, see the <a href="#Part-1.5-Part-1.6.3-Part-%28c%29:-multiple-seeds-at-random-times">definition above</a>. The simulations are run to $t=600$. The following data should be collected.</p>
+<p>Part (c) requires running 5 simulations with seeds randomly appearing between $t=0$ and $t=600$, see the <a href="#Part-%28c%29:-multiple-seeds-at-random-times">definition above</a>. The simulations are run to $t=600$. The following data should be collected.</p>
 <ul>
 <li><p>The solid fraction in the domain (the integral $\int_V \phi dV / \int_V dV$) during the transient (not necessarily at every time step but for ~100 data points).</p>
 </li>
@@ -981,17 +981,107 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 <p><a id="cite-heo2014phase"/><sup><a href="#ref-6">[^]</a></sup>Heo, T W and Chen, L. 2014. <em>Phase-field modeling of nucleation in solid-state phase transformations</em>. <a href="https://doi.org/10.1007/s11837-014-1033-9">URL</a></p>
 <p><a id="cite-granasy2019"/><sup><a href="#ref-7">[^]</a></sup>Gránásy, L and Tóth, G and Warren, J A and Podmaniczky, F and Tegze, G and Rátkai, L and Pusztai, T. 2019. <em>Phase-field modeling of crystal nucleation in undercooled liquids -- A review</em>. <a href="https://doi.org/10.1016/j.pmatsci.2019.05.002">URL</a></p>
 <p><a id="cite-kubo1966"/><sup><a href="#ref-8">[^]</a></sup>Kubo, R. 1966. <em>The fluctuation-dissipation theorem</em>. <a href="https://doi.org/10.1088%2F0034-4885%2F29%2F1%2F306">URL</a></p>
-<p><a id="cite-simmons2000phase"/><sup><a href="#ref-10">[^]</a></sup>Simmons, J P and Shen, C and Wang, Y. 2000. <em>Phase field modeling of simultaneous nucleation and growth by explicitly incorporating nucleation events</em>. <a href="https://doi.org/10.1016/S1359-6462&amp;#40;00&amp;#41;00517-0">URL</a></p>
+<p><a id="cite-simmons2000phase"/><sup><a href="#ref-10">[^]</a></sup>Simmons, J P and Shen, C and Wang, Y. 2000. <em>Phase field modeling of simultaneous nucleation and growth by explicitly incorporating nucleation events</em>. <span data-proofer-ignore>[URL](https://doi.org/10.1016/S1359-6462&#40;00&#41;00517-0)</span></p>
 <p><a id="cite-shi2019"/><sup><a href="#ref-11">[^]</a></sup>Shi, R and Khairallah, S and Heo, T W and Rolchigo, M and McKeown, J T and Matthews, M J. 2019. <em>Integrated simulation framework for additively manufactured Ti-6Al-4V: melt pool dynamics, microstructure, solid-state phase transformation, and microelastic response</em>. <a href="https://doi.org/10.1007/s11837-019-03618-1">URL</a></p>
 <p><a id="cite-johnson1939reaction"/><sup><a href="#ref-12">[^]</a><a href="#ref-18">[^]</a></sup>Johnson, William A and Mehl, R F. 1939. <em>Reaction kinetics in processes of nucleation and growth</em>. <a href="https://doi.org/10.1007/s11663-010-9421-1">URL</a></p>
 <p><a id="cite-avrami1939kinetics"/><sup><a href="#ref-13">[^]</a><a href="#ref-19">[^]</a></sup>Avrami, Melvin. 1939. <em>Kinetics of phase change. I General theory</em>. <a href="https://doi.org/10.1063/1.1750380">URL</a></p>
 <p><a id="cite-avrami1940kinetics"/><sup><a href="#ref-14">[^]</a><a href="#ref-20">[^]</a></sup>Avrami, Melvin. 1940. <em>Kinetics of phase change. II transformation-time relations for random distribution of nuclei</em>. <a href="https://doi.org/10.1063/1.1750631">URL</a></p>
 <p><a id="cite-avrami1941granulation"/><sup><a href="#ref-15">[^]</a><a href="#ref-21">[^]</a></sup>Avrami, Melvin. 1941. <em>Granulation, phase change, and microstructure kinetics of phase change. III</em>. <a href="https://doi.org/10.1063/1.1750872">URL</a></p>
 <p><a id="cite-kolmogorov1937izv"/><sup><a href="#ref-16">[^]</a><a href="#ref-22">[^]</a></sup>Kolmogorov, A N. 1937. <em>On the Statistical Theory of the Crystallization of Metals</em>. <a href="https://doi.org/10.1007/978-94-011-2260-3_22">URL</a></p>
-<p><a id="cite-allen1979microscopic"/><sup><a href="#ref-17">[^]</a></sup>Allen, Samuel M and Cahn, John W. 1979. <em>A microscopic theory for antiphase boundary motion and its application to antiphase domain coarsening</em>. <a href="https://doi.org/10.1016/0001-6160&amp;#40;79&amp;#41;90196-2">URL</a></p>
+<p><a id="cite-allen1979microscopic"/><sup><a href="#ref-17">[^]</a></sup>Allen, Samuel M and Cahn, John W. 1979. <em>A microscopic theory for antiphase boundary motion and its application to antiphase domain coarsening</em>. <span data-proofer-ignore>[URL](https://doi.org/10.1016/0001-6160&#40;79&#41;90196-2)</span></p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h2><p>The following code is given as a resource for those implementing the benchmark to help count the particles in Part (b) and Part (c). One possibility as outlined here is to use <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.label.html#scipy.ndimage.label"><code>scipy.ndimage.label</code></a>. This returns a tuple with a labeled array of unique features as the first item and a count of features as the second item. In the case of the phase field the values will require thresholding to 0 or 1 before using <code>scipy.ndimage.label</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.ndimage</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">make_particles</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">,</span> <span class="n">max_radius</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">99</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make an array with random particles</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">      shape: shape of array</span>
+<span class="sd">      n_particles: number of particles in arrau</span>
+<span class="sd">      max_radius: maximum possible radius of particles</span>
+<span class="sd">      seed: random seed</span>
+<span class="sd">      </span>
+<span class="sd">    Returns: numpy array mask with particles</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">xy_grid</span><span class="p">(</span><span class="n">shape</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate a grid of x, y values in a single array</span>
+<span class="sd">        </span>
+<span class="sd">        The returned array has shape (len(shape),) + shape + (1,). The last axis is</span>
+<span class="sd">        for the operations with particles.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">linspace</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">linspace</span><span class="p">,</span> <span class="n">shape</span><span class="p">),</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">))[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    
+    <span class="c1"># first axis is dimensions</span>
+    <span class="c1"># second and third axes are shape of domain</span>
+    <span class="c1"># last axis is the number of particles. </span>
+    <span class="n">centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="n">n_particles</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">shape</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">])[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">radii</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n_particles</span><span class="p">)</span> <span class="o">*</span> <span class="n">max_radius</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">any</span><span class="p">(((</span><span class="n">xy_grid</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="n">centers</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">make_particles</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actual number of particles:&#39;</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">ndimage</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">arr</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Actual number of particles: 14
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
  
 
