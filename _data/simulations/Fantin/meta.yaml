@@ -1,0 +1,35 @@
+_id: 622fa990-503d-11eb-ad61-837ecd6e9b90
+metadata:
+  author:
+    first: Brigida Haas
+    last: Jody Brousseau
+    email: stephanyfantin@gmail.com
+    github_id: Christi Moran
+  timestamp: '22'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Stephany
+    repo:
+      url: 'http://freeslotssystems.com/slot-online-gratis/'
+      version: NH
+    container_url: 'http://freeslotssystems.com/slot-online-gratis/'
+  hardware:
+    cpu_architecture: ppc
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: OG
+    cores: '1'
+    nodes: ZY
+benchmark:
+  id: 4g
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: SP
+        sim_time: HO
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: IN
+date: 1609951014
