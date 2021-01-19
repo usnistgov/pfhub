@@ -20,7 +20,7 @@ install:
 before_script:
   - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
   - export SURGE_LOGIN="daniel.wheeler@nist.gov"
-  - export SURGE_TOKEN="3712d1678fabe65dfad576545befce2f"
+  - export SURGE_TOKEN="fcab9043c16e76c558d16bf6dc380f79"
   - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
        nix-shell --command "
          rm -rf ./_site &&
