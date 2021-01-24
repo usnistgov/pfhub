@@ -17,10 +17,10 @@ GitHub. More benchmark results will greatly improve the utility of the
 website and encourage community collaboration.
 
 Each benchmark result is stored in a [YAML
-file](http://docs.ansible.com/ansible/YAMLSyntax.html) called
+file][YAML] called
 `meta.yaml` in a separate directory in
 [_data/simulations]({{ site.links.github }}/tree/master/_data/simulations).
-A [YAML file](http://docs.ansible.com/ansible/YAMLSyntax.html) is a
+A [YAML file][YAML] is a
 minimal, human readable syntax for structured data. The `meta.yaml`
 file stores the meta data for only one benchmark result and a new
 directory is required for each new benchmark result.
@@ -52,9 +52,8 @@ To record a new benchmark result, use the following workflow.
 
 <h4>Minimal Example of a YAML Benchmark File</h4>
 
-Each [YAML](http://docs.ansible.com/ansible/YAMLSyntax.html)
-description of a specific benchmark result contains the following
-three parts:
+Each [YAML][YAML] description of a specific benchmark result contains
+the following three parts:
 
  1. `benchmark`: specify the benchmark problem and version you have
     implemented,
@@ -71,7 +70,7 @@ relevant comments. The definitive archetype resides at
 [`_data/simulations/example/example.yaml`]({{ site.links.simmeta
 }}/example/meta.yaml). To understand the YAML syntax consult either
 the [Ansible
-documentation](http://docs.ansible.com/ansible/YAMLSyntax.html) for a
+documentation][YAML] for a
 simple overview or the [YAML site](http://www.yaml.org/) for a more in
 depth description.
 
@@ -225,3 +224,5 @@ If the tests all pass, the web site dev will need to check that the
 formatting and links work for displaying the charts and tables, which
 is not entirely automated by the test suite. Further repairs may be
 necessary at this stage.
+
+[YAML]: https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
