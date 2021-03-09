@@ -1,0 +1,35 @@
+_id: c4b83940-8087-11eb-8195-0d61b3b8337f
+metadata:
+  author:
+    first: Shonda Andersen
+    last: Rosemary Valerio
+    email: launamebane@live.com
+    github_id: Tomas Wicks
+  timestamp: '16'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Launa
+    repo:
+      url: 'http://craigdavis.xyz'
+      version: MY
+    container_url: 'http://craigdavis.xyz'
+  hardware:
+    cpu_architecture: m32r
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: NQ
+    cores: '1'
+    nodes: NW
+benchmark:
+  id: 2b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: EG
+        sim_time: ED
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: LT
+date: 1615260617
