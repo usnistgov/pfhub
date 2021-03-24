@@ -16,11 +16,14 @@ feel free to upload benchmark results via pull requests on
 GitHub. More benchmark results will greatly improve the utility of the
 website and encourage community collaboration.
 
-Each benchmark result is stored in a [YAML file][ansible_yaml] called
+
+Each benchmark result is stored in a [YAML file][YAML] called
 `meta.yaml` in a separate directory in [_data/simulations]({{
-site.links.github }}/tree/master/_data/simulations).  A [YAML file][anisble_yaml] is a minimal, human readable syntax for structured
+site.links.github }}/tree/master/_data/simulations).  A [YAML file][YAML]
+is a minimal, human readable syntax for structured
 data. The `meta.yaml` file stores the meta data for only one benchmark
 result and a new directory is required for each new benchmark result.
+
 
 <h4> How to Upload </h4>
 
@@ -49,8 +52,8 @@ To record a new benchmark result, use the following workflow.
 
 <h4>Minimal Example of a YAML Benchmark File</h4>
 
-Each [YAML][ansible_yaml] description of a specific benchmark result
-contains the following three parts:
+Each [YAML][YAML] description of a specific benchmark result contains
+the following three parts:
 
  1. `benchmark`: specify the benchmark problem and version you have
     implemented,
@@ -66,8 +69,8 @@ The following is the minimal description of a benchmark result with
 relevant comments. The definitive archetype resides at
 [`_data/simulations/example/example.yaml`]({{ site.links.simmeta
 }}/example/meta.yaml). To understand the YAML syntax consult either
-the [Ansible documentation][anisble_yaml] for a simple overview or the
-[YAML site](http://www.yaml.org/) for a more in depth description.
+the [Ansible documentation][YAML] for a simple overview or the [YAML
+site](http://www.yaml.org/) for a more in depth description.
 
 ```
 ---
@@ -220,4 +223,4 @@ formatting and links work for displaying the charts and tables, which
 is not entirely automated by the test suite. Further repairs may be
 necessary at this stage.
 
-[ansible_yaml]: https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
+[YAML]: https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
