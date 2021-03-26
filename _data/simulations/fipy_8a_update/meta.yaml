@@ -1,0 +1,71 @@
+_id: 9eea2e00-8e4f-11eb-b379-7594b6b58f72
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: wd15
+  timestamp: '16 October, 2019'
+  summary: FiPy implementation of benchmark 8a
+  implementation:
+    name: FiPy
+    repo:
+      url: 'https://github.com/guyer/phasefieldbenchmark-8'
+      version: abffcd9ffc0452dd9c9310cc8ba2b8e713108ae2
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.60'
+    cores: '16'
+    nodes: '1'
+benchmark:
+  id: 8a
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1273.119492'
+        sim_time: '100'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '0'
+  - name: solid_fraction_1
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!k9uHKBmFf3sK90g0zlxUVdV5qoOtX_qqfhZ618qBDMDVVcAX9aL5VQQJ2yn6Y29P9zvhSeUiHW65t6TfoQCL9iVbUMCYSrfxkYIjXRFEoifDNofOnp8btDcjH3tOHzypHh9-4o1QYdBkxa4622vA3DMQ839PFMM_2ynZe7oSbGlrsesh6Bd9lrXhTEMqimXAS3aLOIHgotTpm7Vv5XCX6hJxxYGj6YFghCfNcHfCNtliMgobgSOmYffwbixy9LAy1xiD199xZUsIdEl8yBliP7HQFbU-YPRiGygwxfg0KAB1Z98Cqgk-n7CpVERdE3nP_dgwWtK3AXlNgDn2nLGdYIRJrLu6Vm__K7IKz6SPVg74IW-4rE2QvnAkgRTLMVrm-fuNmNfQbwBaz0IeuTAy0htjPs1dBwVimeQYWU4r91AkJXQRP0PLpf__EXxXCFphIY1_W3z3kGEPXfBexnYBID-WmYmkLCPxUu_XFEMSNVM99N-BkWJBFjj8RX9qz695si9jh3Rb9dL3_-wfmJaw2xuPG4brek8pwG2u9_pEtdi2xSBmmKApNwbUz3GTAc8G9FagF8-xj7w_WZs0c-3e0uMUWNL783xnyNFA-SSV4zwekO9peFFg18Ld0d_2s-I2pTPS13WcuWDzovDXl2ZbS_tRzao9PIlg820nrm-hBomKtw2LbFHyGkmfCd0vCgHi1SPr-T9D3f5_47QbN0yo4T8sJyq1gAKsAivVLkw79pUk5vT71-G-PTS_e2T6n0g7ufzo6WgZeoDsom6hhGtPU4NDlpluAeagD2X3smGtBxsmIyx6G6bFM-Sn6oOdlTquw_un9lpwYZmbT4zF-7kKI4BJtSOfgULHAHFJWqs-OS3AAj3-QAv7G-xcU7C_JJOh7sCGDV17W8ABvksBl9XTabb1frMUsRNrRnhl_ZgJx3xAnyyAlaMP4cWsT4wAJafMhrtdnv5hmCcBYtf_OMzmgLXQz6UfZaTWekBffb2Yb2co6KAdfUcKbiF6zE7bdkgE0UuTNuJGRhNpbVMqsJkUHaSjXh5fxJqet0Vaqo3bAfgktRJCMoXkairGbw1Cx706MLBPDtow188DEjWsLRT--blm5MI_VELfirl30tk1L69wrVhY1bJa-lI_vNotqNmZG__dYZFfVrOS9TwZb3SjeoZ6qRRwgfBCgVlUviRUcPmpky1JfEBED1LB-WsApirpUti68v4i8F0YGiMf2Ml3rV4PjC7KY259BonDOwbientNM9ACvW_8J_uqZNy696yjMPUPpUBgqZ8Bv878V0tZDfgrynwJbYXsPvYdZWXNmss_X4VmznPAFz3c/download
+    boxuid: 8431543a-5166-4cce-89bd-0fdcec4a4087
+    format:
+      type: csv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 0.99r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_1
+    url: >-
+      https://dl.boxcloud.com/d/1/b1!7D4ROH9KmrV3iZyef6Cvoj_BJPphoRJx_DEGbENIKGRVGQkjJj5i_WH_BGXYfHsxrQ2wElnf21LqgGTe6FDgUOAWfTclF7i7ANHyrxgH50wW7jQNlTiU3NIdhClVrSIygSoqWUs3ML1MoyNl5oJG5AcNqHdRA1nElsY-JywqstOHqz7trWF1qyQdplQc_qhlqTriLTGmrucFmofcc8GCFmw1qP8AzzxUv1ibQxfA_G2HTuMq5eTHsnR91W4AxLFcgiwB3E9Xgq4RCL4z0SvXUryls6kpmf3fi6TN4nmT6P5ahQDYfsfnZfG6InT-gjKDzGfqXmf8rKJXv_koY5m4nmuYy2y2Luripl4Djn2NeheW0HadALmJIBl-m5NGyZ3lxykfReNHZvDJ7GZkb75jLb0_1elt1ngU6Oq7eF8ajeg8n8eyi-jiH2H99PccfZRdBKimAVYxx5MC9lTUkdncVW5MtrthSYYVTPFI2sKGpUAfnDeeDxIu7X3lIFj16l142K5inT5yvZlIUCrzUhFRRMjSq7W7nuAlVgYg_J1Esvt65cqNI7a6ppE63jJ6fGLNh9CKNmWifIuB1PDftjGJgEx-uCDws_YOv7YSTQfzJYk_NvYz_WJ1HKr6CaU1a1ZTWBnuE7YqIyuS0C724X18CS2OTDQXiGqQ_NNaqjpjQdXf3VrmVUfh4Z39VUqSi4O-vBk6emQLv-OTe6b1X7FYoc8ayumWT7gTFku52_bA0ufDyKAItN4LTbyyIctkPqmsxMsDplcLiILHIkauYY9zf2Mg0mDl5L1XmvjGr9lqvNtNQiNruVuR36N1ldiGEbT9ebomD-kX_fWtDQsLsoHGz9senpCRtg9Vvwd1wWhrWv5SD-8p2vRiw-4Q8UonbcSXRgTcern0nYmrzNG_WRDOvokc613RFT4TpwVq7G2G0PlgxcYLWmNF_2QHGU9JX4za5aLa_7ibisNY2tlp0jOv8vpGMO7WXAUlidyOaATLkmcLMdD57g9QlIp0tNR4vYAsc6Q6juXZ0vT0e5EW9Ukmox5Ql8S345squo_195Sqo1IYwBNZASYFiq7MM6C2xw62RnB6-jaSTKYByq4CfS_bvw7h7ZDK-YQo15WM3N_w88kH85_XPgnWEv6uOzOB-vntkdthyyBOSmIL_EBLChId9aWx-FLIuwe-5UoiJ9DOm8xEpTKmglDLckksILEf-B-Z75FOqdMdzr8k57mbMUPg1C868piQINMTtg_LOVIAJ2RRf08F_B5K9ci15ntXAIaYnjHmB8LagbQ6-7DWnkw./download
+    boxuid: 5cc54d31-c5b3-4626-9210-fef5896cca4a
+    format:
+      type: csv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 0.99r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+date: 1616775818
