@@ -1,0 +1,165 @@
+_id: f0847a20-90e0-11eb-b455-9f669f90ac00
+metadata:
+  author:
+    first: Jon
+    last: Guyer
+    email: guyer@nist.gov
+    github_id: guyer
+  timestamp: '16 October, 2019'
+  summary: FiPy implementation of benchmark 8a
+  implementation:
+    name: FiPy
+    repo:
+      url: 'https://github.com/guyer/phasefieldbenchmark-8'
+      version: abffcd9ffc0452dd9c9310cc8ba2b8e713108ae2
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.60'
+    cores: '16'
+    nodes: '1'
+benchmark:
+  id: 8a
+  version: '0'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1273.119492'
+        sim_time: '100'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '0'
+  - name: solid_fraction_1
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_0.99r/stats.txt
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 0.99r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_1
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_0.99r/stats.txt
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 0.99r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction_2
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.00r/stats.txt
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 1.00r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_2
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.00r/stats.txt
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 1.00r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction_3
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.01r/stats.txt
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 1.01r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_3
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.01r/stats.txt
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 1.01r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: phase_field_3
+    url: >-
+      https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/94b684e8b393b2db7366b944ec5db20de4dd169a/phi_100.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+        phi: number
+    description: phase field data to play with
+    type: contour
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+      - type: formula
+        expr: datum.phi
+        as: z
+date: 1617058134
