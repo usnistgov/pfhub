@@ -26,10 +26,10 @@
 
 
 
-<div id="05c04d63-a681-45d8-8f80-6b531f730526"></div>
+<div id="bfc93809-d417-4de7-8e71-d6cb7fb6f7cf"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#05c04d63-a681-45d8-8f80-6b531f730526');
+var element = $('#bfc93809-d417-4de7-8e71-d6cb7fb6f7cf');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -402,7 +402,7 @@ for the phase field $\phi$, and the three different initial conditions: in the f
 where $r_0=\{r^*, 0.99r^*, 1.01r^*\}$. <a href="#fig1">Figure 1</a> shows the computational domain with an initial seed of radius $r=r^*$. The time evolution of the system is then followed for times up to $t = 200$ units, and the solid fraction $Y$ and the total free energy $F$ are plotted as functions of time. Finally, the problem also includes a convergence test with respect to mesh (spatial resolution). The closer the initial radius $r$ is to the critical radius $r^*$, the more sensitive the numerical integration will be to round-off errors. Therefore, a convergence test is included for $r_0=1.01r^*$ using successive runs each halving the average spatial mesh size $\Delta x$ between consecutive runs. At least 3 runs are required to estimate the rate of convergence based on the $L^2$ error with the finest mesh being used as a gold standard. The simulations should be run to $t=200$ and the final phase field (at $t=200$) for each successive run should be submitted.</p>
 <p>To submit results to the PFHub website, see the <a href="#Part-%28a%29">submission guidelines</a> below.</p>
 <figure>
-    <img id="fig1" src="../images/t0_single_seed.PNG" alt="Single seed at t=0" style="width:500px;"/>
+    <img id="fig1" src="../../images/t0_single_seed.PNG" alt="Single seed at t=0" style="width:500px;"/>
     <figcaption>
         <center> Illustration of the $100 \times 100$ computational domain in 2D. </center> 
     </figcaption>
@@ -459,13 +459,13 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Part (a) requires running 5 simulations with a single seed with different values of $r_0$ and $\Delta x$ using the model formulation <a href="#Part-%28a%29:-single-seed">defined above</a>. The 5 simulations are</p>
+<p>Part (a) requires running three simulations with a single seed with different values of $r_0$ using the model formulation <a href="#Part-%28a%29:-single-seed">defined above</a>. Optionally, a further two simulations can be run to check convergence, but this is not required. The three required  simulations and two optional simulations are</p>
 <ol>
 <li>$r_0 = 0.99 r^*$, ${\Delta x} = {\Delta x}_0$</li>
 <li>$r_0 = r^*$, ${\Delta x} = {\Delta x}_0$</li>
 <li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_0$</li>
-<li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_1$</li>
-<li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_2$</li>
+<li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_1$ (optional)</li>
+<li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_2$ (optional)</li>
 </ol>
 <p>where ${\Delta x}_0 &lt; {\Delta x}_1 &lt; {\Delta x}_2$. If using a gridded mesh each successively refined grid length can be half as fine. In the case of adaptive grids a nominal value for $\Delta x$ should be selected that results in a similarly refined mesh as in the gridded case (i.e. approximately $4\times$ as many elements). When uploading the results, the $\Delta x$ values should be provided in the datafile alongside the values for $\phi$ at each location in the domain. Each simulation should be run to $t=200$ and the following data should be collected.</p>
 <ul>
@@ -475,10 +475,10 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </li>
 <li><p>The phase field, $\phi$, at each grid point in the domain at $t=200$.</p>
 </li>
-<li><p>The grid spacing, $\Delta x$ at each grid point in the domain at $t=200$.</p>
+<li><p>The grid spacing, $\Delta x$ at each grid point in the domain at $t=200$ if submitting the optional simulations.</p>
 </li>
 </ul>
-<p>One PFHub upload is required for all five simulations. The solid fraction and free energy data can be included in the same CSV file or in separate data files, but either way still require 2 entries in the "Data Files" section on the <a href="{{ site.baseurl }}/simulations/upload_form/">upload form</a>. The entries should be labeled as <code>solid_fraction_{i}</code> or <code>free_energy_{i}</code> depending on the simulation number (1 to 5). The CSV (JSON or TSV are also fine) files should have a format similar to the following.</p>
+<p>One PFHub upload is required for all the simulations. The solid fraction and free energy data can be included in the same CSV file or in separate data files, but either way still require 2 entries in the "Data Files" section on the <a href="{{ site.baseurl }}/simulations/upload_form/">upload form</a>. The entries should be labeled as <code>solid_fraction_{i}</code> or <code>free_energy_{i}</code> depending on the simulation number (1 to 5). The CSV (JSON or TSV are also fine) files should have a format similar to the following.</p>
 
 <pre><code>time,fraction,energy
 0.000000000000000000e+00,8.214174263100689974e-03,3.579809478015085311e+00
@@ -509,6 +509,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>where <code>x</code> and <code>y</code> is a position in the domain and <code>phi</code> is the value at that position. <code>delta_x</code> is the nominal grid spacing in that region given by the coordinates. This may be constant across the domain for gridded data, but vary for adaptive meshing. <code>delta_x</code> is only a representative value of the grid spacing in that region. The "3D" radio button should be selected for the <code>phase_field_{i}</code> entry.</p>
 <p>The grid spacing data should be named <code>grid_spacing_{i}</code> and have exactly the same data as above. Again the same file can be used, but two "Data Files" entries are required for both phase field and grid spacing. The "3D" radio button should be selected for the <code>grid_spacing_{i}</code> entry.</p>
+<p>The <code>grid_spacing_{i}</code> entries are not required, but if included will show convergence data for simulations 3, 4 and 5.</p>
 
 </div>
 </div>
