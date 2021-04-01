@@ -1,0 +1,52 @@
+_id: 368110c0-9310-11eb-993a-d9c7a4097c2a
+metadata:
+  author:
+    first: Stephen
+    last: DeWitt
+    email: dewittsj@ornl.gov
+    github_id: stvdwtt
+  timestamp: ''
+  summary: "This simulation was performed using a currently unreleased version of MEUMAPPS, developed at Oak Ridge National Lab. This simulation does not have any adaptivity in time or space.\r\n\r\nSpatial discretization: Fourier-spectral\r\nTemporal discretization:  Semi-implicit backward Euler\r\nGrid: 128x128\r\nTime step: 0.1 \r\n\r\nI think spatially this simulation is pretty well converged. As far as temporal convergence goes, there are some qualitative differences in the early evolution if I use smaller time steps but the energy evolution doesn't change much. This simulation runs until the system is quite near to equilibrium."
+  implementation:
+    name: Stephen DeWitt
+    repo:
+      url: 'https://github.com/stvdwtt/pfhub_data/tree/main/meumapps_bm1a'
+      version: 7a17cdb86547686a86baaba8708851b9e853cae2
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: serial
+    clock_rate: '2.4'
+    cores: '1'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '2100'
+        sim_time: '100000'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '139200'
+  - name: free_energy
+    url: 'https://f000.backblazeb2.com/file/pfhub-sjd/bm1a_energy_meumapps.csv'
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        energy: number
+    description: Total free energy evolution
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+date: 1617298341
