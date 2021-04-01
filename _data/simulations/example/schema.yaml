@@ -45,7 +45,7 @@ mapping:
             type: str
             required: False
           "boxuid":
-            pattern: \b[0-9a-f]{8}\-[0-9a-f]{4}\-4[0-9a-f]{3}\-[89ab][0-9a-f]{3}\-[0-9a-f]{12}\b
+            pattern: \b[0-9a-f]{8}\-[0-9a-f]{4}\-4[0-9a-f]{3}\-[89ab][0-9a-f]{3}\-[0-9a-f]{12}\b|null
             type: str
             required: False
           "transform":
@@ -133,7 +133,7 @@ mapping:
           "name":
             type: str
             required: True
-            pattern: (?i)fenics|moose|prisms|sfepy|mmsp|fipy|custom|hiperc|ampe|memphis
+            pattern: (?i)fenics|moose|prisms|sfepy|mmsp|fipy|custom|hiperc|ampe|memphis|meumapps
           "container_url":
             type: str
             required: True

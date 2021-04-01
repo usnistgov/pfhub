@@ -83,7 +83,11 @@ read_vega_data = curry(
 read_vega_url_no_load = curry(
   (loaded_values, data) ->
     sequence(
-      (x) -> [x.format, loaded_values]
+      (x) ->
+        if x.format.remove_whitespace?
+          if x.format.remove_whitespace
+            loaded_values = loaded_values.replace(/ /g, '')
+        [x.format, loaded_values]
       (x) ->
         try
           dl.read(x[1], x[0])
