@@ -5,7 +5,7 @@ metadata:
     last: DeWitt
     email: dewittsj@ornl.gov
     github_id: stvdwtt
-  timestamp: ''
+  timestamp: '1 April, 2021'
   summary: "This simulation was performed using a currently unreleased version of MEUMAPPS, developed at Oak Ridge National Lab. This simulation does not have any adaptivity in time or space.\r\n\r\nSpatial discretization: Fourier-spectral\r\nTemporal discretization:  Semi-implicit backward Euler\r\nGrid: 128x128\r\nTime step: 0.1 \r\n\r\nI think spatially this simulation is pretty well converged. As far as temporal convergence goes, there are some qualitative differences in the early evolution if I use smaller time steps but the energy evolution doesn't change much. This simulation runs until the system is quite near to equilibrium."
   implementation:
     name: meumapps
@@ -37,6 +37,7 @@ data:
     boxuid: 'null'
     format:
       type: csv
+      remove_whitespace: true
       parse:
         time: number
         energy: number
