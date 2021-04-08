@@ -8,9 +8,16 @@ to_app_url = (app_url, url) ->
 
 
 dl_load = (app_url, url) ->
+  ### First try loading directly and then try using the app as the app
+  is much slower.
+  ###
   try
-    dl.load({url:to_app_url(app_url, url)})
+    try
+      dl.load({url:url})
+    catch NetworkError
+      dl.load({url:to_app_url(app_url, url)})
   catch NetworkError
+    console.log("NetworkError for url: #{url}")
     []
 
 
