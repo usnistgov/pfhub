@@ -29,10 +29,10 @@ nixpkgs.stdenv.mkDerivation rec {
     # This is my own version as notebook-extensions needed modifications
     # Orignal repo is
     # https://github.com/Calysto/notebook-extensions
-    git clone https://github.com/Calysto/notebook-extensions.git
+    git clone https://github.com/wd15/notebook-extensions.git
     cd notebook-extensions
     jupyter nbextension install calysto --user
-    jupyter nbextension enable --user calysto/document-tools/main
+    jupyter nbextension enable calysto/document-tools/main --user
     cd $CURDIR
     rm -rf $MYTMPDIR
 
