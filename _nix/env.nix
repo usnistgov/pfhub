@@ -16,5 +16,25 @@ nixpkgs.stdenv.mkDerivation rec {
     pip install jupyter_contrib_nbextensions --user > /dev/null 2>&1
     jupyter contrib nbextension install --user > /dev/null 2>&1
     jupyter nbextension enable spellchecker/main > /dev/null 2>&1
+    jupyter nbextension enable equation-numbering/main > /dev/null 2>&1
+
+    # Bibliography tools
+    # see https://jupyter.brynmawr.edu/services/public/dblank/jupyter.cs/Examples/Calico%20Document%20Tools%20and%20Bibtex.ipynb
+    # also see
+    # https://jupyter.brynmawr.edu/services/public/dblank/Jupyter%20Notebook%20Users%20Manual.ipynb#5.-Bibliographic-Support
+
+    CURDIR=$(pwd)
+    MYTMPDIR=$(mktemp -d)
+    cd $MYTMPDIR
+    # This is my own version as notebook-extensions needed modifications
+    # Orignal repo is
+    # https://github.com/Calysto/notebook-extensions
+    git clone https://github.com/wd15/notebook-extensions.git
+    cd notebook-extensions
+    jupyter nbextension install calysto --user
+    jupyter nbextension enable calysto/document-tools/main --user
+    cd $CURDIR
+    rm -rf $MYTMPDIR
+
   '';
 }
