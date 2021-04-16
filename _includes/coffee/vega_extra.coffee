@@ -8,9 +8,16 @@ to_app_url = (app_url, url) ->
 
 
 dl_load = (app_url, url) ->
+  ### First try loading directly and then try using the app as the app
+  is much slower.
+  ###
   try
-    dl.load({url:to_app_url(app_url, url)})
+    try
+      dl.load({url:url})
+    catch NetworkError
+      dl.load({url:to_app_url(app_url, url)})
   catch NetworkError
+    console.log("NetworkError for url: #{url}")
     []
 
 
@@ -83,7 +90,11 @@ read_vega_data = curry(
 read_vega_url_no_load = curry(
   (loaded_values, data) ->
     sequence(
-      (x) -> [x.format, loaded_values]
+      (x) ->
+        if x.format.remove_whitespace?
+          if x.format.remove_whitespace
+            loaded_values = loaded_values.replace(/ /g, '')
+        [x.format, loaded_values]
       (x) ->
         try
           dl.read(x[1], x[0])
