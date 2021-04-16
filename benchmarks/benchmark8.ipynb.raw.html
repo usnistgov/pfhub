@@ -26,10 +26,10 @@
 
 
 
-<div id="db911dae-bc65-4ee4-9718-e32c7c6114d1"></div>
+<div id="b858144d-cfb3-4559-8a18-b8cdadd97b7d"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#db911dae-bc65-4ee4-9718-e32c7c6114d1');
+var element = $('#b858144d-cfb3-4559-8a18-b8cdadd97b7d');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -1000,6 +1000,43 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h2><p>The following code is given as a resource for those implementing the benchmark to help count the particles in Part (b) and Part (c). One possibility as outlined here is to use <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.label.html#scipy.ndimage.label"><code>scipy.ndimage.label</code></a>. This returns a tuple with a labeled array of unique features as the first item and a count of features as the second item. In the case of the phase field the values will require thresholding to 0 or 1 before using <code>scipy.ndimage.label</code>.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.ndimage</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">make_particles</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">,</span> <span class="n">max_radius</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">99</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make an array with random particles</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      shape: shape of array</span>
+<span class="sd">      n_particles: number of particles in arrau</span>
+<span class="sd">      max_radius: maximum possible radius of particles</span>
+<span class="sd">      seed: random seed</span>
+
+<span class="sd">    Returns: numpy array mask with particles</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">xy_grid</span><span class="p">(</span><span class="n">shape</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate a grid of x, y values in a single array</span>
+
+<span class="sd">        The returned array has shape (len(shape),) + shape + (1,). The last axis is</span>
+<span class="sd">        for the operations with particles.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">linspace</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">linspace</span><span class="p">,</span> <span class="n">shape</span><span class="p">),</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">))[</span><span class="o">...</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+
+    <span class="c1"># first axis is dimensions</span>
+    <span class="c1"># second and third axes are shape of domain</span>
+    <span class="c1"># last axis is the number of particles. </span>
+    <span class="n">centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="n">n_particles</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">shape</span><span class="p">)[:,</span> <span class="bp">None</span><span class="p">])[:,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+    <span class="n">radii</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n_particles</span><span class="p">)</span> <span class="o">*</span> <span class="n">max_radius</span><span class="p">)[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">any</span><span class="p">(((</span><span class="n">xy_grid</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="n">centers</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">radii</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">make_particles</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Actual number of particles:&#39;</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">ndimage</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">arr</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
 
 </div>
 </div>
