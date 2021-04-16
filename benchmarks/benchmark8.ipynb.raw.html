@@ -26,10 +26,10 @@
 
 
 
-<div id="bfc93809-d417-4de7-8e71-d6cb7fb6f7cf"></div>
+<div id="db911dae-bc65-4ee4-9718-e32c7c6114d1"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#bfc93809-d417-4de7-8e71-d6cb7fb6f7cf');
+var element = $('#db911dae-bc65-4ee4-9718-e32c7c6114d1');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -377,7 +377,7 @@ respectively.</p>
 <a id="ref-21" href="#cite-avrami1941granulation">Avrami 1941</a>,
 <a id="ref-22" href="#cite-kolmogorov1937izv">Kolmogorov 1937</a>), which makes a number of 
 assumptions and simplifications: (i)  nucleation occurs randomly and homogeneously over the entire un-transformed portion of the material, (ii) the growth rate is constant and does not depend on the extent of transformation, (iii) the particles have convex shape with the same orientation, and (iv) the size of the system is infinite (both in space and time).</p>
-<p>The basis of the Avrami plots is the transformed fraction (solid fraction) $X(t)$ vs. time. According to the JMAK theory,
+<p>The basis of the Avrami plots is the transformed fraction (solid fraction) $Y(t)$ vs. time. According to the JMAK theory,
 \begin{equation}
     Y(t)=1-\exp (-Kt^n),
     \label{eqn:Xt}
@@ -413,7 +413,7 @@ where $r_0=\{r^*, 0.99r^*, 1.01r^*\}$. <a href="#fig1">Figure 1</a> shows the co
     \right)\right].
     \label{eqn:phitr_3}
 \end{equation}
-from the different seeds $i$. Overlaps between different seeds are managed by setting $\phi=1$ in all regions where the sums of $\phi_i &gt;1$. After placing initial seeds and adjusting the initial phase field $\phi$ so that $\phi\leq1$ everywhere, the simulation is run up to total time $t=200$, at which time the whole domain is transformed to a solid ($\phi=1$).  This is repeated four times, each time with different random seeds, and the total free energy, time evolution of the solid fraction $X$, discrete particle count $N$  (the number of disjoint regions with $\phi=1$) are plotted for the five simulations, and Avrami plots are generated from the five simulations; from the Avrami plot the exponent $n$ is estimated and compared to the JMAK theory.</p>
+from the different seeds $i$. Overlaps between different seeds are managed by setting $\phi=1$ in all regions where the sums of $\phi_i &gt;1$. After placing initial seeds and adjusting the initial phase field $\phi$ so that $\phi\leq1$ everywhere, the simulation is run up to total time $t=200$, at which time the whole domain is transformed to a solid ($\phi=1$).  This is repeated four times, each time with different random seeds, and the total free energy, time evolution of the solid fraction $Y$, discrete particle count $N$  (the number of disjoint regions with $\phi=1$) are plotted for the five simulations, and Avrami plots are generated from the five simulations; from the Avrami plot the exponent $n$ is estimated and compared to the JMAK theory.</p>
 <p>Both Part (b) and Part (c) involve a random number generator. Because different executions will in general generate different random numbers, specific individual solutions will in general not be reproduced. However, statistics such as the average slope of Avrami plots can be meaningfully compared.</p>
 <p>To submit results to the PFHub website, see the <a href="#Part-%28b%29">submission guidelines</a> below.</p>
 <h2 id="Part-(c):-multiple-seeds-at-random-times">Part (c): multiple seeds at random times<a class="anchor-link" href="#Part-(c):-multiple-seeds-at-random-times">&#182;</a></h2><p>For the third part of the homogeneous benchmark problem, the computational domain is first expanded to $1000 \times1000$. Instead of inserting nuclei at fixed time $t = 0$ as in part two of the problem, in this case 100 random nucleation times $t_i$ are generated, $i=1,\ldots,100$, drawn from a uniform distribution in the interval $t_i \in [0, 600)$ with centers $\mathbf{r}_i$ drawn from a uniform distribution on the $1000\times1000$ domain.
@@ -423,7 +423,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
     \frac{|\mathbf{r}-\mathbf{r}_i|-1.1r^*}{\sqrt{2}}
     \right)\right].
 \end{equation}</p>
-<p>Again, $\phi$ is set to unity in regions of overlaps of nuclei. The simulations are run up to times $t=600$, and repeated for four more random initial conditions.  The total free energy plot the total free energy, the time evolution of the solid fraction $X$ and the discrete particle count $N$, are plotted as functions of time, and an  Avrami plot is generated for the five runs.</p>
+<p>Again, $\phi$ is set to unity in regions of overlaps of nuclei. The simulations are run up to times $t=600$, and repeated for four more random initial conditions.  The total free energy plot the total free energy, the time evolution of the solid fraction $Y$ and the discrete particle count $N$, are plotted as functions of time, and an  Avrami plot is generated for the five runs.</p>
 <p>To submit results to the PFHub website, see the <a href="#Part-%28c%29">submission guidelines</a> below.</p>
 
 </div>
@@ -442,7 +442,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Please use the <a href="{{ site.baseurl }}/simulations/upload_form/">upload form</a> to upload your results.</p>
-<p>In addition to that specified, further data to upload can include a Youtube video, images of the nuclei at different times, or the entire phase field variable at different times. These are not required, but will help others view your work.</p>
+<p>In addition to that specified, further data to upload can include a Youtube video, images of the nuclei at different times, or the entire phase field variable at different times. This data can be uploaded directly to the website or stored at a secondary location and only the link to the data provided. This data is not required, but will help others view your work.</p>
 
 </div>
 </div>
@@ -467,7 +467,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 <li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_1$ (optional)</li>
 <li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_2$ (optional)</li>
 </ol>
-<p>where ${\Delta x}_0 &lt; {\Delta x}_1 &lt; {\Delta x}_2$. If using a gridded mesh each successively refined grid length can be half as fine. In the case of adaptive grids a nominal value for $\Delta x$ should be selected that results in a similarly refined mesh as in the gridded case (i.e. approximately $4\times$ as many elements). When uploading the results, the $\Delta x$ values should be provided in the datafile alongside the values for $\phi$ at each location in the domain. Each simulation should be run to $t=200$ and the following data should be collected.</p>
+<p>where ${\Delta x}_0, {\Delta x}_1$ and ${\Delta x}_2$ represent simulations at different mesh sizes. $\Delta x$ refinement should be selected so that successively refined meshes have roughly $4\times$ as many elements. When uploading the results, the $\Delta x$ values should be provided in the datafile alongside the values for $\phi$ at each location in the domain. Each simulation should be run to $t=200$ and the following data should be collected.</p>
 <ul>
 <li><p>The solid fraction in the domain (the integral $\int_V \phi dV / \int_V dV$) during the transient (not necessarily at every time step but for ~100 data points).</p>
 </li>
@@ -526,7 +526,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Part (b) requires running 5 simulations with multiple seed randomly positioned at $t=0$, see the <a href="#Part-%28b%29:-multiple-initial-seeds">defintion above</a>. The simulations are run to $t=200$. The following data should be collected.</p>
+<p>Part (b) requires running 5 simulations with multiple seeds randomly positioned at $t=0$, see the <a href="#Part-%28b%29:-multiple-initial-seeds">defintion above</a>. The simulations are run to $t=200$. The following data should be collected.</p>
 <ul>
 <li><p>The solid fraction in the domain (the integral $\int_V \phi dV / \int_V dV$) during the transient (not necessarily at every time step but for ~100 data points).</p>
 </li>
@@ -963,7 +963,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
   issue = {6},
   pages={1085--1095},
   year={1979},
-  url={https://doi.org/10.1016/0001-6160&#40;79&#41;90196-2}
+  url={https://doi.org/10.1016/0001-6160(79)90196-2}
 }
 
 -->
@@ -974,7 +974,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p><a id="cite-granasy2002nucleation"/><sup><a href="#ref-1">[^]</a><a href="#ref-9">[^]</a></sup>Gránásy, L and and Börzsönyi, T and Pusztai, T. 2002. <em>Nucleation and bulk crystallization in binary phase field theory</em>. <a href="https://doi.org/10.1103/PhysRevLett.88.206105">URL</a></p>
+<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><p><a id="cite-granasy2002nucleation"/><sup><a href="#ref-1">[^]</a><a href="#ref-9">[^]</a></sup>Gránásy, L and and Börzsönyi, T and Pusztai, T. 2002. <em>Nucleation and bulk crystallization in binary phase field theory</em>. <a href="https://doi.org/10.1103/PhysRevLett.88.206105">URL</a></p>
 <p><a id="cite-castro2003phase"/><sup><a href="#ref-2">[^]</a></sup>Castro, Mario. 2003. <em>Phase-field approach to heterogeneous nucleation</em>. <a href="https://link.aps.org/doi/10.1103/PhysRevB.67.035412">URL</a></p>
 <p><a id="cite-simmons2004microstructural"/><sup><a href="#ref-3">[^]</a></sup>Simmons, J P and Wen, Y and Shen, C and Wang, Y. 2004. <em>Microstructural development involving nucleation and growth phenomena simulated with the Phase Field method</em>. <a href="https://doi.org/10.1016/j.msea.2003.09.019">URL</a></p>
 <p><a id="cite-granasy2007phase"/><sup><a href="#ref-4">[^]</a></sup>Gránásy, L and T and Pusztai, T and Saylor, D and Warren, J A. 2007. <em>Phase field theory of heterogeneous crystal nucleation</em>. <a href="https://doi.org/10.1103/PhysRevLett.98.035703">URL</a></p>
@@ -982,14 +982,15 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 <p><a id="cite-heo2014phase"/><sup><a href="#ref-6">[^]</a></sup>Heo, T W and Chen, L. 2014. <em>Phase-field modeling of nucleation in solid-state phase transformations</em>. <a href="https://doi.org/10.1007/s11837-014-1033-9">URL</a></p>
 <p><a id="cite-granasy2019"/><sup><a href="#ref-7">[^]</a></sup>Gránásy, L and Tóth, G and Warren, J A and Podmaniczky, F and Tegze, G and Rátkai, L and Pusztai, T. 2019. <em>Phase-field modeling of crystal nucleation in undercooled liquids -- A review</em>. <a href="https://doi.org/10.1016/j.pmatsci.2019.05.002">URL</a></p>
 <p><a id="cite-kubo1966"/><sup><a href="#ref-8">[^]</a></sup>Kubo, R. 1966. <em>The fluctuation-dissipation theorem</em>. <a href="https://doi.org/10.1088%2F0034-4885%2F29%2F1%2F306">URL</a></p>
-<p><a id="cite-simmons2000phase"/><sup><a href="#ref-10">[^]</a></sup>Simmons, J P and Shen, C and Wang, Y. 2000. <em>Phase field modeling of simultaneous nucleation and growth by explicitly incorporating nucleation events</em>. <span data-proofer-ignore>[URL](https://doi.org/10.1016/S1359-6462&#40;00&#41;00517-0)</span></p>
+<p><a id="cite-simmons2000phase"/><sup><a href="#ref-10">[^]</a></sup>Simmons, J P and Shen, C and Wang, Y. 2000. <em>Phase field modeling of simultaneous nucleation and growth by explicitly incorporating nucleation events</em>. <a href="https://doi.org/10.1016/S1359-6462(00)00517-0">URL</a></p>
 <p><a id="cite-shi2019"/><sup><a href="#ref-11">[^]</a></sup>Shi, R and Khairallah, S and Heo, T W and Rolchigo, M and McKeown, J T and Matthews, M J. 2019. <em>Integrated simulation framework for additively manufactured Ti-6Al-4V: melt pool dynamics, microstructure, solid-state phase transformation, and microelastic response</em>. <a href="https://doi.org/10.1007/s11837-019-03618-1">URL</a></p>
 <p><a id="cite-johnson1939reaction"/><sup><a href="#ref-12">[^]</a><a href="#ref-18">[^]</a></sup>Johnson, William A and Mehl, R F. 1939. <em>Reaction kinetics in processes of nucleation and growth</em>. <a href="https://doi.org/10.1007/s11663-010-9421-1">URL</a></p>
 <p><a id="cite-avrami1939kinetics"/><sup><a href="#ref-13">[^]</a><a href="#ref-19">[^]</a></sup>Avrami, Melvin. 1939. <em>Kinetics of phase change. I General theory</em>. <a href="https://doi.org/10.1063/1.1750380">URL</a></p>
 <p><a id="cite-avrami1940kinetics"/><sup><a href="#ref-14">[^]</a><a href="#ref-20">[^]</a></sup>Avrami, Melvin. 1940. <em>Kinetics of phase change. II transformation-time relations for random distribution of nuclei</em>. <a href="https://doi.org/10.1063/1.1750631">URL</a></p>
 <p><a id="cite-avrami1941granulation"/><sup><a href="#ref-15">[^]</a><a href="#ref-21">[^]</a></sup>Avrami, Melvin. 1941. <em>Granulation, phase change, and microstructure kinetics of phase change. III</em>. <a href="https://doi.org/10.1063/1.1750872">URL</a></p>
 <p><a id="cite-kolmogorov1937izv"/><sup><a href="#ref-16">[^]</a><a href="#ref-22">[^]</a></sup>Kolmogorov, A N. 1937. <em>On the Statistical Theory of the Crystallization of Metals</em>. <a href="https://doi.org/10.1007/978-94-011-2260-3_22">URL</a></p>
-<p><a id="cite-allen1979microscopic"/><sup><a href="#ref-17">[^]</a></sup>Allen, Samuel M and Cahn, John W. 1979. <em>A microscopic theory for antiphase boundary motion and its application to antiphase domain coarsening</em>. <span data-proofer-ignore>[URL](https://doi.org/10.1016/0001-6160&#40;79&#41;90196-2)</span></p>
+<p><a id="cite-allen1979microscopic"/><sup><a href="#ref-17">[^]</a></sup>Allen, Samuel M and Cahn, John W. 1979. <em>A microscopic theory for antiphase boundary motion and its application to antiphase domain coarsening</em>.
+<a href="https://doi.org/10.1016/0001-6160(79)90196-2">URL</a></p>
 
 </div>
 </div>
