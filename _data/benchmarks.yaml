@@ -428,11 +428,20 @@
       mode: lines
       variations: [b, c]
 
-- title: Nucleation
-  description: Nucleation benchmark
+- title: Homogeneous Nucleation
+  description: Homogeneous nucleation benchmark
   image: https://user-images.githubusercontent.com/1986844/66938477-396aff80-f00f-11e9-8c21-b59356a3b0e0.png
   num: 8
   revisions:
+    - version: 1
+      variations: [a, b, c]
+      event:
+        name: Hackathon 5
+        url: "benchmarks/benchmark8.ipynb"
+      url: "benchmarks/benchmark8.ipynb"
+      commit:
+        sha: "e19007361211"
+        url: "benchmarks/benchmark8.ipynb"
     - version: 0
       variations: [a, b, c, d]
       event:
