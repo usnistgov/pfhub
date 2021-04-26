@@ -414,9 +414,8 @@ build = (chart_data, benchmark_id, data, appurl) ->
               else
                 url = null
               if url?
-                dl.load(
-                  {url:to_app_url(appurl, endpoint, url)},
-                  callback(x, index)
+                dl_load_callback(
+                  appurl, endpoint, url, callback(x, index)
                 )
               else
                 callback(x, index, null, null)

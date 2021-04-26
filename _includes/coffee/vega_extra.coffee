@@ -7,6 +7,21 @@ to_app_url = (app_url, endpoint, url) ->
   app_url + '/' + endpoint + '/?url=' + encodeURIComponent(url)
 
 
+dl_load_callback = (app_url, endpoint, url, callback) ->
+  if endpoint is 'get'
+    try
+      dl.load({url:url}, callback)
+    catch NetworkError
+      dl.load(
+        {url:to_app_url(appurl, endpoint, url)},
+        callback
+      )
+  else
+    dl.load(
+      {url:to_app_url(appurl, endpoint, url)},
+      callback
+    )
+
 dl_load = (app_url, url) ->
   ### First try loading directly and then try using the app as the app
   is much slower.
