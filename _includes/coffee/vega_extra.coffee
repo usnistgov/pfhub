@@ -3,8 +3,8 @@ Extra functions to build and parse Vega charts
 ###
 
 
-to_app_url = (app_url, url) ->
-  app_url + '/get/?url=' + encodeURIComponent(url)
+to_app_url = (app_url, endpoint, url) ->
+  app_url + '/' + endpoint + '/?url=' + encodeURIComponent(url)
 
 
 dl_load = (app_url, url) ->
@@ -15,7 +15,7 @@ dl_load = (app_url, url) ->
     try
       dl.load({url:url})
     catch NetworkError
-      dl.load({url:to_app_url(app_url, url)})
+      dl.load({url:to_app_url(app_url, 'get', url)})
   catch NetworkError
     console.log("NetworkError for url: #{url}")
     []

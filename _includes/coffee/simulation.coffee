@@ -548,7 +548,7 @@ add_image = curry(
     Returns:
       the img selection
     ###
-    add_card_image_(x).attr('src', (d) -> to_app_url(appurl, d.url))
+    add_card_image_(x).attr('src', (d) -> to_app_url(appurl, 'get', d.url))
 )
 
 

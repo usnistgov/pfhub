@@ -36,6 +36,7 @@ get_scatter_data = (data, chart_item) ->
   {
     data:get_comparison_data(vega_to_plotly, chart_item, data)
     div:'chart_' + chart_item.name
+    endpoint: if chart_item.endpoint? then chart_item.endpoint else 'get'
     layout:
       {
         title:chart_item.title
@@ -409,10 +410,11 @@ build = (chart_data, benchmark_id, data, appurl) ->
             (index) ->
               if x.data[index].data.length > 0
                 url = x.data[index].data[0].url
+                endpoint = x.endpoint
               else
                 url = null
               if url?
-                dl.load({url:to_app_url(appurl, url)}, callback(x, index))
+                dl.load({url:to_app_url(appurl, endpoint, url)}, callback(x, index))
               else
                 callback(x, index, null, null)
 
