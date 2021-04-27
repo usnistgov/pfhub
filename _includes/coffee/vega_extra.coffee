@@ -3,34 +3,39 @@ Extra functions to build and parse Vega charts
 ###
 
 
-to_app_url = (app_url, endpoint, url) ->
-  app_url + '/' + endpoint + '/?url=' + encodeURIComponent(url)
+to_app_url = (args) ->
+  args.app_url + '/' + args.endpoint + '/?url=' + encodeURIComponent(args.data_url)
 
 
-dl_load_callback = (app_url, endpoint, url, callback) ->
-  if endpoint is 'get'
+# dl_load_callback = (app_url, endpoint, url, callback) ->
+dl_load_callback = (args, callback) ->
+  if args.endpoint is 'get'
     try
-      dl.load({url:url}, callback)
+      dl.load({url:args.data_url}, callback)
     catch NetworkError
       dl.load(
-        {url:to_app_url(appurl, endpoint, url)},
+        {url:to_app_url(args)},
         callback
       )
   else
     dl.load(
-      {url:to_app_url(appurl, endpoint, url)},
+      {url:to_app_url(args)},
       callback
     )
 
-dl_load = (app_url, url) ->
+dl_load = (app_url, data_url) ->
   ### First try loading directly and then try using the app as the app
   is much slower.
   ###
   try
     try
-      dl.load({url:url})
+      dl.load({url:data_url})
     catch NetworkError
-      dl.load({url:to_app_url(app_url, 'get', url)})
+      dl.load({url:to_app_url({
+        app_url:app_url,
+        endpoint:'get',
+        data_url:data_url
+      })})
   catch NetworkError
     console.log("NetworkError for url: #{url}")
     []
