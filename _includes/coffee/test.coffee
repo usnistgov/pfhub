@@ -569,3 +569,20 @@ describe('test reorder', ->
     )
   )
 )
+
+
+describe('test to_app_url', ->
+  it('simple', ->
+    assert.deepEqual(
+      to_app_url(
+        {
+          app_url:'https://my.app'
+          endpoint:'wow'
+          data_url:'https://my.data/somewhere'
+          params:{one:1, two:2}
+        }
+      )
+      'https://my.app/wow/?url=https%3A%2F%2Fmy.data%2Fsomewhere&one=1&two=2'
+    )
+  )
+)

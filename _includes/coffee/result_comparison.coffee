@@ -415,9 +415,10 @@ build = (chart_data, benchmark_id, data, app_url) ->
               if data_url?
                 dl_load_callback(
                   {
-                    app_url:app_url,
-                    endpoint:x.endpoint,
+                    app_url:app_url
+                    endpoint:x.endpoint
                     data_url:data_url
+                    params:{}
                   },
                   callback(x, index)
                 )
