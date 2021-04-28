@@ -372,6 +372,34 @@ filter_by_id = (benchmark_id) ->
   )
 
 
+get_cols = (data) ->
+  ### Calculate the columns for URL paramater values
+  ###
+  transforms = sequence(
+    filter((x) -> x.type is 'formula')
+    map((x) -> [x.expr.replace('datum.', ''), x.as])
+  )
+
+  calc_cols = sequence(
+    Object.keys,
+    map((x) -> [x, x])
+    (x) -> x.concat(transforms(data.transform))
+    to_dict
+    invert_dict
+    (x) -> [['cols', x.x], ['cols', x.y], ['cols', x.z]]
+  )
+
+  calc_cols(data.format.parse)
+
+
+get_url_params = (endpoint, data) ->
+  ### Calculate the URL parameters for different end points
+  ###
+  switch endpoint
+    when 'get' then []
+    when 'get_contour' then get_cols(data)
+
+
 build = (chart_data, benchmark_id, data, app_url) ->
   ### Build the Plotly plots for the comparison pages
 
@@ -418,7 +446,7 @@ build = (chart_data, benchmark_id, data, app_url) ->
                     app_url:app_url
                     endpoint:x.endpoint
                     data_url:data_url
-                    params:{}
+                    params:get_url_params(x.endpoint, x.data[index].data[0])
                   },
                   callback(x, index)
                 )

@@ -15,7 +15,7 @@ to_app_url = (args) ->
     args.endpoint
     '/?url='
     encodeURIComponent(args.data_url)
-    build_url_params(pairs(args.params))
+    build_url_params(args.params)
   ].join('')
 
 

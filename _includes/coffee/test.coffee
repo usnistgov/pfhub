@@ -579,10 +579,32 @@ describe('test to_app_url', ->
           app_url:'https://my.app'
           endpoint:'wow'
           data_url:'https://my.data/somewhere'
-          params:{one:1, two:2}
+          params:[['one', 1], ['two', 2]]
         }
       )
       'https://my.app/wow/?url=https%3A%2F%2Fmy.data%2Fsomewhere&one=1&two=2'
+    )
+  )
+)
+
+
+describe('test get_url_params', ->
+  it('get', ->
+    assert.deepEqual(
+      get_url_params('get', null)
+      []
+    )
+  )
+  it('get_contour', ->
+    assert.deepEqual(
+      get_url_params(
+        'get_contour'
+        {
+          transform:[{type:'formula', expr:'datum.phi', as:'z'}]
+          format:{parse:{x:null, y:null, z:null}}
+        }
+      )
+      [['cols', 'x'], ['cols', 'y'], ['cols', 'phi']]
     )
   )
 )
