@@ -1,0 +1,37 @@
+_id: d8c84e80-a917-11eb-b246-3123bd2caf51
+metadata:
+  author:
+    first: Rafael Muench
+    last: Florian Blankinship
+    email: damionduong@gmail.com
+    github_id: Dawn Woodall
+  timestamp: '26'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Damion
+    repo:
+      url: >-
+        http://institutviladomat.cat/portfoli/16onagracia/2018/10/08/decaleg-dun-bon-grup-cooperatiu/
+      version: KQ
+    container_url: >-
+      http://institutviladomat.cat/portfoli/16onagracia/2018/10/08/decaleg-dun-bon-grup-cooperatiu/
+  hardware:
+    cpu_architecture: k1om
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: EP
+    cores: '1'
+    nodes: PV
+benchmark:
+  id: 2c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: DG
+        sim_time: QF
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: GG
+date: 1619720545
