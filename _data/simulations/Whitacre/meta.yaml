@@ -1,0 +1,35 @@
+_id: 5f8bf960-b03b-11eb-9857-810e2ac2a0a5
+metadata:
+  author:
+    first: Sammie Baine
+    last: Victor Lapp
+    email: weldonwhitacre@gmail.com
+    github_id: Cathleen Damon
+  timestamp: '22'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Weldon
+    repo:
+      url: 'http://betflixsa.com/'
+      version: RH
+    container_url: 'http://betflixsa.com/'
+  hardware:
+    cpu_architecture: sh3
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: EF
+    cores: '1'
+    nodes: VX
+benchmark:
+  id: 1c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: MO
+        sim_time: BM
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: FB
+date: 1620505461
