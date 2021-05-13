@@ -1,0 +1,35 @@
+_id: a7826440-b417-11eb-b027-f536bf4293ff
+metadata:
+  author:
+    first: Albert Beardsmore
+    last: Florencia Sylvia
+    email: kattiefort@gmail.com
+    github_id: Tabatha Stawell
+  timestamp: '17'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Kattie
+    repo:
+      url: 'https://feqatyzi.wixsite.com/pew-pew-madafakas'
+      version: AH
+    container_url: 'https://feqatyzi.wixsite.com/pew-pew-madafakas'
+  hardware:
+    cpu_architecture: alpha
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: LR
+    cores: '1'
+    nodes: NR
+benchmark:
+  id: 1d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: OK
+        sim_time: FI
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: EM
+date: 1620929925
