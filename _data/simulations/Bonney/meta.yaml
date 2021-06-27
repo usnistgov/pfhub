@@ -1,0 +1,35 @@
+_id: 94ee6e70-d788-11eb-bd03-5d168eaf18a1
+metadata:
+  author:
+    first: Charolette Obrien
+    last: Opal Caldwell
+    email: vincebonney@inbox.com
+    github_id: Naomi Henning
+  timestamp: '19'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Vince
+    repo:
+      url: 'https://www.gs-serrurier.fr/'
+      version: YJ
+    container_url: 'https://www.gs-serrurier.fr/'
+  hardware:
+    cpu_architecture: sparc
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: GP
+    cores: '1'
+    nodes: SZ
+benchmark:
+  id: 1d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: CJ
+        sim_time: NW
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: VJ
+date: 1624826718
