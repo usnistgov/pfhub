@@ -1,0 +1,107 @@
+_id: fcb01380-d8da-11eb-a03b-e5bce4a7680b
+metadata:
+  author:
+    first: Jean-Luc
+    last: Fattebert
+    email: daniel.wheeler2@gmail.com
+    github_id: wd15
+  timestamp: '5 November, 2019'
+  summary: "Finite volume discretization. Time integration: Backward Euler, Jacobian-Free Newton Krylov solver,  with multigrid preconditioning. Adaptive time-stepping (up to dt=3.2).\r\nUniform mesh 1440 x 1440."
+  implementation:
+    name: ampe
+    repo:
+      url: 'https://github.com/LLNL/AMPE'
+      version: 78c0be7d74d573ae3e8cdf3f93a2a3d9e574291e
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.3'
+    cores: '64'
+    nodes: '2'
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1033'
+        sim_time: '1500'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '2980000'
+  - name: free_energy
+    url: >-
+      https://raw.githubusercontent.com/wd15/AMPE/release/benchmarks/PFHub3/free_energy.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        free_energy: number
+    description: Free energy vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.free_energy
+        as: 'y'
+  - name: phase_field_1500
+    url: >-
+      https://raw.githubusercontent.com/wd15/AMPE/release/benchmarks/PFHub3/phase_field_1500.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        x: number
+        'y': number
+    description: Contour at t=1500
+    type: line
+    transform:
+      - type: formula
+        expr: datum.x
+        as: x
+      - type: formula
+        expr: datum.y
+        as: 'y'
+  - name: solid_fraction
+    url: >-
+      https://raw.githubusercontent.com/wd15/AMPE/release/benchmarks/PFHub3/solid_fraction.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        volume_fraction: number
+    description: Solid fraction vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.volume_fraction
+        as: 'y'
+  - name: tip_position
+    url: >-
+      https://raw.githubusercontent.com/wd15/AMPE/release/benchmarks/PFHub3/tip_position.csv
+    boxuid: 'null'
+    format:
+      type: csv
+      parse:
+        time: number
+        tip_position: number
+    description: Tip position vs. time
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.tip_position
+        as: 'y'
+date: 1624972062
