@@ -1,0 +1,37 @@
+_id: 1569f4d0-dc97-11eb-9439-b125957ae930
+metadata:
+  author:
+    first: Katja Akhurst
+    last: Ray Borthwick
+    email: briannasantiago@bigstring.com
+    github_id: Lowell Sharpe
+  timestamp: '24'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Brianna
+    repo:
+      url: >-
+        http://redrice-co.com/page/jump.php?url=http%3A%2F%2Fstoryofgardens.org.uk%2F
+      version: OH
+    container_url: >-
+      http://redrice-co.com/page/jump.php?url=http%3A%2F%2Fstoryofgardens.org.uk%2F
+  hardware:
+    cpu_architecture: sh4
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: MQ
+    cores: '1'
+    nodes: DE
+benchmark:
+  id: 6a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: PJ
+        sim_time: DJ
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: JK
+date: 1625382702
