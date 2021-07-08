@@ -22,7 +22,7 @@ comment:
 
 - Olle Heinonen wrote a philosophical introduction to the {{ site.title }}
   benchmarking effort, available as an [extended essay]({{ site.baseurl }}/benchmarks){:target="_blank"}.
-- [Andrea Jokisaari][aj], [Peter Voorhees][pv], [Jon Guyer][jg], and [Olle Heinonen][oh]
+- [Andrea Jokisaari][aj], [Peter Voorhees][pv], [Jon Guyer][jg], [Jim Warren][jw] and [Olle Heinonen][oh]
   published a peer-reviewed journal article in
   *Computational Materials Science* entitled ["Benchmark problems for numerical
   implementations of phase field models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
@@ -179,3 +179,4 @@ recorded solutions that their students can implement while learning.
 [jg]: {{ site.baseurl }}/community/#jon-guyer
 [oh]: {{ site.baseurl }}/community/#olle-heinonen
 [pv]: {{ site.baseurl }}/community/#peter-voorhees
+[jw]: {{ site.baseurl }}/community/#james-warren

@@ -64,6 +64,10 @@ needs and avenues of work.
    notes](https://drive.google.com/file/d/0B4101gT3tHveSXVWTE55WlNzVzl0b19hSkV2cWZyOXZXYzhz/view?usp=sharing) and [presentations]({{ site.baseurl
    }}/wiki/2019-11-18-workshop-ix-presentations).
 
- - **Phase Field Methods Workshop X**; Apr 21-23, 2020; in the
-   planning stages, please email E. Begum Gulsoy at
+ - **Phase Field Methods Workshop X**; Apr 21-22, 2020; see [the
+   agenda]({{ site.baseurl }}/docs/CHiMaDPFX-Virtual.pdf),
+   and [presentations]({{ site.baseurl }}/wiki/2020-04-21-workshop-x-presentations).
+
+ - **Phase Field Methods Workshop XI**; Apr 26-27, 2021; in the
+   planning stages, please E. Begum Gulsoy at
    <e-gulsoy@northwestern.edu> for further details.
