@@ -3,7 +3,7 @@ Functions to generate the comparison pages
 ###
 
 get_plotly_data = curry(
-  (appurl, data, chart_item) ->
+  (app_url, data, chart_item) ->
     ### Given a set of simulations, extract a Plotly plot for each set
     of chart data
 
@@ -17,7 +17,7 @@ get_plotly_data = curry(
     if chart_item.type is 'scatter'
       get_scatter_data(data, chart_item)
     else if chart_item.type is 'table'
-      get_table_data(appurl, data, chart_item)
+      get_table_data(app_url, data, chart_item)
     else
       throw new Error('chart_item has wrong type')
 )
@@ -36,6 +36,7 @@ get_scatter_data = (data, chart_item) ->
   {
     data:get_comparison_data(vega_to_plotly, chart_item, data)
     div:'chart_' + chart_item.name
+    endpoint:if chart_item.endpoint? then chart_item.endpoint else 'get'
     layout:
       {
         title:chart_item.title
@@ -64,7 +65,7 @@ get_scatter_data = (data, chart_item) ->
   }
 
 
-get_table_data = (appurl, data, chart_item) ->
+get_table_data = (app_url, data, chart_item) ->
   ### Construct the Plotly YAML for a table
 
   Args:
@@ -76,7 +77,7 @@ get_table_data = (appurl, data, chart_item) ->
 
   ###
   {
-    data:[get_table_data_(appurl, chart_item, data)]
+    data:[get_table_data_(app_url, chart_item, data)]
     div:'chart_' + chart_item.name
     layout:{
       title:chart_item.title
@@ -87,7 +88,7 @@ get_table_data = (appurl, data, chart_item) ->
   }
 
 
-get_table_data_ = (appurl, chart_item, data) ->
+get_table_data_ = (app_url, chart_item, data) ->
   ### Construct the Plotly YAML for the data key in the Plotly YAML
   for a table
 
@@ -111,7 +112,7 @@ get_table_data_ = (appurl, chart_item, data) ->
       'center'
 
   sequence(
-    get_table_values(appurl, chart_item)
+    get_table_values(app_url, chart_item)
     (x) ->
       {
         header:{
@@ -132,7 +133,7 @@ get_table_data_ = (appurl, chart_item, data) ->
   )(data)
 
 
-get_table_values = (appurl, chart_item) ->
+get_table_values = (app_url, chart_item) ->
   ### Return a function to extract the data for a Plotly table
 
   Args:
@@ -156,7 +157,7 @@ get_table_values = (appurl, chart_item) ->
 
   get_row_values = (chart_item_, sim_name) ->
     sequence(
-      map(read_vega_data(appurl))
+      map(read_vega_data(app_url))
       (x) -> map(get_col_value(x, sim_name), chart_item.columns)
     )
 
@@ -371,21 +372,49 @@ filter_by_id = (benchmark_id) ->
   )
 
 
-build = (chart_data, benchmark_id, data, appurl) ->
+get_cols = (data) ->
+  ### Calculate the columns for URL paramater values
+  ###
+  transforms = sequence(
+    filter((x) -> x.type is 'formula')
+    map((x) -> [x.expr.replace('datum.', ''), x.as])
+  )
+
+  calc_cols = sequence(
+    Object.keys,
+    map((x) -> [x, x])
+    (x) -> x.concat(transforms(data.transform))
+    to_dict
+    invert_dict
+    (x) -> [['cols', x.x], ['cols', x.y], ['cols', x.z]]
+  )
+
+  calc_cols(data.format.parse)
+
+
+get_url_params = (endpoint, data) ->
+  ### Calculate the URL parameters for different end points
+  ###
+  switch endpoint
+    when 'get' then []
+    when 'get_contour' then get_cols(data)
+
+
+build = (chart_data, benchmark_id, data, app_url) ->
   ### Build the Plotly plots for the comparison pages
 
   Args:
     chart_data: a list of chart data to determine charts to build
     benchmark_id: benchmark_id to filter the simulations
     data: all the simulation data
-    appurl: the URL of the app
+    app_url: the URL of the app
 
   Returns:
     a func that builds the graphs and attaches them to tagged HTML
     elements
   ###
   get_plotly_data_id = get_plotly_data(
-    appurl
+    app_url
     filter_by_id(benchmark_id)(data)
   )
 
@@ -408,11 +437,19 @@ build = (chart_data, benchmark_id, data, appurl) ->
           map(
             (index) ->
               if x.data[index].data.length > 0
-                url = x.data[index].data[0].url
+                data_url = x.data[index].data[0].url
               else
                 url = null
-              if url?
-                dl.load({url:to_app_url(appurl, url)}, callback(x, index))
+              if data_url?
+                dl_load_callback(
+                  {
+                    app_url:app_url
+                    endpoint:x.endpoint
+                    data_url:data_url
+                    params:get_url_params(x.endpoint, x.data[index].data[0])
+                  },
+                  callback(x, index)
+                )
               else
                 callback(x, index, null, null)
 

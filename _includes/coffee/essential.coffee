@@ -489,3 +489,15 @@ juxt = curry(
   (fs, x) ->
     (f(x) for f in fs)
 )
+
+to_dict = (xs) ->
+  values = {}
+  for x in xs
+    values[x[0]] = x[1]
+  values
+
+invert_dict = (xs) ->
+  new_xs = {}
+  for k, v of xs
+    new_xs[v] = k
+  return new_xs
