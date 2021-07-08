@@ -1,4 +1,4 @@
-fastapi==0.33.0
+fastapi==0.65.2
 uvicorn==0.8.4
 toolz==0.9.0
 boxsdk[jwt]==2.6.1
