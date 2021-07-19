@@ -1,0 +1,35 @@
+_id: e637fe90-e827-11eb-ab3e-8113f0fe29e8
+metadata:
+  author:
+    first: Jamey Bostick
+    last: Delphia Coghlan
+    email: birgit.kellermann@gmail.com
+    github_id: Alice Weatherly
+  timestamp: '20'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Birgit
+    repo:
+      url: 'http://vanlifewiki.co.uk/index.php?title=User:WendellBaskervil'
+      version: XU
+    container_url: 'http://vanlifewiki.co.uk/index.php?title=User:WendellBaskervil'
+  hardware:
+    cpu_architecture: armel
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: DN
+    cores: '1'
+    nodes: KD
+benchmark:
+  id: 1c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: IB
+        sim_time: LN
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: YJ
+date: 1626654363
