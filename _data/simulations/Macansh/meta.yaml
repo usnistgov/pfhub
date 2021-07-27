@@ -1,0 +1,35 @@
+_id: 44fc2180-ef18-11eb-8578-17ff6aadda3c
+metadata:
+  author:
+    first: Otto Castiglione
+    last: Eulalia Rosanove
+    email: lyndonmacansh@hotmail.com
+    github_id: Patty Brandt
+  timestamp: '26'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Lyndon
+    repo:
+      url: 'https://www.bolehgame.com/'
+      version: OQ
+    container_url: 'https://www.bolehgame.com/'
+  hardware:
+    cpu_architecture: sh4
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: GI
+    cores: '1'
+    nodes: WP
+benchmark:
+  id: 6a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: GE
+        sim_time: ZD
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: AL
+date: 1627417308
