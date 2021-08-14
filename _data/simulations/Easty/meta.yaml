@@ -1,0 +1,35 @@
+_id: b6670d00-fd2b-11eb-9447-59c3b2cba78e
+metadata:
+  author:
+    first: Zelma Mehaffey
+    last: Sharyn Le Hunte
+    email: deanna_easty@gmail.com
+    github_id: Franklin Galvin
+  timestamp: '20'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Deanna
+    repo:
+      url: 'https://summersundae.com/'
+      version: ZJ
+    container_url: 'https://summersundae.com/'
+  hardware:
+    cpu_architecture: mips
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: AN
+    cores: '1'
+    nodes: XF
+benchmark:
+  id: 2d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: NS
+        sim_time: VY
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: CM
+date: 1628964975
