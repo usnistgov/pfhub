@@ -1,0 +1,35 @@
+_id: 8406b150-0526-11ec-b673-659de754ae62
+metadata:
+  author:
+    first: Niklas Falleni
+    last: Deloras Hankinson
+    email: alyciastrehlow@live.com
+    github_id: Randy Knopf
+  timestamp: '17'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Alycia
+    repo:
+      url: 'https://irmusic4.ir/id/863/'
+      version: LW
+    container_url: 'https://irmusic4.ir/id/863/'
+  hardware:
+    cpu_architecture: sh4eb
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: KU
+    cores: '1'
+    nodes: LS
+benchmark:
+  id: 8a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: TS
+        sim_time: VL
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: HF
+date: 1629842352
