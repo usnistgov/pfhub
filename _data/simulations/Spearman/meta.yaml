@@ -1,0 +1,37 @@
+_id: 7edd6590-051a-11ec-90ce-5346893956bd
+metadata:
+  author:
+    first: Nadia Sanches
+    last: Eugenia Heap
+    email: olivia.spearman@gawab.com
+    github_id: Ken Barnhart
+  timestamp: '16'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Olivia
+    repo:
+      url: >-
+        https://Jahankhabari.ir/2021/08/04/%d8%af%d8%b1-%d8%b1%d9%82%d8%a7%d8%a8%d8%aa-%d8%a8%d8%a7-%da%86%db%8c%d9%86%d8%9b-%d9%87%d9%86%d8%af-%d9%85%d8%ae%d9%81%db%8c%d8%a7%d9%86%d9%87-%d8%af%d8%b1-%d8%ad%d8%a7%d9%84-%d8%b3%d8%a7%d8%ae%d8%aa/
+      version: XH
+    container_url: >-
+      https://Jahankhabari.ir/2021/08/04/%d8%af%d8%b1-%d8%b1%d9%82%d8%a7%d8%a8%d8%aa-%d8%a8%d8%a7-%da%86%db%8c%d9%86%d8%9b-%d9%87%d9%86%d8%af-%d9%85%d8%ae%d9%81%db%8c%d8%a7%d9%86%d9%87-%d8%af%d8%b1-%d8%ad%d8%a7%d9%84-%d8%b3%d8%a7%d8%ae%d8%aa/
+  hardware:
+    cpu_architecture: sparc
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: HY
+    cores: '1'
+    nodes: KH
+benchmark:
+  id: 8c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: KD
+        sim_time: LQ
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: RY
+date: 1629837189
