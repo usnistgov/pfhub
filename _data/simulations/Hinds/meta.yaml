@@ -1,0 +1,35 @@
+_id: 9a09a200-049a-11ec-a324-29af2af7ec6d
+metadata:
+  author:
+    first: Dorthea Pelloe
+    last: Alysa Kwong
+    email: wiley.hinds@gmail.com
+    github_id: Earl Sousa
+  timestamp: '12'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Wiley
+    repo:
+      url: 'https://bizzone.ir'
+      version: QI
+    container_url: 'https://bizzone.ir'
+  hardware:
+    cpu_architecture: i386
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: LG
+    cores: '1'
+    nodes: LF
+benchmark:
+  id: 4c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: QN
+        sim_time: JB
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: PS
+date: 1629782259
