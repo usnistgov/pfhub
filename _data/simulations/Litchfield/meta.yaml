@@ -1,0 +1,37 @@
+_id: 25337110-04b6-11ec-82b9-4364d31b9bc8
+metadata:
+  author:
+    first: Claribel Eden
+    last: Raymundo Fogg
+    email: wildalitchfield@web.de
+    github_id: Judy Mathias
+  timestamp: '28'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Wilda
+    repo:
+      url: >-
+        https://funkhabari.ir/2021/07/24/%d8%ac%d8%af%d8%a7%db%8c%db%8c-%da%a9%d8%a7%d8%b1%da%af%d8%b1%d8%af%d8%a7%d9%86-%d9%87%d9%86%d8%b1%db%8c-assassins-creed-%d8%a7%d8%b2-%db%8c%d9%88%d8%a8%db%8c%d8%b3%d8%a7%d9%81%d8%aa/
+      version: CB
+    container_url: >-
+      https://funkhabari.ir/2021/07/24/%d8%ac%d8%af%d8%a7%db%8c%db%8c-%da%a9%d8%a7%d8%b1%da%af%d8%b1%d8%af%d8%a7%d9%86-%d9%87%d9%86%d8%b1%db%8c-assassins-creed-%d8%a7%d8%b2-%db%8c%d9%88%d8%a8%db%8c%d8%b3%d8%a7%d9%81%d8%aa/
+  hardware:
+    cpu_architecture: hppa
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: NA
+    cores: '1'
+    nodes: YL
+benchmark:
+  id: 8c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: VQ
+        sim_time: PJ
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: QQ
+date: 1629794089
