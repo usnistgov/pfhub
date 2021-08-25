@@ -1,0 +1,37 @@
+_id: f11f1ca0-0585-11ec-a901-03e2e9a511d8
+metadata:
+  author:
+    first: Lavonne Purvis
+    last: Odell Pinder
+    email: epifania_wiedermann@inbox.com
+    github_id: Chassidy Klem
+  timestamp: '18'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Epifania
+    repo:
+      url: >-
+        https://ecokhabari.ir/2021/07/29/%db%b1%db%b0-%d9%85%db%8c%d9%84%db%8c%d9%88%d9%86-%d8%ae%d8%a7%d9%86%d9%88%d8%a7%d8%b1-%d8%a7%db%8c%d8%b1%d8%a7%d9%86%db%8c-%d8%b2%db%8c%d8%b1-%d8%ae%d8%b7-%d9%81%d9%82%d8%b1-%d9%87%d8%b3%d8%aa%d9%86/
+      version: ZV
+    container_url: >-
+      https://ecokhabari.ir/2021/07/29/%db%b1%db%b0-%d9%85%db%8c%d9%84%db%8c%d9%88%d9%86-%d8%ae%d8%a7%d9%86%d9%88%d8%a7%d8%b1-%d8%a7%db%8c%d8%b1%d8%a7%d9%86%db%8c-%d8%b2%db%8c%d8%b1-%d8%ae%d8%b7-%d9%81%d9%82%d8%b1-%d9%87%d8%b3%d8%aa%d9%86/
+  hardware:
+    cpu_architecture: s390x
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: GS
+    cores: '1'
+    nodes: ZD
+benchmark:
+  id: 8b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: PE
+        sim_time: ZO
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: SO
+date: 1629883337
