@@ -1,0 +1,37 @@
+_id: 7d54db50-073f-11ec-b935-a3d1a36c311a
+metadata:
+  author:
+    first: Zara Woolls
+    last: Bonnie Bickersteth
+    email: brockrasp@inbox.com
+    github_id: Carrol Culbertson
+  timestamp: '28'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Brock
+    repo:
+      url: >-
+        https://techkhabari.ir/2021/07/22/%d8%b4%d8%a8%da%a9%d9%87-%d8%a7%d8%ac%d8%aa%d9%85%d8%a7%d8%b9%db%8c-halloapp-%d8%a8%d8%a7-%d8%aa%d9%85%d8%b1%da%a9%d8%b2-%d8%a8%d8%b1-%d8%a7%d9%85%d9%86%db%8c%d8%aa-%d8%b4%d8%b1%d9%88%d8%b9-%d8%a8/
+      version: QL
+    container_url: >-
+      https://techkhabari.ir/2021/07/22/%d8%b4%d8%a8%da%a9%d9%87-%d8%a7%d8%ac%d8%aa%d9%85%d8%a7%d8%b9%db%8c-halloapp-%d8%a8%d8%a7-%d8%aa%d9%85%d8%b1%da%a9%d8%b2-%d8%a8%d8%b1-%d8%a7%d9%85%d9%86%db%8c%d8%aa-%d8%b4%d8%b1%d9%88%d8%b9-%d8%a8/
+  hardware:
+    cpu_architecture: sparc
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: TU
+    cores: '1'
+    nodes: UG
+benchmark:
+  id: 1d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: TY
+        sim_time: MW
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: LS
+date: 1630072981
