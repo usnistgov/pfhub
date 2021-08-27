@@ -1,0 +1,35 @@
+_id: 206aa790-06e9-11ec-b887-e9b9b04461e0
+metadata:
+  author:
+    first: Valentin Savery
+    last: Hermine Hunter
+    email: faustinopartridge@gmail.com
+    github_id: Houston Minter
+  timestamp: '21'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Faustino
+    repo:
+      url: 'https://maps.google.co.ke/url?q=http%3A%2F%2Fbizzone.ir'
+      version: QL
+    container_url: 'https://maps.google.co.ke/url?q=http%3A%2F%2Fbizzone.ir'
+  hardware:
+    cpu_architecture: alpha
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: WT
+    cores: '1'
+    nodes: HI
+benchmark:
+  id: 7a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: OP
+        sim_time: PO
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: NR
+date: 1630035888
