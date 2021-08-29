@@ -1,0 +1,35 @@
+_id: f89cd4e0-08a0-11ec-8143-812cf6f5ef02
+metadata:
+  author:
+    first: Sol Deering
+    last: Anna Mcafee
+    email: nick_jobe@freenet.de
+    github_id: Marla Flannagan
+  timestamp: '24'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Nick
+    repo:
+      url: 'https://images.google.kg/url?sa=t&url=https%3A%2F%2Fblogfarsi.tk'
+      version: UN
+    container_url: 'https://images.google.kg/url?sa=t&url=https%3A%2F%2Fblogfarsi.tk'
+  hardware:
+    cpu_architecture: armeb
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: NV
+    cores: '1'
+    nodes: TO
+benchmark:
+  id: 1d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: HW
+        sim_time: RI
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: VY
+date: 1630224800
