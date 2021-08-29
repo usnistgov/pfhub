@@ -1,0 +1,35 @@
+_id: 0102bf80-0925-11ec-96ed-a3447e40621b
+metadata:
+  author:
+    first: Nelson Hastings
+    last: Darby Perreault
+    email: jensstocks@gmail.com
+    github_id: Everette Bockman
+  timestamp: '19'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Jens
+    repo:
+      url: 'https://irmusic4.ir/id/1179/'
+      version: XS
+    container_url: 'https://irmusic4.ir/id/1179/'
+  hardware:
+    cpu_architecture: sparc64
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: ZX
+    cores: '1'
+    nodes: XA
+benchmark:
+  id: 1c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: SW
+        sim_time: GC
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: YO
+date: 1630281507
