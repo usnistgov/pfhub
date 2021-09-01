@@ -1,0 +1,35 @@
+_id: abf5dc20-0b18-11ec-91a6-c78c7c01d72d
+metadata:
+  author:
+    first: Katharina Hardwick
+    last: Brandon Styles
+    email: mathias.lima@freenet.de
+    github_id: Cora Merrifield
+  timestamp: '12'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Mathias
+    repo:
+      url: 'https://shahid4u.site'
+      version: JJ
+    container_url: 'https://shahid4u.site'
+  hardware:
+    cpu_architecture: alpha
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: XK
+    cores: '1'
+    nodes: HB
+benchmark:
+  id: 2a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: GT
+        sim_time: QB
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: ZY
+date: 1630496113
