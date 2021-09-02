@@ -1,0 +1,37 @@
+_id: aa130860-0b86-11ec-8e73-b5e6eee8cc42
+metadata:
+  author:
+    first: Jayne Sisson
+    last: Carlton Milligan
+    email: torri_staggs@hotmail.com
+    github_id: Jennifer Mailey
+  timestamp: '27'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Torri
+    repo:
+      url: >-
+        https://Jahankhabari.ir/2021/08/02/%d8%aa%d8%b5%d9%88%db%8c%d8%a8-%d9%84%d8%a7%db%8c%d8%ad%d9%87-%d8%a8%d9%88%d8%af%d8%ac%d9%87-%d8%b1%da%98%db%8c%d9%85-%d8%b5%d9%87%db%8c%d9%88%d9%86%db%8c%d8%b3%d8%aa%db%8c-%d9%be%d8%b3-%d8%a7%d8%b2/
+      version: DH
+    container_url: >-
+      https://Jahankhabari.ir/2021/08/02/%d8%aa%d8%b5%d9%88%db%8c%d8%a8-%d9%84%d8%a7%db%8c%d8%ad%d9%87-%d8%a8%d9%88%d8%af%d8%ac%d9%87-%d8%b1%da%98%db%8c%d9%85-%d8%b5%d9%87%db%8c%d9%88%d9%86%db%8c%d8%b3%d8%aa%db%8c-%d9%be%d8%b3-%d8%a7%d8%b2/
+  hardware:
+    cpu_architecture: s390
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: DN
+    cores: '1'
+    nodes: NM
+benchmark:
+  id: 5a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: MJ
+        sim_time: RA
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: IF
+date: 1630543354
