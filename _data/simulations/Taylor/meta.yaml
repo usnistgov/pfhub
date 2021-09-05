@@ -1,0 +1,37 @@
+_id: d4a803b0-0de7-11ec-bba3-c78317cc550b
+metadata:
+  author:
+    first: Sonya Olsen
+    last: Marvin Brinkley
+    email: shastataylor@gawab.com
+    github_id: Antoinette Pickett
+  timestamp: '27'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Shasta
+    repo:
+      url: >-
+        https://techkhabari.ir/2021/07/26/%d8%b7%d8%b1%d8%ad-%d8%ac%d9%86%d8%ac%d8%a7%d9%84%db%8c-%d8%b5%db%8c%d8%a7%d9%86%d8%aa-%d8%a7%d8%b2-%d8%ad%d9%82%d9%88%d9%82-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%a7%d9%86-%d8%af%d8%b1-%d9%81%d8%b6%d8%a7/
+      version: SK
+    container_url: >-
+      https://techkhabari.ir/2021/07/26/%d8%b7%d8%b1%d8%ad-%d8%ac%d9%86%d8%ac%d8%a7%d9%84%db%8c-%d8%b5%db%8c%d8%a7%d9%86%d8%aa-%d8%a7%d8%b2-%d8%ad%d9%82%d9%88%d9%82-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%a7%d9%86-%d8%af%d8%b1-%d9%81%d8%b6%d8%a7/
+  hardware:
+    cpu_architecture: powerpc
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: DY
+    cores: '1'
+    nodes: TN
+benchmark:
+  id: 5b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: VB
+        sim_time: DA
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: WM
+date: 1630804989
