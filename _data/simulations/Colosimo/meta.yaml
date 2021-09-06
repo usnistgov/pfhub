@@ -1,0 +1,35 @@
+_id: f02c4210-0f52-11ec-8ad8-c11e1dbc1f9c
+metadata:
+  author:
+    first: Lila Toutcher
+    last: Mason Albertson
+    email: shennacolosimo@gmail.com
+    github_id: Jolie Clibborn
+  timestamp: '13'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Shenna
+    repo:
+      url: 'https://cse.google.it/url?sa=i&url=http%3A%2F%2Fblogfarsi.tk%2F'
+      version: CA
+    container_url: 'https://cse.google.it/url?sa=i&url=http%3A%2F%2Fblogfarsi.tk%2F'
+  hardware:
+    cpu_architecture: ia64
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: EY
+    cores: '1'
+    nodes: CD
+benchmark:
+  id: 2a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: WB
+        sim_time: WI
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: QO
+date: 1630960943
