@@ -1,0 +1,37 @@
+_id: 18e56630-0efb-11ec-a80e-6b61651892f5
+metadata:
+  author:
+    first: Mac Harriet
+    last: Irvin Crayton
+    email: kandisbauman@gmx.net
+    github_id: Mac Yabsley
+  timestamp: '23'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Kandis
+    repo:
+      url: >-
+        https://ecokhabari.ir/2021/07/25/%d8%a2%d8%b2%d8%a7%d8%af%d9%89-%d8%aa%d8%b9%d8%af%d8%a7%d8%af%d9%89-%d8%a7%d8%b2-%d8%b2%d9%86%d8%a7%d9%86-%d8%b2%d9%86%d8%af%d8%a7%d9%86%d9%89-%d8%af%d8%b1-%d8%a7%d9%88%db%8c%d9%86-%d8%a8%d8%a7-%d9%be/
+      version: PV
+    container_url: >-
+      https://ecokhabari.ir/2021/07/25/%d8%a2%d8%b2%d8%a7%d8%af%d9%89-%d8%aa%d8%b9%d8%af%d8%a7%d8%af%d9%89-%d8%a7%d8%b2-%d8%b2%d9%86%d8%a7%d9%86-%d8%b2%d9%86%d8%af%d8%a7%d9%86%d9%89-%d8%af%d8%b1-%d8%a7%d9%88%db%8c%d9%86-%d8%a8%d8%a7-%d9%be/
+  hardware:
+    cpu_architecture: arm
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: IF
+    cores: '1'
+    nodes: GQ
+benchmark:
+  id: 7c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: XD
+        sim_time: KA
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: CF
+date: 1630923216
