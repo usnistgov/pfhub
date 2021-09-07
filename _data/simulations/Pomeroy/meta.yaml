@@ -1,0 +1,37 @@
+_id: ec531b90-0fcb-11ec-9b72-69a9887d3fdb
+metadata:
+  author:
+    first: Rowena Tarczynski
+    last: Zita Supple
+    email: marcelinopomeroy@arcor.de
+    github_id: Margareta Hunley
+  timestamp: '15'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Marcelino
+    repo:
+      url: >-
+        https://varzeshikhabari.ir/2021/07/20/%d8%a7%d8%a8%d8%b1%d8%a7%d9%87%db%8c%d9%85-%d8%aa%d9%87%d8%a7%d9%85%db%8c-%d9%85%d8%b4%d8%a7%d9%88%d8%b1-%d8%b9%d8%a7%d9%84%db%8c-%d8%a8%d8%a7%d8%b4%da%af%d8%a7%d9%87-%d9%81%d9%88%d9%84%d8%a7%d8%af/
+      version: DG
+    container_url: >-
+      https://varzeshikhabari.ir/2021/07/20/%d8%a7%d8%a8%d8%b1%d8%a7%d9%87%db%8c%d9%85-%d8%aa%d9%87%d8%a7%d9%85%db%8c-%d9%85%d8%b4%d8%a7%d9%88%d8%b1-%d8%b9%d8%a7%d9%84%db%8c-%d8%a8%d8%a7%d8%b4%da%af%d8%a7%d9%87-%d9%81%d9%88%d9%84%d8%a7%d8%af/
+  hardware:
+    cpu_architecture: mipsel
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: HK
+    cores: '1'
+    nodes: VF
+benchmark:
+  id: 8b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: ZR
+        sim_time: OD
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: HS
+date: 1631012906
