@@ -1,0 +1,35 @@
+_id: ee3a5900-1106-11ec-a4f4-db905508f012
+metadata:
+  author:
+    first: Sheila Pocock
+    last: Elizabet Chave
+    email: theronnorrie@gmail.com
+    github_id: Teena Frodsham
+  timestamp: '21'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Theron
+    repo:
+      url: 'https://Www.google.fr/url?sa=t&url=https%3A%2F%2Fbizzone.ir'
+      version: YO
+    container_url: 'https://Www.google.fr/url?sa=t&url=https%3A%2F%2Fbizzone.ir'
+  hardware:
+    cpu_architecture: mips
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: QE
+    cores: '1'
+    nodes: RH
+benchmark:
+  id: 7c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: XZ
+        sim_time: MK
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: KS
+date: 1631148200
