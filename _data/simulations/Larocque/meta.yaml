@@ -1,0 +1,37 @@
+_id: 3877c1f0-1739-11ec-ae4b-a75dc47a7875
+metadata:
+  author:
+    first: Maddison Dudgeon
+    last: Kenton Beier
+    email: rafaela_larocque@zoho.com
+    github_id: Alfie Bryan
+  timestamp: '16'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Rafaela
+    repo:
+      url: >-
+        https://ecokhabari.ir/2021/07/20/%d8%b1%d8%b6%d8%a7-%d8%b9%d9%86%d8%a7%db%8c%d8%aa%db%8c-%d9%84%db%8c%da%af-%d8%a8%d8%b1%d8%aa%d8%b1%db%8c-%d8%b4%d8%af/
+      version: FV
+    container_url: >-
+      https://ecokhabari.ir/2021/07/20/%d8%b1%d8%b6%d8%a7-%d8%b9%d9%86%d8%a7%db%8c%d8%aa%db%8c-%d9%84%db%8c%da%af-%d8%a8%d8%b1%d8%aa%d8%b1%db%8c-%d8%b4%d8%af/
+  hardware:
+    cpu_architecture: arm
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: BK
+    cores: '1'
+    nodes: NF
+benchmark:
+  id: 4a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: VB
+        sim_time: TH
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: HZ
+date: 1631829507
