@@ -1,0 +1,37 @@
+_id: e59cc900-16d7-11ec-9e5c-4df9639141d8
+metadata:
+  author:
+    first: Staci Fortenberry
+    last: Carri Loveless
+    email: gudrunconcepcion@yahoo.de
+    github_id: Maricela Eames
+  timestamp: '16'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Gudrun
+    repo:
+      url: >-
+        https://varzeshikhabari.ir/2021/07/22/%d9%be%db%8c%d8%b1%d8%a7%d9%87%d9%86-%da%a9%d8%a7%d9%be%db%8c%d8%aa%d8%a7%d9%86-%d8%b1%d8%a6%d8%a7%d9%84-%d8%ae%db%8c%d9%84%db%8c-%d8%b2%d9%88%d8%af-%d8%a8%d9%87-%d8%a2%d9%84%d8%a7%d8%a8%d8%a7-%d8%b1/
+      version: ZP
+    container_url: >-
+      https://varzeshikhabari.ir/2021/07/22/%d9%be%db%8c%d8%b1%d8%a7%d9%87%d9%86-%da%a9%d8%a7%d9%be%db%8c%d8%aa%d8%a7%d9%86-%d8%b1%d8%a6%d8%a7%d9%84-%d8%ae%db%8c%d9%84%db%8c-%d8%b2%d9%88%d8%af-%d8%a8%d9%87-%d8%a2%d9%84%d8%a7%d8%a8%d8%a7-%d8%b1/
+  hardware:
+    cpu_architecture: ppc64
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: BD
+    cores: '1'
+    nodes: TR
+benchmark:
+  id: 5b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: OK
+        sim_time: AP
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: LF
+date: 1631787706
