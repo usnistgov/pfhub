@@ -1,0 +1,35 @@
+_id: 6fbce380-1bc5-11ec-bc80-718172c5e7a5
+metadata:
+  author:
+    first: Myra Testerman
+    last: Pasquale Ginn
+    email: alexandra.mellor@gmail.com
+    github_id: Dorothy Marlay
+  timestamp: '13'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Alexandra
+    repo:
+      url: 'https://ecokhabari.ir/'
+      version: YU
+    container_url: 'https://ecokhabari.ir/'
+  hardware:
+    cpu_architecture: armel
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: AP
+    cores: '1'
+    nodes: WG
+benchmark:
+  id: 4g
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: FF
+        sim_time: WU
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: US
+date: 1632329534
