@@ -1,0 +1,35 @@
+_id: 5101c0f0-1bb6-11ec-99bf-9118458885c1
+metadata:
+  author:
+    first: Mckinley Conner
+    last: Sherrie Abrams
+    email: thaocronan@gmail.com
+    github_id: Niki Bon
+  timestamp: '27'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Thao
+    repo:
+      url: 'https://irmusic4.ir/id/1551/'
+      version: CK
+    container_url: 'https://irmusic4.ir/id/1551/'
+  hardware:
+    cpu_architecture: armeb
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: ZU
+    cores: '1'
+    nodes: WN
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: UC
+        sim_time: UG
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: RG
+date: 1632323040
