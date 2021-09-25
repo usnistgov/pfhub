@@ -1,0 +1,37 @@
+_id: 438ec080-1e18-11ec-bc02-2723f02614d0
+metadata:
+  author:
+    first: Margret McEvoy
+    last: Jesenia Briley
+    email: beabirnie@gmail.com
+    github_id: Judy Upton
+  timestamp: '27'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Bea
+    repo:
+      url: >-
+        https://funkhabari.ir/2021/08/05/%d8%a8%d8%a7%d8%b2%da%af%d8%b4%d8%aa-%d8%b4%d8%ae%d8%b5%db%8c%d8%aa%e2%80%8c-%d9%85%d8%ad%d8%a8%d9%88%d8%a8-%d8%a2%d8%b3%d8%a7%d8%b3%db%8c%d9%86%d8%b2-%da%a9%d8%b1%db%8c%d8%af-%d8%a8%d9%87-%d8%a8/
+      version: DU
+    container_url: >-
+      https://funkhabari.ir/2021/08/05/%d8%a8%d8%a7%d8%b2%da%af%d8%b4%d8%aa-%d8%b4%d8%ae%d8%b5%db%8c%d8%aa%e2%80%8c-%d9%85%d8%ad%d8%a8%d9%88%d8%a8-%d8%a2%d8%b3%d8%a7%d8%b3%db%8c%d9%86%d8%b2-%da%a9%d8%b1%db%8c%d8%af-%d8%a8%d9%87-%d8%a8/
+  hardware:
+    cpu_architecture: sh3eb
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: UA
+    cores: '1'
+    nodes: AB
+benchmark:
+  id: 1b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: EL
+        sim_time: TC
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: DZ
+date: 1632585010
