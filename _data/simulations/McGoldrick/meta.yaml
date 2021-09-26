@@ -1,0 +1,37 @@
+_id: 00c68c30-1ea2-11ec-a75a-3770d83d4cfe
+metadata:
+  author:
+    first: Maude Thurgood
+    last: Niklas Nicoll
+    email: alinemcgoldrick@gmail.com
+    github_id: Genevieve Swank
+  timestamp: '11'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Aline
+    repo:
+      url: >-
+        http://Varzeshikhabari.ir/2021/07/20/%d8%a7%d8%ae%d8%b1%d8%a7%d8%ac-%d8%b3%d9%87-%d8%a8%d8%a7%d8%b2%db%8c%da%a9%d9%86-%d9%85%d8%a7%d8%b4%db%8c%d9%86-%d8%b3%d8%a7%d8%b2%db%8c-%d8%af%d8%b1-%d8%a2%d8%b3%d8%aa%d8%a7%d9%86%d9%87-%d8%a8%d8%a7/
+      version: EI
+    container_url: >-
+      http://Varzeshikhabari.ir/2021/07/20/%d8%a7%d8%ae%d8%b1%d8%a7%d8%ac-%d8%b3%d9%87-%d8%a8%d8%a7%d8%b2%db%8c%da%a9%d9%86-%d9%85%d8%a7%d8%b4%db%8c%d9%86-%d8%b3%d8%a7%d8%b2%db%8c-%d8%af%d8%b1-%d8%a2%d8%b3%d8%aa%d8%a7%d9%86%d9%87-%d8%a8%d8%a7/
+  hardware:
+    cpu_architecture: ppc64
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: HG
+    cores: '1'
+    nodes: VK
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: NA
+        sim_time: GC
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: KL
+date: 1632644168
