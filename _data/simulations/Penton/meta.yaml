@@ -1,0 +1,35 @@
+_id: 7c28f8f0-1fbe-11ec-bda2-f7eb0d675e4f
+metadata:
+  author:
+    first: Foster Alley
+    last: Delmar Ulmer
+    email: margaret_penton@gmail.com
+    github_id: Iva Beauchamp
+  timestamp: '27'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Margaret
+    repo:
+      url: 'https://ecokhabari.ir/'
+      version: BH
+    container_url: 'https://ecokhabari.ir/'
+  hardware:
+    cpu_architecture: powerpc
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: HN
+    cores: '1'
+    nodes: LF
+benchmark:
+  id: 1d
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: IE
+        sim_time: HS
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: JB
+date: 1632766353
