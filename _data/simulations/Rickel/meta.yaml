@@ -1,0 +1,37 @@
+_id: 95dbc230-20a6-11ec-833e-15b1f26d8299
+metadata:
+  author:
+    first: Janessa Cavazos
+    last: Leatha Rosser
+    email: christelrickel@googlemail.com
+    github_id: Taj Mackaness
+  timestamp: '13'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Christel
+    repo:
+      url: >-
+        https://techkhabari.ir/2021/08/06/%d8%aa%d8%b5%d8%a7%d9%88%db%8c%d8%b1-%d8%ac%d8%a7%d9%84%d8%a8-%d9%88-%d8%ae%d9%86%d8%af%d9%87%e2%80%8c%d8%af%d8%a7%d8%b1-%d8%a7%d8%b2-%d8%ad%db%8c%d9%88%d8%a7%d9%86%d8%a7%d8%aa/
+      version: PI
+    container_url: >-
+      https://techkhabari.ir/2021/08/06/%d8%aa%d8%b5%d8%a7%d9%88%db%8c%d8%b1-%d8%ac%d8%a7%d9%84%d8%a8-%d9%88-%d8%ae%d9%86%d8%af%d9%87%e2%80%8c%d8%af%d8%a7%d8%b1-%d8%a7%d8%b2-%d8%ad%db%8c%d9%88%d8%a7%d9%86%d8%a7%d8%aa/
+  hardware:
+    cpu_architecture: hppa
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: FI
+    cores: '1'
+    nodes: ZD
+benchmark:
+  id: 8a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: KB
+        sim_time: CH
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: NI
+date: 1632866039
