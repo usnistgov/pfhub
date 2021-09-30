@@ -1,0 +1,35 @@
+_id: 3ba13fd0-21ea-11ec-b7b6-c51facacc338
+metadata:
+  author:
+    first: Angelita Jeffreys
+    last: Hugh McBryde
+    email: ladonnashuler@bigstring.com
+    github_id: Rufus Hooks
+  timestamp: '26'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Ladonna
+    repo:
+      url: 'http://http://'
+      version: WF
+    container_url: 'http://http://'
+  hardware:
+    cpu_architecture: sh3eb
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: FO
+    cores: '1'
+    nodes: HQ
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: EV
+        sim_time: LD
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: UQ
+date: 1633005044
