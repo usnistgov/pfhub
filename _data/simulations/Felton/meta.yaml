@@ -1,0 +1,37 @@
+_id: 8bd05710-21a5-11ec-b76b-1d6f9b628072
+metadata:
+  author:
+    first: Brook Schroder
+    last: Renate Edward
+    email: elliottfelton@t-online.de
+    github_id: Archie O'Mahony
+  timestamp: '13'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Elliott
+    repo:
+      url: >-
+        https://funkhabari.ir/2021/08/02/%d8%b9%d9%85%d9%84%da%a9%d8%b1%d8%af-%d9%85%d8%b4%d8%a7%d8%a8%d9%87-%d9%86%d8%b3%d9%84-%da%86%d9%87%d8%a7%d8%b1%d9%85-%d8%af%d8%b1%d8%a7%db%8c%d9%88%d9%87%d8%a7%db%8c-ssd-%d8%a8%d8%a7-%d8%ad%d8%a7/
+      version: MY
+    container_url: >-
+      https://funkhabari.ir/2021/08/02/%d8%b9%d9%85%d9%84%da%a9%d8%b1%d8%af-%d9%85%d8%b4%d8%a7%d8%a8%d9%87-%d9%86%d8%b3%d9%84-%da%86%d9%87%d8%a7%d8%b1%d9%85-%d8%af%d8%b1%d8%a7%db%8c%d9%88%d9%87%d8%a7%db%8c-ssd-%d8%a8%d8%a7-%d8%ad%d8%a7/
+  hardware:
+    cpu_architecture: sparc
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: BM
+    cores: '1'
+    nodes: KN
+benchmark:
+  id: 7a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: VW
+        sim_time: UF
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: EV
+date: 1632975544
