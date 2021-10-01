@@ -1,0 +1,35 @@
+_id: e4a627b0-2282-11ec-8d44-3150430c6361
+metadata:
+  author:
+    first: Esteban Adkins
+    last: Ines Wexler
+    email: margaretamccallum@yahoo.de
+    github_id: William Waldron
+  timestamp: '15'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Margareta
+    repo:
+      url: 'http://%3C/head%3E%3Cbody%3E'
+      version: MF
+    container_url: 'http://%3C/head%3E%3Cbody%3E'
+  hardware:
+    cpu_architecture: mipsel
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: KG
+    cores: '1'
+    nodes: XJ
+benchmark:
+  id: 2c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: OT
+        sim_time: KD
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: BC
+date: 1633070612
