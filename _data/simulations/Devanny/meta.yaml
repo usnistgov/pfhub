@@ -1,0 +1,35 @@
+_id: a63efd70-24d6-11ec-ab77-cd73fab4b20c
+metadata:
+  author:
+    first: Bernd Lashbrook
+    last: Reva Mackersey
+    email: inezdevanny@gmail.com
+    github_id: Helen Newdegate
+  timestamp: '24'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Inez
+    repo:
+      url: 'http://http://'
+      version: DY
+    container_url: 'http://http://'
+  hardware:
+    cpu_architecture: armeb
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: QV
+    cores: '1'
+    nodes: TZ
+benchmark:
+  id: 1c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: PT
+        sim_time: FF
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: RH
+date: 1633326487
