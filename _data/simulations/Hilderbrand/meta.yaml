@@ -1,0 +1,35 @@
+_id: 174d98a0-2577-11ec-8768-0f2ee9b717d5
+metadata:
+  author:
+    first: Violette Dempsey
+    last: June Hale
+    email: floridahilderbrand@zoho.com
+    github_id: Latasha Gaffney
+  timestamp: '26'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Florida
+    repo:
+      url: 'http://6fofficeiv6.get-Blogging.com/'
+      version: TH
+    container_url: 'http://6fofficeiv6.get-Blogging.com/'
+  hardware:
+    cpu_architecture: hppa
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: NJ
+    cores: '1'
+    nodes: QN
+benchmark:
+  id: 4h
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: HB
+        sim_time: IB
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: UZ
+date: 1633395396
