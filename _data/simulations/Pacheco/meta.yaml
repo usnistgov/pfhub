@@ -1,0 +1,35 @@
+_id: e8acdc30-264e-11ec-ad15-233441de4689
+metadata:
+  author:
+    first: Archie Bourget
+    last: Jackson Dolan
+    email: linpacheco@hotmail.com
+    github_id: King Eastham
+  timestamp: '22'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Lin
+    repo:
+      url: 'https://salamatikhabari.ir'
+      version: OT
+    container_url: 'https://salamatikhabari.ir'
+  hardware:
+    cpu_architecture: alpha
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: SB
+    cores: '1'
+    nodes: AS
+benchmark:
+  id: 8b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: LW
+        sim_time: BP
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: HC
+date: 1633488089
