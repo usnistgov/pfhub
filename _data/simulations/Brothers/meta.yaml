@@ -1,0 +1,35 @@
+_id: 633db530-2778-11ec-84c2-eb1c750e9301
+metadata:
+  author:
+    first: Greta Archibald
+    last: Benito Mackenzie
+    email: mazie.brothers@freenet.de
+    github_id: Carmen Lundberg
+  timestamp: '28'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Mazie
+    repo:
+      url: 'http://j6fwallhouseju7.kylieblog.com/'
+      version: LL
+    container_url: 'http://j6fwallhouseju7.kylieblog.com/'
+  hardware:
+    cpu_architecture: k1om
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: FS
+    cores: '1'
+    nodes: YU
+benchmark:
+  id: 7a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: NI
+        sim_time: LZ
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: XD
+date: 1633615855
