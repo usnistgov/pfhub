@@ -207,6 +207,12 @@ func_xy = (func) ->
     juxt(map(func(name), [datum_x, datum_y]))
 
 
+get_order_of_accuracy = curry(
+  (name, datum_x, datum_y, values) ->
+    [[10, 100], [10, 100]]
+)
+
+
 reorder = curry(
   (center, name, datum_x, datum_y, values) ->
     ### Reorder a set of of data points based on the polar angle.
@@ -284,6 +290,7 @@ vega_to_plotly = (chart_item, sim_name) ->
     normed:func_xy(normed)
     reorder:reorder([0, 0])
     reorder_offset:reorder([-10000, -10000])
+    get_order_of_accuracy:get_order_of_accuracy
   }
 
   func_select = ->
@@ -293,7 +300,7 @@ vega_to_plotly = (chart_item, sim_name) ->
     if chart_item.func is 'efficiency'
       x.name in ['run_time', 'memory_usage']
     else
-      x.name is name_select()
+      (x.name is name_select()) or (x.name in name_select())
 
   name_select = ->
     chart_item.data_name or chart_item.name
@@ -392,12 +399,19 @@ get_cols = (data) ->
   calc_cols(data.format.parse)
 
 
+get_cols_multiple = (data) ->
+  ### Calculate the columns for URL paramater values
+  ###
+  get_cols(data)
+
+
 get_url_params = (endpoint, data) ->
   ### Calculate the URL parameters for different end points
   ###
   switch endpoint
     when 'get' then []
     when 'get_contour' then get_cols(data)
+    when 'get_order_of_accuracy' then get_cols_multiple(data)
 
 
 build = (chart_data, benchmark_id, data, app_url) ->
@@ -428,6 +442,7 @@ build = (chart_data, benchmark_id, data, app_url) ->
         Plotly.update(x.div, x.data, x.layout)
   )
 
+
   newplot = sequence(
     get_plotly_data_id
     (x) ->
@@ -437,7 +452,7 @@ build = (chart_data, benchmark_id, data, app_url) ->
           map(
             (index) ->
               if x.data[index].data.length > 0
-                data_url = x.data[index].data[0].url
+                data_urls = map((item) -> item.url, x.data[index].data)
               else
                 url = null
               if data_url?
@@ -445,7 +460,7 @@ build = (chart_data, benchmark_id, data, app_url) ->
                   {
                     app_url:app_url
                     endpoint:x.endpoint
-                    data_url:data_url
+                    data_urls:data_urls
                     params:get_url_params(x.endpoint, x.data[index].data[0])
                   },
                   callback(x, index)

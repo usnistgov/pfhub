@@ -635,3 +635,19 @@
       func: get_values
       variations: [a]
       endpoint: get_contour
+
+    - name: order_of_accuracy
+      data_name: [phase_field_3, phase_field_4, phase_field_5]
+      type: scatter
+      x_scale: log
+      y_scale: log
+      x_title: 'ds'
+      y_title: 'accuracy'
+      title: 'Order of Accuracy'
+      x_domain: [0, 100]
+      y_domain: [0, 100]
+      y_scaleanchor: x
+      mode: lines
+      func: get_order_of_accuracy
+      variations: [a]
+      endpoint: get_order_of_accuracy

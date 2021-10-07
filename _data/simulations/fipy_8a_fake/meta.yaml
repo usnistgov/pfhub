@@ -165,13 +165,44 @@ data:
   - description: phase field contour plot
     name: phase_field_3
     type: contour
-    url: https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/6f39388cab76024a48709aa4dcfeccbef68f0f87/phi_fixed.csv
+    url: https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/phase_field_3_transform.csv
     format:
       type: csv
       parse:
         x: number
         y: number
         phi: number
+        dx: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_4
+    type: contour
+    url: https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/phase_field_4_transform.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+        dx: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_5
+    type: contour
+    url: https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/phase_field_5_transform.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+        dx: number
     transform:
       - type: formula
         expr: datum.phi
