@@ -1,0 +1,35 @@
+_id: aedbd3c0-2811-11ec-abec-3932f0794941
+metadata:
+  author:
+    first: Randy Kinslow
+    last: Amelie Carolan
+    email: ron.baylis@bigstring.com
+    github_id: Gita Esson
+  timestamp: '28'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Ron
+    repo:
+      url: 'https://irmusic4.ir/id/877/'
+      version: XH
+    container_url: 'https://irmusic4.ir/id/877/'
+  hardware:
+    cpu_architecture: ppc
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: EP
+    cores: '1'
+    nodes: IH
+benchmark:
+  id: 7c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: NY
+        sim_time: XX
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: AE
+date: 1633681695
