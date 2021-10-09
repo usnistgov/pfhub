@@ -1,0 +1,35 @@
+_id: b76e6550-28e5-11ec-8240-73e7617a316f
+metadata:
+  author:
+    first: Julie Gilmore
+    last: Gertrude Oneill
+    email: brettfreeman@gmail.com
+    github_id: Inez Rounsevell
+  timestamp: '13'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Brett
+    repo:
+      url: 'http://http://'
+      version: IE
+    container_url: 'http://http://'
+  hardware:
+    cpu_architecture: ppc64
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: QC
+    cores: '1'
+    nodes: TT
+benchmark:
+  id: 3a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: VO
+        sim_time: MA
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: DY
+date: 1633772763
