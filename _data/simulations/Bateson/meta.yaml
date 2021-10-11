@@ -1,0 +1,37 @@
+_id: 11492260-2a3d-11ec-9603-3fbe7d0a9773
+metadata:
+  author:
+    first: Penni Stiltner
+    last: Gonzalo Shand
+    email: lucie.bateson@gmail.com
+    github_id: Bonny Mcdowell
+  timestamp: '22'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Lucie
+    repo:
+      url: >-
+        https://funkhabari.ir/2021/07/28/%d9%82%d8%b3%d9%85%d8%aa-%d8%af%d9%88%d9%85-%d8%a8%d8%a7%d8%b2%db%8c-%d9%85%d9%87%d8%af%db%8c%d8%a7%d8%b1-%db%b3-%d9%85%d9%86%d8%aa%d8%b4%d8%b1-%d8%b4%d8%af%d8%9b-%db%8c%da%a9-%d9%85%d8%a7/
+      version: UH
+    container_url: >-
+      https://funkhabari.ir/2021/07/28/%d9%82%d8%b3%d9%85%d8%aa-%d8%af%d9%88%d9%85-%d8%a8%d8%a7%d8%b2%db%8c-%d9%85%d9%87%d8%af%db%8c%d8%a7%d8%b1-%db%b3-%d9%85%d9%86%d8%aa%d8%b4%d8%b1-%d8%b4%d8%af%d8%9b-%db%8c%da%a9-%d9%85%d8%a7/
+  hardware:
+    cpu_architecture: s390x
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: TP
+    cores: '1'
+    nodes: TV
+benchmark:
+  id: 7c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: TY
+        sim_time: ZD
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: WT
+date: 1633920231
