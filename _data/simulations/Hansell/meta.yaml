@@ -1,0 +1,35 @@
+_id: b87b6fd0-2c17-11ec-8aa6-dfc2ece346f2
+metadata:
+  author:
+    first: Glenna Robe
+    last: Amanda Traeger
+    email: wilberthansell@aol.com
+    github_id: Roseann Northcott
+  timestamp: '16'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Wilbert
+    repo:
+      url: 'https://autokhabari.ir'
+      version: DW
+    container_url: 'https://autokhabari.ir'
+  hardware:
+    cpu_architecture: sparc
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: IH
+    cores: '1'
+    nodes: PS
+benchmark:
+  id: 8c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: NB
+        sim_time: LG
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: KG
+date: 1634124093
