@@ -20,6 +20,7 @@ in
       toolz
       plotly
       ipywidgets
+      dash
     ];
 
     shellHook = ''
