@@ -337,6 +337,10 @@ table.striped tbody tr:nth-child(2n+1) {
     line-height: 34px !important
 }
 
+.container {
+    width: 90%;
+}
+
 .card-col-right {
     width: 90px;
     float: left;
@@ -625,4 +629,8 @@ a.hoveranchor {
     position: relative;
     width: 0;
     height: 0;
+}
+
+.output_subarea {
+    max-width: 100%;
 }
