@@ -1,0 +1,35 @@
+_id: 94331ad0-2d55-11ec-8479-d9257630638f
+metadata:
+  author:
+    first: Karissa Scanlon
+    last: Latoya Quintero
+    email: gladiswalters@whale-mail.com
+    github_id: Latrice Milton
+  timestamp: '19'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Gladis
+    repo:
+      url: 'http://http://'
+      version: EI
+    container_url: 'http://http://'
+  hardware:
+    cpu_architecture: m32r
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: PH
+    cores: '1'
+    nodes: DP
+benchmark:
+  id: 4c
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: MR
+        sim_time: LO
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: ED
+date: 1634260612
