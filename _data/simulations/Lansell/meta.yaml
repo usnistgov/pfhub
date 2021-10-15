@@ -1,0 +1,35 @@
+_id: bca4a030-2e11-11ec-9309-9fa292ff4175
+metadata:
+  author:
+    first: Esteban Fitzmaurice
+    last: Saul Darnell
+    email: cleta_lansell@gmail.com
+    github_id: Alisia Pilpel
+  timestamp: '14'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Cleta
+    repo:
+      url: 'http://%3Chtml%3E%3Chead%3E'
+      version: UQ
+    container_url: 'http://%3Chtml%3E%3Chead%3E'
+  hardware:
+    cpu_architecture: s390
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: PU
+    cores: '1'
+    nodes: IZ
+benchmark:
+  id: 6a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: YG
+        sim_time: IZ
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: LL
+date: 1634341425
