@@ -1,0 +1,35 @@
+_id: aa2121a0-2e42-11ec-9e78-57ae0a5d9b39
+metadata:
+  author:
+    first: Wilfred Ogrady
+    last: Brianne Palumbo
+    email: arlenkayser@mailandftp.com
+    github_id: Hans Balsillie
+  timestamp: '20'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Arlen
+    repo:
+      url: 'http://http://'
+      version: OB
+    container_url: 'http://http://'
+  hardware:
+    cpu_architecture: armv6l
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: PJ
+    cores: '1'
+    nodes: ZK
+benchmark:
+  id: 4f
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: KQ
+        sim_time: HX
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: PD
+date: 1634362439
