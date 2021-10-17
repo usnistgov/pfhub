@@ -1,0 +1,35 @@
+_id: 051b6e90-2f91-11ec-951b-9dbd8d03d921
+metadata:
+  author:
+    first: Mazie Wendt
+    last: Son Shivers
+    email: adele_windsor@gmx.net
+    github_id: Nolan Bachman
+  timestamp: '28'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Adele
+    repo:
+      url: 'https://autokhabari.ir'
+      version: NE
+    container_url: 'https://autokhabari.ir'
+  hardware:
+    cpu_architecture: sh3
+    acc_architecture: non-gpu
+    parallel_model: serial
+    clock_rate: NU
+    cores: '1'
+    nodes: QE
+benchmark:
+  id: 2b
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: DP
+        sim_time: LO
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: SH
+date: 1634506044
