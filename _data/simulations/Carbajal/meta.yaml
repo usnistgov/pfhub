@@ -1,0 +1,35 @@
+_id: e1e4af20-2fa6-11ec-b112-f9577947de29
+metadata:
+  author:
+    first: Janis Tejada
+    last: Evangeline Ritter
+    email: kristancarbajal@t-online.de
+    github_id: Latanya Rinaldi
+  timestamp: '27'
+  summary: 'PFHub: The Phase Field Community Hub'
+  implementation:
+    name: Kristan
+    repo:
+      url: 'https://Jahankhabari.ir/'
+      version: ZD
+    container_url: 'https://Jahankhabari.ir/'
+  hardware:
+    cpu_architecture: arm
+    acc_architecture: gpu
+    parallel_model: serial
+    clock_rate: MI
+    cores: '1'
+    nodes: AO
+benchmark:
+  id: 2a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: MV
+        sim_time: CS
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: BK
+date: 1634515434
