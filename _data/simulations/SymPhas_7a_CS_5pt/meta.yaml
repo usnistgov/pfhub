@@ -12,10 +12,10 @@ metadata:
         github_id: MetricManifold
     timestamp: ''
     hardware: 
-        acc_archiecture: 'none'
+        acc_architecture: 'none'
         clock_rate: 3.2
         cores: 12
-        architecture: x86_64
+        cpu_architecture: x86_64
         nodes: 1
         parallel_model: threaded
     implementation: 
