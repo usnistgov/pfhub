@@ -162,3 +162,26 @@
       src: https://www.openhub.net/p/rcs_sfepy/widgets/project_thin_badge.gif
     - href: https://anaconda.org/conda-forge/sfepy
       src: https://anaconda.org/conda-forge/sfepy/badges/downloads.svg
+
+- name: SymPhas
+  uploads: true
+  home_page: https://github.com/Softsimu/SymPhas
+  logo: https://github.com/SoftSimu/SymPhas/blob/main/docs/voronoi.png
+  description: >-
+    SymPhas generates solutions to phase-field problems based on compile-time
+    formulated symbolic algebra definitions of phase-field equations. Supports
+    any phase-field, phase-field crystal or reaction-diffusion problem in 1-, 2-
+    or 3-dimensions and multiple numerical methods 
+    (semi-implicit spectral and finite difference).
+  badges:
+    - href: http://www.gnu.org/licenses/lgpl.html
+      src: https://img.shields.io/badge/license-lgpl-blue.svg
+  examples:
+    - name: Cahn-Hilliard
+      href: https://github.com/SoftSimu/SymPhas/blob/main/examples/simultaneous-configs
+    - name: Allen-Cahn
+      href: https://github.com/SoftSimu/SymPhas/blob/main/examples/simultaneous-configs
+    - name: Phase-Field Crystal
+      href: https://github.com/SoftSimu/SymPhas/blob/main/examples/simultaneous-configs
+    - name: Eutectic Growth
+      href: https://github.com/SoftSimu/SymPhas/blob/main/examples/simultaneous-configs
