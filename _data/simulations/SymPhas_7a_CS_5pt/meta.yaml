@@ -39,7 +39,7 @@ data:
         parse:
             time_step: number
             L2_error: number
-    file: symphas_pfhub_L2_dt.csv
+    url: symphas_pfhub_L2_dt.csv
     description: Convergence data for varying time step size. The spatial
         step is fixed to a value of 0.002. 
 -   name: spatial
@@ -48,6 +48,6 @@ data:
         parse:
             mesh_size: number
             L2_error: number
-    file: symphas_pfhub_L2_h.csv
+    url: symphas_pfhub_L2_h.csv
     description: Convergence data for varying spatial step size. The time
         step is fixed to a value of 0.001. 
