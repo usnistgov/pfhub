@@ -166,7 +166,7 @@
 - name: SymPhas
   uploads: true
   home_page: https://github.com/Softsimu/SymPhas
-  logo: https://github.com/SoftSimu/SymPhas/blob/main/docs/voronoi.png
+  logo: https://github.com/SoftSimu/SymPhas/blob/main/docs/voronoi.png?raw=true
   description: >-
     SymPhas generates solutions to phase-field problems based on compile-time
     formulated symbolic algebra definitions of phase-field equations. Supports
