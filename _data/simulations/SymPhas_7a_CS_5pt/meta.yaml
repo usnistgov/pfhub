@@ -1,0 +1,81 @@
+benchmark:
+    id: 7a
+    version: 0
+metadata:
+    summary: Benchmark of the SymPhas API. The implementation written for this
+        problem uses the forward Euler (central-space forward-time) finite
+        difference scheme, which applies a 5-point Laplacian stencil.
+    author:
+        first: Steven
+        last: Silber
+        email: ssilber@uwo.ca
+        github_id: MetricManifold
+    timestamp: '29 October, 2021'
+    hardware:
+        acc_architecture: 'none'
+        clock_rate: 3.2
+        cores: 12
+        cpu_architecture: x86_64
+        nodes: 1
+        parallel_model: threaded
+    implementation:
+        container_url: '29 October, 2021'
+        name: symphas
+        repo:
+            url: https://github.com/SoftSimu/SymPhas
+            version: e12d3c54d2c24ad68de5034fff8d947e1766cf6e
+data:
+-   name: run_time
+    values:
+    -   sim_time: 0.0
+        wall_time: 0.0
+-   name: memory_usage
+    values:
+    -   unit: KB
+        value: 0
+-   name: temporal
+    format:
+        type: csv
+        parse:
+            time_step: number
+            L2_error: number
+    url: https://raw.githubusercontent.com/usnistgov/pfhub/c18eafa62bec6de6e3b1ddae70b8c5992f458f54/_data/simulations/SymPhas_7a_CS_5pt/symphas_pfhub_L2_dt.csv
+    description: Convergence data for varying time step size. The spatial
+        step is fixed to a value of 0.002.
+    transform:
+    - as: x
+      expr: datum.time_step
+      type: formula
+    - as: y
+      expr: datum.L2_error
+      type: formula
+    type: line
+-   name: spatial
+    format:
+        type: csv
+        parse:
+            mesh_size: number
+            L2_error: number
+    url: https://raw.githubusercontent.com/usnistgov/pfhub/c18eafa62bec6de6e3b1ddae70b8c5992f458f54/_data/simulations/SymPhas_7a_CS_5pt/symphas_pfhub_L2_h.csv
+    description: Convergence data for varying spatial step size. The time
+        step is fixed to a value of 0.001.
+    transform:
+    - as: x
+      expr: datum.mesh_size
+      type: formula
+    - as: y
+      expr: datum.L2_error
+      type: formula
+    type: line
+-   name: spatialplot
+    url: https://raw.githubusercontent.com/usnistgov/pfhub/c18eafa62bec6de6e3b1ddae70b8c5992f458f54/_data/simulations/SymPhas_7a_CS_5pt/L2_space_forward_euler_dt0.001.PNG
+    type: image
+    description: The experimental order of accuracy is ~2.05, which is in
+        excellent correspondence with the theoretical order of accuracy of 2
+        for the 5-point Laplacian.
+-   name: temporalplot
+    url: https://raw.githubusercontent.com/usnistgov/pfhub/c18eafa62bec6de6e3b1ddae70b8c5992f458f54/_data/simulations/SymPhas_7a_CS_5pt/L2_time_forward_euler_h0.001.PNG
+    type: image
+    description: In an explicit finite difference scheme, the error is related
+        to the spatial step size rather than the temporal step size, which is
+        demonstrated by this plot.
