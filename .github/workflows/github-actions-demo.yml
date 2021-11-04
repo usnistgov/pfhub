@@ -25,4 +25,4 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
       - run: cd _data/pfhub
       - working-directory: ./_data/pfhub
-        run: nix-shell --pure --command "import pfhub; pfhub.test()"
+        run: nix-shell --pure --command "python -c 'import pfhub; pfhub.test()'"
