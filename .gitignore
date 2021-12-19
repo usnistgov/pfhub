@@ -9,3 +9,4 @@ _apps/box/1014649_e91k0tua_config.json
 _apps/box/cert.pem
 _apps/box/.coverage
 .~*
+_data/pfhub/.coverage
