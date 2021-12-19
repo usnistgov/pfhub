@@ -8,12 +8,14 @@
 , pyyaml
 , pandas
 , plotly
+, pytestcov
+, jupyter
 }:
 buildPythonPackage rec {
   pname = "pfhub";
   version = "0.1";
 
-  src = builtins.filterSource (path: type: type != "directory" || baseNameOf path != ".git") ./.;
+  src = lib.cleanSource ./.;
 
   propagatedBuildInputs = [
     numpy
@@ -22,6 +24,8 @@ buildPythonPackage rec {
     pyyaml
     pandas
     plotly
+    pytestcov
+    jupyter
   ];
 
   checkInputs = [
