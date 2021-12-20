@@ -739,24 +739,41 @@ def interp(keys, nx, ny, rangex, rangey, df):
 
 
 @curry
-def order_of_accuracy_values(data_names, benchmark_id, keys, rangex, rangey, nx=1000, ny=1000, benchmark_path=BENCHMARK_PATH):
+def order_of_accuracy_values_(keys, rangex, rangey, nx, ny, data):
     """Calculate order of accuracy from benchmark field data for a series
     of data items
 
     Args:
-      data_names: the data block names to use (at least 3 required)
-        (e.g. ['free_energy_1', 'free_energy_2', 'free_energy_3'])
-      benchmark_id: the benchmark id
       keys: the column names to used (e.g. ['x', 'y', 'phase_field'])
       rangex: the x range of the grid to interpolate to
       rangey: the y range of the grid to interpolage to
       nx: number of points in the x direction for the interpolation grid
       ny: number of points in the y direction for the interpolation grid
+      data:
 
     Returns:
       tuple of estimated grid spacings and L2 norms
 
+    >>> def make_df(nx):
+    ...     x, y = np.mgrid[0:1:(nx - 1) * 1j, 0:1:(nx - 1) * 1j]
+    ...     x = x.flatten()
+    ...     y = y.flatten()
+    ...     return pandas.DataFrame(dict(x=x, y=y, z=x * y, sim_name='sim1'))
+
+    >>> out = order_of_accuracy_values_(
+    ...     ('x', 'y', 'z'),
+    ...     [0, 1],
+    ...     [0, 1],
+    ...     1000,
+    ...     1000,
+    ...     [make_df(10), make_df(20), make_df(40)]
+    ... )
+
+    >>> accuracy = (np.log(out['sim1'][1][-1]) - np.log(out['sim1'][1][0])) / (np.log(out['sim1'][0][-1]) - np.log(out['sim1'][0][0]))
+    >>> assert accuracy > 2
+
     """
+
     effective_dx = lambda df: np.sqrt(cell_area(len(df)))
     cell_area = lambda n: (rangex[1] - rangex[0]) * (rangey[1] - rangey[0]) / n
 
@@ -775,10 +792,8 @@ def order_of_accuracy_values(data_names, benchmark_id, keys, rangex, rangey, nx=
         clean
     )
 
-    return pipe(
-        data_names,
-        map_(get_result_data(benchmark_ids=[benchmark_id], keys=keys, benchmark_path=benchmark_path)),
-        list,
+    out =  pipe(
+        data,
         map_(lambda x: x.groupby('sim_name')),
         map_(tuple),
         map_(dict),
@@ -787,6 +802,36 @@ def order_of_accuracy_values(data_names, benchmark_id, keys, rangex, rangey, nx=
             curry(sorted)(key=len, reverse=True),
             juxt((dx_clean, error))
         ))
+    )
+#    print(out)
+    return out
+
+@curry
+def order_of_accuracy_values(data_names, benchmark_id, keys, rangex, rangey, nx=1000, ny=1000, benchmark_path=BENCHMARK_PATH):
+    """Calculate order of accuracy from benchmark field data for a series
+    of data items
+
+    Args:
+      data_names: the data block names to use (at least 3 required)
+        (e.g. ['free_energy_1', 'free_energy_2', 'free_energy_3'])
+      benchmark_id: the benchmark id
+      keys: the column names to used (e.g. ['x', 'y', 'phase_field'])
+      rangex: the x range of the grid to interpolate to
+      rangey: the y range of the grid to interpolage to
+      nx: number of points in the x direction for the interpolation grid
+      ny: number of points in the y direction for the interpolation grid
+
+    Returns:
+      tuple of estimated grid spacings and L2 norms
+
+    >>>
+
+    """
+    return pipe(
+        data_names,
+        map_(get_result_data(benchmark_ids=[benchmark_id], keys=keys, benchmark_path=benchmark_path)),
+        list,
+        order_of_accuracy_values_(keys, rangex, rangey, nx, ny)
     )
 
 
