@@ -10,6 +10,7 @@
 , plotly
 , pytestcov
 , jupyter
+, nbval
 }:
 buildPythonPackage rec {
   pname = "pfhub";
@@ -26,6 +27,7 @@ buildPythonPackage rec {
     plotly
     pytestcov
     jupyter
+    nbval
   ];
 
   checkInputs = [
