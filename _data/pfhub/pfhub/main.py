@@ -14,9 +14,10 @@ import pandas
 import plotly.express as px
 import plotly.graph_objects as go
 from scipy.interpolate import griddata
+import pathlib
 
 
-BENCHMARK_PATH = '../_data/simulations/*/meta.yaml'
+BENCHMARK_PATH = str(pathlib.Path(__file__).resolve().parent / '../../simulations/*/meta.yaml')
 
 
 def read_yaml(filepath):
@@ -674,9 +675,9 @@ def levelset_plot(
     """
     return levelset_plot_(
         get_result_data([data_name], [benchmark_id], list(columns), benchmark_path=benchmark_path),
-        layout=dict(),
-        columns=('x', 'y', 'z'),
-        mask_func=lambda x: slice(len(x))
+        layout=layout,
+        columns=columns,
+        mask_func=mask_func
     )
 
 
@@ -749,7 +750,7 @@ def order_of_accuracy_values_(keys, rangex, rangey, nx, ny, data):
       rangey: the y range of the grid to interpolage to
       nx: number of points in the x direction for the interpolation grid
       ny: number of points in the y direction for the interpolation grid
-      data:
+      data: dataframe with columns corresponding to the keys
 
     Returns:
       tuple of estimated grid spacings and L2 norms
@@ -792,7 +793,7 @@ def order_of_accuracy_values_(keys, rangex, rangey, nx, ny, data):
         clean
     )
 
-    out =  pipe(
+    return pipe(
         data,
         map_(lambda x: x.groupby('sim_name')),
         map_(tuple),
@@ -803,54 +804,34 @@ def order_of_accuracy_values_(keys, rangex, rangey, nx, ny, data):
             juxt((dx_clean, error))
         ))
     )
-#    print(out)
-    return out
 
-@curry
-def order_of_accuracy_values(data_names, benchmark_id, keys, rangex, rangey, nx=1000, ny=1000, benchmark_path=BENCHMARK_PATH):
-    """Calculate order of accuracy from benchmark field data for a series
-    of data items
+
+def plot_order_of_accuracy(data_names, benchmark_id, keys, rangex, rangey, nx=1000, ny=1000, layout=dict(), benchmark_path=BENCHMARK_PATH):  # pragma: no cover
+    """Plot an order of accuracy plots for a series of result uploads.
 
     Args:
-      data_names: the data block names to use (at least 3 required)
-        (e.g. ['free_energy_1', 'free_energy_2', 'free_energy_3'])
+      data_names: the names of the data blocks
       benchmark_id: the benchmark id
       keys: the column names to used (e.g. ['x', 'y', 'phase_field'])
       rangex: the x range of the grid to interpolate to
       rangey: the y range of the grid to interpolage to
       nx: number of points in the x direction for the interpolation grid
       ny: number of points in the y direction for the interpolation grid
-
-    Returns:
-      tuple of estimated grid spacings and L2 norms
-
-    >>>
+      layout: dictionary with "x", "y" and "title" keys to customize the plot
+      benchmark_path: path to data files used by glob
 
     """
-    return pipe(
-        data_names,
-        map_(get_result_data(benchmark_ids=[benchmark_id], keys=keys, benchmark_path=benchmark_path)),
-        list,
-        order_of_accuracy_values_(keys, rangex, rangey, nx, ny)
-    )
-
-
-def plot_order_of_accuracy(data_names, benchmark_id, keys, rangex, rangey, nx=1000, ny=1000, layout=dict()):
     def make_order(df):
         return pandas.DataFrame(dict(
             x=df.x, y=df.x**2 * df.y[0] / df.x[0]**2, sim_name=r'Δx<sup>2</sup>'
         ))
 
     return pipe(
-        order_of_accuracy_values(
-            data_names,
-            benchmark_id,
-            keys,
-            rangex=rangex,
-            rangey=rangey,
-            nx=nx,
-            ny=ny
-        ).items(),
+        data_names,
+        map_(get_result_data(benchmark_ids=[benchmark_id], keys=keys, benchmark_path=benchmark_path)),
+        list,
+        order_of_accuracy_values_(keys, rangex, rangey, nx, ny),
+        lambda x: x.items(),
         map_(lambda x: dict(x=x[1][0], y=x[1][1], sim_name=x[0])),
         map_(pandas.DataFrame),
         list,
