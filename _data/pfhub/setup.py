@@ -17,7 +17,7 @@ def setup_args():
         packages=find_packages(),
         package_data={"": ["tests/*.py"]},
         data_files=["setup.cfg"],
-        version='0.1',
+        version="0.1",
     )
 
 
