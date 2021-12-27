@@ -13,4 +13,4 @@ jobs:
           extraPullNames: nix-community
       - run: cd _data/pfhub
       - working-directory: ./_data/pfhub
-        run: nix-shell --pure --command "python -c 'import pfhub; pfhub.test()'"
+        run: nix-shell --pure --command "py.test --cov-fail-under=100"
