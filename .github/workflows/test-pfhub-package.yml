@@ -13,4 +13,4 @@ jobs:
           extraPullNames: nix-community
       - run: cd _data/pfhub
       - working-directory: ./_data/pfhub
-        run: nix-shell --pure --command "py.test --cov-fail-under=100"
+        run: nix-shell --pure --command "py.test --nbval-lax --cov-fail-under=100"
