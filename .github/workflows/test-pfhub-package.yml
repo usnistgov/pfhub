@@ -14,3 +14,9 @@ jobs:
       - run: cd _data/pfhub
       - working-directory: ./_data/pfhub
         run: nix-shell --pure --command "py.test --nbval-lax --cov-fail-under=100"
+      - working-directory: ./_data/pfhub
+        run: nix-shell --pure --command "black --check setup.py pfhub"
+      - working-directory: ./_data/pfhub
+        run: nix-shell --pure --command "pylint setup.py pfhub"
+      - working-directory: ./_data/pfhub
+        run: nix-shell --pure --command "flake8 setup.py pfhub"
