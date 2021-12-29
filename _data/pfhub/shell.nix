@@ -9,8 +9,7 @@ let
   pkgs = import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/${tag}.tar.gz") {};
   pypkgs = pkgs.python3Packages;
   pfhub = pypkgs.callPackage ./default.nix {};
-  extra = with pypkgs; [ ipywidgets black ];
-  # extra = with pypkgs; [ black pylint flake8 ipywidgets ];
+  extra = with pypkgs; [ ipywidgets black pylint flake8 ];
 in
   (pfhub.overridePythonAttrs (old: rec {
 

@@ -1,4 +1,11 @@
+"""Tools for rendering the PFHub data.
+"""
+
 from functools import wraps
+import glob
+import os
+from urllib.error import HTTPError, URLError
+import pathlib
 
 from toolz.curried import filter as filter_
 from toolz.curried import map as map_
@@ -11,23 +18,19 @@ from toolz.curried import (
     do,
     get,
     compose,
-    get_in,
     tail,
     merge_with,
     identity,
     valmap,
     juxt,
+    second,
 )
 import numpy as np
-import glob
-import os
-from urllib.error import HTTPError, URLError
 import yaml
 import pandas
 import plotly.express as px
 import plotly.graph_objects as go
 from scipy.interpolate import griddata
-import pathlib
 
 
 BENCHMARK_PATH = str(
@@ -58,7 +61,7 @@ def read_yaml(filepath):
 make_id = lambda x: ".".join([x["benchmark"]["id"], str(x["benchmark"]["version"])])
 
 make_author = lambda x: pipe(
-    x, get_in(["metadata", "author"]), get(["first", "last"]), lambda y: " ".join(y)
+    x, get_in(["metadata", "author"]), get(["first", "last"]), " ".join
 )
 
 
@@ -112,19 +115,18 @@ def maybe(func):
     def wrapper(*args):
         if args[-1] is None:
             return None
-        else:
-            return func(*args)
+        return func(*args)
 
     return wraps(func)(wrapper)
 
 
 @maybe
-def assign(columns, df):
+def assign(columns, dataframe):
     """Curried version of assigning columns to a dataframe
 
     Args:
       columns: the new columns to append to the dataframe
-      df: dataframe to append to
+      dataframe: dataframe to append to
 
     Returns:
       a new dataframe
@@ -138,7 +140,7 @@ def assign(columns, df):
     1  2  4  6
 
     """
-    return df.assign(**columns)
+    return dataframe.assign(**columns)
 
 
 def compact(items):
@@ -188,13 +190,13 @@ def concat_items(items):
 
 
 @curry
-def update_column(func, columns, df):
+def update_column(func, columns, dataframe):
     """Apply function to columns in a dataframe
 
     Args:
       func: the function to apply
       columns: the columns to apply the function
-      df: the dataframe to change
+      dataframe: the dataframe to change
 
     Returns:
       a new dataframe with updated columns
@@ -202,14 +204,14 @@ def update_column(func, columns, df):
     >>> update_column(
     ...     lambda x: x + 1,
     ...     columns=('x',),
-    ...     df=pandas.DataFrame(dict(x=[1, 2], y=[1, 2]))
+    ...     dataframe=pandas.DataFrame(dict(x=[1, 2], y=[1, 2]))
     ... )
        x  y
     0  2  1
     1  3  2
 
     """
-    return df.apply(lambda x: func(x) if x.name in columns else x)
+    return dataframe.apply(lambda x: func(x) if x.name in columns else x)
 
 
 def table_results(data):
@@ -222,7 +224,13 @@ def table_results(data):
       a flattened subset of the data suitable for a table of data
 
     >>> import datetime
-    >>> expected = dict(Name='result', Code='code_name', Benchmark='1a.1', Author='first last', Timestamp=datetime.date(2021, 12, 7))
+    >>> expected = dict(
+    ...     Name='result',
+    ...     Code='code_name',
+    ...     Benchmark='1a.1',
+    ...     Author='first last',
+    ...     Timestamp=datetime.date(2021, 12, 7)
+    ... )
     >>> data = read_add_name(getfixture('yaml_data_file'))
     >>> assert table_results(data) == expected
 
@@ -387,8 +395,10 @@ def apply_transform(transform, values):
 
     """
     if transform["type"] == "formula":
-        datum = values
-        exec("values[transform['as']] = " + transform["expr"])
+        datum = values  # pylint: disable=unused-variable  # noqa: F841
+        exec(  # pylint: disable=exec-used
+            "values[transform['as']] = " + transform["expr"]
+        )
     else:
         raise RuntimeError(f"{transform['type']} transform type is not supported")
 
@@ -426,12 +436,11 @@ def apply_transforms(data, values):
         return thread_first(
             values, *list(map_(lambda x: do(apply_transform(x)), data["transform"]))
         )
-    else:
-        return values
+    return values
 
 
 def sep(data_format):
-    """Determine separator based on file type
+    r"""Determine separator based on file type
 
     Args:
       data_format: data format block from Vega spec
@@ -444,9 +453,9 @@ def sep(data_format):
     >>> sep({'type': 'csv'})
     ','
     >>> sep({'type': 'tsv'})
-    '\\t'
+    '\t'
     >>> sep({'type': 'csv', 'remove_whitespace': True})
-    ',\\\s+'
+    ',\\s+'
     >>> sep({'type': 'blah'})
     Traceback (most recent call last):
     ...
@@ -454,15 +463,16 @@ def sep(data_format):
     """
     if data_format is None:
         return ","
+
     if data_format["type"] == "csv":
         if "remove_whitespace" in data_format and data_format["remove_whitespace"]:
-            return ",\s+"
-        else:
-            return ","
-    elif data_format["type"] == "tsv":
+            return r",\s+"
+        return ","
+
+    if data_format["type"] == "tsv":
         return "\t"
-    else:
-        raise RuntimeError(f"{data_format} data format not supported")
+
+    raise RuntimeError(f"{data_format} data format not supported")
 
 
 @curry
@@ -538,11 +548,11 @@ def read_vega_data(keys, data):
 def line_plot(
     data_name,
     benchmark_id,
-    layout=dict(),
+    layout=None,
     columns=("x", "y"),
     benchmark_path=BENCHMARK_PATH,
 ):
-    """Generate a Plotly line plot from the benchmark data
+    """Generate a Plotly line plot from the benchmark data  # noqa: E501
 
     Args:
       data_name: the name of the data blocks
@@ -565,6 +575,9 @@ def line_plot(
     })
 
     """
+    if layout is None:
+        layout = dict()
+
     return pipe(
         get_result_data(
             [data_name], [benchmark_id], list(columns), benchmark_path=benchmark_path
@@ -585,8 +598,8 @@ def line_plot(
     )
 
 
-def levelset_plot_(
-    data, layout=dict(), columns=("x", "y", "z"), mask_func=lambda x: slice(len(x))
+def levelset_plot(
+    data, layout=None, columns=("x", "y", "z"), mask_func=lambda x: slice(len(x))
 ):
     """Generate a Plotly level set plot
 
@@ -603,7 +616,14 @@ def levelset_plot_(
     >>> sim_name = ['a'] * len(x)
     >>> d = dict(x=x, y=y, z=z, sim_name=sim_name)
     >>> df = pandas.DataFrame(d)
-    >>> levelset_plot_(df, layout={'levelset' : 0.5})
+    >>> levelset_plot(df, layout={'levelset' : 0.5})
+    Figure({
+        'data': [{'colorscale': [[0, 'rgb(229, 134, 6)'], [1, 'rgb(229, 134, 6)']],
+    ...
+                   'yaxis': {'range': [-1, 1], 'scaleanchor': 'x', 'scaleratio': 1}}
+    })
+    >>> df.z = df.z - 0.5
+    >>> levelset_plot(df)
     Figure({
         'data': [{'colorscale': [[0, 'rgb(229, 134, 6)'], [1, 'rgb(229, 134, 6)']],
     ...
@@ -611,6 +631,8 @@ def levelset_plot_(
     })
 
     """
+    if layout is None:
+        layout = dict()
 
     colorscale = lambda index: pipe(
         px.colors.qualitative.Vivid,
@@ -659,82 +681,35 @@ def levelset_plot_(
     )
 
 
-def levelset_plot(
-    data_name,
-    benchmark_id,
-    layout=dict(),
-    columns=("x", "y", "z"),
-    mask_func=lambda x: slice(len(x)),
-    benchmark_path=BENCHMARK_PATH,
-):
-    """Generate a Plotly level set plot
-
-    Args:
-      data_name: the name of the data blocks
-      benchmark_id: the benchmark_id
-      layout: dictionary with "x", "y" and "title" keys to customize the plot
-      columns: the columns to plot from the data blocks
-      mask_func: function to apply to remove values (helps to reduce memory usage)
-      benchmark_path: path to data files (used by glob)
-
-    >>> d = getfixture('test_data_path')
-    >>> levelset_plot(
-    ...     'free_energy',
-    ...     '1a.1',
-    ...     columns=('x', 'y', 'z'),
-    ...     benchmark_path=str(d.resolve()) + '/*/meta.yaml',
-    ... )
-    Figure({
-        'data': [{'colorscale': [[0, 'rgb(229, 134, 6)'], [1, 'rgb(229, 134, 6)']],
-    ...
-                   'yaxis': {'range': [-1, 1], 'scaleanchor': 'x', 'scaleratio': 1}}
-    })
-
-
-    """
-    return levelset_plot_(
-        get_result_data(
-            [data_name], [benchmark_id], list(columns), benchmark_path=benchmark_path
-        ),
-        layout=layout,
-        columns=columns,
-        mask_func=mask_func,
-    )
-
-
-def make_grid(nx, ny, rangex, rangey):
+def make_grid(stepsx, stepsy):
     """Generate a grid using Numpy's mgrid
 
     Args:
-      nx: number of points in x direction
-      ny: number of points in y direction
-      rangex: range in x direction
-      rangey: range in y direction
+      stepsx: [low, high], number of points in x direction
+      stepsy: [low, high], number of points in y direction
 
     Returns:
       mesh-grid ndarrays all of the same dimensions
 
-    >>> make_grid(2, 3, [0.1, 0.9], [0.1, 0.3])
+    >>> make_grid(([0.1, 0.9], 2), ([0.1, 0.3], 3))
     (array([[0.1, 0.1, 0.1],
            [0.9, 0.9, 0.9]]), array([[0.1, 0.2, 0.3],
            [0.1, 0.2, 0.3]]))
 
     """
-    sl = lambda x, n: slice(x[0], x[1], n * 1j)
-    grid_x, grid_y = np.mgrid[sl(rangex, nx), sl(rangey, ny)]
+    slice_ = lambda x, n: slice(x[0], x[1], n * 1j)
+    grid_x, grid_y = np.mgrid[slice_(*stepsx), slice_(*stepsy)]
     return grid_x, grid_y
 
 
 @curry
-def interp(keys, nx, ny, rangex, rangey, df):
+def interp(keys, stepsx, stepsy, dataframe):
     """Interpolate unstructured data to a grid
 
     Args:
-      keys: columns in df to use
-      nx: number of points in x direction
-      ny: number of points in y direction
-      rangex: range in x direction
-      rangey: range in y direction
+      keys: columns in dataframe to use
+      stepsx: [low, high], number of points in x direction
+      stepsy: [low, high], number of points in y direction
 
     Returns:
       interpolated values
@@ -742,36 +717,36 @@ def interp(keys, nx, ny, rangex, rangey, df):
     >>> expected = [[0, 0.5], [0.25, 0.75], [0.5, 1], [0, 0], [0, 0 ]]
     >>> actual = interp(
     ...     ['x', 'y', 'z'],
-    ...     5,
-    ...     2,
-    ...     [0., 2.],
-    ...     [0., 1.],
-    ...     pandas.DataFrame(dict(x=[0, 1, 0, 1, 0.5], y=[0, 0, 1, 1, 0.5], z=[0, 0.5, 0.5, 1, 0.5]))
+    ...     ([0., 2.], 5),
+    ...     ([0., 1.], 2),
+    ...     pandas.DataFrame(dict(
+    ...         x=[0, 1, 0, 1, 0.5],
+    ...         y=[0, 0, 1, 1, 0.5],
+    ...         z=[0, 0.5, 0.5, 1, 0.5])
+    ...     )
     ... )
     >>> assert np.allclose(actual, expected)
 
     """
     return griddata(
-        np.array([df[keys[0]], df[keys[1]]]).T,
-        df[keys[2]],
-        make_grid(nx, ny, rangex, rangey),
+        np.array([dataframe[keys[0]], dataframe[keys[1]]]).T,
+        dataframe[keys[2]],
+        make_grid(stepsx, stepsy),
         method="cubic",
         fill_value=0.0,
     )
 
 
 @curry
-def order_of_accuracy_values_(keys, rangex, rangey, nx, ny, data):
+def order_of_accuracy_values_(keys, stepsx, stepsy, dataframe):
     """Calculate order of accuracy from benchmark field data for a series
     of data items
 
     Args:
       keys: the column names to used (e.g. ['x', 'y', 'phase_field'])
-      rangex: the x range of the grid to interpolate to
-      rangey: the y range of the grid to interpolage to
-      nx: number of points in the x direction for the interpolation grid
-      ny: number of points in the y direction for the interpolation grid
-      data: dataframe with columns corresponding to the keys
+      stepsx: [low, high], number of points in x direction
+      stepsy: [low, high], number of points in y direction
+      dataframe: dataframe with columns corresponding to the keys
 
     Returns:
       tuple of estimated grid spacings and L2 norms
@@ -780,32 +755,38 @@ def order_of_accuracy_values_(keys, rangex, rangey, nx, ny, data):
     ...     x, y = np.mgrid[0:1:(nx - 1) * 1j, 0:1:(nx - 1) * 1j]
     ...     x = x.flatten()
     ...     y = y.flatten()
-    ...     return pandas.DataFrame(dict(x=x, y=y, z=x * y, sim_name='sim1'))
+    ...     return pandas.DataFrame(
+    ...        dict(x=x, y=y, z=x * y, sim_name='sim1', data_set=nx)
+    ...     )
 
     >>> out = order_of_accuracy_values_(
     ...     ('x', 'y', 'z'),
-    ...     [0, 1],
-    ...     [0, 1],
-    ...     1000,
-    ...     1000,
-    ...     [make_df(10), make_df(20), make_df(40)]
+    ...     ([0, 1], 1000),
+    ...     ([0, 1], 1000),
+    ...     pandas.concat([make_df(10), make_df(20), make_df(40)])
     ... )
 
-    >>> accuracy = (np.log(out['sim1'][1][-1]) - np.log(out['sim1'][1][0])) / (np.log(out['sim1'][0][-1]) - np.log(out['sim1'][0][0]))
+    >>> v = out['sim1']
+    >>> accuracy = (np.log(v[1][-1]) - np.log(v[1][0])) / (
+    ...     np.log(v[0][-1]) - np.log(v[0][0])
+    ... )
     >>> assert accuracy > 2
 
     """
 
     effective_dx = lambda df: np.sqrt(cell_area(len(df)))
-    cell_area = lambda n: (rangex[1] - rangex[0]) * (rangey[1] - rangey[0]) / n
+    cell_area = (
+        lambda n: (stepsx[0][1] - stepsx[0][0]) * (stepsy[0][1] - stepsy[0][0]) / n
+    )
 
     norm = curry(
-        lambda ref, x: np.linalg.norm(x - ref, ord=2) * np.sqrt(cell_area(nx * nx))
+        lambda ref, x: np.linalg.norm(x - ref, ord=2)
+        * np.sqrt(cell_area(stepsx[1] * stepsy[1]))
     )
     clean = sequence(list, tail(-1), np.array)
 
     error = sequence(
-        map_(interp(keys, nx, ny, rangex, rangey)),
+        map_(interp(keys, stepsx, stepsy)),
         list,
         lambda x: map_(norm(x[0]), x),
         clean,
@@ -814,7 +795,11 @@ def order_of_accuracy_values_(keys, rangex, rangey, nx, ny, data):
     dx_clean = sequence(map_(effective_dx), clean)
 
     return pipe(
-        data,
+        dataframe.data_set,
+        dataframe.groupby,
+        map_(second),
+        list,
+        # data,
         map_(lambda x: x.groupby("sim_name")),
         map_(tuple),
         map_(dict),
@@ -824,47 +809,33 @@ def order_of_accuracy_values_(keys, rangex, rangey, nx, ny, data):
 
 
 def plot_order_of_accuracy(
-    data_names,
-    benchmark_id,
+    dataframe,
     keys,
-    rangex,
-    rangey,
-    nx=1000,
-    ny=1000,
-    layout=dict(),
-    benchmark_path=BENCHMARK_PATH,
+    stepsx=([0, 1], 1000),
+    stepsy=([0, 1], 1000),
+    layout=None,
 ):  # pragma: no cover
     """Plot an order of accuracy plots for a series of result uploads.
 
     Args:
-      data_names: the names of the data blocks
-      benchmark_id: the benchmark id
+      dataframe: dataframe with columns corresponding to the keys
       keys: the column names to used (e.g. ['x', 'y', 'phase_field'])
-      rangex: the x range of the grid to interpolate to
-      rangey: the y range of the grid to interpolage to
-      nx: number of points in the x direction for the interpolation grid
-      ny: number of points in the y direction for the interpolation grid
+      stepsx: [low, high], number of points in x direction
+      stepsy: [low, high], number of points in y direction
       layout: dictionary with "x", "y" and "title" keys to customize the plot
       benchmark_path: path to data files used by glob
 
     """
+    if layout is None:
+        layout = dict()
 
-    def make_order(df):
-        return pandas.DataFrame(
-            dict(
-                x=df.x, y=df.x ** 2 * df.y[0] / df.x[0] ** 2, sim_name=r"Δx<sup>2</sup>"
-            )
-        )
+    make_order = lambda df: pandas.DataFrame(
+        dict(x=df.x, y=df.x ** 2 * df.y[0] / df.x[0] ** 2, sim_name=r"Δx<sup>2</sup>")
+    )
 
     return pipe(
-        data_names,
-        map_(
-            get_result_data(
-                benchmark_ids=[benchmark_id], keys=keys, benchmark_path=benchmark_path
-            )
-        ),
-        list,
-        order_of_accuracy_values_(keys, rangex, rangey, nx, ny),
+        dataframe,
+        order_of_accuracy_values_(keys, stepsx, stepsy),
         lambda x: x.items(),
         map_(lambda x: dict(x=x[1][0], y=x[1][1], sim_name=x[0])),
         map_(pandas.DataFrame),

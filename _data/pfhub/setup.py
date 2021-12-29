@@ -5,9 +5,6 @@
 See the documenation for details at https://pymks.org
 """
 
-import pathlib
-
-from setuptools.config import read_configuration
 from setuptools import setup, find_packages
 
 

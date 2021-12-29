@@ -1,7 +1,19 @@
+"""Setup for pytest
+"""
+
 import pytest
 
 
 def make_yaml_content(id_, version):
+    """Generate some test yaml content
+
+    Args:
+      id_: the benchmark id_ (e.g. "8a")
+      version: the version (e.g. "1")
+
+    Returns:
+      yaml result content as string
+    """
     return f"""
 ---
 benchmark:
@@ -35,21 +47,48 @@ data:
 
 
 def make_yaml(dir_, name, id_, version):
-    d1 = dir_ / name
-    d1.mkdir(exist_ok=True)
-    yaml_file = d1 / "meta.yaml"
+    """Generate a yaml file for test purposes
+
+    Args:
+      dir_: the result directory to write to
+      name: name of the result
+      id_: the benchmark id_ (e.g. "8a")
+      version: the version (e.g. "1")
+
+    Returns:
+      name of the file created
+    """
+    dir_name = dir_ / name
+    dir_name.mkdir(exist_ok=True)
+    yaml_file = dir_name / "meta.yaml"
     yaml_file.write_text(make_yaml_content(id_, version))
     return yaml_file
 
 
 @pytest.fixture
 def yaml_data_file(tmp_path):
+    """Generate a yaml test file
+
+    Args:
+      tmp_path: temporary area to use to write files
+
+    Returns:
+      name of the data file
+    """
     tmp_path.mkdir(exist_ok=True)
     return make_yaml(tmp_path, "result", "1a", 1)
 
 
 @pytest.fixture
 def test_data_path(tmp_path):
+    """Generate two result data files
+
+    Args:
+      tmp_path: temporary area to use to write files
+
+    Returns:
+      the name of the directory used for writing the files
+    """
     dir_ = tmp_path / "results"
     dir_.mkdir(exist_ok=True)
     make_yaml(dir_, "result1", "1a", 1)
@@ -59,7 +98,15 @@ def test_data_path(tmp_path):
 
 @pytest.fixture
 def csv_file(tmp_path):
+    """Generate a csv file for test purposes
+
+    Args:
+      tmp_path: temporary area to use to write files
+
+    Returns:
+      path to the csv file
+    """
     tmp_path.mkdir(exist_ok=True)
-    csv_file = tmp_path / "file.csv"
-    csv_file.write_text("x,y\n0,0\n1,1\n")
-    return csv_file
+    csv_file_path = tmp_path / "file.csv"
+    csv_file_path.write_text("x,y\n0,0\n1,1\n")
+    return csv_file_path

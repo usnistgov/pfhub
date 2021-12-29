@@ -1,3 +1,9 @@
+"""PFHub - Phase Field Community Hub
+
+See the documentation at https://github.com/usnistgov/pfhub
+"""
+
+
 import os
 
 
