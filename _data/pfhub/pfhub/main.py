@@ -257,8 +257,8 @@ def get_yaml_data(benchmark_path, benchmark_ids):
 
     >>> d = getfixture('test_data_path')
     >>> data = list(get_yaml_data(str(d.resolve()) + '/*/meta.yaml', ['1a.1', '2a.1']))
-    >>> assert data[0]['name'] == 'result2'
-    >>> assert data[1]['name'] == 'result1'
+    >>> assert data[0]['name'] in ['result1', 'result2']
+    >>> assert data[1]['name'] in ['result1', 'result2']
 
     """
     return pipe(
@@ -282,10 +282,11 @@ def get_table_data(benchmark_ids, benchmark_path=BENCHMARK_PATH):
 
     >>> d = getfixture('test_data_path')
     >>> p = str(d.resolve()) + '/*/meta.yaml'
-    >>> get_table_data(['1a.1', '2a.1'], benchmark_path=p)
-          Name       Code Benchmark      Author  Timestamp
-    0  result2  code_name      2a.1  first last 2021-12-07
-    1  result1  code_name      1a.1  first last 2021-12-07
+    >>> actual= get_table_data(['1a.1', '2a.1'], benchmark_path=p)
+    >>> print(actual.sort_values(['Name']).to_string(index=False))
+       Name      Code Benchmark     Author  Timestamp
+    result1 code_name      1a.1 first last 2021-12-07
+    result2 code_name      2a.1 first last 2021-12-07
 
     """
     return pipe(
@@ -311,18 +312,18 @@ def get_result_data(data_names, benchmark_ids, keys, benchmark_path=BENCHMARK_PA
       Pandas DataFrame of concatenated data
 
     >>> d = getfixture('test_data_path')
-    >>> get_result_data(
+    >>> actual = get_result_data(
     ...     ['free_energy'],
     ...     ['1a.1', '2a.1'],
     ...     ['x', 'y'],
     ...     benchmark_path=str(d.resolve()) + '/*/meta.yaml',
     ... )
-         x    y     data_set benchmark_id sim_name
-    0  0.0  0.0  free_energy         2a.1  result2
-    1  1.0  1.0  free_energy         2a.1  result2
-    0  0.0  0.0  free_energy         1a.1  result1
-    1  1.0  1.0  free_energy         1a.1  result1
-
+    >>> print(actual.sort_values(['x', 'y', 'sim_name']).to_string(index=False))
+      x   y    data_set benchmark_id sim_name
+    0.0 0.0 free_energy         1a.1  result1
+    0.0 0.0 free_energy         2a.1  result2
+    1.0 1.0 free_energy         1a.1  result1
+    1.0 1.0 free_energy         2a.1  result2
 
     """
     return pipe(
