@@ -20,3 +20,5 @@ jobs:
         run: nix-shell --pure --command "pylint setup.py pfhub"
       - working-directory: ./_data/pfhub
         run: nix-shell --pure --command "flake8 setup.py pfhub"
+      - working-directory: ./_data/pfhub
+        run: nix-shell --pure --command "py.test --nbval-lax ../../results/benchmark*.ipynb"
