@@ -1,6 +1,4 @@
 name: Test PFHub Package
-vars:
-  working_directory: ./_data/python-pfhub
 on: [push, pull_request]
 jobs:
   pfhub-nix-test:
@@ -13,14 +11,11 @@ jobs:
           name: pfhub
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nix-community
-      - run: cd _data/python-pfhub
-      - working-directory: ${{ vars.working_directory }}
-        run: nix-shell --pure --command "py.test --nbval-lax --cov-fail-under=100"
-      - working-directory: ${{ vars.working_directory }}
-        run: nix-shell --pure --command "black --check setup.py pfhub"
-      - working-directory: ${{ vars.working_directory }}
-        run: nix-shell --pure --command "pylint setup.py pfhub"
-      - working-directory: ${{ vars.working_directory }}
-        run: nix-shell --pure --command "flake8 setup.py pfhub"
-      - working-directory: ${{ vars.working_directory }}
-        run: nix-shell --pure --command "py.test --nbval-lax ../../results/benchmark*.ipynb"
+      - defaults:
+          run:
+            working-directory: ./_data/python-pfhub
+      - run: nix-shell --pure --command "py.test --nbval-lax --cov-fail-under=100"
+      - run: nix-shell --pure --command "black --check setup.py pfhub"
+      - run: nix-shell --pure --command "pylint setup.py pfhub"
+      - run: nix-shell --pure --command "flake8 setup.py pfhub"
+      - run: nix-shell --pure --command "py.test --nbval-lax ../../results/benchmark*.ipynb"
