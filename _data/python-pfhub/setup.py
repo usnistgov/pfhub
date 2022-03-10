@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
-"""PyMKS - the materials knowledge system in Python
+"""PFHub - Phase Field Community Hub
 
-See the documenation for details at https://pymks.org
 """
 
 from setuptools import setup, find_packages
