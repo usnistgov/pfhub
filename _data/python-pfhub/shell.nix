@@ -8,10 +8,10 @@
 let
   pkgs = import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/${tag}.tar.gz") {};
   pypkgs = pkgs.python3Packages;
-  pfhub = pypkgs.callPackage ./default.nix {};
+  pfhub = pypkgs.callPackage ./default.nix { };
   extra = with pypkgs; [ black pylint flake8 ];
-  jupyter_src = builtins.fetchTarball "https://github.com/wd15/nixes/archive/refs/heads/master.zip";
-  jupyter_extra = pypkgs.callPackage "${jupyter_src}/jupyter/default.nix" { };
+  nixes_src = builtins.fetchTarball "https://github.com/wd15/nixes/archive/9a757526887dfd56c6665290b902f93c422fd6b1.zip";
+  jupyter_extra = pypkgs.callPackage "${nixes_src}/jupyter/default.nix" { };
 in
   (pfhub.overridePythonAttrs (old: rec {
 

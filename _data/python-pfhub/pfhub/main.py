@@ -84,15 +84,12 @@ make_author = lambda x: pipe(
 )
 
 
-get_text = sequence(
-    requests.get,
-    lambda x: "" if x.status_code == 400 else x.text
-)
+get_text = sequence(requests.get, lambda x: "" if x.status_code == 400 else x.text)
 
 
 read_yaml_from_url = sequence(
-    lambda x: urllib.request.urlopen(x) if x[:4] == 'file' else get_text(x),
-    yaml.safe_load
+    lambda x: urllib.request.urlopen(x) if x[:4] == "file" else get_text(x),
+    yaml.safe_load,
 )
 
 
