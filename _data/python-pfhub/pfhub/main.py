@@ -34,10 +34,6 @@ from scipy.interpolate import griddata
 import requests
 
 
-# BENCHMARK_PATH = str(
-#     pathlib.Path(__file__).resolve().parent / "../../simulations/*/meta.yaml"
-# )
-
 BENCHMARK_PATH = str(
     pathlib.Path(__file__).resolve().parent / "../../simulation_list.yaml"
 )
@@ -108,11 +104,15 @@ def read_add_name(yaml_url):
     >>> assert read_add_name(getfixture('yaml_data_file').as_uri())['name'] == 'result'
 
     """
-    return assoc(
-        read_yaml_from_url(yaml_url),
-        "name",
-        os.path.split(os.path.split(yaml_url)[0])[1],
-    )
+    data = read_yaml_from_url(yaml_url)
+    if 'name' in data:
+        return data
+    else:
+        return assoc(
+            read_yaml_from_url(yaml_url),
+            "name",
+            os.path.split(os.path.split(yaml_url)[0])[1],
+        )
 
 
 def maybe(func):
@@ -209,8 +209,9 @@ def concat_items(items):
     1  NaN  NaN  2.0
 
     """
+    concat = lambda x: pandas.concat(x) if x != [] else None
     return pipe(
-        items, map_(lambda x: assign(x[0], x[1])), compact, list, maybe(pandas.concat)
+        items, map_(lambda x: assign(x[0], x[1])), compact, list, concat
     )
 
 
@@ -546,7 +547,7 @@ def read_csv(sep_, path):
 
     try:
         return pandas.read_csv(path, sep=sep_, engine="python")
-    except (HTTPError, URLError) as error:
+    except (HTTPError, URLError, FileNotFoundError) as error:
         print(f"{error} for {path}")
         return None
 
@@ -572,11 +573,12 @@ def read_vega_data(keys, data):
 
     read_values = sequence(get("values"), pandas.DataFrame)
 
+
     return pipe(
         data,
         read_url if "url" in data else read_values,
         apply_transforms(data),
-        maybe(get(keys)),
+        maybe(lambda x: get(keys, x))
     )
 
 
