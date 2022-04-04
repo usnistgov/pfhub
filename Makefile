@@ -18,7 +18,6 @@ $(HEXBIN_OUT): $(HEXBIN_IN)
 %.ipynb.raw.html: %.ipynb
 	jupyter-nbconvert $< --output $(notdir $@) --to html --template basic
 	if [ "results/"  = "$(dir $@)" ]; then \
-	  echo 'got here'; \
 	  sed -i '1i {\% raw \%}' $@; \
 	  sed -i  -e '$$a{\% endraw \%}' $@; \
 	fi

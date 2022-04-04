@@ -1,9 +1,17 @@
-# Nix
-Use Cachix
+# Python-PFHub
+
+A Python module for rendering PFHub phase field data in Jupyter
+notebooks using Pandas and Plotly.
+
+## Installation
+
+### Using Nix
+
+If Using Cachix
 
     $ cachix use pfhub
 
-Run with
+and then fire up a Nix shell with
 
     $ export NIX_VERSION=21.05
     $ nix-shell \
@@ -11,8 +19,7 @@ Run with
         -I pfhub=./ \
         -E 'with (import <nixpkgs> {}); mkShell { buildInputs = [ (python3Packages.callPackage <pfhub> { }) ]; }'
 
-
-# Upload to cachix
+#### Upload to cachix
 
     $ export NIX_VERSION=21.05
     $ nix-build \
