@@ -1,0 +1,211 @@
+_id: 833e9120-f9c5-11e9-b219-fb34b4e94ef2
+metadata:
+  author:
+    first: Daniel
+    last: Wheeler
+    email: daniel.wheeler@nist.gov
+    github_id: wd15
+  timestamp: '16 October, 2019'
+  summary: FiPy implementation of benchmark 8a
+  implementation:
+    name: FiPy
+    repo:
+      url: 'https://github.com/guyer/phasefieldbenchmark-8'
+      version: abffcd9ffc0452dd9c9310cc8ba2b8e713108ae2
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.60'
+    cores: '16'
+    nodes: '1'
+benchmark:
+  id: 8a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '1273.119492'
+        sim_time: '100'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '0'
+  - name: solid_fraction_1
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_0.99r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 0.99r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_1
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_0.99r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 0.99r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction_2
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.00r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 1.00r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_2
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.00r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 1.00r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - name: solid_fraction_3
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.01r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        fraction: number
+    description: 'solid fraction vs time, r = 1.01r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.fraction
+        as: 'y'
+  - name: free_energy_3
+    url: >-
+      https://raw.githubusercontent.com/guyer/phasefieldbenchmark-8/1c688a4c1faa0224b4d6d265bc7797369655a646/benchmark_8/8a/8a_1.01r/stats.txt
+    format:
+      type: tsv
+      parse:
+        time: number
+        energy: number
+    description: 'free energy vs time, r = 1.01r*'
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.energy
+        as: 'y'
+  - description: phase field contour plot
+    name: phase_field_1
+    type: contour
+    url: https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/6f39388cab76024a48709aa4dcfeccbef68f0f87/phi_fixed.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_2
+    type: contour
+    url: https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/6f39388cab76024a48709aa4dcfeccbef68f0f87/phi_fixed.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_3
+    type: contour
+    url: https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/phase_field_3_transform.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+        dx: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_4
+    type: contour
+    url: https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/phase_field_4_transform.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+        dx: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+  - description: phase field contour plot
+    name: phase_field_5
+    type: contour
+    url: https://gist.githubusercontent.com/wd15/7da4626088f0920d0b5bac5727784ef9/raw/phase_field_5_transform.csv
+    format:
+      type: csv
+      parse:
+        x: number
+        y: number
+        phi: number
+        dx: number
+    transform:
+      - type: formula
+        expr: datum.phi
+        as: 'z'
+
+date: 1572296231

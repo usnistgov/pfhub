@@ -36,5 +36,7 @@ nixpkgs.stdenv.mkDerivation rec {
     cd $CURDIR
     rm -rf $MYTMPDIR
 
+    export LC_ALL=en_US.UTF-8
+
   '';
 }
