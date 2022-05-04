@@ -1,7 +1,7 @@
 name: Result Upload to PFHub website
 description: |
-  "Upload a result to the PFHub website. Submitting this issue will open a PR with
-  the new submission."
+  Upload a result to the PFHub website. Submitting this issue will open a PR with
+  the new submission.
 title: "[Upload]: "
 labels: ["upload"]
 assignees:
@@ -13,7 +13,7 @@ body:
         Thanks for submitting an upload on PFHub!
   - type: input
     id: repro
-    attributes: |
+    attributes:
       label: GitHub Repository
       description: The GitHub repository where the data and code are stored
       placeholder: "https://github.com/<user>/<repo>"
