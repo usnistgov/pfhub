@@ -18,7 +18,7 @@ data:
     expr: datum.time
     type: formula
   type: line
-  url: https://github.com/sqmonismith/Benchmark_06/blob/main/free_energy.csv
+  url: https://raw.githubusercontent.com/sqmonismith/Benchmark_06/main/free_energy.csv
 - name: run_time
   values:
   - sim_time: '1000'
@@ -27,8 +27,9 @@ data:
   values:
   - unit: B
     value: '7600000'
-date: 
+date:
 metadata:
+  timestamp: 4 May, 2022
   author:
     email: scottqfm@alumni.stanford.edu
     first: Scott
@@ -43,9 +44,9 @@ metadata:
     parallel_model: distributed
   implementation:
     container_url: ''
-    name: MEMPHIS
+    name: memphis
     repo:
       url: https://github.com/sqmonismith/Benchmark_06
-      version: 4b543d98c423fa719d360c16edf70960477c09d7
-  simulation_name: MEMPHIS_6a
+      version: 548e491f6376191daa18d9cdbf939eca7d27bfd2
+  simulation_name: memphis_6a
   summary: Benchmark problem 6a, energy vs time. 100 x 100 uniform mesh, Gauss-Seidel iterations for electric field, tolerance 10^-5.
