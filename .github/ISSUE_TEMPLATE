@@ -1,0 +1,43 @@
+name: Result Upload
+description: >-
+  Upload a result to PFHub. Submitting this issue will open a PR with
+  the new submission.
+title: "[Upload]: "
+labels: ["upload"]
+blank_issues_enabled: true
+assignees:
+  - wd15
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting an upload on PFHub!
+  - type: input
+    id: repro
+    attributes: |
+      label: GitHub repository
+      description: The GitHub repository where the data and code are stored
+      placeholder: "https://github.com/<user>/<repo>"
+    validations:
+      required: true
+  - type: dropdown
+    id: benchmark_id
+    attributes:
+      label: Which benchmark does this submission address?
+      options: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d", "3a", "6a", "6b", "7a", "7b", "7c", "4a", "4b", "4c", "4d", "4e", "4f", "4g", "4h", "fake", "8a", "8b", "8c", "8d"]
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Please provde a summary of the upload
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: dropdown
+    id: code
+    attributes:
+      label: Which phase field code did you use?
+      options: ["fenics", "moose", "prisms", "sfepy", "mmsp", "fipy", "custom", "hiperc", "ampe", "memphis", "meumapps", "other"]
+    validations:
+      required: true
