@@ -1,3 +1,4 @@
+---
 - name: free_energy
   x_title: Time
   y_title: Free Energy

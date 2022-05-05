@@ -9,7 +9,7 @@ import os
 import glob
 
 # pylint: disable=redefined-builtin
-from toolz.curried import pipe, valmap, itemmap, do, get, map
+from toolz.curried import pipe, valmap, itemmap, do, get, map, curry
 import yaml
 
 
@@ -69,6 +69,7 @@ def get_yaml_data():
     )
 
 
+@curry
 def write_yaml_data(filepath, data):
     """Write data to YAML file
 

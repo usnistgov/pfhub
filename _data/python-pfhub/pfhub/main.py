@@ -2,10 +2,10 @@
 """
 
 from functools import wraps
-import glob
 import os
 from urllib.error import HTTPError, URLError
 import pathlib
+import urllib
 
 from toolz.curried import filter as filter_
 from toolz.curried import map as map_
@@ -31,11 +31,26 @@ import pandas
 import plotly.express as px
 import plotly.graph_objects as go
 from scipy.interpolate import griddata
+import requests
 
 
 BENCHMARK_PATH = str(
-    pathlib.Path(__file__).resolve().parent / "../../simulations/*/meta.yaml"
+    pathlib.Path(__file__).resolve().parent / "../../simulation_list.yaml"
 )
+
+
+def sequence(*args):
+    """Compose functions in order
+
+    Args:
+      args: the functions to compose
+
+    Returns:
+      composed functions
+
+    >>> assert sequence(lambda x: x + 1, lambda x: x * 2)(3) == 8
+    """
+    return compose(*args[::-1])
 
 
 def read_yaml(filepath):
@@ -65,16 +80,20 @@ make_author = lambda x: pipe(
 )
 
 
-def read_add_name(yaml_path):
+get_text = sequence(requests.get, lambda x: "" if x.status_code == 400 else x.text)
+
+
+read_yaml_from_url = sequence(
+    lambda x: urllib.request.urlopen(x) if x[:4] == "file" else get_text(x),
+    yaml.safe_load,
+)
+
+
+def read_add_name(yaml_url):
     """Add the name field to the meta.yaml data.
 
-    The yaml files are located in
-    .../pfhub/_data/simulations/name_of_result/meta.yaml. The name
-    field, "name_of_result" is in the directory name and needs to be
-    combined with the data.
-
     Args:
-      yaml_path: the path to the YAML file
+      yaml_url: the url to the YAML file
 
     Returns:
       a dictionary of the data in the YAML file along with the name of
@@ -82,12 +101,18 @@ def read_add_name(yaml_path):
 
     Test using temporary test data
 
-    >>> assert read_add_name(getfixture('yaml_data_file'))['name'] == 'result'
+    >>> assert read_add_name(getfixture('yaml_data_file').as_uri())['name'] == 'result'
 
     """
-    return assoc(
-        read_yaml(yaml_path), "name", os.path.split(os.path.split(yaml_path)[0])[1]
-    )
+    data = read_yaml_from_url(yaml_url)
+    if 'name' in data:
+        return data
+    else:
+        return assoc(
+            read_yaml_from_url(yaml_url),
+            "name",
+            os.path.split(os.path.split(yaml_url)[0])[1],
+        )
 
 
 def maybe(func):
@@ -184,8 +209,9 @@ def concat_items(items):
     1  NaN  NaN  2.0
 
     """
+    concat = lambda x: pandas.concat(x) if x != [] else None
     return pipe(
-        items, map_(lambda x: assign(x[0], x[1])), compact, list, maybe(pandas.concat)
+        items, map_(lambda x: assign(x[0], x[1])), compact, list, concat
     )
 
 
@@ -231,7 +257,7 @@ def table_results(data):
     ...     Author='first last',
     ...     Timestamp=datetime.date(2021, 12, 7)
     ... )
-    >>> data = read_add_name(getfixture('yaml_data_file'))
+    >>> data = read_add_name(getfixture('yaml_data_file').as_uri())
     >>> assert table_results(data) == expected
 
     """
@@ -242,6 +268,29 @@ def table_results(data):
         Author=make_author(data),
         Timestamp=data["metadata"]["timestamp"],
     )
+
+
+@curry
+def resolve_path(benchmark_path, url):
+    """Fix a relative path from the simulation_list.yaml file
+
+    Relative paths are allowed in the simulation_list.yaml. This turns
+    those relative paths into correct URIs if not already a URI.
+
+    Args:
+      benchmark_path: path to the file with the benchmark result list
+      url: the URL to repair
+
+    Returns:
+      the repaired URL
+
+    >>> resolve_path(None, "file:///blah/blah")
+    'file:///blah/blah'
+
+    """
+    if url[:4] in ["http", "file"]:
+        return url
+    return (pathlib.Path(benchmark_path).parent / url).as_uri()
 
 
 @curry
@@ -256,14 +305,15 @@ def get_yaml_data(benchmark_path, benchmark_ids):
       all the data for the given benchmarks
 
     >>> d = getfixture('test_data_path')
-    >>> data = list(get_yaml_data(str(d.resolve()) + '/*/meta.yaml', ['1a.1', '2a.1']))
+    >>> data = list(get_yaml_data(str(d), ['1a.1', '2a.1']))
     >>> assert data[0]['name'] in ['result1', 'result2']
     >>> assert data[1]['name'] in ['result1', 'result2']
 
     """
     return pipe(
         benchmark_path,
-        glob.glob,
+        read_yaml,
+        map_(resolve_path(benchmark_path)),
         map_(read_add_name),
         filter_(lambda x: make_id(x) in benchmark_ids),
     )
@@ -281,8 +331,7 @@ def get_table_data(benchmark_ids, benchmark_path=BENCHMARK_PATH):
       Pandas DataFrame of data
 
     >>> d = getfixture('test_data_path')
-    >>> p = str(d.resolve()) + '/*/meta.yaml'
-    >>> actual= get_table_data(['1a.1', '2a.1'], benchmark_path=p)
+    >>> actual= get_table_data(['1a.1', '2a.1'], benchmark_path=str(d.resolve()))
     >>> print(actual.sort_values(['Name']).to_string(index=False))
        Name      Code Benchmark     Author  Timestamp
     result1 code_name      1a.1 first last 2021-12-07
@@ -316,7 +365,7 @@ def get_result_data(data_names, benchmark_ids, keys, benchmark_path=BENCHMARK_PA
     ...     ['free_energy'],
     ...     ['1a.1', '2a.1'],
     ...     ['x', 'y'],
-    ...     benchmark_path=str(d.resolve()) + '/*/meta.yaml',
+    ...     benchmark_path=str(d),
     ... )
     >>> print(actual.sort_values(['x', 'y', 'sim_name']).to_string(index=False))
       x   y    data_set benchmark_id sim_name
@@ -352,7 +401,7 @@ def get_data_from_yaml(data_names, keys, yaml_data):
       DataFrame from the YAML data block
 
     >>> d = getfixture('test_data_path')
-    >>> data = list(get_yaml_data(str(d.resolve()) + '/*/meta.yaml', ['1a.1', '2a.1']))
+    >>> data = list(get_yaml_data(str(d), ['1a.1', '2a.1']))
 
     >>> get_data_from_yaml(['free_energy'], ['x', 'y'], data[0])
          x    y     data_set
@@ -498,23 +547,9 @@ def read_csv(sep_, path):
 
     try:
         return pandas.read_csv(path, sep=sep_, engine="python")
-    except (HTTPError, URLError) as error:
+    except (HTTPError, URLError, FileNotFoundError) as error:
         print(f"{error} for {path}")
         return None
-
-
-def sequence(*args):
-    """Compose functions in order
-
-    Args:
-      args: the functions to compose
-
-    Returns:
-      composed functions
-
-    >>> assert sequence(lambda x: x + 1, lambda x: x * 2)(3) == 8
-    """
-    return compose(*args[::-1])
 
 
 def read_vega_data(keys, data):
@@ -538,11 +573,12 @@ def read_vega_data(keys, data):
 
     read_values = sequence(get("values"), pandas.DataFrame)
 
+
     return pipe(
         data,
         read_url if "url" in data else read_values,
         apply_transforms(data),
-        maybe(get(keys)),
+        maybe(lambda x: get(keys, x))
     )
 
 
@@ -567,7 +603,7 @@ def line_plot(
     ...     'free_energy',
     ...     '1a.1',
     ...     columns=('x', 'y'),
-    ...     benchmark_path=str(d.resolve()) + '/*/meta.yaml',
+    ...     benchmark_path=str(d),
     ... )
     Figure({
         'data': [{'hovertemplate': 'Simulation Result=result1<br>x=%{x}<br>y=%{y}<extra></extra>',

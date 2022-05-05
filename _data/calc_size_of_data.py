@@ -9,11 +9,11 @@ import requests
 
 from toolz.curried import map as fmap
 from toolz.curried import filter as ffilter
-from toolz.curried import compose, groupby, valmap, merge
+from toolz.curried import compose, groupby, valmap, merge, pipe, get
 import numpy as np
 from pandas import DataFrame, concat
 
-from migrate_yaml import get_yaml_data
+from migrate_yaml import get_yaml_data, write_yaml_data
 
 
 # number of bytes in a megabyte
@@ -26,11 +26,19 @@ def sequence(*args):
     return compose(*args[::-1])
 
 
+def requests_head(url):
+    """Get header data from url
+    """
+    try:
+        response = requests.head(url, allow_redirects=True).headers
+    except requests.exceptions.ConnectionError:
+        response = dict()
+    return response
+
+
 # pylint: disable=invalid-name
 filesize_from_url = sequence(
-    lambda x: requests.head(x, allow_redirects=True),
-    lambda x: x.headers.get("content-length", 0),
-    lambda x: int(x) / MBFACTOR,
+    requests_head, lambda x: x.get("content-length", 0), lambda x: int(x) / MBFACTOR
 )
 
 
@@ -71,7 +79,9 @@ dataframe = sequence(
 )
 
 
-if __name__ == "__main__":
+def print_size_of_data():
+    """Print the size of all the upload data.
+    """
     data = list(get_yaml_data())
     df = dataframe(data)
     print(df.head())
@@ -79,3 +89,27 @@ if __name__ == "__main__":
     print(df.describe())
     print()
     print(df.sum(axis=0, numeric_only=True))
+
+
+def generate_simulation_list(filename="_data/simulation_list.yaml"):
+    """Generate a list of simulations stored in _data/simulations
+
+    Generate a list of simulations stored in _data/simulations with
+    their full urls. Future versions of pfhub will use this list to
+    gather the simulations meta files when the notebooks are built.
+    """
+    url_head = "https://raw.githubusercontent.com/usnistgov/pfhub/\
+    master/_data/simulations/"
+    return pipe(
+        get_yaml_data(),
+        dataframe,
+        get("name"),
+        fmap(lambda x: url_head + x + "/meta.yaml"),
+        list,
+        write_yaml_data(filename),  # pylint: disable=no-value-for-parameter
+    )
+
+
+if __name__ == "__main__":
+    print_size_of_data()
+    # generate_simulation_list()
