@@ -1,0 +1,52 @@
+_id: c67a5650-76f9-11e7-a3e9-cb63094aa20f
+benchmark:
+  id: 6a
+  version: '0'
+data:
+- description: Free Energy Plot
+  format:
+    parse:
+      free_energy: number
+      time: number
+    type: csv
+  name: free_energy
+  transform:
+  - as: y
+    expr: datum.free_energy
+    type: formula
+  - as: x
+    expr: datum.time
+    type: formula
+  type: line
+  url: https://raw.githubusercontent.com/sqmonismith/Benchmark_06/main/free_energy.csv
+- name: run_time
+  values:
+  - sim_time: '1000'
+    wall_time: '658'
+- name: memory_usage
+  values:
+  - unit: B
+    value: '7600000'
+date:
+metadata:
+  timestamp: 4 May, 2022
+  author:
+    email: scottqfm@alumni.stanford.edu
+    first: Scott
+    github_id: sqmonismith
+    last: Monismith
+  hardware:
+    acc_architecture: none
+    clock_rate: '2.7'
+    cores: '1'
+    cpu_architecture: x86_64
+    nodes: '1'
+    parallel_model: distributed
+  implementation:
+    container_url: ''
+    name: memphis
+    repo:
+      url: https://github.com/sqmonismith/Benchmark_06
+      version: 548e491f6376191daa18d9cdbf939eca7d27bfd2
+  simulation_name: memphis_6a
+  summary: Benchmark problem 6a, energy vs time. 100 x 100 uniform mesh, Gauss-Seidel iterations for electric field, tolerance 10^-5.

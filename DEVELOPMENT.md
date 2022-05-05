@@ -51,13 +51,13 @@ Detailed instructions for each of aspects of the site are given in the following
 
 <h4> Update Directly on GitHub </h4>
 
-Several common tasks can be accomplished on [GitHub][GITHUB]
-by editing files
-[in-place](https://help.github.com/articles/editing-files-in-another-user-s-repository/).
-Doing so will automatically fork the repository to your
-[GitHub][GITHUB] account and submit a pull request to update the
-[master GitHub repository]({{ site.links.github }})
-with your content.
+Several common tasks can be accomplished on [GitHub][GITHUB] by
+editing files <a
+href="https://help.github.com/articles/creating-a-pull-request"
+data-proofer-ignore>in-place</a>.  Doing so will automatically fork
+the repository to your [GitHub][GITHUB] account and submit a pull
+request to update the [master GitHub repository]({{ site.links.github
+}}) with your content.
 
 <h5> <a name="comm_page"></a>Update the Community Page </h5>
 
@@ -131,14 +131,15 @@ pull-request is merged.
 <h4> Update on Your Local Machine </h4>
 
 Some tasks involve adding new files or rebuilding existing ones. These
-are best done on your local machine, on a
-[clone of your fork](https://guides.github.com/activities/forking/)
-of the
-[master GitHub repository]({{ site.links.github }}).
-You are encouraged to serve a local version of the site for testing before
-[pushing your commits](https://help.github.com/articles/pushing-to-a-remote/)
-and issuing a
-[pull request](https://help.github.com/articles/creating-a-pull-request/).
+are best done on your local machine, on a <a
+href="https://docs.github.com/en/get-started/quickstart/contributing-to-projects"
+data-proofer-ignore>clone of your fork </a>of the [master GitHub
+repository]({{ site.links.github }}).  You are encouraged to serve as
+local version of the site for testing before <a
+href="https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository"
+data-proofer-ignore>pushing your commits</a>and issuing a <a
+href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request"
+data-proofer-ignore>pull request</a>.
 
 <h5> <a name="build_site"></a>Build and Serve the Site </h5>
 
@@ -261,3 +262,4 @@ correctly.
 [JEKYLL]: https://jekyllrb.com
 [GITHUB]: https://github.com
 [HTMLPROOFER]: https://github.com/gjtorikian/html-proofer
+[CLONEFORK]:
