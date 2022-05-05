@@ -46,7 +46,6 @@ script:
     ";
   - nix-shell _apps/data/shell.nix --pure --command "
       cd _apps/data &&
-      #py.test test.py &&
       black --check *.py &&
       pylint *.py &&
       flake8 *.py
