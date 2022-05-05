@@ -29,7 +29,10 @@ result and a new directory is required for each new benchmark result.
 
 To record a new benchmark result, use the following workflow.
 
- 1. [Fork](https://help.github.com/articles/fork-a-repo/) the [website repository]({{ site.links.github }}).
+ 1. <a
+ href="https://docs.github.com/en/get-started/quickstart/fork-a-repo"
+ data-proofer-ignore>Fork</a> the [website repository]({{
+ site.links.github }}).
 
  2. Edit the repository by adding a new directory to
     [`_data/simulations`]({{ site.links.simmeta }}) and create
@@ -42,13 +45,14 @@ To record a new benchmark result, use the following workflow.
     and the hardware used to execute it, and links to data displayed
     on the website.
 
- 4. Submit a [pull
-    request](https://help.github.com/articles/creating-a-pull-request/)
-    for the new `meta.yaml`. At this stage the website test suite will
-    check the `meta.yaml` against the schema. The website developer
-    can then work with the benchmark uploader to refine the
-    `meta.yaml` so that all the data associated with the benchmark
-    result is available to be displayed on the website.
+ 4. Submit a <a
+    href="https://help.github.com/articles/creating-a-pull-request/"
+    data-proofer-ignore>pull request</a> for the new `meta.yaml`. At
+    this stage the website test suite will check the `meta.yaml`
+    against the schema. The website developer can then work with the
+    benchmark uploader to refine the `meta.yaml` so that all the data
+    associated with the benchmark result is available to be displayed
+    on the website.
 
 <h4>Minimal Example of a YAML Benchmark File</h4>
 
