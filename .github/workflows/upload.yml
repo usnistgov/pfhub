@@ -1,0 +1,15 @@
+name: PFHub Upload
+on:
+  issues:
+    types: [opened]
+jobs:
+  pfhub-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: stefanbuck/github-issue-parser@v2
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/upload.yml
+      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
+      - run: cat upload.json

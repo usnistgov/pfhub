@@ -10,17 +10,16 @@ import os
 def test(*args):
     r"""Run all the module tests.
 
-    Equivalent to running ``py.test pymks`` in the base of
-    PyMKS. Allows an installed version of PyMKS to be tested.
+    Equivalent to running ``py.test pfhub`` in the base
 
     Args:
       *args: add arguments to pytest
 
-    To test an installed version of PyMKS use
+    To test an installed version of PFHub use
 
     .. code-block:: bash
 
-       $ python -c "import pymks; pymks.test()"
+       $ python -c "import pfhub; pfhub.test()"
 
     """
     import pytest  # pylint: disable=import-outside-toplevel
