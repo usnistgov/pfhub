@@ -103,6 +103,8 @@ def read_add_name(yaml_url):
 
     >>> assert read_add_name(getfixture('yaml_data_file').as_uri())['name'] == 'result'
 
+    >>> assert read_add_name(getfixture('yaml_data_file_with_name').as_uri())['name'] == 'result1'
+
     """
     data = read_yaml_from_url(yaml_url)
     if 'name' in data:
