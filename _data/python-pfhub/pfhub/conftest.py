@@ -46,8 +46,9 @@ data:
         as: b
 """
     if name is not None:
-        data = data + f'\nname: {name}'
+        data = data + f"\nname: {name}"
     return data
+
 
 def make_yaml(dir_, name, id_, version, add_name=False):
     """Generate a yaml file for test purposes
@@ -65,7 +66,9 @@ def make_yaml(dir_, name, id_, version, add_name=False):
     dir_name = dir_ / name
     dir_name.mkdir(exist_ok=True)
     yaml_file = dir_name / "meta.yaml"
-    yaml_file.write_text(make_yaml_content(id_, version, name=name if add_name else None))
+    yaml_file.write_text(
+        make_yaml_content(id_, version, name=name if add_name else None)
+    )
     return yaml_file
 
 
