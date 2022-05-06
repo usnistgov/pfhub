@@ -5,7 +5,7 @@ import pytest
 import yaml
 
 
-def make_yaml_content(id_, version):
+def make_yaml_content(id_, version, name=None):
     """Generate some test yaml content
 
     Args:
@@ -15,7 +15,7 @@ def make_yaml_content(id_, version):
     Returns:
       yaml result content as string
     """
-    return f"""
+    data = f"""
 ---
 benchmark:
   id: {id_}
@@ -45,9 +45,12 @@ data:
         expr: datum.y * 2
         as: b
 """
+    if name is not None:
+        data = data + f"\nname: {name}"
+    return data
 
 
-def make_yaml(dir_, name, id_, version):
+def make_yaml(dir_, name, id_, version, add_name=False):
     """Generate a yaml file for test purposes
 
     Args:
@@ -55,6 +58,7 @@ def make_yaml(dir_, name, id_, version):
       name: name of the result
       id_: the benchmark id_ (e.g. "8a")
       version: the version (e.g. "1")
+      name: the name of the simulation (e.g. "fipy1a")
 
     Returns:
       name of the file created
@@ -62,7 +66,9 @@ def make_yaml(dir_, name, id_, version):
     dir_name = dir_ / name
     dir_name.mkdir(exist_ok=True)
     yaml_file = dir_name / "meta.yaml"
-    yaml_file.write_text(make_yaml_content(id_, version))
+    yaml_file.write_text(
+        make_yaml_content(id_, version, name=name if add_name else None)
+    )
     return yaml_file
 
 
@@ -78,6 +84,20 @@ def yaml_data_file(tmp_path):
     """
     tmp_path.mkdir(exist_ok=True)
     return make_yaml(tmp_path, "result", "1a", 1)
+
+
+@pytest.fixture
+def yaml_data_file_with_name(tmp_path):
+    """Generate a yaml test file with name included
+
+    Args:
+      tmp_path: temporary area to use to write files
+
+    Returns:
+      name of the data file
+    """
+    tmp_path.mkdir(exist_ok=True)
+    return make_yaml(tmp_path, "result1", "1a", 1, add_name=True)
 
 
 @pytest.fixture
