@@ -27,5 +27,6 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           commit-message: "upload: ${{ env.SIMNAME }}"
-          body: adding upload from issue xxx
+          title: "upload: ${{ env.SIMNAME }}"
+          body: "adding upload from issue #${{ github.event.issue.number }}"
           branch: upload_${{ env.SIMNAME }}
