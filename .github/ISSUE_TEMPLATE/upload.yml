@@ -12,6 +12,18 @@ body:
       value: |
         Thanks for submitting an upload on PFHub!
   - type: input
+    id: short_name
+    attributes:
+      label: Short Name of Upload
+      description: |
+        Please provide a single word name for your upload. Use
+        alphanumeric characters and _, but at least 2 characters
+        long. This will be used to identify your upload on image
+        legends on PFHub.
+      placeholder: "fipy_1a"
+    validations:
+      required: true
+  - type: input
     id: repo
     attributes:
       label: GitHub Repository
