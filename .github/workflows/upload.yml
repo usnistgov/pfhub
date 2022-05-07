@@ -23,6 +23,7 @@ jobs:
       - run: mkdir -p _data/simulations/${{ env.SIMNAME }}
       - run: mv file_0.yml _data/simulations/${{ env.SIMNAME }}/meta.yaml
       - run: rm upload.json file_1.yml
+      - run: echo ${{ secrets.BLAH }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
