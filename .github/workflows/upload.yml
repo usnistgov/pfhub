@@ -28,4 +28,4 @@ jobs:
         with:
           commit-message: "upload: ${{ env.SIMNAME }}"
           body: adding upload from issue xxx
-          branch: upload
+          branch: upload_${{ env.SIMNAME }}
