@@ -12,10 +12,11 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/upload.yml
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
+      - run: yq -P upload.json > upload.yaml
       - run: |
           yq eval-all '
             select(fileIndex=0).benchmark.id = select(fileIndex=1).benchmark_id |
             select(fileIndex=0).metadata.implementation.repo.url = select(fileIndex=1).repo
           ' _data/blank.yaml upload.yaml > out.yaml
       - run: yq -s '"file_" + $index' out.yaml
-      - run: echo file_0.yml
+      - run: cat file_0.yml
