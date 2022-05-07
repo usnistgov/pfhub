@@ -12,7 +12,7 @@ body:
       value: |
         Thanks for submitting an upload on PFHub!
   - type: input
-    id: repro
+    id: repo
     attributes:
       label: GitHub Repository
       description: The GitHub repository where the data and code are stored
