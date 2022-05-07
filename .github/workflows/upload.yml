@@ -11,17 +11,20 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/upload.yml
+      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
+      - run: echo "SIMNAME=$(yq '.short_name' upload.json)" >> $GITHUB_ENV
       - run: |
-          echo '${{ steps.issue-parser.outputs.jsonString }}' | yq -P | yq eval-all '
+          cat upload.json | yq -P | yq eval-all '
             select(fileIndex=0).benchmark.id = select(fileIndex=1).benchmark_id |
             select(fileIndex=0).metadata.implementation.repo.url = select(fileIndex=1).repo |
             select(fileIndex=0).metadata.summary = select(fileIndex=1).summary |
             select(fileIndex=0).metadata.implementation.name = select(fileIndex=1).code
           ' _data/blank.yaml - | yq -s '"file_" + $index'
-      - run: cat file_0.yml
+      - run: mv file_0.yml _data/simulations/${{ env.SIMNAME }}/meta.yaml
+      - run: rm upload.json file_1.yml
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          commit-message: upload xxx
+          commit-message: "upload: ${{ env.SIMNAME }}"
           body: adding upload from issue xxx
           branch: upload
