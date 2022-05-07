@@ -20,6 +20,7 @@ jobs:
             select(fileIndex=0).metadata.summary = select(fileIndex=1).summary |
             select(fileIndex=0).metadata.implementation.name = select(fileIndex=1).code
           ' _data/blank.yaml - | yq -s '"file_" + $index'
+      - run: mkdir -p _data/simulations/${{ env.SIMNAME }}
       - run: mv file_0.yml _data/simulations/${{ env.SIMNAME }}/meta.yaml
       - run: rm upload.json file_1.yml
       - name: Create Pull Request
