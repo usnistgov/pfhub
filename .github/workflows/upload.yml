@@ -20,7 +20,8 @@ jobs:
           ' _data/blank.yaml - | yq -s '"file_" + $index'
       - run: cat file_0.yml
       - name: Create Pull Request
-        with: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v4
+        with:
           commit-message: upload xxx
           body: adding upload from issue xxx
           branch: upload
