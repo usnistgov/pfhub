@@ -13,8 +13,11 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/upload.yml
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
+      - run: echo '$(jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload.json)' >> $GITHUB_ENV
+      - run: echo $GITHUB_ENV
       - run: echo "SIMNAME=$(yq '.short_name' upload.json)" >> $GITHUB_ENV
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
+      - run: echo "METAPATH=_data/simulations/${{ env.SIMNAME }}/meta.yaml" >> $GITHUB_ENV
       - run: |
           cat upload.json | yq -P | yq eval-all '
             select(fileIndex=0).benchmark.id = select(fileIndex=1).benchmark_id |
@@ -23,7 +26,8 @@ jobs:
             select(fileIndex=0).metadata.implementation.name = select(fileIndex=1).code
           ' _data/blank.yaml - | yq -s '"file_" + $index'
       - run: mkdir -p _data/simulations/${{ env.SIMNAME }}
-      - run: mv file_0.yml _data/simulations/${{ env.SIMNAME }}/meta.yaml
+      - run: mv file_0.yml ${{ env.METAPATH }}
+      - run: yq -i '. += "${{ env.METAPATH }}"' _data/simulation_list.yaml
       - run: rm upload.json file_1.yml
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
