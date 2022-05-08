@@ -1,0 +1,26 @@
+---
+benchmark:
+  id: 1c
+  version:
+data: []
+metadata:
+  author:
+    email:
+    first:
+    github_id:
+    last:
+  hardware:
+    acc_architecture:
+    clock_rate:
+    cores:
+    cpu_architecture:
+    nodes:
+    parallel_model:
+  implementation:
+    container_url:
+    name: prisms
+    repo:
+      url: https://github.com/usnistgov/pfhub
+      version:
+  summary: test
+  timestamp:
