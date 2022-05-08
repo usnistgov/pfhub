@@ -38,7 +38,7 @@ jobs:
           author: ${{ env.AUTHOR }} <${{ env.AUTHOR }}@users.noreply.github.com>
       - name: Create Comment
         uses: peter-evans/create-or-update-comment@v2
-        if: $ {{ steps.cpr.outputs.pull-request-number }}
+        if: ${{ steps.create-pr.outputs.pull-request-number }}
         with:
           issue-number: ${{ github.event.issue.number }}
           token: ${{ secrets.PFHUB_UPLOAD_USER }}
