@@ -12,7 +12,7 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/upload.yml
-      - run: echo '${{ github.event.issue.labels }}'
+      - run: echo '${{ contains(github.event.issue.labels.*.name, "upload" }}'
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
       - run: echo "SIMNAME=$(yq '.short_name' upload.json)" >> $GITHUB_ENV
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
