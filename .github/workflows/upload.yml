@@ -1,9 +1,10 @@
 name: PFHub Upload
 on:
   issues:
-    types: [opened]
+    types: [labeled]
 jobs:
   pfhub-upload:
+    if: ${{ github.event.issue.label.name == 'upload' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
