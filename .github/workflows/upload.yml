@@ -43,8 +43,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           token: ${{ secrets.PFHUB_UPLOAD_USER }}
           body: >-
-            Thanks for the upload!
-
-            The upload has opened pull-request #${{ steps.create-pr.outputs.pull-request-number }}.
+            Thanks for the upload! Your submission has opened
+            pull-request #${{ steps.create-pr.outputs.pull-request-number }}.
             Please follow up there. Wait for the build processes to
             complete and then follow the posted comments.
