@@ -1,7 +1,7 @@
 name: PFHub Upload
 on:
   issues:
-    types: [labeled, edited, opened]
+    types: [labeled, edited]
 jobs:
   pfhub-upload:
     if: ${{ contains(github.event.issue.labels.*.name, 'upload') }}
