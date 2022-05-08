@@ -1,10 +1,10 @@
 name: PFHub Upload
 on:
   issues:
-    types: [labeled]
+    types: [labeled, edited, opened]
 jobs:
   pfhub-upload:
-    # if: ${{ github.event.issue.label.name == 'upload' }}
+    if: ${{ github.event.label.name == 'upload' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,7 +12,6 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/upload.yml
-      - run: echo ${{ github.event.label.name }}
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
       - run: echo "SIMNAME=$(yq '.short_name' upload.json)" >> $GITHUB_ENV
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
