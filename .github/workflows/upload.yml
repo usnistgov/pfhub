@@ -27,6 +27,7 @@ jobs:
       - run: rm upload.json file_1.yml
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
+        id: create-pr
         with:
           commit-message: "upload: ${{ env.SIMNAME }}"
           title: "upload: ${{ env.SIMNAME }}"
@@ -35,3 +36,15 @@ jobs:
           token: ${{ secrets.PFHUB_UPLOAD_USER }}
           delete-branch: true
           author: ${{ env.AUTHOR }} <${{ env.AUTHOR }}@users.noreply.github.com>
+      - name: Create Comment
+        uses: peter-evans/create-or-update-comment@v2
+        if: $ {{ steps.cpr.outputs.pull-request-number }}
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          token: ${{ secrets.PFHUB_UPLOAD_USER }}
+          body: |
+            Thanks for the upload!
+
+            The upload has opened pull-request #${{ steps.create-pr.outputs.pull-request-number }}.
+            Please follow up there. Wait for the build processes to
+            complete and then follow the posted comments.
