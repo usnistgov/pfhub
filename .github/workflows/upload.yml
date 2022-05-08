@@ -42,7 +42,7 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           token: ${{ secrets.PFHUB_UPLOAD_USER }}
-          body: |
+          body: >-
             Thanks for the upload!
 
             The upload has opened pull-request #${{ steps.create-pr.outputs.pull-request-number }}.
