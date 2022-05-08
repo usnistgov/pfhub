@@ -13,6 +13,7 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/upload.yml
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
       - run: echo "SIMNAME=$(yq '.short_name' upload.json)" >> $GITHUB_ENV
+      - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
       - run: |
           cat upload.json | yq -P | yq eval-all '
             select(fileIndex=0).benchmark.id = select(fileIndex=1).benchmark_id |
@@ -23,7 +24,6 @@ jobs:
       - run: mkdir -p _data/simulations/${{ env.SIMNAME }}
       - run: mv file_0.yml _data/simulations/${{ env.SIMNAME }}/meta.yaml
       - run: rm upload.json file_1.yml
-      - run: echo ${{ github.event.issue.user.login }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
@@ -33,3 +33,4 @@ jobs:
           branch: upload_${{ env.SIMNAME }}_${{ github.event.issue.number }}
           token: ${{ secrets.PFHUB_UPLOAD_USER }}
           delete-branch: true
+          author: ${{ env.AUTHOR }} <${{ env.AUTHOR }}@users.noreply.github.com>
