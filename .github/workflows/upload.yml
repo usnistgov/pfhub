@@ -31,5 +31,6 @@ jobs:
           title: "upload: ${{ env.SIMNAME }}"
           body: "adding upload from issue #${{ github.event.issue.number }}"
           branch: upload_${{ env.SIMNAME }}_${{ github.event.issue.number }}
+          token: ${{ secrets.PFHUB_UPLOAD }}
         env:
-          GITHUB_TOKEN: ${{ secrets.PFHUB_UPLOAD_USER }}
+          GITHUB_TOKEN: ${{ secrets.PFHUB_UPLOAD }}
