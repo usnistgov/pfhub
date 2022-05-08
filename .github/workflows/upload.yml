@@ -13,7 +13,7 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/upload.yml
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
-      - run: echo '$(jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload.json)' >> $GITHUB_ENV
+      - run: echo '$(jq -r \'to_entries|map("\(.key)=\(.value|tostring)")|.[]\' upload.json)' >> $GITHUB_ENV
       - run: echo $GITHUB_ENV
       - run: echo "SIMNAME=$(yq '.short_name' upload.json)" >> $GITHUB_ENV
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
