@@ -1,13 +1,13 @@
 ---
 benchmark:
-  id:
-  version:
+  id: ${BENCHMARK_ID}
+  version: 1
 data: []
 metadata:
   author:
     email:
     first:
-    github_id:
+    github_id: ${GITHUB_ID}
     last:
   hardware:
     acc_architecture:
@@ -18,9 +18,9 @@ metadata:
     parallel_model:
   implementation:
     container_url:
-    name:
+    name: ${CODE_NAME}
     repo:
-      url:
+      url: ${REPO_URL}
       version:
-  summary:
+  summary: ${SUMMARY}
   timestamp:

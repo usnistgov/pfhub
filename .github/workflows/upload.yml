@@ -14,27 +14,39 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/upload.yml
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
       - run: jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload.json >> $GITHUB_ENV
-      - run: echo ${{ env.short_name }}
-      - run: echo "SIMNAME=$(yq '.short_name' upload.json)" >> $GITHUB_ENV
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
-      - run: echo "METAPATH=_data/simulations/${{ env.SIMNAME }}/meta.yaml" >> $GITHUB_ENV
-      - run: |
-          cat upload.json | yq -P | yq eval-all '
-            select(fileIndex=0).benchmark.id = select(fileIndex=1).benchmark_id |
-            select(fileIndex=0).metadata.implementation.repo.url = select(fileIndex=1).repo |
-            select(fileIndex=0).metadata.summary = select(fileIndex=1).summary |
-            select(fileIndex=0).metadata.implementation.name = select(fileIndex=1).code
-          ' _data/blank.yaml - | yq -s '"file_" + $index'
-      - run: mkdir -p _data/simulations/${{ env.SIMNAME }}
-      - run: mv file_0.yml ${{ env.METAPATH }}
+      - run: echo "METAPATH=_data/simulations/${{ env.short_name }}/meta.yaml" >> $GITHUB_ENV
+      - run: mkdir -p _data/simulations/${{ env.short_name }}
+      - name: Fill out meta.yaml
+        uses: nowactions/envsubst@v1
+        with:
+          input: ./_data/meta_template.yaml@v1
+          output: ${{ env.METAPATH }}
+        env:
+          BENCHMARK_ID: ${{ env.benchmark_id }}
+          GITHUB_ID: ${{ env.AUTHOR }}
+          REPO_URL: ${{ env.repo }}
+          SUMMARY: ${{ env.summary }}
+          CODE_NAME: ${{ env.name }}
+      #      - run: envsubst
+      #      - run: |
+      #          cat upload.json | yq -P | yq eval-all '
+      #            select(fileIndex=0).benchmark.id = select(fileIndex=1).benchmark_id |
+      #            select(fileIndex=0).metadata.implementation.repo.url = select(fileIndex=1).repo |
+      #            select(fileIndex=0).metadata.summary = select(fileIndex=1).summary |
+      #            select(fileIndex=0).metadata.implementation.name = select(fileIndex=1).code
+      #          ' _data/blank.yaml - | yq -s '"file_" + $index'
+      #      - run: mkdir -p _data/simulations/${{ env.short_name }}
+      # - run: mv file_0.yml ${{ env.METAPATH }}
+      - run: yq -i -P ${{ env.METAPATH }}
       - run: yq -i '. += "${{ env.METAPATH }}"' _data/simulation_list.yaml
-      - run: rm upload.json file_1.yml
+      - run: rm upload.json
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         id: create-pr
         with:
-          commit-message: "upload: ${{ env.SIMNAME }}"
-          title: "upload: ${{ env.SIMNAME }}"
+          commit-message: "upload: ${{ env.short_name }}"
+          title: "upload: ${{ env.short_name }}"
           body: "adding upload from issue #${{ github.event.issue.number }}"
           branch: upload_${{ env.SIMNAME }}_${{ github.event.issue.number }}
           token: ${{ secrets.PFHUB_UPLOAD_USER }}
