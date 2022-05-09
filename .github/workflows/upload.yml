@@ -20,7 +20,7 @@ jobs:
       - name: Fill out meta.yaml
         uses: nowactions/envsubst@v1
         with:
-          input: ./_data/meta_template.yaml@v1
+          input: ./_data/meta_template.yaml
           output: ${{ env.METAPATH }}
         env:
           BENCHMARK_ID: ${{ env.benchmark_id }}
