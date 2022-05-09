@@ -22,14 +22,18 @@ jobs:
       # next two steps together
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
 
+      - run: echo "SUMMARY=$(jq -r '.summary' upload.json)" >> $GITHUB_ENV
+
+      - run: jq 'del(.summary)' upload.json > upload_mod.json
+
       # Write the contents of the issue to the environment (it's a
       # flat JSON file)
       - id: jq
-        run: jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload.json >> $GITHUB_ENV
+        run: jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload_mod.json >> $GITHUB_ENV
 
       # Don't need the JSON file and will be submitted in the PR if
       # kept
-      - run: rm upload.json
+      - run: rm upload_mod.json upload.json
 
       # Set useful variable used more that once
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
@@ -50,11 +54,13 @@ jobs:
           BENCHMARK_ID: ${{ env.benchmark_id }}
           GITHUB_ID: ${{ env.AUTHOR }}
           REPO_URL: ${{ env.repo }}
-          SUMMARY: ${{ env.summary }}
+          SUMMARY: ${{ env.SUMMARY }}
           CODE_NAME: ${{ env.code }}
           BENCHMARK_VERSION: ${{ env.benchmark_version }}
           GIT_HASH: ${{ env.git_hash }}
           CONTAINER: ${{ env.container }}
+
+      - run: rm upload.json
 
       # Make the meta.yaml look nice. Long strings will be wrapped
       # correctly using -P or pretty print
