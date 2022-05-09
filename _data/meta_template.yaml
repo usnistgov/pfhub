@@ -1,7 +1,7 @@
 ---
 benchmark:
   id: ${BENCHMARK_ID}
-  version: 1
+  version: ${BENCHMARK_VERSION}
 data: []
 metadata:
   author:
@@ -17,10 +17,10 @@ metadata:
     nodes:
     parallel_model:
   implementation:
-    container_url:
+    container_url: ${CONTAINER}
     name: ${CODE_NAME}
     repo:
       url: ${REPO_URL}
-      version:
+      version: ${GIT_HASH}
   summary: ${SUMMARY}
   timestamp:

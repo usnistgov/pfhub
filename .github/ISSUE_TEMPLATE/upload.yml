@@ -27,10 +27,24 @@ body:
     id: repo
     attributes:
       label: GitHub Repository
-      description: The GitHub repository where the data and code are stored
+      description: The repository with the data, intput files and code.
       placeholder: "https://github.com/<user>/<repo>"
     validations:
       required: true
+  - type: input
+    id: git_hash
+    attributes:
+      label: GitHub Repository
+      description: The specific commit identifier (SHA hash) for the repository given above
+    validations:
+      required: true
+  - type: input
+    id: container
+    attributes:
+      label: Container
+      description: Link to a container (e.g. Dockerfile) to reproduce this result (optional)
+    validations:
+      required: false
   - type: textarea
     id: summary
     attributes:
@@ -43,13 +57,22 @@ body:
     attributes:
       label: Benchmark ID
       description: Which benchmark does this submission address?
-      options: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d", "3a", "6a", "6b", "7a", "7b", "7c", "4a", "4b", "4c", "4d", "4e", "4f", "4g", "4h", "fake", "8a", "8b", "8c", "8d"]
+      options: ['1a', '1b', '1c', '1d', '2a', '2b', '2c', '2d', '3a', '4a', '4b', '4c', '4d', '4e', '4f', '4g', '4h', '6a', '6b', '7a', '7b', '7c', '8a', '8b', '8c', '8d', 'fake']
+    validations:
+      required: true
+  - type: dropdown
+    id: benchmark_version
+    attributes:
+      label: Benchmark ID
+      description: Which version of this benchmark?
+      options: ['0', '1']
     validations:
       required: true
   - type: dropdown
     id: code
     attributes:
-      label: Which phase field code did you use?
+      label: Code Name
+      description: Name of code used to run the simulation
       options: ["fenics", "moose", "prisms", "sfepy", "mmsp", "fipy", "custom", "hiperc", "ampe", "memphis", "meumapps", "other"]
     validations:
       required: true

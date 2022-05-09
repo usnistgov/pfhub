@@ -2,21 +2,45 @@ name: PFHub Upload
 on:
   issues:
     types: [labeled, edited]
+
 jobs:
   pfhub-upload:
+
+    # Only run workflow if this is an upload issue
     if: ${{ contains(github.event.issue.labels.*.name, 'upload') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      # Parse the submitted issue
       - uses: stefanbuck/github-issue-parser@v2
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/upload.yml
+
+      # Write the issue output to a JSON for later use (could have the
+      # next two steps together
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
-      - run: jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload.json >> $GITHUB_ENV
+
+      # Write the contents of the issue to the environment (it's a
+      # flat JSON file)
+      - id: jq
+        run: jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload.json >> $GITHUB_ENV
+
+      # Don't need the JSON file and will be submitted in the PR if
+      # kept
+      - run: rm upload.json
+
+      # Set useful variable used more that once
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
       - run: echo "METAPATH=_data/simulations/${{ env.short_name }}/meta.yaml" >> $GITHUB_ENV
+
+      # Need a new directory for the upload
       - run: mkdir -p _data/simulations/${{ env.short_name }}
+
+      # Make the environment using envsubstr and the meta.yaml
+      # template. The data is already part of the environment from the
+      # "jq" step above from previous steps.
       - name: Fill out meta.yaml
         uses: nowactions/envsubst@v1
         with:
@@ -28,19 +52,21 @@ jobs:
           REPO_URL: ${{ env.repo }}
           SUMMARY: ${{ env.summary }}
           CODE_NAME: ${{ env.code }}
-      #      - run: envsubst
-      #      - run: |
-      #          cat upload.json | yq -P | yq eval-all '
-      #            select(fileIndex=0).benchmark.id = select(fileIndex=1).benchmark_id |
-      #            select(fileIndex=0).metadata.implementation.repo.url = select(fileIndex=1).repo |
-      #            select(fileIndex=0).metadata.summary = select(fileIndex=1).summary |
-      #            select(fileIndex=0).metadata.implementation.name = select(fileIndex=1).code
-      #          ' _data/blank.yaml - | yq -s '"file_" + $index'
-      #      - run: mkdir -p _data/simulations/${{ env.short_name }}
-      # - run: mv file_0.yml ${{ env.METAPATH }}
+          BENCHMARK_VERSION: ${{ env.benchmark_version }}
+          GIT_HASH: ${{ env.git_hash }}
+          CONTAINER: ${{ env.container }}
+      # Make the meta.yaml look nice. Long strings will be wrapped
+      # correctly using -P or pretty print
       - run: yq -i -P ${{ env.METAPATH }}
-      - run: yq -i '. += "${{ env.METAPATH }}"' _data/simulation_list.yaml
-      - run: rm upload.json
+
+      # Update the simulation list with the new simulation. Path is
+      # slightly altered as the python-pfhub is assuming a know
+      # location.
+      - run: yq -i '. += "./simulations/${{ env.short_name }}"' _data/simulation_list.yaml
+
+      # Create the pull request with a link to the issue that started
+      # the action. PFHub user generates the PR. The user who
+      # generated the issue does the commit.
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         id: create-pr
@@ -52,6 +78,8 @@ jobs:
           token: ${{ secrets.PFHUB_UPLOAD_USER }}
           delete-branch: true
           author: ${{ env.AUTHOR }} <${{ env.AUTHOR }}@users.noreply.github.com>
+
+      # Comment back to the issue with link to the PR.
       - name: Create Comment
         uses: peter-evans/create-or-update-comment@v2
         if: ${{ steps.create-pr.outputs.pull-request-number }}
