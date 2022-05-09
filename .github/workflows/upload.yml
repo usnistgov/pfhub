@@ -27,7 +27,7 @@ jobs:
           GITHUB_ID: ${{ env.AUTHOR }}
           REPO_URL: ${{ env.repo }}
           SUMMARY: ${{ env.summary }}
-          CODE_NAME: ${{ env.name }}
+          CODE_NAME: ${{ env.code }}
       #      - run: envsubst
       #      - run: |
       #          cat upload.json | yq -P | yq eval-all '
