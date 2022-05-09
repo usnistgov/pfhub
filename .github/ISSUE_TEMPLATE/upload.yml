@@ -73,6 +73,6 @@ body:
     attributes:
       label: Code Name
       description: Name of code used to run the simulation
-      options: ["fenics", "moose", "prisms", "sfepy", "mmsp", "fipy", "custom", "hiperc", "ampe", "memphis", "meumapps", "other"]
+      options: ['ampe', 'custom', 'fenics', 'fipy', 'hiperc', 'memphis', 'meumapps', 'mmsp', 'moose', 'other', 'prisms', 'sfepy']
     validations:
       required: true
