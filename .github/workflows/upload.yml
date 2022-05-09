@@ -33,7 +33,7 @@ jobs:
 
       # Don't need the JSON file and will be submitted in the PR if
       # kept
-      - run: rm upload_mod.json upload.json
+      - run: rm upload_mod.json
 
       # Set useful variable used more that once
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
@@ -60,7 +60,7 @@ jobs:
           GIT_HASH: ${{ env.git_hash }}
           CONTAINER: ${{ env.container }}
 
-      - run: rm upload.json upload_mod.json
+      - run: rm upload.json
 
       # Make the meta.yaml look nice. Long strings will be wrapped
       # correctly using -P or pretty print
