@@ -22,12 +22,19 @@ jobs:
       # next two steps together
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
 
-      #- run: echo "SUMMARY=$(jq -r '.summary' upload.json)" >> $GITHUB_ENV
+      # Use funky method to store the summary for later use as it has
+      # a multi-line value
+      - name: Set summary variable
+        id: summary
+        run: echo ::set-output value::$(jq -r '.summary' upload.json)
 
-      - run: jq 'del(.summary)' upload.json > upload_mod.json
+      # Remove summary as it is multi-line so can't be included in the
+      # GITHUB_ENV
+      - run jq 'del(.summary)' upload.json > upload_mod.json
 
       # Write the contents of the issue to the environment (it's a
-      # flat JSON file)
+      # flat JSON file). It can't have multi-line values so summary is
+      # done separately
       - id: jq
         run: jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload_mod.json >> $GITHUB_ENV
 
@@ -54,7 +61,7 @@ jobs:
           BENCHMARK_ID: ${{ env.benchmark_id }}
           GITHUB_ID: ${{ env.AUTHOR }}
           REPO_URL: ${{ env.repo }}
-          SUMMARY: $(jq -r '.summary' upload.json)
+          SUMMARY: ${{ steps.summary.outputs.value }}
           CODE_NAME: ${{ env.code }}
           BENCHMARK_VERSION: ${{ env.benchmark_version }}
           GIT_HASH: ${{ env.git_hash }}
