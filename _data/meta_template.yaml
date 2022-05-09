@@ -1,14 +1,15 @@
 ---
 benchmark:
   id: ${BENCHMARK_ID}
-  version: ${{ env.benchmark_version }}
+  version: ${BENCHMARK_VERSION}
 data: []
 metadata:
   author:
-    email:
+    email: ${EMAIL}
     first:
     github_id: ${GITHUB_ID}
     last:
+    name: ${AUTHOR_NAME}
   hardware:
     acc_architecture:
     clock_rate:
@@ -23,4 +24,4 @@ metadata:
       url: ${REPO_URL}
       version: ${GIT_HASH}
   summary: ${SUMMARY}
-  timestamp:
+  timestamp: ${TIMESTAMP}

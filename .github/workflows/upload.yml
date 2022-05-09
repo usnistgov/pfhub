@@ -46,6 +46,20 @@ jobs:
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
       - run: echo "METAPATH=_data/simulations/${{ env.short_name }}/meta.yaml" >> $GITHUB_ENV
 
+      # Query the user
+      - run: curl https://api.github.com/users/${{ env.AUTHOR }} > author.json
+
+      # Extract the author's name and email from GitHub profile
+      - name: Set author data
+        id: author_data
+        run: |
+          echo ::set-output name=email::$(jq -c '.email' author.json)
+          echo ::set-output name=name::$(jq -c '.name' author.json)
+
+      # Don't need the JSON file and will be submitted in the PR if
+      # kept
+      - run: rm author.json
+
       # Need a new directory for the upload
       - run: mkdir -p _data/simulations/${{ env.short_name }}
 
@@ -66,6 +80,9 @@ jobs:
           BENCHMARK_VERSION: ${{ env.benchmark_version }}
           GIT_HASH: ${{ env.git_hash }}
           CONTAINER: ${{ env.container }}
+          TIMESTAMP: ${{ github.event.issue.created_at }}
+          EMAIL: ${{ steps.author_data.outputs.email }}
+          NAME: ${{ steps.author_data.outputs.name }}
 
       # Don't need the JSON file and will be submitted in the PR if
       # kept
