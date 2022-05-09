@@ -22,11 +22,15 @@ jobs:
       # next two steps together
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
 
+      - run: cat upload.json
+
+      - run: echo "$(jq -r '.summary' upload.json)"
+
       # Use funky method to store the summary for later use as it has
       # a multi-line value
       - name: Set summary variable
         id: summary
-        run: echo ::set-output name=value::$(jq -r '.summary' upload.json)
+        run: echo ::set-output name=value::$(jq -c '.summary' upload.json)
 
       # Remove summary as it is multi-line so can't be included in the
       # GITHUB_ENV
@@ -36,7 +40,7 @@ jobs:
       # flat JSON file). It can't have multi-line values so summary is
       # done separately
       - id: jq
-        run: jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload_mod.json >> $GITHUB_ENV
+        run: jq -c 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' upload_mod.json >> $GITHUB_ENV
 
       # Don't need the JSON file and will be submitted in the PR if
       # kept
@@ -51,7 +55,7 @@ jobs:
 
       # Make the environment using envsubstr and the meta.yaml
       # template. The data is already part of the environment from the
-      # "jq" step above from previous steps.
+      # "jq" step above.
       - name: Fill out meta.yaml
         uses: nowactions/envsubst@v1
         with:
