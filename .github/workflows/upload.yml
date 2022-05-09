@@ -26,7 +26,7 @@ jobs:
       # a multi-line value
       - name: Set summary variable
         id: summary
-        run: echo ::set-output value::$(jq -r '.summary' upload.json)
+        run: echo ::set-output name=value::$(jq -r '.summary' upload.json)
 
       # Remove summary as it is multi-line so can't be included in the
       # GITHUB_ENV
