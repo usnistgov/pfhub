@@ -1,0 +1,26 @@
+---
+benchmark:
+  id: 1a
+  version: ${{ env.benchmark_version }}
+data: []
+metadata:
+  author:
+    email:
+    first:
+    github_id: wd15
+    last:
+  hardware:
+    acc_architecture:
+    clock_rate:
+    cores:
+    cpu_architecture:
+    nodes:
+    parallel_model:
+  implementation:
+    container_url: https://github.com/container
+    name: custom
+    repo:
+      url: https://github.com/usnistgov/pfhub
+      version: 35982752987
+  summary: "some text \r\non multiple lines\r\nano"
+  timestamp:
