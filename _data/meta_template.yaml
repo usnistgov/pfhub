@@ -1,7 +1,7 @@
 ---
 benchmark:
   id: ${BENCHMARK_ID}
-  version: ${BENCHMARK_VERSION}
+  version: ${{ env.benchmark_version }}
 data: []
 metadata:
   author:

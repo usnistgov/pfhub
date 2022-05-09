@@ -22,17 +22,11 @@ jobs:
       # next two steps together
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
 
-      - run: cat upload.json
-
-      - run: echo "$(jq -c '.summary' upload.json)"
-
       # Use funky method to store the summary for later use as it has
       # a multi-line value
       - name: Set summary variable
         id: summary
         run: echo ::set-output name=value::$(jq -c '.summary' upload.json)
-
-      - run: echo ${{ steps.summary.outputs.value }}
 
       # Remove summary as it is multi-line so can't be included in the
       # GITHUB_ENV
@@ -73,6 +67,8 @@ jobs:
           GIT_HASH: ${{ env.git_hash }}
           CONTAINER: ${{ env.container }}
 
+      # Don't need the JSON file and will be submitted in the PR if
+      # kept
       - run: rm upload.json
 
       # Make the meta.yaml look nice. Long strings will be wrapped
