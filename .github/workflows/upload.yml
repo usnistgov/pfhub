@@ -30,7 +30,7 @@ jobs:
 
       # Remove summary as it is multi-line so can't be included in the
       # GITHUB_ENV
-      - run jq 'del(.summary)' upload.json > upload_mod.json
+      - run: jq 'del(.summary)' upload.json > upload_mod.json
 
       # Write the contents of the issue to the environment (it's a
       # flat JSON file). It can't have multi-line values so summary is
