@@ -76,3 +76,17 @@ body:
       options: ['ampe', 'custom', 'fenics', 'fipy', 'hiperc', 'memphis', 'meumapps', 'mmsp', 'moose', 'other', 'prisms', 'sfepy']
     validations:
       required: true
+  - type: textarea
+    id: free_energy_data
+    attributes:
+      label: Free Energy Data
+      description: >-
+        Please leave a description of your free energy data and
+        include the four keys (description, url, columns and type)
+      value: >-
+        description: free energy data (short description of your data
+        url: https://link/to/your/data/file (the URL of your CSV or JSON data)
+        columns: time, free_energy (column names used)
+        type: csv or json
+    validations:
+      required: true

@@ -82,7 +82,7 @@ jobs:
           CONTAINER: ${{ env.container }}
           TIMESTAMP: ${{ github.event.issue.created_at }}
           EMAIL: ${{ steps.author_data.outputs.email }}
-          NAME: ${{ steps.author_data.outputs.name }}
+          AUTHOR_NAME: ${{ steps.author_data.outputs.name }}
 
       # Don't need the JSON file and will be submitted in the PR if
       # kept
