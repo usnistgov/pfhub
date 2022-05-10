@@ -83,10 +83,6 @@ body:
       description: >-
         Please leave a description of your free energy data and
         include the four keys (description, url, columns and type)
-      value: >-
-        description: free energy data (short description of your data\n
-        url: https://link/to/your/data/file (the URL of your CSV or JSON data)\n
-        columns: time, free_energy (column names used)\n
-        type: csv or json\n
+      value: "description: free energy data (short description of your data\nurl: https://link/to/your/data/file (the URL of your CSV or JSON data)\ncolumns: time, free_energy (column names used)\ntype: csv or json\n"
     validations:
       required: true
