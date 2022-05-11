@@ -25,6 +25,8 @@ jobs:
       # Set column values
       - run: echo "[$(jq -c '.free_energy_columns' upload.json)]" > columns.yaml
 
+      - run: cat columns.yaml
+
       - run: echo "COLX=$(yq '.[0]' columns.yaml)" >> $GITHUB_ENV
 
       - run: echo '${{ env.COLX }}'
