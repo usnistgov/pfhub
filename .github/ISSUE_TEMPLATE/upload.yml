@@ -112,7 +112,7 @@ body:
   - type: input
     id: sim_time
     attributes:
-      label: Wall Time
+      label: Simulation Time
       description: >-
         Simulation time in seconds for the simulation
     validations:

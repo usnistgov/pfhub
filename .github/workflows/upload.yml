@@ -100,7 +100,7 @@ jobs:
           AUTHOR_NAME: ${{ steps.author_data.outputs.name }}
           FREE_ENERGY_URL: ${{ env.free_energy_url }}
           COLX: ${{ env.COLX }}
-          COLY: ${{ env.COLY ]}
+          COLY: ${{ env.COLY }}
           MEMORY_USAGE: ${{ env.memory_usage }}
           SIM_TIME: ${{ env.sim_time }}
           WALL_TIME: ${{ env.sim_time }}
