@@ -25,8 +25,11 @@ jobs:
       # Set column values
       - run: |
           echo "[$(jq -c '.free_energy_columns' upload.json)]" > columns.yaml
+          cat columns.yaml
           echo "COLX=$(yq '.[0]' columns.yaml)" >> $GITHUB_ENV
+          echo '${{ env.COLX }}'
           echo "COLY=$(yq '.[1]' columns.yaml)" >> $GITHUB_ENV
+          echo '${{ env.COLY }}'
           rm columns.yaml
 
       # Use funky method to store the summary for later use as it has
@@ -97,7 +100,7 @@ jobs:
           COLY: ${{ env.COLY }}
           MEMORY_USAGE: ${{ env.memory_usage }}
           SIM_TIME: ${{ env.sim_time }}
-          WALL_TIME: ${{ env.sim_time }}
+          WALL_TIME: ${{ env.wall_time }}
 
 
       # Don't need the JSON file and will be submitted in the PR if
