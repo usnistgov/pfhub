@@ -22,6 +22,19 @@ jobs:
       # next two steps together
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
 
+      - run: |
+          echo "[$(jq -c '.free_energy_columns' upload.json)]" > columns.yaml
+          echo "COLX=$(jq .[0]) columns.yaml" >> $GITHUB_ENV
+          echo "COLY=$(jq .[1]) columns.yaml" >> $GITHUB_ENV
+          rm columns.yaml
+
+      # Get column names
+      - name: Set column values
+        id: column_names
+        run: |
+          run: echo ::set-output name=value::$(jq -c '.summary' upload.json)
+
+
       # Use funky method to store the summary for later use as it has
       # a multi-line value
       - name: Set summary variable
@@ -31,6 +44,8 @@ jobs:
       # Remove summary as it is multi-line so can't be included in the
       # GITHUB_ENV
       - run: jq 'del(.summary)' upload.json > upload_mod.json
+
+      # Free energy data test
 
       # Write the contents of the issue to the environment (it's a
       # flat JSON file). It can't have multi-line values so summary is
@@ -83,6 +98,13 @@ jobs:
           TIMESTAMP: ${{ github.event.issue.created_at }}
           EMAIL: ${{ steps.author_data.outputs.email }}
           AUTHOR_NAME: ${{ steps.author_data.outputs.name }}
+          FREE_ENERGY_URL: ${{ env.free_energy_url }}
+          COLX: ${{ env.COLX }}
+          COLY: ${{ env.COLY ]}
+          MEMORY_USAGE: ${{ env.memory_usage }}
+          SIM_TIME: ${{ env.sim_time }}
+          WALL_TIME: ${{ env.sim_time }}
+
 
       # Don't need the JSON file and will be submitted in the PR if
       # kept

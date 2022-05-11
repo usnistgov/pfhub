@@ -2,7 +2,31 @@
 benchmark:
   id: ${BENCHMARK_ID}
   version: ${BENCHMARK_VERSION}
-data: []
+data:
+  - description: free energy data
+    format:
+      parse:
+        ${COLX}: number
+        ${COLY}: number
+      type: csv
+    name: free_energy
+    transform:
+      - as: y
+        expr: datum.${COLY}
+        type: formula
+      - as: x
+        expr: datum.${COLX}
+        type: formula
+    type: line
+    url: ${FREE_ENERGY_URL}
+  - name: run_time
+    values:
+      - sim_time: ${SIM_TIME}
+        wall_time: ${WALL_TIME}
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: ${MEMORY_USAGE}
 metadata:
   author:
     email: ${EMAIL}

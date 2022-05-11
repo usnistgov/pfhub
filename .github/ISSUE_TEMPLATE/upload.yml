@@ -76,13 +76,44 @@ body:
       options: ['ampe', 'custom', 'fenics', 'fipy', 'hiperc', 'memphis', 'meumapps', 'mmsp', 'moose', 'other', 'prisms', 'sfepy']
     validations:
       required: true
-  - type: textarea
-    id: free_energy_data
+  - type: input
+    id: free_energy_url
     attributes:
-      label: Free Energy Data
+      label: Free Energy URL
       description: >-
-        Please leave a description of your free energy data and
-        include the four keys (description, url, columns and type)
-      value: "description: free energy data (short description of your data\nurl: https://link/to/your/data/file (the URL of your CSV or JSON data)\ncolumns: time, free_energy (column names used)\ntype: csv or json\n"
+        Link to the free energy data
+    validations:
+      required: true
+  - type: input
+    id: free_energy_columns
+    attributes:
+      label: Free Energy Columns
+      description: >-
+        Column names for time and free energy (comma seperated)
+      value: "time, free_energy"
+    validations:
+      required: true
+  - type: input
+    id: memory_usage
+    attributes:
+      label: Memory Usage
+      description: >-
+        Maximum memory usage in KB
+    validations:
+      required: true
+  - type: input
+    id: wall_time
+    attributes:
+      label: Wall Time
+      description: >-
+        Wall time in seconds for the simulation
+    validations:
+      required: true
+  - type: input
+    id: sim_time
+    attributes:
+      label: Wall Time
+      description: >-
+        Simulation time in seconds for the simulation
     validations:
       required: true
