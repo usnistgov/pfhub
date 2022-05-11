@@ -85,17 +85,20 @@ mapping:
         mapping:
           "first":
             type: str
-            required: True
+            required: False
           "last":
             type: str
-            required: True
+            required: False
+          "name":
+            type: str
+            required: False
           "github_id":
             type: str
             required: True
           "email":
             type: str
             pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
-            required: True
+            required: False
       "timestamp":
         type: timestamp
         required: True
@@ -137,7 +140,7 @@ mapping:
             pattern: (?i)fenics|moose|prisms|sfepy|mmsp|fipy|custom|hiperc|ampe|memphis|meumapps|symphas
           "container_url":
             type: str
-            required: True
+            required: False
           "repo": &repo
             type: map
             required: False

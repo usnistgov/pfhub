@@ -35,12 +35,12 @@ metadata:
     last:
     name: ${AUTHOR_NAME}
   hardware:
-    acc_architecture:
-    clock_rate:
-    cores:
-    cpu_architecture:
-    nodes:
-    parallel_model:
+    acc_architecture: none
+    clock_rate: '1.48'
+    cores: '1792'
+    cpu_architecture: x86_64
+    nodes: 1
+    parallel_model: threaded
   implementation:
     container_url: ${CONTAINER}
     name: ${CODE_NAME}
