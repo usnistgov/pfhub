@@ -22,18 +22,12 @@ jobs:
       # next two steps together
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > upload.json
 
+      # Set column values
       - run: |
           echo "[$(jq -c '.free_energy_columns' upload.json)]" > columns.yaml
-          echo "COLX=$(jq .[0]) columns.yaml" >> $GITHUB_ENV
-          echo "COLY=$(jq .[1]) columns.yaml" >> $GITHUB_ENV
+          echo "COLX=$(yq '.[0]' columns.yaml)" >> $GITHUB_ENV
+          echo "COLY=$(yq '.[1]' columns.yaml)" >> $GITHUB_ENV
           rm columns.yaml
-
-      # Get column names
-      - name: Set column values
-        id: column_names
-        run: |
-          run: echo ::set-output name=value::$(jq -c '.summary' upload.json)
-
 
       # Use funky method to store the summary for later use as it has
       # a multi-line value
