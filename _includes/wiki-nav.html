@@ -1,18 +1,8 @@
-<h5> Wiki Pages </h5>
+<h5> Wiki Links </h5>
 <ul class="sidenav sidenav-fixed">
-  {% for file in site.pages %}
-    {% if file.path == "wiki/index.md" %}
-      <li><a class="truncate" href="{{ site.baseurl }}{{ file.url }}">{{ file.title }}</a></li>
-      {% break %}
-    {% endif %}
-  {% endfor %}
-  {% for file in site.pages %}
-    {% if file.path == "wiki/index.md" %}
-      {% continue %}
-    {% endif %}
-    {% assign f4 = file.path | slice: 0, 4 %}
-    {% if f4 == 'wiki' %}
-      <li><a class="truncate" href="{{ site.baseurl }}{{ file.url }}">{{ file.title }}</a></li>
-    {% endif %}
-  {% endfor %}
+  <li><a class="truncate" href="{{ site.links.wiki }}/Home">Home</a></li>
+  <li><a class="truncate" href="{{ site.links.wiki }}/Home#Workshops">Workshops</a></li>
+  <li><a class="truncate" href="{{ site.links.wiki }}/Home#phase-field-benchmark--pfhub-publications">Publications</a></li>
+  <li><a class="truncate" href="{{ site.links.wiki }}/Peter-Voorhees-Lectures">Phase Field Lectures</a></li>
+  <li><a class="truncate" href="{{ site.links.wiki }}/Phase-Field-Method-Best-Practices">Best Practices Guide</a></li>
 </ul>
