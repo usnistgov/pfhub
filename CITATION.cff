@@ -1,0 +1,84 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+ - family-names: "Wheeler"
+   given-names: "Daniel"
+   orcid: https://orcid.org/0000-0002-2653-7418
+ - family-names: "Keller"
+   given-names: "Trevor"
+   orcid: https://orcid.org/0000-0002-2920-8302
+ - family-names: "DeWitt"
+   given-names: "Stephen J."
+   orcid: https://orcid.org/0000-0002-9550-293X
+ - family-names: "Jokisaari"
+   given-names: "Andrea M."
+   orcid: https://orcid.org/0000-0002-4945-5714
+ - family-names: "Schwen"
+   given-names: "Daniel"
+   orcid: https://orcid.org/0000-0002-8958-4748
+ - family-names: "Guyer"
+   given-names: "Jonathon E."
+   orcid: https://orcid.org/0000-0002-1407-6589
+ - family-names: "Aagesen"
+   given-names: "Larry K."
+   orcid: https://orcid.org/0000-0003-4936-676X
+ - family-names: "Heinonen"
+   given-names: "Olle G."
+   orcid: https://orcid.org/0000-0002-3618-6092
+ - family-names: "Tonks"
+   given-names: "Michael R."
+   orcid: https://orcid.org/0000-0002-1343-3193
+ - family-names: "Voorhees"
+   given-names: "Peter W."
+   orcid: https://orcid.org/0000-0003-2769-392X
+ - family-names: "Warren"
+   given-names: "James A."
+   orcid: https://orcid.org/0000-0001-6887-1206
+title: "PFHub: Phase Community Hub"
+version: 0.1
+doi: 10.5281/zenodo.2592705
+date-released: 2019-03-13
+url: https://github.com/usnistgov/pfhub
+preferred-citation:
+  type: article
+  authors:
+   - family-names: "Wheeler"
+     given-names: "Daniel"
+     orcid: https://orcid.org/0000-0002-2653-7418
+   - family-names: "Keller"
+     given-names: "Trevor"
+     orcid: https://orcid.org/0000-0002-2920-8302
+   - family-names: "DeWitt"
+     given-names: "Stephen J."
+     orcid: https://orcid.org/0000-0002-9550-293X
+   - family-names: "Jokisaari"
+     given-names: "Andrea M."
+     orcid: https://orcid.org/0000-0002-4945-5714
+   - family-names: "Schwen"
+     given-names: "Daniel"
+     orcid: https://orcid.org/0000-0002-8958-4748
+   - family-names: "Guyer"
+     given-names: "Jonathon E."
+     orcid: https://orcid.org/0000-0002-1407-6589
+   - family-names: "Aagesen"
+     given-names: "Larry K."
+     orcid: https://orcid.org/0000-0003-4936-676X
+   - family-names: "Heinonen"
+     given-names: "Olle G."
+     orcid: https://orcid.org/0000-0002-3618-6092
+   - family-names: "Tonks"
+     given-names: "Michael R."
+     orcid: https://orcid.org/0000-0002-1343-3193
+   - family-names: "Voorhees"
+     given-names: "Peter W."
+     orcid: https://orcid.org/0000-0003-2769-392X
+   - family-names: "Warren"
+     given-names: "James A."
+     orcid: https://orcid.org/0000-0001-6887-1206
+  doi: 10.5334/jors.276
+  journal: "Journal of Open Research Software"
+  volume: 7
+  issue: 1
+  start: 29
+  title: "PFHub: Phase Community Hub"
+  year: 2019
