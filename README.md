@@ -50,3 +50,13 @@ To install an environment to run the website using Nix, consult the
 
 To install an environment to run the website using Docker, consult the
 [Docker Guide](./DOCKER.md).
+
+## Cite
+
+If you use this website in your reseach (see [CITATION.cff]), please cite as follows:
+
+Wheeler, D., Keller, T., DeWitt, S. J., Jokisaari, A. M., Schwen, D.,
+Guyer, J. E., Aagesen, L. K., Heinonen, O. G., Tonks, M. R., Voorhees,
+P. W., Warren, J. A. (2019). *PFHub: The Phase-Field Community Hub.*
+Journal of Open Research Software, 7(1), 29. DOI:
+http://doi.org/10.5334/jors.276

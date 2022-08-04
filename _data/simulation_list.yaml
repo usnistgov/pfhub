@@ -1,5 +1,5 @@
 ---
-- https://raw.githubusercontent.com/wd15/pfhub/bm8-notebook-comparison-page/_data/simulations/fipy_8a_fake/meta.yaml
+- https://raw.githubusercontent.com/usnistgov/pfhub/master/_data/simulations/fipy_8a_fake/meta.yaml
 - simulations/fipy_8a_fake_fake/meta.yaml
 - simulations/fipy_8d/meta.yaml
 - simulations/test_lander/meta.yaml
