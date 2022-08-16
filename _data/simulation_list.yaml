@@ -138,4 +138,4 @@
 - simulations/inl_moose_1c/meta.yaml
 - simulations/inl_moose_1b_raspi/meta.yaml
 - simulations/inl_moose_1b/meta.yaml
-- https://raw.githubusercontent.com/wd15/pfhub-upload-template/main/meta.yaml
+#- https://raw.githubusercontent.com/wd15/pfhub-upload-template/main/meta.yaml
