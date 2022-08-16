@@ -51,7 +51,7 @@ To install an environment to run the website using Docker, consult the
 
 ## Cite
 
-If you use this website in your reseach (see [CITATION.cff]), please cite as follows:
+If you use this website in your reseach (see [CITATION.cff](./CITATION.cff)), please cite as follows:
 
 Wheeler, D., Keller, T., DeWitt, S. J., Jokisaari, A. M., Schwen, D.,
 Guyer, J. E., Aagesen, L. K., Heinonen, O. G., Tonks, M. R., Voorhees,
