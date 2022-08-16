@@ -23,8 +23,6 @@ alt="Gitter Chat">
 <img src="https://api.travis-ci.org/usnistgov/pfhub.svg"
 alt="Travis CI">
 </a>
-</p>
-<p>
 <a href="https://zenodo.org/badge/latestdoi/32594832">
 <img src="https://zenodo.org/badge/32594832.svg" alt="DOI"></a>
 </p>
