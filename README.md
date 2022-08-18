@@ -25,7 +25,8 @@ alt="Travis CI">
 </a>
 <a href="https://zenodo.org/badge/latestdoi/32594832">
 <img src="https://zenodo.org/badge/32594832.svg" alt="DOI"></a>
-<script type='text/javascript' src='https://www.openhub.net/p/pfhub/widgets/project_thin_badge?format=js'></script>
+<a href="https://www.openhub.net/p/pfhub" target="_blank">
+<img src="https://www.openhub.net/p/pfhub/widgets/project_thin_badge.gif" class="badge"></a>
 </p>
 
 ## Overview
