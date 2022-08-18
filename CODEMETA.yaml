@@ -1,0 +1,318 @@
+# Topics for the NIST Open Source Portal <https://code.nist.gov>
+#
+# Set the topic tags for your open source repository from the nested
+# list below. Un-comment the relevant lines:
+#
+#     remove the `#` character *and* the space immediately after it
+#
+# so that the YAML syntax remains valid. You may delete everything
+# that does not apply, and add new topics from the NIST Taxonomy
+# <https://data.nist.gov/od/id/691DDF3315711C14E0532457068146BE1907>
+#
+# For example, a valid version of this file would be (note the `:`
+# and `---`, they are important!) as follows:
+#
+# ---
+# categories:
+#   - scientific-software
+#
+# themes:
+#   - Information Technology
+#       - Software research
+#           - Software performance
+#
+# Since scientific-software is most common it is left as the default
+# category. Feel free to comment it with a hash (#) if it does not
+# apply. There is no default theme; select as many as are relevant.
+# Make sure to remove unwanted categories as the final topics are
+# produced from this file.
+
+---
+categories:
+  # - ai-ml
+  - performance-and-workflow
+  - scientific-software
+  # - simulation
+  # - tools
+  # - visualization
+
+themes:
+  # - Information Technology
+  #   - Data and informatics
+  #
+  # - Advanced communications
+  #     - Optical communications
+  #     - Quantum communications
+  #     - Wireless (RF)
+  #
+  # - Bioscience
+  #     - Biomaterials
+  #     - Biomolecular characterization
+  #     - Bioprocessing
+  #     - Cell biology
+  #     - Engineering or synthetic biology
+  #     - Genomics
+  #     - Glycomics
+  #     - Metabolomics
+  #     - Microbial measurements
+  #     - Proteomics
+  #
+  # - Buildings and Construction
+  #     - Heating, ventilation and air conditioning equipment
+  #     - Building codes and standards
+  #     - Building control systems
+  #     - Building damage and repair
+  #     - Building economics
+  #     - Building materials
+  #     - Indoor air quality
+  #     - Resilient buildings
+  #     - Structural engineering
+  #     - Sustainable buildings
+  #
+  # - Chemistry
+  #     - Analytical chemistry
+  #     - Chemical engineering and processing
+  #     - Chemical thermodynamics and chemical properties
+  #     - Molecular characterization
+  #     - Theoretical chemistry and modeling
+  #     - Thermochemical properties
+  #
+  # - Electronics
+  #     - Electromagnetics
+  #     - Flexible electronics
+  #     - Magnetoelectronics
+  #     - Optoelectronics
+  #     - Organic electronics
+  #     - Semiconductors
+  #     - Sensors
+  #     - Superconducting electronics
+  #
+  # - Energy
+  #     - Alternative energy
+  #     - Conventional energy
+  #     - Electric power and smart grid
+  #     - Energy efficiency
+  #     - Fuels
+  #     - Sustainability
+  #
+  # - Environment
+  #     - Air, soil and water quality
+  #     - Environmental health
+  #     - Greenhouse gas measurements
+  #     - Marine science
+  #
+  # - Fire
+  #     - Emergency building evacuation
+  #     - Fire detection
+  #     - Fire dynamics and science
+  #     - Fire fighting
+  #     - Fire modeling
+  #     - Fire risk reduction
+  #     - Materials flammability
+  #     - Structural fire resistance
+  #     - Wildland-Urban interface fire
+  #
+  # - Forensic Science
+  #     - Ballistics
+  #     - Digital evidence
+  #     - DNA and biological evidence
+  #     - Drugs and toxicology
+  #     - Fingerprints and pattern evidence
+  #     - Trace evidence
+  #
+  # - Health
+  #     - Clinical diagnostics
+  #     - Dentistry
+  #     - Food and nutrition
+  #     - Medical imaging
+  #     - Pharmaceuticals
+  #     - Precision medicine
+  #     - Regenerative medicine
+  #
+  # - Information Technology
+  #     - Artificial intelligence
+  #     - Biometrics
+  #     - Cloud computing and virtualization
+  #     - Complex systems
+  #     - Computational science
+  #     - Conformance testing
+  #     - Cyber-physical systems
+  #         - Smart cities
+  #     - Cybersecurity
+  #         - Configuration and vulnerability management
+  #         - Cryptography
+  #         - Cybersecurity Education and Workforce Development
+  #         - Risk management
+  #     - Data and informatics
+  #         - Human language technology
+  #         - Information retrieval
+  #         - Natural language processing
+  #     - Data entry
+  #     - Federal information standards (FIPS)
+  #     - Health IT
+  #     - Identity and access management
+  #     - Internet of Things (IoT)
+  #     - Interoperability testing
+  #     - Mobile
+  #     - Networking
+  #         - Mobile and Wireless Networking
+  #         - Network Management and Monitoring
+  #         - Network Modeling and Analysis
+  #         - Network Security and Robustness
+  #         - Network Test and Measurement
+  #         - Next Generation Networks
+  #         - Protocol Design and Standardization
+  #         - Software-defined and virtual networks
+  #     - Privacy
+  #     - Software research
+  #         - Software assurance
+  #         - Software performance
+  #         - Software testing
+  #     - Usability and human factors
+  #         - Accessibility
+  #     - Video analytics
+  #     - Visualization research
+  #     - Voting systems
+  #
+  # - Infrastructure
+  #
+  # - Manufacturing
+  #     - Additive manufacturing
+  #     - Biomanufacturing
+  #     - Factory communications
+  #     - Factory operations planning and control
+  #     - Interoperability in manufacturing
+  #     - Machining
+  #     - Manufacturing systems design and analysis
+  #     - Monitoring, diagnostics and prognostics
+  #     - Process improvement
+  #     - Process measurement and control
+  #     - Product data
+  #     - Quality assurance
+  #     - Robotics in manufacturing
+  #         - Agility and adaptability
+  #         - Collaborative robots
+  #         - Dexterous grasping
+  #         - Industrial autonomous vehicles
+  #         - Mobile manipulators
+  #         - Navigation, actuation and control
+  #         - Sensing and perception
+  #     - Supply chain
+  #     - Sustainable manufacturing
+  #     - Systems engineering
+  #     - Systems integration
+  #     - Technology commercialization
+  #
+  - Materials:
+  #     - Ceramics
+  #     - Composites
+  #     - Concrete and cement
+  #     - Materials characterization
+  #         - Composition and structure
+  #         - Magnetic properties
+  #         - Mechanical properties
+  #         - Thermal properties
+  #     - Metals
+      - Modeling and computational material science
+  #     - Polymers
+  #     - Superconductors
+  #
+  # - Mathematics and Statistics
+  #     - Experiment design
+  #     - Image and signal processing
+  #     - Mathematical knowledge management
+  #     - Modeling and simulation research
+  #     - Numerical methods and software
+  #     - Statistical analysis
+  #     - Uncertainty quantification
+  #
+  # - Metrology
+  #     - Acoustic/vibration metrology
+  #     - Amount of substance
+  #     - Dimensional metrology
+  #     - Electrical and electromagnetic metrology
+  #     - Flow metrology and rheology
+  #     - Force metrology
+  #     - Humidity metrology
+  #     - Ionizing radiation metrology
+  #     - Mass metrology
+  #     - Metric
+  #     - Optical, photometry and laser metrology
+  #     - Pressure and vacuum metrology
+  #     - Thermometry metrology
+  #     - Time and frequency metrology
+  #     - Weights and measures
+  #
+  # - Nanotechnology
+  #     - Nanobiotechnology
+  #     - Nanochemistry
+  #     - Nanoelectronics
+  #     - Nanofabrication/manufacturing
+  #         - Lithography
+  #         - Self-assembly
+  #     - Nanofluidics
+  #     - Nanomagnetics
+  #     - Nanomaterials
+  #     - Nanomechanics
+  #     - Nanometrology
+  #     - Nanophotonics
+  #     - Nanophysics
+  #     - Nanoplasmonics
+  #
+  # - Neutron research
+  #
+  # - Performance excellence
+  #     - Assessment tools and services
+  #     - Baldrige Award
+  #     - Baldrige Examiners
+  #     - Baldrige framework and criteria
+  #     - Best practices
+  #     - Leadership development
+  #
+  # - Physics
+  #     - Atomic, molecular and quantum
+  #     - Biological physics
+  #     - Condensed matter
+  #     - Electron physics
+  #     - Magnetics
+  #     - Nuclear physics
+  #     - Optical physics
+  #     - Quantum information science
+  #     - Radiation
+  #     - Spectroscopy
+  #     - Thermodynamics
+  #     - Time and frequency
+  #
+  # - Public safety
+  #     - Chemical, Biological, Radiological, Nuclear and Explosives (CBRNE)
+  #     - First responder preparedness
+  #     - Law enforcement
+  #     - Physical security
+  #     - Public safety communications research
+  #     - Response robots
+  #         - Aerial
+  #         - Aquatic and underwater
+  #         - Ground
+  #
+  # - Resilience
+  #     - Community resilience
+  #     - Disaster and failure studies
+  #     - Earthquake risk reduction
+  #     - Resilient materials
+  #     - Windstorm impact reduction
+  #
+  # - Standards
+  #     - Accreditation
+  #     - Calibration Services
+  #     - Conformity assessment
+  #     - Documentary standards
+  #     - Frameworks
+  #     - Reference data
+  #     - Reference instruments
+  #     - Reference materials
+  #     - Standards education
+  #
+  # - Transportation
+  #     - Aerospace
+  #     - Automotive
+  #     - Rail
