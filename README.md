@@ -15,10 +15,6 @@ See the live website at <a href="https://pages.nist.gov/pfhub">pages.nist.gov/pf
 </strong></sup></p>
 
 <p align="center">
-<a href="https://gitter.im/usnistgov/chimad-phase-field" target="_blank">
-<img src="https://img.shields.io/gitter/room/gitterHQ/gitter.svg"
-alt="Gitter Chat">
-</a>
 <a href="https://travis-ci.org/usnistgov/pfhub" target="_blank">
 <img src="https://api.travis-ci.org/usnistgov/pfhub.svg"
 alt="Travis CI">
