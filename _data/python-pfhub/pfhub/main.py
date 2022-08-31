@@ -24,6 +24,7 @@ from toolz.curried import (
     valmap,
     juxt,
     second,
+    merge,
 )
 import numpy as np
 import yaml
@@ -252,23 +253,26 @@ def table_results(data):
       a flattened subset of the data suitable for a table of data
 
     >>> import datetime
-    >>> expected = dict(
+    >>> expected = merge(dict(
     ...     Name='result',
     ...     Code='code_name',
     ...     Benchmark='1a.1',
     ...     Author='first last',
-    ...     Timestamp=datetime.date(2021, 12, 7)
-    ... )
+    ...     Timestamp=datetime.date(2021, 12, 7),
+    ... ), {"GitHub ID": "githubid"})
     >>> data = read_add_name(getfixture('yaml_data_file').as_uri())
     >>> assert table_results(data) == expected
 
     """
-    return dict(
-        Name=data["name"],
-        Code=data["metadata"]["implementation"]["name"],
-        Benchmark=make_id(data),
-        Author=make_author(data),
-        Timestamp=data["metadata"]["timestamp"],
+    return merge(
+        dict(
+            Name=data["name"],
+            Code=data["metadata"]["implementation"]["name"],
+            Benchmark=make_id(data),
+            Author=make_author(data),
+            Timestamp=data["metadata"]["timestamp"],
+        ),
+        {"GitHub ID": data["metadata"]["author"]["github_id"]},
     )
 
 
@@ -335,9 +339,9 @@ def get_table_data(benchmark_ids, benchmark_path=BENCHMARK_PATH):
     >>> d = getfixture('test_data_path')
     >>> actual= get_table_data(['1a.1', '2a.1'], benchmark_path=str(d.resolve()))
     >>> print(actual.sort_values(['Name']).to_string(index=False))
-       Name      Code Benchmark     Author  Timestamp
-    result1 code_name      1a.1 first last 2021-12-07
-    result2 code_name      2a.1 first last 2021-12-07
+       Name      Code Benchmark     Author  Timestamp GitHub ID
+    result1 code_name      1a.1 first last 2021-12-07  githubid
+    result2 code_name      2a.1 first last 2021-12-07  githubid
 
     """
     return pipe(

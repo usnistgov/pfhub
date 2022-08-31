@@ -26,6 +26,7 @@ metadata:
   author:
     first: first
     last: last
+    github_id: githubid
   timestamp: 2021-12-07
 data:
   - name: free_energy
