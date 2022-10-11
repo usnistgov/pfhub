@@ -1,0 +1,49 @@
+data:
+  - name: run_time
+    values:
+      - wall_time: {{ wall_time }}
+        sim_time: {{ sim_time }}
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: {{ memory_usage }}
+{{# lines }}
+  - name: {{ name }}
+    url: {{ url }}
+    format:
+      type: {{ type }}
+      parse:
+        {{ x_field }}: number
+        {{ y_field }}: number
+    description: {{ description }}
+    type: line
+    transform:
+      - type: formula
+        expr: datum.{{ x_field }}
+        as: x
+      - type: formula
+        expr: datum.{{ y_field }}
+        as: y
+{{/ lines }}
+{{# contours }}
+  - description: {{ description }}
+    name: {{ name }}
+    type: contour
+    url: {{ url }}
+    format:
+      type: {{ type }}
+      parse:
+        {{ x_field }}: number
+        {{ y_field }}: number
+        {{ z_field }}: number
+    transform:
+      - type: formula
+        expr: datum.{{ x_field }}
+        as: x
+      - type: formula
+        expr: datum.{{ y_field }}
+        as: y
+      - type: formula
+        expr: datum.{{ z_field }}
+        as: z
+{{/ contours}}
