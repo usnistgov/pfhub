@@ -32,25 +32,14 @@ jobs:
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
 
       # Set the short name of the upload
+      - name: Set the short name of the upload
       - run: |
           export tmp=${{ env.doi }}
           export short_name=$( echo ${tmp##*/} )
-          export p=$( echo ${tmp%/*} )
-          echo $p
-          echo ${short_name}
           echo "short_name=${short_name}" >> $GITHUB_ENV
-
-      - run: echo ${{ env.short_name }}
 
       # Query the user
       - run: curl https://api.github.com/users/${{ env.AUTHOR }} > author.json
-
-      # Extract the author's name and email from GitHub profile
-      - name: Set author data
-        id: author_data
-        run: |
-          echo ::set-output name=email::$(jq -c '.email' author.json)
-          echo ::set-output name=name::$(jq -c '.name' author.json)
 
       # Don't need the JSON file and will be submitted in the PR if
       # kept
