@@ -33,7 +33,8 @@ jobs:
 
       # Set the short name of the upload
       - name: Set the short name of the upload
-      - run: |
+        id: set_short_name
+        run: |
           export tmp=${{ env.doi }}
           export short_name=$( echo ${tmp##*/} )
           echo "short_name=${short_name}" >> $GITHUB_ENV
