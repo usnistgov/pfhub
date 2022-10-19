@@ -34,9 +34,12 @@ jobs:
       # Set the short name of the upload
       - run: |
           export tmp=${{ env.doi }}
-          echo "short_name=${tmp##/*}" >> GITHUB_ENV
+          export short_name=${tmp##/*}
+          echo ${short_name}
+          echo "short_name=${short_name}" >> GITHUB_ENV
 
       - run: echo ${{ env.short_name }}
+
       # Query the user
       - run: curl https://api.github.com/users/${{ env.AUTHOR }} > author.json
 
