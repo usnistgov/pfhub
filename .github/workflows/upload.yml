@@ -10,7 +10,7 @@ jobs:
     if: ${{ contains(github.event.issue.labels.*.name, 'upload') }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # Parse the submitted issue
       - uses: stefanbuck/github-issue-parser@v2
