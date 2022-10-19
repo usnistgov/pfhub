@@ -34,7 +34,7 @@ jobs:
       # Set the short name of the upload
       - run: |
           export tmp=${{ env.doi }}
-          export short_name=$( echo ${tmp##/*} )
+          export short_name=$( echo ${tmp##*/} )
           export p=$( echo ${tmp%/*} )
           echo $p
           echo ${short_name}
