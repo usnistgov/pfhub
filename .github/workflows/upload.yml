@@ -32,7 +32,12 @@ jobs:
       - run: echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_ENV
 
       # Set the short name of the upload
-      - run: echo "short_name=${${{ env.doi }}##*/}" >> $GITHUB_ENV
+      - run: |
+          export tmp=${{ env.doi }}
+          echo $tmp
+          export file=$( echo ${p%/*} )
+          echo $file
+
 
       - run: echo ${{ env.short_name }}
       # Query the user
