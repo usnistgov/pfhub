@@ -1,63 +1,63 @@
 # PFHub Upload Procedure
 
-
 The following are instructions for adding benchmark results to the
-[benchmark tables and charts](benchmarks). Please feel free to upload
+[benchmark tables and charts][benchmarks]. Please feel free to upload
 benchmark results. More benchmark results will greatly improve the
 utility of the website and encourage community collaboration. The new
 upload procedure requires the submitter to add their result to a
 scientific data archive site that provides a DOI. Currently, only
-Zenodo is supported. However, we hope to expand to other data services
-in future.
+Zenodo is supported. However, we hope to expand to other data
+services in future.
 
 ## How to Upload
 
- 1. Firstly, read the Submission Guidelines for your particular
-    benchmark carefully. Remember that each benchmark sub-problem
-    requires a seperate upload (e.g. [BM8 Submission
-    Guidelines](guidelines)). Pay special attention to the required
-    file names and column headings for tabular data. PFHub now
-    requires that data files and internal data are labeled correctly.
-    Also note the simulation time versus wall time and the memory
-    usage.
+1. Firstly, read the Submission Guidelines for your particular
+   benchmark carefully. Remember that each benchmark sub-problem
+   requires a seperate upload (e.g. [BM8 Submission Guidelines][
+   guidelines]). Pay special attention to the required file names and
+   column headings for tabular data. PFHub now requires that data
+   files and internal data are labeled correctly.  Also note the
+   simulation time versus wall time and the memory usage.
 
- 2. The software that is used requires a [codemeta.json] file in the
-    accompanying repository. This is a convenient standard for storing
-    data about software. The PFHub developers will endeavor to ensure
-    that common phase field codes used for submission have an
-    accompanying [codemeta.json] file in the code repositories
-    requiring the submitter to supply the correct URL.
-    [codemeta.json] describes the software used for the simulation,
-    not the simulation provenace, which is discussed in the following
-    step. To generate a new [codemeta.json] fill out the [codemeta
-    online web form] and add the JSON output to the software
-    repository.
+2. The software that is used requires a [codemeta.json] file in the
+   accompanying repository. This is a convenient standard for storing
+   data about software. The PFHub developers will endeavor to ensure
+   that common phase-field codes used for submission have an
+   accompanying [codemeta.json] file in the code repositories
+   requiring the submitter to supply the correct URL.
+   [codemeta.json] describes the software used for the simulation,
+   not the simulation provenance, which is discussed in the following
+   step. To generate a new [codemeta.json] fill out the [codemeta
+   online web form] and add the JSON output to the software
+   repository.
 
- 3. Generate a pfhub.json file. This will be submitted alongside the
-    data files to a data archiving service. This file contains a
-    limited set of meta-data / provance about the simulation used to
-    generate the submission data. There is a [JSON generator] for
-    generating this file. Once the form is complete, copy and paste
-    the JSON on the right into a file called pfhub.json. This will be
-    added to the upload at the archiving service.
+3. Generate a pfhub.json file. This will be submitted alongside the
+   data files to a data archiving service. This file contains a
+   limited set of meta-data / provenance about the simulation used to
+   generate the submission data. There is a [JSON generator] for
+   generating this file. Once the form is complete, copy and paste
+   the JSON on the right into a file called `pfhub.json`. This will
+   be added to the upload at the archiving service.
 
- 4. The following instructions are for uploading to [Zenodo]. Go to
-    the PFHub community and add your upload within that context. Click
-    on "New Upload" and then "Choose Files" to add the required data
-    files and pfhub.json file. Choose "Dataset" as the upload
-    type. The data, title, author and description will be used on the
-    website to display information. Ensure that the upload is "Open
-    Access". Note the DOI for the next step
+4. The following instructions are for uploading to [Zenodo]. Go to
+   the PFHub community and add your upload within that context. Click
+   on "New Upload" and then "Choose Files" to add the required data
+   files and `pfhub.json` file. Choose "Dataset" as the upload
+   type. The data, title, author and description will be used on the
+   website to display information. Ensure that the upload is "Open
+   Access". Note the DOI for the next step
 
- 5. Submit the DOI in the [PFHub upload form] via an issue on the
-   [PFHub GitHub site]. After hitting submit, this will generate a
-   pull-request at https://github.com/usnistgov/pfhub/pulls alongside
-   a temporary view of the website with the new data. The upload will
-   be evaluated and the submitter can interact with the PFHub
-   moderators to correct any issues with the data. Zenodo allows for
-   updates with version numbers. Once both the sumitter and moderator
-   have approved the upload the PR will be merged and the new
-   submission will appear on the website.
+5. Submit the DOI in the [PFHub upload form] via an issue on the
+  [PFHub GitHub site]. After hitting submit, this will generate a
+  pull-request at <https://github.com/usnistgov/pfhub/pulls>
+  alongside a temporary view of the website with the new data. The
+  upload will be evaluated and the submitter can interact with the
+  PFHub moderators to correct any issues with the data. Zenodo allows
+  for updates with version numbers. Once both the submitter and
+  moderator have approved the upload the PR will be merged and the
+  new submission will appear on the website.
+
+<!-- links -->
 
 [benchmarks]: https://pages.nist.gov/pfhub/simulations/
 [guidelines]: https://pages.nist.gov/pfhub/benchmarks/benchmark8.ipynb/#Submission-Guidelines
