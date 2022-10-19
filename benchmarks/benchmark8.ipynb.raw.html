@@ -26,10 +26,10 @@
 
 
 
-<div id="0a3211d2-bcca-4755-82ee-0b1dd437f99f"></div>
+<div id="574b158e-4596-49fb-b420-1221321f0743"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#0a3211d2-bcca-4755-82ee-0b1dd437f99f');
+var element = $('#574b158e-4596-49fb-b420-1221321f0743');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -441,7 +441,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Please use the <a href="{{ site.baseurl }}/simulations/upload_form/">upload form</a> to upload your results.</p>
+<p>Please follow these <a href="https://github.com/usnistgov/pfhub/blob/master/upload.md">upload instructions</a>.</p>
 <p>In addition to that specified, further data to upload can include a Youtube video, images of the nuclei at different times, or the entire phase field variable at different times. This data can be uploaded directly to the website or stored at a secondary location and only the link to the data provided. This data is not required, but will help others view your work.</p>
 
 </div>
@@ -459,15 +459,13 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Part (a) requires running three simulations with a single seed with different values of $r_0$ using the model formulation <a href="#Part-%28a%29:-single-seed">defined above</a>. Optionally, a further two simulations can be run to check convergence, but this is not required. The three required  simulations and two optional simulations are</p>
+<p>Part (a) requires running three simulations with a single seed with different values of $r_0$ using the model formulation <a href="#Part-%28a%29:-single-seed">defined above</a>. The three required simulations are</p>
 <ol>
-<li>$r_0 = 0.99 r^*$, ${\Delta x} = {\Delta x}_0$</li>
-<li>$r_0 = r^*$, ${\Delta x} = {\Delta x}_0$</li>
-<li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_0$</li>
-<li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_1$ (optional)</li>
-<li>$r_0 = 1.01 r^*$, ${\Delta x} = {\Delta x}_2$ (optional)</li>
+<li>$r_0 = 0.99 r^*$</li>
+<li>$r_0 = r^*$</li>
+<li>$r_0 = 1.01 r^*$</li>
 </ol>
-<p>where ${\Delta x}_0, {\Delta x}_1$ and ${\Delta x}_2$ represent simulations at different mesh sizes. $\Delta x$ refinement should be selected so that successively refined meshes have roughly $4\times$ as many elements. When uploading the results, the $\Delta x$ values should be provided in the datafile alongside the values for $\phi$ at each location in the domain. Each simulation should be run to $t=200$ and the following data should be collected.</p>
+<p>Each simulation should be run to $t=200$ and the following data should be collected.</p>
 <ul>
 <li><p>The solid fraction in the domain (the integral $\int_V \phi dV / \int_V dV$) during the transient (not necessarily at every time step but for ~100 data points).</p>
 </li>
@@ -475,10 +473,8 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </li>
 <li><p>The phase field, $\phi$, at each grid point in the domain at $t=200$.</p>
 </li>
-<li><p>The grid spacing, $\Delta x$ at each grid point in the domain at $t=200$ if submitting the optional simulations.</p>
-</li>
 </ul>
-<p>One PFHub upload is required for all the simulations. The solid fraction and free energy data can be included in the same CSV file or in separate data files, but either way still require 2 entries in the "Data Files" section on the <a href="{{ site.baseurl }}/simulations/upload_form/">upload form</a>. The entries should be labeled as <code>solid_fraction_{i}</code> or <code>free_energy_{i}</code> depending on the simulation number (1 to 5). The CSV (JSON or TSV are also fine) files should have a format similar to the following.</p>
+<p>One PFHub upload is required for all the simulations. The solid fraction and free energy data should be included in the same file for each simulation. The file name needs to be <code>data_{i}.{ext}</code> depending on the simulation number, <code>i</code>, (1 to 3) and the file extension, <code>ext</code>, either <code>csv</code>, <code>json</code> or <code>tsv</code>. The CSV (JSON or TSV are also fine) files should have a format similar to the example below and with the same column headers.</p>
 
 <pre><code>time,fraction,energy
 0.000000000000000000e+00,8.214174263100689974e-03,3.579809478015085311e+00
@@ -493,11 +489,11 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The names of the columns are arbitrary as long as they are given in "Name of x-axis column" and "Name of y-axis column" in the form. The phase field data should be named <code>phase_field_{i}</code> in the "Short name of data" entry and have the following format</p>
+<p>The phase field data file should be named <code>phase_field_{i}.{ext}</code> and have the following column headers.</p>
 
-<pre><code>x,y,phi,delta_x
-0.0,1.0,0.5,0.44
-0.0,1.5,0.49,0.44
+<pre><code>x,y,phi
+0.0,1.0,0.5
+0.0,1.5,0.49
 ...</code></pre>
 
 </div>
@@ -507,9 +503,7 @@ We decrease the driving force to $\Delta f=1/(6\sqrt{2})$, which corresponds to 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>where <code>x</code> and <code>y</code> is a position in the domain and <code>phi</code> is the value at that position. <code>delta_x</code> is the nominal grid spacing in that region given by the coordinates. This may be constant across the domain for gridded data, but vary for adaptive meshing. <code>delta_x</code> is only a representative value of the grid spacing in that region. The "3D" radio button should be selected for the <code>phase_field_{i}</code> entry.</p>
-<p>The grid spacing data should be named <code>grid_spacing_{i}</code> and have exactly the same data as above. Again the same file can be used, but two "Data Files" entries are required for both phase field and grid spacing. The "3D" radio button should be selected for the <code>grid_spacing_{i}</code> entry.</p>
-<p>The <code>grid_spacing_{i}</code> entries are not required, but if included will show convergence data for simulations 3, 4 and 5.</p>
+<p>where <code>x</code> and <code>y</code> is a position in the domain and <code>phi</code> is the value at that position.</p>
 
 </div>
 </div>
