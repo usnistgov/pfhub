@@ -139,3 +139,5 @@
 - simulations/inl_moose_1b_raspi/meta.yaml
 - simulations/inl_moose_1b/meta.yaml
 #- https://raw.githubusercontent.com/wd15/pfhub-upload-template/main/meta.yaml
+
+- https://doi.org/10.5281/zenodo.7199253
