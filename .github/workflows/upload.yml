@@ -34,10 +34,7 @@ jobs:
       # Set the short name of the upload
       - run: |
           export tmp=${{ env.doi }}
-          echo $tmp
-          export file=$( echo ${tmp%/*} )
-          echo $file
-
+          echo "short_name=${tmp##/*}" >> GITHUB_ENV
 
       - run: echo ${{ env.short_name }}
       # Query the user
