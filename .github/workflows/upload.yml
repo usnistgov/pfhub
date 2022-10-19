@@ -38,7 +38,7 @@ jobs:
           export p=$( echo ${tmp%/*} )
           echo $p
           echo ${short_name}
-          echo "short_name=${short_name}" >> GITHUB_ENV
+          echo "short_name=${short_name}" >> $GITHUB_ENV
 
       - run: echo ${{ env.short_name }}
 
