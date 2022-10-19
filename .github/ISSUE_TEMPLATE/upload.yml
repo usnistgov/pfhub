@@ -1,7 +1,8 @@
+---
 name: Result Upload to PFHub website
 description: |
-  Upload a result to the PFHub website. Submitting this issue will open a PR with
-  the new submission.
+  Upload a result to the PFHub website. Submitting
+  this issue will open a PR with the new submission.
 title: "[Upload]: "
 labels: ["upload"]
 assignees:
@@ -16,8 +17,8 @@ body:
     attributes:
       label: Upload DOI
       description: |
-        Please provide the DOI for your upload files. Currently, only
-        Zenodo records are accepted.
+        Please provide the DOI for your upload files.
+        Currently, only Zenodo records are accepted.
       placeholder: "https://doi.org/10.5281/zenodo.7199253"
     validations:
       required: true
