@@ -12,108 +12,12 @@ body:
       value: |
         Thanks for submitting an upload on PFHub!
   - type: input
-    id: short_name
+    id: doi
     attributes:
-      label: Short Name of Upload
+      label: Upload DOI
       description: |
-        Please provide a single word name for your upload. Use
-        alphanumeric characters and _, but at least 2 characters
-        long. This will be used to identify your upload on image
-        legends on PFHub.
-      placeholder: "fipy_1a"
-    validations:
-      required: true
-  - type: input
-    id: repo
-    attributes:
-      label: GitHub Repository
-      description: The repository with the data, intput files and code.
-      placeholder: "https://github.com/<user>/<repo>"
-    validations:
-      required: true
-  - type: input
-    id: git_hash
-    attributes:
-      label: GitHub Hash
-      description: The specific commit identifier (SHA hash) for the repository given above
-    validations:
-      required: true
-  - type: input
-    id: container
-    attributes:
-      label: Container
-      description: Link to a container (e.g. Dockerfile) to reproduce this result
-    validations:
-      required: false
-  - type: textarea
-    id: summary
-    attributes:
-      label: Summary
-      description: Summary of this contribution, highlighting important differences from existing results
-    validations:
-      required: true
-  - type: dropdown
-    id: benchmark_id
-    attributes:
-      label: Benchmark ID
-      description: Which benchmark does this submission address?
-      options: ['1a', '1b', '1c', '1d', '2a', '2b', '2c', '2d', '3a', '4a', '4b', '4c', '4d', '4e', '4f', '4g', '4h', '6a', '6b', '7a', '7b', '7c', '8a', '8b', '8c', '8d', 'fake']
-    validations:
-      required: true
-  - type: dropdown
-    id: benchmark_version
-    attributes:
-      label: Benchmark Version
-      description: Which version of this benchmark?
-      options: ['0', '1']
-    validations:
-      required: true
-  - type: dropdown
-    id: code
-    attributes:
-      label: Code Name
-      description: Name of code used to run the simulation
-      options: ['ampe', 'custom', 'fenics', 'fipy', 'hiperc', 'memphis', 'meumapps', 'mmsp', 'moose', 'other', 'prisms', 'sfepy']
-    validations:
-      required: true
-  - type: input
-    id: free_energy_url
-    attributes:
-      label: Free Energy URL
-      description: >-
-        Link to the free energy data
-    validations:
-      required: true
-  - type: input
-    id: free_energy_columns
-    attributes:
-      label: Free Energy Columns
-      description: >-
-        Column names for time and free energy (comma seperated)
-      value: "time, free_energy"
-    validations:
-      required: true
-  - type: input
-    id: memory_usage
-    attributes:
-      label: Memory Usage
-      description: >-
-        Maximum memory usage in KB
-    validations:
-      required: true
-  - type: input
-    id: wall_time
-    attributes:
-      label: Wall Time
-      description: >-
-        Wall time in seconds for the simulation
-    validations:
-      required: true
-  - type: input
-    id: sim_time
-    attributes:
-      label: Simulation Time
-      description: >-
-        Simulation time in seconds for the simulation
+        Please provide the DOI for your upload files. Currently, only
+        Zenodo records are accepted.
+      placeholder: "https://doi.org/10.5281/zenodo.7199253"
     validations:
       required: true
