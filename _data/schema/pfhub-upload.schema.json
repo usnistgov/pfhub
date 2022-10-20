@@ -1,0 +1,280 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome4",
+  "definitions": {
+    "Welcome4": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "benchmark": {
+          "$ref": "#/definitions/Benchmark"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "$schema": {
+          "$ref": "#/definitions/schema"
+        }
+      },
+      "required": [
+        "benchmark",
+        "metadata",
+        "$schema"
+      ],
+      "title": "PFHub Upload Form"
+    },
+    "schema": {
+      "type": "string",
+      "default": "https://raw.githubusercontent.com/wd15/pfhub/c0dbd6f757f736ae4f58bb2f88dfa5c15720c948/_data/schema/pfhub-upload.schema.json",
+      "description": "Don't edit this",
+      "title": "Schema"
+    },
+    "Benchmark": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Benchmark ID",
+          "enum": [
+            "1a",
+            "1b",
+            "1c",
+            "1d",
+            "2a",
+            "2b",
+            "2c",
+            "2d",
+            "3a",
+            "6a",
+            "6b",
+            "7a",
+            "7b",
+            "7c",
+            "4a",
+            "4b",
+            "4c",
+            "4d",
+            "4e",
+            "4f",
+            "4g",
+            "4h",
+            "8a",
+            "8b",
+            "8c",
+            "8d",
+            "fake"
+          ]
+        },
+        "version": {
+          "type": "integer",
+          "title": "Version",
+          "format": "integer",
+          "enum": [
+            1,
+            0
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "title": "Benchmark"
+    },
+    "Metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "software": {
+          "$ref": "#/definitions/Software"
+        },
+        "implementation_url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "title": "Implementation URL",
+          "description": "Link to the repository URL for the implementation of the benchmark"
+        },
+        "container_url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "description": "Link to the container for running this implementation (not required)",
+          "title": "Container URL"
+        },
+        "hardware": {
+          "$ref": "#/definitions/Hardware"
+        },
+        "run_time": {
+          "$ref": "#/definitions/RunTime"
+        },
+        "memory_usage": {
+          "$ref": "#/definitions/MemoryUsage"
+        }
+      },
+      "required": [
+        "hardware",
+        "implementation_url",
+        "memory_usage",
+        "run_time",
+        "software"
+      ],
+      "title": "Metadata"
+    },
+    "Hardware": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cpu_architecture": {
+          "type": "string",
+          "enum": [
+            "i386",
+            "i686",
+            "x86_64",
+            "ia64",
+            "alpha",
+            "amd64",
+            "arm",
+            "armeb",
+            "armel",
+            "armv6l",
+            "armv7l",
+            "hppa",
+            "k1om",
+            "m32r",
+            "m68k",
+            "mips",
+            "mipsel",
+            "powerpc",
+            "ppc",
+            "ppc64",
+            "s390",
+            "s390x",
+            "sh3",
+            "sh3eb",
+            "sh4",
+            "sh4eb",
+            "sparc",
+            "sparc64"
+          ],
+          "default": "x86_64",
+          "title": "CPU Architecture"
+        },
+        "acc_architecture": {
+          "type": "string",
+          "enum": [
+            "none",
+            "gpu",
+            "non-gpu"
+          ],
+          "title": "Accelerator Architecture"
+        },
+        "parallel_model": {
+          "type": "string",
+          "enum": [
+            "serial",
+            "massive",
+            "threaded",
+            "distributed"
+          ],
+          "title": "Parallel Model"
+        },
+        "clock_rate": {
+          "type": "number",
+          "description": "Peak clock rate (GHz)",
+          "title": "Clock Rate"
+        },
+        "cores": {
+          "type": "integer",
+          "format": "integer",
+          "title": "Number of Cores"
+        },
+        "nodes": {
+          "type": "integer",
+          "format": "integer",
+          "title": "Number of Nodes"
+        }
+      },
+      "required": [
+        "acc_architecture",
+        "clock_rate",
+        "cores",
+        "cpu_architecture",
+        "nodes",
+        "parallel_model"
+      ],
+      "title": "Hardware"
+    },
+    "MemoryUsage": {
+      "type": "number",
+      "title": "Memory Usage",
+      "description": "Memory usage (KB)"
+    },
+    "RunTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "wall_time": {
+          "type": "number",
+          "title": "Wall Time",
+          "description": "Wall clock time (s)"
+        },
+        "sim_time": {
+          "type": "number",
+          "title": "Simulation Time",
+          "description": "Simulation end time (s)"
+        }
+      },
+      "required": [
+        "sim_time",
+        "wall_time"
+      ],
+      "title": "Run Time"
+    },
+    "Software": {
+      "description": "Software used to run the simulation (e.g. moose, fipy)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": [
+            "ampe",
+            "other",
+            "fenics",
+            "fipy",
+            "hiperc",
+            "memphis",
+            "meumapps",
+            "mmsp",
+            "moose",
+            "prisms",
+            "sfepy",
+            "symphas"
+          ],
+          "default": "moose",
+          "title": "Name"
+        },
+        "codemeta_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link to codemeta.json file, see https://github.com/usnistgov/pfhub/help-codemeta.md for help",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "title": "Codemeta URL"
+        }
+      },
+      "required": [
+        "codemeta_url",
+        "name"
+      ],
+      "title": "Software"
+    }
+  }
+}

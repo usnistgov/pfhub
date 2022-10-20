@@ -1,0 +1,82 @@
+---
+- name: solid_fraction_1
+  url: 'data_1.(json|tsv|csv)'
+  description: 'solid fraction vs time, r = 0.99r*'
+  x_field: '[\S]*time[\S]*'
+  y_field: '[\S]*fraction[\S]*'
+  type: line
+
+- name: free_energy_1
+  url: 'data_1.(json|tsv|csv)'
+  description: 'free energy vs time, r = 0.99r*'
+  x_field: '[\S]*time[\S]*'
+  y_field: '[\S]*energy[\S]*'
+  type: line
+
+- name: solid_fraction_2
+  url: 'data_2.(json|tsv|csv)'
+  description: 'solid fraction vs time, r = 1.00r*'
+  x_field: '[\S]*time[\S]*'
+  y_field: '[\S]*fraction[\S]*'
+  type: line
+
+- name: free_energy_2
+  url: 'data_2.(json|tsv|csv)'
+  description: 'free energy vs time, r = 1.00r*'
+  x_field: '[\S]*time[\S]*'
+  y_field: '[\S]*energy[\S]*'
+  type: line
+
+- name: solid_fraction_3
+  url: 'data_3.(json|tsv|csv)'
+  description: 'solid fraction vs time, r = 1.01r*'
+  x_field: '[\S]*time[\S]*'
+  y_field: '[\S]*fraction[\S]*'
+  type: line
+
+- name: free_energy_3
+  url: 'data_3.(json|tsv|csv)'
+  description: 'free energy vs time, r = 1.01r*'
+  x_field: '[\S]*time[\S]*'
+  y_field: '[\S]*energy[\S]*'
+  type: line
+
+- name: phase_field_1
+  url: 'data_phase_field_1.(json|tsv|csv)'
+  description: 'phase field at t=200s, r = 0.99r*'
+  x_field: 'x[\S]*'
+  y_field: 'y[\S]*'
+  z_field: '[\S]*(phi|phase)[\S]*'
+  type: contour
+
+- name: phase_field_2
+  url: 'data_phase_field_2.(json|tsv|csv)'
+  description: 'phase field at t=200s, r = 1.00r*'
+  x_field: 'x[\S]*'
+  y_field: 'y[\S]*'
+  z_field: '[\S]*(phi|phase)[\S]*'
+  type: contour
+
+- name: phase_field_3
+  url: 'data_phase_field_3.(json|tsv|csv)'
+  description: 'phase field at t=200s, r = 1.01r*'
+  x_field: 'x[\S]*'
+  y_field: 'y[\S]*'
+  z_field: '[\S]*(phi|phase)[\S]*'
+  type: contour
+
+- name: phase_field_4
+  url: 'data_phase_field_4.(json|tsv|csv)'
+  description: 'free energy vs time, r = 1.01r*, 4x less elements'
+  x_field: 'x[\S]*'
+  y_field: 'y[\S]*'
+  z_field: '[\S]*(phi|phase)[\S]*'
+  type: contour
+
+- name: phase_field_5
+  url: 'data_phase_field_5.(json|tsv|csv)'
+  description: 'free energy vs time, r = 1.01r*, 16x less elements'
+  x_field: 'x[\S]*'
+  y_field: 'y[\S]*'
+  z_field: '[\S]*(phi|phase)[\S]*'
+  type: contour

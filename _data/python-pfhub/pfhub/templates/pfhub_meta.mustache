@@ -1,0 +1,76 @@
+---
+name: {{ name }}
+metadata:
+  author:
+    first: {{ first }}
+    last: {{ last }}
+    email: {{ email }}
+    github_id: {{ github_id }}
+    orcid: {{ orcid }}
+  timestamp: {{ timestamp }}
+  summary: {{ summary }}
+  implementation:
+    name: {{ software_name }}
+    repo:
+      url: {{ repo_url }}
+      version: {{ repo_version }}
+    container_url: {{ container }}
+  hardware:
+    cpu_architecture: {{ cpu_architecture }}
+    acc_architecture: {{ acc_architecture }}
+    parallel_model: {{ parallel_model }}
+    clock_rate: {{ clock_rate }}
+    cores: {{ cores }}
+    nodes: {{ nodes }}
+benchmark:
+  id: {{ benchmark_id }}
+  version: {{ benchmark_version }}
+data:
+  - name: run_time
+    values:
+      - wall_time: {{ wall_time }}
+        sim_time: {{ sim_time }}
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: {{ memory_usage }}
+{{# lines }}
+  - name: {{ name }}
+    url: {{ url }}
+    format:
+      type: {{ ext_type }}
+      parse:
+        {{ x_field }}: number
+        {{ y_field }}: number
+    description: {{ description }}
+    type: line
+    transform:
+      - type: formula
+        expr: datum.{{ x_field }}
+        as: x
+      - type: formula
+        expr: datum.{{ y_field }}
+        as: y
+{{/ lines }}
+{{# contours }}
+  - description: {{ description }}
+    name: {{ name }}
+    type: contour
+    url: {{ url }}
+    format:
+      type: {{ ext_type }}
+      parse:
+        {{ x_field }}: number
+        {{ y_field }}: number
+        {{ z_field }}: number
+    transform:
+      - type: formula
+        expr: datum.{{ x_field }}
+        as: x
+      - type: formula
+        expr: datum.{{ y_field }}
+        as: y
+      - type: formula
+        expr: datum.{{ z_field }}
+        as: z
+{{/ contours}}

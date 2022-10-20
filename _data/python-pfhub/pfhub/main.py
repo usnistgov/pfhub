@@ -3,9 +3,9 @@
 
 from functools import wraps
 import os
-from urllib.error import HTTPError, URLError
 import pathlib
 import urllib
+import re
 
 from toolz.curried import filter as filter_
 from toolz.curried import map as map_
@@ -17,7 +17,6 @@ from toolz.curried import (
     thread_first,
     do,
     get,
-    compose,
     tail,
     merge_with,
     identity,
@@ -34,44 +33,13 @@ import plotly.graph_objects as go
 from scipy.interpolate import griddata
 import requests
 
+from .func import sequence, read_yaml, sep, read_csv
+from .zenodo import zenodo_to_pfhub
+
 
 BENCHMARK_PATH = str(
     pathlib.Path(__file__).resolve().parent / "../../simulation_list.yaml"
 )
-
-
-def sequence(*args):
-    """Compose functions in order
-
-    Args:
-      args: the functions to compose
-
-    Returns:
-      composed functions
-
-    >>> assert sequence(lambda x: x + 1, lambda x: x * 2)(3) == 8
-    """
-    return compose(*args[::-1])
-
-
-def read_yaml(filepath):
-    """Read a YAML file
-
-    Args:
-      filepath: the path to the YAML file
-
-    Returns:
-      returns a dictionary
-
-    Test by reading from temporary test data
-
-    >>> yaml_data = read_yaml(getfixture('yaml_data_file'))
-    >>> assert yaml_data['benchmark']['id'] == '1a'
-
-    """
-    with open(filepath) as stream:
-        data = yaml.safe_load(stream)
-    return data
 
 
 make_id = lambda x: ".".join([x["benchmark"]["id"], str(x["benchmark"]["version"])])
@@ -109,15 +77,34 @@ def read_add_name(yaml_url):
     ... ).as_uri())['name'] == 'result1'
 
     """
-    data = read_yaml_from_url(yaml_url)
-    if "name" in data:
-        return data
-
-    return assoc(
-        read_yaml_from_url(yaml_url),
-        "name",
-        os.path.split(os.path.split(yaml_url)[0])[1],
+    fullmatch = curry(re.fullmatch)
+    matchzenodo = fullmatch(r"https://doi.org/\d{2}.\d{4}/zenodo.\d{7}")
+    matchfile = fullmatch(r"file:///[\S]+")
+    process = (
+        lambda x: zenodo_to_pfhub(x)
+        if matchzenodo(x)
+        else (urllib.request.urlopen(x) if matchfile(x) else get_text(x))
     )
+
+    return pipe(
+        yaml_url,
+        process,
+        yaml.safe_load,
+        lambda x: x
+        if "name" in x
+        else assoc(x, "name", os.path.split(os.path.split(yaml_url)[0])[1]),
+    )
+
+    # data = yaml.safe_load(data)
+
+    # if "name" in data:
+    #     return data
+
+    # return assoc(
+    #     data,
+    #     "name",
+    #     os.path.split(os.path.split(yaml_url)[0])[1],
+    # )
 
 
 def maybe(func):
@@ -493,69 +480,6 @@ def apply_transforms(data, values):
             values, *list(map_(lambda x: do(apply_transform(x)), data["transform"]))
         )
     return values
-
-
-def sep(data_format):
-    r"""Determine separator based on file type
-
-    Args:
-      data_format: data format block from Vega spec
-
-    Returns:
-      file separator character
-
-    >>> sep(None)
-    ','
-    >>> sep({'type': 'csv'})
-    ','
-    >>> sep({'type': 'tsv'})
-    '\t'
-    >>> sep({'type': 'csv', 'remove_whitespace': True})
-    ',\\s+'
-    >>> sep({'type': 'blah'})
-    Traceback (most recent call last):
-    ...
-    RuntimeError: {'type': 'blah'} data format not supported
-    """
-    if data_format is None:
-        return ","
-
-    if data_format["type"] == "csv":
-        if "remove_whitespace" in data_format and data_format["remove_whitespace"]:
-            return r",\s+"
-        return ","
-
-    if data_format["type"] == "tsv":
-        return "\t"
-
-    raise RuntimeError(f"{data_format} data format not supported")
-
-
-@curry
-def read_csv(sep_, path):
-    """Read CSV file with a specified separator
-
-    Args:
-      sep_: the separator character
-      path: the path to the csv file
-
-    Returns:
-      File content as a DataFrame
-
-    >>> read_csv(',', getfixture('csv_file'))
-       x  y
-    0  0  0
-    1  1  1
-    >>> read_csv(',', 'http://blah.csv')
-    <urlopen error [Errno -2] Name or service not known> for http://blah.csv
-
-    """
-
-    try:
-        return pandas.read_csv(path, sep=sep_, engine="python")
-    except (HTTPError, URLError, FileNotFoundError) as error:
-        print(f"{error} for {path}")
-        return None
 
 
 def read_vega_data(keys, data):

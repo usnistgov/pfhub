@@ -135,3 +135,20 @@ def csv_file(tmp_path):
     csv_file_path = tmp_path / "file.csv"
     csv_file_path.write_text("x,y\n0,0\n1,1\n")
     return csv_file_path
+
+
+@pytest.fixture
+def free_energy_csv(tmp_path):
+    """Generate a CSV file for test purposes
+
+    Args:
+      tmp_path: temporary area to use to write files
+
+    Returns:
+      path to the csv file
+
+    """
+    tmp_path.mkdir(exist_ok=True)
+    csv_file_path = tmp_path / "free_energy.csv"
+    csv_file_path.write_text("time,free_energy\n0,0\n1,1\n")
+    return csv_file_path
