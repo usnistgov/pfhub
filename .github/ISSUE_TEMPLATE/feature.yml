@@ -14,14 +14,15 @@ body:
         for your feature.
 
         We are also happy to accept contributions from our users. For
-        more details see
-        [here](https://github.com/usnistgov/pfhub/blob/master/DEVELOPMENT.md).
+        more details see [here](
+        https://github.com/usnistgov/pfhub/blob/master/DEVELOPMENT.md).
 
   - type: textarea
     attributes:
       label: Description
       description: |
-        A clear and concise description of the feature you're interested in.
+        A clear and concise description of the feature you're interested
+        in.
     validations:
       required: true
 
@@ -29,7 +30,8 @@ body:
     attributes:
       label: Suggested Solution
       description: |
-        Describe the solution you'd like. A clear and concise description of what you want to happen.
+        Describe the solution you'd like. A clear and concise description
+        of what you want to happen.
     validations:
       required: true
 
@@ -37,8 +39,9 @@ body:
     attributes:
       label: Alternatives
       description: |
-        Describe alternatives you've considered.
-        A clear and concise description of any alternative solutions or features you've considered.
+        Describe alternatives you've considered. A clear and concise
+        description of any alternative solutions or features you've
+        considered.
     validations:
       required: false
 

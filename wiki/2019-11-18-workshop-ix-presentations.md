@@ -8,7 +8,7 @@ title: Workshop IX Presentations
 
 ## Group Photo of Attendees
 
-<img src="{{ site.baseurl }}/images/CHiMaD_PhaseField_IX-Photo.png" alt="PF8 photo" style="max-width:50%; max-height:50%">
+<img src="{{ site.baseurl }}/images/CHiMaD_PhaseField_IX-Photo.png" alt="PF9 photo" style="max-width:50%; max-height:50%">
 
 <br><br>
 

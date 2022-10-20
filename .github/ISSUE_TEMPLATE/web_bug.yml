@@ -1,3 +1,4 @@
+---
 name: Bug Report
 description: File a bug report
 title: "[Bug]: "
@@ -33,5 +34,8 @@ body:
     id: logs
     attributes:
       label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      description: |
+        Please copy and paste any relevant log output.
+        This will be automatically formatted into code,
+        so no need for backticks.
       render: shell
