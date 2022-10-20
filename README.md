@@ -16,43 +16,50 @@ See the live website at <a href="https://pages.nist.gov/pfhub">pages.nist.gov/pf
 
 <p align="center">
 <a href="https://travis-ci.org/usnistgov/pfhub" target="_blank">
-<img src="https://api.travis-ci.org/usnistgov/pfhub.svg"
-alt="Travis CI">
+  <img src="https://api.travis-ci.org/usnistgov/pfhub.svg"
+       alt="Travis CI badge">
 </a>
 <a href="https://zenodo.org/badge/latestdoi/32594832">
-<img src="https://zenodo.org/badge/32594832.svg" alt="DOI"></a>
-<a href="https://www.openhub.net/p/pfhub" target="_blank">
-<img src="https://www.openhub.net/p/pfhub/widgets/project_thin_badge.gif" class="badge"></a>
+  <img src="https://zenodo.org/badge/32594832.svg"
+       alt="Zenodo DOI badge">
+</a>
+<a href="https://www.openhub.net/p/pfhub"
+   target="_blank">
+  <img src="https://www.openhub.net/p/pfhub/widgets/project_thin_badge.gif"
+       class="badge"
+       alt="OpenHub badge">
+</a>
 </p>
 
 ## Overview
 
 PFHub is a location to compare and contrast phase field codes. See the
 [main web site](https://pages.nist.gov/pfhub) for more details. To
-develop or update the site, please see the [Development
-Guide](https://pages.nist.gov/pfhub/DEVELOPMENT).
+develop or update the site, please see the
+[Development Guide](https://pages.nist.gov/pfhub/DEVELOPMENT).
 
 ## Deploy
 
-Nix is excellent choice to get started with deploying this website. If
-you don't like Nix then try the Docker container.
+Nix is excellent choice to get started with deploying this website.
+If you don't prefer Nix then use the Docker container.
 
-## Deploy Using Nix
+### Deploy Using Nix
 
 To install an environment to run the website using Nix, consult the
 [Nix Guide](./NIX.md).
 
-## Deploy Using Docker
+### Deploy Using Docker
 
 To install an environment to run the website using Docker, consult the
 [Docker Guide](./DOCKER.md).
 
 ## Cite
 
-If you use this website in your reseach (see [CITATION.cff](./CITATION.cff)), please cite as follows:
+If you use this website in your reseach, please see
+[CITATION.cff](./CITATION.cff) and cite it as follows:
 
-Wheeler, D., Keller, T., DeWitt, S. J., Jokisaari, A. M., Schwen, D.,
-Guyer, J. E., Aagesen, L. K., Heinonen, O. G., Tonks, M. R., Voorhees,
-P. W., Warren, J. A. (2019). *PFHub: The Phase-Field Community Hub.*
-Journal of Open Research Software, 7(1), 29. DOI:
-http://doi.org/10.5334/jors.276
+> Wheeler, D., Keller, T., DeWitt, S. J., Jokisaari, A. M., Schwen, D.,
+> Guyer, J. E., Aagesen, L. K., Heinonen, O. G., Tonks, M. R., Voorhees,
+> P. W., Warren, J. A. (2019). *PFHub: The Phase-Field Community Hub.*
+> Journal of Open Research Software, 7(1), 29. DOI:
+> <http://doi.org/10.5334/jors.276>

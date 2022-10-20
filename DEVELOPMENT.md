@@ -7,7 +7,7 @@ comment: How to modify this site (beyond adding new simulations)
 <p align="center">
 <a href="https://travis-ci.org/{{ site.links.repo }}" target="_blank">
 <img src="https://api.travis-ci.org/{{ site.links.repo }}.svg"
-alt="Travis CI">
+     alt="Travis CI badge">
 </a>
 </p>
 
@@ -27,9 +27,9 @@ in the [`travis.yml`][TRAVISYML] should be used. The main site is hosted on
 the [build.log]({{ site.links.live_url }}/build.log)
 for the Jekyll build.
 
-Different aspects of this site can be edited using Google Forms, GitHub, or on your local machine.
-The list below gives which method should be used for various types of changes.
-Many of these tasks require that you have an
+Different aspects of this site can be edited using Google Forms, GitHub, or
+on your local machine. The list below gives which method should be used
+for various types of changes. Many of these tasks require that you have an
 account on [GitHub][GITHUB].
 
 ***Update directly on GitHub***
@@ -40,14 +40,15 @@ account on [GitHub][GITHUB].
 - [Add a new page](#new_page)
 
 ***Update on your local machine***
+
 - [How to build and view the site locally](#build_site)
 - [Update and build the Hexbin (hexagonal tiles of images on the homepage)](#build_hexbin)
 - [Add a Jupyter notebook](#new_notebook)
 - [Add a new benchmark problem](#new_problem)
 - [Test the HTML output](#test_html)
 
-Detailed instructions for each of aspects of the site are given in the following sections.
-
+Detailed instructions for each of aspects of the site are given in the
+following sections.
 
 <h4> Update Directly on GitHub </h4>
 
@@ -262,4 +263,3 @@ correctly.
 [JEKYLL]: https://jekyllrb.com
 [GITHUB]: https://github.com
 [HTMLPROOFER]: https://github.com/gjtorikian/html-proofer
-[CLONEFORK]:
