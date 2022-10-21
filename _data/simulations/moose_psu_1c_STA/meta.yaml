@@ -8,10 +8,6 @@ data:
   - unit: GB
     value: 100
 - name: run_time
-  transform:
-  - expr: datum.value_m * 1024.0
-    field: value
-    type: formula
   values:
   - sim_time: 187195
     wall_time: 1904
