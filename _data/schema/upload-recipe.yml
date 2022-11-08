@@ -1,0 +1,26 @@
+# This is a draft schema for PFHub, based on the Schema.org
+# [DataCatalog](https://schema.org/DataCatalog) type.
+#
+# This "recipe" is intended for use with the
+# [schemaorg](https://github.com/openschemas/schemaorg) Python library.
+# The [extractor library](https://github.com/openschemas/extractors)
+# for schemaorg includes more examples to build from.
+#
+# Bare list items (`- type`) are matched to the Schema.org type of the same
+# name. Defined list items (`- item: type`) map the local term to the named
+# Schema.org type.
+---
+version: 0.1.0
+schemas:
+  DataCatalog:
+    required:
+      - author      # Person or list of Person
+      - dataset
+      - dateCreated
+      - isBasedOn   # repository: SoftwareSourceCode
+      - isPartOf    # benchmark:  WebPage
+    recommended:
+      - programmingLanguage
+      - license
+      - headline
+      - video
