@@ -815,7 +815,7 @@ def plot_order_of_accuracy(
 
 
 def efficiency_plot(benchmark_id):  # pragma: no cover
-    """Plot an efficiency plot for a given bencharmk
+    """Plot memory usage vs. runtime for a given benchmark
 
     Args:
       benchmark_id: the benchmark ID to plot
