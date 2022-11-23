@@ -46,4 +46,6 @@ in
     pkgs.jq
     yq
     pypkgs.pip
+    pkgs.wget
+    pkgs.unzip
   ]
