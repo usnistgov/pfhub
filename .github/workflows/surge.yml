@@ -19,7 +19,7 @@ jobs:
           nix-shell shell-surge.nix --pure --command " \
             export DOMAIN=random-cat-${{ github.event.number }}.surge.sh && \
             export SURGE_LOGIN=${{ secrets.SURGE_LOGIN }} && \
-            export SURGE_TOKEN=${{ secrets.SURGE_TOKEN }} $$ \
+            export SURGE_TOKEN=${{ secrets.SURGE_TOKEN }} && \
             rm -rf ./_site && \
             jekyll build && \
             surge --project _site --domain ${DOMAIN}/pfhub \
