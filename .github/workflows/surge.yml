@@ -20,7 +20,8 @@ jobs:
             export DOMAIN=random-cat-${{ github.event.number }}.surge.sh && \
             export SURGE_LOGIN=${{ secrets.SURGE_LOGIN }} && \
             export SURGE_TOKEN=${{ secrets.SURGE_TOKEN }} && \
-            rm -rf ./_site && \
-            jekyll build && \
-            surge --project _site --domain ${DOMAIN}/pfhub \
+            echo ${SURGE_LOGIN} && \
+            #rm -rf ./_site && \
+            #jekyll build && \
+            #surge --project _site --domain ${DOMAIN}/pfhub \
           "
