@@ -16,7 +16,7 @@ jobs:
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nix-community
       - run: |
-          nix-shell shell-surge.sh pure --command " \
+          nix-shell shell-surge.nix pure --command " \
             export DOMAIN=random-cat-${{ github.event.number }}.surge.sh && \
             export SURGE_LOGIN=${{ secrets.SURGE_LOGIN }} && \
             export SURGE_TOKEN=${{ secrets.SURGE_TOKEN }} $$ \
