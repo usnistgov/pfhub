@@ -1,12 +1,13 @@
-_site
-_misc
+.~*
 .cache
 .local
-_publications/jors/build
 .gcloudignore
 _apps/data/env_variables.yaml
 _apps/box/1014649_e91k0tua_config.json
 _apps/box/cert.pem
 _apps/box/.coverage
-.~*
 _data/python-pfhub/.coverage
+_misc
+_publications/jors/build
+_site
+benchmarks/.ipynb_checkpoints
