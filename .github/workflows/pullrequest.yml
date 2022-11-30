@@ -7,12 +7,14 @@ jobs:
   pullrequest:
     runs-on: ubuntu-latest
     steps:
-      - name: save
+      - name: save-pr
         env:
           PR_NUMBER: ${{ github.event.number }}
+          LOGIN: ${{ github.event.actor.login }}
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
+          echo $LOGIN > ./pr/login
       - uses: actions/upload-artifact@v3
         with:
           name: pr_number
