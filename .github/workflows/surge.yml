@@ -57,4 +57,4 @@ jobs:
           issue-number: ${{ env.PRNUM }}
           token: ${{ secrets.PFHUB_UPLOAD_USER }}
           body: >-
-            The new version of the PFHub website is available at https://${{ env.DOMAIN }}
+            @${{ env.LOGIN }}, the new version of the PFHub website is available at https://${{ env.DOMAIN }}
