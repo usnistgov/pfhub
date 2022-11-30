@@ -7,4 +7,13 @@ jobs:
   pullrequest:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "prompt to launch other jobs in event of pull request"
+      - name: save
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          mkdir -p ./pr
+          echo $PR_NUMBER > ./pr/pr_number
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pr_number
+          path: pr/
