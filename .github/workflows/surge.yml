@@ -34,8 +34,10 @@ jobs:
           extraPullNames: nix-community
 
       - env:
-          SURGE_LOGIN: "${{ secrets.SURGE_LOGIN }}"
-          SURGE_TOKEN: "${{ secrets.SURGE_TOKEN }}"
+          #SURGE_LOGIN: "${{ secrets.SURGE_LOGIN }}"
+          SURGE_LOGIN: "daniel.wheeler@nist.gov"
+          #SURGE_TOKEN: "${{ secrets.SURGE_TOKEN }}"
+          SURGE_TOKEN: "fcab9043c16e76c558d16bf6dc380f79"
           DOMAIN: random-cat-${{ env.PRNUM }}.surge.sh
         run: |
           nix-shell shell-surge.nix --command " \
