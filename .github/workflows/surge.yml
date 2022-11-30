@@ -5,7 +5,7 @@ on:
     workflows:
       - pullrequest
     types:
-      - in_progress
+      - completed
 jobs:
   surge:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
           run_id: ${{ github.event.workflow_run.id }}
           name: pr_number
 
-      - run: ls -R
+      - run: echo "PRNUM=$(cat pr_number)" >> $GITHUB_ENV
 
       - uses: cachix/install-nix-action@v14.1
         with:
@@ -36,7 +36,7 @@ jobs:
       - env:
           SURGE_LOGIN: "${{ secrets.SURGE_LOGIN }}"
           SURGE_TOKEN: "${{ secrets.SURGE_TOKEN }}"
-          DOMAIN: random-cat-${{ github.event.number }}.surge.sh
+          DOMAIN: random-cat-${{ env.PRNUM }}.surge.sh
         run: |
           nix-shell shell-surge.nix --command " \
             rm -rf ./_site && \
