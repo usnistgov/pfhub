@@ -7,7 +7,7 @@ jobs:
   pullrequest:
     runs-on: ubuntu-latest
     steps:
-      - echo "${{ github.event.actor.login }}"
+      - run: echo "${{ github.event.actor.login }}"
       - name: save-pr
         env:
           PR_NUMBER: ${{ github.event.number }}
