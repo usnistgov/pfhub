@@ -13,13 +13,25 @@ jobs:
       run:
         working-directory: ./
     steps:
+
       - uses: actions/checkout@v2.3.4
+
+      - name: download
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: surge.yml
+          workflow_conclusion: success
+          name: pr_number
+
+      - run: ls -R
+
       - uses: cachix/install-nix-action@v14.1
         with:
           nix_path: nixpkgs=channel:nixos-unstable
           name: pfhub
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nix-community
+
       - env:
           SURGE_LOGIN: "${{ secrets.SURGE_LOGIN }}"
           SURGE_TOKEN: "${{ secrets.SURGE_TOKEN }}"
