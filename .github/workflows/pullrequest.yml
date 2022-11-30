@@ -7,11 +7,10 @@ jobs:
   pullrequest:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event.pull_request.user.login }}"
       - name: save-pr
         env:
           PR_NUMBER: ${{ github.event.number }}
-          LOGIN: ${{ github.event.issue.user.login }}
+          LOGIN: ${{ github.event.pull_request.user.login }}
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
