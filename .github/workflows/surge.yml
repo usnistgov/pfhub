@@ -33,6 +33,12 @@ jobs:
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nix-community
 
+      # Can't use pfhub sub domain here so need to change baseurl:
+      # 'pfhub' to baseurl: ''. jekyll build no longer takes a
+      # --baseurl arugment.
+      - run: >
+          sed -i "2s/.*/baseurl: ''/" _config.yml
+
       - env:
           #SURGE_LOGIN: "${{ secrets.SURGE_LOGIN }}"
           SURGE_LOGIN: "daniel.wheeler@nist.gov"
@@ -43,5 +49,5 @@ jobs:
           nix-shell shell-surge.nix --command " \
             rm -rf ./_site && \
             jekyll build && \
-            surge --project _site --domain ${DOMAIN}/pfhub \
+            surge --project _site --domain ${DOMAIN} \
           "
