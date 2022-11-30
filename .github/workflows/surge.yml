@@ -21,6 +21,7 @@ jobs:
       - name: download
         uses: dawidd6/action-download-artifact@v2
         with:
+          run_id: ${{ github.event.workflow_run.id }}
           name: pr_number
 
       - run: ls -R
