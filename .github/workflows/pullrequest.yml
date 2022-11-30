@@ -1,0 +1,10 @@
+---
+# Launch a workflow to prompt workflows run from master. Required
+# as jobs launched via pull-requests do not have access to secrets.
+name: pullrequest
+on: [push, pull-request]
+jobs:
+  pullrequest:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "prompt to launch other jobs in event of pull request"
