@@ -26,11 +26,7 @@ jobs:
           DOMAIN: random-cat-${{ github.event.number }}.surge.sh
         run: |
           nix-shell shell-surge.nix --command " \
-            echo 'SURGE_LOGIN:' && \
-            echo ${SURGE_LOGIN} && \
-            echo 'DOMAIN:' && \
-            echo ${DOMAIN} && \
-            #rm -rf ./_site && \
-            #jekyll build && \
-            #surge --project _site --domain ${DOMAIN}/pfhub \
+            rm -rf ./_site && \
+            jekyll build && \
+            surge --project _site --domain ${DOMAIN}/pfhub \
           "
