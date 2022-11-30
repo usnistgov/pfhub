@@ -21,6 +21,8 @@ jobs:
         with:
           workflow: surge.yml
           workflow_conclusion: success
+          path: pr/
+          name: pr_number
 
       - run: ls -R
 
