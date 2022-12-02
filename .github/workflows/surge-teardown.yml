@@ -1,0 +1,13 @@
+---
+name: surge-teardown
+on:
+  pull_request:
+    types: [closed]
+jobs:
+  surge-teardown:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - run: echo "running"
