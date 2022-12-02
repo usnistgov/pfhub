@@ -68,3 +68,9 @@ Then run
 
 Edit `node.nix` and replace `nodejs-4_x` with `nodejs` in the 5th
 line.
+
+### Upload Surge to Cachix
+
+    $ nix-env -iA cachix -f https://cachix.org/api/v1/install
+    $ cachix authtoken <TOKEN>
+    $ nix_build -E '(import ./shell-surge.nix {}).nativeBuildInputs' | cachix push pfhub-surge
