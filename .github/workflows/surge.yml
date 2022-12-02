@@ -34,6 +34,7 @@ jobs:
         with:
           name: pfhub-surge
           extraPullNames: nix-community
+          skipPush: true
 
       # Can't use pfhub sub domain here so need to change baseurl:
       # 'pfhub' to baseurl: ''. jekyll build no longer takes a
