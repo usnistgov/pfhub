@@ -8,6 +8,3 @@ Raise any areas of concern.
 
 A comment will appear below when the live site is built. This normally
 takes a few minutes.
-
-**Remember to tear down the live site when merging or closing this
-pull request.**

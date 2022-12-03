@@ -1,0 +1,21 @@
+---
+# Launch a workflow to prompt workflows run from master. Required
+# as jobs launched via pull-requests do not have access to secrets.
+name: pullrequest
+on: [push, pull_request]
+jobs:
+  pullrequest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: save-pr
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+          LOGIN: ${{ github.event.pull_request.user.login }}
+        run: |
+          mkdir -p ./pr
+          echo $PR_NUMBER > ./pr/pr_number
+          echo $LOGIN > ./pr/login
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pr_number
+          path: pr/

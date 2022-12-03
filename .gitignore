@@ -10,3 +10,4 @@ _apps/box/cert.pem
 _apps/box/.coverage
 .~*
 _data/python-pfhub/.coverage
+.jekyll-cache/

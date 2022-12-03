@@ -18,17 +18,6 @@ before_cache:
 install:
   - nix-shell --pure --command "echo 'run nix-shell and exit'"
 before_script:
-  - export DOMAIN=random-cat-${TRAVIS_PULL_REQUEST}.surge.sh
-  - export SURGE_LOGIN="daniel.wheeler@nist.gov"
-  - export SURGE_TOKEN="fcab9043c16e76c558d16bf6dc380f79"
-  - if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-       nix-shell --command "
-         rm -rf ./_site &&
-         jekyll build --baseurl '' &&
-         surge --project _site --domain ${DOMAIN} &&
-         ./_apps/data/curl.sh
-       ";
-    fi;
   - nix-shell _apps/data/shell.nix --pure --command "echo 'run nix-shell and exit'"
 script:
   - nix-shell --command "
