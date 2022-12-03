@@ -6,7 +6,7 @@ on:
   pull_request:
     types: [closed]
 jobs:
-  pullrequest:
+  pullrequest-close:
     runs-on: ubuntu-latest
     steps:
       - name: save-pr
