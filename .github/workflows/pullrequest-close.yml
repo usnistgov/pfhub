@@ -7,7 +7,7 @@ on:
     types: [closed]
 jobs:
   pullrequest-close:
-    uses: ./pr-artifact.yml
+    uses: ./.github/workflows/pr-artifact.yml
     with:
       login: ${{ github.event.pull_request.user.login }}
       pr_number: ${{ github.event.number }}
