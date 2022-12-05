@@ -2,7 +2,7 @@
 # Launch a workflow to prompt workflows run from master. Required
 # as jobs launched via pull-requests do not have access to secrets.
 name: pullrequest
-on: pull-request
+on: pull_request
 jobs:
   pullrequest:
     uses: ./.github/workflows/pr-artifact.yml
