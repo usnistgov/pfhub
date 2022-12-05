@@ -7,7 +7,7 @@ on:
     types: [closed]
 jobs:
   pullrequest-close:
-    uses: usnistgov/pfhub/.github/workflwos/pr-artifact.yml@workflow
+    uses: usnistgov/pfhub/.github/workflows/pr-artifact.yml@workflow
     with:
       login: ${{ github.event.pull_request.user.login }}
       pr_number: ${{ github.event.number }}
