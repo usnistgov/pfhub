@@ -5,7 +5,7 @@ name: pullrequest
 on: [push, pull_request]
 jobs:
   pullrequest:
-    uses: .github/workflows/pr-artifact.yml
+    uses: .github/workflows/pr-artifact.yml@workflow
     with:
       login: ${{ github.event.pull_request.user.login }}
       pr_number: ${{ github.event.number }}
