@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows:
       - pullrequest
+      - pullrequest-close
     types:
       - completed
 jobs:
@@ -39,6 +40,9 @@ jobs:
       # Can't use pfhub sub domain here so need to change baseurl:
       # 'pfhub' to baseurl: ''. jekyll build no longer takes a
       # --baseurl arugment.
+      - if: ${{ github.event.workflow_run.event_name == "pullrequest" }}
+        run: echo "conditional"
+
       - run: >
           sed -i "2s/.*/baseurl: ''/" _config.yml
 
