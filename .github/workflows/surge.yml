@@ -40,12 +40,6 @@ jobs:
       # Can't use pfhub sub domain here so need to change baseurl:
       # 'pfhub' to baseurl: ''. jekyll build no longer takes a
       # --baseurl arugment.
-      - run: echo "${{ github.event_name }}"
-      - run: echo "${{ github.workflow_run.event_name }}"
-      - run: echo "${{ github.workflow_run.workflow }}"
-      - run: echo "${{ github.workflow_run.event.workflow }}"
-      - run: echo "${{ github.workflow_run.workflow.name }}"
-
       - run: >
           sed -i "2s/.*/baseurl: ''/" _config.yml
 
