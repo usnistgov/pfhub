@@ -44,7 +44,7 @@ jobs:
       - run: echo "${{ github.workflow_run.event_name }}"
       - run: echo "${{ github.workflow_run.workflow }}"
       - run: echo "${{ github.workflow_run.event.workflow }}"
-      - run: echo "${{ github.workflow }}"
+      - run: echo "${{ github.workflow_run.workflow.name }}"
 
       - run: >
           sed -i "2s/.*/baseurl: ''/" _config.yml
