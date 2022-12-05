@@ -7,17 +7,8 @@ on:
     types: [closed]
 jobs:
   pullrequest-close:
-    runs-on: ubuntu-latest
-    steps:
-      - name: save-pr
-        env:
-          PR_NUMBER: ${{ github.event.number }}
-          LOGIN: ${{ github.event.pull_request.user.login }}
-        run: |
-          mkdir -p ./pr
-          echo $PR_NUMBER > ./pr/pr_number
-          echo $LOGIN > ./pr/login
-      - uses: actions/upload-artifact@v3
-        with:
-          name: pr_number
-          path: pr/
+    uses: ./.github/workflows/pr-artifact.yml
+    with:
+      login: ${{ github.event.pull_request.user.login }}
+      pr_number: ${{ github.event.number }}
+      name: ${{ github.workflow }}
