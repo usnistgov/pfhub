@@ -40,7 +40,7 @@ jobs:
       # Can't use pfhub sub domain here so need to change baseurl:
       # 'pfhub' to baseurl: ''. jekyll build no longer takes a
       # --baseurl arugment.
-      - if: ${{ github.event.workflow_run.event_name == "pullrequest" }}
+      - if: ${{ github.event.workflow_run.event_name == 'pullrequest' }}
         run: echo "conditional"
 
       - run: >
