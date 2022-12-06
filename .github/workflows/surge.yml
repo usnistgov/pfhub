@@ -55,9 +55,9 @@ jobs:
             if [[ ${{ env.NAME }} == 'pullrequest' ]]; then \
               rm -rf ./_site && \
               jekyll build && \
-              surge --project _site --domain ${{ env.DOMAIN }} \
+              surge --project _site --domain ${{ env.DOMAIN }}; \
             else \
-              surge teardown ${{ env.DOMAIN }} \
+              surge teardown ${{ env.DOMAIN }}; \
             fi \
           "
 
