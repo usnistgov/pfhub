@@ -95,17 +95,6 @@ def read_add_name(yaml_url):
         else assoc(x, "name", os.path.split(os.path.split(yaml_url)[0])[1]),
     )
 
-    # data = yaml.safe_load(data)
-
-    # if "name" in data:
-    #     return data
-
-    # return assoc(
-    #     data,
-    #     "name",
-    #     os.path.split(os.path.split(yaml_url)[0])[1],
-    # )
-
 
 def maybe(func):
     """Decorator to allow functions to have the maybe construct.
@@ -559,6 +548,8 @@ def line_plot(
                 sim_name="Simulation Result",
             ),
             title=get("title", layout, default=""),
+            log_x=get("log_x", layout, default=False),
+            log_y=get("log_y", layout, default=False),
         ),
         do(lambda x: x.update_layout(title_x=0.5)),
     )
@@ -820,4 +811,54 @@ def plot_order_of_accuracy(
             title=get("title", layout, ""),
             title_x=0.5,
         ),
+    )
+
+
+def efficiency_plot(benchmark_id):  # pragma: no cover
+    """Plot memory usage vs. runtime for a given benchmark
+
+    Args:
+      benchmark_id: the benchmark ID to plot
+
+    """
+
+    def df_time(id_):
+        norm = lambda x: x.wall_time.astype(float) / x.sim_time.astype(float)
+        return pipe(
+            get_result_data(["run_time"], [id_], ["sim_time", "wall_time"]),
+            lambda x: get(
+                x.groupby(["sim_name"])["sim_time"].transform(max) == x["sim_time"], x
+            ),
+            lambda x: x.assign(time_norm=norm(x)),
+        )
+
+    def df_memory(id_):
+        mem = dict(KB=1, MB=1024, GB=1024 ** 2)
+        func = lambda x: x.value * mem.get(x.unit, 1.0)
+        return pipe(
+            get_result_data(["memory_usage"], [id_], ["value", "unit"]),
+            lambda x: x.assign(memory_norm=x.apply(func, axis=1)),
+        )
+
+    return pipe(
+        pandas.merge(
+            df_time(benchmark_id),
+            df_memory(benchmark_id),
+            on="sim_name",
+        ),
+        lambda x: px.scatter(
+            x,
+            x="time_norm",
+            y="memory_norm",
+            log_x=True,
+            log_y=True,
+            title="Efficiency",
+            color="sim_name",
+            labels=dict(
+                sim_name="Simulation Result",
+                time_norm=r"<i>t</i><sub>Wall</sub> / <i>t</i><sub>Sim</sub> *",
+                memory_norm="Memory Usage (KB)",
+            ),
+        ),
+        lambda x: x.update_layout(title_x=0.5),
     )

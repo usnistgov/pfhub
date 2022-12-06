@@ -4,10 +4,6 @@ benchmark:
   version: 1
 data:
 - name: run_time
-  transform:
-  - expr: datum.value_m * 1024.0
-    field: value
-    type: formula
   values:
   - sim_time: 3000000
     wall_time: 99851
