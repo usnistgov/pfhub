@@ -7,6 +7,7 @@ on:
       - pullrequest-close
     types:
       - completed
+
 jobs:
   surge:
     runs-on: ubuntu-latest
@@ -26,6 +27,7 @@ jobs:
       - run: echo "PRNUM=$(cat pr_number)" >> $GITHUB_ENV
       - run: echo "DOMAIN=random-cat-${{ env.PRNUM }}.surge.sh" >> $GITHUB_ENV
       - run: echo "LOGIN=$(cat login)" >> $GITHUB_ENV
+      - run: echo "NAME=$(cat name)" >> $GITHUB_ENV
 
       - uses: cachix/install-nix-action@v14.1
         with:
@@ -40,6 +42,7 @@ jobs:
       # Can't use pfhub sub domain here so need to change baseurl:
       # 'pfhub' to baseurl: ''. jekyll build no longer takes a
       # --baseurl arugment.
+      - if: ${{ env.NAME == 'pullrequest' }}
       - run: >
           sed -i "2s/.*/baseurl: ''/" _config.yml
 
@@ -49,10 +52,22 @@ jobs:
           SURGE_TOKEN: "${{ secrets.SURGE_TOKEN }}"
         run: |
           nix-shell shell-surge.nix --command " \
-            rm -rf ./_site && \
-            jekyll build && \
-            surge --project _site --domain ${{ env.DOMAIN }} \
+            if [[ ${{ env.NAME }} == 'pullrequest' ]]; then \
+              rm -rf ./_site && \
+              jekyll build && \
+              surge --project _site --domain ${{ env.DOMAIN }} \
+            else \
+              surge teardown ${{ env.DOMAIN }} \
+            fi \
           "
+
+      - run: |
+          if [[ ${{ env.NAME }} == 'pullrequest' ]]; then \
+            echo "COMMENT=@${{ env.LOGIN }}, the new version of the PFHub website is available at https://${{ env.DOMAIN }}" >> $GITHUB_ENV; \
+          else \
+            echo "COMMENT=Successful teardown of ${{ env.DOMAIN }}" >> $GITHUB_ENV; \
+          fi
+
 
       # Comment back to the PR with link to Surge
       - name: comment
@@ -60,5 +75,4 @@ jobs:
         with:
           issue-number: ${{ env.PRNUM }}
           token: ${{ secrets.PFHUB_UPLOAD_USER }}
-          body: >-
-            @${{ env.LOGIN }}, the new version of the PFHub website is available at https://${{ env.DOMAIN }}
+          body: ${{ env.COMMENT }}
