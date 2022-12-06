@@ -43,7 +43,7 @@ jobs:
       # 'pfhub' to baseurl: ''. jekyll build no longer takes a
       # --baseurl arugment.
       - if: ${{ env.NAME == 'pullrequest' }}
-      - run: >
+        run: >
           sed -i "2s/.*/baseurl: ''/" _config.yml
 
       # Push to Surge
