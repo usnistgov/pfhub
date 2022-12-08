@@ -1,0 +1,32 @@
+name: pr-artifact
+
+on:
+  workflow_call:
+    inputs:
+      pr_number:
+        required: true
+        type: string
+      login:
+        required: true
+        type: string
+      name:
+        required: true
+        type: string
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: save-pr
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+          LOGIN: ${{ inputs.login }}
+          NAME: ${{ inputs.name }}
+        run: |
+          mkdir -p ./pr
+          echo $PR_NUMBER > ./pr/pr_number
+          echo $LOGIN > ./pr/login
+          echo $NAME > ./pr/name
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pr_number
+          path: pr/
