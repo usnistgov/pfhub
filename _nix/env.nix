@@ -30,6 +30,13 @@ nixpkgs.stdenv.mkDerivation rec {
     # Orignal repo is
     # https://github.com/Calysto/notebook-extensions
 
+    # If the following error occurs:
+    #
+    # ModuleNotFoundError: No module named 'jupyter_contrib_nbextensions'
+    #
+    # delete the jupyter_nbconvert_config.json file, which might be in
+    # ~/.jupyter, see https://github.com/jupyter/nbconvert/issues/526.
+
     wget https://github.com/wd15/notebook-extensions/archive/master.zip
     unzip master.zip
     # git clone https://github.com/wd15/notebook-extensions.git
