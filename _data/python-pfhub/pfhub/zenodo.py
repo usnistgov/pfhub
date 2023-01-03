@@ -9,6 +9,7 @@ from toolz.curried import get, get_in, pipe, curry, itemmap, assoc, groupby
 from toolz.curried import filter as filter_
 from toolz.curried import map as map_
 from toolz.functoolz import memoize
+import pandas
 
 from .func import sequence, read_yaml, read_csv, sep_help
 
@@ -175,15 +176,18 @@ def subs(pfhub_meta, zenodo_meta, benchmark, lines_and_contours):
       template
 
     """
+
+    get_name = lambda x: x["creators"][0]["name"].replace(" ", "").split(",")
+
     return dict(
-        first=zenodo_meta["creators"][0]["name"].split(",")[1].replace(" ", ""),
-        last=zenodo_meta["creators"][0]["name"].split(",")[0].replace(" ", ""),
+        first=get(1, get_name(zenodo_meta), ""),
+        last=get_name(zenodo_meta)[0],
         orcid=zenodo_meta["creators"][0]["orcid"],
         summary=re.sub("<[^<]+?>", "", zenodo_meta["description"]),
-        timestamp=zenodo_meta["publication_date"],
+        timestamp=str(pandas.to_datetime(zenodo_meta["publication_date"])),
         cpu_architecture=pfhub_meta["hardware"]["cpu_architecture"],
         acc_architecture=pfhub_meta["hardware"]["acc_architecture"],
-        parallel_model=pfhub_meta["hardware"]["parallel_model"],
+        parallel_model=pfhub_meta["hardware"].get("parallel_model", "serial"),
         clock_rate=pfhub_meta["hardware"]["clock_rate"],
         cores=pfhub_meta["hardware"]["cores"],
         nodes=pfhub_meta["hardware"]["nodes"],
@@ -196,7 +200,7 @@ def subs(pfhub_meta, zenodo_meta, benchmark, lines_and_contours):
         sim_time=pfhub_meta["run_time"]["sim_time"],
         memory_usage=pfhub_meta["memory_usage"],
         lines=lines_and_contours["line"],
-        contours=lines_and_contours["contour"],
+        contours=lines_and_contours.get("contour", []),
         name=f"{pfhub_meta['software']['name']}_{benchmark['id']}_{zenodo_meta['doi']}",
     )
 
