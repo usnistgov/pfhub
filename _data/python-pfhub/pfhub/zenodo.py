@@ -255,7 +255,7 @@ def zenodo_to_pfhub(url):
         email:
         github_id:
         orcid: 0000-0002-2653-7418
-      timestamp: 2022-08-31
+      timestamp: 2022-08-31 00:00:00
 
     """
 
