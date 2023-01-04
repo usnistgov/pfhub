@@ -19,6 +19,8 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
+      - name: Inject slugs variables
+        uses: rlespinasse/github-slug-action@v4
       - name: save-pr
         env:
           PR_NUMBER: ${{ inputs.pr_number }}
@@ -30,7 +32,8 @@ jobs:
           echo $PR_NUMBER > ./pr/pr_number
           echo $LOGIN > ./pr/login
           echo $NAME > ./pr/name
-          echo $HEAD_REF
+          echo $HEAD_REF > ./pr/head_ref
+          echo $GITHUB_REPOSITORY_SLUG
       - uses: actions/upload-artifact@v3
         with:
           name: pr_number
