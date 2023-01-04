@@ -16,8 +16,6 @@ jobs:
         working-directory: ./
     steps:
 
-      - uses: actions/checkout@v2.3.4
-
       # Get the pull-request number
       - name: download-pr
         uses: dawidd6/action-download-artifact@v2
@@ -28,6 +26,13 @@ jobs:
       - run: echo "DOMAIN=random-cat-${{ env.PRNUM }}.surge.sh" >> $GITHUB_ENV
       - run: echo "LOGIN=$(cat login)" >> $GITHUB_ENV
       - run: echo "NAME=$(cat name)" >> $GITHUB_ENV
+      - run: echo "REPO=$(cat repo)" >> $GITHUB_ENV
+      - run: echo "REF_NAME=$(cat ref_name)" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v2.3.4
+        with:
+          repository: ${{ env.REPO }}
+          ref: ${{ env.REF_NAME }}
 
       - uses: cachix/install-nix-action@v14.1
         with:
