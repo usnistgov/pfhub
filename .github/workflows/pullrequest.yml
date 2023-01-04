@@ -10,3 +10,4 @@ jobs:
       login: ${{ github.event.pull_request.user.login }}
       pr_number: ${{ github.event.number }}
       name: ${{ github.workflow }}
+      head_ref: ${{ github.head_ref }}
