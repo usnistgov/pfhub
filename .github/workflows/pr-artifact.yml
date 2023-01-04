@@ -29,7 +29,6 @@ jobs:
           echo $PR_NUMBER > ./pr/pr_number
           echo $LOGIN > ./pr/login
           echo $NAME > ./pr/name
-          echo $HEAD_REF > ./pr/head_ref
           echo $GITHUB_REPOSITORY > ./pr/repo
           echo $GITHUB_REF_NAME > ./pr/ref_name
       - uses: actions/upload-artifact@v3
