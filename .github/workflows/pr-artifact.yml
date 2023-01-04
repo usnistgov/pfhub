@@ -15,18 +15,24 @@ on:
       head_ref:
         required: true
         type: string
+      repo_head:
+        required: true
+        type: string
+      repo_base:
+        required: true
+        type: string
 jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-      - name: Inject slugs variables
-        uses: rlespinasse/github-slug-action@v4
       - name: save-pr
         env:
           PR_NUMBER: ${{ inputs.pr_number }}
           LOGIN: ${{ inputs.login }}
           NAME: ${{ inputs.name }}
           HEAD_REF: ${{ inputs.head_ref }}
+          REPO_HEAD: ${{ inputs.repo_head }}
+          REPO_BASE: ${{ inputs.repo_base }}
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
