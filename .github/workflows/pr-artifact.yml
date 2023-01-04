@@ -15,10 +15,7 @@ on:
       head_ref:
         required: true
         type: string
-      repo_head:
-        required: true
-        type: string
-      repo_base:
+      repo:
         required: true
         type: string
 jobs:
@@ -31,14 +28,13 @@ jobs:
           LOGIN: ${{ inputs.login }}
           NAME: ${{ inputs.name }}
           HEAD_REF: ${{ inputs.head_ref }}
-          REPO_HEAD: ${{ inputs.repo_head }}
-          REPO_BASE: ${{ inputs.repo_base }}
+          REPO: ${{ inputs.repo }}
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
           echo $LOGIN > ./pr/login
           echo $NAME > ./pr/name
-          echo $GITHUB_REPOSITORY > ./pr/repo
+          echo $REPO > ./pr/repo
           echo $HEAD_REF > ./pr/head_ref
       - uses: actions/upload-artifact@v3
         with:

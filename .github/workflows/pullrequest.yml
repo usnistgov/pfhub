@@ -11,5 +11,4 @@ jobs:
       pr_number: ${{ github.event.number }}
       name: ${{ github.workflow }}
       head_ref: ${{ github.head_ref }}
-      repo_head: ${{ github.event.pull_request.head.repo.full_name }}
-      repo_base: ${{ github.event.pull_request.base.repo.full_name }}
+      repo: ${{ github.event.pull_request.head.repo.full_name }}
