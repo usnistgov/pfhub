@@ -27,12 +27,12 @@ jobs:
       - run: echo "LOGIN=$(cat login)" >> $GITHUB_ENV
       - run: echo "NAME=$(cat name)" >> $GITHUB_ENV
       - run: echo "REPO=$(cat repo)" >> $GITHUB_ENV
-      - run: echo "REF_NAME=$(cat ref_name)" >> $GITHUB_ENV
+      - run: echo "HEAD_REF=$(cat head_ref)" >> $GITHUB_ENV
 
       - uses: actions/checkout@v2.3.4
         with:
           repository: ${{ env.REPO }}
-          ref: ${{ env.REF_NAME }}
+          ref: ${{ env.HEAD_REF }}
 
       - uses: cachix/install-nix-action@v14.1
         with:
