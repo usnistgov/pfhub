@@ -12,6 +12,9 @@ on:
       name:
         required: true
         type: string
+      head_ref:
+        required: true
+        type: string
 jobs:
   upload:
     runs-on: ubuntu-latest
@@ -21,11 +24,13 @@ jobs:
           PR_NUMBER: ${{ inputs.pr_number }}
           LOGIN: ${{ inputs.login }}
           NAME: ${{ inputs.name }}
+          HEAD_REF: ${{ inputs.head_ref }}
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
           echo $LOGIN > ./pr/login
           echo $NAME > ./pr/name
+          echo $HEAD_REF
       - uses: actions/upload-artifact@v3
         with:
           name: pr_number
