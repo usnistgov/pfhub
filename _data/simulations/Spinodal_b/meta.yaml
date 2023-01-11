@@ -37,12 +37,12 @@ data:
       - unit: KB
         value: '8388608'
   - name: free_energy
-    url: 'https://drive.google.com/open?id=1F2iFqydxrlVGuPLQIGm1TWYJoiLiiuGC'
+    url: https://gist.githubusercontent.com/wd15/49a74e538e4b6e36dc101685e3d62694/raw/e8a0f59f9b1a96531d9c3b0b7c6f8869e1197a07/Time_Total_Energy_Spinodal_a.csv
     format:
       type: csv
       parse:
-        Time: number
-        "Total Free energy": number
+        time: number
+        Total_Free_energy: number
     description: Evolution of the total energy for square-shape domain
     type: line
     transform:
@@ -50,7 +50,7 @@ data:
         expr: datum.time
         as: x
       - type: formula
-        expr: "datum['Total Free energy']"
+        expr: datum.Total_Free_energy
         as: 'y'
   - name: plot
     url: 'https://drive.google.com/open?id=16uyjNvZ6vctz3B1OSR3pLBl95SyO-mFg'

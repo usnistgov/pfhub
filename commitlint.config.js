@@ -28,7 +28,10 @@ module.exports = {
 		'revert',
 		'style',
 		'test',
-                'upload'
+                'upload',
+                'data',
+                'notebooks',
+                'web'
 	    ]
 	]
     }
