@@ -1,0 +1,6 @@
+---
+- name: free_energy
+  url: '(data|free_energy).(json|tsv|csv)'
+  x_field: '[\S]*time[\S]*'
+  y_field: '[\S]*energy[\S]*'
+  type: line

@@ -1,6 +1,7 @@
 """Functions used by other modules
 """
 from urllib.error import HTTPError, URLError
+import logging
 
 from toolz.curried import compose, curry
 import yaml
@@ -114,13 +115,16 @@ def read_csv(sep_, path):
        x  y
     0  0  0
     1  1  1
+    >>> caplog = getfixture('caplog')
+    >>> caplog.set_level(logging.DEBUG)
     >>> read_csv(',', 'http://blah.csv')
-    <urlopen error [Errno -2] Name or service not known> for http://blah.csv
-
-    """
+    >>> print(caplog.text)
+    DEBUG    root:func.py:129 <urlopen error [Errno -2] Name or service not known> for http://blah.csv
+    <BLANKLINE>
+    """  # pylint: disable=line-too-long # noqa: E501
 
     try:
         return pandas.read_csv(path, sep=sep_, engine="python")
     except (HTTPError, URLError, FileNotFoundError) as error:
-        print(f"{error} for {path}")
+        logging.debug("%s for %s", error, path)
         return None
