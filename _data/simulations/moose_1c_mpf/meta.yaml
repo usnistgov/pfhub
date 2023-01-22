@@ -1,0 +1,46 @@
+---
+benchmark:
+  id: 1c
+  version: 1
+data:
+- name: free_energy
+  url: https://github.com/mfrichtl/PFHub_benchmarks/blob/main/problems/pfhub_benchmark_1.c1_csv.csv
+  format:
+    type: csv
+    parse:
+      total_energy: number
+      time: number
+  transform:
+    - type: formula
+      field: free_energy
+      expr: datum.total_energy
+    - type: filter
+      test: "datum.time < 1e6"
+- name: run_time
+  values:
+  - sim_time: 1000000
+    wall_time: 4077.827
+- name: memory_usage
+  values:
+  - unit: KB
+    value: 109000
+metadata:
+  author:
+    email: mfrichtl@visionpointsystems.com
+    first: Matthew
+    github_id: mfrichtl
+    last: Frichtl
+  hardware:
+    acc_architecture: none
+    clock_rate: 3.6
+    cores: 4
+    cpu_architecture: x86_64
+    nodes: 1
+    parallel_model: distributed
+  implementation:
+    name: moose
+    repo:
+      url: https://github.com/mfrichtl/PFHub_benchmarks
+      version: 96220df53ba6f5f66ddc76a3c1c28b335e361f0c
+  summary: MPI parallel workstation benchmark with MOOSE
+  timestamp: Sun, 22 Jan 2023 11:37:00 -0500
