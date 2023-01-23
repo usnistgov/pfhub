@@ -18,12 +18,12 @@ data:
       test: "datum.time < 1e6"
 - name: run_time
   values:
-  - sim_time: 225023
-    wall_time: 6164.289
+  - sim_time: 1000000
+    wall_time: 35177.07
 - name: memory_usage
   values:
   - unit: KB
-    value: 124000
+    value: 157000
 metadata:
   author:
     email: mfrichtl@visionpointsystems.com
@@ -41,6 +41,6 @@ metadata:
     name: moose
     repo:
       url: https://github.com/mfrichtl/PFHub_benchmarks
-      version: d1f97491d0887ce54bc739355b8fb8bc52dec89c
+      version: b147acab978e21e27be182ee761deee9db7aa5c5
   summary: MPI parallel workstation benchmark with MOOSE
-  timestamp: Sat, 21 Jan 2023 16:30:00 -0500
+  timestamp: Mon, 23 Jan 2023 16:30:00 -0500
