@@ -4,18 +4,21 @@ benchmark:
   version: 1
 data:
 - name: free_energy
-  url: https://github.com/mfrichtl/PFHub_benchmarks/blob/main/problems/pfhub_benchmark_1.a1_csv.csv
+  url: https://raw.githubusercontent.com/mfrichtl/PFHub_benchmarks/main/problems/pfhub_benchmark_1.a1_csv.csv
   format:
     type: csv
     parse:
       total_energy: number
       time: number
   transform:
-    - type: formula
-      field: free_energy
+    - as: y
+      type: formula
       expr: datum.total_energy
-    - type: filter
-      test: "datum.time < 1e6"
+    - as: x
+      type: formula
+      expr: datum.time
+    # - type: filter
+    #   test: "datum.time < 1e6"
 - name: run_time
   values:
   - sim_time: 225023
