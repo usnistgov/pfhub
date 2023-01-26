@@ -63,6 +63,17 @@ def read_yaml_from_url(url):
 
     Returns:
       contents of the YAML file
+
+    Just returns empty string with broken URL
+
+    >>> import requests_mock
+    >>> url = "http://test.com"
+    >>> with requests_mock.Mocker() as m:
+    ...     _ = m.get(url, text="---\\na: 1")
+    ...     read_yaml_from_url(url)
+    ...
+    {'a': 1}
+
     """
     matchfile = fullmatch(r"file:///[\S]+")
     if matchfile(url):
