@@ -9,20 +9,31 @@ let
   pkgs = import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/${tag}.tar.gz") {};
   pypkgs = pkgs.python3Packages;
   pfhub = pypkgs.callPackage ./default.nix { };
-  extra = with pypkgs; [ black pylint flake8 ipdb chevron ];
-itables = pypkgs.buildPythonPackage rec {
-  pname = "itables";
-  version = "0.4.6";
+  extra = with pypkgs; [ black pylint flake8 ipdb chevron requests_mock ];
+  itables = pypkgs.buildPythonPackage rec {
+    pname = "itables";
+    version = "0.4.6";
 
-  src = pypkgs.fetchPypi {
-    inherit pname version;
-    sha256 = "sha256-XiLxeYHR8a3QqiyA+azC5O157XuRGvgb+exU1h7aAck=";
+    src = pypkgs.fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-XiLxeYHR8a3QqiyA+azC5O157XuRGvgb+exU1h7aAck=";
+    };
+
+    doCheck = false;
+
+    propagatedBuildInputs = [ pypkgs.ipykernel pypkgs.pandas pypkgs.requests ];
   };
-
-  doCheck = false;
-
-  propagatedBuildInputs = [ pypkgs.ipykernel pypkgs.pandas pypkgs.requests ];
-};
+  requests_mock = pypkgs.buildPythonPackage rec {
+    version = "1.10.0";
+    pname = "requests-mock";
+    src = pypkgs.fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-WcnDJBmp+xroPsJC2Y6InEW9fXpl1IN1zCQ+wIRBZYs=";
+    };
+    doCheck = false;
+    buildInputs = with pypkgs; [ pbr requests six ];
+    propagatedBuildInputs = buildInputs;
+  };
   jupyter_extra = with pypkgs; [
     ipython
     ipykernel
@@ -51,5 +62,6 @@ in
       export PYTHONPATH=$PYTHONPATH:$USER_SITE:$(pwd)
       export PATH=$PATH:$PYTHONUSERBASE/bin
       export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+
     '';
   }))
