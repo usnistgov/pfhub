@@ -37,7 +37,7 @@ def read_yaml(filepath):
     >>> assert yaml_data['benchmark']['id'] == '1a'
 
     """
-    with open(filepath) as stream:
+    with open(filepath, encoding="utf-8") as stream:
         data = yaml.safe_load(stream)
     return data
 

@@ -220,6 +220,7 @@ def render(pfhub_json, zenodo_json):
     with open(
         pathlib.Path(__file__).parent.resolve() / "templates" / "pfhub_meta.mustache",
         "r",
+        encoding="utf-8",
     ) as fstream:
         data = chevron.render(
             fstream,
