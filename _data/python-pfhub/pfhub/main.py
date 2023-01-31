@@ -337,17 +337,55 @@ def get_table_data(benchmark_ids, benchmark_path=BENCHMARK_PATH):
     >>> d = getfixture('test_data_path')
     >>> actual= get_table_data(['1a.1', '2a.1'], benchmark_path=str(d.resolve()))
     >>> print(actual.sort_values(['Name']).to_string(index=False))
-       Name      Code Benchmark     Author  Timestamp GitHub ID
-    result1 code_name      1a.1 first last 2021-12-07  githubid
-    result2 code_name      2a.1 first last 2021-12-07  githubid
+       Name      Code Benchmark     Author                 Timestamp GitHub ID
+    result1 code_name      1a.1 first last 2021-12-07 00:00:00+00:00  githubid
+    result2 code_name      2a.1 first last 2021-12-07 00:00:00+00:00  githubid
 
     """
+    to_datetime = lambda x: pandas.to_datetime(x, errors="raise", utc=True)
+
     return pipe(
         benchmark_ids,
         get_yaml_data(benchmark_path),
         map_(table_results),
         pandas.DataFrame,
-        update_column(pandas.to_datetime, ["Timestamp"]),
+        update_column(to_datetime, ["Timestamp"]),
+    )
+
+
+def make_clickable(name):
+    """Return a link to the results name
+
+    >>> print(make_clickable('blah'))
+    <a target="_blank" href="https://pages.nist.gov/pfhub/simulations/display/?sim=blah">blah</a>
+    """  # pylint: disable=line-too-long # noqa: E501
+    link = "https://pages.nist.gov/pfhub/simulations/display/?sim="
+    return f'<a target="_blank" href="{link}{name}">{name}</a>'
+
+
+@curry
+def get_table_data_style(benchmark_ids, benchmark_path=BENCHMARK_PATH):
+    """Get a Pandas DataFrame of result data styled
+
+    Args:
+      benchmark_ids: sequence of benchmark ids
+      benchmark_path: path to data file used by glob
+
+    Returns:
+      Pandas DataFrame style object
+
+    >>> d = getfixture('test_data_path')
+    >>> actual= get_table_data_style(['1a.1', '2a.1'], benchmark_path=str(d.resolve()))
+    >>> print(actual)  # doctest: +ELLIPSIS
+    <pandas.io.formats.style.Styler object at ...>
+
+    """
+    format_date = lambda x: x.dt.strftime("%Y-%m-%d")
+
+    return pipe(
+        get_table_data(benchmark_ids, benchmark_path=benchmark_path),
+        update_column(format_date, ["Timestamp"]),
+        lambda x: x.style.format(dict(Name=make_clickable)).hide(axis="index"),
     )
 
 
