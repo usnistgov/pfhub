@@ -1,2 +1,10 @@
 ---
 benchmark_id: 1b.1
+line_plots:
+  - name: "free_energy"
+    layout:
+      log_y: True
+      log_x: True
+      x_label: '<i>t</i>'
+      y_label: '&#8497;'
+      title: "Free Energy v Time"

@@ -1,0 +1,26 @@
+---
+benchmark_id: 3a.1
+line_plots:
+  - name: "free_energy"
+    layout:
+      log_y: True
+      x_label: '<i>t</i>'
+      y_label: 'Free Energy, &#8497;'
+      title: "Free Energy v Time"
+      range_y:
+        - 1.9e+06
+        - 2.2e+06
+  - name: "solid_fraction"
+    layout:
+      y_label: "Solid Fraction"
+      x_label: '<i>t</i>'
+      title: "Solid Fraction v Time"
+  - name: "tip_position"
+    layout:
+      y_label: "Tip Position"
+      x_label: '<i>t</i>'
+      title: "Tip Position v Time"
+  - name: "phase_field_1500"
+    layout:
+      title: "Solid / Liquid Boundary at t=1500"
+      aspect_ratio: 1.0
