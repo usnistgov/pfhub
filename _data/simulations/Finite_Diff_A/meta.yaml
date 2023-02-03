@@ -65,7 +65,7 @@ data:
       type: csv
       parse:
         time: number
-        solid_fraction / 9: number
+        solid_fraction: number
     description: Solid fraction vs. time
     type: line
     transform:

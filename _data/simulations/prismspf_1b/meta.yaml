@@ -37,11 +37,8 @@ data:
     value: 29928
 - name: free_energy
   transform:
-  - as: free_energy
-    expr: datum.value
-    type: formula
   - as: y
-    expr: datum.free_energy
+    expr: datum.value
     type: formula
   - as: x
     expr: datum.time
