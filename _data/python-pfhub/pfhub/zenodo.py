@@ -3,7 +3,6 @@
 import pathlib
 import re
 
-import requests
 import chevron
 from toolz.curried import get, get_in, pipe, curry, itemmap, assoc, groupby
 from toolz.curried import filter as filter_
@@ -11,10 +10,21 @@ from toolz.curried import map as map_
 from toolz.functoolz import memoize
 import pandas
 
-from .func import sequence, read_yaml, read_csv, sep_help
+from .func import read_yaml, read_csv, sep_help, get_cached_session
 
 
-get_json = sequence(requests.get, lambda x: x.json())
+def get_json(url):
+    """Get the json from the URL
+
+    Results are cached
+
+    Args:
+      url: the url
+
+    Returns:
+      contents.json()
+    """
+    return get_cached_session().get(url).json()
 
 
 def get_file_url(pattern, zenodo_json):
