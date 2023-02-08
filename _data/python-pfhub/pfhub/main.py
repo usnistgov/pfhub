@@ -337,19 +337,21 @@ def get_table_data(benchmark_ids, benchmark_path=BENCHMARK_PATH):
     >>> d = getfixture('test_data_path')
     >>> actual= get_table_data(['1a.1', '2a.1'], benchmark_path=str(d.resolve()))
     >>> print(actual.sort_values(['Name']).to_string(index=False))
-       Name      Code Benchmark     Author                 Timestamp GitHub ID
-    result1 code_name      1a.1 first last 2021-12-07 00:00:00+00:00  githubid
-    result2 code_name      2a.1 first last 2021-12-07 00:00:00+00:00  githubid
+       Name      Code Benchmark     Author  Timestamp GitHub ID
+    result1 code_name      1a.1 first last 2021-12-07  githubid
+    result2 code_name      2a.1 first last 2021-12-07  githubid
 
     """
     to_datetime = lambda x: pandas.to_datetime(x, errors="raise", utc=True)
-
+    format_date = lambda x: x.dt.strftime("%Y-%m-%d")
     return pipe(
         benchmark_ids,
         get_yaml_data(benchmark_path),
         map_(table_results),
         pandas.DataFrame,
         update_column(to_datetime, ["Timestamp"]),
+        update_column(format_date, ["Timestamp"]),
+        lambda x: x.sort_values(by="Timestamp", ascending=False),
     )
 
 
@@ -380,12 +382,13 @@ def get_table_data_style(benchmark_ids, benchmark_path=BENCHMARK_PATH):
     <pandas.io.formats.style.Styler object at ...>
 
     """
-    format_date = lambda x: x.dt.strftime("%Y-%m-%d")
-
     return pipe(
         get_table_data(benchmark_ids, benchmark_path=benchmark_path),
-        update_column(format_date, ["Timestamp"]),
+        lambda x: x.reindex(
+            ["Benchmark", "Timestamp", "Name", "Code", "Author", "GitHub ID"], axis=1
+        ),
         lambda x: x.style.format(dict(Name=make_clickable)).hide(axis="index"),
+        lambda x: x.hide(axis="columns", subset="Benchmark"),
     )
 
 
