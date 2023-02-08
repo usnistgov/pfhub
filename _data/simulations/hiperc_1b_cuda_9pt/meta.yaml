@@ -15,7 +15,7 @@ data:
   format:
     parse:
       free_energy: number
-      time: number
+      sim_time: number
     type: csv
   name: free_energy
   transform:

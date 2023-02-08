@@ -116,7 +116,7 @@ def test_data_path(tmp_path):
     make_yaml(dir_, "result1", "1a", 1)
     make_yaml(dir_, "result2", "2a", 1)
     file_path = dir_ / "list.yaml"
-    with open(file_path, "w") as stream:
+    with open(file_path, "w", encoding="utf-8") as stream:
         yaml.dump(["result1/meta.yaml", "result2/meta.yaml"], stream)
     return file_path
 

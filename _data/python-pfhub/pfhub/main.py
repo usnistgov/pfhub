@@ -44,6 +44,7 @@ BENCHMARK_PATH = str(
 
 make_id = lambda x: ".".join([x["benchmark"]["id"], str(x["benchmark"]["version"])])
 
+
 make_author = lambda x: pipe(
     x, get_in(["metadata", "author"]), get(["first", "last"]), " ".join
 )
@@ -51,11 +52,35 @@ make_author = lambda x: pipe(
 
 get_text = sequence(requests.get, lambda x: "" if x.status_code == 400 else x.text)
 
+fullmatch = curry(re.fullmatch)
 
-read_yaml_from_url = sequence(
-    lambda x: urllib.request.urlopen(x) if x[:4] == "file" else get_text(x),
-    yaml.safe_load,
-)
+
+def read_yaml_from_url(url):
+    """Read a YAML file from a URL
+
+    Args:
+      url: the URL
+
+    Returns:
+      contents of the YAML file
+
+    Just returns empty string with broken URL
+
+    >>> import requests_mock
+    >>> url = "http://test.com"
+    >>> with requests_mock.Mocker() as m:
+    ...     _ = m.get(url, text="---\\na: 1")
+    ...     read_yaml_from_url(url)
+    ...
+    {'a': 1}
+
+    """
+    matchfile = fullmatch(r"file:///[\S]+")
+    if matchfile(url):
+        with urllib.request.urlopen(url) as fpointer:
+            return yaml.safe_load(fpointer)
+    else:
+        return yaml.safe_load(get_text(url))
 
 
 def read_add_name(yaml_url):
@@ -77,19 +102,16 @@ def read_add_name(yaml_url):
     ... ).as_uri())['name'] == 'result1'
 
     """
-    fullmatch = curry(re.fullmatch)
     matchzenodo = fullmatch(r"https://doi.org/\d{2}.\d{4}/zenodo.\d{7}")
-    matchfile = fullmatch(r"file:///[\S]+")
     process = (
-        lambda x: zenodo_to_pfhub(x)
+        lambda x: yaml.safe_load(zenodo_to_pfhub(x))
         if matchzenodo(x)
-        else (urllib.request.urlopen(x) if matchfile(x) else get_text(x))
+        else read_yaml_from_url(x)
     )
 
     return pipe(
         yaml_url,
         process,
-        yaml.safe_load,
         lambda x: x
         if "name" in x
         else assoc(x, "name", os.path.split(os.path.split(yaml_url)[0])[1]),
@@ -320,12 +342,53 @@ def get_table_data(benchmark_ids, benchmark_path=BENCHMARK_PATH):
     result2 code_name      2a.1 first last 2021-12-07  githubid
 
     """
+    to_datetime = lambda x: pandas.to_datetime(x, errors="raise", utc=True)
+    format_date = lambda x: x.dt.strftime("%Y-%m-%d")
     return pipe(
         benchmark_ids,
         get_yaml_data(benchmark_path),
         map_(table_results),
         pandas.DataFrame,
-        update_column(pandas.to_datetime, ["Timestamp"]),
+        update_column(to_datetime, ["Timestamp"]),
+        update_column(format_date, ["Timestamp"]),
+        lambda x: x.sort_values(by="Timestamp", ascending=False),
+    )
+
+
+def make_clickable(name):
+    """Return a link to the results name
+
+    >>> print(make_clickable('blah'))
+    <a target="_blank" href="https://pages.nist.gov/pfhub/simulations/display/?sim=blah">blah</a>
+    """  # pylint: disable=line-too-long # noqa: E501
+    link = "https://pages.nist.gov/pfhub/simulations/display/?sim="
+    return f'<a target="_blank" href="{link}{name}">{name}</a>'
+
+
+@curry
+def get_table_data_style(benchmark_ids, benchmark_path=BENCHMARK_PATH):
+    """Get a Pandas DataFrame of result data styled
+
+    Args:
+      benchmark_ids: sequence of benchmark ids
+      benchmark_path: path to data file used by glob
+
+    Returns:
+      Pandas DataFrame style object
+
+    >>> d = getfixture('test_data_path')
+    >>> actual= get_table_data_style(['1a.1', '2a.1'], benchmark_path=str(d.resolve()))
+    >>> print(actual)  # doctest: +ELLIPSIS
+    <pandas.io.formats.style.Styler object at ...>
+
+    """
+    return pipe(
+        get_table_data(benchmark_ids, benchmark_path=benchmark_path),
+        lambda x: x.reindex(
+            ["Benchmark", "Timestamp", "Name", "Code", "Author", "GitHub ID"], axis=1
+        ),
+        lambda x: x.style.format(dict(Name=make_clickable)).hide(axis="index"),
+        lambda x: x.hide(axis="columns", subset="Benchmark"),
     )
 
 
@@ -531,7 +594,7 @@ def line_plot(
 
     """
     if layout is None:
-        layout = dict()
+        layout = {}
 
     return pipe(
         get_result_data(
@@ -589,7 +652,7 @@ def levelset_plot(
 
     """
     if layout is None:
-        layout = dict()
+        layout = {}
 
     colorscale = lambda index: pipe(
         px.colors.qualitative.Vivid,
@@ -784,10 +847,10 @@ def plot_order_of_accuracy(
 
     """
     if layout is None:
-        layout = dict()
+        layout = {}
 
     make_order = lambda df: pandas.DataFrame(
-        dict(x=df.x, y=df.x ** 2 * df.y[0] / df.x[0] ** 2, sim_name=r"Δx<sup>2</sup>")
+        dict(x=df.x, y=df.x**2 * df.y[0] / df.x[0] ** 2, sim_name=r"Δx<sup>2</sup>")
     )
 
     return pipe(
@@ -805,7 +868,7 @@ def plot_order_of_accuracy(
             color="sim_name",
             log_x=True,
             log_y=True,
-            labels=get("labels", layout, dict()),
+            labels=get("labels", layout, {}),
         ),
         lambda x: x.update_layout(
             title=get("title", layout, ""),
@@ -833,7 +896,7 @@ def efficiency_plot(benchmark_id):  # pragma: no cover
         )
 
     def df_memory(id_):
-        mem = dict(KB=1, MB=1024, GB=1024 ** 2)
+        mem = dict(KB=1, MB=1024, GB=1024**2)
         func = lambda x: x.value * mem.get(x.unit, 1.0)
         return pipe(
             get_result_data(["memory_usage"], [id_], ["value", "unit"]),

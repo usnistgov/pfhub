@@ -2,6 +2,7 @@
 """
 from urllib.error import HTTPError, URLError
 import logging
+import http
 
 from toolz.curried import compose, curry
 import yaml
@@ -37,7 +38,7 @@ def read_yaml(filepath):
     >>> assert yaml_data['benchmark']['id'] == '1a'
 
     """
-    with open(filepath) as stream:
+    with open(filepath, encoding="utf-8") as stream:
         data = yaml.safe_load(stream)
     return data
 
@@ -118,13 +119,18 @@ def read_csv(sep_, path):
     >>> caplog = getfixture('caplog')
     >>> caplog.set_level(logging.DEBUG)
     >>> read_csv(',', 'http://blah.csv')
-    >>> print(caplog.text)
-    DEBUG    root:func.py:129 <urlopen error [Errno -2] Name or service not known> for http://blah.csv
+    >>> print(caplog.text)  # doctest: +ELLIPSIS
+    DEBUG    root:func.py:... <urlopen error [Errno -2] Name or service not known> for http://blah.csv
     <BLANKLINE>
     """  # pylint: disable=line-too-long # noqa: E501
 
     try:
         return pandas.read_csv(path, sep=sep_, engine="python")
-    except (HTTPError, URLError, FileNotFoundError) as error:
+    except (
+        HTTPError,
+        URLError,
+        FileNotFoundError,
+        http.client.IncompleteRead,
+    ) as error:
         logging.debug("%s for %s", error, path)
         return None

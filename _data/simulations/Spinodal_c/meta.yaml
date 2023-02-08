@@ -37,7 +37,7 @@ data:
       - unit: KB
         value: '8388608'
   - name: free_energy
-    url: 'https://drive.google.com/open?id=19oJVHZ6zaw47TN43E5qk-uGRsqrz0iE7'
+    url: 'https://gist.githubusercontent.com/wd15/c857a6b396a9ce229ba751af3c01a269/raw/4d6aa4fe6e4c7e735440f3f9edb1048c26ca271a/Total_Energy_vs_time.csv'
     format:
       type: csv
       parse:
