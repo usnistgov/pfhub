@@ -10,7 +10,7 @@ title: Publications
 [Olle Heinonen][oh] published a peer-reviewed journal article in
 *Computational Materials Science* entitled ["Benchmark problems for
 numerical implementations of phase field
-models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
+models"](http://doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 
 <iframe width="900"
         height="700"

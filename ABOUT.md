@@ -25,7 +25,7 @@ comment:
 - [Andrea Jokisaari][aj], [Peter Voorhees][pv], [Jon Guyer][jg], [Jim Warren][jw] and [Olle Heinonen][oh]
   published a peer-reviewed journal article in
   *Computational Materials Science* entitled ["Benchmark problems for numerical
-  implementations of phase field models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
+  implementations of phase field models"](http://doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
   - CHiMaD News posted an overview of the article entitled
     ["Benchmark Problems for Phase Field Methods"](
     http://chimad.northwestern.edu/news-events/articles/2016/PhaseField_BenchMark.html).
