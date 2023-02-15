@@ -4,22 +4,22 @@ line_plots:
   - name: "free_energy"
     layout:
       log_y: True
-      x_label: '<i>t</i>'
-      y_label: 'Free Energy, &#8497;'
-      title: "Free Energy v Time"
+      x_label: 'Simulated Time, <i>t</i><sub>Sim</sub>&nbsp;[a.u.]'
+      y_label: 'Simulated Free Energy, &#8497;&nbsp;[a.u.]'
+      title: ""
       range_y:
         - 1.9e+06
         - 2.2e+06
   - name: "solid_fraction"
     layout:
-      y_label: "Solid Fraction"
-      x_label: '<i>t</i>'
-      title: "Solid Fraction v Time"
+      y_label: "Solid Fraction, [a.u.]"
+      x_label: 'Simulated Time, <i>t</i><sub>Sim</sub>&nbsp;[a.u.]'
+      title: ""
   - name: "tip_position"
     layout:
-      y_label: "Tip Position"
-      x_label: '<i>t</i>'
-      title: "Tip Position v Time"
+      y_label: "Tip Position, [a.u.]"
+      x_label: 'Simulated Time, <i>t</i><sub>Sim</sub>&nbsp;[a.u.]'
+      title: ""
   - name: "phase_field_1500"
     layout:
       title: "Solid / Liquid Boundary at t=1500"
