@@ -11,6 +11,7 @@
 , pytestcov
 , jupyter
 , nbval
+, requests-cache
 }:
 buildPythonPackage rec {
   pname = "pfhub";
@@ -28,6 +29,7 @@ buildPythonPackage rec {
     pytestcov
     jupyter
     nbval
+    requests-cache
   ];
 
   checkInputs = [
