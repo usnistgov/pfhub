@@ -5,13 +5,17 @@ benchmark:
 metadata:
   # Describe the runtime environment, hardware and software
   summary: PF Hub benchmark 1d with spherical harmonics method    #
-  author: Artem Tomilo
-  email: "artem.tomilo@mailbox.tu-dresden.de"
+  author:
+    first: Arten
+    last: Tomillo
+    email: "artem.tomilo@mailbox.tu-dresden.de"
+    github_id: bridgeArchitect
   timestamp: "23 February, 2023"
   implementation:
     name: SpeHarSol
     repo:
       url: 'https://gitlab.com/bridgearchitect/speharsol'
+      version: 87aaaa7e967a3c9e73280625b4bc72f938869d88
     container_url: ''
   hardware: # hardware information
     cpu_architecture: x86_64
@@ -40,5 +44,13 @@ data:
       type: csv
       parse:
         time: number
-        mass: number
         total_free_energy: number
+    type: line
+    description: Free Energy Data
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_free_energy
+        as: y
