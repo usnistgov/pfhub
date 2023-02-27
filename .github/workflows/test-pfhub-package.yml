@@ -15,8 +15,18 @@ jobs:
           name: pfhub
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nix-community
+      - run: echo "UID=${UID}" >> $GITHUB_ENV
+      - uses: actions/cache/restore@v3
+        with:
+          path: /run/user/${{ env.UID }}/http_cache.sqlite
+          key: ${{ runner.os}}-http_cache.sqlite
       - run: nix-shell --pure --command "py.test --nbval-lax --cov-fail-under=100"
       - run: nix-shell --pure --command "black --check setup.py pfhub"
       - run: nix-shell --pure --command "pylint setup.py pfhub"
       - run: nix-shell --pure --command "flake8 setup.py pfhub"
       - run: nix-shell --pure --command "py.test --nbval-lax ../../results/benchmark*.ipynb"
+      - uses: actions/cache/save@v3
+        if: always()
+        with:
+          path: /run/user/${{ env.UID }}/http_cache.sqlite
+          key: ${{ runner.os}}-http_cache.sqlite

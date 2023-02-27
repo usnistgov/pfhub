@@ -3,10 +3,22 @@
 from urllib.error import HTTPError, URLError
 import logging
 import http
+import urllib
+import io
+from datetime import timedelta
 
 from toolz.curried import compose, curry
 import yaml
 import pandas
+from requests_cache import CachedSession
+import requests
+
+
+def get_cached_session():
+    """Get the cached session"""
+    return CachedSession(
+        expire_after=timedelta(days=30), backend="sqlite", use_temp=True
+    )
 
 
 def sequence(*args):
@@ -119,18 +131,37 @@ def read_csv(sep_, path):
     >>> caplog = getfixture('caplog')
     >>> caplog.set_level(logging.DEBUG)
     >>> read_csv(',', 'http://blah.csv')
-    >>> print(caplog.text)  # doctest: +ELLIPSIS
-    DEBUG    root:func.py:... <urlopen error [Errno -2] Name or service not known> for http://blah.csv
+    >>> print(caplog.text)  #doctest: +SKIP
+    DEBUG    requests_cache.backends:__init__.py:76 Initializing backend: None http_cache
+        ...
+    DEBUG    root:func.py:... [Errno -2] Name or service not known> for http://blah.csv
     <BLANKLINE>
+
     """  # pylint: disable=line-too-long # noqa: E501
 
     try:
-        return pandas.read_csv(path, sep=sep_, engine="python")
+
+        if urllib.parse.urlparse(str(path)).scheme in ("http", "https"):
+            session = get_cached_session()
+            path_ = io.StringIO(session.get(path).content.decode("utf-8"), newline=None)
+        else:
+            path_ = path
+
+        return pandas.read_csv(path_, sep=sep_, engine="python")
     except (
         HTTPError,
         URLError,
         FileNotFoundError,
         http.client.IncompleteRead,
+        requests.exceptions.ConnectionError,
     ) as error:
         logging.debug("%s for %s", error, path)
         return None
+
+
+@curry
+def debug(stmt, data):  # pragma: no cover
+    """Helpful debug function"""
+    print(stmt)
+    print(data)
+    return data

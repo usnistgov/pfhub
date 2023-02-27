@@ -31,9 +31,7 @@ import pandas
 import plotly.express as px
 import plotly.graph_objects as go
 from scipy.interpolate import griddata
-import requests
-
-from .func import sequence, read_yaml, sep, read_csv
+from .func import sequence, read_yaml, sep, read_csv, get_cached_session
 from .zenodo import zenodo_to_pfhub
 
 
@@ -50,7 +48,20 @@ make_author = lambda x: pipe(
 )
 
 
-get_text = sequence(requests.get, lambda x: "" if x.status_code == 400 else x.text)
+def get_text(url):
+    """get the text from a url response
+
+    Results are cached
+
+    Args:
+      url: the url
+
+    Returns:
+      content.text
+    """
+    data = get_cached_session().get(url)
+    return "" if data.status_code == 400 else data.text
+
 
 fullmatch = curry(re.fullmatch)
 
@@ -596,6 +607,8 @@ def line_plot(
     if layout is None:
         layout = {}
 
+    aspect_ratio = get("aspect_ratio", layout, False)
+
     return pipe(
         get_result_data(
             [data_name], [benchmark_id], list(columns), benchmark_path=benchmark_path
@@ -606,15 +619,25 @@ def line_plot(
             y=columns[1],
             color="sim_name",
             labels=dict(
-                x=get("x", layout, default="x"),
-                y=get("y", layout, default="y"),
+                x=get("x_label", layout, default="x"),
+                y=get("y_label", layout, default="y"),
                 sim_name="Simulation Result",
             ),
             title=get("title", layout, default=""),
             log_x=get("log_x", layout, default=False),
             log_y=get("log_y", layout, default=False),
+            range_y=get("range_y", layout, default=None),
         ),
-        do(lambda x: x.update_layout(title_x=0.5)),
+        do(
+            lambda x: x.update_layout(
+                title_x=0.5,
+                yaxis=(
+                    dict(scaleratio=aspect_ratio, scaleanchor="x")
+                    if aspect_ratio
+                    else {}
+                ),
+            )
+        ),
     )
 
 

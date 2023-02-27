@@ -1,2 +1,10 @@
 ---
 benchmark_id: 2d.1
+line_plots:
+  - name: "free_energy"
+    layout:
+      log_y: True
+      log_x: True
+      x_label: 'Simulated Time, <i>t</i><sub>Sim</sub>&nbsp;[a.u.]'
+      y_label: 'Simulated Free Energy, &#8497;&nbsp;[a.u.]'
+      title: ""
