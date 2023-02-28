@@ -1,0 +1,51 @@
+benchmark:
+  id: 1d
+  version: "1"
+metadata:
+  # Describe the runtime environment, hardware and software
+  summary: PF Hub benchmark 1d with spherical harmonics method    #
+  author:
+    first: Arten
+    last: Tomillo
+    email: "artem.tomilo@mailbox.tu-dresden.de"
+    github_id: bridgeArchitect
+  timestamp: "23 February, 2023"
+  implementation:
+    name: custom
+    repo:
+      url: 'https://gitlab.com/bridgearchitect/speharsol'
+      version: 87aaaa7e967a3c9e73280625b4bc72f938869d88
+    container_url: ''
+  hardware: # hardware information
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '4.0'
+    cores: '6'
+    nodes: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '52378.0'
+        sim_time: '1000000.0'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '458444'
+  - name: free_energy
+    url: >-
+        https://gist.githubusercontent.com/bridgeArchitect/a200e6871db45ab8629f77cce29d9d04/raw/0f31e048593ac1f0d744b7c984e275519fd226ed/gistfile1.txt
+    format:
+      type: csv
+      parse:
+        time: number
+        total_free_energy: number
+    type: line
+    description: Free Energy Data
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_free_energy
+        as: y
