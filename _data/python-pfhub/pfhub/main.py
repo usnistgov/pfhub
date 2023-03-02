@@ -366,18 +366,30 @@ def get_table_data(benchmark_ids, benchmark_path=BENCHMARK_PATH):
     )
 
 
-def make_clickable(name):
+@curry
+def make_clickable(pfhub_path, name):
     """Return a link to the results name
 
-    >>> print(make_clickable('blah'))
-    <a target="_blank" href="https://pages.nist.gov/pfhub/simulations/display/?sim=blah">blah</a>
+    Args:
+      pfhub_path: path to the pfhub base name
+      name: the name of the simulation
+
+    Returns:
+      complete path to the simulation link
+
+    >>> print(make_clickable('https://blah.com/', 'blah'))
+    <a target="_blank" href="https://blah.com/simulations/display/?sim=blah">blah</a>
     """  # pylint: disable=line-too-long # noqa: E501
-    link = "https://pages.nist.gov/pfhub/simulations/display/?sim="
+    link = os.path.join(pfhub_path, "simulations/display/?sim=")
     return f'<a target="_blank" href="{link}{name}">{name}</a>'
 
 
 @curry
-def get_table_data_style(benchmark_ids, benchmark_path=BENCHMARK_PATH):
+def get_table_data_style(
+    benchmark_ids,
+    benchmark_path=BENCHMARK_PATH,
+    pfhub_path="https://pages.nist.gov/pfhub",
+):
     """Get a Pandas DataFrame of result data styled
 
     Args:
@@ -398,7 +410,9 @@ def get_table_data_style(benchmark_ids, benchmark_path=BENCHMARK_PATH):
         lambda x: x.reindex(
             ["Benchmark", "Timestamp", "Name", "Code", "Author", "GitHub ID"], axis=1
         ),
-        lambda x: x.style.format(dict(Name=make_clickable)).hide(axis="index"),
+        lambda x: x.style.format(dict(Name=make_clickable(pfhub_path))).hide(
+            axis="index"
+        ),
         lambda x: x.hide(axis="columns", subset="Benchmark"),
     )
 
