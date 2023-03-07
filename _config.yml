@@ -10,6 +10,7 @@ exclude:
   - "*.ipynb.raw.html"
   - vendor
   - template.ipynb.md
+  - "results/benchmark??.?.md"
 
 links:
   live_url: https://pages.nist.gov/pfhub
