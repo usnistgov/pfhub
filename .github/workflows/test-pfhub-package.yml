@@ -24,6 +24,7 @@ jobs:
       - run: nix-shell --pure --command "black --check setup.py pfhub"
       - run: nix-shell --pure --command "pylint setup.py pfhub"
       - run: nix-shell --pure --command "flake8 setup.py pfhub"
+      - run: nix-shell --pure --command "cd ../../results; make notebooks"
       - run: nix-shell --pure --command "py.test --nbval-lax ../../results/benchmark*.ipynb"
       - uses: actions/cache/save@v3
         if: always()
