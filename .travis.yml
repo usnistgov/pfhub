@@ -20,6 +20,9 @@ install:
 before_script:
   - nix-shell _apps/data/shell.nix --pure --command "echo 'run nix-shell and exit'"
 script:
+  - cd _data/python-pfhub
+  - nix-shell --command "cd ../../results && make notebooks"
+  - cd ../..
   - nix-shell --command "
       pylint _data/*.py &&
       flake8 _data/*.py &&
