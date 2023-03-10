@@ -44,6 +44,7 @@ let
     scipy
     itables
     papermill
+    jupytext
     (if pkgs.stdenv.isDarwin then pypkgs.jupyter else pypkgs.jupyterlab)
   ];
 in
@@ -62,6 +63,10 @@ in
       export PYTHONPATH=$PYTHONPATH:$USER_SITE:$(pwd)
       export PATH=$PATH:$PYTHONUSERBASE/bin
       export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+
+      jupyter serverextension enable jupytext
+      jupyter nbextension install --py jupytext --user
+      jupyter nbextension enable --py jupytext --user
 
     '';
   }))
