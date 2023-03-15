@@ -14,8 +14,4 @@ benchmarks/.ipynb_checkpoints
 .jekyll-cache/
 results/template.ipynb.md
 results/template.ipynb.raw.html
-results/*1*.ipynb
-results/*2*.ipynb
-results/*3*.ipynb
-results/*4*.ipynb
-results/template.ipynb
+results/*.ipynb
