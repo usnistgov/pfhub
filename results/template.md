@@ -96,6 +96,7 @@ for x in line_plots:
         data_name=x['name'],
         benchmark_id=benchmark_id,
         layout=x['layout'],
+        columns=x.get('columns', ('x', 'y'))
     ).show()
 ```
 
