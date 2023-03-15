@@ -154,6 +154,7 @@ def read_csv(sep_, path):
         FileNotFoundError,
         http.client.IncompleteRead,
         requests.exceptions.ConnectionError,
+        pandas.errors.ParserError,
     ) as error:
         logging.debug("%s for %s", error, path)
         return None

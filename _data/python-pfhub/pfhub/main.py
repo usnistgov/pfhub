@@ -575,7 +575,6 @@ def read_vega_data(keys, data):
     read_url = sequence(
         get("url"),
         read_csv(sep(data.get("format"))),
-        maybe(lambda x: x[list(data["format"]["parse"].keys())]),
     )
 
     read_values = sequence(get("values"), pandas.DataFrame)
@@ -584,7 +583,7 @@ def read_vega_data(keys, data):
         data,
         read_url if "url" in data else read_values,
         apply_transforms(data),
-        maybe(lambda x: get(keys, x)),
+        maybe(lambda x: get(keys, x, None)),
     )
 
 
@@ -632,11 +631,11 @@ def line_plot(
             x=columns[0],
             y=columns[1],
             color="sim_name",
-            labels=dict(
-                x=get("x_label", layout, default="x"),
-                y=get("y_label", layout, default="y"),
-                sim_name="Simulation Result",
-            ),
+            labels={
+                columns[0]: get("x_label", layout, default="x"),
+                columns[1]: get("y_label", layout, default="y"),
+                "sim_name": "Simulation Result",
+            },
             title=get("title", layout, default=""),
             log_x=get("log_x", layout, default=False),
             log_y=get("log_y", layout, default=False),
