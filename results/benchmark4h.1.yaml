@@ -1,0 +1,61 @@
+---
+benchmark_id: 4h.1
+line_plots:
+  - name: "all_data"
+    layout:
+      x_label: 'Fictive Time, <i>t</i><sub>aim</sub>&nbsp;[a.u.]'
+      y_label: 'Free Energy, &#8497;&nbsp;[aJ]'
+      title: ""
+      log_x: True
+  - name: "all_data"
+    columns:
+      - time
+      - elastic_free_energy
+    layout:
+      x_label: 'Fictive Time, <i>t</i><sub>sim</sub>&nbsp;[a.u.]'
+      y_label: 'Elastic Free Energy, &#8497;&nbsp;[aJ]'
+      title: ""
+      log_x: True
+  - name: "all_data"
+    columns:
+      - time
+      - a_10
+    layout:
+      x_label: 'Fictive Time, <i>t</i><sub>sim</sub>&nbsp;[a.u.]'
+      y_label: 'Precipitate Length, <i>a</i><sub>10</sub>&nbsp;[nm]'
+      title: ""
+      log_x: True
+  - name: "all_data"
+    columns:
+      - time
+      - a_01
+    layout:
+      x_label: 'Fictive Time, <i>t</i><sub>sim</sub>&nbsp;[a.u.]'
+      y_label: 'Precipitate Length, <i>a</i><sub>01</sub>&nbsp;[nm]'
+      title: ""
+      log_x: True
+  - name: "all_data"
+    columns:
+      - time
+      - a_d
+    layout:
+      x_label: 'Fictive Time, <i>t</i><sub>sim</sub>&nbsp;[aJ]'
+      y_label: 'Precipitate Length, <i>a</i><sub>d</sub>&nbsp;[nm]'
+      title: ""
+      log_x: True
+  - name: "all_data"
+    columns:
+      - time
+      - elastic_free_energy
+    layout:
+      x_label: 'Fictive Time, <i>t</i><sub>sim</sub>&nbsp;[a.u.]'
+      y_label: 'Normalized Elastic Energy, <i>g</i><sub>el</sub><sup>avg</sub>&nbsp;[aJ/nm<sup>2</sup>]'
+      title: ""
+      log_x: True
+  - name: "contour"
+    layout:
+      title: "Precipitate Boundary at Equilibrium"
+      log_x: True
+      x_label: 'x, [nm]'
+      y_label: 'y, [nm]'
+      aspect_ratio: 1.0
