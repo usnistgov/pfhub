@@ -9,7 +9,7 @@ line_plots:
   - name: 'solid_fraction_1'
     layout:
       x_label: 'Time [a.u.]'
-      y_label: 'Solid Fration, [a.u.]'
+      y_label: 'Solid Fraction, [a.u.]'
       title: '<i>r</i><sub>0</sub>=0.99<i>r</i><sup>*</sup>'
   - name: 'free_energy_2'
     layout:
@@ -19,7 +19,7 @@ line_plots:
   - name: 'solid_fraction_2'
     layout:
       x_label: 'Time [a.u.]'
-      y_label: 'Solid Fration, [a.u.]'
+      y_label: 'Solid Fraction, [a.u.]'
       title: '<i>r</i><sub>0</sub>=<i>r</i><sup>*</sup>'
   - name: 'free_energy_3'
     layout:
@@ -29,7 +29,7 @@ line_plots:
   - name: 'solid_fraction_3'
     layout:
       x_label: 'Time [a.u.]'
-      y_label: 'Solid Fration, [a.u.]'
+      y_label: 'Solid Fraction, [a.u.]'
       title: '<i>r</i><sub>0</sub>=1.01<i>r</i><sup>*</sup>'
 contour_plots:
   - name: 'phase_field_1'
