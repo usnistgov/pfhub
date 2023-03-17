@@ -21,6 +21,7 @@ line_plots = [
     dict(name='tip_position', layout=dict(log_y=True, x_label=r'<i>t</i>')),
     dict(name='phase_field_1500', layout=dict(aspect_ratio=1.0))
 ]
+contour_plots = []
 ```
 
 ```python
@@ -96,6 +97,19 @@ for x in line_plots:
         data_name=x['name'],
         benchmark_id=benchmark_id,
         layout=x['layout'],
+        columns=x.get('columns', ('x', 'y'))
+    ).show()
+```
+
+```python
+for x in contour_plots:
+    data = get_result_data([x['name']], [benchmark_id], x['columns'])
+
+    levelset_plot(
+        data,
+        layout=x['layout'],
+        mask_func=lambda df: (x['mask_z'][0] < df.z) & (df.z < x['mask_z'][1]),
+        columns=x['columns']
     ).show()
 ```
 

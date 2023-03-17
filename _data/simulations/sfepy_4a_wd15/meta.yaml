@@ -15,7 +15,7 @@ data:
 - description: All data
   format:
     parse:
-      free_energy: number
+      total_free_energy: number
       time: number
     type: csv
   name: all_data
