@@ -1,5 +1,5 @@
 {
-  tag ? "22.05"
+  tag ? "22.11"
 }:
 let
   pkgs = import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/${tag}.tar.gz") {};
@@ -11,6 +11,19 @@ in
       pkgs.rubyPackages.github-pages
       pkgs.nodePackages.surge
       pypkgs.python
+      ipython
+      ipykernel
+      traitlets
+      notebook
+      widgetsnbextension
+      ipywidgets
+      scipy
+      papermill
+      jupytext
+      matplotlib
+      bokeh
+      scikitimage
+      (if pkgs.stdenv.isDarwin then pypkgs.jupyter else pypkgs.jupyterlab)
     ];
     shellHook = ''
       # export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
