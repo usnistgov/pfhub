@@ -8,8 +8,9 @@
 let
   pkgs = import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/${tag}.tar.gz") {};
   pypkgs = pkgs.python3Packages;
+
   pfhub = pypkgs.callPackage ./default.nix { };
-  extra = with pypkgs; [ black pylint flake8 ipdb chevron requests_mock ];
+  extra = with pypkgs; [ black pylint flake8 ipdb requests_mock ];
   itables = pypkgs.buildPythonPackage rec {
     pname = "itables";
     version = "0.4.6";
@@ -67,6 +68,8 @@ in
       jupyter serverextension enable jupytext
       jupyter nbextension install --py jupytext --user
       jupyter nbextension enable --py jupytext --user
+
+      pip install --user dotwiz
 
     '';
   }))

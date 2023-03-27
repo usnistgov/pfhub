@@ -12,6 +12,10 @@
 , jupyter
 , nbval
 , requests-cache
+, chevron
+, zlib
+, zip
+, unzip
 }:
 buildPythonPackage rec {
   pname = "pfhub";
@@ -30,6 +34,10 @@ buildPythonPackage rec {
     jupyter
     nbval
     requests-cache
+    chevron
+    zlib
+    zip
+    unzip
   ];
 
   checkInputs = [
