@@ -4,6 +4,7 @@
 let
   pkgs = import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/${tag}.tar.gz") {};
   pypkgs = pkgs.python3Packages;
+  pfhub = pypkgs.callPackage ./_data/python-pfhub/default.nix { };
 in
   pkgs.mkShell rec {
     pname = "pfhub-surge";
@@ -23,7 +24,10 @@ in
       matplotlib
       bokeh
       scikitimage
+      papermill
+      jupytext
       (if pkgs.stdenv.isDarwin then pypkgs.jupyter else pypkgs.jupyterlab)
+      pfhub
     ];
     shellHook = ''
       # export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
@@ -34,6 +38,10 @@ in
       export USER_SITE=`python -c "import site; print(site.USER_SITE)"`
       export PYTHONPATH=$PYTHONPATH:$USER_SITE
       export PATH=$PATH:$PYTHONUSERBASE/bin
+
+      jupyter serverextension enable jupytext
+      jupyter nbextension install --py jupytext --user
+      jupyter nbextension enable --py jupytext --user
 
     '';
   }
