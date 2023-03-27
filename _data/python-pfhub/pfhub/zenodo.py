@@ -3,28 +3,13 @@
 import pathlib
 import re
 
-import chevron
 from toolz.curried import get, get_in, pipe, curry, itemmap, assoc, groupby
 from toolz.curried import filter as filter_
 from toolz.curried import map as map_
 from toolz.functoolz import memoize
 import pandas
 
-from .func import read_yaml, read_csv, sep_help, get_cached_session
-
-
-def get_json(url):
-    """Get the json from the URL
-
-    Results are cached
-
-    Args:
-      url: the url
-
-    Returns:
-      contents.json()
-    """
-    return get_cached_session().get(url).json()
+from .func import read_yaml, read_csv, sep_help, get_json, render
 
 
 def get_file_url(pattern, zenodo_json):
@@ -215,7 +200,7 @@ def subs(pfhub_meta, zenodo_meta, benchmark, lines_and_contours):
     )
 
 
-def render(pfhub_json, zenodo_json):
+def render_meta(pfhub_json, zenodo_json):
     """Render the meta.yaml as a string from a Zenodo record using a
     template
 
@@ -227,22 +212,15 @@ def render(pfhub_json, zenodo_json):
       string of the generated PFHub meta.yaml
 
     """
-    with open(
-        pathlib.Path(__file__).parent.resolve() / "templates" / "pfhub_meta.mustache",
-        "r",
-        encoding="utf-8",
-    ) as fstream:
-        data = chevron.render(
-            fstream,
-            subs(
-                pfhub_json["metadata"],
-                zenodo_json["metadata"],
-                pfhub_json["benchmark"],
-                read_and_transform_data(pfhub_json["benchmark"]["id"], zenodo_json),
-            ),
-        )
-
-    return data
+    return render(
+        "pfhub_meta",
+        subs(
+            pfhub_json["metadata"],
+            zenodo_json["metadata"],
+            pfhub_json["benchmark"],
+            read_and_transform_data(pfhub_json["benchmark"]["id"], zenodo_json),
+        ),
+    )
 
 
 def zenodo_to_pfhub(url):
@@ -275,5 +253,8 @@ def zenodo_to_pfhub(url):
         pathlib.Path,
         lambda x: "https://zenodo.org/api/records/" + x.name.split(".")[1],
         get_json,
-        lambda x: render(get_json(get_file_url("pfhub.json", x)), x),
+        lambda x: render_meta(get_json(get_file_url("pfhub.json", x)), x),
     )
+
+
+zenodo_to_meta = zenodo_to_pfhub

@@ -1,11 +1,8 @@
 """Tools for rendering the PFHub data.
 """
 
-from functools import wraps
 import os
 import pathlib
-import urllib
-import re
 
 from toolz.curried import filter as filter_
 from toolz.curried import map as map_
@@ -14,7 +11,6 @@ from toolz.curried import (
     curry,
     assoc,
     pipe,
-    thread_first,
     do,
     get,
     tail,
@@ -31,7 +27,16 @@ import pandas
 import plotly.express as px
 import plotly.graph_objects as go
 from scipy.interpolate import griddata
-from .func import sequence, read_yaml, sep, read_csv, get_cached_session
+
+from .func import (
+    sequence,
+    read_yaml,
+    fullmatch,
+    get_data_from_yaml,
+    concat_items,
+    make_id,
+    read_yaml_from_url,
+)
 from .zenodo import zenodo_to_pfhub
 
 
@@ -40,58 +45,9 @@ BENCHMARK_PATH = str(
 )
 
 
-make_id = lambda x: ".".join([x["benchmark"]["id"], str(x["benchmark"]["version"])])
-
-
 make_author = lambda x: pipe(
     x, get_in(["metadata", "author"]), get(["first", "last"]), " ".join
 )
-
-
-def get_text(url):
-    """get the text from a url response
-
-    Results are cached
-
-    Args:
-      url: the url
-
-    Returns:
-      content.text
-    """
-    data = get_cached_session().get(url)
-    return "" if data.status_code == 400 else data.text
-
-
-fullmatch = curry(re.fullmatch)
-
-
-def read_yaml_from_url(url):
-    """Read a YAML file from a URL
-
-    Args:
-      url: the URL
-
-    Returns:
-      contents of the YAML file
-
-    Just returns empty string with broken URL
-
-    >>> import requests_mock
-    >>> url = "http://test.com"
-    >>> with requests_mock.Mocker() as m:
-    ...     _ = m.get(url, text="---\\na: 1")
-    ...     read_yaml_from_url(url)
-    ...
-    {'a': 1}
-
-    """
-    matchfile = fullmatch(r"file:///[\S]+")
-    if matchfile(url):
-        with urllib.request.urlopen(url) as fpointer:
-            return yaml.safe_load(fpointer)
-    else:
-        return yaml.safe_load(get_text(url))
 
 
 def read_add_name(yaml_url):
@@ -129,102 +85,54 @@ def read_add_name(yaml_url):
     )
 
 
-def maybe(func):
-    """Decorator to allow functions to have the maybe construct.
+@curry
+def resolve_path(benchmark_path, url):
+    """Fix a relative path from the simulation_list.yaml file
 
-    A "maybe" function returns None if passed None.
-
-    Args:
-      func: the function to decorate
-
-    Returns:
-      the decorated function
-
-    >>> @maybe
-    ... def add1(x):
-    ...     return x + 1
-
-    >>> add1(None)
-    >>> add1(1)
-    2
-
-    """
-
-    @curry
-    def wrapper(*args):
-        if args[-1] is None:
-            return None
-        return func(*args)
-
-    return wraps(func)(wrapper)
-
-
-@maybe
-def assign(columns, dataframe):
-    """Curried version of assigning columns to a dataframe
+    Relative paths are allowed in the simulation_list.yaml. This turns
+    those relative paths into correct URIs if not already a URI.
 
     Args:
-      columns: the new columns to append to the dataframe
-      dataframe: dataframe to append to
+      benchmark_path: path to the file with the benchmark result list
+      url: the URL to repair
 
     Returns:
-      a new dataframe
+      the repaired URL
 
-    >>> assign(
-    ...     dict(c=[5, 6]),
-    ...     pandas.DataFrame(dict(a=[1, 2], b=[3, 4]))
-    ... )
-       a  b  c
-    0  1  3  5
-    1  2  4  6
+    >>> resolve_path(None, "file:///blah/blah")
+    'file:///blah/blah'
 
     """
-    return dataframe.assign(**columns)
+    if url[:4] in ["http", "file"]:
+        return url
+    return (pathlib.Path(benchmark_path).parent / url).as_uri()
 
 
-def compact(items):
-    """Remove None items from sequence
+@curry
+def get_yaml_data(benchmark_path, benchmark_ids):
+    """Get all the simulation yaml data for the given benchmarks
 
     Args:
-      items: sequence to remove Nones from
+      benchmark_path: path to data file used by glob
+      benchmark_ids: sequence of benchmark ids
 
     Returns:
-      new sequence with no Nones
+      all the data for the given benchmarks
 
-    >>> list(compact([1, None, 2]))
-    [1, 2]
+    >>> d = getfixture('test_data_path')
+    >>> data = list(get_yaml_data(str(d), ['1a.1', '2a.1']))
+    >>> assert data[0]['name'] in ['result1', 'result2']
+    >>> assert data[1]['name'] in ['result1', 'result2']
 
-    """
-    return filter(lambda x: x is not None, items)
-
-
-def concat_items(items):
-    """Assign new columns and then concatenate sequence of dataframes
-
-    Args:
-      items: sequence of tuples `[(x0, y0), ...]`. `x0` is a
-        dictionary of new columns and `y0` are dataframes
-
-    Returns:
-      concatenated dataframes
-
-    >>> x = pandas.DataFrame(dict(x=[1, 2]))
-    >>> concat_items([(dict(z='z'), x)])
-       x  z
-    0  1  z
-    1  2  z
-    >>> x = pandas.DataFrame(dict(x=[1, 2]))
-    >>> y = pandas.DataFrame(dict(y=[1, 2]))
-    >>> concat_items([(dict(z='z'), x), (dict(), y)])
-         x    z    y
-    0  1.0    z  NaN
-    1  2.0    z  NaN
-    0  NaN  NaN  1.0
-    1  NaN  NaN  2.0
 
     """
-    concat = lambda x: pandas.concat(x) if x != [] else None
-    return pipe(items, map_(lambda x: assign(x[0], x[1])), compact, list, concat)
+    return pipe(
+        benchmark_path,
+        read_yaml,
+        map_(resolve_path(benchmark_path)),
+        map_(read_add_name),
+        filter_(lambda x: make_id(x) in benchmark_ids),
+    )
 
 
 @curry
@@ -282,55 +190,6 @@ def table_results(data):
             Timestamp=data["metadata"]["timestamp"],
         ),
         {"GitHub ID": data["metadata"]["author"]["github_id"]},
-    )
-
-
-@curry
-def resolve_path(benchmark_path, url):
-    """Fix a relative path from the simulation_list.yaml file
-
-    Relative paths are allowed in the simulation_list.yaml. This turns
-    those relative paths into correct URIs if not already a URI.
-
-    Args:
-      benchmark_path: path to the file with the benchmark result list
-      url: the URL to repair
-
-    Returns:
-      the repaired URL
-
-    >>> resolve_path(None, "file:///blah/blah")
-    'file:///blah/blah'
-
-    """
-    if url[:4] in ["http", "file"]:
-        return url
-    return (pathlib.Path(benchmark_path).parent / url).as_uri()
-
-
-@curry
-def get_yaml_data(benchmark_path, benchmark_ids):
-    """Get all the simulation yaml data for the give benchmarks
-
-    Args:
-      benchmark_path: path to data file used by glob
-      benchmark_ids: sequence of benchmark ids
-
-    Returns:
-      all the data for the given benchmarks
-
-    >>> d = getfixture('test_data_path')
-    >>> data = list(get_yaml_data(str(d), ['1a.1', '2a.1']))
-    >>> assert data[0]['name'] in ['result1', 'result2']
-    >>> assert data[1]['name'] in ['result1', 'result2']
-
-    """
-    return pipe(
-        benchmark_path,
-        read_yaml,
-        map_(resolve_path(benchmark_path)),
-        map_(read_add_name),
-        filter_(lambda x: make_id(x) in benchmark_ids),
     )
 
 
@@ -455,135 +314,6 @@ def get_result_data(data_names, benchmark_ids, keys, benchmark_path=BENCHMARK_PA
             )
         ),
         concat_items,
-    )
-
-
-@curry
-def get_data_from_yaml(data_names, keys, yaml_data):
-    """Get data from a single meta.yaml
-
-    Args:
-      data_names: the names of the data blocks to extract
-      keys: columns of each data item
-      yaml_data: dictionary from a single meta.yaml
-
-    Returns:
-      DataFrame from the YAML data block
-
-    >>> d = getfixture('test_data_path')
-    >>> data = list(get_yaml_data(str(d), ['1a.1', '2a.1']))
-
-    >>> get_data_from_yaml(['free_energy'], ['x', 'y'], data[0])
-         x    y     data_set
-    0  0.0  0.0  free_energy
-    1  1.0  1.0  free_energy
-
-    """
-    return pipe(
-        yaml_data,
-        get("data"),
-        filter_(lambda x: x["name"] in data_names),
-        map_(lambda x: (dict(data_set=x["name"]), read_vega_data(keys, x))),
-        concat_items,
-    )
-
-
-@curry
-def apply_transform(transform, values):
-    """Apply a vega transform to a set of values
-
-    This is an inplace operation. This was difficult to implement with
-    "exec" without inplace.
-
-    Args:
-      transform: vega style transform as a dictionary
-      values: the values to transform as a DataFrame
-
-    >>> transform = {'type' : 'formula', 'expr' : '2 * datum.time', 'as' : 'x'}
-    >>> df = pandas.DataFrame(dict(time=[0, 1, 2]))
-    >>> apply_transform(transform, df)
-    >>> df
-       time  x
-    0     0  0
-    1     1  2
-    2     2  4
-
-    >>> apply_transform({'type' : 'blah'}, None)
-    Traceback (most recent call last):
-    ...
-    RuntimeError: blah transform type is not supported
-
-    """
-    if transform["type"] == "formula":
-        datum = values  # pylint: disable=unused-variable  # noqa: F841
-        exec(  # pylint: disable=exec-used
-            "values[transform['as']] = " + transform["expr"]
-        )
-    else:
-        raise RuntimeError(f"{transform['type']} transform type is not supported")
-
-
-@maybe
-def apply_transforms(data, values):
-    """Apply a series of Vega transforms to a set of values
-
-    Args:
-      data: the data block with the transforms
-      values: the values to transform as a DataFrame
-
-    Returns:
-      returns a new set of values as a DataFrame
-
-    >>> data_block = dict(transform=[
-    ...     {'type' : 'formula', 'expr' : '2 * datum.time', 'as' : 'x'},
-    ...     {'type' : 'formula', 'expr' : 'datum.energy / 2', 'as' : 'z'}
-    ... ])
-    >>> df = pandas.DataFrame(dict(time=[0, 1, 2], energy=[10, 20, 30]))
-    >>> apply_transforms(data_block, df)
-       time  energy  x     z
-    0     0      10  0   5.0
-    1     1      20  2  10.0
-    2     2      30  4  15.0
-
-    >>> apply_transforms(dict(), df)
-       time  energy  x     z
-    0     0      10  0   5.0
-    1     1      20  2  10.0
-    2     2      30  4  15.0
-
-    """
-    if "transform" in data:
-        return thread_first(
-            values, *list(map_(lambda x: do(apply_transform(x)), data["transform"]))
-        )
-    return values
-
-
-def read_vega_data(keys, data):
-    """Read vega data given keys to exract
-
-    Read a vega data block given the keys (or columns) to extract
-
-    Args:
-      keys: columns of each data item
-      data: the data block with the given columns
-
-    Returns:
-      The data columns in a pandas DataFrame
-
-    """
-    read_url = sequence(
-        get("url"),
-        read_csv(sep(data.get("format"))),
-    )
-
-    read_values = sequence(get("values"), pandas.DataFrame)
-
-    return pipe(
-        data,
-        read_url if "url" in data else read_values,
-        apply_transforms(data),
-        maybe(lambda x: get(keys, x, None)),
     )
 
 
