@@ -1,3 +1,61 @@
+```python
+from pfhub.convert import convert
+```
+
+```python
+!rm pfhub.yaml pfhub.zip
+```
+
+```python
+out = convert("https://raw.githubusercontent.com/usnistgov/pfhub/master/_data/simulations/fipy_1a_travis/meta.yaml")
+```
+
+```python
+!ls 
+```
+
+```python
+!unzip pfhub.zip
+```
+
+```python
+!cat pfhub.yaml
+```
+
+```python
+dict(a=1, b=2).values()
+```
+
+```python
+!cat /run/user/33396/tmp4qnskpwq/pfhub.yaml
+```
+
+```python
+!file /home/wd15/git/pfhub/simulations/pfhub.zip
+
+```
+
+```python
+!unzip /home/wd15/git/pfhub/simulations/pfhub.zip
+```
+
+```python
+!cat pfhub.yaml
+```
+
+```python
+!ls
+```
+
+```python
+!ls
+```
+
+```python
+print(convert("https://doi.org/10.5281/zenodo.7474506", to="version1"))
+```
+
+<!-- #raw -->
 ---
 title: "Manual Result Upload"
 layout: essay
@@ -7,6 +65,7 @@ comment: >-
   href="/pfhub/simulations/upload_form">upload form</a>.
 
 ---
+<!-- #endraw -->
 
 <h4> Overview </h4>
 
