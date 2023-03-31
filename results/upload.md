@@ -3,15 +3,11 @@ from pfhub.convert import convert
 ```
 
 ```python
-!rm pfhub.yaml pfhub.zip
+!rm pfhub.yaml pfhub.zip free_energy_1a.csv
 ```
 
 ```python
 out = convert("https://raw.githubusercontent.com/usnistgov/pfhub/master/_data/simulations/fipy_1a_travis/meta.yaml")
-```
-
-```python
-!ls 
 ```
 
 ```python
@@ -20,6 +16,10 @@ out = convert("https://raw.githubusercontent.com/usnistgov/pfhub/master/_data/si
 
 ```python
 !cat pfhub.yaml
+```
+
+```python
+!cat free_energy_1a.csv
 ```
 
 ```python

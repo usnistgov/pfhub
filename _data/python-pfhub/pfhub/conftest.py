@@ -23,11 +23,22 @@ benchmark:
 metadata:
   implementation:
     name: code_name
+    repo:
+      url: https://github.com
+      version: dsfa
+  hardware:
+    acc_architecture: none
+    clock_rate: 0
+    cores: 1
+    cpu_architecture: x86_64
+    nodes: 1
   author:
     first: first
     last: last
     github_id: githubid
+    email: first.last@email.com
   timestamp: 2021-12-07
+  summary: "the summary"
 data:
   - name: free_energy
     type: line
@@ -45,6 +56,13 @@ data:
       - type: formula
         expr: datum.y * 2
         as: b
+  - name: run_time
+    values:
+      - sim_time: 1.0
+        wall_time: 1.0
+  - name: memory_usage
+    values:
+      - value: 1.0
 """
     if name is not None:
         data = data + f"\nname: {name}"
