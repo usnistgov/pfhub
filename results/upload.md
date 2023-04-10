@@ -11,6 +11,10 @@ out = convert("https://raw.githubusercontent.com/usnistgov/pfhub/master/_data/si
 ```
 
 ```python
+out = convert("https://raw.githubusercontent.com/usnistgov/pfhub/master/_data/simulations/prismspf_1a/meta.yaml")
+```
+
+```python
 !unzip pfhub.zip
 ```
 
