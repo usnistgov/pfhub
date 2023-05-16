@@ -25,9 +25,9 @@
 
 
 
-<div id="413adf2f-984c-4dee-9289-0b933b44141f" class="output_subarea output_javascript ">
+<div id="446c0a5a-b6e0-45df-bb7c-89c241877304" class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#413adf2f-984c-4dee-9289-0b933b44141f');
+var element = $('#446c0a5a-b6e0-45df-bb7c-89c241877304');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -229,7 +229,7 @@ $$\begin{equation}
 \end{equation}$$$$\begin{equation}
 \alpha(x,t) = \frac{1}{4} + A_1 t \sin\left(B_1 x \right) + A_2 \sin \left(B_2  x + C_2 t \right)
 \end{equation}$$<p>where $A_1$, $B_1$, $A_2$, $B_2$, and $C_2$ are constant parameters.</p>
-<p>This manufactured solution is an equilbrium solution of the governing equation, when $S(x,y,t)=0$ and $\alpha(x,t)$ is constant. The closeness of this manufactured solution to a solution of the nominal governing equation increases the likihood that the behavior of simulation codes when solving this benchmark problem is representive of the solution of the regular Allen-Cahn equation (i.e. without the source term). The form of $\alpha(x,t)$ was chosen to yield complex behavior while still retaining a (somewhat) simple functional form. The two spatial sinusoidal terms introduce two controllable length scales to the interfacial shape. Summing them gives a  &quot;beat&quot; pattern with a period longer than the period of either individual term, permitting a domain size that is larger than the wavelength of the sinusoids without a repeating pattern. The temporal sinusoidal term introduces a controllable time scale to the interfacial shape in addition to the phase transformation time scale, while the linear temporal dependence of the other term ensures that the sinusoidal term can go through multiple periods without $\eta_{sol}$ repeating itself.</p>
+<p>This manufactured solution is an equilbrium solution of the governing equation, when $S(x,y,t)=0$ and $\alpha(x,t)$ is constant. The closeness of this manufactured solution to a solution of the nominal governing equation increases the likihood that the behavior of simulation codes when solving this benchmark problem is representive of the solution of the regular Allen-Cahn equation (i.e. without the source term). The form of $\alpha(x,t)$ was chosen to yield complex behavior while still retaining a (somewhat) simple functional form. The two spatial sinusoidal terms introduce two controllable length scales to the interfacial shape. Summing them gives a  &quot;beat&quot; pattern with a period longer than the period of either individual term, permitting a domain size that is larger than the wavelength of the sinusoids without a repeating pattern. The temporal sinusoidal term introduces a controllable time scale to the interfacial shape in addition to the phase transformation time scale, while the linear temporal dependence of the other term ensures that the sinusoidal term can go through multiple periods without $\eta_{\mathrm{sol}}$ repeating itself.</p>
 <p>Inserting the manufactured solution into the governing equation and solving for $S(x,y,t)$ yields:</p>
 $$\begin{equation}
 S(x,y,t) = \frac{\text{sech}^2 \left[ \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right]}{4 \sqrt{\kappa}} \left[-2\sqrt{\kappa} \tanh \left[\frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right] \left(\frac{\partial \alpha(x,t)}{\partial x} \right)^2+\sqrt{2} \left[ \frac{\partial \alpha(x,t)}{\partial t}-\kappa \frac{\partial^2 \alpha(x,t)}{\partial x^2} \right] \right]
@@ -240,7 +240,9 @@ $$\begin{equation}
 \frac{\partial^2 \alpha(x,t)}{\partial x^2} = -A_1 B_1^2 t \sin\left(B_1 x\right) - A_2 B_2^2 \sin \left(B_2  x + C_2 t \right)
 \end{equation}$$$$\begin{equation}
 \frac{\partial \alpha(x,t)}{\partial t} = A_1 \sin\left(B_1 x\right) + A_2 C_2 \cos \left(B_2  x + C_2 t \right)
-\end{equation}$$<p>** <em>N.B.</em>: Don't transcribe these equations. Please download the appropriate files from the <a href="#Appendix">Appendix</a> **.</p>
+\end{equation}$$<blockquote>
+<p><em>N.B.</em>: Don't transcribe these equations. Please download the appropriate files from the <a href="#Appendix">Appendix</a>.</p>
+</blockquote>
 
 </div>
 </div>
@@ -248,12 +250,12 @@ $$\begin{equation}
 <div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition<a class="anchor-link" href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">&#182;</a></h1><p>The domain geometry is a rectangle that spans [0, 1] in $x$ and [0, 0.5] in $y$. This elongated domain was chosen to allow multiple peaks and valleys in $\eta_{sol}$ without stretching the interface too much in the $y$ direction (which causes the thickness of the interface to change) or having large regions where $\eta_{sol}$  never deviates from 0 or 1. Periodic boundary conditions are applied along the $x = 0$ and the $x = 1$ boundaries to accomodate the periodicity of $\alpha(x,t)$. Dirichlet boundary conditions of $\eta$ = 1 and $\eta$ = 0 are applied along the $y = 0$ and the $y = 0.5$ boundaries, respectively. These boundary conditions are chosen to be consistent with $\eta_{sol}(x,y,t)$. The initial condition is the manufactured solution at $t = 0$:</p>
+<h1 id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition<a class="anchor-link" href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">&#182;</a></h1><p>The domain geometry is a rectangle that spans [0, 1] in $x$ and [0, 0.5] in $y$. This elongated domain was chosen to allow multiple peaks and valleys in $\eta_{\mathrm{sol}}$ without stretching the interface too much in the $y$ direction (which causes the thickness of the interface to change) or having large regions where $\eta_{\mathrm{sol}}$  never deviates from 0 or 1. Periodic boundary conditions are applied along the $x = 0$ and the $x = 1$ boundaries to accomodate the periodicity of $\alpha(x,t)$. Dirichlet boundary conditions of $\eta$ = 1 and $\eta$ = 0 are applied along the $y = 0$ and the $y = 0.5$ boundaries, respectively. These boundary conditions are chosen to be consistent with $\eta_{\mathrm{sol}}(x,y,t)$. The initial condition is the manufactured solution at $t = 0$:</p>
 $$
 \begin{equation}
-\eta_{sol}(x,y,0) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\left(\frac{1}{4}+A_2 \sin(B_2 x) \right)}{\sqrt{2 \kappa}} \right) \right] 
+\eta_{\mathrm{sol}}(x,y,0) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\left(\frac{1}{4}+A_2 \sin(B_2 x) \right)}{\sqrt{2 \kappa}} \right) \right] 
 \end{equation}
-$$<p>The stopping condition for all calculations is when t = 8 time units, which was chosen to let $\alpha(x,t)$ evolve substantially, while still being slower than the characteristic time for the phase evolution (determined by the CFL condition for a uniform mesh with a reasonable level of resolution of $\eta_{sol}$).</p>
+$$<p>The stopping condition for all calculations is when t = 8 time units, which was chosen to let $\alpha(x,t)$ evolve substantially, while still being slower than the characteristic time for the phase evolution (determined by the CFL condition for a uniform mesh with a reasonable level of resolution of $\eta_{\mathrm{sol}}$).</p>
 
 </div>
 </div>
@@ -314,8 +316,8 @@ $$<p>The stopping condition for all calculations is when t = 8 time units, which
 <h2 id="Part-(a)">Part (a)<a class="anchor-link" href="#Part-(a)">&#182;</a></h2><p>The objective of this test is to verify the accuracy of your simulation code in both time and space. Here, we make use of convergence tests, where either the mesh size (or grid point spacing) or the time step size is systematically changed to determine the response of the error to these quantities. Once a convergence test is completed the order of accuracy can be calculated from the result. The order of accuracy can be compared to the theoretical order of accuracy for the numerical method employed in the simulation. If the two match (to a reasonable degree), then one can be confident that the simulation code is working as expected. The remainder of this subsection will give instructions for convergence tests for this MMS problem.</p>
 <p>Implement the MMS problem specified above using the simulation code of your choice. Perform a spatial convergence test by running the simulation for a variety of mesh sizes. For each simulation, determine the discrete $L_2$ norm of the error at $t=8$:</p>
 $$\begin{equation}
-    L_2 = \sqrt{\sum\limits_{x,y}\left(\eta^{t=8}_{x,y} - \eta_{sol}(x,y,8)\right)^2 \Delta x \Delta y}
-\end{equation}$$<p>For all of these simulations, verify that the time step is small enough that any temporal error is much smaller that the total error. This can be accomplished by decreasing the time step until it has minimal effect on the error. Ensure that at least three simulation results have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. This maximum and minimum errors in the range roughly represent a poorly resolved simulation and a very well-resolved simulation.</p>
+    L_2 = \sqrt{\sum\limits_{x,y}\left(\eta^{t=8}_{x,y} - \eta_{\mathrm{sol}}(x,y,8)\right)^2 \Delta x \Delta y}
+\end{equation}$$<p>For all of these simulations, verify that the time step is small enough that any temporal error is much smaller that the total error. This can be accomplished by decreasing the time step until it has minimal effect on the error. Ensure that at least three simulation results have $L_2$ errors in the range $[1 \times 10^{-4}, 5 \times 10^{-3}]$, attempting to cover as much of that range as possible/practical. This maximum and minimum errors in the range roughly represent a poorly resolved simulation and a very well-resolved simulation.</p>
 <p>Save the effective element size, $h$, and the $L_2$ error for each simulation.
 <a href="https://github.com/usnistgov/pfhub/issues/491">Archive this data</a> in a
 CSV or JSON file, using one column (or key) each for $h$ and $L_2$. 
@@ -323,12 +325,12 @@ Calculate the effective element size as the square root of the area of
 the finest part of the mesh for nonuniform meshes. For irregular meshes
 with continuous distributions of element sizes, approximate the effective
 element size as the average of the square root of the area of the smallest
-5% of the elements. Then <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">submit your results on the PFHub website</a> as a 2D data set with the effective mesh size as the x-axis column and the $L_2$ error as the y-axis column.</p>
+5% of the elements. Then <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">submit your results on the PFHub website</a> as a 2D data set with the effective mesh size as the $x$-axis column and the $L_2$ error as the $y$-axis column.</p>
 <p>Next, confirm that the observed order of accuracy is approximately equal to the expected value. Calculate the order of accuracy, $p$, with a least squares fit of the following function:</p>
 $$\begin{equation}
     \log(E)=p \log(R) + b
-\end{equation}$$<p>where $E$ is the $L_2$ error, $R$ is the effective element size, and b is an intercept. Deviations of ±0.2 or more from the theoretical value are to be expected (depending on the range of errors considered and other factors).</p>
-<p>Finally, perform a similar convergence test, but for the time step, systematically changing the time step and recording the $L_2$ error. Use a time step that does not vary over the course of any single simulation. Verify that the spatial discretization error is small enough that it does not substantially contribute to the total error. Once again, ensure that at least three simulations have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. <a href="https://github.com/usnistgov/pfhub/issues/491">Archive the effective mesh size and $L_2$ error</a> for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as a 2D data set with the time step size as the x-axis column and the $L_2$ error as the y-axis column. Confirm that the observed order of accuracy is approximately equal to the expected value.</p>
+\end{equation}$$<p>where $E$ is the $L_2$ error, $R$ is the effective element size, and b is an intercept. Deviations of $\pm 0.2$ or more from the theoretical value are to be expected (depending on the range of errors considered and other factors).</p>
+<p>Finally, perform a similar convergence test, but for the time step, systematically changing the time step and recording the $L_2$ error. Use a time step that does not vary over the course of any single simulation. Verify that the spatial discretization error is small enough that it does not substantially contribute to the total error. Once again, ensure that at least three simulations have $L_2$ errors in the range $[1\times10^{-4}, 5\times10^{-3}]$, attempting to cover as much of that range as possible/practical. <a href="https://github.com/usnistgov/pfhub/issues/491">Archive the effective mesh size and $L_2$ error</a> for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as a 2D data set with the time step size as the $x$-axis column and the $L_2$ error as the $y$-axis column. Confirm that the observed order of accuracy is approximately equal to the expected value.</p>
 
 </div>
 </div>
@@ -336,9 +338,9 @@ $$\begin{equation}
 <div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-(b)">Part (b)<a class="anchor-link" href="#Part-(b)">&#182;</a></h2><p>Now that your code has been verified in (a), the objective of this part is to determine the computational performance of your code at various levels of error. These results can then be used to objectively compare the performance between codes or settings within the same code. To make the problem more computationally demanding and stress solvers more than in (a), decrease $\kappa$ by a factor of $256$ to $1.5625\times10^{-6}$. This change will reduce the interfacial thickness by a factor of $16$.</p>
-<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[5\times10^{-3}, 1\times10^{-5}]$. Use the same CPU and processor type for all simulations. For the best of these simulations, save the wall time (in seconds), number of computing cores, normalized computing cost (wall time in seconds $\times$ number of cores $\times$ nominal core speed $/$ 2 GHz), maximum memory usage, and $L_2$ error at $t=8$ for each individual simulation.  <a href="https://github.com/usnistgov/pfhub/issues/491">Archive this data</a> in a
-CSV or JSON file with one column (or key) for each of the quantities mentioned above. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as two 2D data sets. For the first data set use the $L_2$ error as the x-axis column and the normalized computational cost as the y-axis column. For the second data set,  use the $L_2$ error as the x-axis column and the wall time as the y-axis column.</p>
+<h2 id="Part-(b)">Part (b)<a class="anchor-link" href="#Part-(b)">&#182;</a></h2><p>Now that your code has been verified in (a), the objective of this part is to determine the computational performance of your code at various levels of error. These results can then be used to objectively compare the performance between codes or settings within the same code. To make the problem more computationally demanding and stress solvers more than in (a), decrease $\kappa$ by a factor of $256$ to $1.5625 \times 10^{-6}$. This change will reduce the interfacial thickness by a factor of $16$.</p>
+<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[1 \times 10^{-5}, 5 \times 10^{-3}]$. Use the same CPU and processor type for all simulations. For the best of these simulations, save the wall time (in seconds), number of computing cores, normalized computing cost (wall time in seconds $\times$ number of cores $\times$ nominal core speed $/$ 2 GHz), maximum memory usage, and $L_2$ error at $t=8$ for each individual simulation.  <a href="https://github.com/usnistgov/pfhub/issues/491">Archive this data</a> in a
+CSV or JSON file with one column (or key) for each of the quantities mentioned above. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as two 2D data sets. For the first data set use the $L_2$ error as the $x$-axis column and the normalized computational cost as the $y$-axis column. For the second data set,  use the $L_2$ error as the $x$-axis column and the wall time as the $y$-axis column.</p>
 
 </div>
 </div>
@@ -355,7 +357,7 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 <div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h1><h2 id="Part-(a)-Guidelines">Part (a) Guidelines<a class="anchor-link" href="#Part-(a)-Guidelines">&#182;</a></h2><p>Two data items are required in the &quot;Data Files&quot; section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>spatial</code> and <code>temporal</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the x-axis (either $\Delta t$ or $\Delta x$) and the y-axis ($e_{L2}$) should be labeled correctly for each CSV file. The CSV file for the spatial data should have the form</p>
+<h1 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h1><h2 id="Part-(a)-Guidelines">Part (a) Guidelines<a class="anchor-link" href="#Part-(a)-Guidelines">&#182;</a></h2><p>Two data items are required in the &quot;Data Files&quot; section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>spatial</code> and <code>temporal</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the $x$-axis (either $\Delta t$ or $\Delta x$) and the $y$-axis ($e_{L2}$) should be labeled correctly for each CSV file. The CSV file for the spatial data should have the form</p>
 <pre><code>mesh_size,L2_error
 0.002604167,2.55E-06
 0.00390625,6.26E-06
@@ -368,7 +370,7 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 ...
 
 </code></pre>
-<h2 id="Parts-(b)-and-(c)-Guidelines">Parts (b) and (c) Guidelines<a class="anchor-link" href="#Parts-(b)-and-(c)-Guidelines">&#182;</a></h2><p>Two data items are required in the &quot;Data Files&quot; section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>cost</code> and <code>time</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the x-axis ($e_{L2}$) and the y-axis (either $F_{\text{cost}}$ or $t_{\text{wall}}$) should be labeled correctly for each CSV file. The CSV file for the cost data should have the form</p>
+<h2 id="Parts-(b)-and-(c)-Guidelines">Parts (b) and (c) Guidelines<a class="anchor-link" href="#Parts-(b)-and-(c)-Guidelines">&#182;</a></h2><p>Two data items are required in the &quot;Data Files&quot; section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>cost</code> and <code>time</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the $x$-axis ($e_{L2}$) and the $y$-axis (either $F_{\text{cost}}$ or $t_{\text{wall}}$) should be labeled correctly for each CSV file. The CSV file for the cost data should have the form</p>
 <pre><code>cores,wall_time,memory,error,cost
 1,1.35,25800,0.024275131,1.755
 1,4.57,39400,0.010521502,5.941
@@ -398,7 +400,7 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 <div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h1><h2 id="Computer-algebra-systems">Computer algebra systems<a class="anchor-link" href="#Computer-algebra-systems">&#182;</a></h2><p>Rigorous verification of software frameworks using MMS requires posing the equation and manufacturing the solution with as much complexity as possible. This can be straight-forward, but interesting equations produce complicated source terms. To streamline the MMS workflow, it is strongly recommended that you use a CAS such as SymPy, Maple, or Mathematica to generate source equations and turn it into executable code automatically. For accessibility, we will use <a href="http://www.sympy.org/">SymPy</a>, but so long as vector calculus is supported, CAS will do.</p>
+<h1 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h1><h2 id="Computer-algebra-systems">Computer algebra systems<a class="anchor-link" href="#Computer-algebra-systems">&#182;</a></h2><p>Rigorous verification of software frameworks using MMS requires posing the equation and manufacturing the solution with as much complexity as possible. This can be straight-forward, but interesting equations produce complicated source terms. To streamline the MMS workflow, it is strongly recommended that you use a CAS such as SymPy, Maple, or Mathematica to generate source equations and turn it into executable code automatically. For accessibility, we will use <a href="http://www.sympy.org/">SymPy</a>, but so long as vector calculus is supported, any CAS will do.</p>
 
 </div>
 </div>
@@ -461,14 +463,20 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 </div>
 
 </div>
+<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compare generated expression for $S(x, y, \alpha)$:</p>
+
+</div>
+</div>
+</div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print it, for comparison</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compare generated expression for S:&quot;</span><span class="p">)</span>
-<span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">),</span> <span class="n">S</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">),</span> <span class="n">S</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
 </pre></div>
 
     </div>
@@ -478,17 +486,6 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Compare generated expression for S:
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
@@ -507,6 +504,14 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 </div>
 
 </div>
+<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Expression for $\alpha$:</p>
+
+</div>
+</div>
+</div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
@@ -517,7 +522,6 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 <span class="n">alpha_x</span>  <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">X</span><span class="p">)))</span>
 <span class="n">alpha_xx</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expression for α:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;α =&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 </pre></div>
 
@@ -535,9 +539,7 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Expression for α:
-
-α = A_1*t*sin(R_x*B_1) + A_2*sin(R_x*B_2 + C_2*t) + 1/4
+<pre>α = A_1*t*sin(R_x*B_1) + A_2*sin(R_x*B_2 + C_2*t) + 1/4
 </pre>
 </div>
 </div>
@@ -546,6 +548,14 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 </div>
 
 </div>
+<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Expression for $\eta$:</p>
+
+</div>
+</div>
+</div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -553,7 +563,6 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">η</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">,</span> <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})}))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expression for η:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η =&quot;</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
 </pre></div>
 
@@ -571,9 +580,7 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Expression for η:
-
-η = tanh(sqrt(2)*(4*A_1*t*sin(B_1*x) + 4*A_2*sin(B_2*x + C_2*t) - 4*y + 1)/(8*sqrt(kappa)))/2 + 1/2
+<pre>η = tanh(sqrt(2)*(4*A_1*t*sin(B_1*x) + 4*A_2*sin(B_2*x + C_2*t) - 4*y + 1)/(8*sqrt(kappa)))/2 + 1/2
 </pre>
 </div>
 </div>
@@ -582,6 +589,14 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 </div>
 
 </div>
+<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Expression for $\eta_0$:</p>
+
+</div>
+</div>
+</div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
@@ -589,7 +604,6 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">eta0</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">})}))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expression for η0:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η₀ =&quot;</span><span class="p">,</span> <span class="n">eta0</span><span class="p">)</span>
 </pre></div>
 
@@ -607,9 +621,7 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Expression for η0:
-
-η₀ = tanh(sqrt(2)*(4*A_2*sin(B_2*x) - 4*y + 1)/(8*sqrt(kappa)))/2 + 1/2
+<pre>η₀ = tanh(sqrt(2)*(4*A_2*sin(B_2*x) - 4*y + 1)/(8*sqrt(kappa)))/2 + 1/2
 </pre>
 </div>
 </div>
@@ -617,6 +629,14 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 </div>
 </div>
 
+</div>
+<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Full expression for $S(x, y, t)$:</p>
+
+</div>
+</div>
 </div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -632,8 +652,6 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
     <span class="p">}</span>
 <span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
 
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Expression for S:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S =&quot;</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
 </pre></div>
 
@@ -651,10 +669,7 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Expression for S:
-
-S = -(2*sqrt(kappa)*(A_1*B_1*t*cos(B_1*x) + A_2*B_2*cos(B_2*x + C_2*t))**2*tanh(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa))) + sqrt(2)*kappa*(-A_1*B_1**2*t*sin(B_1*x) - A_2*B_2**2*sin(B_2*x + C_2*t)) - sqrt(2)*(A_1*sin(B_1*x) + A_2*C_2*cos(B_2*x + C_2*t)))*sech(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa)))**2/(4*sqrt(kappa))
+<pre>S = -(2*sqrt(kappa)*(A_1*B_1*t*cos(B_1*x) + A_2*B_2*cos(B_2*x + C_2*t))**2*tanh(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa))) + sqrt(2)*kappa*(-A_1*B_1**2*t*sin(B_1*x) - A_2*B_2**2*sin(B_2*x + C_2*t)) - sqrt(2)*(A_1*sin(B_1*x) + A_2*C_2*cos(B_2*x + C_2*t)))*sech(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa)))**2/(4*sqrt(kappa))
 </pre>
 </div>
 </div>
