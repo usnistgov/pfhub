@@ -25,9 +25,9 @@
 
 
 
-<div id="28f9e8c9-6d31-4915-a325-70adeda5af3c" class="output_subarea output_javascript ">
+<div id="8a8a7bba-a172-4f79-be9f-f76d294dd5fe" class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#28f9e8c9-6d31-4915-a325-70adeda5af3c');
+var element = $('#8a8a7bba-a172-4f79-be9f-f76d294dd5fe');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -466,7 +466,7 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 <div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Compare the generated expressions for $S(x, y, \alpha)$, $\alpha$, and $\eta$:</p>
+<p>Compare the generated expressions for $S(x, y, \alpha)$, $\alpha$, and the derivatives of $\alpha$:</p>
 
 </div>
 </div>
@@ -510,11 +510,210 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">A1</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">B1</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">A2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">B2</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">C2</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-<span class="n">alpha_t</span>  <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">t</span><span class="p">)))</span>
-<span class="n">alpha_x</span>  <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">X</span><span class="p">)))</span>
-<span class="n">alpha_xx</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">),</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
+</pre></div>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;α =&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \alpha = A_{1} t \sin{\left(B_{1} x \right)} + A_{2} \sin{\left(B_{2} x + C_{2} t \right)} + \frac{1}{4}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div  class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha_t</span>  <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">t</span><span class="p">)))</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}),</span> <span class="n">alpha_t</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \frac{\partial}{\partial t} \alpha{\left(x,t \right)} = A_{1} \sin{\left(B_{1} x \right)} + A_{2} C_{2} \cos{\left(B_{2} x + C_{2} t \right)}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div  class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha_x</span>  <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">X</span><span class="p">)))</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}),</span> <span class="n">alpha_x</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \frac{\partial}{\partial x} \alpha{\left(x,t \right)} = A_{1} B_{1} t \cos{\left(B_{1} x \right)} + A_{2} B_{2} \cos{\left(B_{2} x + C_{2} t \right)}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div  class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha_xx</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}),</span> <span class="n">alpha_xx</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \frac{\partial^{2}}{\partial x^{2}} \alpha{\left(x,t \right)} = - A_{1} B_{1}^{2} t \sin{\left(B_{1} x \right)} - A_{2} B_{2}^{2} \sin{\left(B_{2} x + C_{2} t \right)}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div  class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">η</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">,</span> <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})}))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div  class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eta0</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">})}))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div  class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span>
+        <span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>    <span class="n">alpha_t</span><span class="p">,</span>
+        <span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>    <span class="n">alpha_x</span><span class="p">,</span>
+        <span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="n">alpha_xx</span>
+    <span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+<span class="n">eta0</span> <span class="o">=</span> <span class="n">eta0</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Code">Code<a class="anchor-link" href="#Code">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h3><p>Substituting the expression for $\alpha$ into $S(x, y, \alpha)$, the Python code for the full source term $S(x, y, t)$ is</p>
+
+</div>
+</div>
+</div>
+<div  class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S =&quot;</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -531,7 +730,7 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>α = A_1*t*sin(R_x*B_1) + A_2*sin(R_x*B_2 + C_2*t) + 1/4
+<pre>S = -(2*sqrt(kappa)*(A_1*B_1*t*cos(B_1*x) + A_2*B_2*cos(B_2*x + C_2*t))**2*tanh(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa))) + sqrt(2)*kappa*(-A_1*B_1**2*t*sin(B_1*x) - A_2*B_2**2*sin(B_2*x + C_2*t)) - sqrt(2)*(A_1*sin(B_1*x) + A_2*C_2*cos(B_2*x + C_2*t)))*sech(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa)))**2/(4*sqrt(kappa))
 </pre>
 </div>
 </div>
@@ -542,12 +741,41 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 </div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">η</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">,</span> <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})}))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;α =&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η =&quot;</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>α = A_1*t*sin(B_1*x) + A_2*sin(B_2*x + C_2*t) + 1/4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div  class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η =&quot;</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -575,12 +803,10 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 </div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eta0</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">})}))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η₀ =&quot;</span><span class="p">,</span> <span class="n">eta0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η₀ =&quot;</span><span class="p">,</span> <span class="n">eta0</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -609,87 +835,13 @@ $\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \lef
 <div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Substituting the expression for $\alpha$ into $S(x, y, \alpha)$, the Python code for the full source term $S(x, y, t)$ is</p>
-
-</div>
-</div>
-</div>
-<div  class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span>
-        <span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>    <span class="n">alpha_t</span><span class="p">,</span>
-        <span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>    <span class="n">alpha_x</span><span class="p">,</span>
-        <span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="n">alpha_xx</span>
-    <span class="p">}</span>
-<span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S =&quot;</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>S = -(2*sqrt(kappa)*(A_1*B_1*t*cos(B_1*x) + A_2*B_2*cos(B_2*x + C_2*t))**2*tanh(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa))) + sqrt(2)*kappa*(-A_1*B_1**2*t*sin(B_1*x) - A_2*B_2**2*sin(B_2*x + C_2*t)) - sqrt(2)*(A_1*sin(B_1*x) + A_2*C_2*cos(B_2*x + C_2*t)))*sech(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa)))**2/(4*sqrt(kappa))
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Code">Code<a class="anchor-link" href="#Code">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h3><p>Copy the expressions above directly into your program.
-For a performance boost, convert the expressions into lambda functions:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.utilities.lambdify</span> <span class="kn">import</span> <span class="n">lambdify</span>
-
-<span class="n">fast_alpha</span>  <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">],</span>    <span class="n">alpha</span><span class="p">,</span>  <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
-<span class="n">fast_eta</span>    <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">],</span> <span class="n">eta</span><span class="p">,</span>    <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
-<span class="n">fast_eta0</span>   <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span>    <span class="n">eta0</span><span class="p">,</span>   <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
-<span class="n">fast_source</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">],</span> <span class="n">source</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
-</pre></div>
-<blockquote>
-<p>Note: Click &quot;Code Toggle&quot; at the top of the page to see the Python expressions.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-<div  class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="C">C<a class="anchor-link" href="#C">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[(</span><span class="n">c_name</span><span class="p">,</span> <span class="n">code</span><span class="p">),</span> <span class="p">(</span><span class="n">h_name</span><span class="p">,</span> <span class="n">header</span><span class="p">)]</span> <span class="o">=</span> \
@@ -734,7 +886,7 @@ For a performance boost, convert the expressions into lambda functions:</p>
 #ifndef PFHUB__MANUFACTURED__H
 #define PFHUB__MANUFACTURED__H
 
-double alpha(double A_1, double A_2, double B_1, double B_2, double C_2, double R_x, double t);
+double alpha(double A_1, double A_2, double B_1, double B_2, double C_2, double t, double x);
 double eta(double A_1, double A_2, double B_1, double B_2, double C_2, double kappa, double t, double x, double y);
 double eta0(double A_2, double B_2, double kappa, double x, double y);
 double S(double A_1, double A_2, double B_1, double B_2, double C_2, double kappa, double t, double x, double y);
@@ -755,10 +907,10 @@ manufactured.c:
 #include &#34;manufactured.h&#34;
 #include &lt;math.h&gt;
 
-double alpha(double A_1, double A_2, double B_1, double B_2, double C_2, double R_x, double t) {
+double alpha(double A_1, double A_2, double B_1, double B_2, double C_2, double t, double x) {
 
    double alpha_result;
-   alpha_result = A_1*t*sin(R_x*B_1) + A_2*sin(R_x*B_2 + C_2*t) + 1.0/4.0;
+   alpha_result = A_1*t*sin(B_1*x) + A_2*sin(B_2*x + C_2*t) + 1.0/4.0;
    return alpha_result;
 
 }
@@ -804,7 +956,7 @@ double S(double A_1, double A_2, double B_1, double B_2, double C_2, double kapp
 </div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[(</span><span class="n">f_name</span><span class="p">,</span> <span class="n">code</span><span class="p">),</span> <span class="p">(</span><span class="n">f_name</span><span class="p">,</span> <span class="n">header</span><span class="p">)]</span> <span class="o">=</span> \
@@ -844,17 +996,17 @@ double S(double A_1, double A_2, double B_1, double B_2, double C_2, double kapp
 !*                        This file is part of &#39;PFHub&#39;                        *
 !******************************************************************************
 
-REAL*8 function alpha(A_1, A_2, B_1, B_2, C_2, R_x, t)
+REAL*8 function alpha(A_1, A_2, B_1, B_2, C_2, t, x)
 implicit none
 REAL*8, intent(in) :: A_1
 REAL*8, intent(in) :: A_2
 REAL*8, intent(in) :: B_1
 REAL*8, intent(in) :: B_2
 REAL*8, intent(in) :: C_2
-REAL*8, intent(in) :: R_x
 REAL*8, intent(in) :: t
+REAL*8, intent(in) :: x
 
-alpha = A_1*t*sin(R_x*B_1) + A_2*sin(R_x*B_2 + C_2*t) + 1.0d0/4.0d0
+alpha = A_1*t*sin(B_1*x) + A_2*sin(B_2*x + C_2*t) + 1.0d0/4.0d0
 
 end function
 
@@ -934,7 +1086,7 @@ end function
 </div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[(</span><span class="n">f_name</span><span class="p">,</span> <span class="n">code</span><span class="p">)]</span> <span class="o">=</span> \
@@ -972,9 +1124,9 @@ end function
 #
 #   This file is part of &#39;PFHub&#39;
 
-function alpha(A_1, A_2, B_1, B_2, C_2, R_x, t)
+function alpha(A_1, A_2, B_1, B_2, C_2, t, x)
 
-    out1 = A_1 .* t .* sin(R_x .* B_1) + A_2 .* sin(R_x .* B_2 + C_2 .* t) + 1 // 4
+    out1 = A_1 .* t .* sin(B_1 .* x) + A_2 .* sin(B_2 .* x + C_2 .* t) + 1 // 4
 
     return out1
 end
@@ -1017,7 +1169,7 @@ end
 </div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.printing</span> <span class="kn">import</span> <span class="n">mathematica_code</span>
@@ -1042,7 +1194,7 @@ end
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>alpha = A_1*t*Sin[R_x*B_1] + A_2*Sin[R_x*B_2 + C_2*t] + 1/4 
+<pre>alpha = A_1*t*Sin[B_1*x] + A_2*Sin[B_2*x + C_2*t] + 1/4 
 
 eta = (1/2)*Tanh[(1/8)*2^(1/2)*(4*A_1*t*Sin[B_1*x] + 4*A_2*Sin[B_2*x + C_2*t] - 4*y + 1)/kappa^(1/2)] + 1/2 
 
@@ -1067,7 +1219,7 @@ S = -1/4*(2*kappa^(1/2)*(A_1*B_1*t*Cos[B_1*x] + A_2*B_2*Cos[B_2*x + C_2*t])^2*Ta
 </div>
 <div  class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">code</span> <span class="o">=</span> \
@@ -1100,7 +1252,7 @@ S = -1/4*(2*kappa^(1/2)*(A_1*B_1*t*Cos[B_1*x] + A_2*B_2*Cos[B_2*x + C_2*t])^2*Ta
 <pre>manufactured.nb:
 
 alpha.m
-function out1 = alpha(A_1, A_2, B_1, B_2, C_2, R_x, t)
+function out1 = alpha(A_1, A_2, B_1, B_2, C_2, t, x)
   %ALPHA  Autogenerated by SymPy
   %   Code generated with SymPy 1.11.1
   %
@@ -1108,7 +1260,7 @@ function out1 = alpha(A_1, A_2, B_1, B_2, C_2, R_x, t)
   %
   %   This file is part of &#39;PFHub&#39;
 
-  out1 = A_1.*t.*sin(R_x.*B_1) + A_2.*sin(R_x.*B_2 + C_2.*t) + 1/4;
+  out1 = A_1.*t.*sin(B_1.*x) + A_2.*sin(B_2.*x + C_2.*t) + 1/4;
 
 end
 
