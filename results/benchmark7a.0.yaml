@@ -12,20 +12,20 @@ line_plots:
     extra_lines:
       - opacity: 0.5
         x: [0.001, 0.1]
-        y: [1e-6, 1e-2]
-        mode: 'lines'
-        name: '$\mathcal{O}(k^2)$'
-        line_color: 'black'
-        line:
-          dash: 'dot'
-      - opacity: 0.5
-        x: [0.001, 0.1]
         y: [0.0001, 1e-2]
         mode: 'lines'
         name: '$\mathcal{O}(k)$'
         line_color: 'black'
         line:
           dash: 'dash'
+      - opacity: 0.5
+        x: [0.001, 0.1]
+        y: [1e-6, 1e-2]
+        mode: 'lines'
+        name: '$\mathcal{O}(k^2)$'
+        line_color: 'black'
+        line:
+          dash: 'dot'
   - name: 'spatial'
     layout:
       x_label: '$\text{Mesh resolution, }h=\Delta x$'
@@ -41,7 +41,7 @@ line_plots:
         name: '$\mathcal{O}(h)$'
         line_color: 'black'
         line:
-          dash: 'dot'
+          dash: 'dash'
       - opacity: 0.5
         x: [0.001, 0.01]
         y: [1e-5, 1e-3]
@@ -49,7 +49,7 @@ line_plots:
         name: '$\mathcal{O}(h^2)$'
         line_color: 'black'
         line:
-          dash: 'dash'
+          dash: 'dot'
       - opacity: 0.5
         x: [0.001, 0.01]
         y: [1e-7, 1e-3]
