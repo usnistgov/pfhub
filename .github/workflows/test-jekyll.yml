@@ -1,12 +1,12 @@
 ---
-name: Test PFHub Package
+name: Test Jekyll
 on: [push, pull_request]
 jobs:
   pfhub-nix-test:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./_data/python-pfhub
+        working-directory: ./
     steps:
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v20
@@ -20,12 +20,14 @@ jobs:
         with:
           path: /run/user/${{ env.UID }}/http_cache.sqlite
           key: ${{ runner.os}}-http_cache.sqlite
-      - run: nix develop --command bash -c "py.test --nbval-lax --cov-fail-under=100"
-      - run: nix develop --command bash -c "black --check setup.py pfhub"
-      - run: nix develop --command bash -c "pylint setup.py pfhub"
-      - run: nix develop --command bash -c "flake8 setup.py pfhub"
-      - run: nix develop --command bash -c "cd ../../results; make notebooks"
-      - run: nix develop --command bash -c "py.test --nbval-lax ../../results/benchmark*.ipynb"
+      # Following required because of
+      # https://github.com/NixOS/nix/issues/3978#issuecomment-1585001299
+      - run: nix flake lock --update-input pfhub
+      - run: nix develop --command bash -c "make simulations"
+      - run: nix develop --command bash -c "find . -name '*.ipynb' -type f -not -path '*/.ipynb_checkpoints/*' -exec touch {} \;"
+      - run: nix develop --command bash -c "make notebooks"
+      - run: nix develop --command bash -c "rm -rf ./_site"
+      - run: nix develop --command bash -c "jekyll build -d ./_site/pfhub"
       - uses: actions/cache/save@v3
         if: always()
         with:
