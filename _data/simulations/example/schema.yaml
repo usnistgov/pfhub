@@ -125,11 +125,8 @@ mapping:
             required: True
           "parallel_model":
             type: str
-            required: True
-            enum: ["serial", "massive", "threaded", "distributed"]
-
-            type: str
             required: False
+            enum: ["serial", "massive", "threaded", "distributed"]
       "implementation":
         type: map
         required: False
