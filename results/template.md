@@ -22,6 +22,7 @@ line_plots = [
     dict(name='phase_field_1500', layout=dict(aspect_ratio=1.0))
 ]
 contour_plots = []
+efficiency = True
 ```
 
 ```python
@@ -92,13 +93,24 @@ init_notebook_mode(all_interactive=False)
 ```
 
 ```python
+colors = dict()
+
 for x in line_plots:
-    line_plot(
+    fig = line_plot(
         data_name=x['name'],
         benchmark_id=benchmark_id,
         layout=x['layout'],
         columns=x.get('columns', ('x', 'y'))
-    ).show()
+    )
+    if 'extra_lines' in x:
+        for kwargs in x['extra_lines']:
+            fig.add_scatter(**kwargs)  
+    for datum in fig['data']:
+        name = datum['name']
+        color = datum['line']['color']
+        datum['line']['color'] = colors.get(name, color)
+        colors[name] = datum['line']['color']
+    fig.show()
 ```
 
 ```python
@@ -114,9 +126,9 @@ for x in contour_plots:
 ```
 
 ```python
-efficiency_plot(benchmark_id).show()
-
-display_markdown("<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>", raw=True)
+if efficiency:
+    efficiency_plot(benchmark_id).show()
+    display_markdown("<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>", raw=True)
 
 ```
 

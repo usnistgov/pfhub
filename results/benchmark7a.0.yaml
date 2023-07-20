@@ -1,0 +1,60 @@
+---
+benchmark_id: 7a.0
+efficiency: false
+line_plots:
+  - name: 'temporal'
+    layout:
+      x_label: '$\text{Timestep, }k=\Delta t$'
+      y_label: '$L^2 \text{ norm of the error, }e_{L2}$'
+      title: "Temporal Accuracy"
+      log_x: true
+      log_y: true
+    extra_lines:
+      - opacity: 0.5
+        x: [0.001, 0.1]
+        y: [0.0001, 1e-2]
+        mode: 'lines'
+        name: '$\mathcal{O}(k)$'
+        line_color: 'black'
+        line:
+          dash: 'dash'
+      - opacity: 0.5
+        x: [0.001, 0.1]
+        y: [1e-6, 1e-2]
+        mode: 'lines'
+        name: '$\mathcal{O}(k^2)$'
+        line_color: 'black'
+        line:
+          dash: 'dot'
+  - name: 'spatial'
+    layout:
+      x_label: '$\text{Mesh resolution, }h=\Delta x$'
+      y_label: '$L^2 \text{ norm of the error, }e_{L2}$'
+      title: "Spatial Accuracy"
+      log_x: true
+      log_y: true
+    extra_lines:
+      - opacity: 0.5
+        x: [0.001, 0.01]
+        y: [1e-4, 1e-3]
+        mode: 'lines'
+        name: '$\mathcal{O}(h)$'
+        line_color: 'black'
+        line:
+          dash: 'dash'
+      - opacity: 0.5
+        x: [0.001, 0.01]
+        y: [1e-5, 1e-3]
+        mode: 'lines'
+        name: '$\mathcal{O}(h^2)$'
+        line_color: 'black'
+        line:
+          dash: 'dot'
+      - opacity: 0.5
+        x: [0.001, 0.01]
+        y: [1e-7, 1e-3]
+        mode: 'lines'
+        name: '$\mathcal{O}(h^4)$'
+        line_color: 'black'
+        line:
+          dash: 'dashdot'
