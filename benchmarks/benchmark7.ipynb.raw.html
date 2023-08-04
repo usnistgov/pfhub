@@ -26,13 +26,14 @@
 
 
 
-<div id="a3462bcb-4d50-483f-8b62-1e9b5ff67786"></div>
+<div id="15665bce-4f07-476c-8db6-2986ead407aa"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#a3462bcb-4d50-483f-8b62-1e9b5ff67786');
+var element = $('#15665bce-4f07-476c-8db6-2986ead407aa');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
+
 </script>
 </div>
 
@@ -158,7 +159,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
@@ -176,7 +177,7 @@ $( document ).ready(code_toggle);
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[1]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -243,7 +244,7 @@ $( document ).ready(code_toggle);
 \alpha(x,t) = \frac{1}{4} + A_1 t \sin\left(B_1 x \right) + A_2 \sin \left(B_2  x + C_2 t \right)
 \end{equation}$$</p>
 <p>where $A_1$, $B_1$, $A_2$, $B_2$, and $C_2$ are constant parameters.</p>
-<p>This manufactured solution is an equilbrium solution of the governing equation, when $S(x,y,t)=0$ and $\alpha(x,t)$ is constant. The closeness of this manufactured solution to a solution of the nominal governing equation increases the likihood that the behavior of simulation codes when solving this benchmark problem is representive of the solution of the regular Allen-Cahn equation (i.e. without the source term). The form of $\alpha(x,t)$ was chosen to yield complex behavior while still retaining a (somewhat) simple functional form. The two spatial sinusoidal terms introduce two controllable length scales to the interfacial shape. Summing them gives a  "beat" pattern with a period longer than the period of either individual term, permitting a domain size that is larger than the wavelength of the sinusoids without a repeating pattern. The temporal sinusoidal term introduces a controllable time scale to the interfacial shape in addition to the phase transformation time scale, while the linear temporal dependence of the other term ensures that the sinusoidal term can go through multiple periods without $\eta_{sol}$ repeating itself.</p>
+<p>This manufactured solution is an equilbrium solution of the governing equation, when $S(x,y,t)=0$ and $\alpha(x,t)$ is constant. The closeness of this manufactured solution to a solution of the nominal governing equation increases the likihood that the behavior of simulation codes when solving this benchmark problem is representive of the solution of the regular Allen-Cahn equation (i.e. without the source term). The form of $\alpha(x,t)$ was chosen to yield complex behavior while still retaining a (somewhat) simple functional form. The two spatial sinusoidal terms introduce two controllable length scales to the interfacial shape. Summing them gives a  "beat" pattern with a period longer than the period of either individual term, permitting a domain size that is larger than the wavelength of the sinusoids without a repeating pattern. The temporal sinusoidal term introduces a controllable time scale to the interfacial shape in addition to the phase transformation time scale, while the linear temporal dependence of the other term ensures that the sinusoidal term can go through multiple periods without $\eta_{\mathrm{sol}}$ repeating itself.</p>
 <p>Inserting the manufactured solution into the governing equation and solving for $S(x,y,t)$ yields:</p>
 <p>$$\begin{equation}
 S(x,y,t) = \frac{\text{sech}^2 \left[ \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right]}{4 \sqrt{\kappa}} \left[-2\sqrt{\kappa} \tanh \left[\frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \right] \left(\frac{\partial \alpha(x,t)}{\partial x} \right)^2+\sqrt{2} \left[ \frac{\partial \alpha(x,t)}{\partial t}-\kappa \frac{\partial^2 \alpha(x,t)}{\partial x^2} \right] \right]
@@ -258,7 +259,8 @@ S(x,y,t) = \frac{\text{sech}^2 \left[ \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \rig
 <p>$$\begin{equation}
 \frac{\partial \alpha(x,t)}{\partial t} = A_1 \sin\left(B_1 x\right) + A_2 C_2 \cos \left(B_2  x + C_2 t \right)
 \end{equation}$$</p>
-<p><strong> <em>N.B.</em>: Don't transcribe these equations. Please download the appropriate files from the <a href="#Appendix">Appendix</a> </strong>.</p>
+<blockquote><p><em>N.B.</em>: Don't transcribe these equations. Please download the appropriate files from the <a href="#Appendix">Appendix</a>.</p>
+</blockquote>
 
 </div>
 </div>
@@ -267,13 +269,13 @@ S(x,y,t) = \frac{\text{sech}^2 \left[ \frac{y-\alpha(x,t)}{\sqrt{2 \kappa}} \rig
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition<a class="anchor-link" href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">&#182;</a></h1><p>The domain geometry is a rectangle that spans [0, 1] in $x$ and [0, 0.5] in $y$. This elongated domain was chosen to allow multiple peaks and valleys in $\eta_{sol}$ without stretching the interface too much in the $y$ direction (which causes the thickness of the interface to change) or having large regions where $\eta_{sol}$  never deviates from 0 or 1. Periodic boundary conditions are applied along the $x = 0$ and the $x = 1$ boundaries to accomodate the periodicity of $\alpha(x,t)$. Dirichlet boundary conditions of $\eta$ = 1 and $\eta$ = 0 are applied along the $y = 0$ and the $y = 0.5$ boundaries, respectively. These boundary conditions are chosen to be consistent with $\eta_{sol}(x,y,t)$. The initial condition is the manufactured solution at $t = 0$:</p>
+<h1 id="Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">Domain geometry, boundary conditions, initial conditions, and stopping condition<a class="anchor-link" href="#Domain-geometry,-boundary-conditions,-initial-conditions,-and-stopping-condition">&#182;</a></h1><p>The domain geometry is a rectangle that spans [0, 1] in $x$ and [0, 0.5] in $y$. This elongated domain was chosen to allow multiple peaks and valleys in $\eta_{\mathrm{sol}}$ without stretching the interface too much in the $y$ direction (which causes the thickness of the interface to change) or having large regions where $\eta_{\mathrm{sol}}$  never deviates from 0 or 1. Periodic boundary conditions are applied along the $x = 0$ and the $x = 1$ boundaries to accomodate the periodicity of $\alpha(x,t)$. Dirichlet boundary conditions of $\eta$ = 1 and $\eta$ = 0 are applied along the $y = 0$ and the $y = 0.5$ boundaries, respectively. These boundary conditions are chosen to be consistent with $\eta_{\mathrm{sol}}(x,y,t)$. The initial condition is the manufactured solution at $t = 0$:</p>
 <p>$$
 \begin{equation}
-\eta_{sol}(x,y,0) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\left(\frac{1}{4}+A_2 \sin(B_2 x) \right)}{\sqrt{2 \kappa}} \right) \right] 
+\eta_{\mathrm{sol}}(x,y,0) = \frac{1}{2}\left[ 1 - \tanh\left( \frac{y-\left(\frac{1}{4}+A_2 \sin(B_2 x) \right)}{\sqrt{2 \kappa}} \right) \right] 
 \end{equation}
 $$</p>
-<p>The stopping condition for all calculations is when t = 8 time units, which was chosen to let $\alpha(x,t)$ evolve substantially, while still being slower than the characteristic time for the phase evolution (determined by the CFL condition for a uniform mesh with a reasonable level of resolution of $\eta_{sol}$).</p>
+<p>The stopping condition for all calculations is when t = 8 time units, which was chosen to let $\alpha(x,t)$ evolve substantially, while still being slower than the characteristic time for the phase evolution (determined by the CFL condition for a uniform mesh with a reasonable level of resolution of $\eta_{\mathrm{sol}}$).</p>
 
 </div>
 </div>
@@ -336,9 +338,9 @@ $$</p>
 <h2 id="Part-(a)">Part (a)<a class="anchor-link" href="#Part-(a)">&#182;</a></h2><p>The objective of this test is to verify the accuracy of your simulation code in both time and space. Here, we make use of convergence tests, where either the mesh size (or grid point spacing) or the time step size is systematically changed to determine the response of the error to these quantities. Once a convergence test is completed the order of accuracy can be calculated from the result. The order of accuracy can be compared to the theoretical order of accuracy for the numerical method employed in the simulation. If the two match (to a reasonable degree), then one can be confident that the simulation code is working as expected. The remainder of this subsection will give instructions for convergence tests for this MMS problem.</p>
 <p>Implement the MMS problem specified above using the simulation code of your choice. Perform a spatial convergence test by running the simulation for a variety of mesh sizes. For each simulation, determine the discrete $L_2$ norm of the error at $t=8$:</p>
 <p>$$\begin{equation}
-    L_2 = \sqrt{\sum\limits_{x,y}\left(\eta^{t=8}_{x,y} - \eta_{sol}(x,y,8)\right)^2 \Delta x \Delta y}
+    L_2 = \sqrt{\sum\limits_{x,y}\left(\eta^{t=8}_{x,y} - \eta_{\mathrm{sol}}(x,y,8)\right)^2 \Delta x \Delta y}
 \end{equation}$$</p>
-<p>For all of these simulations, verify that the time step is small enough that any temporal error is much smaller that the total error. This can be accomplished by decreasing the time step until it has minimal effect on the error. Ensure that at least three simulation results have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. This maximum and minimum errors in the range roughly represent a poorly resolved simulation and a very well-resolved simulation.</p>
+<p>For all of these simulations, verify that the time step is small enough that any temporal error is much smaller that the total error. This can be accomplished by decreasing the time step until it has minimal effect on the error. Ensure that at least three simulation results have $L_2$ errors in the range $[1 \times 10^{-4}, 5 \times 10^{-3}]$, attempting to cover as much of that range as possible/practical. This maximum and minimum errors in the range roughly represent a poorly resolved simulation and a very well-resolved simulation.</p>
 <p>Save the effective element size, $h$, and the $L_2$ error for each simulation.
 <a href="https://github.com/usnistgov/pfhub/issues/491">Archive this data</a> in a
 CSV or JSON file, using one column (or key) each for $h$ and $L_2$. 
@@ -346,13 +348,13 @@ Calculate the effective element size as the square root of the area of
 the finest part of the mesh for nonuniform meshes. For irregular meshes
 with continuous distributions of element sizes, approximate the effective
 element size as the average of the square root of the area of the smallest
-5% of the elements. Then <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">submit your results on the PFHub website</a> as a 2D data set with the effective mesh size as the x-axis column and the $L_2$ error as the y-axis column.</p>
+5% of the elements. Then <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">submit your results on the PFHub website</a> as a 2D data set with the effective mesh size as the $x$-axis column and the $L_2$ error as the $y$-axis column.</p>
 <p>Next, confirm that the observed order of accuracy is approximately equal to the expected value. Calculate the order of accuracy, $p$, with a least squares fit of the following function:</p>
 <p>$$\begin{equation}
     \log(E)=p \log(R) + b
 \end{equation}$$</p>
-<p>where $E$ is the $L_2$ error, $R$ is the effective element size, and b is an intercept. Deviations of ±0.2 or more from the theoretical value are to be expected (depending on the range of errors considered and other factors).</p>
-<p>Finally, perform a similar convergence test, but for the time step, systematically changing the time step and recording the $L_2$ error. Use a time step that does not vary over the course of any single simulation. Verify that the spatial discretization error is small enough that it does not substantially contribute to the total error. Once again, ensure that at least three simulations have $L_2$ errors in the range $[5\times10^{-3}, 1\times10^{-4}]$, attempting to cover as much of that range as possible/practical. <a href="https://github.com/usnistgov/pfhub/issues/491">Archive the effective mesh size and $L_2$ error</a> for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as a 2D data set with the time step size as the x-axis column and the $L_2$ error as the y-axis column. Confirm that the observed order of accuracy is approximately equal to the expected value.</p>
+<p>where $E$ is the $L_2$ error, $R$ is the effective element size, and b is an intercept. Deviations of $\pm 0.2$ or more from the theoretical value are to be expected (depending on the range of errors considered and other factors).</p>
+<p>Finally, perform a similar convergence test, but for the time step, systematically changing the time step and recording the $L_2$ error. Use a time step that does not vary over the course of any single simulation. Verify that the spatial discretization error is small enough that it does not substantially contribute to the total error. Once again, ensure that at least three simulations have $L_2$ errors in the range $[1\times10^{-4}, 5\times10^{-3}]$, attempting to cover as much of that range as possible/practical. <a href="https://github.com/usnistgov/pfhub/issues/491">Archive the effective mesh size and $L_2$ error</a> for each individual simulation in a CSV or JSON file. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as a 2D data set with the time step size as the $x$-axis column and the $L_2$ error as the $y$-axis column. Confirm that the observed order of accuracy is approximately equal to the expected value.</p>
 
 </div>
 </div>
@@ -361,9 +363,9 @@ element size as the average of the square root of the area of the smallest
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Part-(b)">Part (b)<a class="anchor-link" href="#Part-(b)">&#182;</a></h2><p>Now that your code has been verified in (a), the objective of this part is to determine the computational performance of your code at various levels of error. These results can then be used to objectively compare the performance between codes or settings within the same code. To make the problem more computationally demanding and stress solvers more than in (a), decrease $\kappa$ by a factor of $256$ to $1.5625\times10^{-6}$. This change will reduce the interfacial thickness by a factor of $16$.</p>
-<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[5\times10^{-3}, 1\times10^{-5}]$. Use the same CPU and processor type for all simulations. For the best of these simulations, save the wall time (in seconds), number of computing cores, normalized computing cost (wall time in seconds $\times$ number of cores $\times$ nominal core speed $/$ 2 GHz), maximum memory usage, and $L_2$ error at $t=8$ for each individual simulation.  <a href="https://github.com/usnistgov/pfhub/issues/491">Archive this data</a> in a
-CSV or JSON file with one column (or key) for each of the quantities mentioned above. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as two 2D data sets. For the first data set use the $L_2$ error as the x-axis column and the normalized computational cost as the y-axis column. For the second data set,  use the $L_2$ error as the x-axis column and the wall time as the y-axis column.</p>
+<h2 id="Part-(b)">Part (b)<a class="anchor-link" href="#Part-(b)">&#182;</a></h2><p>Now that your code has been verified in (a), the objective of this part is to determine the computational performance of your code at various levels of error. These results can then be used to objectively compare the performance between codes or settings within the same code. To make the problem more computationally demanding and stress solvers more than in (a), decrease $\kappa$ by a factor of $256$ to $1.5625 \times 10^{-6}$. This change will reduce the interfacial thickness by a factor of $16$.</p>
+<p>Run a series of simulations, attempting to optimize solver parameters (mesh, time step, tolerances, etc.) to minimize the required computational resources for at least three levels of $L_2$ error in range  $[1 \times 10^{-5}, 5 \times 10^{-3}]$. Use the same CPU and processor type for all simulations. For the best of these simulations, save the wall time (in seconds), number of computing cores, normalized computing cost (wall time in seconds $\times$ number of cores $\times$ nominal core speed $/$ 2 GHz), maximum memory usage, and $L_2$ error at $t=8$ for each individual simulation.  <a href="https://github.com/usnistgov/pfhub/issues/491">Archive this data</a> in a
+CSV or JSON file with one column (or key) for each of the quantities mentioned above. <a href="https://pages.nist.gov/pfhub/simulations/upload_form/">Submit your results to the PFHub website</a> as two 2D data sets. For the first data set use the $L_2$ error as the $x$-axis column and the normalized computational cost as the $y$-axis column. For the second data set,  use the $L_2$ error as the $x$-axis column and the wall time as the $y$-axis column.</p>
 
 </div>
 </div>
@@ -382,7 +384,7 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h1><h2 id="Part-(a)-Guidelines">Part (a) Guidelines<a class="anchor-link" href="#Part-(a)-Guidelines">&#182;</a></h2><p>Two data items are required in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>spatial</code> and <code>temporal</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the x-axis (either $\Delta t$ or $\Delta x$) and the y-axis ($e_{L2}$) should be labeled correctly for each CSV file. The CSV file for the spatial data should have the form</p>
+<h1 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h1><h2 id="Part-(a)-Guidelines">Part (a) Guidelines<a class="anchor-link" href="#Part-(a)-Guidelines">&#182;</a></h2><p>Two data items are required in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>spatial</code> and <code>temporal</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the $x$-axis (either $\Delta t$ or $\Delta x$) and the $y$-axis ($e_{L2}$) should be labeled correctly for each CSV file. The CSV file for the spatial data should have the form</p>
 
 <pre><code>mesh_size,L2_error
 0.002604167,2.55E-06
@@ -394,7 +396,7 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 5.00E-04,5.80162E-06
 4.00E-04,4.69709E-06
 ...</code></pre>
-<h2 id="Parts-(b)-and-(c)-Guidelines">Parts (b) and (c) Guidelines<a class="anchor-link" href="#Parts-(b)-and-(c)-Guidelines">&#182;</a></h2><p>Two data items are required in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>cost</code> and <code>time</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the x-axis ($e_{L2}$) and the y-axis (either $F_{\text{cost}}$ or $t_{\text{wall}}$) should be labeled correctly for each CSV file. The CSV file for the cost data should have the form</p>
+<h2 id="Parts-(b)-and-(c)-Guidelines">Parts (b) and (c) Guidelines<a class="anchor-link" href="#Parts-(b)-and-(c)-Guidelines">&#182;</a></h2><p>Two data items are required in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The data items should be labeled as <code>cost</code> and <code>time</code> in the <code>Short name of data</code> box. The 2D radio button should be checked and the columns corresponding to the $x$-axis ($e_{L2}$) and the $y$-axis (either $F_{\text{cost}}$ or $t_{\text{wall}}$) should be labeled correctly for each CSV file. The CSV file for the cost data should have the form</p>
 
 <pre><code>cores,wall_time,memory,error,cost
 1,1.35,25800,0.024275131,1.755
@@ -427,7 +429,7 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h1><h2 id="Computer-algebra-systems">Computer algebra systems<a class="anchor-link" href="#Computer-algebra-systems">&#182;</a></h2><p>Rigorous verification of software frameworks using MMS requires posing the equation and manufacturing the solution with as much complexity as possible. This can be straight-forward, but interesting equations produce complicated source terms. To streamline the MMS workflow, it is strongly recommended that you use a CAS such as SymPy, Maple, or Mathematica to generate source equations and turn it into executable code automatically. For accessibility, we will use <a href="http://www.sympy.org/">SymPy</a>, but so long as vector calculus is supported, CAS will do.</p>
+<h1 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h1><h2 id="Computer-algebra-systems">Computer algebra systems<a class="anchor-link" href="#Computer-algebra-systems">&#182;</a></h2><p>Rigorous verification of software frameworks using MMS requires posing the equation and manufacturing the solution with as much complexity as possible. This can be straight-forward, but interesting equations produce complicated source terms. To streamline the MMS workflow, it is strongly recommended that you use a CAS such as SymPy, Maple, or Mathematica to generate source equations and turn it into executable code automatically. For accessibility, we will use <a href="http://www.sympy.org/">SymPy</a>, but so long as vector calculus is supported, any CAS will do.</p>
 
 </div>
 </div>
@@ -447,42 +449,65 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sympy code to generate expressions for PFHub Problem 7 (MMS)</span>
 
-<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">simplify</span>
-<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">cosh</span><span class="p">,</span> <span class="n">tanh</span><span class="p">,</span> <span class="n">sqrt</span>
-<span class="kn">from</span> <span class="nn">sympy.physics.vector</span> <span class="k">import</span> <span class="n">divergence</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">ReferenceFrame</span><span class="p">,</span> <span class="n">time_derivative</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">cosh</span><span class="p">,</span> <span class="n">sech</span><span class="p">,</span> <span class="n">tanh</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">symbols</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">Rational</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="n">expand</span><span class="p">,</span> <span class="n">simplify</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">Function</span><span class="p">,</span> <span class="n">init_printing</span>
+<span class="kn">from</span> <span class="nn">sympy.abc</span> <span class="k">import</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.vector</span> <span class="k">import</span> <span class="n">ReferenceFrame</span><span class="p">,</span> <span class="n">divergence</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">time_derivative</span>
 <span class="kn">from</span> <span class="nn">sympy.utilities.codegen</span> <span class="k">import</span> <span class="n">codegen</span>
-<span class="kn">from</span> <span class="nn">sympy.abc</span> <span class="k">import</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span>
 
-<span class="c1"># Spatial coordinates: x=R[0], y=R[1], z=R[2]</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">ReferenceFrame</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
+<span class="n">init_printing</span><span class="p">()</span>
 
-<span class="c1"># sinusoid amplitudes</span>
-<span class="n">A1</span><span class="p">,</span> <span class="n">A2</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A1 A2&#39;</span><span class="p">)</span>
-<span class="n">B1</span><span class="p">,</span> <span class="n">B2</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;B1 B2&#39;</span><span class="p">)</span>
-<span class="n">C2</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;C2&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">ReferenceFrame</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">)</span>  <span class="c1"># spatial coords</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="c1"># Define interface offset (alpha)</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">+</span> <span class="n">A1</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">B1</span> <span class="o">*</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> \
-             <span class="o">+</span> <span class="n">A2</span>     <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">B2</span> <span class="o">*</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">C2</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">A1</span><span class="p">,</span> <span class="n">A2</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;A_1 A_2&quot;</span><span class="p">,</span>   <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">B1</span><span class="p">,</span> <span class="n">B2</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;B_1 B_2&quot;</span><span class="p">,</span>   <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">C2</span><span class="p">,</span> <span class="n">κ</span>  <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;C_2 kappa&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># Define the solution equation (eta)</span>
-<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tanh</span><span class="p">((</span><span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">kappa</span><span class="p">)))</span>
+<span class="c1"># Define α symbolically to simplify the expressions for visual comparison</span>
 
-<span class="c1"># Compute the source term from the equation of motion</span>
-<span class="n">source</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">time_derivative</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
-             <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">eta</span> <span class="o">*</span> <span class="p">(</span><span class="n">eta</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">eta</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-             <span class="o">-</span> <span class="n">kappa</span> <span class="o">*</span> <span class="n">divergence</span><span class="p">(</span><span class="n">gradient</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">R</span><span class="p">),</span> <span class="n">R</span><span class="p">))</span>
+<span class="n">α</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">ψ</span> <span class="o">=</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">α</span><span class="p">)</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">κ</span><span class="p">)</span>
+<span class="n">η</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tanh</span><span class="p">(</span><span class="n">ψ</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
 
-<span class="c1"># Replace R[i] with (x, y)</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})</span>
-<span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})</span>
-<span class="n">eta0</span> <span class="o">=</span> <span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">source</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">time_derivative</span><span class="p">(</span><span class="n">η</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span> \
+       <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">η</span> <span class="o">*</span> <span class="p">(</span><span class="n">η</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">η</span> <span class="o">-</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> \
+       <span class="o">-</span> <span class="n">divergence</span><span class="p">(</span><span class="n">κ</span> <span class="o">*</span> <span class="n">gradient</span><span class="p">(</span><span class="n">η</span><span class="p">,</span> <span class="n">R</span><span class="p">),</span> <span class="n">R</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;alpha =&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eta =&quot;</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span>     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eta0 =&quot;</span><span class="p">,</span> <span class="n">eta0</span><span class="p">,</span>  <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S =&quot;</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
+<span class="c1"># Nested `simplify` calls to incorporate the hyperbolic trig</span>
+<span class="c1"># identity, which is not implemented in SymPy</span>
+        
+<span class="n">S</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span>
+        <span class="n">expand</span><span class="p">(</span>
+            <span class="n">simplify</span><span class="p">(</span>
+                <span class="n">expand</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">cosh</span><span class="p">(</span><span class="n">ψ</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sech</span><span class="p">(</span><span class="n">ψ</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">})</span>
+        <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compare the generated expressions for $S(x, y, \alpha)$, $\alpha$, and the derivatives of $\alpha$:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">),</span> <span class="n">S</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
 </pre></div>
 
 </div>
@@ -495,21 +520,206 @@ CSV or JSON file with one column (or key) for each of the quantities mentioned a
 
 <div class="output_area">
 
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>alpha = A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) + 0.25 
 
-eta = -0.5*tanh(sqrt(2)*(-A1*t*sin(B1*x) - A2*sin(B2*x + C2*t) + y - 0.25)/(2*sqrt(kappa))) + 0.5 
 
-eta0 = -0.5*tanh(sqrt(2)*(-A2*sin(B2*x) + y - 0.25)/(2*sqrt(kappa))) + 0.5 
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle S = - \frac{\left(2 \sqrt{\kappa} \tanh{\left(\frac{\sqrt{2} \left(y - \alpha{\left(x,t \right)}\right)}{2 \sqrt{\kappa}} \right)} \left(\frac{\partial}{\partial x} \alpha{\left(x,t \right)}\right)^{2} + \sqrt{2} \kappa \frac{\partial^{2}}{\partial x^{2}} \alpha{\left(x,t \right)} - \sqrt{2} \frac{\partial}{\partial t} \alpha{\left(x,t \right)}\right) \operatorname{sech}^{2}{\left(\frac{\sqrt{2} \left(y - \alpha{\left(x,t \right)}\right)}{2 \sqrt{\kappa}} \right)}}{4 \sqrt{\kappa}}$
+</div>
 
-S = -(tanh(sqrt(2)*(A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) - y + 0.25)/(2*sqrt(kappa)))**2 - 1)*(0.5*sqrt(kappa)*((A1*B1*t*cos(B1*x) + A2*B2*cos(B2*x + C2*t))**2 + 1)*tanh(sqrt(2)*(A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) - y + 0.25)/(2*sqrt(kappa))) - 0.5*sqrt(kappa)*tanh(sqrt(2)*(A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) - y + 0.25)/(2*sqrt(kappa))) + 0.25*sqrt(2)*kappa*(A1*B1**2*t*sin(B1*x) + A2*B2**2*sin(B2*x + C2*t)) + 0.25*sqrt(2)*(A1*sin(B1*x) + A2*C2*cos(B2*x + C2*t)))/sqrt(kappa)
-</pre>
+</div>
+
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">A1</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">B1</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">A2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">B2</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">C2</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">),</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \alpha = A_{1} t \sin{\left(B_{1} x \right)} + A_{2} \sin{\left(B_{2} x + C_{2} t \right)} + \frac{1}{4}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha_t</span>  <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">t</span><span class="p">)))</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}),</span> <span class="n">alpha_t</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \frac{\partial}{\partial t} \alpha{\left(x,t \right)} = A_{1} \sin{\left(B_{1} x \right)} + A_{2} C_{2} \cos{\left(B_{2} x + C_{2} t \right)}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha_x</span>  <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">X</span><span class="p">)))</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}),</span> <span class="n">alpha_x</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \frac{\partial}{\partial x} \alpha{\left(x,t \right)} = A_{1} B_{1} t \cos{\left(B_{1} x \right)} + A_{2} B_{2} \cos{\left(B_{2} x + C_{2} t \right)}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha_xx</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">expand</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+
+<span class="n">Eq</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}),</span> <span class="n">alpha_xx</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">}))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$\displaystyle \frac{\partial^{2}}{\partial x^{2}} \alpha{\left(x,t \right)} = - A_{1} B_{1}^{2} t \sin{\left(B_{1} x \right)} - A_{2} B_{2}^{2} \sin{\left(B_{2} x + C_{2} t \right)}$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">η</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">,</span> <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">})}))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eta0</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="mi">0</span><span class="p">})}))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="n">α</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span>
+        <span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>    <span class="n">alpha_t</span><span class="p">,</span>
+        <span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>    <span class="n">alpha_x</span><span class="p">,</span>
+        <span class="n">diff</span><span class="p">(</span><span class="n">α</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="n">alpha_xx</span>
+    <span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+<span class="n">eta0</span> <span class="o">=</span> <span class="n">eta0</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -526,20 +736,134 @@ S = -(tanh(sqrt(2)*(A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) - y + 0.25)/(2*sqrt(kap
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h3><p>Copy the first cell under Source Term directly into your program.
-For a performance boost, convert the expressions into lambda functions:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.utilities.lambdify</span> <span class="kn">import</span> <span class="n">lambdify</span>
+<h3 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h3><p>Substituting the expression for $\alpha$ into $S(x, y, \alpha)$, the Python code for the full source term $S(x, y, t)$ is</p>
 
-<span class="n">apy</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
-<span class="n">epy</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">eta</span><span class="p">,</span>   <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
-<span class="n">ipy</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">eta0</span><span class="p">,</span>  <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
-<span class="n">Spy</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">S</span><span class="p">,</span>     <span class="n">modules</span><span class="o">=</span><span class="s1">&#39;sympy&#39;</span><span class="p">)</span>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S =&quot;</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
 </pre></div>
-<blockquote><p>Note: Click "Code Toggle" at the top of the page to see the Python expressions.</p>
-</blockquote>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>S = -(2*sqrt(kappa)*(A_1*B_1*t*cos(B_1*x) + A_2*B_2*cos(B_2*x + C_2*t))**2*tanh(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa))) + sqrt(2)*kappa*(-A_1*B_1**2*t*sin(B_1*x) - A_2*B_2**2*sin(B_2*x + C_2*t)) - sqrt(2)*(A_1*sin(B_1*x) + A_2*C_2*cos(B_2*x + C_2*t)))*sech(sqrt(2)*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1/4)/(2*sqrt(kappa)))**2/(4*sqrt(kappa))
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;α =&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>α = A_1*t*sin(B_1*x) + A_2*sin(B_2*x + C_2*t) + 1/4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η =&quot;</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η = tanh(sqrt(2)*(4*A_1*t*sin(B_1*x) + 4*A_2*sin(B_2*x + C_2*t) - 4*y + 1)/(8*sqrt(kappa)))/2 + 1/2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;η₀ =&quot;</span><span class="p">,</span> <span class="n">eta0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>η₀ = tanh(sqrt(2)*(4*A_2*sin(B_2*x) - 4*y + 1)/(8*sqrt(kappa)))/2 + 1/2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -551,14 +875,14 @@ For a performance boost, convert the expressions into lambda functions:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[(</span><span class="n">c_name</span><span class="p">,</span> <span class="n">code</span><span class="p">),</span> <span class="p">(</span><span class="n">h_name</span><span class="p">,</span> <span class="n">header</span><span class="p">)]</span> <span class="o">=</span> \
 <span class="n">codegen</span><span class="p">([(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">),</span>
          <span class="p">(</span><span class="s2">&quot;eta&quot;</span><span class="p">,</span>   <span class="n">eta</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;eta0&quot;</span><span class="p">,</span>  <span class="n">eta</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span>     <span class="n">S</span><span class="p">)],</span>
+         <span class="p">(</span><span class="s2">&quot;eta0&quot;</span><span class="p">,</span>  <span class="n">eta0</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span>     <span class="n">source</span><span class="p">)],</span>
          <span class="n">language</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">,</span>
          <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;manufactured&quot;</span><span class="p">,</span>
          <span class="n">project</span><span class="o">=</span><span class="s2">&quot;PFHub&quot;</span><span class="p">)</span>
@@ -585,7 +909,7 @@ For a performance boost, convert the expressions into lambda functions:</p>
 <pre>manufactured.h:
 
 /******************************************************************************
- *                       Code generated with sympy 1.2                        *
+ *                      Code generated with SymPy 1.11.1                      *
  *                                                                            *
  *              See http://www.sympy.org/ for more information.               *
  *                                                                            *
@@ -596,10 +920,10 @@ For a performance boost, convert the expressions into lambda functions:</p>
 #ifndef PFHUB__MANUFACTURED__H
 #define PFHUB__MANUFACTURED__H
 
-double alpha(double A1, double A2, double B1, double B2, double C2, double t, double x);
-double eta(double A1, double A2, double B1, double B2, double C2, double kappa, double t, double x, double y);
-double eta0(double A1, double A2, double B1, double B2, double C2, double kappa, double t, double x, double y);
-double S(double S);
+double alpha(double A_1, double A_2, double B_1, double B_2, double C_2, double t, double x);
+double eta(double A_1, double A_2, double B_1, double B_2, double C_2, double kappa, double t, double x, double y);
+double eta0(double A_2, double B_2, double kappa, double x, double y);
+double S(double A_1, double A_2, double B_1, double B_2, double C_2, double kappa, double t, double x, double y);
 
 #endif
 
@@ -608,7 +932,7 @@ double S(double S);
 manufactured.c:
 
 /******************************************************************************
- *                       Code generated with sympy 1.2                        *
+ *                      Code generated with SymPy 1.11.1                      *
  *                                                                            *
  *              See http://www.sympy.org/ for more information.               *
  *                                                                            *
@@ -617,34 +941,34 @@ manufactured.c:
 #include &#34;manufactured.h&#34;
 #include &lt;math.h&gt;
 
-double alpha(double A1, double A2, double B1, double B2, double C2, double t, double x) {
+double alpha(double A_1, double A_2, double B_1, double B_2, double C_2, double t, double x) {
 
    double alpha_result;
-   alpha_result = A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) + 0.25;
+   alpha_result = A_1*t*sin(B_1*x) + A_2*sin(B_2*x + C_2*t) + 1.0/4.0;
    return alpha_result;
 
 }
 
-double eta(double A1, double A2, double B1, double B2, double C2, double kappa, double t, double x, double y) {
+double eta(double A_1, double A_2, double B_1, double B_2, double C_2, double kappa, double t, double x, double y) {
 
    double eta_result;
-   eta_result = -0.5*tanh((1.0/2.0)*M_SQRT2*(-A1*t*sin(B1*x) - A2*sin(B2*x + C2*t) + y - 0.25)/sqrt(kappa)) + 0.5;
+   eta_result = (1.0/2.0)*tanh((1.0/8.0)*M_SQRT2*(4*A_1*t*sin(B_1*x) + 4*A_2*sin(B_2*x + C_2*t) - 4*y + 1)/sqrt(kappa)) + 1.0/2.0;
    return eta_result;
 
 }
 
-double eta0(double A1, double A2, double B1, double B2, double C2, double kappa, double t, double x, double y) {
+double eta0(double A_2, double B_2, double kappa, double x, double y) {
 
    double eta0_result;
-   eta0_result = -0.5*tanh((1.0/2.0)*M_SQRT2*(-A1*t*sin(B1*x) - A2*sin(B2*x + C2*t) + y - 0.25)/sqrt(kappa)) + 0.5;
+   eta0_result = (1.0/2.0)*tanh((1.0/8.0)*M_SQRT2*(4*A_2*sin(B_2*x) - 4*y + 1)/sqrt(kappa)) + 1.0/2.0;
    return eta0_result;
 
 }
 
-double S(double S) {
+double S(double A_1, double A_2, double B_1, double B_2, double C_2, double kappa, double t, double x, double y) {
 
    double S_result;
-   S_result = S;
+   S_result = -1.0/4.0*(2*sqrt(kappa)*pow(A_1*B_1*t*cos(B_1*x) + A_2*B_2*cos(B_2*x + C_2*t), 2)*tanh((1.0/2.0)*M_SQRT2*(-A_1*t*sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 1.0/4.0)/sqrt(kappa)) + M_SQRT2*kappa*(-A_1*pow(B_1, 2)*t*sin(B_1*x) - A_2*pow(B_2, 2)*sin(B_2*x + C_2*t)) - M_SQRT2*(A_1*sin(B_1*x) + A_2*C_2*cos(B_2*x + C_2*t)))*pow(1.0/((1.0/2.0)*exp((1.0/2.0)*M_SQRT2*((1.0/2.0)*I*A_1*t*(exp(I*B_1*x) - exp(-I*B_1*x)) + (1.0/2.0)*I*A_2*(-exp(I*(-B_2*x - C_2*t)) + exp(I*(B_2*x + C_2*t))) + y - 1.0/4.0)/sqrt(kappa)) + (1.0/2.0)*exp(-1.0/2.0*M_SQRT2*((1.0/2.0)*I*A_1*t*(exp(I*B_1*x) - exp(-I*B_1*x)) + (1.0/2.0)*I*A_2*(-exp(I*(-B_2*x - C_2*t)) + exp(I*(B_2*x + C_2*t))) + y - 1.0/4.0)/sqrt(kappa))), 2)/sqrt(kappa);
    return S_result;
 
 }
@@ -667,14 +991,14 @@ double S(double S) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[(</span><span class="n">f_name</span><span class="p">,</span> <span class="n">code</span><span class="p">),</span> <span class="p">(</span><span class="n">f_name</span><span class="p">,</span> <span class="n">header</span><span class="p">)]</span> <span class="o">=</span> \
 <span class="n">codegen</span><span class="p">([(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">),</span>
          <span class="p">(</span><span class="s2">&quot;eta&quot;</span><span class="p">,</span>   <span class="n">eta</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;eta0&quot;</span><span class="p">,</span>  <span class="n">eta</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span>     <span class="n">S</span><span class="p">)],</span>
+         <span class="p">(</span><span class="s2">&quot;eta0&quot;</span><span class="p">,</span>  <span class="n">eta0</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span>     <span class="n">source</span><span class="p">)],</span>
          <span class="n">language</span><span class="o">=</span><span class="s2">&quot;f95&quot;</span><span class="p">,</span>
          <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;manufactured&quot;</span><span class="p">,</span>
          <span class="n">project</span><span class="o">=</span><span class="s2">&quot;PFHub&quot;</span><span class="p">)</span>
@@ -700,66 +1024,83 @@ double S(double S) {
 <pre>manufactured.f:
 
 !******************************************************************************
-!*                       Code generated with sympy 1.2                        *
+!*                      Code generated with SymPy 1.11.1                      *
 !*                                                                            *
 !*              See http://www.sympy.org/ for more information.               *
 !*                                                                            *
 !*                        This file is part of &#39;PFHub&#39;                        *
 !******************************************************************************
 
-REAL*8 function alpha(A1, A2, B1, B2, C2, t, x)
+REAL*8 function alpha(A_1, A_2, B_1, B_2, C_2, t, x)
 implicit none
-REAL*8, intent(in) :: A1
-REAL*8, intent(in) :: A2
-REAL*8, intent(in) :: B1
-REAL*8, intent(in) :: B2
-REAL*8, intent(in) :: C2
+REAL*8, intent(in) :: A_1
+REAL*8, intent(in) :: A_2
+REAL*8, intent(in) :: B_1
+REAL*8, intent(in) :: B_2
+REAL*8, intent(in) :: C_2
 REAL*8, intent(in) :: t
 REAL*8, intent(in) :: x
 
-alpha = A1*t*sin(B1*x) + A2*sin(B2*x + C2*t) + 0.25d0
+alpha = A_1*t*sin(B_1*x) + A_2*sin(B_2*x + C_2*t) + 1.0d0/4.0d0
 
 end function
 
-REAL*8 function eta(A1, A2, B1, B2, C2, kappa, t, x, y)
+REAL*8 function eta(A_1, A_2, B_1, B_2, C_2, kappa, t, x, y)
 implicit none
-REAL*8, intent(in) :: A1
-REAL*8, intent(in) :: A2
-REAL*8, intent(in) :: B1
-REAL*8, intent(in) :: B2
-REAL*8, intent(in) :: C2
+REAL*8, intent(in) :: A_1
+REAL*8, intent(in) :: A_2
+REAL*8, intent(in) :: B_1
+REAL*8, intent(in) :: B_2
+REAL*8, intent(in) :: C_2
 REAL*8, intent(in) :: kappa
 REAL*8, intent(in) :: t
 REAL*8, intent(in) :: x
 REAL*8, intent(in) :: y
 
-eta = -0.5d0*tanh(0.70710678118654752d0*kappa**(-0.5d0)*(-A1*t*sin(B1*x &amp;
-      ) - A2*sin(B2*x + C2*t) + y - 0.25d0)) + 0.5d0
+eta = (1.0d0/2.0d0)*tanh(0.17677669529663688d0*kappa**(-0.5d0)*(4.0d0* &amp;
+      A_1*t*sin(B_1*x) + 4.0d0*A_2*sin(B_2*x + C_2*t) - 4.0d0*y + 1.0d0 &amp;
+      )) + 1.0d0/2.0d0
 
 end function
 
-REAL*8 function eta0(A1, A2, B1, B2, C2, kappa, t, x, y)
+REAL*8 function eta0(A_2, B_2, kappa, x, y)
 implicit none
-REAL*8, intent(in) :: A1
-REAL*8, intent(in) :: A2
-REAL*8, intent(in) :: B1
-REAL*8, intent(in) :: B2
-REAL*8, intent(in) :: C2
+REAL*8, intent(in) :: A_2
+REAL*8, intent(in) :: B_2
+REAL*8, intent(in) :: kappa
+REAL*8, intent(in) :: x
+REAL*8, intent(in) :: y
+
+eta0 = (1.0d0/2.0d0)*tanh(0.17677669529663688d0*kappa**(-0.5d0)*(4.0d0* &amp;
+      A_2*sin(B_2*x) - 4.0d0*y + 1.0d0)) + 1.0d0/2.0d0
+
+end function
+
+REAL*8 function S(A_1, A_2, B_1, B_2, C_2, kappa, t, x, y)
+implicit none
+REAL*8, intent(in) :: A_1
+REAL*8, intent(in) :: A_2
+REAL*8, intent(in) :: B_1
+REAL*8, intent(in) :: B_2
+REAL*8, intent(in) :: C_2
 REAL*8, intent(in) :: kappa
 REAL*8, intent(in) :: t
 REAL*8, intent(in) :: x
 REAL*8, intent(in) :: y
 
-eta0 = -0.5d0*tanh(0.70710678118654752d0*kappa**(-0.5d0)*(-A1*t*sin(B1*x &amp;
-      ) - A2*sin(B2*x + C2*t) + y - 0.25d0)) + 0.5d0
-
-end function
-
-REAL*8 function S(S)
-implicit none
-REAL*8, intent(in) :: S
-
-S = S
+S = -1.0d0/4.0d0*(2*sqrt(kappa)*(A_1*B_1*t*cos(B_1*x) + A_2*B_2*cos(B_2* &amp;
+      x + C_2*t))**2*tanh(0.70710678118654752d0*kappa**(-0.5d0)*(-A_1*t &amp;
+      *sin(B_1*x) - A_2*sin(B_2*x + C_2*t) + y - 0.25d0)) + sqrt(2.0d0) &amp;
+      *kappa*(-A_1*B_1**2*t*sin(B_1*x) - A_2*B_2**2*sin(B_2*x + C_2*t &amp;
+      )) - sqrt(2.0d0)*(A_1*sin(B_1*x) + A_2*C_2*cos(B_2*x + C_2*t)))* &amp;
+      1d0/((1.0d0/2.0d0)*exp(0.70710678118654752d0*kappa**(-0.5d0)*( &amp;
+      0.5d0*cmplx(0,1)*A_1*t*(exp(cmplx(0,1)*B_1*x) - exp(-cmplx(0,1)* &amp;
+      B_1*x)) + 0.5d0*cmplx(0,1)*A_2*(-exp(cmplx(0,1)*(-B_2*x - C_2*t &amp;
+      )) + exp(cmplx(0,1)*(B_2*x + C_2*t))) + y - 0.25d0)) + (1.0d0/ &amp;
+      2.0d0)*exp(-0.70710678118654752d0*kappa**(-0.5d0)*(0.5d0*cmplx(0, &amp;
+      1)*A_1*t*(exp(cmplx(0,1)*B_1*x) - exp(-cmplx(0,1)*B_1*x)) + 0.5d0 &amp;
+      *cmplx(0,1)*A_2*(-exp(cmplx(0,1)*(-B_2*x - C_2*t)) + exp(cmplx(0, &amp;
+      1)*(B_2*x + C_2*t))) + y - 0.25d0)))**2/sqrt(kappa)
 
 end function
 
@@ -781,14 +1122,14 @@ end function
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[(</span><span class="n">f_name</span><span class="p">,</span> <span class="n">code</span><span class="p">)]</span> <span class="o">=</span> \
 <span class="n">codegen</span><span class="p">([(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">),</span>
          <span class="p">(</span><span class="s2">&quot;eta&quot;</span><span class="p">,</span>   <span class="n">eta</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;eta0&quot;</span><span class="p">,</span>  <span class="n">eta</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span>     <span class="n">S</span><span class="p">)],</span>
+         <span class="p">(</span><span class="s2">&quot;eta0&quot;</span><span class="p">,</span>  <span class="n">eta0</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span>     <span class="n">source</span><span class="p">)],</span>
          <span class="n">language</span><span class="o">=</span><span class="s2">&quot;julia&quot;</span><span class="p">,</span>
          <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;manufactured&quot;</span><span class="p">,</span>
          <span class="n">project</span><span class="o">=</span><span class="s2">&quot;PFHub&quot;</span><span class="p">)</span>
@@ -813,36 +1154,36 @@ end function
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>manufactured.jl:
 
-#   Code generated with sympy 1.2
+#   Code generated with SymPy 1.11.1
 #
 #   See http://www.sympy.org/ for more information.
 #
 #   This file is part of &#39;PFHub&#39;
 
-function alpha(A1, A2, B1, B2, C2, t, x)
+function alpha(A_1, A_2, B_1, B_2, C_2, t, x)
 
-    out1 = A1.*t.*sin(B1.*x) + A2.*sin(B2.*x + C2.*t) + 0.25
-
-    return out1
-end
-
-function eta(A1, A2, B1, B2, C2, kappa, t, x, y)
-
-    out1 = -0.5*tanh(sqrt(2)*(-A1.*t.*sin(B1.*x) - A2.*sin(B2.*x + C2.*t) + y - 0.25)./(2*sqrt(kappa))) + 0.5
+    out1 = A_1 .* t .* sin(B_1 .* x) + A_2 .* sin(B_2 .* x + C_2 .* t) + 1 // 4
 
     return out1
 end
 
-function eta0(A1, A2, B1, B2, C2, kappa, t, x, y)
+function eta(A_1, A_2, B_1, B_2, C_2, kappa, t, x, y)
 
-    out1 = -0.5*tanh(sqrt(2)*(-A1.*t.*sin(B1.*x) - A2.*sin(B2.*x + C2.*t) + y - 0.25)./(2*sqrt(kappa))) + 0.5
+    out1 = tanh(sqrt(2) * (4 * A_1 .* t .* sin(B_1 .* x) + 4 * A_2 .* sin(B_2 .* x + C_2 .* t) - 4 * y + 1) ./ (8 * sqrt(kappa))) / 2 + 1 // 2
 
     return out1
 end
 
-function S(S)
+function eta0(A_2, B_2, kappa, x, y)
 
-    out1 = S
+    out1 = tanh(sqrt(2) * (4 * A_2 .* sin(B_2 .* x) - 4 * y + 1) ./ (8 * sqrt(kappa))) / 2 + 1 // 2
+
+    return out1
+end
+
+function S(A_1, A_2, B_1, B_2, C_2, kappa, t, x, y)
+
+    out1 = -(2 * sqrt(kappa) .* (A_1 .* B_1 .* t .* cos(B_1 .* x) + A_2 .* B_2 .* cos(B_2 .* x + C_2 .* t)) .^ 2 .* tanh(sqrt(2) * (-A_1 .* t .* sin(B_1 .* x) - A_2 .* sin(B_2 .* x + C_2 .* t) + y - 1 // 4) ./ (2 * sqrt(kappa))) + sqrt(2) * kappa .* (-A_1 .* B_1 .^ 2 .* t .* sin(B_1 .* x) - A_2 .* B_2 .^ 2 .* sin(B_2 .* x + C_2 .* t)) - sqrt(2) * (A_1 .* sin(B_1 .* x) + A_2 .* C_2 .* cos(B_2 .* x + C_2 .* t))) .* sech(sqrt(2) * (-A_1 .* t .* sin(B_1 .* x) - A_2 .* sin(B_2 .* x + C_2 .* t) + y - 1 // 4) ./ (2 * sqrt(kappa))) .^ 2 ./ (4 * sqrt(kappa))
 
     return out1
 end
@@ -865,7 +1206,7 @@ end
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sympy.printing</span> <span class="k">import</span> <span class="n">mathematica_code</span>
@@ -890,13 +1231,13 @@ end
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>alpha = A1*t*Sin[B1*x] + A2*Sin[B2*x + C2*t] + 0.25 
+<pre>alpha = A_1*t*Sin[B_1*x] + A_2*Sin[B_2*x + C_2*t] + 1/4 
 
-eta = -0.5*Tanh[(1/2)*2^(1/2)*(-A1*t*Sin[B1*x] - A2*Sin[B2*x + C2*t] + y - 0.25)/kappa^(1/2)] + 0.5 
+eta = (1/2)*Tanh[(1/8)*2^(1/2)*(4*A_1*t*Sin[B_1*x] + 4*A_2*Sin[B_2*x + C_2*t] - 4*y + 1)/kappa^(1/2)] + 1/2 
 
-eta0 = -0.5*Tanh[(1/2)*2^(1/2)*(-A2*Sin[B2*x] + y - 0.25)/kappa^(1/2)] + 0.5 
+eta0 = (1/2)*Tanh[(1/8)*2^(1/2)*(4*A_2*Sin[B_2*x] - 4*y + 1)/kappa^(1/2)] + 1/2 
 
-S = -(Tanh[(1/2)*2^(1/2)*(A1*t*Sin[B1*x] + A2*Sin[B2*x + C2*t] - y + 0.25)/kappa^(1/2)]^2 - 1)*(0.5*kappa^(1/2)*((A1*B1*t*Cos[B1*x] + A2*B2*Cos[B2*x + C2*t])^2 + 1)*Tanh[(1/2)*2^(1/2)*(A1*t*Sin[B1*x] + A2*Sin[B2*x + C2*t] - y + 0.25)/kappa^(1/2)] - 0.5*kappa^(1/2)*Tanh[(1/2)*2^(1/2)*(A1*t*Sin[B1*x] + A2*Sin[B2*x + C2*t] - y + 0.25)/kappa^(1/2)] + 0.25*2^(1/2)*kappa*(A1*B1^2*t*Sin[B1*x] + A2*B2^2*Sin[B2*x + C2*t]) + 0.25*2^(1/2)*(A1*Sin[B1*x] + A2*C2*Cos[B2*x + C2*t]))/kappa^(1/2) 
+S = -1/4*(2*kappa^(1/2)*(A_1*B_1*t*Cos[B_1*x] + A_2*B_2*Cos[B_2*x + C_2*t])^2*Tanh[(1/2)*2^(1/2)*(-A_1*t*Sin[B_1*x] - A_2*Sin[B_2*x + C_2*t] + y - 1/4)/kappa^(1/2)] + 2^(1/2)*kappa*(-A_1*B_1^2*t*Sin[B_1*x] - A_2*B_2^2*Sin[B_2*x + C_2*t]) - 2^(1/2)*(A_1*Sin[B_1*x] + A_2*C_2*Cos[B_2*x + C_2*t]))*Sech[(1/2)*2^(1/2)*(-A_1*t*Sin[B_1*x] - A_2*Sin[B_2*x + C_2*t] + y - 1/4)/kappa^(1/2)]^2/kappa^(1/2) 
 
 </pre>
 </div>
@@ -916,14 +1257,14 @@ S = -(Tanh[(1/2)*2^(1/2)*(A1*t*Sin[B1*x] + A2*Sin[B2*x + C2*t] - y + 0.25)/kappa
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">code</span> <span class="o">=</span> \
 <span class="n">codegen</span><span class="p">([(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">),</span>
          <span class="p">(</span><span class="s2">&quot;eta&quot;</span><span class="p">,</span>   <span class="n">eta</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;eta0&quot;</span><span class="p">,</span>  <span class="n">eta</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span>     <span class="n">S</span><span class="p">)],</span>
+         <span class="p">(</span><span class="s2">&quot;eta0&quot;</span><span class="p">,</span>  <span class="n">eta0</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span>     <span class="n">source</span><span class="p">)],</span>
          <span class="n">language</span><span class="o">=</span><span class="s2">&quot;octave&quot;</span><span class="p">,</span>
          <span class="n">project</span><span class="o">=</span><span class="s2">&quot;PFHub&quot;</span><span class="p">)</span>
 
@@ -949,33 +1290,33 @@ S = -(Tanh[(1/2)*2^(1/2)*(A1*t*Sin[B1*x] + A2*Sin[B2*x + C2*t] - y + 0.25)/kappa
 <pre>manufactured.nb:
 
 alpha.m
-function out1 = alpha(A1, A2, B1, B2, C2, t, x)
-  %ALPHA  Autogenerated by sympy
-  %   Code generated with sympy 1.2
+function out1 = alpha(A_1, A_2, B_1, B_2, C_2, t, x)
+  %ALPHA  Autogenerated by SymPy
+  %   Code generated with SymPy 1.11.1
   %
   %   See http://www.sympy.org/ for more information.
   %
   %   This file is part of &#39;PFHub&#39;
 
-  out1 = A1.*t.*sin(B1.*x) + A2.*sin(B2.*x + C2.*t) + 0.25;
+  out1 = A_1.*t.*sin(B_1.*x) + A_2.*sin(B_2.*x + C_2.*t) + 1/4;
 
 end
 
-function out1 = eta(A1, A2, B1, B2, C2, kappa, t, x, y)
+function out1 = eta(A_1, A_2, B_1, B_2, C_2, kappa, t, x, y)
 
-  out1 = -0.5*tanh(sqrt(2)*(-A1.*t.*sin(B1.*x) - A2.*sin(B2.*x + C2.*t) + y - 0.25)./(2*sqrt(kappa))) + 0.5;
-
-end
-
-function out1 = eta0(A1, A2, B1, B2, C2, kappa, t, x, y)
-
-  out1 = -0.5*tanh(sqrt(2)*(-A1.*t.*sin(B1.*x) - A2.*sin(B2.*x + C2.*t) + y - 0.25)./(2*sqrt(kappa))) + 0.5;
+  out1 = tanh(sqrt(2)*(4*A_1.*t.*sin(B_1.*x) + 4*A_2.*sin(B_2.*x + C_2.*t) - 4*y + 1)./(8*sqrt(kappa)))/2 + 1/2;
 
 end
 
-function out1 = S(S)
+function out1 = eta0(A_2, B_2, kappa, x, y)
 
-  out1 = S;
+  out1 = tanh(sqrt(2)*(4*A_2.*sin(B_2.*x) - 4*y + 1)./(8*sqrt(kappa)))/2 + 1/2;
+
+end
+
+function out1 = S(A_1, A_2, B_1, B_2, C_2, kappa, t, x, y)
+
+  out1 = -(2*sqrt(kappa).*(A_1.*B_1.*t.*cos(B_1.*x) + A_2.*B_2.*cos(B_2.*x + C_2.*t)).^2.*tanh(sqrt(2)*(-A_1.*t.*sin(B_1.*x) - A_2.*sin(B_2.*x + C_2.*t) + y - 1/4)./(2*sqrt(kappa))) + sqrt(2)*kappa.*(-A_1.*B_1.^2.*t.*sin(B_1.*x) - A_2.*B_2.^2.*sin(B_2.*x + C_2.*t)) - sqrt(2)*(A_1.*sin(B_1.*x) + A_2.*C_2.*cos(B_2.*x + C_2.*t))).*sech(sqrt(2)*(-A_1.*t.*sin(B_1.*x) - A_2.*sin(B_2.*x + C_2.*t) + y - 1/4)./(2*sqrt(kappa))).^2./(4*sqrt(kappa));
 
 end
 

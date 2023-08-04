@@ -182,13 +182,13 @@ def table_results(data):
 
     """
     return merge(
-        dict(
-            Name=data["name"],
-            Code=data["metadata"]["implementation"]["name"],
-            Benchmark=make_id(data),
-            Author=make_author(data),
-            Timestamp=data["metadata"]["timestamp"],
-        ),
+        {
+            "Name": data["name"],
+            "Code": data["metadata"]["implementation"]["name"],
+            "Benchmark": make_id(data),
+            "Author": make_author(data),
+            "Timestamp": data["metadata"]["timestamp"],
+        },
         {"GitHub ID": data["metadata"]["author"]["github_id"]},
     )
 
@@ -269,7 +269,7 @@ def get_table_data_style(
         lambda x: x.reindex(
             ["Benchmark", "Timestamp", "Name", "Code", "Author", "GitHub ID"], axis=1
         ),
-        lambda x: x.style.format(dict(Name=make_clickable(pfhub_path))).hide(
+        lambda x: x.style.format({"Name": make_clickable(pfhub_path)}).hide(
             axis="index"
         ),
         lambda x: x.hide(axis="columns", subset="Benchmark"),
@@ -309,7 +309,7 @@ def get_result_data(data_names, benchmark_ids, keys, benchmark_path=BENCHMARK_PA
         get_yaml_data(benchmark_path),
         map_(
             lambda x: (
-                dict(benchmark_id=make_id(x), sim_name=x["name"]),
+                {"benchmark_id": make_id(x), "sim_name": x["name"]},
                 get_data_from_yaml(data_names, keys, x),
             )
         ),
@@ -317,6 +317,138 @@ def get_result_data(data_names, benchmark_ids, keys, benchmark_path=BENCHMARK_PA
     )
 
 
+<<<<<<< HEAD
+=======
+@curry
+def get_data_from_yaml(data_names, keys, yaml_data):
+    """Get data from a single meta.yaml
+
+    Args:
+      data_names: the names of the data blocks to extract
+      keys: columns of each data item
+      yaml_data: dictionary from a single meta.yaml
+
+    Returns:
+      DataFrame from the YAML data block
+
+    >>> d = getfixture('test_data_path')
+    >>> data = list(get_yaml_data(str(d), ['1a.1', '2a.1']))
+
+    >>> get_data_from_yaml(['free_energy'], ['x', 'y'], data[0])
+         x    y     data_set
+    0  0.0  0.0  free_energy
+    1  1.0  1.0  free_energy
+
+    """
+    return pipe(
+        yaml_data,
+        get("data"),
+        filter_(lambda x: x["name"] in data_names),
+        map_(lambda x: ({"data_set": x["name"]}, read_vega_data(keys, x))),
+        concat_items,
+    )
+
+
+@curry
+def apply_transform(transform, values):
+    """Apply a vega transform to a set of values
+
+    This is an inplace operation. This was difficult to implement with
+    "exec" without inplace.
+
+    Args:
+      transform: vega style transform as a dictionary
+      values: the values to transform as a DataFrame
+
+    >>> transform = {'type' : 'formula', 'expr' : '2 * datum.time', 'as' : 'x'}
+    >>> df = pandas.DataFrame(dict(time=[0, 1, 2]))
+    >>> apply_transform(transform, df)
+    >>> df
+       time  x
+    0     0  0
+    1     1  2
+    2     2  4
+
+    >>> apply_transform({'type' : 'blah'}, None)
+    Traceback (most recent call last):
+    ...
+    RuntimeError: blah transform type is not supported
+
+    """
+    if transform["type"] == "formula":
+        datum = values  # pylint: disable=unused-variable  # noqa: F841
+        exec(  # pylint: disable=exec-used
+            "values[transform['as']] = " + transform["expr"]
+        )
+    else:
+        raise RuntimeError(f"{transform['type']} transform type is not supported")
+
+
+@maybe
+def apply_transforms(data, values):
+    """Apply a series of Vega transforms to a set of values
+
+    Args:
+      data: the data block with the transforms
+      values: the values to transform as a DataFrame
+
+    Returns:
+      returns a new set of values as a DataFrame
+
+    >>> data_block = dict(transform=[
+    ...     {'type' : 'formula', 'expr' : '2 * datum.time', 'as' : 'x'},
+    ...     {'type' : 'formula', 'expr' : 'datum.energy / 2', 'as' : 'z'}
+    ... ])
+    >>> df = pandas.DataFrame(dict(time=[0, 1, 2], energy=[10, 20, 30]))
+    >>> apply_transforms(data_block, df)
+       time  energy  x     z
+    0     0      10  0   5.0
+    1     1      20  2  10.0
+    2     2      30  4  15.0
+
+    >>> apply_transforms(dict(), df)
+       time  energy  x     z
+    0     0      10  0   5.0
+    1     1      20  2  10.0
+    2     2      30  4  15.0
+
+    """
+    if "transform" in data:
+        return thread_first(
+            values, *list(map_(lambda x: do(apply_transform(x)), data["transform"]))
+        )
+    return values
+
+
+def read_vega_data(keys, data):
+    """Read vega data given keys to exract
+
+    Read a vega data block given the keys (or columns) to extract
+
+    Args:
+      keys: columns of each data item
+      data: the data block with the given columns
+
+    Returns:
+      The data columns in a pandas DataFrame
+
+    """
+    read_url = sequence(
+        get("url"),
+        read_csv(sep(data.get("format"))),
+    )
+
+    read_values = sequence(get("values"), pandas.DataFrame)
+
+    return pipe(
+        data,
+        read_url if "url" in data else read_values,
+        apply_transforms(data),
+        maybe(lambda x: get(keys, x, None)),
+    )
+
+
+>>>>>>> flakes
 def line_plot(
     data_name,
     benchmark_id,
@@ -375,7 +507,7 @@ def line_plot(
             lambda x: x.update_layout(
                 title_x=0.5,
                 yaxis=(
-                    dict(scaleratio=aspect_ratio, scaleanchor="x")
+                    {"scaleratio": aspect_ratio, "scaleanchor": "x"}
                     if aspect_ratio
                     else {}
                 ),
@@ -430,12 +562,12 @@ def levelset_plot(
         z=df[columns[2]],
         x=df[columns[0]],
         y=df[columns[1]],
-        contours=dict(
-            start=get("levelset", layout, 0.0),
-            end=get("levelset", layout, 0.0),
-            size=0.0,
-            coloring="lines",
-        ),
+        contours={
+            "start": get("levelset", layout, 0.0),
+            "end": get("levelset", layout, 0.0),
+            "size": 0.0,
+            "coloring": "lines",
+        },
         colorbar=None,
         showscale=False,
         line_width=2,
@@ -447,12 +579,12 @@ def levelset_plot(
     update_layout = lambda fig: fig.update_layout(
         title=get("title", layout, ""),
         title_x=0.5,
-        xaxis=dict(range=get("range", layout, [-1, 1]), constrain="domain"),
-        yaxis=dict(
-            scaleanchor="x",
-            scaleratio=1,
-            range=get("range", layout, [-1, 1]),
-        ),
+        xaxis={"range": get("range", layout, [-1, 1]), "constrain": "domain"},
+        yaxis={
+            "scaleanchor": "x",
+            "scaleratio": 1,
+            "range": get("range", layout, [-1, 1]),
+        },
     )
 
     return pipe(
@@ -616,14 +748,18 @@ def plot_order_of_accuracy(
         layout = {}
 
     make_order = lambda df: pandas.DataFrame(
-        dict(x=df.x, y=df.x**2 * df.y[0] / df.x[0] ** 2, sim_name=r"Δx<sup>2</sup>")
+        {
+            "x": df.x,
+            "y": df.x**2 * df.y[0] / df.x[0] ** 2,
+            "sim_name": r"Δx<sup>2</sup>",
+        }
     )
 
     return pipe(
         dataframe,
         order_of_accuracy_values_(keys, stepsx, stepsy),
         lambda x: x.items(),
-        map_(lambda x: dict(x=x[1][0], y=x[1][1], sim_name=x[0])),
+        map_(lambda x: {"x": x[1][0], "y": x[1][1], "sim_name": x[0]}),
         map_(pandas.DataFrame),
         list,
         lambda x: pandas.concat(x + [make_order(x[0])]),
@@ -643,18 +779,23 @@ def plot_order_of_accuracy(
     )
 
 
-def efficiency_plot(benchmark_id):  # pragma: no cover
+def efficiency_plot(benchmark_id, benchmark_path=BENCHMARK_PATH):  # pragma: no cover
     """Plot memory usage vs. runtime for a given benchmark
 
     Args:
       benchmark_id: the benchmark ID to plot
-
+      benchmark_path: path to data file used by glob
     """
 
     def df_time(id_):
         norm = lambda x: x.wall_time.astype(float) / x.sim_time.astype(float)
         return pipe(
-            get_result_data(["run_time"], [id_], ["sim_time", "wall_time"]),
+            get_result_data(
+                ["run_time"],
+                [id_],
+                ["sim_time", "wall_time"],
+                benchmark_path=benchmark_path,
+            ),
             lambda x: get(
                 x.groupby(["sim_name"])["sim_time"].transform(max) == x["sim_time"], x
             ),
@@ -662,10 +803,15 @@ def efficiency_plot(benchmark_id):  # pragma: no cover
         )
 
     def df_memory(id_):
-        mem = dict(KB=1, MB=1024, GB=1024**2)
+        mem = {"KB": 1, "MB": 1024, "GB": 1024**2}
         func = lambda x: x.value * mem.get(x.unit, 1.0)
         return pipe(
-            get_result_data(["memory_usage"], [id_], ["value", "unit"]),
+            get_result_data(
+                ["memory_usage"],
+                [id_],
+                ["value", "unit"],
+                benchmark_path=benchmark_path,
+            ),
             lambda x: x.assign(memory_norm=x.apply(func, axis=1)),
         )
 
@@ -683,11 +829,11 @@ def efficiency_plot(benchmark_id):  # pragma: no cover
             log_y=True,
             title="Numerical Efficiency",
             color="sim_name",
-            labels=dict(
-                sim_name="Simulation Result",
-                time_norm=r"<i>t</i><sub>Wall</sub> / <i>t</i><sub>Sim</sub> *",
-                memory_norm="Memory Usage [KB]",
-            ),
+            labels={
+                "sim_name": "Simulation Result",
+                "time_norm": r"<i>t</i><sub>Wall</sub> / <i>t</i><sub>Sim</sub> *",
+                "memory_norm": "Memory Usage [KB]",
+            },
         ),
         lambda x: x.update_layout(title_x=0.5),
     )

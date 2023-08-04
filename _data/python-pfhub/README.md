@@ -7,23 +7,30 @@ notebooks using Pandas and Plotly.
 
 ### Using Nix
 
-If Using Cachix
+Install Nix and use
+
+    $ nix develop
+
+or try
 
     $ cachix use pfhub
+    $ nix develop
 
-and then fire up a Nix shell with
+if Cachix is installed.
 
-    $ export NIX_VERSION=21.05
-    $ nix-shell \
-        -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/${NIX_VERSION}.tar.gz \
-        -I pfhub=./ \
-        -E 'with (import <nixpkgs> {}); mkShell { buildInputs = [ (python3Packages.callPackage <pfhub> { }) ]; }'
+To open up an example notebook use
 
-#### Upload to cachix
+    $ jupyter notebook
 
-    $ export NIX_VERSION=21.05
-    $ nix-build \
-        -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/${NIX_VERSION}.tar.gz \
-        -I pfhub=./ \
-        -E 'with (import <nixpkgs> {}); python3Packages.callPackage <pfhub> { }' \
-        | cachix push pfhub
+from within the nix development environment and navigate to
+`notebooks/test.ipynb`.
+
+### Push to Cachix
+
+If Using Cachix
+
+    $ nix-env -iA cachix -f https://cachix.org/api/v1/install
+    $ cachix authtoken <TOKEN>
+    $ cachix use pfhub
+    $ nix develop --profile pfhub-profile -c true
+    $ cachix push pfhub pfhub-profile

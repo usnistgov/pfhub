@@ -135,3 +135,5 @@
 - simulations/moose_1a_mpf/meta.yaml
 - simulations/moose_1b_mpf/meta.yaml
 - simulations/spheharm_1d_bridge/meta.yaml
+- simulations/moose_1c_mpf/meta.yaml
+- simulations/SymPhas_7a_CS_5pt/meta.yaml

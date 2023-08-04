@@ -13,7 +13,7 @@ jupyter:
     name: python3
 ---
 
-```python papermill={"duration": 0.012172, "end_time": "2023-03-16T20:17:49.602701", "exception": false, "start_time": "2023-03-16T20:17:49.590529", "status": "completed"} tags=["parameters"]
+```python papermill={"duration": 0.023877, "end_time": "2023-08-03T20:08:19.028733", "exception": false, "start_time": "2023-08-03T20:08:19.004856", "status": "completed"} tags=["parameters"]
 benchmark_id = '3a.1'
 line_plots = [
     dict(name='free_energy', layout=dict(log_y=True, x_label=r'<i>t</i>', y_label=r'&#8497;', range_y=[1.8e6, 2.4e6], title="Free Energy v Time")),
@@ -22,9 +22,10 @@ line_plots = [
     dict(name='phase_field_1500', layout=dict(aspect_ratio=1.0))
 ]
 contour_plots = []
+efficiency = True
 ```
 
-```python papermill={"duration": 0.010447, "end_time": "2023-03-16T20:17:49.615655", "exception": false, "start_time": "2023-03-16T20:17:49.605208", "status": "completed"} tags=["injected-parameters"]
+```python papermill={"duration": 0.009722, "end_time": "2023-08-03T20:08:19.040807", "exception": false, "start_time": "2023-08-03T20:08:19.031085", "status": "completed"} tags=["injected-parameters"]
 # Parameters
 benchmark_id = "8a.1"
 line_plots = [
@@ -112,7 +113,7 @@ contour_plots = [
 
 ```
 
-```python papermill={"duration": 0.009281, "end_time": "2023-03-16T20:17:49.627081", "exception": false, "start_time": "2023-03-16T20:17:49.617800", "status": "completed"} tags=[]
+```python papermill={"duration": 0.007382, "end_time": "2023-08-03T20:08:19.050331", "exception": false, "start_time": "2023-08-03T20:08:19.042949", "status": "completed"} tags=[]
 from IPython.display import display_markdown
 
 display_markdown(f'''
@@ -122,18 +123,18 @@ All results for the [{ benchmark_id } benchmark specification](../../benchmarks/
 ''', raw=True)
 ```
 
-```python papermill={"duration": 0.007136, "end_time": "2023-03-16T20:17:49.636986", "exception": false, "start_time": "2023-03-16T20:17:49.629850", "status": "completed"} tags=[]
+```python papermill={"duration": 0.006104, "end_time": "2023-08-03T20:08:19.059490", "exception": false, "start_time": "2023-08-03T20:08:19.053386", "status": "completed"} tags=[]
 # To generate the comparison notebooks use:
-# 
+#
 # papermill template.ipynb benchmark{version}.ipynb -f bm{version}.yaml
 #
 ```
 
-```python papermill={"duration": 0.012857, "end_time": "2023-03-16T20:17:49.652154", "exception": false, "start_time": "2023-03-16T20:17:49.639297", "status": "completed"} tags=[]
+```python papermill={"duration": 0.00911, "end_time": "2023-08-03T20:08:19.070940", "exception": false, "start_time": "2023-08-03T20:08:19.061830", "status": "completed"} tags=[]
 from IPython.display import HTML
 
 HTML('''<script>
-code_show=true; 
+code_show=true;
 function code_toggle() {
  if (code_show){
  $('div.input').hide();
@@ -143,13 +144,13 @@ function code_toggle() {
 $('div.prompt').show();
  }
  code_show = !code_show
-} 
+}
 $( document ).ready(code_toggle);
 </script>
 <form action="javascript:code_toggle()"><input type="submit" value="Code Toggle"></form>''')
 ```
 
-```python papermill={"duration": 0.618241, "end_time": "2023-03-16T20:17:50.272922", "exception": false, "start_time": "2023-03-16T20:17:49.654681", "status": "completed"} tags=[]
+```python papermill={"duration": 0.565868, "end_time": "2023-08-03T20:08:19.639185", "exception": false, "start_time": "2023-08-03T20:08:19.073317", "status": "completed"} tags=[]
 #from IPython.display import HTML, display
 #from time import sleep
 
@@ -179,19 +180,38 @@ from itables import init_notebook_mode
 init_notebook_mode(all_interactive=False)
 ```
 
-```python papermill={"duration": 7.902462, "end_time": "2023-03-16T20:17:58.178316", "exception": false, "start_time": "2023-03-16T20:17:50.275854", "status": "completed"} tags=[]
+```python papermill={"duration": 0.010487, "end_time": "2023-08-03T20:08:19.652457", "exception": false, "start_time": "2023-08-03T20:08:19.641970", "status": "completed"} tags=[]
+from pathlib import Path
+
+cwd = Path().resolve()
+benchmark_path = f'{cwd}/../_data/simulation_list.yaml'
+```
+
+```python papermill={"duration": 31.913648, "end_time": "2023-08-03T20:08:51.568761", "exception": false, "start_time": "2023-08-03T20:08:19.655113", "status": "completed"} tags=[]
+colors = dict()
+
 for x in line_plots:
-    line_plot(
+    fig = line_plot(
         data_name=x['name'],
         benchmark_id=benchmark_id,
         layout=x['layout'],
-        columns=x.get('columns', ('x', 'y'))
-    ).show()
+        columns=x.get('columns', ('x', 'y')),
+        benchmark_path=benchmark_path
+    )
+    if 'extra_lines' in x:
+        for kwargs in x['extra_lines']:
+            fig.add_scatter(**kwargs)
+    for datum in fig['data']:
+        name = datum['name']
+        color = datum['line']['color']
+        datum['line']['color'] = colors.get(name, color)
+        colors[name] = datum['line']['color']
+    fig.show()
 ```
 
-```python papermill={"duration": 7.400885, "end_time": "2023-03-16T20:18:05.693748", "exception": false, "start_time": "2023-03-16T20:17:58.292863", "status": "completed"} tags=[]
+```python papermill={"duration": 7.451691, "end_time": "2023-08-03T20:08:59.126499", "exception": false, "start_time": "2023-08-03T20:08:51.674808", "status": "completed"} tags=[]
 for x in contour_plots:
-    data = get_result_data([x['name']], [benchmark_id], x['columns'])
+    data = get_result_data([x['name']], [benchmark_id], x['columns'], benchmark_path=benchmark_path)
 
     levelset_plot(
         data,
@@ -201,14 +221,13 @@ for x in contour_plots:
     ).show()
 ```
 
-```python papermill={"duration": 2.078315, "end_time": "2023-03-16T20:18:07.959800", "exception": false, "start_time": "2023-03-16T20:18:05.881485", "status": "completed"} tags=[]
-efficiency_plot(benchmark_id).show()
-
-display_markdown("<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>", raw=True)
-
+```python papermill={"duration": 1.7621, "end_time": "2023-08-03T20:09:01.063920", "exception": false, "start_time": "2023-08-03T20:08:59.301820", "status": "completed"} tags=[]
+if efficiency:
+    efficiency_plot(benchmark_id, benchmark_path=benchmark_path).show()
+    display_markdown("<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>", raw=True)
 ```
 
-```python papermill={"duration": 0.203858, "end_time": "2023-03-16T20:18:08.360964", "exception": false, "start_time": "2023-03-16T20:18:08.157106", "status": "completed"} tags=[]
+```python papermill={"duration": 0.18292, "end_time": "2023-08-03T20:09:01.441863", "exception": false, "start_time": "2023-08-03T20:09:01.258943", "status": "completed"} tags=[]
 display_markdown(f'''
 # Table of Results
 
@@ -216,18 +235,18 @@ Table of { benchmark_id } benchmark result uploads.
 ''', raw=True)
 ```
 
-```python papermill={"duration": 0.200592, "end_time": "2023-03-16T20:18:08.754728", "exception": false, "start_time": "2023-03-16T20:18:08.554136", "status": "completed"} tags=[]
+```python papermill={"duration": 0.192373, "end_time": "2023-08-03T20:09:01.814355", "exception": false, "start_time": "2023-08-03T20:09:01.621982", "status": "completed"} tags=[]
 
 ```
 
-```python papermill={"duration": 1.160599, "end_time": "2023-03-16T20:18:10.108267", "exception": false, "start_time": "2023-03-16T20:18:08.947668", "status": "completed"} tags=[]
+```python papermill={"duration": 0.968275, "end_time": "2023-08-03T20:09:02.973044", "exception": false, "start_time": "2023-08-03T20:09:02.004769", "status": "completed"} tags=[]
 ## Currently switching off interactive tables as these are not converted to HTML properly.
 ## This might improve when jupyter-nbcovert is updated to a later version.
 
 init_notebook_mode(all_interactive=False)
-get_table_data_style(benchmark_id, pfhub_path='../..')
+get_table_data_style(benchmark_id, pfhub_path='../..', benchmark_path=benchmark_path)
 ```
 
-```python papermill={"duration": 0.193982, "end_time": "2023-03-16T20:18:10.514781", "exception": false, "start_time": "2023-03-16T20:18:10.320799", "status": "completed"} tags=[]
+```python papermill={"duration": 0.181924, "end_time": "2023-08-03T20:09:03.338736", "exception": false, "start_time": "2023-08-03T20:09:03.156812", "status": "completed"} tags=[]
 
 ```

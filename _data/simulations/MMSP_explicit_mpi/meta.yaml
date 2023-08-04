@@ -35,7 +35,7 @@ data:
         value: '1600'
   - name: spatial
     url: >-
-      https://github.com/tkphd/MMSP-manufactured-solutions-benchmark/raw/master/results-a/bm7a-x.csv
+      https://raw.githubusercontent.com/tkphd/MMSP-manufactured-solutions-benchmark/main/results-a/bm7a-x.csv
     format:
       type: csv
       parse:

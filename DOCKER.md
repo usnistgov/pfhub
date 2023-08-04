@@ -18,21 +18,32 @@ Pull the Docker Instance from Dockerhub
 
 Run the container
 
-    $ docker run -i -t -p 4000:4000 wd15/pfhub:latest
+    $ docker run -i -t -p 8888:8888 wd15/pfhub:latest
 
-and then
+### View the notebooks
 
-    # nix-shell
     # cd pfhub
-    # jekyll serve --host 0.0.0.0
+    # jupyter-notebook --ip 0.0.0.0 --no-browser
 
-to view the website at http://127.0.0.1:4000/pfhub/ on the host.
+and view the running Jupyter file browser at http://127.0.0.1:8888 on
+the host.
+
+### View the website
+
+    # cd pfhub
+    # jekyll serve --host 0.0.0.0 --port 8888
+
+to view the website at http://127.0.0.1:8888/pfhub/ on the host.
 
 ## Build the Docker instance
 
-Clone this repository and run
+The Docker instance is built using Nix. See (./NIX.md) to get started.
+Once you're familiar with Nix, clone this repository and then
 
-    $ docker build -t wd15/pfhub:latest .
+    $ nix build .#docker
+    $ docker load < result
+
+in the base directory.
 
 ## Push the Docker instance
 
