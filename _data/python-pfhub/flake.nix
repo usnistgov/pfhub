@@ -59,9 +59,9 @@
          itables
          requests_mock
          chevron
-         zlib
-         zip
-         unzip
+         pkgs.zlib
+         pkgs.zip
+         pkgs.unzip
       ];
 
       checkInputs = [
