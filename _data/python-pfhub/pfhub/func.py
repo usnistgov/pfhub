@@ -362,7 +362,7 @@ def get_data_from_yaml(data_names, keys, yaml_data):
         yaml_data,
         get("data"),
         filter_(lambda x: x["name"] in data_names),
-        map_(lambda x: (dict(data_set=x["name"]), read_vega_data(keys, x))),
+        map_(lambda x: ({"data_set": x["name"]}, read_vega_data(keys, x))),
         concat_items,
     )
 

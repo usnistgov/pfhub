@@ -102,14 +102,14 @@ def get_timeseries_info(meta_yaml, item):
         get_data_from_yaml(keys=["x", "y"], yaml_data=meta_yaml),
         lambda x: x.rename(item.schema.columns),
         lambda x: dotwiz(
-            dict(
-                dataframe=x,
-                name=item.schema.name,
-                format=item.schema.format,
-                columns=list(
-                    map_((lambda x: dict(name=x)), item.schema.columns.values())
+            {
+                "dataframe": x,
+                "name": item.schema.name,
+                "format": item.schema.format,
+                "columns": list(
+                    map_((lambda x: {"name": x}), item.schema.columns.values())
                 ),
-            )
+            }
         ),
     )
 
@@ -273,30 +273,32 @@ def render_pfhub_schema(data, time_data, memory_data, timeseries):
 
     return render(
         "pfhub.schema",
-        dict(
-            problem=data.benchmark.id,
-            benchmark_version=data.benchmark.version,
-            summary=data.metadata.summary,
-            contributors=[
-                dict(
-                    id="github:" + data.metadata.author.github_id,
-                    name=data.metadata.author.first + " " + data.metadata.author.last,
-                    email=data.metadata.author.email,
-                )
+        {
+            "problem": data.benchmark.id,
+            "benchmark_version": data.benchmark.version,
+            "summary": data.metadata.summary,
+            "contributors": [
+                {
+                    "id": "github:" + data.metadata.author.github_id,
+                    "name": data.metadata.author.first
+                    + " "
+                    + data.metadata.author.last,
+                    "email": data.metadata.author.email,
+                }
             ],
-            framework=[dict(name=data.metadata.implementation.name)],
-            implementation_url=data.metadata.implementation.repo.url,
-            date=data.metadata.timestamp,
-            wall_time=time_data.wall_time.iloc[-1],
-            memory=memory_data.value.iloc[-1],
-            fictive_time=time_data.sim_time.iloc[-1],
-            hardware=[
-                dict(
-                    architecture=data.metadata.hardware.cpu_architecture,
-                    cores=data.metadata.hardware.cores,
-                    nodes=data.metadata.hardware.nodes,
-                )
+            "framework": [{"name": data.metadata.implementation.name}],
+            "implementation_url": data.metadata.implementation.repo.url,
+            "date": data.metadata.timestamp,
+            "wall_time": time_data.wall_time.iloc[-1],
+            "memory": memory_data.value.iloc[-1],
+            "fictive_time": time_data.sim_time.iloc[-1],
+            "hardware": [
+                {
+                    "architecture": data.metadata.hardware.cpu_architecture,
+                    "cores": data.metadata.hardware.cores,
+                    "nodes": data.metadata.hardware.nodes,
+                }
             ],
-            file_timeseries=timeseries,
-        ),
+            "file_timeseries": timeseries,
+        },
     )
