@@ -136,3 +136,68 @@ Nixpkgs version.
 > **NOTE**
 > Jekyll seems to be broken in Nixpkgs 23.05 so 22.11 is used for only
 > thi package. Hence why the flake depends on two versions of Nixpkgs.
+
+## Make a release
+
+The following explains how to release the PFHub package in
+`_data/python-pfhub`.
+
+### Test with Mamba
+
+Test with a build system outside of Nix as others are more likely to
+use this.
+
+    $ cd _data/python-pfhub
+    $ mamba remove -n test-pfhub --all
+    $ mamba create -n test-pfhub python=3
+    $ mamba activate test-pfhub
+    $ python setup.py install
+
+Test the CLI
+
+    $ pfhub
+
+Outside of the working directory
+
+    $ python -c "import pfhub; pfhub.test()"
+
+In the working directory
+
+    $ py.test --nbval-lax --cov-fail-under=100
+    $ py.test --nbval-lax ../../results/benchmark*.ipynb
+
+### Update to PyPI test
+
+Upload to the PyPI test repository
+
+    $ nix develop
+    $ rm -r dist
+    $ python setup.py sdist
+    $ twine upload --repository testpypi dist/*
+
+### Test the release
+
+Use mamba to test (or something different from Nix).
+
+Test outside the repository.
+
+    $ cd ~
+    $ mamba remove -n test-pfhub --all
+    $ mamba create -n test-pfhub python=3
+    $ mamba activate test-pfhub
+    $ python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ pfhub
+
+Test the CLI
+
+    $ pfhub
+
+Run the test
+
+    $ python -c "import pfhub; pfhub.test()"
+
+### Make a full release
+
+    $ nix develop
+    $ rm -r dist
+    $ python setup.py sdist
+    $ twine upload dist/*
