@@ -37,6 +37,62 @@
         propagatedBuildInputs = [ pypkgs.ipykernel pypkgs.pandas pypkgs.requests ];
       };
 
+      more_click = pypkgs.buildPythonPackage rec {
+        pname = "more_click";
+        version = "0.1.2";
+        format = "pyproject";
+        src = pypkgs.fetchPypi {
+          inherit pname version;
+          sha256 = "sha256-CF2mbVqbgjxdkSqIjcofoMizoU7Rsh6pyKG4FIV6OYE=";
+        };
+        doCheck = true;
+
+        propagatedBuildInputs = with pypkgs; [
+          setuptools
+          click
+        ];
+      };
+
+      pystow = pypkgs.buildPythonPackage rec {
+        pname = "pystow";
+        version = "0.5.0";
+        format = "pyproject";
+        src = pypkgs.fetchPypi {
+          inherit pname version;
+          sha256 = "sha256-SQ6ey+T5R8cvYyl/Q/ZYQyPJyi8tSNR/KiKoFdxVK7Q=";
+        };
+        doCheck = true;
+
+        propagatedBuildInputs = with pypkgs; [
+          setuptools
+          requests
+          tqdm
+          click
+        ];
+      };
+
+      zenodo_client = pypkgs.buildPythonPackage rec {
+        pname = "zenodo_client";
+        version = "0.3.2";
+        format = "pyproject";
+        src = pypkgs.fetchPypi {
+          inherit pname version;
+          sha256 = "sha256-prA43n0WgDbTIo8hjhq245OgrJ2vwtk8x9Vwsrz83hU=";
+        };
+
+        doCheck = true;
+
+        propagatedBuildInputs = with pypkgs; [
+          setuptools
+          typing-extensions
+          click
+          more_click
+          pystow
+          pydantic
+        ];
+      };
+
+
      pfhub = pypkgs.buildPythonPackage rec {
        pname = "pfhub";
        version = "0.1";
@@ -44,6 +100,7 @@
        src = pkgs.lib.cleanSource ./.;
 
        propagatedBuildInputs = with pypkgs; [
+         zenodo_client
          numpy
          pytest
          toolz
@@ -96,6 +153,8 @@
       black
       pylint
       flake8
+      twine
+      versioneer
       (if pkgs.stdenv.isDarwin then pypkgs.jupyter else pypkgs.jupyterlab)
     ];
     pfhubdev = (pfhub.overridePythonAttrs (old: rec {
