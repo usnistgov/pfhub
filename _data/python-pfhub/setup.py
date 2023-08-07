@@ -5,6 +5,7 @@
 """
 
 from setuptools import setup, find_packages
+import versioneer
 
 
 def setup_args():
@@ -16,7 +17,8 @@ def setup_args():
         },
         "include_package_data": True,
         "data_files": ["setup.cfg"],
-        "version": "0.1",
+        "version": versioneer.get_version(),
+        "cmdclass": versioneer.get_cmdclass()
     }
 
 
