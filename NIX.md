@@ -168,24 +168,38 @@ In the working directory
 
 ### Update to PyPI test
 
-Upload to the PyPI test repository
+Upload to the PyPI test repository. Check that the working copy is
+clean and tag as a new alpha release.
+
+    $ export VERSION=1.2.3a1
+    $ git tag v${VERSION}
+    $ git push origin v{VERSION}
+
+and then
 
     $ nix develop
     $ rm -r dist
     $ python setup.py sdist
     $ twine upload --repository testpypi dist/*
+    $ exit
 
 ### Test the release
 
 Use mamba to test (or something different from Nix).
 
-Test outside the repository.
+Test outside the repository. The version is required to get the new
+alpha version.
 
     $ cd ~
+    $ export VERSION=1.2.3a1
     $ mamba remove -n test-pfhub --all
     $ mamba create -n test-pfhub python=3
     $ mamba activate test-pfhub
-    $ python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ pfhub
+    $ python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ pfhub==${VERSION}
+
+Check the version is correct
+
+    $ python3 -c "import pfhub; print(pfhub.__version__)"
 
 Test the CLI
 
@@ -193,9 +207,16 @@ Test the CLI
 
 Run the test
 
-    $ python -c "import pfhub; pfhub.test()"
+    $ python3 -c "import pfhub; pfhub.test()"
 
 ### Make a full release
+
+Check that the working copy is clean and then tag
+
+    $ git tag v1.2.3
+    $ git push origin v1.2.3
+
+and then
 
     $ nix develop
     $ rm -r dist
