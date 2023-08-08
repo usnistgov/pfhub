@@ -55,7 +55,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-XEzofyuxtS1NzMtGloFiQ0DbIhhuqZapTsJ+YW0cjXQ=",
+        "narHash": "sha256-ZdYmVV7YPS7JvCaKEYWArKZkLmma2cP81r6snONswDU=",
         "path": "./_data/python-pfhub",
         "type": "path"
       },
