@@ -1,0 +1,19 @@
+---
+name: Test PFHub With Conda
+on: [push, pull_request]
+jobs:
+  pfhub-conda-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./_data/python-pfhub
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mamba-org/setup-micromamba@v1
+        with:
+          environment-name: test-env
+          create-args: >-
+            python=3
+      - run: python setup.py install
+      - run: pfhub
+      - run: py.test --nbval-lax --cov-fail-under=100
