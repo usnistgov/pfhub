@@ -18,7 +18,7 @@ def setup_args():
         "include_package_data": True,
         "data_files": ["setup.cfg"],
         "version": versioneer.get_version(),
-        "cmdclass": versioneer.get_cmdclass()
+        "cmdclass": versioneer.get_cmdclass(),
     }
 
 
