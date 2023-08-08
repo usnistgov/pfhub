@@ -92,9 +92,9 @@ def get_timeseries_info(meta_yaml, item):
     ...     name='free_energy_1.csv', format='csv', columns=DotWiz(time='x', free_energy='y')
     ... ))
     >>> get_timeseries_info(meta_yaml, item)
-    ✫(dataframe=   x  y     data_set
+    DotWiz(dataframe=   x  y     data_set
     0  0  1  free_energy
-    1  1  2  free_energy, name='free_energy_1.csv', format='csv', columns=[✫(name='x'), ✫(name='y')])
+    1  1  2  free_energy, name='free_energy_1.csv', format='csv', columns=[DotWiz(name='x'), DotWiz(name='y')])
 
     """  # pylint: disable=line-too-long # noqa: E501
     return pipe(
