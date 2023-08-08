@@ -15,7 +15,6 @@ jobs:
           environment-name: test-env
           create-args: >-
             python=3
-      - run: mamba list
       - run: which python
       - run: python setup.py install
       - run: pfhub
