@@ -8,13 +8,102 @@ from shutil import make_archive
 import os
 import pathlib
 import shutil
+import urllib.parse
 
+import requests
 from dotwiz import DotWiz
-from toolz.curried import pipe, dissoc, groupby, get, merge
+from toolz.curried import pipe, dissoc, groupby, get, merge, cons, pluck, get_in
+from toolz.curried import filter as filter_
 from toolz.curried import map as map_
 
-from .func import fullmatch, read_yaml, render, get_data_from_yaml, sequence, curry
+from .func import (
+    fullmatch,
+    read_yaml,
+    render,
+    get_data_from_yaml,
+    sequence,
+    curry,
+    get_json,
+)
 from .zenodo import zenodo_to_meta
+
+
+def download_meta(url, dest="./"):
+    """Download a meta.yaml file and associated data
+
+    Args:
+      url: path/url to meta file
+
+    Returns:
+      list of files that have already been downloaded
+
+    >>> tmpdir = getfixture('tmpdir')
+    >>> url_base = "https://raw.githubusercontent.com/usnistgov/pfhub"
+    >>> url_other = "master/_data/simulations/fenics_1a_ivan/meta.yaml"
+    >>> yaml_url = os.path.join(url_base, url_other)
+    >>> out = download_meta(yaml_url, dest=tmpdir)
+    >>> assert out[0] == os.path.join(tmpdir, 'meta.yaml')
+    >>> assert out[1] == os.path.join(tmpdir, '1a_square_periodic_out.csv')
+
+    """
+    return pipe(
+        url,
+        read_yaml,
+        get("data"),
+        filter_(lambda x: "url" in x.keys()),
+        pluck("url"),
+        cons(url),
+        map_(download_file(dest=dest)),
+        list,
+    )
+
+
+def download_zenodo(record_id, sandbox=False, dest="./"):
+    """Donwload a Zenodo record.
+
+    Args:
+      record_id: the Zenodo record id
+      sandbox: whether to use the sandbox
+
+    Returns:
+      the list of all the files downloaded
+
+    >>> tmpdir = getfixture('tmpdir')
+    >>> out = download_zenodo('7255597', dest=tmpdir)
+    >>> assert out[0] == os.path.join(tmpdir, 'phase_field_1.tsv')
+    >>> assert out[1] == os.path.join(tmpdir, 'stats.tsv')
+
+    """
+    return pipe(
+        "https://"
+        + ("sandbox." if sandbox else "")
+        + "zenodo.org/api/records/"
+        + record_id,
+        get_json,
+        get("files"),
+        map_(get_in(["links", "self"])),
+        map_(download_file(dest=dest)),
+        list,
+    )
+
+
+@curry
+def download_file(url, dest="./"):
+    """Download a file and store in dest directory.
+
+    Args:
+      url: the url of the file
+      dest: the destination directory
+
+    Returns:
+      the path to the downloaded file
+    """
+    urlparsed = urllib.parse.urlparse(url)
+    local_filepath = os.path.join(dest, os.path.split(urlparsed.path)[1])
+    request = requests.get(url, allow_redirects=True, timeout=10)
+    with open(local_filepath, "wb") as fpointer:
+        fpointer.write(request.content)
+    return local_filepath
 
 
 def convert(url):
@@ -186,7 +275,7 @@ def get_file_strings(meta_yaml):
 
     Returns:
       a dictionary of files and contents for wring to disk including
-      the pfhub.yaml and necessary data fils
+      the pfhub.yaml and necessary data files
 
     >>> yaml_file = str(getfixture('yaml_data_file'))
     >>> out = get_file_strings(dotwiz(read_yaml(yaml_file)))

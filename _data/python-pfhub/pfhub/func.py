@@ -146,7 +146,7 @@ def read_yaml(filepath):
 
 
 def sep_help(format_, remove_whitespace=True):
-    """Determine seperator baed on file type
+    """Determine seperator based on file type
 
     Args:
       format_: format string
