@@ -1,44 +1,34 @@
-
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 
-<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">'''&lt;script&gt;</span>
 <span class="s1">code_show=true; </span>
 <span class="s1">function code_toggle() {</span>
 <span class="s1"> if (code_show){</span>
-<span class="s1"> $(&#39;div.input&#39;).hide();</span>
-<span class="s1"> $(&#39;div.prompt&#39;).hide();</span>
+<span class="s1"> $('div.input').hide();</span>
+<span class="s1"> $('div.prompt').hide();</span>
 <span class="s1"> } else {</span>
-<span class="s1"> $(&#39;div.input&#39;).show();</span>
-<span class="s1">$(&#39;div.prompt&#39;).show();</span>
+<span class="s1"> $('div.input').show();</span>
+<span class="s1">$('div.prompt').show();</span>
 <span class="s1"> }</span>
 <span class="s1"> code_show = !code_show</span>
 <span class="s1">} </span>
 <span class="s1">$( document ).ready(code_toggle);</span>
 <span class="s1">&lt;/script&gt;</span>
-<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Code Toggle&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="s1">&lt;form action="javascript:code_toggle()"&gt;&lt;input type="submit" value="Code Toggle"&gt;&lt;/form&gt;'''</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[1]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<script>
+<div class="output_html rendered_html output_subarea output_execute_result"><script>
 code_show=true; 
 function code_toggle() {
  if (code_show){
@@ -52,133 +42,97 @@ $('div.prompt').show();
 } 
 $( document ).ready(code_toggle);
 </script>
-<form action="javascript:code_toggle()"><input type="submit" value="Code Toggle"></form>
-</div>
-
-</div>
-
+<form action="javascript:code_toggle()"><input type="submit" value="Code Toggle"/></form></div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 
-<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&lt;a href=&quot;https://raw.githubusercontent.com/{{ site.links.repo }}/master/benchmarks/benchmark4.ipynb&quot;</span>
-<span class="s1">   download=&quot;benchmark4.ipynb&quot;&gt;</span>
-<span class="s1">&lt;button type=&quot;submit&quot;&gt;Download Notebook&lt;/button&gt;</span>
-<span class="s1">&lt;/a&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">'''</span>
+<span class="s1">&lt;a href="https://raw.githubusercontent.com/{{ site.links.repo }}/master/benchmarks/benchmark4.ipynb"</span>
+<span class="s1">   download="benchmark4.ipynb"&gt;</span>
+<span class="s1">&lt;button type="submit"&gt;Download Notebook&lt;/button&gt;</span>
+<span class="s1">&lt;/a&gt;'''</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[1]:</div>
-
-
-
 <div class="output_html rendered_html output_subarea output_execute_result">
-
-<a href="https://raw.githubusercontent.com/{{ site.links.repo }}/master/benchmarks/benchmark4.ipynb"
-   download="benchmark4.ipynb">
+<a download="benchmark4.ipynb" href="https://raw.githubusercontent.com/{{ site.links.repo }}/master/benchmarks/benchmark4.ipynb">
 <button type="submit">Download Notebook</button>
-</a>
-</div>
-
-</div>
-
+</a></div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Benchmark-Problem-4:-Elastic-Precipitate">Benchmark Problem 4: Elastic Precipitate<a class="anchor-link" href="#Benchmark-Problem-4:-Elastic-Precipitate">&#182;</a></h1>
+<h1 id="Benchmark-Problem-4:-Elastic-Precipitate">Benchmark Problem 4: Elastic Precipitate<a class="anchor-link" href="#Benchmark-Problem-4:-Elastic-Precipitate">¶</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 
-<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;{</span><span class="si">% i</span><span class="s1">nclude jupyter_benchmark_table.html num=&quot;[4]&quot; revision=1 %}&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">'''{</span><span class="si">% i</span><span class="s1">nclude jupyter_benchmark_table.html num="[4]" revision=1 %}'''</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[4]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-{% include jupyter_benchmark_table.html num="[4]" revision=1 %}
-</div>
-
-</div>
-
+<div class="output_html rendered_html output_subarea output_execute_result">{% include jupyter_benchmark_table.html num="[4]" revision=1 %}</div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>See the journal publication entitled <a href="https://doi.org/10.1016/j.commatsci.2018.03.015">"Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h2><p>Precipitates are a key microstructural feature impacting the strength of alloys [<a href="https://dx.doi.org/10.1016/S1369-7021(09)70086-0">1</a>], and they are often elastically stressed, which affects their shape and their microstructure evolution during service.  Elasticity has long been incorporated into phase field models: indeed, Cahn's seminal paper on spinodal decomposition [<span data-proofer-ignore><a href="https://dx.doi.org/10.1002/9781118788295.ch11">2</a></span>] incorporates elastic strains due to composition fluctuations.  Eshelby presents an analytical solution for the elastic field of a single coherent, elastically stressed precipitate in an infinite matrix [<span data-proofer-ignore><a href="https://dx.doi.org/10.1098/rspa.1957.0133">3</a></span>], but the generalized problem of multiple interacting precipitates in a matrix with arbitrary crystal structure, lattice parameter misfit and elastic stiffnesses can only be solved numerically.  Sharp-interface approaches provide insight into equilibrium elastic shapes and coarsening under the influence of elastic stress [<a href="https://dx.doi.org/10.1016/0956-7151(92)90462-N">4</a>, <a href="https://dx.doi.org/10.1016/0956-7151(94)90036-1">5</a>, <a href="https://dx.doi.org/10.1016/1359-6454(95)00284-7">6</a>, <a href="https://dx.doi.org/10.1016/1359-6454(95)00285-5">7</a>, <a href="https://dx.doi.org/10.1006/jcph.2001.6842">8</a>], but these approaches have difficulty simulating precipitate splitting or merging. Early phase field formulations studying elastically stressed precipitates demonstrate the power of the method (e.g., Refs. [[9][wang1993shape], <a href="https://dx.doi.org/10.1016/0956-716X(94)90130-9">10</a>, <span data-proofer-ignore>[11][wang1995shape]</span>]), and present-day studies have expanded to 3D simulations (e.g., Refs. [<a href="https://dx.doi.org/10.1016/j.actamat.2016.10.059">12</a>, <a href="https://dx.doi.org/10.1007/s11661-016-3746-6">13</a>, <a href="https://dx.doi.org/10.1016/j.actamat.2015.04.050">14</a>, <a href="https://dx.doi.org/10.1016/j.actamat.2015.04.034">15</a>]) and formulations that include plasticity (e.g., Refs. [<a href="https://dx.doi.org/10.1016/j.jmps.2016.05.016">16</a>, <a href="https://dx.doi.org/10.1007/s11012-014-0011-1">17</a>, <a href="https://dx.doi.org/10.1016/j.jnucmat.2008.05.008">18</a>]).</p>
-
+<h2 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h2><p>Precipitates are a key microstructural feature impacting the strength of alloys [<a href="https://dx.doi.org/10.1016/S1369-7021(09)70086-0">1</a>], and they are often elastically stressed, which affects their shape and their microstructure evolution during service.  Elasticity has long been incorporated into phase field models: indeed, Cahn's seminal paper on spinodal decomposition [<span data-proofer-ignore=""><a href="https://dx.doi.org/10.1002/9781118788295.ch11">2</a></span>] incorporates elastic strains due to composition fluctuations.  Eshelby presents an analytical solution for the elastic field of a single coherent, elastically stressed precipitate in an infinite matrix [<span data-proofer-ignore=""><a href="https://dx.doi.org/10.1098/rspa.1957.0133">3</a></span>], but the generalized problem of multiple interacting precipitates in a matrix with arbitrary crystal structure, lattice parameter misfit and elastic stiffnesses can only be solved numerically.  Sharp-interface approaches provide insight into equilibrium elastic shapes and coarsening under the influence of elastic stress [<a href="https://dx.doi.org/10.1016/0956-7151(92)90462-N">4</a>, <a href="https://dx.doi.org/10.1016/0956-7151(94)90036-1">5</a>, <a href="https://dx.doi.org/10.1016/1359-6454(95)00284-7">6</a>, <a href="https://dx.doi.org/10.1016/1359-6454(95)00285-5">7</a>, <a href="https://dx.doi.org/10.1006/jcph.2001.6842">8</a>], but these approaches have difficulty simulating precipitate splitting or merging. Early phase field formulations studying elastically stressed precipitates demonstrate the power of the method (e.g., Refs. [[9][wang1993shape], <a href="https://dx.doi.org/10.1016/0956-716X(94)90130-9">10</a>, <span data-proofer-ignore=""><a href="https://dx.doi.org/10.1111/j.1151-2916.1993.tb06605.x">11</a></span>]), and present-day studies have expanded to 3D simulations (e.g., Refs. [<a href="https://dx.doi.org/10.1016/j.actamat.2016.10.059">12</a>, <a href="https://dx.doi.org/10.1007/s11661-016-3746-6">13</a>, <a href="https://dx.doi.org/10.1016/j.actamat.2015.04.050">14</a>, <a href="https://dx.doi.org/10.1016/j.actamat.2015.04.034">15</a>]) and formulations that include plasticity (e.g., Refs. [<a href="https://dx.doi.org/10.1016/j.jmps.2016.05.016">16</a>, <a href="https://dx.doi.org/10.1007/s11012-014-0011-1">17</a>, <a href="https://dx.doi.org/10.1016/j.jnucmat.2008.05.008">18</a>]).</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Model-Formulation">Model Formulation<a class="anchor-link" href="#Model-Formulation">&#182;</a></h2><p>In this formulation, one phenomenological order parameter, $\eta$, is evolved, which has a value of 0 in the matrix and a value of 1 in the precipitate for an unstressed system with planar interfaces. This choice makes interpolation of materials properties between phases straightforward. The free energy of the system, $\mathcal{F}$, includes contributions from interfacial and elastic energy and is expressed as</p>
+<h2 id="Model-Formulation">Model Formulation<a class="anchor-link" href="#Model-Formulation">¶</a></h2><p>In this formulation, one phenomenological order parameter, $\eta$, is evolved, which has a value of 0 in the matrix and a value of 1 in the precipitate for an unstressed system with planar interfaces. This choice makes interpolation of materials properties between phases straightforward. The free energy of the system, $\mathcal{F}$, includes contributions from interfacial and elastic energy and is expressed as</p>
 <p>\begin{equation}
 \mathcal{F}=\int_{V}\left(f_{\text{bulk}}\left(\eta\right) + \frac{\kappa}{2}|\nabla \eta|^{2} + f_{\text{el}}\left(\eta\right) \right)dV,
 \end{equation}</p>
-<p>where $f_{\text{bulk}}$ is the bulk free energy density, $\kappa$ is the gradient energy coefficient, and $f_{\text{el}}$ is the local elastic free energy density. The $f_{\text{bulk}}$ term is a symmetric double-well with minima of zero, such that its contribution is only to the interfacial energy. As discussed in Ref. 
-[<span data-proofer-ignore><a href="https://arxiv.org/abs/1709.02010">1</a></span>], we choose $f_{\text{bulk}}$ to have a 10th-order polynomial form,</p>
+<p>where $f_{\text{bulk}}$ is the bulk free energy density, $\kappa$ is the gradient energy coefficient, and $f_{\text{el}}$ is the local elastic free energy density. The $f_{\text{bulk}}$ term is a symmetric double-well with minima of zero, such that its contribution is only to the interfacial energy. As discussed in Ref.
+[<span data-proofer-ignore=""><a href="https://arxiv.org/abs/1709.02010">1</a></span>], we choose $f_{\text{bulk}}$ to have a 10th-order polynomial form,</p>
 <p>\begin{equation}
 f_{\text{bulk}}=w\sum_{j=0}^{10}a_j\eta^j,
 \end{equation}</p>
 <p>which makes the energy wells of the matrix and precipitate phases deep and narrow.  This prevents the actual value of $\eta$ in each phase from shifting significantly from its equilibrium value due to the presence of a curved interface or elastic strain.  The height of the energy barrier is controlled by $w$. The $f_{\text{bulk}}$ coefficients are given in the following table, and ensure that $f_{\text{bulk}}\left(0\right)=f_{\text{bulk}}\left(1\right)=f_{\text{bulk}}'\left(0\right)=f_{\text{bulk}}'\left(1\right)=0$ and that the energy curve remains concave down between the two energy wells.</p>
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th style="text-align:center">Parameter</th>
 <th>Value</th>
 </tr>
@@ -231,7 +185,7 @@ f_{\text{bulk}}=w\sum_{j=0}^{10}a_j\eta^j,
 </tbody>
 </table>
 <p>The large number of significant digits are necessary to ensure that the first derivative of $f_{\text{bulk}}$ is zero at $\eta=0$ and $\eta=1$.</p>
-<p>The elastic energy density is given as [<span data-proofer-ignore><a href="https://arxiv.org/abs/1709.02010">1</a></span>].</p>
+<p>The elastic energy density is given as [<span data-proofer-ignore=""><a href="https://arxiv.org/abs/1709.02010">1</a></span>].</p>
 <p>\begin{equation}
 f_{\text{el}}\left(\eta\right)=\frac{1}{2}\sigma_{ij} \epsilon_{ij}^{\text{el}},
 \end{equation}</p>
@@ -240,7 +194,7 @@ f_{\text{el}}\left(\eta\right)=\frac{1}{2}\sigma_{ij} \epsilon_{ij}^{\text{el}},
 C_{ijkl}\left(\eta\right)= C_{ijkl}^{\text{matrix}}\left[1-h\left(\eta\right)\right]+C_{ijkl}^{\text{precip}} \, h\left(\eta\right),
 \end{equation}
 where $C_{ijkl}^{\text{matrix}}$ and $C_{ijkl}^{\text{precip}}$ are the stiffness tensors of the matrix and precipitate phases, respectively, and $h\left(\eta\right)=\eta^3\left(6\eta^2-15\eta+10\right)$ is a smooth interpolation function that ensures that $h\left( 0 \right ) = h'\left( 0 \right)=h'\left( 1 \right)=0$ and $h\left(1\right) = 1$ [<a href="https://doi.org/10.1016/S1359-6454(97)00377-7">2</a>].</p>
-<p>Because the lattice parameters of the two phases are different, the elastic strain differs from the total strain, $\epsilon_{ij}^{\text{total}}$, as [<span data-proofer-ignore><a href="https://dx.doi.org/10.1098/rspa.1957.0133">3</a></span>]</p>
+<p>Because the lattice parameters of the two phases are different, the elastic strain differs from the total strain, $\epsilon_{ij}^{\text{total}}$, as [<span data-proofer-ignore=""><a href="https://dx.doi.org/10.1098/rspa.1957.0133">3</a></span>]</p>
 <p>\begin{equation}
 \epsilon_{ij}^{\text{el}}=\epsilon_{ij}^{\text{total}}-\epsilon_{ij}^{0}\left(\eta\right),
 \end{equation}</p>
@@ -248,11 +202,11 @@ where $C_{ijkl}^{\text{matrix}}$ and $C_{ijkl}^{\text{precip}}$ are the stiffnes
 <p>\begin{equation}
 \epsilon_{ij}^0\left(\eta\right)= \epsilon_{ij}^T \, h\left(\eta\right),
 \end{equation}</p>
-<p>where $\epsilon_{ij}^{T}$ is the crystallographic misfit strain tensor between the matrix and precipitate phases defined with respect to the matrix.  Finally, the total strain is related to the displacements, $u_i$, as [<span data-proofer-ignore><a href="https://dx.doi.org/10.1098/rspa.1957.0133">3</a></span>]</p>
+<p>where $\epsilon_{ij}^{T}$ is the crystallographic misfit strain tensor between the matrix and precipitate phases defined with respect to the matrix.  Finally, the total strain is related to the displacements, $u_i$, as [<span data-proofer-ignore=""><a href="https://dx.doi.org/10.1098/rspa.1957.0133">3</a></span>]</p>
 <p>\begin{equation}
 \epsilon_{ij}^{\text{total}}=\frac{1}{2}\left[\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial x_i}\right].
 \end{equation}</p>
-<p>In this problem, precipitate shapes must evolve to their equilibrium shape while remaining as small particles embedded in a much larger matrix. To do so, we employ the Cahn-Hilliard equation to perform fictive time evolution [<a href="https://doi.org/10.1016/S1359-6454(97)00377-7">2</a>, <span data-proofer-ignore><a href="https://arxiv.org/abs/1709.02010">1</a></span>], which conserves the total integral of $\eta$ within the simulation. The evolution of $\eta$ is given as</p>
+<p>In this problem, precipitate shapes must evolve to their equilibrium shape while remaining as small particles embedded in a much larger matrix. To do so, we employ the Cahn-Hilliard equation to perform fictive time evolution [<a href="https://doi.org/10.1016/S1359-6454(97)00377-7">2</a>, <span data-proofer-ignore=""><a href="https://arxiv.org/abs/1709.02010">1</a></span>], which conserves the total integral of $\eta$ within the simulation. The evolution of $\eta$ is given as</p>
 <p>\begin{equation}
 \frac{\partial\eta}{\partial t}=\nabla\cdot\left[M\nabla\left\{ \frac{\delta \mathcal{F}}{\delta\eta}\right\} \right],
 \end{equation}</p>
@@ -264,17 +218,16 @@ where $C_{ijkl}^{\text{matrix}}$ and $C_{ijkl}^{\text{precip}}$ are the stiffnes
 <p>\begin{equation}
 \nabla\cdot\sigma_{ij} = 0.
 \end{equation}</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Parameterization-and-simulation-conditions">Parameterization and simulation conditions<a class="anchor-link" href="#Parameterization-and-simulation-conditions">&#182;</a></h2><p>This problem is solved in two dimensions to reduce computational costs, but note that we do not utilize symmetry to further reduce the problem size.  The matrix and precipitate phases have cubic symmetry, such that three independent elastic stiffnesses exist for each phase: $C_{1111}$, $C_{1122}$, and $C_{1212}$ <span data-proofer-ignore>[[1][nye1957physical]]</span>, and we take $C_{ijkl}^{\text{precip}}=1.1C_{ijkl}^{\text{matrix}}$.  In addition, the precipitate misfit strain takes the form $\epsilon^T_{11}=\epsilon^T_{22} &gt; 0$, $\epsilon^T_{12}=0$.  Because this benchmark problem relies on the balance between interfacial and elastic energy, we use dimensional units of attojoules and nanometers.  The diffuse interface width is chosen as 5 nm for  $0.05 &lt; \eta &lt; 0.95$ and the interfacial energy is chosen as 50 aJ/nm$^2$ (equivalent to 50 mJ/m$^2$). The model parameters are given in the following table.</p>
-<h3 id="Parameter-values-for-all-variants">Parameter values for all variants<a class="anchor-link" href="#Parameter-values-for-all-variants">&#182;</a></h3><table>
-<thead><tr>
+<h2 id="Parameterization-and-simulation-conditions">Parameterization and simulation conditions<a class="anchor-link" href="#Parameterization-and-simulation-conditions">¶</a></h2><p>This problem is solved in two dimensions to reduce computational costs, but note that we do not utilize symmetry to further reduce the problem size.  The matrix and precipitate phases have cubic symmetry, such that three independent elastic stiffnesses exist for each phase: $C_{1111}$, $C_{1122}$, and $C_{1212}$ <span data-proofer-ignore="">[<a href="https://doi.org/10.1029/EO064i045p00643-01">1</a>]</span>, and we take $C_{ijkl}^{\text{precip}}=1.1C_{ijkl}^{\text{matrix}}$.  In addition, the precipitate misfit strain takes the form $\epsilon^T_{11}=\epsilon^T_{22} &gt; 0$, $\epsilon^T_{12}=0$.  Because this benchmark problem relies on the balance between interfacial and elastic energy, we use dimensional units of attojoules and nanometers.  The diffuse interface width is chosen as 5 nm for  $0.05 &lt; \eta &lt; 0.95$ and the interfacial energy is chosen as 50 aJ/nm$^2$ (equivalent to 50 mJ/m$^2$). The model parameters are given in the following table.</p>
+<h3 id="Parameter-values-for-all-variants">Parameter values for all variants<a class="anchor-link" href="#Parameter-values-for-all-variants">¶</a></h3><table>
+<thead>
+<tr>
 <th style="text-align:left">Quantity</th>
 <th style="text-align:center">Symbol</th>
 <th>Value</th>
@@ -322,8 +275,9 @@ where $C_{ijkl}^{\text{matrix}}$ and $C_{ijkl}^{\text{precip}}$ are the stiffnes
 <p>We utilize both circular and elliptical initial precipitate shapes for a given initial precipitate area [<a href="https://doi.org/10.1016/0956-7151(94)90036-1">2</a>, <a href="https://doi.org/10.1016/j.actamat.2004.08.041">3</a>]; all initial precipitates have a diffuse interface width of 5 nm. To have an equal area for an ellipse as a circle with radius $r$, we choose ellipse axes as $a_{[10]}=r/0.9$ and $a_{[01]}=0.9r$. Simulations are performed for two initial precipitate sizes: a smaller one with an area of $20^2 \pi \textrm{ nm}^2$ and a larger one with an area of $75^2 \pi \textrm{ nm}^2$. The center of each precipitate is embedded in the center of a square computational domain, which is given the coordinate (0,0).  The computational domain is $(400 \textrm{ nm})^2$ for the smaller precipitates and $(1500 \textrm{ nm})^2$ for the larger precipitates to allow long-range elastic fields to decay.  No-stress boundary conditions are applied for the displacements, and no-flux boundary conditions are applied for $\eta$. Because our implementation is based on solving for displacements rather than strain, we specify $u_{[10]}=0$ at the top, middle, and bottom of the $y=0$ axis ($e.g.,$ in the [01] direction) and $u_{[01]}=0$ at the top, middle, and bottom of the $x=0$ axis ($e.g.,$ in the [10] direction) to remove the nullspace in the solution.  Simulations are run until equilibrium is achieved.</p>
 <p>The presence of elastic strain energy or a curved interface will increase the final value of $\eta$ in both the matrix and precipitate phases from the equilibrium value given by the common tangent of $f_{\text{bulk}}$.  In addition, the precipitate may change size during the course of the energy relaxation because of the shifting balance between the $f_{\text{bulk}}$ and $f_{\text{el}}$ energy contributions.  Because the precipitate volume within the computational domain is much smaller than that of the matrix, a precipitate may shrink entirely away in the process achieving the equilibrium value of $\eta$ in the matrix.  To avoid this, the initial value of $\eta$ in the matrix should be set slightly greater than zero.  For the simulations with the small particles, we set $\eta^{\text{matrix}}_0=0.0065$, while for the large particles, $\eta^{\text{matrix}}_0=0.005$. In addition, we set $\eta^{\text{precip}}_0=1$ for all simulations.</p>
 <p>Overall, there are 8 different parameter variations for this problem. These are labeled (a) through (h).</p>
-<h3 id="Parameter-values-for-(a)-through-(h)">Parameter values for (a) through (h)<a class="anchor-link" href="#Parameter-values-for-(a)-through-(h)">&#182;</a></h3><table>
-<thead><tr>
+<h3 id="Parameter-values-for-(a)-through-(h)">Parameter values for (a) through (h)<a class="anchor-link" href="#Parameter-values-for-(a)-through-(h)">¶</a></h3><table>
+<thead>
+<tr>
 <th style="text-align:left">Quantity</th>
 <th style="text-align:center">Symbol</th>
 <th style="text-align:right">Value (a)</th>
@@ -459,25 +413,21 @@ where $C_{ijkl}^{\text{matrix}}$ and $C_{ijkl}^{\text{precip}}$ are the stiffnes
 </tr>
 </tbody>
 </table>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example-Result-at-Equilibrium">Example Result at Equilibrium<a class="anchor-link" href="#Example-Result-at-Equilibrium">&#182;</a></h2><p>The final morphologies of the precipitates for problems (a), (c), (e) and (g). The dark pink curve is for variant (a) and (e) and the light pink is for variant (c) and (g). The results indicate that the shape of the initial precipitate does not influence the final shape of the precipitate for the smaller precipitate variant.</p>
-<p><img src="../../images/benchmark4-spec-image.png" alt="Precipate Morphology"></p>
-
+<h2 id="Example-Result-at-Equilibrium">Example Result at Equilibrium<a class="anchor-link" href="#Example-Result-at-Equilibrium">¶</a></h2><p>The final morphologies of the precipitates for problems (a), (c), (e) and (g). The dark pink curve is for variant (a) and (e) and the light pink is for variant (c) and (g). The results indicate that the shape of the initial precipitate does not influence the final shape of the precipitate for the smaller precipitate variant.</p>
+<p><img alt="Precipate Morphology" src="../../images/benchmark4-spec-image.png"/></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h2><p>All benchmark solutions should be run to equilibrium. The following data should be collected for each upload.</p>
+<h2 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">¶</a></h2><p>All benchmark solutions should be run to equilibrium. The following data should be collected for each upload.</p>
 <ul>
 <li><p>Global quantities as the simulation evolves including</p>
 <ul>
@@ -496,26 +446,34 @@ where $C_{ijkl}^{\text{matrix}}$ and $C_{ijkl}^{\text{precip}}$ are the stiffnes
 <li><p>The $\eta=0.5$ level set contour position at equilibrium or the latest time step.</p>
 </li>
 </ul>
-<h3 id="Evolving-Data-Format">Evolving Data Format<a class="anchor-link" href="#Evolving-Data-Format">&#182;</a></h3><p>The evolving data should be stored in a CSV file with columns labeled as <code>time</code>, <code>a_01</code>, <code>a_10</code>, <code>a_d</code>,<code>elastic_free_energy</code>,<code>gradient_free_energy</code>, <code>precipitate_area</code> and <code>total_free_energy</code>. The CSV file should be formatted as a table and have the following form (note that the column ordering is inconsequential),</p>
-
+<h3 id="Evolving-Data-Format">Evolving Data Format<a class="anchor-link" href="#Evolving-Data-Format">¶</a></h3><p>The evolving data should be stored in a CSV file with columns labeled as <code>time</code>, <code>a_01</code>, <code>a_10</code>, <code>a_d</code>,<code>elastic_free_energy</code>,<code>gradient_free_energy</code>, <code>precipitate_area</code> and <code>total_free_energy</code>. The CSV file should be formatted as a table and have the following form (note that the column ordering is inconsequential),</p>
 <pre><code>a_01,a_10,a_d,elastic_free_energy,gradient_free_energy,precipitate_area,time,total_free_energy
 19.97429316515008,19.974293165149973,20.140688631434397,6.185957746168657,4.510418048831537,1264.0,0.1,17.72178588199252
 19.86315763877582,19.863157638775874,20.098536436029132,6.054959230125162,2.9620862374085544,1264.0,1.1,17.207555522195793
 19.906346454363486,19.906346454363465,20.134576060150618,6.021500927987024,2.736582255973086,1264.0,2.1,17.204113636263912
-...</code></pre>
+...
+</code></pre>
 <p>The data should be collected frequently during the simulation, but greater than 20 data points at a minimum (more than 1000 data points is unnecessary and won't improve resolution). The data should be named <code>all_data</code> in the "Short name of data" box located in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The 2D radio button should be checked, the entry in the "Name of the x-axis column" box should be <code>time</code> and the entry in the "Name of y-axis column" should be <code>total_free_energy</code>. Only one "Data Files" section upload is required for the evolving data.</p>
-<h3 id="Equilibrium-Data-Format">Equilibrium Data Format<a class="anchor-link" href="#Equilibrium-Data-Format">&#182;</a></h3><p>The equilibrium data should be stored in either a CSV file with columns labeled as <code>x</code> and <code>y</code>. The CSV file should be formatted as a table and have the following form (note that the column ordering is inconsequential),</p>
-
+<h3 id="Equilibrium-Data-Format">Equilibrium Data Format<a class="anchor-link" href="#Equilibrium-Data-Format">¶</a></h3><p>The equilibrium data should be stored in either a CSV file with columns labeled as <code>x</code> and <code>y</code>. The CSV file should be formatted as a table and have the following form (note that the column ordering is inconsequential),</p>
 <pre><code>x,y
 -9.5,-18.615967564796016
 -8.5,-18.84790477132558
 -7.5,-19.030286708741155
--6.5,-19.158255175095714</code></pre>
+-6.5,-19.158255175095714
+</code></pre>
 <p>The contour data should be in a sequence that enables an ordered traversal of the contour line. The data should be named <code>contour</code> in the "Short name of data" box located in the "Data Files" section of the <a href="../../simulations/upload_form/">upload form</a>. The 2D radio button should be checked, the entry in the "Name of the x-axis column" box should be <code>x</code> and the entry in the "Name of y-axis column" should be <code>y</code>. Only one "Data Files" section upload is required for the evolving data.</p>
 <p>Please use the <a href="../../simulations/upload_form/">upload form</a> to upload your results.</p>
-
 </div>
 </div>
 </div>
- 
-
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
