@@ -41,6 +41,7 @@
           pkgs.unzip
           pyother.dotwiz
           pyother.click_params
+          pykwalify
         ];
 
         checkInputs = [
