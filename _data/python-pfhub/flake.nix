@@ -40,6 +40,7 @@
           pkgs.zip
           pkgs.unzip
           pyother.dotwiz
+          pyother.click_params
         ];
 
         checkInputs = [

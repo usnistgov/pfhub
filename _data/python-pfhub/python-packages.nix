@@ -97,4 +97,20 @@ rec {
     ];
   };
 
+  click_params = pypkgs.buildPythonPackage rec {
+    pname = "click_params";
+    version = "0.4.1";
+    src = pypkgs.fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-PI1ktLzqeDOFtCkk+f8pMtYZuNpLyUawNn1Ylvcvuhg=";
+    };
+
+    doCheck = false;
+
+    propagatedBuildInputs = with pypkgs; [
+      validators
+      click
+    ];
+  };
+
 }
