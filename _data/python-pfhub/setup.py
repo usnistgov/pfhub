@@ -13,7 +13,12 @@ def setup_args():
     return {
         "packages": find_packages(),
         "package_data": {
-            "": ["tests/*.py", "templates/*.mustache", "templates/*.yaml"]
+            "": [
+                "tests/*.py",
+                "templates/*.mustache",
+                "templates/*.yaml",
+                "schema/*.yaml",
+            ]
         },
         "include_package_data": True,
         "data_files": ["setup.cfg"],

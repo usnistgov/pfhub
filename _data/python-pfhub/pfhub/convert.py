@@ -206,6 +206,24 @@ def get_timeseries_info(meta_yaml, item):
 dotwiz = lambda x: DotWiz(**x)
 
 
+def meta_to_zenodo_(url):
+    """Convert a meta.yaml link to a dict of file names and contents.
+
+    Args:
+      url: the url of meta.yaml file
+
+    Returns:
+      the dict of file names as keys and file contents as values
+
+    >>> yaml_file = getfixture('yaml_data_file')
+    >>> data = meta_to_zenodo_(str(yaml_file))
+    >>> print(sorted(data.keys()))
+    ['free_energy_1a.csv', 'pfhub.yaml']
+
+    """
+    return pipe(url, read_yaml, dotwiz, get_file_strings)
+
+
 def meta_to_zenodo(url):
     """Convert a meta.yaml link to pfhub.json ready for upload to Zenodo
 
@@ -224,7 +242,52 @@ def meta_to_zenodo(url):
 
 
     """
-    return pipe(url, read_yaml, dotwiz, get_file_strings, bundle("pfhub"))
+    return pipe(url, meta_to_zenodo_, bundle("pfhub"))
+
+
+def meta_to_zenodo_no_zip(url, dest):
+    """Convert a meta.yaml link to pfhub.json ready for upload to Zenodo
+
+    Args:
+      url: the url of meta.yaml file
+      dest: destination directory of the files
+
+    Returns:
+      the path to the pfhub.yaml and associated data files
+
+    >>> yaml_file = getfixture('yaml_data_file')
+    >>> tmpdir = getfixture('tmpdir')
+    >>> files = meta_to_zenodo_no_zip(str(yaml_file), tmpdir)
+    >>> file0 = os.path.join(tmpdir, files[0])
+    >>> file1 = os.path.join(tmpdir, files[1])
+    >>> assert file0 == os.path.join(tmpdir, "pfhub.yaml")
+    >>> assert file1 == os.path.join(tmpdir, "free_energy_1a.csv")
+
+
+    """
+    return pipe(url, meta_to_zenodo_, write_files(dest=dest))
+
+
+@curry
+def write_files(string_dict, dest):
+    """Write files from a dict
+
+    Args:
+      string_dict: dict of file names as keys and contents as values
+      dest: the destination directory
+
+    Returns:
+      the file paths of the written paths
+    """
+
+    @curry
+    def write(dir_, item):
+        path = os.path.join(dir_, f"{item[0]}")
+        with open(path, "w", encoding="utf-8") as fstream:
+            fstream.write(item[1])
+        return path
+
+    return list(map_(write(dest), string_dict.items()))
 
 
 @curry
@@ -248,13 +311,6 @@ def bundle(zipname, string_dict, path="."):
     hello
 
     """
-
-    @curry
-    def write(dir_, item):
-        with open(dir_ + f"/{item[0]}", "w", encoding="utf-8") as fstream:
-            fstream.write(item[1])
-
-    write_files = lambda s, d: list(map_(write(d), s.items()))
 
     tmpdir = tempfile.mkdtemp()
 

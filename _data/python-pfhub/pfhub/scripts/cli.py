@@ -2,26 +2,26 @@
 """
 
 import re
+import os
+import tempfile
+import shutil
 
 import click
 import click_params
 from toolz.curried import pipe, get
 from toolz.curried import map as map_
+import pykwalify
+import pykwalify.core
+import requests
 
-from ..convert import meta_to_zenodo, download_file
+from ..convert import meta_to_zenodo_no_zip, download_file
 from ..convert import download_zenodo as download_zenodo_
 from ..convert import download_meta as download_meta_
 from ..func import compact
 
-import tempfile
-import pykwalify
-import pykwalify.core
-import shutil
-
 
 EPILOG = "See the documentation at \
 https://github.com/usnistgov/pfhub/blob/master/CLI.md (under construction)"
-
 
 
 @click.group(epilog=EPILOG)
@@ -29,8 +29,14 @@ def cli():
     """Submit results to PFHub and manipulate PFHub data"""
 
 
-
 def output(local_filepaths):
+    """Output formatted file names with commas to stdout
+
+    Args:
+      local_filepaths: list of file path strings
+
+    """
+
     def echo(local_filepath, newline, comma=","):
         formatted_path = click.format_filename(local_filepath)
         click.secho(message=f" {formatted_path}" + comma, fg="green", nl=newline)
@@ -84,14 +90,22 @@ def download_zenodo(url, dest):
 def download_meta(url, dest):
     """Download a record from pfhub
 
-    Download a meta.yaml from any URL
+    Download a meta.yaml along with linked data
 
     Args:
       url: the URL of either a meta.yaml or Zenodo record
       dest: the destination directory
     """
+    try:
+        is_meta = check_meta_url(url)
+    except requests.exceptions.ConnectionError as err:
+        click.secho(err, fg="red")
+        click.secho(f"{url} is invalid", fg="red")
+        return
+    except IsADirectoryError:
+        click.secho(f"{url} is not a link to a file", fg="red")
+        return
 
-    is_meta = check_meta_url(url)
     if is_meta:
         local_filepaths = download_meta_(url, dest=dest)
         output(local_filepaths)
@@ -118,11 +132,10 @@ def convert_to_zenodo(file_path, dest):
     """
     is_meta = check_meta(file_path)
     if is_meta:
-        local_filepaths = [meta_to_zenodo(file_path)]
+        local_filepaths = meta_to_zenodo_no_zip(file_path, dest)
         output(local_filepaths)
     else:
         click.secho(f"{file_path} is not a valid PFHub meta.yaml", fg="red")
-
 
 
 def zenodo_regexs():
@@ -164,6 +177,9 @@ def get_zenodo_record_id(url, regexs):
 
 def check_meta_url(url):
     """Check that a file is a valid meta.yaml
+
+    Args:
+      url: the url for the file
     """
     tmpdir = tempfile.mkdtemp()
     file_path = download_file(url, dest=tmpdir)
@@ -173,18 +189,20 @@ def check_meta_url(url):
 
 
 def check_meta(path):
+    """Check that a path is a valid meta.yaml
+
+    Args:
+      path: the path to the file
+    """
+    schema_file = os.path.join(
+        os.path.split(__file__)[0], "..", "schema", "schema_meta.yaml"
+    )
     try:
-        c = pykwalify.core.Core(source_file=path, schema_files=["schema.yaml"])
+        obj = pykwalify.core.Core(source_file=path, schema_files=[schema_file])
     except pykwalify.errors.CoreError:
         return False
     try:
-        c.validate(raise_exception=True)
+        obj.validate(raise_exception=True)
     except pykwalify.errors.SchemaError:
         return False
     return True
-
-
-def check_linkml(path):
-    """Check that a file has a valid linkml pfhub schema
-    """
-    pass
