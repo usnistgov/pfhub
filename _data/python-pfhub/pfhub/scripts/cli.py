@@ -14,6 +14,7 @@ import pykwalify
 import pykwalify.core
 import requests
 
+from .. import test as pfhub_test
 from ..convert import meta_to_zenodo_no_zip, download_file
 from ..convert import download_zenodo as download_zenodo_
 from ..convert import download_meta as download_meta_
@@ -136,6 +137,15 @@ def convert_to_zenodo(file_path, dest):
         output(local_filepaths)
     else:
         click.secho(f"{file_path} is not a valid PFHub meta.yaml", fg="red")
+
+
+@cli.command(epilog=EPILOG)
+def test():  # pragma: no cover
+    """Run the PFHub tests
+
+    Currently creates a stray .coverage file when running.
+    """
+    pfhub_test()
 
 
 def zenodo_regexs():
