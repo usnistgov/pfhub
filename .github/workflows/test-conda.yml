@@ -14,8 +14,10 @@ jobs:
         with:
           environment-name: test-env
           create-args: >-
-            python=3
-      - run: which python
+            python=3.10
       - run: python setup.py install
-      - run: pfhub
       - run: py.test --nbval-lax --cov-fail-under=100
+      - run: |
+          mkdir -p tmp
+          cd tmp
+          pfhub test
