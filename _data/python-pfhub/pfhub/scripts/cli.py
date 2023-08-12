@@ -5,6 +5,7 @@ import re
 import os
 import tempfile
 import shutil
+import sys
 
 import click
 import click_params
@@ -13,6 +14,7 @@ from toolz.curried import map as map_
 import pykwalify
 import pykwalify.core
 import requests
+import linkml.validators.jsonschemavalidator as validator
 
 from .. import test as pfhub_test
 from ..convert import meta_to_zenodo_no_zip, download_file
@@ -30,24 +32,6 @@ def cli():
     """Submit results to PFHub and manipulate PFHub data"""
 
 
-def output(local_filepaths):
-    """Output formatted file names with commas to stdout
-
-    Args:
-      local_filepaths: list of file path strings
-
-    """
-
-    def echo(local_filepath, newline, comma=","):
-        formatted_path = click.format_filename(local_filepath)
-        click.secho(message=f" {formatted_path}" + comma, fg="green", nl=newline)
-
-    click.secho(message="Writing:", fg="green", nl=False)
-    for local_filepath in local_filepaths[:-1]:
-        echo(local_filepath, False)
-    echo(local_filepaths[-1], True, comma="")
-
-
 @cli.command(epilog=EPILOG)
 @click.argument("url", type=click_params.URL)
 @click.option(
@@ -55,9 +39,9 @@ def output(local_filepaths):
     "-d",
     help="destination directory",
     default="./",
-    type=click.Path(exists=True),
+    type=click.Path(exists=True, writable=True, file_okay=False),
 )
-def download_zenodo(url, dest):
+def download(url, dest):
     """Download a Zenodo record
 
     Works with any Zenodo link
@@ -77,6 +61,7 @@ def download_zenodo(url, dest):
         output(local_filepaths)
     else:
         click.secho(f"{url} does not match any expected regex for Zenodo", fg="red")
+        sys.exit(1)
 
 
 @cli.command(epilog=EPILOG)
@@ -86,57 +71,97 @@ def download_zenodo(url, dest):
     "-d",
     help="destination directory",
     default="./",
-    type=click.Path(exists=True),
+    type=click.Path(exists=True, file_okay=False, writable=True),
 )
 def download_meta(url, dest):
-    """Download a record from pfhub
+    """Download an old style PFHub YAML file
 
-    Download a meta.yaml along with linked data
+    In addition, gets the linked data in the `data` section
 
     Args:
-      url: the URL of either a meta.yaml or Zenodo record
+      url: the URL of either the YAML file
       dest: the destination directory
     """
     try:
-        is_meta = check_meta_url(url)
+        is_meta = validate_old_url(url)
     except requests.exceptions.ConnectionError as err:
         click.secho(err, fg="red")
         click.secho(f"{url} is invalid", fg="red")
-        return
+        sys.exit(1)
     except IsADirectoryError:
         click.secho(f"{url} is not a link to a file", fg="red")
-        return
+        sys.exit(1)
 
     if is_meta:
         local_filepaths = download_meta_(url, dest=dest)
         output(local_filepaths)
     else:
-        click.secho(f"{url} is not a valid PFHub meta.yaml", fg="red")
+        click.secho(f"{url} is not valid", fg="red")
+        sys.exit(1)
 
 
 @cli.command(epilog=EPILOG)
-@click.argument("file_path", type=click.Path(exists=True))
+@click.argument(
+    "file_path", type=click.Path(exists=True, dir_okay=False, readable=True)
+)
 @click.option(
     "--dest",
     "-d",
     help="destination directory",
     default="./",
-    type=click.Path(exists=False),
+    type=click.Path(exists=False, writable=True, file_okay=False),
 )
-def convert_to_zenodo(file_path, dest):
-    """Convert a meta.yaml into a format suitable for Zenodo submission
+def convert(file_path, dest):
+    """Convert an old style PFHub YAML file to the new schema
 
     Args:
-      file_path: the URL of the meta.yaml
+      file_path: the file path to the old style PFHub YAML
       dest: the destination directory
 
     """
-    is_meta = check_meta(file_path)
+    is_meta = validate_old_(file_path)
     if is_meta:
         local_filepaths = meta_to_zenodo_no_zip(file_path, dest)
         output(local_filepaths)
     else:
-        click.secho(f"{file_path} is not a valid PFHub meta.yaml", fg="red")
+        click.secho(f"{file_path} is not valid", fg="red")
+        sys.exit(1)
+
+
+@cli.command(epilog=EPILOG)
+@click.argument(
+    "file_path", type=click.Path(exists=True, dir_okay=False, readable=True)
+)
+def validate_old(file_path):
+    """Validate a PFHub YAML file against the old schema
+
+    Args:
+      file_path: the URL of the meta.yaml
+
+    """
+    if validate_old_(file_path):
+        click.secho(f"{file_path} is valid", fg="green")
+    else:
+        click.secho(f"{file_path} is not valid", fg="red")
+        sys.exit(1)
+
+
+@cli.command(epilog=EPILOG)
+@click.argument(
+    "file_path", type=click.Path(exists=True, dir_okay=False, readable=True)
+)
+def validate(file_path):
+    """Validate a PFHub YAML file against the new schema
+
+    Args:
+      file_path: the URL of the meta.yaml
+
+    """
+    if validate_(file_path):
+        click.secho(f"{file_path} is valid", fg="green")
+    else:
+        click.secho(f"{file_path} is not valid", fg="red")
+        sys.exit(1)
 
 
 @cli.command(epilog=EPILOG)
@@ -185,21 +210,21 @@ def get_zenodo_record_id(url, regexs):
     )
 
 
-def check_meta_url(url):
-    """Check that a file is a valid meta.yaml
+def validate_old_url(url):
+    """Validate that a URL link against the old schema
 
     Args:
       url: the url for the file
     """
     tmpdir = tempfile.mkdtemp()
     file_path = download_file(url, dest=tmpdir)
-    result = check_meta(file_path)
+    result = validate_old_(file_path)
     shutil.rmtree(tmpdir)
     return result
 
 
-def check_meta(path):
-    """Check that a path is a valid meta.yaml
+def validate_old_(path):
+    """Validate a file against the old schema
 
     Args:
       path: the path to the file
@@ -216,3 +241,43 @@ def check_meta(path):
     except pykwalify.errors.SchemaError:
         return False
     return True
+
+
+def validate_(path):
+    """Validate a YAML file against the new schema
+
+    Uses linkml
+
+    Args:
+      path: path to the YAML file
+
+    Returns:
+      whether the schema is valid
+    """
+    try:
+        validator.cli.callback(path, None, None, schema="pfhub_schema.yaml")
+    except SystemExit as error:
+        return error.code == 0
+    except KeyError as error:
+        print(f"KeyError: {error}")
+        return False
+    raise RuntimeError(
+        "the linkml validator did not exit correctly"
+    )  # pragma: no cover
+
+
+def output(local_filepaths):
+    """Output formatted file names with commas to stdout
+
+    Args:
+      local_filepaths: list of file path strings
+    """
+
+    def echo(local_filepath, newline, comma=","):
+        formatted_path = click.format_filename(local_filepath)
+        click.secho(message=f" {formatted_path}" + comma, fg="green", nl=newline)
+
+    click.secho(message="Writing:", fg="green", nl=False)
+    for local_filepath in local_filepaths[:-1]:
+        echo(local_filepath, False)
+    echo(local_filepaths[-1], True, comma="")
