@@ -19,6 +19,14 @@
 
         src = pkgs.lib.cleanSource ./.;
 
+        nativeBuildInputs = with pypkgs; [
+          pythonRelaxDepsHook
+        ];
+
+        pythonRemoveDeps = [
+          "linkml"
+        ];
+
         propagatedBuildInputs = with pypkgs; [
           pyother.zenodo_client
           numpy
@@ -101,7 +109,7 @@
           jupyter nbextension install --py jupytext --user
           jupyter nbextension enable --py jupytext --user
 
-          pip install linkml --user --ignore-installed --break-system-packages
+          pip install linkml==1.5.6 --user --ignore-installed --break-system-packages
         '';
       }));
     in
