@@ -101,7 +101,7 @@
           jupyter nbextension install --py jupytext --user
           jupyter nbextension enable --py jupytext --user
 
-
+          pip install linkml --user --ignore-installed --break-system-packages
         '';
       }));
     in
