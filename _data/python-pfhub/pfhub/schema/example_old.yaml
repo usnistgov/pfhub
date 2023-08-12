@@ -1,0 +1,53 @@
+---
+_id: f65504e0-e400-11e8-8d83-dfd41e9d7292
+metadata:
+  author:
+    first: Ivan
+    last: Yashchuk
+    email: ivan.yashchuk@vtt.fi
+    github_id: IvanYashchuk
+  timestamp: '9 November, 2018'
+  summary: PF Hub benchmark 1a with FEniCS on the cluster, using PETSc SNES solver 
+  implementation:
+    name: fenics
+    repo:
+      url: 'https://gist.github.com/IvanYashchuk/f01772a439b1008710c3aea045ac37a9'
+      version: f01772a439b1008710c3aea045ac37a9
+    container_url: ''
+  hardware:
+    cpu_architecture: x86_64
+    acc_architecture: none
+    parallel_model: distributed
+    clock_rate: '2.6'
+    cores: '24'
+    nodes: '1'
+benchmark:
+  id: 1a
+  version: '1'
+data:
+  - name: run_time
+    values:
+      - wall_time: '388'
+        sim_time: '1160036.7'
+  - name: memory_usage
+    values:
+      - unit: KB
+        value: '3443352'
+  - name: free_energy
+    url: >-
+      https://gist.githubusercontent.com/IvanYashchuk/1d7e096590a3c23f08b129e5004bcc28/raw/ecb5bdf60c84bf993d2cfa3715ae59d4b744b466/1a_square_periodic_out.csv
+    format:
+      type: csv
+      parse:
+        time: number
+        total_free_energy: number
+    description: total_free_energy_fenics_1a_ivan
+    type: line
+    transform:
+      - type: formula
+        expr: datum.time
+        as: x
+      - type: formula
+        expr: datum.total_free_energy
+        as: 'y'
+date: 1541755342
