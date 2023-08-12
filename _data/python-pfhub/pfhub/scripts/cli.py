@@ -254,8 +254,11 @@ def validate_(path):
     Returns:
       whether the schema is valid
     """
+    schema_file = os.path.join(
+        os.path.split(__file__)[0], "..", "schema", "pfhub_schema.yaml"
+    )
     try:
-        validator.cli.callback(path, None, None, schema="pfhub_schema.yaml")
+        validator.cli.callback(path, None, None, schema=schema_file)
     except SystemExit as error:
         return error.code == 0
     except KeyError as error:
