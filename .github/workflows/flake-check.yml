@@ -21,14 +21,7 @@ jobs:
           name: pfhub
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nix-community
-      - name: Check Nix flake inputs (./flake.lock)
-        uses: DeterminateSystems/flake-checker-action@v5
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v4
-      - name: Build Nix package
-        run: |
-          nix flake lock --update-input pfhub
-          nix build
+
       - name: Check Nix flake inputs (./_data/python-pfhub/flake.lock)
         uses: DeterminateSystems/flake-checker-action@v5
         with:
@@ -36,4 +29,14 @@ jobs:
       - name: Build Nix package
         run: |
           cd _data/python-pfhub
+          nix build
+          cd $GITHUB_WORKSPACE
+
+      - name: Check Nix flake inputs (./flake.lock)
+        uses: DeterminateSystems/flake-checker-action@v5
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v4
+      - name: Build Nix package
+        run: |
+          nix flake lock --update-input pfhub
           nix build
