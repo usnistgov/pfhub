@@ -25,7 +25,7 @@ jobs:
       - name: Build Nix package
         run: |
           cd _data/python-pfhub
-          nix build
+          nix develop # shoud be nix build, but linkml needs work
           cd $GITHUB_WORKSPACE
 
       - name: Check Nix flake inputs (./flake.lock)
