@@ -31,9 +31,40 @@
       USER = "main";
       REPOPATH = "https://github.com/usnistgov/pfhub";
 
+      pfhub__ = pfhub_.overridePythonAttrs (old: rec {
+
+        pythonRemoveDeps = [
+          "linkml"
+        ];
+
+        propagatedBuildInputs = old.propagatedBuildInputs ++ [ pypkgs.pythonRelaxDepsHook ];
+
+        nativeBuildInputs = old.nativeBuildInputs ++ [ pypkgs.pythonRelaxDepsHook ];
+        # nativeBuildInputs = [ pypkgs.pythonRelaxDepsHook ] ++ propagatedBuildInputs;# ++ extra;
+
+        PIP_DISABLE_PIP_VERSION_CHECK = true;
+
+        postShellHook = ''
+          SOURCE_DATE_EPOCH=$(date +%s)
+          export PYTHONUSERBASE=$PWD/.local
+          export USER_SITE=`python -c "import site; print(site.USER_SITE)"`
+          export PYTHONPATH=$PYTHONPATH:$USER_SITE:$(pwd)
+          export PATH=$PATH:$PYTHONUSERBASE/bin
+          export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+
+          jupyter serverextension enable jupytext
+          jupyter nbextension install --py jupytext --user
+          jupyter nbextension enable --py jupytext --user
+
+          pip install linkml==1.5.6 --user --ignore-installed --break-system-packages
+        '';
+      });
+
+
+
       pythonEnv = pkgs.python3.buildEnv.override {
         extraLibs = with pypkgs; [
-          pfhub_
+          pfhub__
           jupytext
           papermill
           pypkgs.python

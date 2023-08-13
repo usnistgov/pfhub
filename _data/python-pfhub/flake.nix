@@ -98,7 +98,7 @@
           "linkml"
         ];
 
-        propagatedBuildInputs = old.propagatedBuildInputs ++ extra;
+        propagatedBuildInputs = old.propagatedBuildInputs ++ extra ++ [ pypkgs.pythonRelaxDepsHook ];
 
         nativeBuildInputs = [ pypkgs.pythonRelaxDepsHook ] ++ propagatedBuildInputs;# ++ extra;
 
