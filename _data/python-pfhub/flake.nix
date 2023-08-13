@@ -23,6 +23,8 @@
           pythonRelaxDepsHook
         ];
 
+        PIP_DISABLE_PIP_VERSION_CHECK = true;
+
         pythonRemoveDeps = [
           "linkml"
         ];
