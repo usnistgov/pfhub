@@ -42,6 +42,7 @@
           notebook
           ipykernel
           pykwalify
+          pip
         ];
       };
 
@@ -58,7 +59,7 @@
         shellHook = ''
 
           SOURCE_DATE_EPOCH=$(date +%s)
-          export PYTHONUSERBASE=$PWD/.local
+          export PYTHONUSERBASE=$PWD/_data/python-pfhub/.local
           export USER_SITE=`python -c "import site; print(site.USER_SITE)"`
           export PYTHONPATH=$PYTHONPATH:$USER_SITE:$(pwd)
           export PATH=$PATH:$PYTHONUSERBASE/bin

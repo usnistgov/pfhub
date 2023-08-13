@@ -28,6 +28,7 @@
         ];
 
         propagatedBuildInputs = with pypkgs; [
+          pythonRelaxDepsHook
           pyother.zenodo_client
           numpy
           pytest
@@ -91,9 +92,13 @@
 
       pfhubdev = (pfhub.overridePythonAttrs (old: rec {
 
+        pythonRemoveDeps = [
+          "linkml"
+        ];
+
         propagatedBuildInputs = old.propagatedBuildInputs ++ extra;
 
-        nativeBuildInputs = propagatedBuildInputs;# ++ extra;
+        nativeBuildInputs = [ pypkgs.pythonRelaxDepsHook ] ++ propagatedBuildInputs;# ++ extra;
 
         PIP_DISABLE_PIP_VERSION_CHECK = true;
 
