@@ -15,12 +15,8 @@ jobs:
         working-directory: ./
     steps:
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v20
-        with:
-          nix_path: nixpkgs=channel:nixos-unstable
-          name: pfhub
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          extraPullNames: nix-community
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v4
 
       - name: Check Nix flake inputs (./_data/python-pfhub/flake.lock)
         uses: DeterminateSystems/flake-checker-action@v5
@@ -34,8 +30,6 @@ jobs:
 
       - name: Check Nix flake inputs (./flake.lock)
         uses: DeterminateSystems/flake-checker-action@v5
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v4
       - name: Build Nix package
         run: |
           nix flake lock --update-input pfhub
