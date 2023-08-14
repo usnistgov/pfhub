@@ -5,7 +5,15 @@ import os
 
 from click.testing import CliRunner
 
-from .cli import cli, download_zenodo, download, convert, validate, validate_old
+from .cli import (
+    cli,
+    download_zenodo,
+    download,
+    convert,
+    validate,
+    validate_old,
+    convert_to_old,
+)
 
 
 def test_cli():
@@ -113,15 +121,21 @@ def test_download_not_valid(tmpdir):
     assert result.output == f"{yaml_url} is not valid\n"
 
 
-def test_convert_to_zenodo(tmpdir):
-    """Conversion from meta.yaml to pfhub.json"""
-    runner = CliRunner()
+def convert_helper(runner, tmpdir):
+    """Download an old schema YAML and convert to the new schema"""
     base = "https://raw.githubusercontent.com/usnistgov/pfhub"
     end = "master/_data/simulations/fenics_1a_ivan/meta.yaml"
     yaml_url = ("/").join([base, end])
     runner.invoke(download, [yaml_url, "--dest", tmpdir])
     yaml_path = os.path.join(tmpdir, "meta.yaml")
     result = runner.invoke(convert, [yaml_path, "--dest", tmpdir])
+    return result, runner
+
+
+def test_convert_to_zenodo(tmpdir):
+    """Conversion from meta.yaml to pfhub.json"""
+    runner = CliRunner()
+    result, _ = convert_helper(runner, tmpdir)
     file1 = os.path.join(tmpdir, "pfhub.yaml")
     file2 = os.path.join(tmpdir, "free_energy_1a.csv")
     assert result.exit_code == 0
@@ -192,3 +206,26 @@ def test_validate_keyerror():
     result = runner.invoke(validate, [__file__])
     assert result.exit_code == 1
     assert result.output.splitlines()[-1] == f"{__file__} is not valid"
+
+
+def test_convert_to_old(tmpdir):
+    """Test converting from new to old"""
+    runner = CliRunner()
+    _, runner = convert_helper(runner, tmpdir)
+    yamlpath = os.path.join(tmpdir, "pfhub.yaml")
+    metapath = os.path.join(tmpdir, "meta")
+    os.mkdir(metapath)
+    result = runner.invoke(convert_to_old, [yamlpath, "--dest", metapath])
+    file_ = os.path.join(metapath, "meta.yaml")
+    assert result.exit_code == 0
+    assert result.output.splitlines()[-1] == f"Writing: {file_}"
+
+
+def test_convert_to_old_missing_file():
+    """Test convert_to_old if file is missing"""
+    runner = CliRunner()
+    base = os.path.split(__file__)[0]
+    yaml_path = os.path.join(base, "..", "schema", "example_old.yaml")
+    result = runner.invoke(convert_to_old, [yaml_path])
+    assert result.exit_code == 1
+    assert result.output.splitlines()[-1] == f"{yaml_path} is not valid"

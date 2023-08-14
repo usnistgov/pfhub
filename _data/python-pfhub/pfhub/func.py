@@ -9,6 +9,7 @@ import io
 from datetime import timedelta
 import pathlib
 import re
+import os
 
 import chevron
 from toolz.curried import compose, curry, pipe, get, thread_first, do
@@ -18,6 +19,7 @@ import yaml
 import pandas
 from requests_cache import CachedSession
 import requests
+import dateutil
 
 
 fullmatch = curry(re.fullmatch)
@@ -497,3 +499,30 @@ def assign(columns, dataframe):
 
     """
     return dataframe.assign(**columns)
+
+
+def convert_date(str_):
+    """Convert a date/time in any format to a year-month-dat format."""
+    return str(dateutil.parser.parse(str(str_))).split(" ", maxsplit=1)[0]
+
+
+@curry
+def write_files(string_dict, dest):
+    """Write files from a dict
+
+    Args:
+      string_dict: dict of file names as keys and contents as values
+      dest: the destination directory
+
+    Returns:
+      the file paths of the written paths
+    """
+
+    @curry
+    def write(dir_, item):
+        path = os.path.join(dir_, f"{item[0]}")
+        with open(path, "w", encoding="utf-8") as fstream:
+            fstream.write(item[1])
+        return path
+
+    return list(map_(write(dest), string_dict.items()))

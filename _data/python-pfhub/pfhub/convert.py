@@ -24,6 +24,8 @@ from .func import (
     sequence,
     curry,
     get_json,
+    convert_date,
+    write_files,
 )
 from .zenodo import zenodo_to_meta
 
@@ -122,7 +124,7 @@ def convert(url):
 
     >>> print(convert("https://doi.org/10.5281/zenodo.7474506"))
     ---
-    name: fipy_1a_10.5281/zenodo.7474506
+    name: "fipy_1a_10.5281/zenodo.7474506"
     ...
             as: y
     <BLANKLINE>
@@ -269,28 +271,6 @@ def meta_to_zenodo_no_zip(url, dest):
 
 
 @curry
-def write_files(string_dict, dest):
-    """Write files from a dict
-
-    Args:
-      string_dict: dict of file names as keys and contents as values
-      dest: the destination directory
-
-    Returns:
-      the file paths of the written paths
-    """
-
-    @curry
-    def write(dir_, item):
-        path = os.path.join(dir_, f"{item[0]}")
-        with open(path, "w", encoding="utf-8") as fstream:
-            fstream.write(item[1])
-        return path
-
-    return list(map_(write(dest), string_dict.items()))
-
-
-@curry
 def bundle(zipname, string_dict, path="."):
     """Bundle strings into a zip file
 
@@ -408,7 +388,7 @@ def render_pfhub_schema(data, time_data, memory_data, timeseries):
     >>> print(*out.split('\\n')[:3], sep='\\n')
     ---
     id: https://github.com
-    benchmark_problem: 1a
+    benchmark_problem: 1a.1
     >>> print(*out.split('\\n')[-3:], sep='\\n')
       memory_in_kb: 1
       time_in_s: 1
@@ -429,21 +409,25 @@ def render_pfhub_schema(data, time_data, memory_data, timeseries):
                     + " "
                     + data.metadata.author.last,
                     "email": data.metadata.author.email,
+                    "affiliation": "[]",
                 }
             ],
-            "framework": [{"name": data.metadata.implementation.name}],
+            "framework": [
+                {
+                    "name": data.metadata.implementation.name,
+                    "url": data.metadata.implementation.repo.url,
+                    "version": "0.0",
+                    "download": data.metadata.implementation.repo.url,
+                }
+            ],
             "implementation_url": data.metadata.implementation.repo.url,
-            "date": data.metadata.timestamp,
+            "date": convert_date(data.metadata.timestamp),
             "wall_time": time_data.wall_time.iloc[-1],
             "memory": memory_data.value.iloc[-1],
             "fictive_time": time_data.sim_time.iloc[-1],
-            "hardware": [
-                {
-                    "architecture": data.metadata.hardware.cpu_architecture,
-                    "cores": data.metadata.hardware.cores,
-                    "nodes": data.metadata.hardware.nodes,
-                }
-            ],
+            "architecture": data.metadata.hardware.cpu_architecture,
+            "cores": data.metadata.hardware.cores,
+            "nodes": data.metadata.hardware.nodes,
             "file_timeseries": timeseries,
         },
     )

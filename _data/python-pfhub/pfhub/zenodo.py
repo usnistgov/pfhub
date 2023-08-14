@@ -237,15 +237,15 @@ def zenodo_to_pfhub(url):
     ...     'https://doi.org/10.5281/zenodo.7199253'
     ... ).splitlines()[:10]))  # doctest: +NORMALIZE_WHITESPACE
     ---
-    name: fipy_8a_10.5281/zenodo.7199253
+    name: "fipy_8a_10.5281/zenodo.7199253"
     metadata:
       author:
         first: Daniel
         last: Wheeler
         email:
         github_id:
-        orcid: 0000-0002-2653-7418
-      timestamp: 2022-08-31 00:00:00
+      timestamp: "2022-08-31 00:00:00"
+      summary: FiPy implementation of benchmark 8a
 
     """
 

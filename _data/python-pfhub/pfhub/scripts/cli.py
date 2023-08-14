@@ -21,6 +21,7 @@ from ..convert import meta_to_zenodo_no_zip, download_file
 from ..convert import download_zenodo as download_zenodo_
 from ..convert import download_meta as download_meta_
 from ..func import compact
+from ..new_to_old import to_old
 
 
 EPILOG = "See the documentation at \
@@ -140,6 +141,34 @@ def convert(file_path, dest):
     is_meta = validate_old_(file_path)
     if is_meta:
         local_filepaths = meta_to_zenodo_no_zip(file_path, dest)
+        output(local_filepaths)
+    else:
+        click.secho(f"{file_path} is not valid", fg="red")
+        sys.exit(1)
+
+
+@cli.command(epilog=EPILOG)
+@click.argument(
+    "file_path", type=click.Path(exists=True, dir_okay=False, readable=True)
+)
+@click.option(
+    "--dest",
+    "-d",
+    help="destination directory",
+    default="./",
+    type=click.Path(exists=False, writable=True, file_okay=False),
+)
+def convert_to_old(file_path, dest):
+    """Convert from a new PFHub YAML file to the old style YAML
+
+    Args:
+      file_path: path to PFHub YAML file
+      dest: the destination directory
+
+    """
+    is_valid = validate_(file_path)
+    if is_valid:
+        local_filepaths = to_old(file_path, dest)
         output(local_filepaths)
     else:
         click.secho(f"{file_path} is not valid", fg="red")
