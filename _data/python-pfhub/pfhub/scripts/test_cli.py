@@ -5,7 +5,7 @@ import os
 
 from click.testing import CliRunner
 
-from .cli import cli, download, download_meta, convert, validate, validate_old
+from .cli import cli, download_zenodo, download, convert, validate, validate_old
 
 
 def test_cli():
@@ -19,7 +19,7 @@ def test_download_zenodo(tmpdir):
     """Test downloading a Zenodo record"""
     runner = CliRunner()
     result = runner.invoke(
-        download, ["https://zenodo.org/record/7255597", "--dest", tmpdir]
+        download_zenodo, ["https://zenodo.org/record/7255597", "--dest", tmpdir]
     )
     assert result.exit_code == 0
     file1 = os.path.join(tmpdir, "phase_field_1.tsv")
@@ -30,7 +30,7 @@ def test_download_zenodo(tmpdir):
 def test_download_zenodo_bad(tmpdir):
     """Check the error message on a bad link"""
     runner = CliRunner()
-    result = runner.invoke(download, ["https://blah.com", "--dest", tmpdir])
+    result = runner.invoke(download_zenodo, ["https://blah.com", "--dest", tmpdir])
     assert result.exit_code == 1
     assert (
         result.output
@@ -42,7 +42,7 @@ def test_download_zenodo_sandbox(tmpdir):
     """Test downloading from the Zenodo sandbox"""
     runner = CliRunner()
     result = runner.invoke(
-        download, ["https://sandbox.zenodo.org/record/657937", "--dest", tmpdir]
+        download_zenodo, ["https://sandbox.zenodo.org/record/657937", "--dest", tmpdir]
     )
     assert result.exit_code == 0
     file1 = os.path.join(
@@ -57,10 +57,32 @@ def test_download_meta(tmpdir):
     base = "https://raw.githubusercontent.com/usnistgov/pfhub"
     end = "master/_data/simulations/fenics_1a_ivan/meta.yaml"
     yaml_url = os.path.join(base, end)
-    result = runner.invoke(download_meta, [yaml_url, "--dest", tmpdir])
+    result = runner.invoke(download, [yaml_url, "--dest", tmpdir])
     assert result.exit_code == 0
     file1 = os.path.join(tmpdir, "meta.yaml")
     file2 = os.path.join(tmpdir, "1a_square_periodic_out.csv")
+    assert result.output == f"Writing: {file1}, {file2}\n"
+
+
+def test_download_record(tmpdir):
+    """Test downloading a meta.yaml using only the record name"""
+    runner = CliRunner()
+    record = "fenics_1a_ivan"
+    result = runner.invoke(download, [record, "--dest", tmpdir])
+    assert result.exit_code == 0
+    file1 = os.path.join(tmpdir, "meta.yaml")
+    file2 = os.path.join(tmpdir, "1a_square_periodic_out.csv")
+    assert result.output == f"Writing: {file1}, {file2}\n"
+
+
+def test_download_zenodo_record(tmpdir):
+    """Test downloading a PFHub record, but from Zenodo"""
+    runner = CliRunner()
+    record = "fipy_1a_10.5281/zenodo.7474506"
+    result = runner.invoke(download, [record, "--dest", tmpdir])
+    assert result.exit_code == 0
+    file2 = os.path.join(tmpdir, "pfhub.json")
+    file1 = os.path.join(tmpdir, "free_energy.csv")
     assert result.output == f"Writing: {file1}, {file2}\n"
 
 
@@ -68,7 +90,7 @@ def test_download_exist(tmpdir):
     """URL doesn't exist"""
     runner = CliRunner()
     yaml_url = "https://blah.com"
-    result = runner.invoke(download_meta, [yaml_url, "--dest", tmpdir])
+    result = runner.invoke(download, [yaml_url, "--dest", tmpdir])
     assert result.exit_code == 1
     assert result.output.splitlines()[1] == "https://blah.com is invalid"
 
@@ -77,7 +99,7 @@ def test_download_not_file(tmpdir):
     """URL not a file"""
     runner = CliRunner()
     yaml_url = "https://google.com"
-    result = runner.invoke(download_meta, [yaml_url, "--dest", tmpdir])
+    result = runner.invoke(download, [yaml_url, "--dest", tmpdir])
     assert result.exit_code == 1
     assert result.output == "https://google.com is not a link to a file\n"
 
@@ -86,7 +108,7 @@ def test_download_not_valid(tmpdir):
     """Not a valid meta.yaml"""
     runner = CliRunner()
     yaml_url = "https://raw.githubusercontent.com/usnistgov/pfhub/master/.travis.yml"
-    result = runner.invoke(download_meta, [yaml_url, "--dest", tmpdir])
+    result = runner.invoke(download, [yaml_url, "--dest", tmpdir])
     assert result.exit_code == 1
     assert result.output == f"{yaml_url} is not valid\n"
 
@@ -97,7 +119,7 @@ def test_convert_to_zenodo(tmpdir):
     base = "https://raw.githubusercontent.com/usnistgov/pfhub"
     end = "master/_data/simulations/fenics_1a_ivan/meta.yaml"
     yaml_url = ("/").join([base, end])
-    runner.invoke(download_meta, [yaml_url, "--dest", tmpdir])
+    runner.invoke(download, [yaml_url, "--dest", tmpdir])
     yaml_path = os.path.join(tmpdir, "meta.yaml")
     result = runner.invoke(convert, [yaml_path, "--dest", tmpdir])
     file1 = os.path.join(tmpdir, "pfhub.yaml")

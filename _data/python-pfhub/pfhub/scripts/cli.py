@@ -41,7 +41,7 @@ def cli():
     default="./",
     type=click.Path(exists=True, writable=True, file_okay=False),
 )
-def download(url, dest):
+def download_zenodo(url, dest):
     """Download a Zenodo record
 
     Works with any Zenodo link
@@ -65,7 +65,10 @@ def download(url, dest):
 
 
 @cli.command(epilog=EPILOG)
-@click.argument("url", type=click_params.URL)
+@click.argument(
+    "record",
+    type=click_params.FirstOf(click_params.URL, click.STRING, return_param=True),
+)
 @click.option(
     "--dest",
     "-d",
@@ -73,15 +76,30 @@ def download(url, dest):
     default="./",
     type=click.Path(exists=True, file_okay=False, writable=True),
 )
-def download_meta(url, dest):
-    """Download an old style PFHub YAML file
+def download(record, dest):
+    """Download a PFHub record
 
     In addition, gets the linked data in the `data` section
 
     Args:
-      url: the URL of either the YAML file
+      record: the name of the result on PFHub (or URL to a meta.yaml)
       dest: the destination directory
     """
+    param, value = record
+    if repr(param) == "STRING":
+        regex = re.fullmatch(r".*10.5281/zenodo.(\d{1,})", value)
+        if regex is None:
+            base = "https://raw.githubusercontent.com/usnistgov/pfhub/"
+            end = f"master/_data/simulations/{value}/meta.yaml"
+            url = os.path.join(base, end)
+        else:
+            record_id = regex.groups()[0]
+            zenodo_url = f"https://doi.org/10.5281/zenodo.{record_id}"
+            download_zenodo.callback(zenodo_url, dest)
+            sys.exit(0)
+    else:
+        url = value
+
     try:
         is_meta = validate_old_url(url)
     except requests.exceptions.ConnectionError as err:
