@@ -235,16 +235,14 @@ a(\textbf{n})=1+\epsilon_m\cos \left[m(\theta-\theta_0) \right],
 </ul>
 <p>These three values should be recorded in a file named <code>timeseries_3.csv</code>. This plain-text CSV file (<a href="https://en.wikipedia.org/wiki/Comma-separated_values">comma-separated values</a>) must have the following format -- note the column headings and lack of spaces,
 and that there is no requirement to fix the number of digits for each column or row.</p>
-<pre><code class="language-csv">csv
-time,solid_fraction,free_energy,tip_position
+<pre><code>time,solid_fraction,free_energy,tip_position
 0.0,5.47e-5,2142078.02,7.9872
 50.00000001,0.00050023,2110276.50112,26.4273
 ...
 1500,0.01872,1976882.3003,288.58
 </code></pre>
 <p>In addition, the phase-field zero-level set contour at time $t=1500$ is required. The data should be named as <code>phase_field_1500.csv</code> and include just two columns: one for each coordinate, $x$ and $y$, along the contour where $\phi = 0$. The contour data should be in a sequence that enables an ordered traversal of the contour line. For example,</p>
-<pre><code class="language-csv">csv
-x,y
+<pre><code>x,y
 7.625,0.0
 7.601,0.05
 ...
