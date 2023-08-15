@@ -38,6 +38,7 @@ def get_github_id(str_):
     wd15
 
     >>> print(get_github_id("wd15"))
+    <BLANKLINE>
 
     """
 
