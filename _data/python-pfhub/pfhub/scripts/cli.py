@@ -131,7 +131,7 @@ def download(record, dest):
     type=click.Path(exists=False, writable=True, file_okay=False),
 )
 def convert(file_path, dest):
-    """Convert an old style PFHub YAML file to the new schema
+    """Convert between formats (old PFHub schema to new PFHub schema)
 
     Args:
       file_path: the file path to the old style PFHub YAML
@@ -159,7 +159,7 @@ def convert(file_path, dest):
     type=click.Path(exists=False, writable=True, file_okay=False),
 )
 def convert_to_old(file_path, dest):
-    """Convert from a new PFHub YAML file to the old style YAML
+    """Convert between formats (new PFHub schema to old PFHub schema)
 
     Args:
       file_path: path to PFHub YAML file
@@ -180,7 +180,7 @@ def convert_to_old(file_path, dest):
     "file_path", type=click.Path(exists=True, dir_okay=False, readable=True)
 )
 def validate_old(file_path):
-    """Validate a PFHub YAML file against the old schema
+    """Validate a YAML file with the old PFHub schema
 
     Args:
       file_path: the URL of the meta.yaml
@@ -198,7 +198,7 @@ def validate_old(file_path):
     "file_path", type=click.Path(exists=True, dir_okay=False, readable=True)
 )
 def validate(file_path):
-    """Validate a PFHub YAML file against the new schema
+    """Validate a YAML file with the new PFHub schema
 
     Args:
       file_path: the URL of the meta.yaml
@@ -212,12 +212,47 @@ def validate(file_path):
 
 
 @cli.command(epilog=EPILOG)
+def generate_yaml(file_path):  # pylint: disable=unused-argument
+    """Infer a PFHub YAML file from GitHub ID, ORCID, benchmark ID and/or
+    existing record.
+    """
+
+
+@cli.command(epilog=EPILOG)
+def generate_notebook(file_path):  # pylint: disable=unused-argument
+    """Generate the comparison notebook for the corresponding benchmark ID."""
+
+
+@cli.command(epilog=EPILOG)
 def test():  # pragma: no cover
     """Run the PFHub tests
 
     Currently creates a stray .coverage file when running.
     """
     pfhub_test()
+
+
+@cli.command(epilog=EPILOG)
+@click.option(
+    "--path",
+    "-p",
+    help="Upload a set of files to Zenodo",
+    type=click.Path(exists=True, readable=True, file_okay=False),
+    default="./",
+)
+def upload(path):  # pylint: disable=unused-argument
+    """Upload PFHub data to Zenodo"""
+
+
+@cli.command(epilog=EPILOG)
+@click.argument("url", type=click_params.URL)
+def submit(url):  # pylint: disable=unused-argument
+    """Submit to Zenodo and open PFHub PR"""
+
+
+@cli.command(epilog=EPILOG)
+def submit_from_zenodo():  # pylint: disable=unused-argument
+    """Submit an existing Zenodo record to PFHub"""
 
 
 def zenodo_regexs():
