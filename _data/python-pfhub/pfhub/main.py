@@ -213,7 +213,7 @@ def get_table_data(benchmark_ids, benchmark_path=BENCHMARK_PATH):
 
     """
     to_datetime = lambda x: pandas.to_datetime(x, errors="raise", utc=True)
-    format_date = lambda x: x.dt.strftime("%Y-%m-%d")
+    format_date = lambda x: x.dt.strftime("%Y-%m-%d", format='mixed')
     return pipe(
         benchmark_ids,
         get_yaml_data(benchmark_path),
