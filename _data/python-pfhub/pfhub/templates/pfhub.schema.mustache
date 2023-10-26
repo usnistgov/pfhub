@@ -1,0 +1,49 @@
+---
+id: {{ implementation_url }}
+benchmark_problem: {{ problem }}.{{ benchmark_version }}
+
+date_created: '{{ date }}'
+
+schema:
+  url: >-
+    https://github.com/usnistgov/pfhub-schema/tree/2b06531/project
+
+summary: >-
+  {{ summary }}
+
+contributors:
+{{# contributors }}
+  - id: {{ id }}
+    name: {{ name }}
+    affiliation: {{ affiliation }}
+    email: {{ email }}
+{{/ contributors }}
+
+framework:
+{{# framework }}
+  - url: {{ url }}
+    name: {{ name }}
+    download: {{ download }}
+    version: "{{ version }}"
+{{/ framework }}
+
+implementation:
+  url: >-
+    {{ implementation_url }}
+
+results:
+  dataset_temporal:
+{{# file_timeseries }}
+    - name: {{ name }}
+      columns:
+      {{# columns }}
+        - {{ name }}
+      {{/ columns }}
+{{/ file_timeseries }}
+  hardware:
+    architecture: {{ architecture }}
+    cores: {{ cores }}
+    nodes: {{ nodes }}
+  fictive_time: {{ fictive_time }}
+  memory_in_kb: {{ memory }}
+  time_in_s: {{ wall_time }}

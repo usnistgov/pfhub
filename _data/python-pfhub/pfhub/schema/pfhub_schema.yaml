@@ -1,0 +1,622 @@
+# This schema describes a dataset produced by phase-field methods
+# in response to a PFHub Benchmark Problem. It should capture:
+#
+# * Point of contact: email.
+# * Which benchmark problem? Part, version, spec.
+# * How was the solution implemented? Framework, repo, container?
+# * Who contributed to the code? GitHub, OrcIDs, affiliations.
+# * Requirements to run the code: CPU, GPU, parallel model.
+# * Runtime details: RAM, runtime, cores/threads.
+# * Simulation data: endpoint, CSV file, CSV fields.
+---
+id: https://w3id.org/usnistgov/pfhub-schema
+name: pfhub_schema
+title: PFHub Benchmark Results
+description: >-
+  Schema for Phase-field Simulation and Benchmark Results schema in LinkML.
+license: https://www.nist.gov/open/license
+see_also:
+  - https://pages.nist.gov/pfhub
+  - https://pages.nist.gov/pfhub-schema
+
+version: 0.1.0  # LinkML schema under development (alpha)
+
+prefixes:
+  pfhub: https://w3id.org/usnistgov/pfhub-schema/
+  linkml: https://w3id.org/linkml/
+
+default_curi_maps:
+  - semweb_context
+default_prefix: pfhub
+default_range: string
+imports:
+  - linkml:types
+
+classes:
+
+  BenchmarkResult:
+    description: >-
+      Root and context for this Benchmark Problem solution.
+    slots:
+      - id
+      - benchmark_problem
+      - contributors
+      - date_created
+      - framework
+      - implementation
+      - results
+      - schema
+      - summary
+    tree_root: true
+
+  ComputeResource:
+    class_uri: https://schema.org/softwareRequirements
+    description: >-
+      Summary of the hardware used to execute the simulation.
+    slots:
+      - architecture
+      - cores
+      - nodes
+
+  Contributor:
+    class_uri: https://schema.org/Person
+    description: >-
+      A person who contributed to this solution.
+    slots:
+      - id
+      - name
+      - handle
+      - affiliation
+      - email
+    slot_usage:
+      id:
+        description: >-
+          An ORCiD is preferred, e.g. «orcid:0000-0001-2345-6789».
+
+  File:
+    abstract: true
+    class_uri: https://schema.org/DigitalDocument
+    description: >-
+      The local path of a generic electronic information container,
+      i.e., a filename.
+    slots:
+      - name
+    slot_usage:
+      name:
+        identifier: true
+
+  Results:
+    class_uri: https://schema.org/Dataset
+    description: >-
+      Runtime information and output from a simulation that conforms
+      with the benchmark problem specification.
+    slots:
+      - dataset_generic
+      - dataset_spatial
+      - dataset_temporal
+      - dataset_visual
+      - documentation
+      - fictive_time
+      - hardware
+      - memory_in_kb
+      - time_in_s
+
+  Software:
+    description: >-
+      A software product, download, or repository.
+    class_uri: https://schema.org/SoftwareApplication
+    slots:
+      - url
+      - name
+      - commit
+      - download
+      - version
+    slot_usage:
+      url:
+        identifier: true
+
+  SourceCode:
+    description: >-
+      Link to the authors' implementation of the benchmark problem.
+    class_uri: https://schema.org/SoftwareSourceCode
+    slots:
+      - url
+      - name
+      - commit
+    slot_usage:
+      url:
+        identifier: true
+
+  # ~~~ Derived Classes ~~~
+
+  GenericFile:
+    description: >-
+      A pfhub:File containing raw data, compressed data, or other
+      simulation output.
+    is_a: File
+
+  PlainText:
+    description: >-
+      A pfhub:File containing documentation or information in plain
+      text, e.g. README, AUTHORS, etc.
+    is_a: File
+
+  SpatialFile:
+    description: >-
+      A pfhub:File representing field variables in a simulation domain
+      as plain text using named columns of comma-separated values
+      (CSV), e.g. «x_coord,y_coord,composition».
+    is_a: File
+
+  TemporalFile:
+    class_uri: https://en.wikipedia.org/wiki/Comma-separated_values
+    description: >-
+      A pfhub:File representing the evolution of field variables, or
+      integrals or functions thereof, over time as plain text using
+      named columns of comma-separated values (CSV),
+      e.g. «time,free_energy».
+    is_a: File
+    slots:
+      - columns
+
+  VisualFile:
+    description: >-
+      A pfhub:File representing field data or transformations thereof
+      using standard image or visualization formats,
+      e.g. PNG, TIF, VTI, etc.
+    is_a: File
+
+
+slots:
+
+  id:
+    description: >-
+      Unique identifier that must not collide with any other.
+    identifier: true
+    multivalued: false
+    range: uriorcurie
+    required: true
+    slot_uri: https://schema.org/identifier
+
+  affiliation:
+    description: >-
+      Institution, company, or agency a person works with.
+    inlined_as_list: true
+    multivalued: true
+    range: string
+
+  architecture:
+    description: >-
+      Processor architecture required for this simulation: CPU or GPU?
+    range: string
+    required: true
+    slot_uri: http://www.fairsharing.org/ontology/subject/SRAO_0000258
+
+  benchmark_problem:
+    description: >-
+      Specification of the PFHub Benchmark Problem solved.
+    multivalued: false
+    range: ValidBenchmarkProblems
+    pattern: "^\\S+"  # no whitespace allowed
+    required: true
+
+  columns:
+    description: >-
+      Column names applied to tabular data.
+    inlined_as_list: true
+    multivalued: true
+    pattern: "^\\S+"  # no whitespace allowed
+    range: string
+    required: true
+
+  commit:
+    description: >-
+      Commit hash in a repository of source code.
+    pattern: "^\\S+"  # no whitespace allowed
+    range: string
+    slot_uri: https://en.wikipedia.org/wiki/Commit_(version_control)
+
+  cores:
+    description: >-
+      Number of parallel cores or threads of execution used by the
+      simulation on a CPU, GPU, or accelerator device.
+    range: integer
+    required: true
+    slot_uri: http://purl.obolibrary.org/obo/NCIT_C64194
+
+  date_created:
+    description: >-
+      Day when an item was uploaded, released, or published.
+    range: date
+    required: true
+    slot_uri: https://schema.org/dateCreated
+
+  download:
+    description: >-
+      Link to a download URL.
+    range: uriorcurie
+    slot_uri: https://schema.org/downloadUrl
+
+  email:
+    description: >-
+      A person's electronic mailing address.
+    pattern: "^\\S+@[\\S+\\.]+\\S+"
+    range: string
+    slot_uri: https://schema.org/email
+
+  fictive_time:
+    description: >-
+      Maximum simulated (or "fictive") time reached.
+    range: float
+    required: true
+    slot_uri: https://schema.org/Number
+
+  format:
+    description: >-
+      Format of data contained in a file.
+    slot_uri: https://schema.org/encodingFormat
+
+  handle:
+    description: >-
+      A person's identifier on a website, without the "at" symbol.
+    inlined_as_list: true
+    multivalued: true
+    range: uriorcurie
+    slot_uri: https://schema.org/member
+
+  memory_in_kb:
+    description: >-
+      Memory capacity required for this simulation.
+    range: integer
+    required: true
+    unit:
+      ucum_code: "KIB*BY"
+      has_quantity_kind: http://purl.obolibrary.org/obo/UO_0000245
+
+  name:
+    description: >-
+      Informal or human-memorable identifier that may collide with others.
+    multivalued: false
+    range: string
+    slot_uri: https://schema.org/name
+
+  nodes:
+    description: >-
+      Number of machines allocated for the simulation in a computer cluster
+      environment.
+    multivalued: false
+    range: integer
+    required: true
+    slot_uri: http://purl.obolibrary.org/obo/NCIT_C18132
+
+  summary:
+    description: >-
+      Text description, abstract, or narrative.
+    multivalued: false
+    range: string
+    required: true
+    slot_uri: https://schema.org/abstract
+
+  time_in_s:
+    description: >-
+      Amount of time required to execute the simulation.
+    range: integer
+    required: true
+    slot_uri: https://schema.org/Number
+    unit:
+      ucum_code: S
+      has_quantity_kind: http://purl.obolibrary.org/obo/NCIT_C42535
+
+  url:
+    description: >-
+      URL of an online resource or website.
+    range: uriorcurie
+    slot_uri: https://schema.org/url
+
+  version:
+    description: >-
+      Semantic version of a software project.
+    pattern: "^[\\d+\\.]+"
+    range: string
+    recommended: true
+    slot_uri: https://schema.org/softwareVersion
+
+  # ~~ derived slots ~~
+
+  contributors:
+    description: >-
+      List of people who worked on this solution.
+    inlined_as_list: true
+    multivalued: true
+    range: Contributor
+    required: true
+    slot_uri: https://schema.org/contributor
+
+  documentation:
+    description: >-
+      List of README, AUTHORS, and similar documentation
+      files in plain text (including Markdown).
+    inlined_as_list: true
+    multivalued: true
+    range: PlainText
+
+  dataset_generic:
+    description: >-
+      List of simulation files including raw data, compressed
+      archives, and supplementary information.
+    inlined_as_list: true
+    multivalued: true
+    range: GenericFile
+
+  dataset_spatial:
+    description: >-
+      List of field data CSV files from a simulation.
+    inlined_as_list: true
+    multivalued: true
+    range: SpatialFile
+
+  dataset_temporal:
+    description: >-
+      List of timeseries CSV files from a simulation.
+    inlined_as_list: true
+    multivalued: true
+    range: TemporalFile
+
+  dataset_visual:
+    description: >-
+      List of visualization files from a simulation.
+    inlined_as_list: true
+    multivalued: true
+    range: VisualFile
+
+  framework:
+    description: >-
+      List of the primary phase-field software framework and
+      extra dependencies required to run this simulation.
+    inlined_as_list: true
+    multivalued: true
+    range: Software
+    slot_uri: https://schema.org/SoftwareApplication
+
+  hardware:
+    description: >-
+      Computer hardware used to run the simulation.
+    multivalued: false
+    range: ComputeResource
+    required: true
+
+  implementation:
+    description: >-
+      Source code implementing the solution.
+    inlined_as_list: true
+    multivalued: false
+    range: SourceCode
+    required: true
+
+  results:
+    description: >-
+      Collection of outputs and summary data from a simulation.
+    multivalued: false
+    range: Results
+    required: true
+
+  schema:
+    description: >-
+      Version of the PFHub Schema this record conforms to.
+    inlined_as_list: true
+    multivalued: false
+    range: SourceCode
+    required: true
+
+# === Enums ===
+
+enums:
+  ValidBenchmarkProblems:
+    description: >-
+      Known parts of the accepted PFHub Benchmark Problems.
+    permissible_values:
+      1a.1:
+        description: >-
+          Spinodal decomposition in a square domain with periodic boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark1.ipynb/#(a)-Square-periodic
+      1a.0:
+        description: >-
+          Spinodal decomposition in a square domain with periodic boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon1/problems.ipynb/#1.a-Square-Periodic
+      1b.1:
+        description: >-
+          Spinodal decomposition in a square domain with no-flux boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark1.ipynb/#(b)-Square-no-flux
+      1b.0:
+        description: >-
+          Spinodal decomposition in a square domain with no-flux boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon1/problems.ipynb/#1.b-No-Flux
+      1c.1:
+        description: >-
+          Spinodal decomposition in a T-shaped domain with no-flux boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark1.ipynb/#(c)-T-shape
+      1c.0:
+        description: >-
+          Spinodal decomposition in a T-shaped domain with no-flux boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon1/problems.ipynb/#1.c-T-Shape-No-Flux
+      1d.1:
+        description: >-
+          Spinodal decomposition on a closed spherical shell.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark1.ipynb/#(d)-Sphere
+      1d.0:
+        description: >-
+          Spinodal decomposition on a closed spherical shell.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon1/problems.ipynb/#1.d-Sphere
+
+      2a.1:
+        description: >-
+          Ostwald ripening in a square domain with periodic boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark2.ipynb/#(a)-Square-periodic
+      2a.0:
+        description: >-
+          Ostwald ripening in a square domain with periodic boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon1/problems.ipynb/#2.a-Square-Periodic
+      2b.1:
+        description: >-
+          Ostwald ripening in a square domain with no-flux boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark2.ipynb/#(b)-Square-no-flux
+      2b.0:
+        description: >-
+          Ostwald ripening in a square domain with no-flux boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon1/problems.ipynb/#2.b-No-Flux
+      2c.1:
+        description: >-
+          Ostwald ripening in a T-shaped domain with no-flux boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark2.ipynb/#(c)-T-shape
+      2c.0:
+        description: >-
+          Ostwald ripening in a T-shaped domain with no-flux boundaries.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon1/problems.ipynb/#2.c-T-Shape-No-Flux
+      2d.1:
+        description: >-
+          Ostwald ripening on a closed spherical shell.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark2.ipynb/#(d)-Sphere
+      2d.0:
+        description: >-
+          Ostwald ripening on a closed spherical shell.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon1/problems.ipynb/#2.d-Sphere
+
+      3a.1:
+        description: >-
+          Dendritic growth in a square domain.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark3.ipynb/
+      3a.0:
+        description: >-
+          Dendritic growth in a square domain with m=4 and θ₀=0.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon2/problem1.ipynb/
+      3b.0:
+        description: >-
+          Dendritic growth in a square domain with m=4 and θ₀=π/4.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon2/problem1.ipynb/
+      3c.0:
+        description: >-
+          Dendritic growth in a square domain with m=6 and θ₀=0.
+        meaning: >-
+          https://pages.nist.gov/pfhub/hackathons/hackathon2/problem1.ipynb/
+
+      4a.1:
+        description: >-
+          Elastic precipitate with radii (20 nm, 20 nm),
+          C₁₁₁₁=250 aJ/nm³, C₁₁₂₂=150 aJ/nm³, C₁₂₁₂=100 aJ/nm³.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark4.ipynb/
+      4b.1:
+        description: >-
+          Elastic precipitate with radii (75 nm, 75 nm),
+          C₁₁₁₁=250 aJ/nm³, C₁₁₂₂=150 aJ/nm³, C₁₂₁₂=100 aJ/nm³.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark4.ipynb/
+      4c.1:
+        description: >-
+          Elastic precipitate with radii (20 nm, 20 nm),
+          C₁₁₁₁=275 aJ/nm³, C₁₁₂₂=165 aJ/nm³, C₁₂₁₂=110 aJ/nm³.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark4.ipynb/
+      4d.1:
+        description: >-
+          Elastic precipitate with radii (75 nm, 75 nm),
+          C₁₁₁₁=275 aJ/nm³, C₁₁₂₂=165 aJ/nm³, C₁₂₁₂=110 aJ/nm³.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark4.ipynb/
+      4e.1:
+        description: >-
+          Elastic precipitate with radii (20/0.9 nm, 0.9*20 nm),
+          C₁₁₁₁=250 aJ/nm³, C₁₁₂₂=150 aJ/nm³, C₁₂₁₂=100 aJ/nm³.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark4.ipynb/
+      4f.1:
+        description: >-
+          Elastic precipitate with radii (75/0.9 nm, 0.9*75 nm),
+          C₁₁₁₁=250 aJ/nm³, C₁₁₂₂=150 aJ/nm³, C₁₂₁₂=100 aJ/nm³.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark4.ipynb/
+      4g.1:
+        description: >-
+          Elastic precipitate with radii (20/0.9 nm, 0.9*20 nm),
+          C₁₁₁₁=275 aJ/nm³, C₁₁₂₂=165 aJ/nm³, C₁₂₁₂=110 aJ/nm³.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark4.ipynb/
+      4h.1:
+        description: >-
+          Elastic precipitate with radii (75/0.9 nm, 0.9*75 nm),
+          C₁₁₁₁=275 aJ/nm³, C₁₁₂₂=165 aJ/nm³, C₁₂₁₂=110 aJ/nm³.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark4.ipynb/
+
+      5a.0:
+        description: >-
+          Stokes flow in an un-obstructed channel.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark5-hackathon.ipynb/
+      5b.0:
+        description: >-
+          Stokes flow in a channel with elliptical obstruction.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark5-hackathon.ipynb/
+
+      6a.0:
+        description: >-
+          Electrostatics in a square domain.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark6-hackathon.ipynb/
+      6b.0:
+        description: >-
+          Electrostatics in a domain comprised of a rectangle and half-circle.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark6-hackathon.ipynb/
+
+      7a.0:
+        description: >-
+          Method of Manufactured Solutions: order of accuracy test.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark7.ipynb/#Part-(a)
+      7b.0:
+        description: >-
+          Method of Manufactured Solutions: performance with fixed error.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark7.ipynb/#Part-(b)
+      7c.0:
+        description: >-
+          Method of Manufactured Solutions: increased rate of change.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark7.ipynb/#Part-(c)
+
+      8a.0:
+        description: >-
+          Homogeneous nucleation with a single initial seed.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark8.ipynb/#Part-(a):-single-seed
+      8b.0:
+        description: >-
+          Homogeneous nucleation with multiple initial seeds.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark8.ipynb/#Part-(b):-multiple-initial-seeds
+      8c.0:
+        description: >-
+          Homogeneous nucleation with seeds at random times.
+        meaning: >-
+          https://pages.nist.gov/pfhub/benchmarks/benchmark8.ipynb/#Part-(c):-multiple-seeds-at-random-times

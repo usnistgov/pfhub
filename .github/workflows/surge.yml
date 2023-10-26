@@ -29,12 +29,12 @@ jobs:
       - run: echo "REPO=$(cat repo)" >> $GITHUB_ENV
       - run: echo "HEAD_REF=$(cat head_ref)" >> $GITHUB_ENV
 
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v3
         with:
           repository: ${{ env.REPO }}
           ref: ${{ env.HEAD_REF }}
 
-      - uses: cachix/install-nix-action@v14.1
+      - uses: cachix/install-nix-action@v20
         with:
           nix_path: nixpkgs=channel:nixos-unstable
 
@@ -50,7 +50,7 @@ jobs:
           SURGE_LOGIN: "${{ secrets.SURGE_LOGIN }}"
           SURGE_TOKEN: "${{ secrets.SURGE_TOKEN }}"
         run: |
-          nix-shell shell-surge.nix --command " \
+          nix develop --command bash -c " \
             if [[ ${{ env.NAME }} == 'pullrequest' ]]; then \
               rm -rf ./_site && \
               jekyll build && \

@@ -1,0 +1,41 @@
+id: fipy_1a_tkphd_pysparse
+benchmark_problem: 1a.0
+contributors:
+- id: https://orcid.org/0000-0002-2920-8302
+  name: Trevor Keller
+  affiliation:
+  - NIST
+  email: trevor.keller@nist.gov
+- id: https://orcid.org/0000-0002-2653-7418
+  name: Daniel Wheeler
+  affiliation:
+  - NIST
+  email: daniel.wheeler@nist.gov
+date_created: '2017-01-10'
+implementation:
+  url: https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/tree/master/periodic
+results:
+  fictive_time: 53333.3
+  hardware:
+    architecture: cpu
+    cores: 1
+    nodes: 1
+  memory_in_kb: 28600
+  time_in_s: 157187
+  dataset_temporal:
+  - name: free_energy.csv
+    columns:
+    - time
+    - free_energy
+schema:
+  url: https://github.com/usnistgov/pfhub-schema/tree/e0010d9/project
+summary: Serial Travis CI benchmark with FiPy, periodic domain
+framework:
+- url: https://www.ctcms.nist.gov/fipy/
+  name: FiPy
+  download: https://github.com/usnistgov/fipy
+  version: 3.1.2
+- url: https://github.com/usnistgov/steppyngstounes
+  name: steppyngstounes
+  download: https://github.com/usnistgov/steppyngstounes
+  version: '0.0'

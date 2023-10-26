@@ -1,0 +1,154 @@
+---
+type: map
+required: True
+mapping:
+  "tags":
+    type: any
+    required: False
+  "_id":
+    type: str
+    required: False
+  "timestamp":
+    type: timestamp
+    required: False
+  "date":
+    type: timestamp
+    required: False
+  "layout":
+    type: str
+    required: False
+  "message":
+    type: str
+    required: False
+  "approved":
+    type: bool
+    required: False
+  "title":
+    type: str
+    required: False
+  "name":
+    type: str
+    required: False
+  "data": &data
+    type: seq
+    required: True
+    sequence:
+      - type: map
+        required: True
+        mapping:
+          "name":
+            type: str
+            required: True
+          "format":
+            type: any
+            required: False
+          "values":
+            type: any
+            required: False
+          "url":
+            type: str
+            required: False
+          "boxuid":
+            pattern: \b[0-9a-f]{8}\-[0-9a-f]{4}\-4[0-9a-f]{3}\-[89ab][0-9a-f]{3}\-[0-9a-f]{12}\b|null
+            type: str
+            required: False
+          "transform":
+            type: any
+            required: False
+          "description":
+            type: str
+            required: False
+          "type":
+            type: str
+            enum: ["line", "contour", "image", "youtube"]
+  "benchmark":
+    type: map
+    required: True
+    mapping:
+      "id":
+        type: str
+        enum: ["1a", "1b", "1c", "1d", "2a", "2b", "2c", "2d", "3a", "6a", "6b", "7a", "7b", "7c", "4a", "4b", "4c", "4d", "4e", "4f", "4g", "4h", "fake", "8a", "8b", "8c", "8d"]
+        required: True
+      "version":
+        type: number
+        required: True
+  "metadata":
+    type: map
+    required: True
+    mapping:
+      "simulation_name":
+        type: str
+        required: False
+      "summary":
+        type: str
+        required: True
+      "author":
+        type: map
+        required: True
+        mapping:
+          "first":
+            type: str
+            required: False
+          "last":
+            type: str
+            required: False
+          "name":
+            type: str
+            required: False
+          "github_id":
+            type: str
+            required: True
+          "email":
+            type: str
+            pattern: \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
+            required: False
+      "timestamp":
+        type: timestamp
+        required: True
+      "hardware":
+        type: map
+        required: True
+        mapping:
+          "clock_rate":
+            type: number
+            required: True
+          "nodes":
+            type: number
+            required: True
+          "cpu_architecture":
+            type: str
+            required: True
+            enum: ["i386", "i686", "x86_64", "ia64", "alpha", "amd64", "arm", "armeb", "armel", "armv6l", "armv7l", "hppa", "k1om", "m32r", "m68k", "mips", "mipsel", "powerpc", "ppc", "ppc64", "s390", "s390x", "sh3", "sh3eb", "sh4", "sh4eb", "sparc", "sparc64"]
+          "acc_architecture":
+            type: str
+            required: True
+            enum: ["none", "gpu", "non-gpu"]
+          "cores":
+            type: number
+            required: True
+          "parallel_model":
+            type: str
+            required: False
+            enum: ["serial", "massive", "threaded", "distributed"]
+      "implementation":
+        type: map
+        required: False
+        mapping:
+          "name":
+            type: str
+            required: True
+            pattern: (?i)fenics|moose|prisms|sfepy|mmsp|fipy|custom|hiperc|ampe|memphis|meumapps|symphas
+          "container_url":
+            type: str
+            required: False
+          "repo": &repo
+            type: map
+            required: False
+            mapping:
+              "url":
+                type: str
+                required: True
+              "version":
+                type: str
+                pattern: \b[0-9a-f]{5,40}\b
+                required: True
