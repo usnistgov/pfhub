@@ -37,7 +37,7 @@ All results for the [{ benchmark_id } benchmark specification](../../benchmarks/
 
 ```python
 # To generate the comparison notebooks use:
-# 
+#
 # papermill template.ipynb benchmark{version}.ipynb -f bm{version}.yaml
 #
 ```
@@ -46,7 +46,7 @@ All results for the [{ benchmark_id } benchmark specification](../../benchmarks/
 from IPython.display import HTML
 
 HTML('''<script>
-code_show=true; 
+code_show=true;
 function code_toggle() {
  if (code_show){
  $('div.input').hide();
@@ -56,7 +56,7 @@ function code_toggle() {
 $('div.prompt').show();
  }
  code_show = !code_show
-} 
+}
 $( document ).ready(code_toggle);
 </script>
 <form action="javascript:code_toggle()"><input type="submit" value="Code Toggle"></form>''')
@@ -93,6 +93,13 @@ init_notebook_mode(all_interactive=False)
 ```
 
 ```python
+from pathlib import Path
+
+cwd = Path().resolve()
+benchmark_path = f'{cwd}/../_data/simulation_list.yaml'
+```
+
+```python
 colors = dict()
 
 for x in line_plots:
@@ -100,11 +107,12 @@ for x in line_plots:
         data_name=x['name'],
         benchmark_id=benchmark_id,
         layout=x['layout'],
-        columns=x.get('columns', ('x', 'y'))
+        columns=x.get('columns', ('x', 'y')),
+        benchmark_path=benchmark_path
     )
     if 'extra_lines' in x:
         for kwargs in x['extra_lines']:
-            fig.add_scatter(**kwargs)  
+            fig.add_scatter(**kwargs)
     for datum in fig['data']:
         name = datum['name']
         color = datum['line']['color']
@@ -115,7 +123,7 @@ for x in line_plots:
 
 ```python
 for x in contour_plots:
-    data = get_result_data([x['name']], [benchmark_id], x['columns'])
+    data = get_result_data([x['name']], [benchmark_id], x['columns'], benchmark_path=benchmark_path)
 
     levelset_plot(
         data,
@@ -127,9 +135,8 @@ for x in contour_plots:
 
 ```python
 if efficiency:
-    efficiency_plot(benchmark_id).show()
+    efficiency_plot(benchmark_id, benchmark_path=benchmark_path).show()
     display_markdown("<span class='plotly-footnote' >* Wall time divided by the total simulated time.</span>", raw=True)
-
 ```
 
 ```python
@@ -149,7 +156,7 @@ Table of { benchmark_id } benchmark result uploads.
 ## This might improve when jupyter-nbcovert is updated to a later version.
 
 init_notebook_mode(all_interactive=False)
-get_table_data_style(benchmark_id, pfhub_path='../..')
+get_table_data_style(benchmark_id, pfhub_path='../..', benchmark_path=benchmark_path)
 ```
 
 ```python

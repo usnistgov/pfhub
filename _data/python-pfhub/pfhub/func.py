@@ -140,7 +140,6 @@ def read_csv(sep_, path):
     """  # pylint: disable=line-too-long # noqa: E501
 
     try:
-
         if urllib.parse.urlparse(str(path)).scheme in ("http", "https"):
             session = get_cached_session()
             path_ = io.StringIO(session.get(path).content.decode("utf-8"), newline=None)

@@ -1,0 +1,39 @@
+# Nix flake checker determines the health of the flake.lock files.
+# See https://determinate.systems/posts/flake-checker for some
+# explanation. This checks that the branches that are relied on for
+# packages are maintained and have recent commits. If they aren't
+# maintained then the checker will notify us and we can update the
+# lock or flake files.
+---
+name: Test Flakes
+on: [push, pull_request]
+jobs:
+  test-flakes:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v20
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          name: pfhub
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extraPullNames: nix-community
+      - name: Check Nix flake inputs (./flake.lock)
+        uses: DeterminateSystems/flake-checker-action@v5
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v4
+      - name: Build Nix package
+        run: |
+          nix flake lock --update-input pfhub
+          nix build
+      - name: Check Nix flake inputs (./_data/python-pfhub/flake.lock)
+        uses: DeterminateSystems/flake-checker-action@v5
+        with:
+          flake-lock-path: _data/python-pfhub/flake.lock
+      - name: Build Nix package
+        run: |
+          cd _data/python-pfhub
+          nix build
