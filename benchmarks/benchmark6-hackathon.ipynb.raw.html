@@ -32,7 +32,9 @@
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[1]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -79,15 +81,17 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
 
 
 
 
-<div id="ad8a7059-aca0-42b2-ba85-74d7b63f5110"></div>
+
+<div id="9322d357-14b6-478c-ab2d-5d8072d2bd50"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#ad8a7059-aca0-42b2-ba85-74d7b63f5110');
+var element = $('#9322d357-14b6-478c-ab2d-5d8072d2bd50');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -123,7 +127,9 @@ var element = $('#ad8a7059-aca0-42b2-ba85-74d7b63f5110');
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[2]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -140,8 +146,7 @@ var element = $('#ad8a7059-aca0-42b2-ba85-74d7b63f5110');
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -168,7 +173,9 @@ var element = $('#ad8a7059-aca0-42b2-ba85-74d7b63f5110');
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[3]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -181,52 +188,57 @@ var element = $('#ad8a7059-aca0-42b2-ba85-74d7b63f5110');
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>See the Overleaf document entitled <a href="https://www.overleaf.com/read/nqjkdwyybvdz">"Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+<p>See the Overleaf document entitled <a href="https://doi.org/10.1016/j.commatsci.2018.03.015">"Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h1><p>Diffusion of a charged species is often modeled with the phase field approach, such as for  batteries, electrodeposition, and electromigration.  This benchmark problem incorporates the first benchmark problem for spinodal decomposition <a href="https://doi.org/10.1016/j.commatsci.2016.09.022">Jokisaari 2017</a> and extends it to incorporate coupling with electrostatics.</p>
 <h2 id="Governing-Equations">Governing Equations<a class="anchor-link" href="#Governing-Equations">&#182;</a></h2><p>In this problem, two variables are used: $c$, the concentration field of our charged species, and $\Phi$, the electric potential field.  The free energy of the system is given as</p>
-\begin{equation}
+<p>\begin{equation}
 F=\int_{V} \left[\frac{\kappa}{2} |\nabla c|^2+f_{chem}(c)+f_{elec}(c,\Phi)\right]\,dV,
-\end{equation}<p>where $\kappa$ is the gradient energy coefficient, $f_{chem}$ is the chemical free energy, and $f_{elec}$ is the electrostatic coupling energy.  Here, $f_{chem}$ is a symmetric double-well function with minima between $0<c<1$,</p>
-\begin{equation}
+\end{equation}</p>
+<p>where $\kappa$ is the gradient energy coefficient, $f_{chem}$ is the chemical free energy, and $f_{elec}$ is the electrostatic coupling energy.  Here, $f_{chem}$ is a symmetric double-well function with minima between $0&lt;c&lt;1$,</p>
+<p>\begin{equation}
 f_{chem} = \rho (c-c^{\alpha})^2(c^{\beta}-c)^2, 
-\end{equation}<p>where $\rho$ controls the height of the double-well and $c^{\alpha}$ and $c^{\beta}$ are the compositions at which the energy is minimum.  In addition, the electrostatic coupling energy is given as</p>
-\begin{equation}
+\end{equation}</p>
+<p>where $\rho$ controls the height of the double-well and $c^{\alpha}$ and $c^{\beta}$ are the compositions at which the energy is minimum.  In addition, the electrostatic coupling energy is given as</p>
+<p>\begin{equation}
 f_{elec}=\frac{k\, c \, \Phi}{2},
-\end{equation}<p>where $k$ is a constant.</p>
+\end{equation}</p>
+<p>where $k$ is a constant.</p>
 <p>The time evolution of the system is described by the Cahn-Hilliard equation with the additional constraint that the Poisson equation must be satisfied at every point in the system at each time step (<a href="https://doi.org/10.1103/PhysRevE.69.021603">Guyer 2004a</a>, <a href="https://doi.org/10.1103/PhysRevE.69.021604">Guyer 2004b</a>).  To avoid a lengthy derivation, we simply present the equations below and suggest the readers study the given references.  The Cahn-Hillard equation is given as</p>
-\begin{equation}
+<p>\begin{equation}
 \frac{\partial c}{\partial t} = \nabla \cdot \left\lbrace M \nabla \left( 2 \rho(c-c^{\alpha})(c^{\beta}-c)(c^{\alpha}+c^{\beta}-2c) -\kappa \nabla^2 c + k \, \Phi \right) \right\rbrace, 
-\end{equation}<p>where $M$ is the mobility. The dynamics of electric relaxation occur at a much faster time scale than the diffusion of the charged species.  In this case, the Poisson equation is solved at each time step,</p>
-\begin{equation}
+\end{equation}</p>
+<p>where $M$ is the mobility. The dynamics of electric relaxation occur at a much faster time scale than the diffusion of the charged species.  In this case, the Poisson equation is solved at each time step,</p>
+<p>\begin{equation}
 \nabla^2 \Phi = \frac{-k\, c}{\epsilon}, 
-\end{equation}<p>where $\epsilon$ is the permittivity.</p>
+\end{equation}</p>
+<p>where $\epsilon$ is the permittivity.</p>
 <p>As in the <a href="{{ site.baseurl }}/benchmarks/benchmark1.ipynb">spinodal benchmark problem</a>, $c^{\alpha}=0.3$, $c^{\beta}=0.7$, $\kappa=2$, $\rho=5$, and $M=5$.  In addition, $k=0.09$ and $\epsilon=90$.</p>
 <h2 id="Domain">Domain<a class="anchor-link" href="#Domain">&#182;</a></h2><p>In this problem, the system consists of a domain which is grounded on one side and with a voltage applied on the other.  Two different 2D computational domains are given, shown below (the boundary conditions for $\Phi$ are schematically illustrated).  The first consists of a square domain, while the second consists of a half-circle with a radius of 50 units and centered at (50, 50), which is attached to a rectangle of 50 units wide by 100 units tall.  The curved boundary is the right-hand boundary, while the straight domain edges from (0, 0) to (50, 0) and (0, 100) to (50, 100) are the bottom and top boundaries, respectively. Schematic illustrations of the 2D computational domains and boundary conditions of $\Phi$ (indicated by hatching) for the electrochemical benchmark problem are shown in Figures 1 and 2.</p>
 <h3 id="Figure-1:-Domain-(a)">Figure 1: Domain (a)<a class="anchor-link" href="#Figure-1:-Domain-(a)">&#182;</a></h3><p><img src="../../images/electrochem_domain.png" alt="domaina"></p>
 <h3 id="Figure-2:-Domain-(b)">Figure 2: Domain (b)<a class="anchor-link" href="#Figure-2:-Domain-(b)">&#182;</a></h3><p><img src="../../images/electrochem_domain_curved2.png" alt="domainb"></p>
 <h2 id="Boundary-Conditions">Boundary Conditions<a class="anchor-link" href="#Boundary-Conditions">&#182;</a></h2><p>We impose no-flux boundary conditions on all boundaries, while $\Phi=0$ for the left boundary, $\nabla \Phi \cdot \hat{\textbf{n}}=0$ for the top and bottom boundaries,  and the right boundary is given by</p>
-\begin{equation}
+<p>\begin{equation}
 \Phi(x|_{boundary},y) = \sin(y/7),
-\end{equation}<p>where $x|_{boundary}=100$ for domain (a), and varies from 50 to 100 in domain (b).
+\end{equation}</p>
+<p>where $x|_{boundary}=100$ for domain (a), and varies from 50 to 100 in domain (b).
 The initial condition for $c$ is specified by</p>
-\begin{eqnarray}
-c\left(x,y\right) & = & c_{0}+c_{1}\left\{\cos\left(0.2x\right)\cos\left(0.11y\right)+\left[\cos\left(0.13x\right)\cos\left(0.087y\right)\right]^{2}\right. \\
- &  & \left.+\cos\left(0.025x-0.15y\right)\cos\left(0.07x-0.02y\right)\right\},
-\end{eqnarray}<p>where $c_{0}=0.5$ and $c_{1}=0.04$ (you may recognize this as the initial conditions for the <a href="{{ site.baseurl }}/benchmarks/benchmark1.ipynb">spinodal decomposition benchmark</a> problem with a slightly different parameterization).</p>
+<p>\begin{eqnarray}
+c\left(x,y\right) &amp; = &amp; c_{0}+c_{1}\left\{\cos\left(0.2x\right)\cos\left(0.11y\right)+\left[\cos\left(0.13x\right)\cos\left(0.087y\right)\right]^{2}\right. \\
+ &amp;  &amp; \left.+\cos\left(0.025x-0.15y\right)\cos\left(0.07x-0.02y\right)\right\},
+\end{eqnarray}</p>
+<p>where $c_{0}=0.5$ and $c_{1}=0.04$ (you may recognize this as the initial conditions for the <a href="{{ site.baseurl }}/benchmarks/benchmark1.ipynb">spinodal decomposition benchmark</a> problem with a slightly different parameterization).</p>
 <h1 id="Submission-Guidelines">Submission Guidelines<a class="anchor-link" href="#Submission-Guidelines">&#182;</a></h1><p>Both variations (a) and (b) should be run for 400 time units. The following data should be collected from each simulation,</p>
 <ul>
 <li><p>the free energy integrated across the entire domain, $F$, collected as frequently as is feasible.</p>
@@ -249,19 +261,6 @@ c\left(x,y\right) & = & c_{0}+c_{1}\left\{\cos\left(0.2x\right)\cos\left(0.11y\r
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
  
 
