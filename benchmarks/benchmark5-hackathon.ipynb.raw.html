@@ -32,7 +32,9 @@
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[1]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -79,15 +81,17 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
 
 
 
 
-<div id="585da94c-f871-4112-a788-3a0ec553e573"></div>
+
+<div id="097a0fdf-1fec-45cd-95e7-f186eceb548e"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#585da94c-f871-4112-a788-3a0ec553e573');
+var element = $('#097a0fdf-1fec-45cd-95e7-f186eceb548e');
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
@@ -123,7 +127,9 @@ var element = $('#585da94c-f871-4112-a788-3a0ec553e573');
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[3]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -140,8 +146,7 @@ var element = $('#585da94c-f871-4112-a788-3a0ec553e573');
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -168,7 +173,9 @@ var element = $('#585da94c-f871-4112-a788-3a0ec553e573');
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[4]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -181,38 +188,37 @@ var element = $('#585da94c-f871-4112-a788-3a0ec553e573');
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>See the Overleaf document entitled <a href="https://www.overleaf.com/read/nqjkdwyybvdz">"Phase Field Benchmark Problems for Dendritic Growth and Linear Elasticity"</a> for more details about the benchmark problems. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
+<p>See the publicaton entitled <a href="https://doi.org/10.1016/j.commatsci.2020.109548">"Phase field benchmark problems targeting fluid flow and electrochemistry"</a> for more details about this benchmark problem. Furthermore, read <a href="../">the extended essay</a> for a discussion about the need for benchmark problems.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h1><p>Flow of a liquid can be incorporated into phase field models, so we present this benchmark problem for incompressible fluid flow through a channel (the flow of many liquids can be modeled as incompressible). The flow of a fluid can generally be modeled via the Navier-Stokes equations.  When length scales are small, fluid velocities are low, and/or viscosity is large, such that the Reynolds number $Re<<1$, inertial forces are small compared with viscous forces, resulting in a simplification of Navier-Stokes flow to Stokes flow.</p>
+<h1 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h1><p>Flow of a liquid can be incorporated into phase field models, so we present this benchmark problem for incompressible fluid flow through a channel (the flow of many liquids can be modeled as incompressible). The flow of a fluid can generally be modeled via the Navier-Stokes equations.  When length scales are small, fluid velocities are low, and/or viscosity is large, such that the Reynolds number $Re&lt;&lt;1$, inertial forces are small compared with viscous forces, resulting in a simplification of Navier-Stokes flow to Stokes flow.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Model-Formulation">Model Formulation<a class="anchor-link" href="#Model-Formulation">&#182;</a></h1><h2 id="Governing-Equations">Governing Equations<a class="anchor-link" href="#Governing-Equations">&#182;</a></h2><p>In this problem, two variables are used: the fluid velocity, $\textbf{u}$, which is a vector field, and the fluid pressure, $p$, which is a scalar field.  The Stokes momentum equation is given as</p>
-\begin{equation}
+<p>\begin{equation}
 -\mu \nabla^{2} \textbf{u} + \nabla p - \rho \textbf{g} = 0,
-\end{equation}<p>where $\rho$ is the density, assumed constant in this problem, $\mu$ is the dynamic viscosity, and $\textbf{g}$ is the acceleration due to gravity.  To fully describe fluid flow, the momentum balance equation is supplemented with the continuity equation for mass flow,</p>
-\begin{equation}
+\end{equation}</p>
+<p>where $\rho$ is the density, assumed constant in this problem, $\mu$ is the dynamic viscosity, and $\textbf{g}$ is the acceleration due to gravity.  To fully describe fluid flow, the momentum balance equation is supplemented with the continuity equation for mass flow,</p>
+<p>\begin{equation}
 \frac{d\rho}{dt}+\nabla\cdot\left(\rho{\mathbf u}\right)=0;
-\end{equation}<p>this simplifies to 
+\end{equation}</p>
+<p>this simplifies to 
 \begin{equation}
 \nabla \cdot \textbf{u} = 0
 \end{equation}</p>
@@ -223,21 +229,20 @@ var element = $('#585da94c-f871-4112-a788-3a0ec553e573');
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Boundary-Conditions">Boundary Conditions<a class="anchor-link" href="#Boundary-Conditions">&#182;</a></h2><p>All solid surfaces, including the boundary for the obstruction, have no-slip boundary conditions, that is, $u_x=u_y=0$.  The inlet velocity, on the left boundary, follows a parabolic profile described by</p>
-\begin{equation}
+<p>\begin{equation}
 u_x(0,y) = -0.001(y-3)^2+0.009.
-\end{equation}<p>The outlet velocity (on the right boundary) is left to the solver to determine, as is the pressure over the entire domain.  However, we specify that the pressure at point (30, 6) is zero.  Finally, the obstruction is described by an ellipse centered at (7, 2.5).  The semi-major axis (in the <em>y</em>-direction) is $a=1.5$, and the semi-minor axis (in the <em>x</em>-direction) is $b=1$.</p>
+\end{equation}</p>
+<p>The outlet velocity (on the right boundary) is left to the solver to determine, as is the pressure over the entire domain.  However, we specify that the pressure at point (30, 6) is zero.  Finally, the obstruction is described by an ellipse centered at (7, 2.5).  The semi-major axis (in the <em>y</em>-direction) is $a=1.5$, and the semi-minor axis (in the <em>x</em>-direction) is $b=1$.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
