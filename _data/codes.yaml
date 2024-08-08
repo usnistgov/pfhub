@@ -196,3 +196,34 @@
       src: https://img.shields.io/badge/license-LLNL-blueviolet
     - href: https://www.openhub.net/p/LLNL-AMPE
       src: https://www.openhub.net/p/LLNL-AMPE/widgets/project_thin_badge.gif
+
+- name: Alamo Multiphysics
+  uploads: true
+  logo: https://repository-images.githubusercontent.com/94898847/60033d2c-cc0a-491a-9a55-f6c4abe76e88
+  home_page: https://www.solids.group/alamo/
+  description: >-
+    AMReX-based phase field code for simulating microstructure evolution,
+    topology optimization, solid rocket propellant, dendrite growth, etc.
+    Couples to the multi-level multigrid solver for quasistatic or dynamic
+    mechanical response.
+    Can run in two or three dimensions and supports a wide variety of input
+    methods, ranging from PNG to mathematical expressions.
+  badges:
+    - href: https://img.shields.io/badge/license-MIT-blue
+      src: https://img.shields.io/badge/license-MIT-blue
+    - href: https://github.com/solidsuccs/alamo/commits/development
+      src: https://github.com/solidsgroup/alamo/actions/workflows/linux.yml/badge.svg?branch=master
+  examples:
+    - name: Polycrystalline microstructure evolution with elasticity
+      href: https://solidsgroup.github.io/alamo/docs/Tests/VoronoiElastic.html
+    - name: Topology optimization
+      href: https://solidsgroup.github.io/alamo/docs/Tests/TopOp.html
+    - name: Deflagration of solid rocket propellant
+      href: https://solidsgroup.github.io/alamo/docs/Tests/SCPSpheresElastic.html
+    - name: Damage mechanics
+      href: https://solidsgroup.github.io/alamo/docs/Tests/Scratch.html
+    - name: Finite kinematics
+      href: https://solidsgroup.github.io/alamo/docs/Tests/RubberWithInclusion.html
+    - name: Current list of all examples
+      href: https://solidsgroup.github.io/alamo/docs/Tests.html
+    
