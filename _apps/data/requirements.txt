@@ -1,6 +1,0 @@
-fastapi==0.33.0
-uvicorn==0.8.4
-toolz==0.9.0
-email-validator
-requests==2.21.0
-archieml==0.3.4
