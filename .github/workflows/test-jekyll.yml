@@ -1,0 +1,35 @@
+---
+name: Test Jekyll
+on: [push, pull_request]
+jobs:
+  pfhub-nix-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v20
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          name: pfhub
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          extraPullNames: nix-community
+      - run: echo "UID=${UID}" >> $GITHUB_ENV
+      - uses: actions/cache/restore@v3
+        with:
+          path: /run/user/${{ env.UID }}/http_cache.sqlite
+          key: ${{ runner.os}}-http_cache.sqlite
+      # Following required because of
+      # https://github.com/NixOS/nix/issues/3978#issuecomment-1585001299
+      - run: nix flake lock --update-input pfhub
+      - run: nix develop --command bash -c "make simulations"
+      - run: nix develop --command bash -c "find . -name '*.ipynb' -type f -not -path '*/.ipynb_checkpoints/*' -exec touch {} \;"
+      - run: nix develop --command bash -c "make notebooks"
+      - run: nix develop --command bash -c "rm -rf ./_site"
+      - run: nix develop --command bash -c "jekyll build -d ./_site/pfhub"
+      - uses: actions/cache/save@v3
+        if: always()
+        with:
+          path: /run/user/${{ env.UID }}/http_cache.sqlite
+          key: ${{ runner.os}}-http_cache.sqlite

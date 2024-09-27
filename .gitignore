@@ -15,3 +15,5 @@ benchmarks/.ipynb_checkpoints
 results/template.ipynb.md
 results/template.ipynb.raw.html
 results/*.ipynb
+_data/python-pfhub/dist
+_data/python-pfhub/build
