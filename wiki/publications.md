@@ -10,7 +10,7 @@ title: Publications
 [Olle Heinonen][oh] published a peer-reviewed journal article in
 *Computational Materials Science* entitled ["Benchmark problems for
 numerical implementations of phase field
-models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
+models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:}.
 
 <iframe width="900"
         height="700"
@@ -28,7 +28,7 @@ models"](http://dx.doi.org/10.1016/j.commatsci.2016.09.022){:target="_blank"}.
 Warren][jw] and [Olle Heinonen][oh] published a peer-reviewed journal
 article in *Computational Materials Science* entitled ["Phase field
 benchmark problems for dendritic growth and linear
-elasticity"](https://doi.org/10.1016/j.commatsci.2018.03.015){:target="_blank"}.
+elasticity"](https://doi.org/10.1016/j.commatsci.2018.03.015){:}.
 
 <iframe width="900"
         height="700"
@@ -48,7 +48,7 @@ Aagesen][la], [Olle Heinonen][oh], [Michael Tonks][mt], [Peter
 Voorhees][pv] and [James Warren][jw] published a peer-reviewed journal
 article in *Journal of open research software* entitled ["PFHub: The
 Phase-Field Community
-Hub"](https://doi.org/10.5334/jors.276){:target="_blank"}.
+Hub"](https://doi.org/10.5334/jors.276){:}.
 
 <iframe width="900"
         height="700"

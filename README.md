@@ -15,7 +15,7 @@ See the live website at <a href="https://pages.nist.gov/pfhub">pages.nist.gov/pf
 </strong></sup></p>
 
 <p align="center">
-<a href="https://travis-ci.org/usnistgov/pfhub" target="_blank">
+<a href="https://travis-ci.org/usnistgov/pfhub" >
   <img src="https://api.travis-ci.org/usnistgov/pfhub.svg"
        alt="Travis CI badge">
 </a>
@@ -24,7 +24,7 @@ See the live website at <a href="https://pages.nist.gov/pfhub">pages.nist.gov/pf
        alt="Zenodo DOI badge">
 </a>
 <a href="https://www.openhub.net/p/pfhub"
-   target="_blank">
+   >
   <img src="https://www.openhub.net/p/pfhub/widgets/project_thin_badge.gif"
        class="badge"
        alt="OpenHub badge">

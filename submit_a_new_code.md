@@ -49,7 +49,7 @@ provide users with a side-by-side comparison.
 
 To add a code to the list, you need to interact with the GitHub repository
 for this website.  Update the [`codes.yaml`]({{
-site.links.github }}/blob/nist-pages/_data/codes.yaml){:target="_blank"}
+site.links.github }}/blob/nist-pages/_data/codes.yaml){:}
 file in the repository and submit a pull-request.
 
 The YAML file includes fields for the name of the code, a link to an
@@ -67,9 +67,9 @@ image logo, a description and a home page. For example,
           href: http://a/link.ipynb.html
 
 Badges can be added for services such as
-[Openhub](https://www.openhub.net){:target="_blank"} and
-[Travis CI](https://travis-ci.org){:target="_blank"}. Please include
+[Openhub](https://www.openhub.net){:} and
+[Travis CI](https://travis-ci.org){:}. Please include
 the license badge and an
-[Openhub](https://www.openhub.net){:target="_blank"} badge at a
+[Openhub](https://www.openhub.net){:} badge at a
 minimum. Also, include links to any available annotated phase field
 examples.

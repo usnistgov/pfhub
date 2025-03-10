@@ -114,15 +114,15 @@
   </div>
 </div>
 
-<script>
-  var SIM_NAME = new URL(window.location.href).searchParams.get("sim");
-  var CHART_DATA={{ site.data.charts.plot1d | jsonify }};
-  var ALL_DATA={{ site.data.simulations | jsonify }};
-  var CODES_DATA={{ site.data.codes | jsonify }};
-  var AXES_NAMES={{ site.data.axes_names | jsonify }};
-  var REPO={{ site.links.repo | jsonify }};
-  var BENCHMARK_DATA={{ site.data.benchmarks | jsonify }};
-</script>
+<!-- <script> -->
+<!--   var SIM_NAME = new URL(window.location.href).searchParams.get("sim"); -->
+<!--   var CHART_DATA={{ site.data.charts.plot1d | jsonify }}; -->
+<!--   var ALL_DATA={{ site.data.simulations | jsonify }}; -->
+<!--   var CODES_DATA={{ site.data.codes | jsonify }}; -->
+<!--   var AXES_NAMES={{ site.data.axes_names | jsonify }}; -->
+<!--   var REPO={{ site.links.repo | jsonify }}; -->
+<!--   var BENCHMARK_DATA={{ site.data.benchmarks | jsonify }}; -->
+<!-- </script> -->
 
 <script src="{{ site.baseurl }}/js/simulation.js"></script>
 

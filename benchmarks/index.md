@@ -84,7 +84,7 @@ codes, but were still designed to be not too computationally
 demanding. The National Institute of Standards and Technology has
 played a coordinating role in the development and management of these
 problems, and also hosts a [website for the Micromagnetic Standard
-Problems](http://www.ctcms.nist.gov/~rdm/mumag.org){:target="_blank"},
+Problems](http://www.ctcms.nist.gov/~rdm/mumag.org),
 as well as solutions submitted by the community. The Micromagnetic
 Standard Problems were extremely useful to the community in the
 development of codes such as OOMMF, Mumax, and Magpar. It should be
@@ -108,8 +108,8 @@ to test a simple, targeted aspect of either the numerical implementation
 or the physics.
 
 The first set of benchmark problems, [BM1]({{ site.baseurl
-}}/benchmarks/benchmark1.ipynb/){:target="_blank"} and [BM2]({{
-site.baseurl }}/benchmarks/benchmark2.ipynb/){:target="_blank"},
+}}/benchmarks/benchmark1.ipynb/) and [BM2]({{
+site.baseurl }}/benchmarks/benchmark2.ipynb/),
 involve diffusion of a solute and grain growth. Technically, they use
 the Cahn-Hilliard equation for a conserved order parameter, and
 coupled Cahn-Hilliard and Allen-Cahn equations for conserved and
@@ -117,8 +117,8 @@ non-conserved order parameters. Successfully solving the models
 demonstrates that the fundamentals of a modeling framework are sound.
 
 The second set of benchmark problems, [BM3]({{ site.baseurl
-}}/benchmarks/benchmark3.ipynb/){:target="_blank"} and [BM4]({{
-site.baseurl }}/benchmarks/benchmark4.ipynb/){:target="_blank"},
+}}/benchmarks/benchmark3.ipynb/) and [BM4]({{
+site.baseurl }}/benchmarks/benchmark4.ipynb/),
 involve coupling phase transformations with additional physics,
 namely, Fourier's heat equation and Hooke's Law. BM3, which is
 dendritic growth in solidification from an undercooled liquid, also
@@ -126,18 +126,18 @@ focuses on how a solver can address the very different length scales
 that arise in the problem. 
 
 The third set of benchmark problems, [BM5]({{ site.baseurl
-}}/benchmarks/benchmark5-hackathon.ipynb/){:target="_blank"} and
+}}/benchmarks/benchmark5-hackathon.ipynb/) and
 [BM6]({{ site.baseurl
-}}/benchmarks/benchmark6-hackathon.ipynb/){:target="_blank"}, extend to
+}}/benchmarks/benchmark6-hackathon.ipynb/), extend to
 additional physics less commonly seen in phase field problems.
 Specifically, BM5 involves modeling Stokes' flow equations and BM6
 couples diffusion to the Poisson equation for electrostatic charge.
 
 The fourth set of benchmark problems, [BM7]({{ site.baseurl
-}}/benchmarks/benchmark7.ipynb/){:target="_blank"}, directly tests the
+}}/benchmarks/benchmark7.ipynb/), directly tests the
 implemented discretizations of space and time using the Method of
 Manufactured Solutions applied to the Allen-Cahn equation.
 
 For details of any or all of these benchmark problems, please refer to
 the [list of benchmarks 
-problems]({{ site.baseurl }}/#benchmarks){:target="_blank"}.
+problems]({{ site.baseurl }}/#benchmarks).
