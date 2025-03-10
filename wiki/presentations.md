@@ -23,7 +23,7 @@ A poster presented at the MGI PI meeting on 03/26/2018.
 <div style="margin-bottom:5px">
   <a href="//www.slideshare.net/DanielWheeler18/pfhub-phase-field-community-hub"
      title="PFHub: Phase Field Community Hub"
-     target="_blank"><strong>PFHub: Phase Field Community Hub</strong>
+     ><strong>PFHub: Phase Field Community Hub</strong>
   </a>
   from <a href="{{ site.baseurl }}/community/#daniel-wheeler">
   <strong>Daniel Wheeler</strong></a>
@@ -51,7 +51,7 @@ at [2018 TMS Annual Meeting & Exhibition](https://www.tms.org/TMS2018):
   <a
   href="//www.slideshare.net/StephenDeWitt3/computational-performance-of-phase-field-calculations-using-a-matrixfree-sumfactorization-finite-element-method"
   title="Computational Performance of Phase Field Calculations using a Matrix-Free (Sum-Factorization) Finite Element Method"
-  target="_blank">
+  >
   <strong>Computational Performance of Phase Field Calculations using a
   Matrix-Free (Sum-Factorization) Finite Element Method</strong>
   </a>
@@ -85,7 +85,7 @@ given at [MS&T19](https://www.matscitech.org/MST19).
 
 <div style="margin-bottom:5px">
 <a href="https://slides.com/danielwheeler-1/pfhub-phase-field-community-hub-10"
-   title="The Phase Field Community Hub" target="_blank">
+   title="The Phase Field Community Hub" >
    <strong>The Phase Field Community Hub</strong></a>
 from <a href="{{ site.baseurl }}/community/#daniel-wheeler">
 <strong>Daniel Wheeler</strong></a>
@@ -111,9 +111,9 @@ Poster for the CHiMaD annual meeting 2019.
 <a
   href="//www.slideshare.net/PFHubPFHub/communitydriven-benchmark-problems-for-phase-field-modeling"
   title="Community-Driven Benchmark Problems for Phase Field Modeling"
-  target="_blank">
+  >
   <strong>Community-Driven Benchmark Problems for Phase Field Modeling</strong></a>
-  from <a href="{{ site.baseurl }}/community/#olle-heinonen" target="_blank">
+  from <a href="{{ site.baseurl }}/community/#olle-heinonen" >
   <strong>Olle Heinonen</strong></a>
 </div>
 

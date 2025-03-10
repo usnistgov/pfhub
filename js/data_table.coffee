@@ -15,7 +15,7 @@ fauthor = (data, type, row) ->
 
 fcode = (data, type, row) ->
   if data.url
-    '<a href="' + data.url + '" target="_blank">' + data.name + '</a>'
+    '<a href="' + data.url + '">' + data.name + '</a>'
   else
     data.name
 

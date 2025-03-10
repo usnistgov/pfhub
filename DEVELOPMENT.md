@@ -5,7 +5,7 @@ comment: How to modify this site (beyond adding new simulations)
 ---
 
 <p align="center">
-<a href="https://travis-ci.org/{{ site.links.repo }}" target="_blank">
+<a href="https://travis-ci.org/{{ site.links.repo }}" >
 <img src="https://api.travis-ci.org/{{ site.links.repo }}.svg"
      alt="Travis CI badge">
 </a>
