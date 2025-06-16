@@ -102,8 +102,8 @@
   uploads: true
   home_page: https://github.com/prisms-center/phaseField
   description: >-
-    A finite element code implementing various phase field and coupled
-    mechanics problems built on top of deal.II.
+    An open-source finite element code with various phase field and coupled
+    mechanics applications built on top of deal.II.
   badges:
     - href: https://raw.githubusercontent.com/prisims-center/master/LICENSE
       src: https://img.shields.io/badge/license-lgpl-blue.svg
