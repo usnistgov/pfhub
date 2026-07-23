@@ -1,3 +1,9 @@
+> [!CAUTION]
+> ## 🗄️ Project Archived
+> This repository has been archived and is now in **read-only mode**. 
+> It is no longer actively maintained. For the latest version or alternatives,
+> please visit [pfhub/pfhub.github.io](https://github.com/pfhub/pfhub.github.io).
+
 <p align="center">
 <img src="https://raw.githubusercontent.com/usnistgov/pfhub/nist-pages/images/favicon/favicon-96x96.png"
      height="96"
